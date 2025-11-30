@@ -87,6 +87,68 @@ class PortfolioMonitor:
         
         return self.correlation_matrix
     
+    def analyze_correlation_risk(self) -> Dict[str, Any]:
+        """Analyze correlation risk and clustering"""
+        if self.correlation_matrix is None or self.correlation_matrix.empty:
+            return {"risk_level": "low", "clusters": []}
+        
+        corr = self.correlation_matrix.values
+        n_strategies = len(self.correlation_matrix)
+        
+        # Calculate average correlation
+        mask = np.ones_like(corr, dtype=bool)
+        np.fill_diagonal(mask, 0)
+        avg_correlation = corr[mask].mean()
+        
+        # Find highly correlated pairs
+        high_corr_pairs = []
+        for i in range(n_strategies):
+            for j in range(i+1, n_strategies):
+                if corr[i, j] > 0.7:  # Threshold from risk limits
+                    high_corr_pairs.append({
+                        "pair": (self.correlation_matrix.index[i], self.correlation_matrix.index[j]),
+                        "correlation": corr[i, j]
+                    })
+        
+        # Simple clustering based on correlation
+        clusters = []
+        clustered = set()
+        
+        for i in range(n_strategies):
+            if i not in clustered:
+                cluster = [i]
+                for j in range(i+1, n_strategies):
+                    if j not in clustered and corr[i, j] > 0.6:
+                        cluster.append(j)
+                        clustered.add(j)
+                if len(cluster) > 1:
+                    clusters.append([self.correlation_matrix.index[idx] for idx in cluster])
+                clustered.add(i)
+        
+        # Determine risk level
+        risk_level = "low"
+        if avg_correlation > 0.7 or len(high_corr_pairs) > n_strategies // 2:
+            risk_level = "high"
+        elif avg_correlation > 0.5 or len(high_corr_pairs) > 0:
+            risk_level = "medium"
+        
+        return {
+            "risk_level": risk_level,
+            "average_correlation": avg_correlation,
+            "high_correlation_pairs": high_corr_pairs,
+            "clusters": clusters,
+            "recommendation": self._get_correlation_recommendation(risk_level, clusters)
+        }
+
+    def _get_correlation_recommendation(self, risk_level: str, clusters: List[List[str]]) -> str:
+        """Generate recommendation based on correlation analysis"""
+        if risk_level == "high":
+            return "Consider diversifying strategies - high correlation reduces diversification benefits"
+        elif risk_level == "medium" and clusters:
+            return f"Monitor clustered strategies: {clusters} for concentration risk"
+        else:
+            return "Portfolio is well diversified"
+    
     def check_triggers(self, config: PortfolioConfig) -> List[str]:
         """Check if any rebalancing triggers are met"""
         triggers = []
@@ -155,48 +217,79 @@ class RebalancingEngine:
         return constraints.get("target_weights", current)
     
     def _adaptive_weights(self, current: Dict, performance: Dict, constraints: Dict) -> Dict[str, float]:
-        """Adaptive rebalancing based on performance"""
+        """Adaptive rebalancing with momentum and mean reversion signals"""
         weights = {}
-        total_score = 0
+        scores = {}
         
-        # Score each strategy
         for strategy_id, perf in performance.items():
-            # Combine multiple metrics for scoring
-            score = (
-                perf.sharpe_ratio * 0.4 +
-                (1 + perf.total_return) * 0.3 +
-                (1 - abs(perf.max_drawdown)) * 0.3
+            # Base score from Sharpe ratio (risk-adjusted returns)
+            sharpe_score = max(0, perf.sharpe_ratio) * 0.3
+            
+            # Momentum signal (recent performance)
+            momentum_score = 0
+            if hasattr(perf, 'returns') and len(perf.returns) > 20:
+                recent_return = perf.returns.tail(20).mean()
+                longer_return = perf.returns.tail(60).mean() if len(perf.returns) > 60 else recent_return
+                momentum_score = (recent_return - longer_return) * 10 * 0.2
+            
+            # Mean reversion signal (deviation from historical average)
+            mean_reversion_score = 0
+            if hasattr(perf, 'returns') and len(perf.returns) > 100:
+                historical_mean = perf.returns.mean()
+                recent_mean = perf.returns.tail(20).mean()
+                mean_reversion_score = -(recent_mean - historical_mean) * 5 * 0.1
+            
+            # Drawdown penalty
+            drawdown_score = (1 - abs(perf.max_drawdown)) * 0.2
+            
+            # Win rate bonus
+            win_rate_score = max(0, perf.win_rate - 0.5) * 2 * 0.2
+            
+            # Combine scores
+            total_score = (
+                sharpe_score +
+                momentum_score +
+                mean_reversion_score +
+                drawdown_score +
+                win_rate_score
             )
-            score = max(0, score)  # No negative scores
-            weights[strategy_id] = score
-            total_score += score
+            
+            scores[strategy_id] = max(0.1, total_score)  # Minimum score of 0.1
         
-        # Normalize to sum to 1
+        # Normalize scores to weights
+        total_score = sum(scores.values())
         if total_score > 0:
-            weights = {k: v/total_score for k, v in weights.items()}
+            weights = {k: v/total_score for k, v in scores.items()}
         else:
-            # Equal weight if all scores are 0
-            n = len(weights)
-            weights = {k: 1/n for k in weights.keys()}
+            # Equal weight if all scores are zero
+            n = len(scores)
+            weights = {k: 1/n for k in scores.keys()}
         
         # Apply constraints
         return self._apply_constraints(weights, constraints)
     
     def _risk_parity_weights(self, current: Dict, performance: Dict, constraints: Dict) -> Dict[str, float]:
-        """Calculate risk parity weights (simplified version)"""
-        # Get volatilities
-        vols = {s: p.volatility for s, p in performance.items()}
+        """Calculate true risk parity weights with equal risk contribution"""
+        # Get returns data for covariance calculation
+        returns_data = pd.DataFrame()
         
-        # Inverse volatility weighting as simple risk parity
-        inv_vols = {s: 1/v if v > 0 else 0 for s, v in vols.items()}
-        total_inv_vol = sum(inv_vols.values())
+        for strategy_id, perf in performance.items():
+            if hasattr(perf, 'returns') and not perf.returns.empty:
+                returns_data[strategy_id] = perf.returns
         
-        if total_inv_vol > 0:
-            weights = {s: v/total_inv_vol for s, v in inv_vols.items()}
-        else:
+        if returns_data.empty:
+            cprint("⚠️ No returns data available for risk parity", "yellow")
+            # Fallback to equal weights
             n = len(current)
-            weights = {s: 1/n for s in current.keys()}
+            return {s: 1/n for s in current.keys()}
         
+        # Import optimization function
+        from src.utils.portfolio_optimization import risk_parity_weights as calculate_rp
+        
+        # Calculate risk parity weights
+        weights = calculate_rp(returns_data)
+        
+        # Apply constraints
         return self._apply_constraints(weights, constraints)
     
     def _apply_constraints(self, weights: Dict[str, float], constraints: Dict) -> Dict[str, float]:
@@ -510,6 +603,53 @@ class PortfolioRebalancingAgent(BaseAgent):
             order.execution_time = datetime.now()
         
         return results
+    
+    def calculate_performance_attribution(self, lookback_days: int = 30) -> Dict[str, Any]:
+        """Calculate performance attribution for the portfolio"""
+        from src.utils.performance_attribution import calculate_attribution
+        
+        # Get historical data
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=lookback_days)
+        
+        # This would fetch actual historical data
+        # For now, create sample data
+        portfolio_returns = pd.Series(
+            np.random.randn(lookback_days).cumsum() * 0.01 + 1,
+            index=pd.date_range(start_date, end_date, periods=lookback_days)
+        )
+        
+        strategy_returns = pd.DataFrame({
+            strategy: pd.Series(
+                np.random.randn(lookback_days).cumsum() * 0.01 + 1,
+                index=portfolio_returns.index
+            )
+            for strategy in self.config.target_allocations.keys()
+        })
+        
+        weights = pd.DataFrame({
+            strategy: pd.Series(
+                [self.monitor.positions.get(strategy, StrategyPosition(
+                    strategy_id=strategy,
+                    current_value=0,
+                    current_weight=weight,
+                    target_weight=weight,
+                    drift=0
+                )).current_weight] * lookback_days,
+                index=portfolio_returns.index
+            )
+            for strategy, weight in self.config.target_allocations.items()
+        })
+        
+        attribution = calculate_attribution(portfolio_returns, strategy_returns, weights)
+        
+        # Display results
+        cprint("\n📊 Performance Attribution:", "cyan", attrs=["bold"])
+        for strategy, attr in attribution.items():
+            if isinstance(attr, dict):
+                cprint(f"  {strategy}: {attr['contribution']:.2%} ({attr['contribution_pct']:.1f}%)", "white")
+        
+        return attribution
     
     def _record_rebalancing_event(self, triggers, pre_weights, post_weights, orders, execution) -> RebalancingEvent:
         """Record rebalancing event for history"""

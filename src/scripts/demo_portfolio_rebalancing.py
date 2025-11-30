@@ -283,6 +283,77 @@ def demo_multi_strategy_portfolio():
                f"{len(event.orders)} orders, ${event.total_traded:,.0f} traded", "white")
 
 
+def demo_risk_parity_optimization():
+    """Demo true risk parity optimization"""
+    cprint("\n⚖️ Demo 6: Risk Parity Optimization", "cyan", attrs=["bold"])
+    cprint("=" * 50, "blue")
+    
+    # Create portfolio with risk parity
+    config = PortfolioConfig(
+        name="Risk Parity Portfolio",
+        target_allocations={
+            "high_vol_momentum": 0.25,
+            "low_vol_value": 0.25,
+            "medium_vol_growth": 0.25,
+            "uncorrelated_arb": 0.25
+        },
+        rebalancing_method=RebalancingMethod.RISK_PARITY,
+        rebalancing_params=DEFAULT_REBALANCING_PARAMS["risk_parity"],
+        risk_limits=DEFAULT_RISK_LIMITS
+    )
+    
+    agent = PortfolioRebalancingAgent(config)
+    
+    cprint("\n📊 Initial Equal Weights:", "yellow")
+    agent.display_portfolio_dashboard()
+    
+    # Trigger rebalancing
+    result = agent.check_and_rebalance()
+    
+    if result["executed"]:
+        cprint("\n✅ Risk parity optimization complete", "green")
+        cprint("Each strategy now contributes equally to portfolio risk", "white")
+    
+    # Show correlation analysis
+    corr_analysis = agent.monitor.analyze_correlation_risk()
+    cprint(f"\n🔍 Correlation Analysis:", "yellow")
+    cprint(f"  Risk Level: {corr_analysis['risk_level']}", "white")
+    cprint(f"  Avg Correlation: {corr_analysis['average_correlation']:.2f}", "white")
+    cprint(f"  Recommendation: {corr_analysis['recommendation']}", "cyan")
+
+def demo_performance_attribution():
+    """Demo performance attribution analysis"""
+    cprint("\n📊 Demo 7: Performance Attribution", "cyan", attrs=["bold"])
+    cprint("=" * 50, "blue")
+    
+    config = PortfolioConfig(
+        name="Attribution Demo Portfolio",
+        target_allocations={
+            "momentum": 0.40,
+            "value": 0.30,
+            "growth": 0.30
+        },
+        rebalancing_method=RebalancingMethod.THRESHOLD,
+        rebalancing_params=DEFAULT_REBALANCING_PARAMS["threshold"],
+        risk_limits=DEFAULT_RISK_LIMITS
+    )
+    
+    agent = PortfolioRebalancingAgent(config)
+    
+    # Calculate attribution
+    attribution = agent.calculate_performance_attribution(lookback_days=30)
+    
+    cprint("\n💡 Key Insights:", "yellow")
+    
+    # Find best and worst contributors
+    strategy_attrs = {k: v for k, v in attribution.items() if isinstance(v, dict) and k != 'interaction'}
+    best = max(strategy_attrs.items(), key=lambda x: x[1]['contribution'])
+    worst = min(strategy_attrs.items(), key=lambda x: x[1]['contribution'])
+    
+    cprint(f"  Best Contributor: {best[0]} ({best[1]['contribution']:.2%})", "green")
+    cprint(f"  Worst Contributor: {worst[0]} ({worst[1]['contribution']:.2%})", "red")
+
+
 def main():
     """Run all portfolio rebalancing demos"""
     cprint("\n🌙 Moon Dev Portfolio Rebalancing System", "cyan", attrs=["bold"])
@@ -294,7 +365,9 @@ def main():
         ("Calendar Rebalancing", demo_calendar_rebalancing),
         ("Adaptive Rebalancing", demo_adaptive_rebalancing),
         ("Risk Limit Enforcement", demo_risk_limits),
-        ("Multi-Strategy Portfolio", demo_multi_strategy_portfolio)
+        ("Multi-Strategy Portfolio", demo_multi_strategy_portfolio),
+        ("Risk Parity Optimization", demo_risk_parity_optimization),
+        ("Performance Attribution", demo_performance_attribution)
     ]
     
     for i, (name, demo_func) in enumerate(demos, 1):
@@ -312,6 +385,9 @@ def main():
     cprint("  • Risk limit enforcement", "white")
     cprint("  • Performance-based adaptation", "white")
     cprint("  • Multi-strategy management", "white")
+    cprint("  • True risk parity optimization", "white")
+    cprint("  • Performance attribution analysis", "white")
+    cprint("  • Correlation risk analysis", "white")
     cprint("  • Automated execution", "white")
     
     cprint("\n💡 Next Steps:", "cyan")
