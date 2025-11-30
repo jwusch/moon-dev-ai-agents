@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDITYVORTEX STRATEGY 🚀
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -48,10 +45,10 @@ class LiquidityVortex(Strategy):
         # Funding rate data (raw column)
         self.funding_series = self.data['FundingRate']
         
-        print("🌙✨ LIQUIDITY VORTEX INITIALIZED! Ready to hunt market inefficiencies 🌪️")
+        print(" LIQUIDITY VORTEX INITIALIZED! Ready to hunt market inefficiencies ")
 
     def next(self):
-        # Skip weekends (Moon Dev's Time Filter 🌗)
+        # Skip weekends (Moon Dev's Time Filter 🌗)'
         if self.data.index[-1].weekday() >= 5:
             return
 
@@ -79,7 +76,7 @@ class LiquidityVortex(Strategy):
             volatility_condition = (self.data.High[-1] - self.data.Low[-1]) > self.volatility_multiplier * current_atr
 
             if funding_condition and liquidity_condition and volatility_condition:
-                # Moon Dev's Risk Calculation 🌙
+                # Moon Dev's Risk Calculation 🌙'
                 risk_amount = self.equity * self.risk_pct
                 
                 if funding > 0:  # Short entry (overcrowded longs)
@@ -89,8 +86,8 @@ class LiquidityVortex(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tp=price - (2 * risk_distance))
-                        print(f"🌙🚀 SHORT ENTRY! Price: {price:.2f} | Size: {position_size}")
-                        print(f"    SL: {stop_loss:.2f} | Risk/Reward: 1:2 🌪️")
+                        print(f" SHORT ENTRY! Price: {price:.2f} | Size: {position_size}")
+                        print(f"    SL: {stop_loss:.2f} | Risk/Reward: 1:2 ")
                 else:  # Long entry (overcrowded shorts)
                     stop_loss = self.data.Low[-1] - (current_atr * 1.5)
                     risk_distance = price - stop_loss

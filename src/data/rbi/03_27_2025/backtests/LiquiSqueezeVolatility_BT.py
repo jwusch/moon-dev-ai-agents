@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for LiquiSqueeze Volatility strategy with Moon Dev enhancements:
-
-```python
-# 🌙 Moon Dev's LiquiSqueeze Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -67,7 +63,7 @@ class LiquiSqueezeVolatility(Strategy):
     def next(self):
         # 🌙 Moon Dev Debug Prints
         if len(self.data) % 100 == 0:
-            print(f"🌕 Lunar Cycle Check: Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BBW: {self.bb_width[-1]:.4f}")
+            print(f" Lunar Cycle Check: Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BBW: {self.bb_width[-1]:.4f}")
         
         if self.position:
             # 🎯 Manage Open Position
@@ -76,19 +72,19 @@ class LiquiSqueezeVolatility(Strategy):
             
             # 🚀 Take Profit Check
             if current_low <= self.take_profit:
-                print(f"✨✨ PROFIT TAKEOFF! Closing at {self.data.Close[-1]:.2f}")
+                print(f" PROFIT TAKEOFF! Closing at {self.data.Close[-1]:.2f}")
                 self.position.close()
             
             # 🌧️ Stop Loss Check
             elif current_high >= self.stop_loss:
-                print(f"🌧️🌧️ RAIN CHECK! Stopped at {self.data.Close[-1]:.2f}")
+                print(f" RAIN CHECK! Stopped at {self.data.Close[-1]:.2f}")
                 self.position.close()
             
             # 🌀 Partial Close on Volatility Expansion
             else:
                 current_bbw = self.bb_width[-1]
                 if current_bbw >= self.entry_bbw * 1.5:
-                    print(f"🌀 PARTIAL CLOSE! BBW Expanded 50%")
+                    print(f" PARTIAL CLOSE! BBW Expanded 50%")
                     self.position.close(0.5)
                     self.entry_bbw = current_bbw  # Update trailing BBW
         else:

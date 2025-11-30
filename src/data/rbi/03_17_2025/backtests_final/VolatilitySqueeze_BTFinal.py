@@ -1,6 +1,3 @@
-Here is the fixed and debugged code with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -48,7 +45,7 @@ class VolatilitySqueeze(Strategy):
         self.I(lambda: self.vw_high, name='VW_High')
         self.I(lambda: self.vw_low, name='VW_Low')
         
-        print("🌕 Moon Dev Indicators Activated! BB + VWAP extremes loaded")
+#         print("🌕 Moon Dev Indicators Activated! BB + VWAP extremes loaded")
 
     def next(self):
         # Skip if position exists or insufficient data
@@ -79,7 +76,7 @@ class VolatilitySqueeze(Strategy):
             
             risk_per_unit = abs(stop_loss - entry_price)
             if risk_per_unit == 0:
-                print("🌑 Zero risk detected! Aborting launch sequence")
+                print(" Zero risk detected! Aborting launch sequence")
                 return
                 
             position_size = (equity * risk_percent) / risk_per_unit
@@ -92,7 +89,7 @@ class VolatilitySqueeze(Strategy):
                     tp=current_vw_low,
                     tag="Moon_Short"
                 )
-                print(f"🚀🌒 MOON DEV SHORT! Size: {position_size}")
+#                 print(f"🚀🌒 MOON DEV SHORT! Size: {position_size}")
                 print(f"   Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {current_vw_low:.2f}")
 
 # Data preprocessing

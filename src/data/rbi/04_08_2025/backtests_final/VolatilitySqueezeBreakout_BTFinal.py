@@ -1,6 +1,3 @@
-I'll fix the technical issues in the backtest code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -66,31 +63,31 @@ class VolatilitySqueezeBreakout(Strategy):
                 self.trailing_high = max(self.trailing_high, self.data.High[-1])
                 trailing_stop = self.trailing_high - 2 * atr14
                 if self.data.Low[-1] <= trailing_stop:
-                    print(f"🌙🛑 LONG Trailing Stop Hit at {trailing_stop:.2f}")
+                    print(f" LONG Trailing Stop Hit at {trailing_stop:.2f}")
                     self.position.close()
                 else:
                     # Check squeeze re-entry
                     if (self.I('BB_upper')[-1] < self.I('KC_upper')[-1]) and \
                        (self.I('BB_lower')[-1] > self.I('KC_lower')[-1]):
-                        print(f"🌙⚠️ Emergency Exit: Squeeze Re-entered")
+                        print(f" Emergency Exit: Squeeze Re-entered")
                         self.position.close()
             else:
                 # Update trailing low
                 self.trailing_low = min(self.trailing_low, self.data.Low[-1])
                 trailing_stop = self.trailing_low + 2 * atr14
                 if self.data.High[-1] >= trailing_stop:
-                    print(f"🌙🛑 SHORT Trailing Stop Hit at {trailing_stop:.2f}")
+                    print(f" SHORT Trailing Stop Hit at {trailing_stop:.2f}")
                     self.position.close()
                 else:
                     if (self.I('BB_upper')[-1] < self.I('KC_upper')[-1]) and \
                        (self.I('BB_lower')[-1] > self.I('KC_lower')[-1]):
-                        print(f"🌙⚠️ Emergency Exit: Squeeze Re-entered")
+                        print(f" Emergency Exit: Squeeze Re-entered")
                         self.position.close()
             return
 
         # Check consecutive losses
         if self.consecutive_losses >= 3:
-            print("🌙🔴 3 Consecutive Losses - Trading Halted")
+            print(" 3 Consecutive Losses - Trading Halted")
             return
 
         # Check squeeze condition

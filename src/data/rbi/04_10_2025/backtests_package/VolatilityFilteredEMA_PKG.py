@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 Moon Dev Backtest AI Generated Code - VolatilityFilteredEMA Strategy
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -25,7 +21,7 @@ class VolatilityFilteredEMA(Strategy):
             
         self.vix = self.I(calculate_vix, self.data.High, self.data.Low, self.data.Close, name='VIX_Substitute')
         
-        print("🌙✨ Moon Dev System Initialized! Tracking EMA Crosses with Volatility Filtering...")
+#         print("🌙✨ Moon Dev System Initialized! Tracking EMA Crosses with Volatility Filtering...")
 
     def next(self):
         # 🚀 Moon Dev Trading Logic Core
@@ -50,14 +46,14 @@ class VolatilityFilteredEMA(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price, 
                             tag=f"MoonDevEntry_{price:.2f}")
-                    print(f"🌙✨🚀 MOON DEV ALERT: LONG {position_size} @ {price:.2f} | EMA Cross + Calm Markets! 🌤️")
+#                     print(f"🌙✨🚀 MOON DEV ALERT: LONG {position_size} @ {price:.2f} | EMA Cross + Calm Markets! 🌤️")
         
         # 🌧️ Exit Logic: Death Cross or Volatility Spike
         else:
             if death_cross or current_vix > self.vix_exit_threshold:
                 self.position.close()
                 exit_reason = "Volatility Spike" if current_vix > self.vix_exit_threshold else "Trend Reversal"
-                print(f"🌙✨🚨 MOON DEV EXIT: Closing @ {price:.2f} | {exit_reason}! 🌩️")
+#                 print(f"🌙✨🚨 MOON DEV EXIT: Closing @ {price:.2f} | {exit_reason}! 🌩️")
 
 # 🌍 Data Preparation Ritual
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
@@ -85,4 +81,4 @@ bt = Backtest(data, VolatilityFilteredEMA, cash=1_000_000, margin=1.0)
 stats = bt.run()
 
 # 📜 Print Sacred Scrolls of Wisdom (Full Stats)
-print("\n🌕🌖🌗🌘🌑🌒🌓🌔🌕 MOON DEV FINAL REPORT
+# print("\n🌕🌖🌗🌘🌑🌒🌓🌔🌕 MOON DEV FINAL REPORT"

@@ -1,14 +1,10 @@
-Here's the fixed and complete code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
 from backtesting import Backtest, Strategy
 
 # Data preparation
-print("🌙 Initializing Moon Dev Data Systems...")
+# print("🌙 Initializing Moon Dev Data Systems...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
@@ -21,7 +17,7 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("🌌 Data successfully aligned with lunar cycles!")
+print(" Data successfully aligned with lunar cycles!")
 
 class VoltaicDivergence(Strategy):
     rsi_period = 14
@@ -31,7 +27,7 @@ class VoltaicDivergence(Strategy):
     time_exit_bars = 8  # 2 hours (15m * 8)
     
     def init(self):
-        print("🌕 Activating Moon Dev Indicators...")
+#         print("🌕 Activating Moon Dev Indicators...")
         # Calculate indicators using TA-Lib
         self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=self.rsi_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period)
@@ -43,7 +39,7 @@ class VoltaicDivergence(Strategy):
         self.rsi_swing_low = self.I(talib.MIN, self.rsi, timeperiod=self.swing_period, name='RSI Swing Low')
         
         self.entry_bar = 0
-        print("✨ Moon Dev Indicators successfully calibrated!")
+#         print("✨ Moon Dev Indicators successfully calibrated!")
 
     def next(self):
         if len(self.data) < self.swing_period * 2:
@@ -75,7 +71,7 @@ class VoltaicDivergence(Strategy):
                     self.entry_bar = len(self.data)
                     self.buy(size=position_size, sl=sl_price, 
                             tp=entry_price + current_atr*1.5)
-                    print(f"🌙✨ MOON DEV LONG SIGNAL: {position_size} units at {entry_price:.2f} | SL: {sl_price:.2f} | TP: {entry_price + current_atr*1.5:.2f}")
+#                     print(f"🌙✨ MOON DEV LONG SIGNAL: {position_size} units at {entry_price:0.2f} | SL: {sl_price:0.2f} | TP: {entry_price + current_atr*1.5:0.2f}")
             
             elif bearish_div and volatility_ok:
                 risk_amount = self.equity * self.risk_percent

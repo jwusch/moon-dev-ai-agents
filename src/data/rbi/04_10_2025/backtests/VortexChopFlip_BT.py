@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -65,7 +64,7 @@ class VortexChopFlip(Strategy):
                         sl=self.data.Close[-1] - 1.5*atr_val,
                         meta={'peak': self.data.High[-1]}
                     )
-                    print(f"🌙🚀 MOON DEV LONG! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]-1.5*atr_val:.2f}")
+#                     print(f"🌙🚀 MOON DEV LONG! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]-1.5*atr_val:.2f}")
             
             # Short entry logic 🌙📉
             if (crossover(self.vi_minus, self.vi_plus) and
@@ -83,9 +82,9 @@ class VortexChopFlip(Strategy):
                         sl=self.data.Close[-1] + 1.5*atr_val,
                         meta={'trough': self.data.Low[-1]}
                     )
-                    print(f"🌙📉 MOON DEV SHORT! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]+1.5*atr_val:.2f}")
+#                     print(f"🌙📉 MOON DEV SHORT! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]+1.5*atr_val:.2f}")
         
         else:
             # Early exit conditions 🌙⚠️
             if self.adx[-1] < 20 or self.data.Volume[-1] < self.volume_ma[-1]:
-                print(f"🌙⚠️ EXIT SIGNAL! ADX: {self.adx[-1]:.2f}, Vol: {self.data.Volume[-1]:.2f} < {self.volume_ma[-1]:.2f}")
+                print(f" EXIT SIGNAL! ADX: {self.adx[-1]:.2f}, Vol: {self.data.Volume[-1]:.2f} < {self.volume_ma[-1]:.2f}")

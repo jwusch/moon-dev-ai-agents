@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with all technical issues resolved while preserving the original strategy logic:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -75,7 +72,7 @@ class ForceBandContraction(Strategy):
         if current_date != self.current_date:
             self.current_date = current_date
             self.trades_today = 0
-            print(f"🌙 New Moon Day: {current_date.strftime('%Y-%m-%d')} ✨")
+            print(f" New Moon Day: {current_date.strftime('%Y-%m-%d')} ")
 
         # Skip if max daily trades reached
         if self.trades_today >= 3:

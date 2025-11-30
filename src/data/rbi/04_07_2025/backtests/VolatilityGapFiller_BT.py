@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -47,7 +46,7 @@ class VolatilityGapFiller(Strategy):
         # Volatility Measure
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
-        print("🌙 Moon Dev Indicators Initialized! Ready for cosmic analysis ✨")
+#         print("🌙 Moon Dev Indicators Initialized! Ready for cosmic analysis ✨")
 
     def next(self):
         if len(self.data) < 20:
@@ -61,7 +60,7 @@ class VolatilityGapFiller(Strategy):
         
         # Moon Dev Circuit Breaker Check
         if self.equity < self.initial_equity * 0.85:
-            print("🚨 COSMIC ALERT: Weekly Drawdown Limit Reached! Closing all positions 🌌")
+            print(" COSMIC ALERT: Weekly Drawdown Limit Reached! Closing all positions ")
             self.position.close()
             return
             
@@ -74,7 +73,7 @@ class VolatilityGapFiller(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
-                        self.buy(size=position_size, sl=sl, tag="🌙 LONG: Galactic Breakout!")
+                        self.buy(size=position_size, sl=sl, tag=" LONG: Galactic Breakout!")
                         self.target1 = current_close + 0.5 * self.atr[-1]
                         self.target2 = current_close + self.atr[-1]
                         

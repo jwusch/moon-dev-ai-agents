@@ -1,6 +1,3 @@
-Let me help you fix and complete the code while maintaining the original strategy logic. Here's the corrected and completed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -48,7 +45,7 @@ class VolatileFractal(Strategy):
         current_atr = self.atr[-1]
         
         # Moon Dev debug prints 🌙
-        print(f"🌙 Current Price: {price:.2f} | ATR: {current_atr:.2f} | EMA50: {self.ema_short[-1]:.2f} | EMA200: {self.ema_long[-1]:.2f}")
+        print(f" Current Price: {price:.2f} | ATR: {current_atr:.2f} | EMA50: {self.ema_short[-1]:.2f} | EMA200: {self.ema_long[-1]:.2f}")
 
         if not self.position:
             # Long entry condition
@@ -63,7 +60,7 @@ class VolatileFractal(Strategy):
                         tp = price + (risk_per_share * self.rr_ratio)
                         self.buy(size=position_size, sl=sl, tp=tp)
                         self.entry_atr = current_atr
-                        print(f"🚀 BULLISH BREAKOUT! Long {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                        print(f" BULLISH BREAKOUT! Long {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
             # Short entry condition
             elif self.fractal_high[-1] and (price < self.ema_long[-1]):
@@ -77,10 +74,10 @@ class VolatileFractal(Strategy):
                         tp = price - (risk_per_share * self.rr_ratio)
                         self.sell(size=position_size, sl=sl, tp=tp)
                         self.entry_atr = current_atr
-                        print(f"🔻 BEARISH BREAKDOWN! Short {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                        print(f" BEARISH BREAKDOWN! Short {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
 # Run backtest
 bt = Backtest(data, VolatileFractal, cash=10000, commission=.002)
 stats = bt.run()
-print("🌙✨ Backtest Complete! Moon Dev Strategy Results:")
+# print("🌙✨ Backtest Complete! Moon Dev Strategy Results:")
 print(stats)

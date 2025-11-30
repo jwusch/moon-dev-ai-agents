@@ -1,6 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all technical issues resolved:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -52,12 +49,12 @@ class VolClusterBreakout(Strategy):
         if current_day != self.current_day:
             self.current_day = current_day
             self.trades_today = 0
-            print(f"🌙 NEW MOON CYCLE | Date: {current_day}")
+            print(f" NEW MOON CYCLE | Date: {current_day}")
 
         # Check market hours and trade limits 🌙
         if not (12 <= current_time.hour < 16) or self.trades_today >= 3:
             if self.trades_today >= 3:
-                print("🌙🚫 TRADE LIMIT REACHED | Maximum 3 trades per day")
+                print(" TRADE LIMIT REACHED | Maximum 3 trades per day")
             return
 
         # Get current values with celestial precision
@@ -84,7 +81,7 @@ class VolClusterBreakout(Strategy):
                 # Execute trade with initial stop
                 self.buy(size=position_size, sl=stop_loss)
                 self.trades_today += 1
-                print(f"🚀🌙 MOONSHOT ENTRY | Price: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | ATR: {atr_value:.2f} | Volume: {volume:.0f} vs MA: {volume_ma:.0f}")
+                print(f" MOONSHOT ENTRY | Price: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | ATR: {atr_value:.2f} | Volume: {volume:.0f} vs MA: {volume_ma:.0f}")
 
         # Manage open positions with cosmic wisdom ✨
         for trade in self.trades:
@@ -94,7 +91,7 @@ class VolClusterBreakout(Strategy):
             # Funding rate reversal exit 💸
             if self.funding_rate[-1] >= 0.0001:
                 self.close(trade)
-                print(f"🌕💥 FUNDING REVERSAL EXIT | Price: {self.data.Close[-1]:.2f} | PnL: {trade.pl:.2f}")
+                print(f" FUNDING REVERSAL EXIT | Price: {self.data.Close[-1]:.2f} | PnL: {trade.pl:.2f}")
                 continue
 
             # Dynamic exit management 🛡️

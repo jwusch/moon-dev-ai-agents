@@ -1,14 +1,11 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all technical issues resolved while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
 from backtesting import Strategy, Backtest
 
 class VortexContraction(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    max_open_positions = 5  # Max concurrent trades 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    max_open_positions = 5  # Max concurrent trades 
     atr_period = 14
     bb_period = 20
     bb_dev = 2
@@ -52,7 +49,7 @@ class VortexContraction(Strategy):
     def next(self):
         # Moon Dev position tracking 🌙
         if len(self.positions) >= self.max_open_positions:
-            print("🌙 MAX POSITIONS REACHED: 5 open trades active 🛑")
+            print(" MAX POSITIONS REACHED: 5 open trades active ")
             return
 
         # Long entry logic 🚀
@@ -71,7 +68,7 @@ class VortexContraction(Strategy):
                             sl=swing_low, 
                             tp=self.bb_upper[-1]
                         )
-                        print(f"🌙 MOON DEV ENTRY 🚀 | Price: {entry_price:.2f} | Size: {position_size} | SL: {swing_low:.2f} | TP: {self.bb_upper[-1]:.2f} ✨")
+#                         print(f"🌙 MOON DEV ENTRY 🚀 | Price: {entry_price:.2f} | Size: {position_size} | SL: {swing_low:.2f} | TP: {self.bb_upper[-1]:.2f} ✨")
 
         # Exit management 🔄
         for trade in self.trades:

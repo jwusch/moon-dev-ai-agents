@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLUMETRIC SQUEEZE STRATEGY 🚀
-
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -28,7 +25,7 @@ data = data.rename(columns={
 # STRATEGY IMPLEMENTATION 🌗
 # ======================
 class VolumetricSqueeze(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌊
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # ======================
@@ -93,8 +90,8 @@ class VolumetricSqueeze(Strategy):
         else:
             if self.position.is_long and crossunder(self.fisher, self.fisher_signal):
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT | Fisher reversal LONG at {self.data.index[-1]} ✨")
+#                 print(f"🌙 MOON DEV EXIT | Fisher reversal LONG at {self.data.index[-1]} ✨")
                 
             elif self.position.is_short and crossover(self.fisher, self.fisher_signal):
                 self.position.close()
-                print(f"🌙 MOON DEV
+#                 print(f"🌙 MOON DEV"

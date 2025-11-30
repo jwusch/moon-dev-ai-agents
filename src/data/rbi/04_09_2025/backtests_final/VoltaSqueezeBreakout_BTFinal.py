@@ -1,7 +1,3 @@
-I'll debug the VoltaSqueezeBreakout strategy while maintaining all the original logic. Here's the complete fixed code with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VoltaSqueezeBreakout Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -68,11 +64,11 @@ class VoltaSqueezeBreakout(Strategy):
         if today != self.last_day:
             self.last_day = today
             self.daily_pnl = 0
-            print(f"🌙✨ New trading day: {today}")
+            print(f" New trading day: {today}")
         
         # 🛑 Prevent trading if daily loss exceeded
         if self.daily_pnl <= -self.max_daily_risk * self.equity:
-            print(f"🌙✨🛑 Daily loss limit hit! No new trades today.")
+            print(f" Daily loss limit hit! No new trades today.")
             return
             
         if not self.position:

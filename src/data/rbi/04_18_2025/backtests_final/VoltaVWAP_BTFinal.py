@@ -1,10 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed debug prints and proper implementation:
-
-```python
-# 🌙 Moon Dev Backtest AI - VoltaVWAP Strategy Implementation
-# 🚀 Certified backtesting.lib FREE implementation
-
-# Required imports
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -22,12 +15,20 @@ class VoltaVWAP(Strategy):
     
     def init(self):
         # Calculate indicators with proper TA-Lib/pandas_ta implementation
-        self.vwap = self.I(ta.vwap,
-                          high=self.data.High,
-                          low=self.data.Low,
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          length=self.vwap_length)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         self.atr = self.I(talib.ATR,
                          self.data.High,
@@ -51,7 +52,7 @@ class VoltaVWAP(Strategy):
         current_rsi = self.rsi[-1] if len(self.rsi) > 0 else None
         
         if not current_vwap or not current_atr:
-            print("🌙 Moon Dev Warning: Indicators not ready - Skipping bar")
+#             print("🌙 Moon Dev Warning: Indicators not ready - Skipping bar")
             return  # Skip if indicators not ready
         
         # Calculate volatility-adjusted bands
@@ -61,7 +62,7 @@ class VoltaVWAP(Strategy):
         # Volatility filter check
         atr_pct = current_atr / current_close
         if atr_pct > self.volatility_threshold:
-            print(f"🌪️ Moon Dev Volatility Alert! {atr_pct:.2%} > {self.volatility_threshold:.0%} - Trading Paused")
+#             print(f"🌪️ Moon Dev Volatility Alert! {atr_pct:.2%} > {self.volatility_threshold:.0%} - Trading Paused")
             return
 
         if not self.position:
@@ -73,12 +74,12 @@ class VoltaVWAP(Strategy):
                     stop_distance = 2 * current_atr
                     
                     if stop_distance == 0:
-                        print("⚠️ Moon Dev Warning: Zero stop distance detected!")
+#                         print("⚠️ Moon Dev Warning: Zero stop distance detected!")
                         return
                         
                     position_size = int(round(risk_amount / stop_distance))
                     if position_size <= 0:
-                        print(f"🌙 Moonshot Aborted! Position size too small: {position_size}")
+                        print(f" Moonshot Aborted! Position size too small: {position_size}")
                         return
                         
                     # Execute long entry with risk management
@@ -87,7 +88,7 @@ class VoltaVWAP(Strategy):
                     self.buy(size=position_size, sl=sl_price)
                     self.entry_bar = len(self.data) - 1
                     self.highest_high = entry_price
-                    print(f"🚀 Moon Dev LONG Launch! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
+#                     print(f"🚀 Moon Dev LONG Launch! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
 
             # Short entry logic        
             elif current_close > upper_band:
@@ -97,12 +98,12 @@ class VoltaVWAP(Strategy):
                     stop_distance = 2 * current_atr
                     
                     if stop_distance == 0:
-                        print("⚠️ Moon Dev Warning: Zero stop distance detected!")
+#                         print("⚠️ Moon Dev Warning: Zero stop distance detected!")
                         return
                         
                     position_size = int(round(risk_amount / stop_distance))
                     if position_size <= 0:
-                        print(f"🌒 Moonshot Aborted! Position size too small: {position_size}")
+                        print(f" Moonshot Aborted! Position size too small: {position_size}")
                         return
                         
                     # Execute short entry with risk management

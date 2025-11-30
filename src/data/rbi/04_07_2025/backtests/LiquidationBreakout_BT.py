@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Liquidation Breakout Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -20,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class LiquidationBreakout(Strategy):
-    risk_per_trade = 0.02  # 🌙 2% cosmic risk limit
+    risk_per_trade = 0.02  #  2% cosmic risk limit
     kc_ema = 20
     atr_multiplier = 2
     cluster_window = 20
@@ -48,7 +46,7 @@ class LiquidationBreakout(Strategy):
         if self.position:
             # 🌠 Exit Conditions
             if self.data.Close[-1] >= self.tp or self.data.Close[-1] <= self.sl:
-                print(f"🌙 Closing Moon Position at {self.data.Close[-1]}! Cosmic Profits Achieved! 🚀")
+                print(f" Closing Moon Position at {self.data.Close[-1]}! Cosmic Profits Achieved! ")
                 self.position.close()
         else:
             # 🌗 Liquidation Cluster Check
@@ -75,7 +73,7 @@ class LiquidationBreakout(Strategy):
                         self.buy(size=size)
                         self.tp = self.data.Close[-1] + 1.5*(self.data.Close[-1]-sl)
                         self.sl = sl
-                        print(f"🚀🌙 LONG! {self.data.Close[-1]} | TP: {self.tp:.1f} | SL: {sl:.1f} | Size: {size}")
+                        print(f" LONG! {self.data.Close[-1]} | TP: {self.tp:.1f} | SL: {sl:.1f} | Size: {size}")
 
             # 🌑 Short Conditions
             short_cluster = (prev_close - sl_prev)/sl_prev <= self.cluster_pct

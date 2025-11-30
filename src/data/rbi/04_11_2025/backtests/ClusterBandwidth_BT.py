@@ -1,12 +1,10 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 
-# Moon Dev's ClusterBandwidth Strategy 🌙✨
+# Moon Dev's ClusterBandwidth Strategy 🌙✨'
 class ClusterBandwidth(Strategy):
     def init(self):
         # Clean data columns (already preprocessed)
@@ -42,7 +40,7 @@ class ClusterBandwidth(Strategy):
     def next(self):
         # ====== RISK MANAGEMENT ======
         current_equity = self.equity
-        risk_per_trade = current_equity * 0.01  # 1% risk per trade 🛡️
+        risk_per_trade = current_equity * 0.01  # 1% risk per trade 
         
         # ====== ENTRY LOGIC ======
         if not self.position:
@@ -62,7 +60,7 @@ class ClusterBandwidth(Strategy):
                     'sl': sl,
                     'tp': self.data.Close[-1] + 2*self.atr[-1]
                 })
-                print(f"🌙✨🚀 LONG ENTRY @ {self.data.Close[-1]} | Size: {position_size} | Moon Power Activated! 🌕")
+                print(f" LONG ENTRY @ {self.data.Close[-1]} | Size: {position_size} | Moon Power Activated! ")
 
             # Short entry conditions 🌑
             elif (self.bb_width[-1] < self.bb_width_avg[-1] and
@@ -80,7 +78,7 @@ class ClusterBandwidth(Strategy):
                     'sl': sl,
                     'tp': self.data.Close[-1] - 2*self.atr[-1]
                 })
-                print(f"🌙✨🚀 SHORT ENTRY @ {self.data.Close[-1]} | Size: {position_size} | Dark Side Engaged! 🌑")
+                print(f" SHORT ENTRY @ {self.data.Close[-1]} | Size: {position_size} | Dark Side Engaged! ")
 
         # ====== EXIT MANAGEMENT ======
         else:

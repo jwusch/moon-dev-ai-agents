@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -19,22 +16,22 @@ data.rename(columns={
 }, inplace=True)
 
 class VortexBreakout(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     kc_ema_period = 20
     kc_atr_period = 10
     kc_multiplier = 2.5
     vortex_period = 14
-    exit_x_factor = 0.3  # 30% channel width trailing stop ✨
+    exit_x_factor = 0.3  # 30% channel width trailing stop 
 
     def init(self):
         # Vortex Indicator calculations 🌀
-        print("🌙 Initializing Vortex Indicator...")
+        print(" Initializing Vortex Indicator...")
         vi_plus, vi_minus = talib.VORTEX(self.data.High, self.data.Low, self.data.Close, self.vortex_period)
         self.vi_plus = self.I(lambda: vi_plus, name='VI+')
         self.vi_minus = self.I(lambda: vi_minus, name='VI-')
 
         # Keltner Channel calculations 🌈
-        print("🌙 Calculating Keltner Channels...")
+        print(" Calculating Keltner Channels...")
         ema = talib.EMA(self.data.Close, self.kc_ema_period)
         atr = talib.ATR(self.data.High, self.data.Low, self.data.Close, self.kc_atr_period)
         self.upper_kc = self.I(lambda: ema + self.kc_multiplier * atr, name='Upper KC')
@@ -63,7 +60,7 @@ class VortexBreakout(Strategy):
                 position_size = int(round(risk_amount / (close - stop_price)))
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙✨🚀 LUNAR LIFT-OFF! Long {position_size} units at {close:.2f}")
+                    print(f" LUNAR LIFT-OFF! Long {position_size} units at {close:.2f}")
 
             # Short entry: VI- crosses above VI+ and close < lower KC 🌙🎯
             elif (prev_vi_minus < prev_vi_plus and vi_minus > vi_plus) and close < lower:
@@ -73,7 +70,7 @@ class VortexBreakout(Strategy):
                 position_size = int(round(risk_amount / (stop_price - close)))
                 if position_size > 0:
                     self.sell(size=position_size)
-                    print(f"🌙✨🎯 GRAVITY ENGAGE! Short {position_size} units at {close:.2f}")
+                    print(f" GRAVITY ENGAGE! Short {position_size} units at {close:.2f}")
 
         # Exit logic 🛑
         else:

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -42,7 +39,7 @@ class ChikouDivergence(Strategy):
                     if size > 0:
                         self.buy(size=size, sl=sl_price, 
                                 tp=current_close + 2*distance)
-                        print(f"🌙✨ BULLISH DIVERGENCE DETECTED! Long {size} @ {current_close} 🚀")
+                        print(f" BULLISH DIVERGENCE DETECTED! Long {size} @ {current_close} ")
             
             # Bearish entry conditions 🌙
             bear_div = (current_high > self.data.High[-2] and
@@ -59,7 +56,7 @@ class ChikouDivergence(Strategy):
                     if size > 0:
                         self.sell(size=size, sl=sl_price,
                                  tp=current_close - 2*distance)
-                        print(f"🌙✨ BEARISH DIVERGENCE SPOTTED! Short {size} @ {current_close} 🌑")
+                        print(f" BEARISH DIVERGENCE SPOTTED! Short {size} @ {current_close} ")
         
         else:
             # Exit conditions with MACD histogram divergence 🌙
@@ -67,16 +64,16 @@ class ChikouDivergence(Strategy):
                 if (current_high > self.data.High[-2] and
                     self.macd_hist[-1] < self.macd_hist[-2]):
                     self.position.close()
-                    print(f"🌙 MACD BEARISH DIVERGENCE! Closing long @ {current_close} 💰")
+                    print(f" MACD BEARISH DIVERGENCE! Closing long @ {current_close} ")
                     
             elif self.position.is_short:
                 if (current_low < self.data.Low[-2] and
                     self.macd_hist[-1] > self.macd_hist[-2]):
                     self.position.close()
-                    print(f"🌙 MACD BULLISH DIVERGENCE! Closing short @ {current_close} 💰")
+                    print(f" MACD BULLISH DIVERGENCE! Closing short @ {current_close} ")
 
 # Data preparation 🌙
-print("🌙 Preparing lunar data for analysis...")
+print(" Preparing lunar data for analysis...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])

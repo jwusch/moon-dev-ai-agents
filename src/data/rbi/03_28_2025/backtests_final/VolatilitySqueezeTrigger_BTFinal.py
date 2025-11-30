@@ -1,6 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -57,7 +54,7 @@ class VolatilitySqueezeTrigger(Strategy):
         self.peak_equity = max(self.peak_equity, current_equity)
         drawdown = (self.peak_equity - current_equity)/self.peak_equity
         if drawdown >= 0.10:
-            print(f"🌧️ MOON DEV CRISIS: 10% Drawdown - Trading Halted!")
+#             print(f"🌧️ MOON DEV CRISIS: 10% Drawdown - Trading Halted!")
             return
 
         if not self.position:
@@ -83,7 +80,7 @@ class VolatilitySqueezeTrigger(Strategy):
                 if position_size > 0:
                     stop_price = self.data.Open[-1] - 2 * prev_atr
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🚀🌙 MOON DEV LONG LAUNCH: {self.data.Open[-1]:.2f}, Size: {position_size}, Stop: {stop_price:.2f}")
+#                     print(f"🚀🌙 MOON DEV LONG LAUNCH: {self.data.Open[-1]:.2f}, Size: {position_size}, Stop: {stop_price:.2f}")
             
             # Short entry logic
             elif squeeze and (prev_close < prev_lower - self.atr_multiplier * prev_atr):
@@ -93,7 +90,7 @@ class VolatilitySqueezeTrigger(Strategy):
                 if position_size > 0:
                     stop_price = self.data.Open[-1] + 2 * prev_atr
                     self.sell(size=position_size, sl=stop_price)
-                    print(f"🌑🌙 MOON DEV SHORT BLAST: {self.data.Open[-1]:.2f}, Size: {position_size}, Stop: {stop_price:.2f}")
+#                     print(f"🌑🌙 MOON DEV SHORT BLAST: {self.data.Open[-1]:.2f}, Size: {position_size}, Stop: {stop_price:.2f}")
         
         else:
             # Manage open positions

@@ -1,7 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements while maintaining the original strategy logic:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -26,7 +22,7 @@ class VolClusterSqueeze(Strategy):
         
     def next(self):
         if len(self.data) < self.lookback_period:
-            return  # 🌌 Not enough data yet for reliable signals
+            return  #  Not enough data yet for reliable signals
         
         # Calculate volatility percentile dynamically 🚀
         current_bw = self.bandwidth[-1]
@@ -46,17 +42,17 @@ class VolClusterSqueeze(Strategy):
             risk_per_unit = abs(entry_price - stop_price)
             
             if risk_per_unit > 0:
-                position_size = int(round(risk_amount / risk_per_unit))  # 🌙 Properly rounded to whole units
+                position_size = int(round(risk_amount / risk_per_unit))  #  Properly rounded to whole units
                 if position_size > 0:
                     self.sell(size=position_size, stop=stop_price)
-                    print(f"🌙 MOON DEV ENTRY 🌟 | Size: {position_size} units | Entry: {entry_price:.2f} | SL: {stop_price:.2f} | Risk: ${risk_amount:.2f}")
+#                     print(f"🌙 MOON DEV ENTRY 🌟 | Size: {position_size} units | Entry: {entry_price:.2f} | SL: {stop_price:.2f} | Risk: ${risk_amount:.2f}")
         
         # Exit conditions ✨
         if self.position:
             # Time-based exit
             if len(self.data) - self.position.entry_bar >= 3:
                 self.position.close()
-                print(f"🌙 MOON DEV TIME EXIT ⏳ | Bar: {len(self.data)} | PnL: {self.position.pl:.2f}")
+#                 print(f"🌙 MOON DEV TIME EXIT ⏳ | Bar: {len(self.data)} | PnL: {self.position.pl:.2f}")
                 return
             
             # RSI flip exit
@@ -71,4 +67,4 @@ class VolClusterSqueeze(Strategy):
             if rsi_exit or emergency_exit or vol_exit:
                 self.position.close()
                 reason = "RSI Flip" if rsi_exit else "Emergency" if emergency_exit else "Vol Expansion"
-                print(f"🌙 MOON DEV EXIT 🏁 | Reason: {reason} | PnL:
+#                 print(f"🌙 MOON DEV EXIT 🏁 | Reason: {reason} | PnL:"

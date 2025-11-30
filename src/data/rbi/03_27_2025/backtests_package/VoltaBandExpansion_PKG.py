@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the crossover function with manual checks. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -56,7 +53,7 @@ class VoltaBandExpansion(Strategy):
         # Calculate ATR for stop loss
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period)
         
-        print("🌙 MOON DEV INIT COMPLETE! Indicators ready for launch! 🚀")
+#         print("🌙 MOON DEV INIT COMPLETE! Indicators ready for launch! 🚀")
         
     def _bb_upper(self, close):
         upper, _, _ = talib.BBANDS(close, self.bb_period, self.bb_dev, self.bb_dev)

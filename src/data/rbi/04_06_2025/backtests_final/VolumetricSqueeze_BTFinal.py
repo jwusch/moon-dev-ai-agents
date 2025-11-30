@@ -1,14 +1,11 @@
-I've completed the analysis and the code is already well-structured! Here's the fully debugged version with Moon Dev enhancements while maintaining all original strategy logic:
-
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
 
 # 🌙✨ Moon Dev Data Preparation ✨🌙
-print("🌌 Initializing Moon Dev Trading Protocol...")
-print("🛰️ Loading cosmic market data from satellite feed...")
+# print("🌌 Initializing Moon Dev Trading Protocol...")
+print(" Loading cosmic market data from satellite feed...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 # Data cleaning
@@ -32,8 +29,8 @@ class VolumetricSqueeze(Strategy):
     atr_period = 14
     
     def init(self):
-        print("🌕 Activating Lunar Indicators...")
-        print(f"⚙️ Config: BB={self.bb_period}/{self.bb_dev} | ATR={self.atr_period} | Risk={self.risk_pct*100}%")
+        print(" Activating Lunar Indicators...")
+        print(f" Config: BB={self.bb_period}/{self.bb_dev} | ATR={self.atr_period} | Risk={self.risk_pct*100}%")
         
         # Volume anomaly detection
         def vol_percentile(series, window=100, percentile=90):
@@ -68,10 +65,10 @@ class VolumetricSqueeze(Strategy):
             
             # Check exits
             if price <= self.trail_stop:
-                print(f"🌙✨ Moon Exit: Trailing Stop @ {self.trail_stop:.2f}")
+                print(f" Moon Exit: Trailing Stop @ {self.trail_stop:.2f}")
                 self.position.close()
             elif price <= (self.entry_price - 2.5*self.atr[-1]):
-                print(f"🚨🌙 Emergency Stop! Cosmic radiation levels critical!")
+                print(f" Emergency Stop! Cosmic radiation levels critical!")
                 self.position.close()
 
         # Entry logic
@@ -95,7 +92,7 @@ class VolumetricSqueeze(Strategy):
                 size = int(round(risk_amount/risk_per_share))  # Properly rounded to whole units
                 
                 if size > 0:
-                    print(f"🚀🌙 MOON DEAL DETECTED! Entry @ {price:.2f} Size {size}")
+                    print(f" MOON DEAL DETECTED! Entry @ {price:.2f} Size {size}")
                     self.buy(size=size)
                     self.entry_price = price
                     self.trail_stop = price - 1.5*self.atr[-1]

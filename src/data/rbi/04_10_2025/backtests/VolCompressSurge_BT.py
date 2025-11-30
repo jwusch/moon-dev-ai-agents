@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VolCompress Surge Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -30,7 +28,7 @@ class VolCompressSurge(Strategy):
         self.trade_count = 0
 
     def calculate_bbw(self, close):
-        """✨ Calculate Bollinger Band Width with TA-Lib"""
+        """ Calculate Bollinger Band Width with TA-Lib"""
         upper, middle, lower = talib.BBANDS(
             close, 
             timeperiod=self.bb_period,
@@ -47,7 +45,7 @@ class VolCompressSurge(Strategy):
         
         if drawdown > 0.10:
             self.allow_trading = False
-            print(f"🌑🔥 PORTFOLIO DRAWDOWN 10%! Trading halted. Current DD: {drawdown*100:.1f}%")
+            print(f" PORTFOLIO DRAWDOWN 10%! Trading halted. Current DD: {drawdown*100:.1f}%")
 
         # Entry Logic 🌠
         if not self.position and self.allow_trading:
@@ -71,7 +69,7 @@ class VolCompressSurge(Strategy):
                     self.entry_price = self.data.Close[-1]
                     self.stop_loss = self.entry_price - atr_value
                     self.trailing_level = self.entry_price + 2*atr_value
-                    print(f"🌕🚀 ENTRY #{self.trade_count} @ {self.entry_price:.2f}")
+                    print(f" ENTRY #{self.trade_count} @ {self.entry_price:.2f}")
                     print(f"    Size: {position_size} BTC | SL: {self.stop_loss:.2f} | Trail: {self.trailing_level:.2f}")
 
         # Exit Logic 🌈
@@ -86,7 +84,7 @@ class VolCompressSurge(Strategy):
                 
                 self.position.close()
                 pnl_pct = (self.data.Close[-1]/self.entry_price - 1)*100
-                print(f"🌑📉 EXIT #{self.trade_count} @ {self.data.Close[-1]:.2f} ({pnl_pct:+.1f}%)")
+                print(f" EXIT #{self.trade_count} @ {self.data.Close[-1]:.2f} ({pnl_pct:+.1f}%)")
 
 # Data Preparation 🌍
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

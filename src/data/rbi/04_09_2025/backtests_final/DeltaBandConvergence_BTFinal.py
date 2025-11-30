@@ -1,7 +1,3 @@
-I'll fix the code while maintaining the original strategy logic and adding Moon Dev themed improvements. Here's the complete corrected version:
-
-```python
-# moon_dev_deltaband_backtest.py 🌙🚀
 import numpy as np
 import pandas as pd
 import talib
@@ -69,11 +65,11 @@ class DeltaBandConvergence(Strategy):
             
         # Celestial Risk Shields 🛡️
         if self._broker._equity < 0.95 * self.daily_high_equity:
-            print("🌘 DAILY LOSS LIMIT BREACHED! Trading halted.")
+            print(" DAILY LOSS LIMIT BREACHED! Trading halted.")
             return
             
         if self.consecutive_losses >= 3:
-            print("💥 3 CONSECUTIVE LOSSES! Moon Dev protection activated.")
+#             print("💥 3 CONSECUTIVE LOSSES! Moon Dev protection activated.")
             return
             
         # Cosmic Timing Filter 🕒

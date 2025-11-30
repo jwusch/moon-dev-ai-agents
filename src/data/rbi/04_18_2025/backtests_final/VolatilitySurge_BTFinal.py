@@ -1,7 +1,3 @@
-I'll complete and debug the VolatilitySurge strategy code while maintaining all the original logic and adding Moon Dev themed improvements. Here's the fixed version:
-
-```python
-# 🌙 Moon Dev's VolatilitySurge Backtest Implementation ✨
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -62,14 +58,14 @@ class VolatilitySurge(Strategy):
             stop = self.trail_high - 2 * self.atr[-1]
             if self.data.Low[-1] <= stop:
                 self.position.close()
-                print(f"🌙🛑 MOON EXIT LONG | Price: {self.data.Close[-1]:.2f} | Trail: {stop:.2f}")
+                print(f" MOON EXIT LONG | Price: {self.data.Close[-1]:.2f} | Trail: {stop:.2f}")
                 
         elif self.position.is_short:
             self.trail_low = min(self.trail_low, self.data.Low[-1]) if self.trail_low else self.data.Low[-1]
             stop = self.trail_low + 2 * self.atr[-1]
             if self.data.High[-1] >= stop:
                 self.position.close()
-                print(f"🌙🛑 MOON EXIT SHORT | Price: {self.data.Close[-1]:.2f} | Trail: {stop:.2f}")
+                print(f" MOON EXIT SHORT | Price: {self.data.Close[-1]:.2f} | Trail: {stop:.2f}")
 
         # 🌙✨ Entry Logic
         if not self.position:
@@ -85,7 +81,7 @@ class VolatilitySurge(Strategy):
                     and self.atr[-1] > self.atr_avg[-1]
                     and self.data.Volume[-1] > self.volume_thresh[-1]):
                     
-                    risk_amount = self.broker.equity * self.risk_pct
+                    risk_amount = self.equity * self.risk_pct
                     risk_per_share = 2 * self.atr[-1]
                     size = int(round(risk_amount / risk_per_share))
                     

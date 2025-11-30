@@ -1,12 +1,8 @@
-I have fixed the code to ensure no usage of backtesting.lib is present. I have replaced all instances with the required alternatives. Here is the fixed code:
-
-```python
-#!/usr/bin/env python3
 """
-Moon Dev's Backtest AI 🌙
+# Moon Dev's Backtest AI 🌙'
 Backtesting.py implementation for the AccumulationManipulation strategy.
 Remember: ALWAYS use self.I() wrapper for any indicator calculations with TA-Lib!
-Enjoy the Moon Dev themed debugging prints! 🚀✨
+# Enjoy the Moon Dev themed debugging prints! 🚀✨
 """
 
 # 1. All necessary imports
@@ -28,10 +24,10 @@ data.columns = data.columns.str.strip().str.lower()
 # Drop any unnamed columns
 unnamed_cols = [col for col in data.columns if 'unnamed' in col.lower()]
 if unnamed_cols:
-    print("🌙 Dropping unnamed columns:", unnamed_cols)
+    print(" Dropping unnamed columns:", unnamed_cols)
     data = data.drop(columns=unnamed_cols)
 
-# Map columns to Backtesting's required format with proper case
+# Map columns to Backtesting's required format with proper case'
 column_mapping = {
     'open': 'Open',
     'high': 'High',
@@ -43,7 +39,7 @@ data = data.rename(columns=column_mapping)
 
 # Set the DataFrame index to datetime for Backtesting
 data = data.set_index('datetime')
-print("🌙 Data loaded and cleaned! Data head:\n", data.head())
+print(" Data loaded and cleaned! Data head:\n", data.head())
 
 # 3. Strategy Class with Indicators, Entry/Exit Logic & Risk Management 🚀✨
 class AccumulationManipulation(Strategy):
@@ -55,28 +51,28 @@ class AccumulationManipulation(Strategy):
         self.high_max20 = self.I(talib.MAX, self.data.High, timeperiod=20)
         self.low_min20 = self.I(talib.MIN, self.data.Low, timeperiod=20)
 
-        print("🌙 [INIT] Indicators initialized: SMA20, MAX20, MIN20!")
+        print(" [INIT] Indicators initialized: SMA20, MAX20, MIN20!")
 
     def next(self):
-        # Get the current bar's datetime
+        # Get the current bar's datetime'
         current_dt = self.data.index[-1]
         current_time = current_dt.time()
 
         # Focus only on trade window: between 10:00 and 11:30 Eastern (assumed as local time)
         if not (time(10, 0) <= current_time <= time(11, 30)):
             # Outside target window; skip trade consideration.
-            print(f"✨ {current_dt} - Outside trading window (10:00-11:30). No action taken.")
+            print(f" {current_dt} - Outside trading window (10:00-11:30). No action taken.")
             return
 
         # Check if we already have an open position; if so, let stop-loss/take-profit handle exits.
         if self.position:
             # Debug print for open positions.
-            print(f"🚀 {current_dt} - Position open. Monitoring... Current PnL: {self.position.pl}")
+            print(f" {current_dt} - Position open. Monitoring... Current PnL: {self.position.pl}")
             return
 
         # Ensure we have enough data (at least 4 bars for our market bias analysis and 20 for accumulation)
         if len(self.data.Close) < 20:
-            print("🌙 Not enough data for analysis. Waiting for more candles...")
+            print(" Not enough data for analysis. Waiting for more candles...")
             return
 
         # 1. Determine Market Bias using

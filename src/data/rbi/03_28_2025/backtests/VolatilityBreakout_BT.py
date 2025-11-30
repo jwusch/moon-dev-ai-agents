@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -62,7 +61,7 @@ class VolatilityBreakout(Strategy):
                     if risk_per_share > 0:
                         size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                         self.buy(size=size, sl=sl, tp=self.data.Open[-1] + 2*risk_per_share)
-                        print(f"🌙✨🚀 MOON DEV LONG ENTRY | Size: {size} | Entry: {self.data.Open[-1]:.2f} | SL: {sl:.2f} | TP: {self.data.Open[-1] + 2*risk_per_share:.2f}")
+#                         print(f"🌙✨🚀 MOON DEV LONG ENTRY | Size: {size} | Entry: {self.data.Open[-1]:.2f} | SL: {sl:.2f} | TP: {self.data.Open[-1] + 2*risk_per_share:.2f}")
             
             # Short entry condition
             if (self.prev_ci >= 61.8 and ci < 61.8) and (self.data.Close[-2] < self.prev_vwma):
@@ -72,4 +71,4 @@ class VolatilityBreakout(Strategy):
                     if risk_per_share > 0:
                         size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                         self.sell(size=size, sl=sl, tp=self.data.Open[-1] - 2*risk_per_share)
-                        print(f"🌙✨🚀 MOON DEV SHORT ENTRY | Size: {size} | Entry: {self.data.Open[-1]:.2f} | SL: {sl:.2f} | TP: {self.data.Open[-1] - 2*risk_per_share:.2f}")
+#                         print(f"🌙✨🚀 MOON DEV SHORT ENTRY | Size: {size} | Entry: {self.data.Open[-1]:.2f} | SL: {sl:.2f} | TP: {self.data.Open[-1] - 2*risk_per_share:.2f}")

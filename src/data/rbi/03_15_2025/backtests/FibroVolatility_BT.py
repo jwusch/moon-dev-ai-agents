@@ -66,7 +66,7 @@ class FibroVolatility(Strategy):
                                 sl=current_price - self.atr[-1],
                                 tp=current_price + 1.5*self.atr[-1]
                             )
-                            print(f"🌕 MOON SHOT! LONG {position_size} @ {current_price:.2f} ✨")
+                            print(f"🌕 MOON SHOT! LONG {position_size} @ {current_price:0.2f} ✨")
                         else:
                             # 🌑 Short entry on resistance rejection
                             self.sell(
@@ -74,11 +74,11 @@ class FibroVolatility(Strategy):
                                 sl=current_price + self.atr[-1],
                                 tp=current_price - 1.5*self.atr[-1]
                             )
-                            print(f"🌒 DARK SIDE ENTERED! SHORT {position_size} @ {current_price:.2f} 🌗")
+                            print(f"🌒 DARK SIDE ENTERED! SHORT {position_size} @ {current_price:0.2f} 🌗")
                         break
 
 # 🌟 Launch backtest sequence
-bt = Backtest(data, FibroVolatility, cash=1_000_000, commission=.002)
+bt = Backtest(data, FibroVolatility, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌠 Print cosmic performance report

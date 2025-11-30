@@ -1,10 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev implementations:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation: LiquidationVolt Strategy ✨
-# PACKAGE AI CERTIFIED - NO backtesting.lib USAGE DETECTED 🌙✅
-
-# 1. Necessary Imports - Moon Dev Approved Packages Only ✨
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -52,7 +45,7 @@ class LiquidationVolt(Strategy):
                     sl = price - 1.5*self.atr[-1]
                     size = int(round((self.equity * self.risk_percent) / (price - sl)))
                     self.buy(size=size, sl=sl)
-                    print(f"🌙 MOON ALERT: LONG @ {price:.2f} | Size: {size} | SL: {sl:.2f} 🌠")
+                    print(f" MOON ALERT: LONG @ {price:.2f} | Size: {size} | SL: {sl:.2f} ")
 
             # Short Setup (Counter-trend in uptrend)
             elif price > self.ema20[-1]:
@@ -63,7 +56,7 @@ class LiquidationVolt(Strategy):
                     sl = price + 1.5*self.atr[-1]
                     size = int(round((self.equity * self.risk_percent) / (sl - price)))
                     self.sell(size=size, sl=sl)
-                    print(f"🌑 DARK SIDE: SHORT @ {price:.2f} | Size: {size} | SL: {sl:.2f} 🌌")
+                    print(f" DARK SIDE: SHORT @ {price:.2f} | Size: {size} | SL: {sl:.2f} ")
 
             self.entry_bar = len(self.data) if not self.position else self.entry_bar
 
@@ -72,11 +65,11 @@ class LiquidationVolt(Strategy):
             # Keltner Breakout Exit
             if price > upper_band or price < lower_band:
                 self.position.close()
-                print(f"🚀 STARSHIP EXIT @ {price:.2f} | Profit: {self.position.pl:.2f} 🌠")
+                print(f" STARSHIP EXIT @ {price:.2f} | Profit: {self.position.pl:.2f} ")
             
             # Time-Based Exit (5 bars)
             elif len(self.data) - self.entry_bar >= 5:
                 self.position.close()
-                print(f"⏳ TIME WARP EXIT @ {price:.2f} | Bars Held: 5 🌈")
+                print(f"⏳ TIME WARP EXIT @ {price:.2f} | Bars Held: 5 ")
 
 # 🌟 Run Moon

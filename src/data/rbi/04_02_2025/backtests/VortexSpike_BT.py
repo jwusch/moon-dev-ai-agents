@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -59,10 +57,10 @@ class VortexSpike(Strategy):
         price = self.data.Close[-1]
         
         # Moon Dev debug prints 🌙
-        print(f"\n🌙 Moon Dev Debug - Bar {len(self.data)-1}")
-        print(f"✨ VI+:{self.vi_plus[-1]:.4f} | VI-:{self.vi_minus[-1]:.4f}")
-        print(f"📈 ATR:{self.atr[-1]:.2f} | BB Width:{self.bb_width[-1]:.4f}")
-        print(f"🔔 SAR:{self.sar[-1]:.2f} | Volume:{self.data.Volume[-1]:.2f} vs MA:{self.volume_ma[-1]:.2f}")
+#         print(f"\n🌙 Moon Dev Debug - Bar {len(self.data)-1}")
+        print(f" VI+:{self.vi_plus[-1]:.4f} | VI-:{self.vi_minus[-1]:.4f}")
+        print(f" ATR:{self.atr[-1]:.2f} | BB Width:{self.bb_width[-1]:.4f}")
+        print(f" SAR:{self.sar[-1]:.2f} | Volume:{self.data.Volume[-1]:.2f} vs MA:{self.volume_ma[-1]:.2f}")
 
         # Exit conditions
         if self.position.is_long:
@@ -70,7 +68,7 @@ class VortexSpike(Strategy):
             self.trailing_stop = max(self.trailing_stop, price - self.trailing_multiplier * self.atr[-1])
             
             if price < self.trailing_stop or price < self.sar[-1] or self.bars_held > self.max_bars_held:
-                print(f"🚀🌕 MOON EXIT LONG! Price: {price:.2f} | SAR: {self.sar[-1]:.2f}")
+                print(f" MOON EXIT LONG! Price: {price:.2f} | SAR: {self.sar[-1]:.2f}")
                 self.position.close()
                 
         elif self.position.is_short:
@@ -78,7 +76,7 @@ class VortexSpike(Strategy):
             self.trailing_stop = min(self.trailing_stop, price + self.trailing_multiplier * self.atr[-1])
             
             if price > self.trailing_stop or price > self.sar[-1] or self.bars_held > self.max_bars_held:
-                print(f"🌑💫 MOON EXIT SHORT! Price: {price:.2f} | SAR: {self.sar[-1]:.2f}")
+                print(f" MOON EXIT SHORT! Price: {price:.2f} | SAR: {self.sar[-1]:.2f}")
                 self.position.close()
 
         # Entry conditions

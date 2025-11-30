@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -41,11 +40,11 @@ class VolumeDivergenceReversal(Strategy):
             return
         
         # Moon Dev Debug Prints 🌙✨
-        print(f"🌙 Current Close: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
-        print(f"✨ SMA50: {self.sma50[-1]:.2f} vs SMA200: {self.sma200[-1]:.2f}")
-        print(f"🚀 SumUpVol: {self.sum_up_vol[-1]:.2f} vs SumDownVol: {self.sum_down_vol[-1]:.2f}")
+        print(f" Current Close: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
+        print(f" SMA50: {self.sma50[-1]:.2f} vs SMA200: {self.sma200[-1]:.2f}")
+        print(f" SumUpVol: {self.sum_up_vol[-1]:.2f} vs SumDownVol: {self.sum_down_vol[-1]:.2f}")
         
-        # Check if we're NOT in position and conditions are met
+        # Check if we're NOT in position and conditions are met'
         if not self.position:
             # Entry Conditions
             uptrend = self.sma50[-1] > self.sma200[-1]
@@ -63,20 +62,20 @@ class VolumeDivergenceReversal(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     
                     # Moon Dev Position Sizing 🌙💸
-                    print(f"🚀🌙 CALCULATED POSITION SIZE: {position_size} | Equity: {self.equity:.2f}")
+                    print(f" CALCULATED POSITION SIZE: {position_size} | Equity: {self.equity:.2f}")
                     self.sell(size=position_size, 
                              sl=stop_loss,
                              tp=entry_price - 2*risk_per_share)
                     
                     # Debug Print
-                    print(f"🚀🌙 SHORT ENTRY! Price: {entry_price:.2f} | SL: {stop_loss:.2f} | RSI: {self.rsi[-1]:.2f}")
+                    print(f" SHORT ENTRY! Price: {entry_price:.2f} | SL: {stop_loss:.2f} | RSI: {self.rsi[-1]:.2f}")
 
         # Exit Conditions
         if self.position.is_short:
             # Exit if RSI drops below 50
             if self.rsi[-1] < 50:
                 self.position.close()
-                print(f"🌙✨ EXIT SIGNAL! RSI dropped below 50: {self.rsi[-1]:.2f}")
+                print(f" EXIT SIGNAL! RSI dropped below 50: {self.rsi[-1]:.2f}")
 
 # Data Preparation
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/r
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/r'

@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -46,7 +43,7 @@ class LiquidationReversal(Strategy):
         if len(self.data) < self.swing_window or len(self.rsi_4h) < 2:
             return
 
-        # Current market conditions under the moon's gaze 🌙
+        # Current market conditions under the moon's gaze 🌙'
         price = self.data.Close[-1]
         vwap_pivot = self.vwap_sma[-1]
         current_rsi = self.rsi_4h[-1]
@@ -74,13 +71,13 @@ class LiquidationReversal(Strategy):
         sl_price = self.swing_low[-1] * (1 - self.buffer_pct)
         risk = entry_price - sl_price
         if risk <= 0: 
-            print("🌙 WARNING: Invalid risk calculation for long position!")
+            print(" WARNING: Invalid risk calculation for long position!")
             return
 
         position_size = self.calculate_position_size(risk)
         if position_size > 0:
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌙✨ BULLISH REVERSAL SIGNAL DETECTED! 🚀")
+            print(f" BULLISH REVERSAL SIGNAL DETECTED! ")
             print(f"   Entry: {entry_price:.2f} | Size: {position_size:.4f}")
             print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f}\n")
 

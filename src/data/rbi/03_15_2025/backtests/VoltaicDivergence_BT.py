@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -55,13 +54,13 @@ class VoltaicDivergence(Strategy):
             price = self.data.High[-1]
             rsi_val = self.rsi[-1]
             self.swing_highs.append((price, rsi_val))
-            print(f"🌙✨ SWING HIGH at {price:.2f} | RSI: {rsi_val:.2f}")
+            print(f" SWING HIGH at {price:0.2f} | RSI: {rsi_val:0.2f}")
             
         if self.swing_low[-1]:
             price = self.data.Low[-1]
             rsi_val = self.rsi[-1]
             self.swing_lows.append((price, rsi_val))
-            print(f"🌙✨ SWING LOW at {price:.2f} | RSI: {rsi_val:.2f}")
+            print(f" SWING LOW at {price:0.2f} | RSI: {rsi_val:0.2f}")
         
         # Check divergences
         bull_div = bear_div = False
@@ -71,14 +70,14 @@ class VoltaicDivergence(Strategy):
             curr_low, curr_rsi = self.swing_lows[-1]
             if curr_low < prev_low and curr_rsi > prev_rsi:
                 bull_div = True
-                print(f"🚀🌙 BULLISH DIVERGENCE | Price: {curr_low:.2f} < {prev_low:.2f} | RSI: {curr_rsi:.2f} > {prev_rsi:.2f}")
+                print(f" BULLISH DIVERGENCE | Price: {curr_low:0.2f} < {prev_low:0.2f} | RSI: {curr_rsi:0.2f} > {prev_rsi:0.2f}")
                 
         if len(self.swing_highs) >= 2:
             prev_high, prev_rsi = self.swing_highs[-2]
             curr_high, curr_rsi = self.swing_highs[-1]
             if curr_high > prev_high and curr_rsi < prev_rsi:
                 bear_div = True
-                print(f"🌑🌙 BEARISH DIVERGENCE | Price: {curr_high:.2f} > {prev_high:.2f} | RSI: {curr_rsi:.2f} < {prev_rsi:.2f}")
+                print(f" BEARISH DIVERGENCE | Price: {curr_high:0.2f} > {prev_high:0.2f} | RSI: {curr_rsi:0.2f} < {prev_rsi:0.2f}")
         
         # Entry logic
         if not self.position:

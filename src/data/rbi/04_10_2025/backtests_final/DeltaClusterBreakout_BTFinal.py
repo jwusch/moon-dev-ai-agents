@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your DeltaClusterBreakout strategy:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +35,7 @@ class DeltaClusterBreakout(Strategy):
     def next(self):
         # Skip trades after 3 consecutive losses 🌑
         if self.consecutive_losses >= 3:
-            print("🌑🌙✨ Three cosmic losses! Entering cooldown phase...")
+            print(" Three cosmic losses! Entering cooldown phase...")
             return
         
         price = self.data.Close[-1]
@@ -55,7 +51,7 @@ class DeltaClusterBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price, tp=price + 3*min_stop)
-                    print(f"🚀🌙 LONG ENTRY @ {price:.2f} | Size: {position_size} | CMO: {self.cmo[-1]:.2f} | Cosmic Thrusters Engaged!")
+                    print(f" LONG ENTRY @ {price:.2f} | Size: {position_size} | CMO: {self.cmo[-1]:.2f} | Cosmic Thrusters Engaged!")
         
         # Short Entry Nebula 🌌
         elif not self.position and (self.data.Close[-2] > self.swing_low[-2] and self.data.Close[-1] < self.swing_low[-1]):
@@ -66,7 +62,7 @@ class DeltaClusterBreakout(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price, tp=price - 3*min_stop)
-                    print(f"🌠🌙 SHORT ENTRY @ {price:.2f} | Size: {position_size} | CMO: {self.cmo[-1]:.2f} | Gravitational Collapse Initiated!")
+                    print(f" SHORT ENTRY @ {price:.2f} | Size: {position_size} | CMO: {self.cmo[-1]:.2f} | Gravitational Collapse Initiated!")
         
         # Trailing Stop Management 🌕
         for trade in self.trades:

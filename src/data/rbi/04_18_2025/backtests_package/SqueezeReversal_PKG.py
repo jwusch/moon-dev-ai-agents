@@ -1,14 +1,10 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 def load_data(data_path):
-    """🌌 Load and prepare cosmic data with Moon Dev standards 🌌"""
+#     """🌌 Load and prepare cosmic data with Moon Dev standards 🌌"""
     data = pd.read_csv(data_path)
     
     # 🧹 Cleanse column names
@@ -31,11 +27,11 @@ def load_data(data_path):
     return data
 
 class SqueezeReversal(Strategy):
-    max_positions = 3  # 🚀 Maximum concurrent launches
-    risk_pct = 0.01    # 🌑 1% risk per trade
+    max_positions = 3  #  Maximum concurrent launches
+    risk_pct = 0.01    #  1% risk per trade
     
     def init(self):
-        """🌓 Calculate celestial indicators"""
+        """ Calculate celestial indicators"""
         # 🌗 Core strategy indicators
         self.sma20 = self.I(talib.SMA, self.data.Close, timeperiod=20, name='SMA20')
         self.rsi14 = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI14')
@@ -46,7 +42,7 @@ class SqueezeReversal(Strategy):
         self.funding_series = self.data.df['fundingrate']
         
     def next(self):
-        """🌕 Execute cosmic trading logic"""
+        """ Execute cosmic trading logic"""
         if len(self.data) < 100:  # Wait for stardust to settle
             return
             
@@ -91,7 +87,7 @@ class SqueezeReversal(Strategy):
                         'trailing_active': False
                     }
                 )
-                print(f"🚀🌑 MOON DEV LAUNCH: Long {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} TP: {take_profit:.2f}")
+#                 print(f"🚀🌑 MOON DEV LAUNCH: Long {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} TP: {take_profit:.2f}")
         
         # 🌓 Manage active missions
         for position in self.positions:

@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Volumetric Breakout Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -48,7 +46,7 @@ class VolumetricBreakout(Strategy):
             if golden_cross and volume_spike:
                 atr_value = self.atr[-1]
                 if atr_value == 0:
-                    print("🌙 Warning: Zero ATR value detected!")
+                    print(" Warning: Zero ATR value detected!")
                     return
                 
                 # Calculate Moon Dev Risk Management 🌙
@@ -62,12 +60,12 @@ class VolumetricBreakout(Strategy):
                     self.trailing_high = self.entry_price
                     
                     # 🌙 Moon Dev Themed Entry Print 🌙
-                    print(f"\n🚀 MOON DEV ALERT: LONG SIGNAL DETECTED 🚀")
+#                     print(f"\n🚀 MOON DEV ALERT: LONG SIGNAL DETECTED 🚀")
                     print(f"⏰ {self.data.index[-1]}")
-                    print(f"💵 Entry Price: {self.entry_price:.2f}")
-                    print(f"📈 Position Size: {position_size} units")
-                    print(f"🛑 Initial SL: {self.initial_sl:.2f}")
-                    print(f"📉 ATR Stop Distance: {stop_distance:.2f}")
+                    print(f" Entry Price: {self.entry_price:.2f}")
+                    print(f" Position Size: {position_size} units")
+                    print(f" Initial SL: {self.initial_sl:.2f}")
+                    print(f" ATR Stop Distance: {stop_distance:.2f}")
                     
                     self.buy(size=position_size)
 
@@ -82,15 +80,15 @@ class VolumetricBreakout(Strategy):
             
             if self.data.Low[-1] <= current_sl:
                 self.position.close()
-                print(f"\n🌙 MOON DEV EXIT SIGNAL 🌙")
+#                 print(f"\n🌙 MOON DEV EXIT SIGNAL 🌙")
                 print(f"⏰ {self.data.index[-1]}")
-                print(f"💰 Exit Price: {self.data.Close[-1]:.2f}")
-                print(f"📉 Final SL: {current_sl:.2f}")
-                print(f"✨ P/L: {self.position.pl:.2f}")
+                print(f" Exit Price: {self.data.Close[-1]:.2f}")
+                print(f" Final SL: {current_sl:.2f}")
+                print(f" P/L: {self.position.pl:.2f}")
                 print("="*50)
 
 # 🌙 Run Moon Dev Backtest 🌙
 bt = Backtest(data, VolumetricBreakout, cash=1_000_000, trade_on_close=False)
 stats = bt.run()
 print("\n" + "="*50)
-print("🌙🌙🌙 MOON DEV BACK
+# print("🌙🌙🌙 MOON DEV BACK"

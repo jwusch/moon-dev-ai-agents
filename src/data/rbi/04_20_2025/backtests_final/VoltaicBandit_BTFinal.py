@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -56,7 +55,7 @@ class VoltaicBandit(Strategy):
                     position_size = int(round((self.risk_percent * self.equity) / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🌙✨ MOON DEV LONG ENTRY! {self.data.index[-1]} | Size: {position_size} | SL: {sl_price:.2f} 🚀")
+#                         print(f"🌙✨ MOON DEV LONG ENTRY! {self.data.index[-1]} | Size: {position_size} | SL: {sl_price:.2f} 🚀")
                         
             elif self.data.Close[-1] < lower_band and self.data.Close[-2] >= prev_lower_band:
                 if self.data.Volume[-1] > self.volume_ma[-1]:
@@ -67,13 +66,13 @@ class VoltaicBandit(Strategy):
                     position_size = int(round((self.risk_percent * self.equity) / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price)
-                        print(f"🌙✨ MOON DEV SHORT ENTRY! {self.data.index[-1]} | Size: {position_size} | SL: {sl_price:.2f} 🚀")
+#                         print(f"🌙✨ MOON DEV SHORT ENTRY! {self.data.index[-1]} | Size: {position_size} | SL: {sl_price:.2f} 🚀")
         else:
             if self.position.is_long:
                 if self.rsi[-1] < 50 and self.rsi[-2] >= 50:
                     self.position.close()
-                    print(f"🌙🛑 MOON DEV LONG EXIT! RSI Cross 50 | Price: {self.data.Close[-1]:.2f} | {self.data.index[-1]}")
+#                     print(f"🌙🛑 MOON DEV LONG EXIT! RSI Cross 50 | Price: {self.data.Close[-1]:.2f} | {self.data.index[-1]}")
             elif self.position.is_short:
                 if self.rsi[-1] > 50 and self.rsi[-2] <= 50:
                     self.position.close()
-                    print(f"🌙🛑 MOON DEV SHORT EX
+#                     print(f"🌙🛑 MOON DEV SHORT EX"

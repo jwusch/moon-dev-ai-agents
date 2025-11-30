@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -61,7 +58,7 @@ class VolumetricSqueeze(Strategy):
             # Check volatility expansion exit
             if self.width[-1] > self.width_80[-1]:
                 self.position.close()
-                print(f"🌕💥 MOON EXIT: Volatility expanded! Width {self.width[-1]:.4f} > 80th ({self.width_80[-1]:.4f})")
+                print(f" MOON EXIT: Volatility expanded! Width {self.width[-1]:.4f} > 80th ({self.width_80[-1]:.4f})")
 
         else:
             # Entry conditions check
@@ -78,6 +75,6 @@ class VolumetricSqueeze(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price)
-                        print(f"🌙🚀 MOON ENTRY! Size: {position_size} | Risk: {self.risk_pct*100}% | Stop: {stop_price:.2f}")
+                        print(f" MOON ENTRY! Size: {position_size} | Risk: {self.risk_pct*100}% | Stop: {stop_price:.2f}")
 
 # Run backtest

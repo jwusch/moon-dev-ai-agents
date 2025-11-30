@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -64,4 +63,4 @@ class VolumetricFisher(Strategy):
             position_size = int(round(risk_amount / (self.data.Close[-1] - sl_price)))
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price)
-                print(f"🌙 MOON DEV LONG ENTRY 🚀 | Size: {position_size} | Price: {self.data.Close[-1]:.2f} | SL
+#                 print(f"🌙 MOON DEV LONG ENTRY 🚀 | Size: {position_size} | Price: {self.data.Close[-1]:.2f} | SL"

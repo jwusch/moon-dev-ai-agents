@@ -1,7 +1,3 @@
-I'll fix the code while maintaining the original strategy logic and adding Moon Dev themed debug prints. Here's the complete fixed version:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -24,7 +20,7 @@ def load_data(path):
     })
     data['DateTime'] = pd.to_datetime(data['datetime'])
     data.set_index('DateTime', inplace=True)
-    print("🌑🌒🌓🌔🌕🌖🌗🌘 MOON DEV DATA LOADED SUCCESSFULLY ✨")
+#     print("🌑🌒🌓🌔🌕🌖🌗🌘 MOON DEV DATA LOADED SUCCESSFULLY ✨")
     return data
 
 data = load_data('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -47,11 +43,11 @@ class SqueezeSurge(Strategy):
         self.bandwidth = self.I(lambda u, l: u - l, self.upper_band, self.lower_band)
         self.min_bandwidth = self.I(talib.MIN, self.bandwidth, timeperiod=20)
         
-        print("🌌 MOON DEV INDICATORS INITIALIZED - READY FOR LIFTOFF 🚀")
+#         print("🌌 MOON DEV INDICATORS INITIALIZED - READY FOR LIFTOFF 🚀")
 
     def next(self):
         if len(self.data.Close) < 20:
-            print("🌑 GATHERING MOON DATA - NOT ENOUGH CANDLES YET")
+            print(" GATHERING MOON DATA - NOT ENOUGH CANDLES YET")
             return
         
         # 🌙 CURRENT VALUES (CELESTIAL SNAPSHOT)
@@ -82,5 +78,5 @@ class SqueezeSurge(Strategy):
                 risk_per_share = close - midpoint
                 if risk_per_share > 0:
                     size = int(round((self.risk_pct * self.equity) / risk_per_share))
-                    if size > 0:  # Ensure we don't trade zero units
+                    if size > 0:  # Ensure we don't trade zero units'
                         tp = close + 2 * risk_per_share

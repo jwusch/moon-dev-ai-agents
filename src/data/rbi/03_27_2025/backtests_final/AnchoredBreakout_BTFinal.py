@@ -1,6 +1,3 @@
-I've analyzed the code and found a few minor issues to fix while maintaining the original strategy logic. Here's the debugged version with Moon Dev enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -22,21 +19,28 @@ data = data.rename(columns={
 })
 
 class AnchoredBreakout(Strategy):
-    vwap_period = 20  # 🌕 VWAP orbital period
-    std_dev = 2       # ✨ Standard deviation multiplier
-    adx_period = 14   # 🌗 ADX measurement window
-    volume_lookback = 50  # 🚀 Volume analysis period
-    risk_pct = 0.01   # 🛡️ Cosmic risk shield percentage
+    vwap_period = 20  #  VWAP orbital period
+    std_dev = 2       #  Standard deviation multiplier
+    adx_period = 14   #  ADX measurement window
+    volume_lookback = 50  #  Volume analysis period
+    risk_pct = 0.01   #  Cosmic risk shield percentage
     
     def init(self):
         # Calculate VWAP-based Bollinger Bands with lunar precision 🌙
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low, 
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          length=self.vwap_period,
-                          name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Standard deviation for cosmic bands 🌠
         stddev = self.I(talib.STDDEV, self.data.Close, self.vwap_period)
@@ -76,7 +80,7 @@ class AnchoredBreakout(Strategy):
                 
                 if size > 0:
                     self.buy(size=size, sl=sl)
-                    print(f"🌙🚀 MOON SHOT ACTIVATED! Long {size} units at {price:.2f} | Cosmic SL {sl:.2f}")
+                    print(f" MOON SHOT ACTIVATED! Long {size} units at {price:.2f} | Cosmic SL {sl:.2f}")
             
             # Short entry constellation 🌠
             elif (price < lower_band and
@@ -90,12 +94,12 @@ class AnchoredBreakout(Strategy):
                 
                 if size > 0:
                     self.sell(size=size, sl=sl)
-                    print(f"🌙🌑 BLACK HOLE ENGAGED! Short {size} units at {price:.2f} | Galactic SL {sl:.2f}")
+                    print(f" BLACK HOLE ENGAGED! Short {size} units at {price:.2f} | Galactic SL {sl:.2f}")
         
         else:
             # Exit with cosmic precision 🌟
             if self.position.is_long and price < self.vwap[-1]:
                 self.position.close()
-                print(f"🌙💫 LUNAR ECLIPSE! Closing long at {price:.2f}")
+                print(f" LUNAR ECLIPSE! Closing long at {price:.2f}")
             elif self.position.is_short and price > self.vwap[-1]:
                 self.position.close

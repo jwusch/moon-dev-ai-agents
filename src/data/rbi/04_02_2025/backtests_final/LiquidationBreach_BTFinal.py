@@ -1,14 +1,10 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's LiquidationBreach Backtest Script ✨
 import pandas as pd
 import talib
 import numpy as np
 from backtesting import Backtest, Strategy
 
 class LiquidationBreach(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     rvol_threshold = 2.0
     breach_pct = 0.05
     max_holding_bars = 16  # 4 hours in 15m intervals
@@ -31,13 +27,13 @@ class LiquidationBreach(Strategy):
             # RVOL Spike Exit
             if self.rvol[-1] > self.rvol_threshold:
                 self.position.close()
-                print(f"🌕 Moon Exit: RVOL Spike {self.rvol[-1]:.2f}x! Banking Moonshots 🚀")
+                print(f" Moon Exit: RVOL Spike {self.rvol[-1]:.2f}x! Banking Moonshots ")
                 return
             
             # Time-based Exit
             if len(self.data) - self.position.entry_bar >= self.max_holding_bars:
                 self.position.close()
-                print(f"🌗 Time Exit: 4hr Limit Reached. Returning to Orbit 🕒")
+                print(f" Time Exit: 4hr Limit Reached. Returning to Orbit ")
                 return
             
         else:
@@ -49,7 +45,7 @@ class LiquidationBreach(Strategy):
                     if risk_per_share > 0:
                         position_size = int(round((self.risk_pct * self.equity) / risk_per_share))
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🚀 BLASTOFF LONG! Size: {position_size} | SL: {sl_price:.1f} 🌙")
+                        print(f" BLASTOFF LONG! Size: {position_size} | SL: {sl_price:.1f} ")
 
             # 🌒 Short Entry: 5% Above Resistance with Volume Confirmation
             elif self.data.Close[-1] >= self.resistance[-1] * (1 + self.breach_pct):
@@ -59,10 +55,10 @@ class LiquidationBreach(Strategy):
                     if risk_per_share > 0:
                         position_size = int(round((self.risk_pct * self.equity) / risk_per_share))
                         self.sell(size=position_size, sl=sl_price)
-                        print(f"🌚 SHORT LAUNCH! Size: {position_size} | SL: {sl_price:.1f} 🌌")
+                        print(f" SHORT LAUNCH! Size: {position_size} | SL: {sl_price:.1f} ")
 
 # 🌟 Moon Data Preparation
-print("🌑 Initializing Moon Data Systems...")
+print(" Initializing Moon Data Systems...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv',
                    parse_dates=['datetime'], index_col='datetime')
 data.columns = data.columns.str.strip().str.lower()

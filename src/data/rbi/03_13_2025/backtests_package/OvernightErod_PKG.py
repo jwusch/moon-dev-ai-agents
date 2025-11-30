@@ -1,8 +1,3 @@
-I'll help fix the code by removing any `backtesting.lib` imports and replacing crossover logic. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's OvernightErod Backtest Implementation 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -58,7 +53,7 @@ class OvernightErod(Strategy):
         # 🛑 Pre-Market Exit
         if self.position and current_time >= datetime.time(6):
             self.position.close()
-            print(f"🌙 Moon Dev Exit: Sunrise flush at 6AM EST 🌅")
+#             print(f"🌙 Moon Dev Exit: Sunrise flush at 6AM EST 🌅")
             return
             
         if not entry_zone:
@@ -94,11 +89,11 @@ class OvernightErod(Strategy):
                     sl=stop_price,
                     tp=entry_price + 2*(entry_price - stop_price)
                 )
-                print(f"🚀 Moon Dev LONG Signal: {position_size} units @ {entry_price} ✨")
+#                 print(f"🚀 Moon Dev LONG Signal: {position_size} units @ {entry_price} ✨")
                 
         # 🛑 Swing Low Exit
         if self.position and self.data.Low[-1] < self.low_60m[-1]:
             self.position.close()
-            print(f"🌙 Moon Dev Exit: Swing low breach 🚨")
+#             print(f"🌙 Moon Dev Exit: Swing low breach 🚨")
 
 # =======================

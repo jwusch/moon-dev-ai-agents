@@ -1,7 +1,3 @@
-Here's the debugged and fixed version of your VortexMomentum strategy with proper position sizing and all technical issues resolved:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -44,7 +40,7 @@ class VortexMomentum(Strategy):
         self.volume_ma = self.I(talib.SMA, self.data.Volume, 20, name='Vol MA')
         self.atr = self.I(talib.ATR, high, low, close, 14, name='ATR')
         
-        print("🌙✨ VortexMomentum Strategy Activated! Moon Dev Power Engaged! 🚀")
+#         print("🌙✨ VortexMomentum Strategy Activated! Moon Dev Power Engaged! 🚀")
     
     def next(self):
         current_close = self.data.Close[-1]
@@ -74,13 +70,13 @@ class VortexMomentum(Strategy):
                 self._update_long_trailing_stop()
                 if (self.vi_minus[-2] < self.vi_plus[-2] and self.vi_minus[-1] > self.vi_plus[-1]):
                     self.position.close()
-                    print(f"🌙⚡ VI Reversal! Closing LONG at {current_close:.2f} ⚠️")
+                    print(f" VI Reversal! Closing LONG at {current_close:.2f} ")
                     
             elif self.position.is_short:
                 self._update_short_trailing_stop()
                 if (self.vi_plus[-2] < self.vi_minus[-2] and self.vi_plus[-1] > self.vi_minus[-1]):
                     self.position.close()
-                    print(f"🌙⚡ VI Reversal! Closing SHORT at {current_close:.2f} ⚠️")
+                    print(f" VI Reversal! Closing SHORT at {current_close:.2f} ")
 
     def _validate_volatility(self, price):
         return self.atr[-1] >= 0.005 * price

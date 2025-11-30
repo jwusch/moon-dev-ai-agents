@@ -1,7 +1,3 @@
-I've checked the code and found the `backtesting.lib` import. Here's the fixed version with proper Moon Dev themed debug prints and all necessary replacements:
-
-```python
-# 🌙 Moon Dev's VolumeSurge Breakout Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -22,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolumeSurgeBreakout(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌊
+    risk_pct = 0.01  # 1% risk per trade 
     consecutive_losses = 0
     
     def init(self):
@@ -67,7 +63,7 @@ class VolumeSurgeBreakout(Strategy):
                 tp = entry_price + 2 * atr_value
                 
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🌙✨ BUY SIGNAL | Size: {position_size} | Entry: {entry_price:.2f} 🚀")
+                print(f" BUY SIGNAL | Size: {position_size} | Entry: {entry_price:.2f} ")
 
         # 🛑 Exit Management
         for trade in self.trades:
@@ -77,7 +73,7 @@ class VolumeSurgeBreakout(Strategy):
                     new_sl = self.data.Close[-1] - 0.5 * trade.sl
                     if new_sl > trade.sl:
                         trade.sl = new_sl
-                        print(f"🌙🔧 Trailing SL Updated: {new_sl:.2f}")
+                        print(f" Trailing SL Updated: {new_sl:.2f}")
 
     def notify_trade(self, trade):
         # 🌗 Track Daily PnL & Consecutive Losses
@@ -85,10 +81,10 @@ class VolumeSurgeBreakout(Strategy):
             self.daily_pnl += trade.pnl
             if trade.pnl <= 0:
                 self.consecutive_losses += 1
-                print(f"🌙💔 Loss Detected | Consecutive Losses: {self.consecutive_losses}")
+                print(f" Loss Detected | Consecutive Losses: {self.consecutive_losses}")
             else:
                 self.consecutive_losses = 0
-                print(f"🌙💰 Profit Taken | PnL: {trade.pnl:.2f}")
+                print(f" Profit Taken | PnL: {trade.pnl:.2f}")
 
 # 🚨 Backtest Execution
 bt

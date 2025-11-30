@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR SQUEEZELIQUIDITY STRATEGY 🚀
-
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -18,7 +13,7 @@ def prepare_data(path):
     
     # Column mapping with Moon Dev validation ✨
     required = ['open', 'high', 'low', 'close', 'volume', 'funding']
-    assert all(col in data.columns for col in required), "🌙 MISSING REQUIRED COLUMNS!"
+    assert all(col in data.columns for col in required), " MISSING REQUIRED COLUMNS!"
     
     # Proper case conversion
     data = data.rename(columns={

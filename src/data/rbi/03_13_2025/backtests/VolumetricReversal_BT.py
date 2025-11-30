@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -23,7 +22,7 @@ class VolumetricReversal(Strategy):
         # Volume analysis
         self.vol_sma = self.I(talib.SMA, self.data.Volume, 20)
         
-        print("🌙✨ Moon Dev Indicators Activated! BBANDS | STOCH | VOL SMA Loaded 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! BBANDS | STOCH | VOL SMA Loaded 🚀")
 
     def next(self):
         if len(self.data) < 20:  # Wait for indicators to warm up
@@ -51,8 +50,8 @@ class VolumetricReversal(Strategy):
                     size = int(round(risk_amount / risk_per_unit))
                     if size > 0:
                         self.buy(size=size, sl=middle, tp=current_close + (upper - lower))
-                        print(f"🌙🚀 MOON BLASTOFF! LONG {size} units @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {middle:.2f} | 🎯 TP: {current_close + (upper - lower):.2f}")
+                        print(f" MOON BLASTOFF! LONG {size} units @ {current_close:.2f}")
+                        print(f"    SL: {middle:.2f} |  TP: {current_close + (upper - lower):.2f}")
             
             # Short Entry: Break lower BB + volume spike + Stoch confirmation
             elif (current_close < lower and vol_spike and stoch_k < 20):
@@ -63,16 +62,16 @@ class VolumetricReversal(Strategy):
                     size = int(round(risk_amount / risk_per_unit))
                     if size > 0:
                         self.sell(size=size, sl=middle, tp=current_close - (upper - lower))
-                        print(f"🌙📉 COMET CRASH! SHORT {size} units @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {middle:.2f} | 🎯 TP: {current_close - (upper - lower):.2f}")
+                        print(f" COMET CRASH! SHORT {size} units @ {current_close:.2f}")
+                        print(f"    SL: {middle:.2f} |  TP: {current_close - (upper - lower):.2f}")
         else:
             # Exit on Stochastic reversal
             if self.position.is_long and stoch_k < stoch_d and stoch_k < 80:
                 self.position.close()
-                print(f"🌙✨ LUNAR ECLIPSE! Closing Long | K:{stoch_k:.1f} D:{stoch_d:.1f}")
+                print(f" LUNAR ECLIPSE! Closing Long | K:{stoch_k:.1f} D:{stoch_d:.1f}")
             elif self.position.is_short and stoch_k > stoch_d and stoch_k > 20:
                 self.position.close()
-                print(f"🌙✨ STAR RECOVERY! Closing Short | K:{stoch_k:.1f} D:{stoch_d:.1f}")
+                print(f" STAR RECOVERY! Closing Short | K:{stoch_k:.1f} D:{stoch_d:.1f}")
 
 # Data preparation
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

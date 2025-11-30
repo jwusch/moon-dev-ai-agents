@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR SQUEEZE SURGE STRATEGY 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -48,7 +44,7 @@ class SqueezeSurge(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.trailing_high = self.data.High[-1]
-                    print(f"🌙✨ MOON DEV ALERT: Long Entry at {self.data.Close[-1]}! Squeeze Surge Detected! 🚀📈")
+#                     print(f"🌙✨ MOON DEV ALERT: Long Entry at {self.data.Close[-1]}! Squeeze Surge Detected! 🚀📈")
         else:
             # 🛑 EXIT CONDITIONS
             # Update trailing high
@@ -62,9 +58,9 @@ class SqueezeSurge(Strategy):
             if self.data.Close[-1] < stop_price or rsi_exit:
                 self.position.close()
                 if self.data.Close[-1] < stop_price:
-                    print(f"🌙🛑 TRAILING STOP TRIGGERED! Exiting at {self.data.Close[-1]} 🌊")
+                    print(f" TRAILING STOP TRIGGERED! Exiting at {self.data.Close[-1]} ")
                 else:
-                    print(f"🌙💹 RSI OVERHEATED! Taking Profit at {self.data.Close[-1]} 🌟")
+                    print(f" RSI OVERHEATED! Taking Profit at {self.data.Close[-1]} ")
 
 # 🧹 DATA CLEANING AND PREPARATION
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

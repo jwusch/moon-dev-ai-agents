@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper indicator implementations:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -44,7 +41,7 @@ class VortexDivergence(Strategy):
                                              length=self.vi_period,
                                              name=['VI+', 'VI-'])
         
-        # Elder's Force Index
+        # Elder's Force Index'
         force = (c - c.shift(1)) * v
         self.efi = self.I(talib.EMA, force, self.efi_period, name='EFI')
         
@@ -69,12 +66,12 @@ class VortexDivergence(Strategy):
     def next(self):
         # Moon Dev themed debug prints 🌙✨
         if len(self.data) % 100 == 0:
-            print(f"\n🌙 Moon Dev Status Update @ {self.data.index[-1]} ✨")
+#             print(f"\n🌙 Moon Dev Status Update @ {self.data.index[-1]} ✨")
             print(f"Equity: ${self.equity:,.2f} | Price: ${self.data.Close[-1]:.2f}")
         
         # Cooldown check
         if self.consecutive_losses >= 3:
-            print("🚨🌙 3 consecutive losses! Cooling down... ⏳")
+            print(" 3 consecutive losses! Cooling down... ⏳")
             return
 
         if not self.position:
@@ -92,4 +89,4 @@ class VortexDivergence(Strategy):
                     size = int(round((self.equity * self.risk_pct) / risk))
                     if size > 0:
                         self.buy(size=size, sl=sl, tp=self.upper_kc[-1])
-                        print(f"🚀🌙 LONG Entry @ {self.data.Close[-1]:.2f}")
+                        print(f" LONG Entry @ {self.data.Close[-1]:.2f}")

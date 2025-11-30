@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -56,7 +52,7 @@ class VolumetricBandwidth(Strategy):
         # Trend strength
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, self.adx_period)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -64,7 +60,7 @@ class VolumetricBandwidth(Strategy):
         
         # Position limit check
         if len(self.positions) >= self.max_positions:
-            print("🌙 Max positions reached! Moon Dev holding steady...")
+#             print("🌙 Max positions reached! Moon Dev holding steady...")
             return
             
         bandwidth_value = self.bandwidth[-1]
@@ -86,5 +82,5 @@ class VolumetricBandwidth(Strategy):
             risk_per_share = entry_price - stop_loss
             
             if risk_per_share <= 0:
-                print("🌙 Warning: Invalid risk per share! Moon Dev skipping trade...")
+#                 print("🌙 Warning: Invalid risk per share! Moon Dev skipping trade...")
                 return

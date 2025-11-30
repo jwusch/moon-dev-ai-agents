@@ -1,7 +1,3 @@
-I'll help fix the code by removing the `backtesting.lib` import and ensuring all indicators are properly implemented. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's ConfluencePattern Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -20,7 +16,7 @@ class ConfluencePattern(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("🌙✨ Moon Dev Indicators Initialized!")
+#         print("🌙✨ Moon Dev Indicators Initialized!")
         print("EMA(50, 200), RSI(14), MACD(12,26,9)")
         print("Volume SMA(20), Swing High/Low(20)")
 
@@ -76,7 +72,7 @@ class ConfluencePattern(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                        print(f"🌙🚀✨ BULLISH CONFLUENCE! Long {position_size} shares")
+                        print(f" BULLISH CONFLUENCE! Long {position_size} shares")
                         print(f"Entry: {entry_price:.2f}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
 
             elif all(short_conditions):
@@ -91,7 +87,7 @@ class ConfluencePattern(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-                        print(f"🌙🚀✨ BEARISH CONFLUENCE! Short {position_size} shares")
+                        print(f" BEARISH CONFLUENCE! Short {position_size} shares")
                         print(f"Entry: {entry_price:.2f}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
 
 # 🌙✨ Moon Dev

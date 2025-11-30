@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -51,7 +50,7 @@ class LiquidationVolatility(Strategy):
         current_bbw = self.bbw[-1]
         if current_bbw > np.percentile(bbw_window, 75):
             self.position.close()
-            print(f"🌪️🌙 Volatility spike! Closing at {self.data.Close[-1]:.2f} (BBW: {current_bbw:.2f})")
+            print(f" Volatility spike! Closing at {self.data.Close[-1]:.2f} (BBW: {current_bbw:.2f})")
 
     def check_entries(self):
         # BBW percentile check
@@ -82,7 +81,7 @@ class LiquidationVolatility(Strategy):
             size = int(round(risk_amount / (price - sl_price)))
             if size > 0:
                 self.buy(size=size, sl=sl_price)
-                print(f"🚀🌙 LONG! {size} units @ {price:.2f} | SL: {sl_price:.2f}")
+                print(f" LONG! {size} units @ {price:.2f} | SL: {sl_price:.2f}")
                 
         elif near_low and price < self.swing_low[-1]:
             sl_price = price + 1.5*atr_value

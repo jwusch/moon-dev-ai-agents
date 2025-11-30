@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
@@ -27,9 +26,9 @@ def load_data(path):
     return data
 
 class DivergenceDecay(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
-    atr_multiplier = 3  # 3x ATR for stops 🛑
-    lookback_period = 20  # New high detection period 📈
+    risk_percent = 0.01  # 1% risk per trade 
+    atr_multiplier = 3  # 3x ATR for stops 
+    lookback_period = 20  # New high detection period 
     
     def init(self):
         # Moon Dev Indicator Setup 🌙✨
@@ -79,7 +78,7 @@ class DivergenceDecay(Strategy):
             if position_size > 0:
                 self.trailing_stop = entry_price + self.atr_multiplier * atr_value
                 self.sell(size=position_size)
-                print(f"🌙✨ Moon Dev Short Signal! ✨")
+#                 print(f"🌙✨ Moon Dev Short Signal! ✨")
                 print(f"Entry: {entry_price:.2f} | Size: {position_size}")
                 print(f"Initial Stop: {self.trailing_stop:.2f} | ATR: {atr_value:.2f}")
         
@@ -93,4 +92,4 @@ class DivergenceDecay(Strategy):
             # Check stop breach
             if self.data.High[-1] >= self.trailing_stop:
                 self.position.close()
-                print(f"🚨🌑 Moon Dev Exit: Trailing Stop {self.trailing
+#                 print(f"🚨🌑 Moon Dev Exit: Trailing Stop {self.trailing"

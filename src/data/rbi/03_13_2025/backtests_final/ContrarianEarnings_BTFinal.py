@@ -49,7 +49,7 @@ class ContrarianEarnings(Strategy):
         # 🌙 Moon Dev Debug: Track earnings events
         if self.earnings_dates[-1] == 1:
             self.last_earnings_idx = current_idx
-            print(f"🌕 NEW EARNINGS DETECTED! Index: {current_idx} | Price: {self.data.Close[-1]:.2f}")
+            print(f"🌕 NEW EARNINGS DETECTED! Index: {current_idx} | Price: {self.data.Close[-1]:0.2f}")
 
         # Entry Logic: 4th day after earnings
         if self.last_earnings_idx != -1 and (current_idx - self.last_earnings_idx) == 384:  # 4 days in 15min bars
@@ -75,7 +75,7 @@ class ContrarianEarnings(Strategy):
                             sl=stop_loss,
                             tp=take_profit,
                             tag=f"🌙 Contrarian Entry")
-                    print(f"🚀 ENTRY SIGNAL | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f"🚀 ENTRY SIGNAL | Size: {position_size} | Entry: {entry_price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
 
         # Exit Logic: Time-based exit
         for trade in self.trades:

@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# moon_dev_backtest.py 🌙🚀
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -30,7 +26,7 @@ data = data.set_index('datetime')
 # SQUEEZE CLUSTER STRAT 🌙
 # ========================
 class SqueezeCluster(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # === BOLLINGER SQUEEZE DETECTOR ===
@@ -52,7 +48,7 @@ class SqueezeCluster(Strategy):
             return ta.quantile(series, length=30, q=0.9)
         self.bbw_percentile = self.I(volatility_percentile, self.bbw)
         
-        print("🌙✨ Moon Dev Systems Armed - Ready for Launch! 🚀")
+#         print("🌙✨ Moon Dev Systems Armed - Ready for Launch! 🚀")
 
     def next(self):
         # === MOON DEV TRADE LOGIC ===
@@ -72,18 +68,18 @@ class SqueezeCluster(Strategy):
             if squeeze_active and long_trigger:
                 sl = max(0.01, price - 1.5 * atr)  # Ensure SL is positive
                 self.buy(size=position_size, sl=sl)
-                print(f"🌙🚀 LIFT OFF! Long {position_size} units @ {price:.2f} | SL: {sl:.2f}")
+                print(f" LIFT OFF! Long {position_size} units @ {price:.2f} | SL: {sl:.2f}")
                 
             elif squeeze_active and short_trigger:
                 sl = price + 1.5 * atr
                 self.sell(size=position_size, sl=sl)
-                print(f"🌙🌒 COMET DIVE! Short {position_size} units @ {price:.2f} | SL: {sl:.2f}")
+                print(f" COMET DIVE! Short {position_size} units @ {price:.2f} | SL: {sl:.2f}")
         
         # === EXIT CONDITIONS ===
         elif self.position:
             if self.bbw[-1] > self.bbw_percentile[-1]:
                 self.position.close()
-                print(f"🌪️💨 VOLATILITY STORM! Closing @ {price:.2f}")
+                print(f" VOLATILITY STORM! Closing @ {price:.2f}")
 
 # ======================
 # LAUNCH BACKTEST 🚀

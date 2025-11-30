@@ -1,14 +1,10 @@
-I'll complete and fix the code while maintaining all the strategy logic and adding Moon Dev themed debug prints. Here's the fully corrected version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
 
-# Moon Dev's Data Preparation Ritual 🌙✨
+# Moon Dev's Data Preparation Ritual 🌙✨'
 def prepare_data(path):
     data = pd.read_csv(path)
     # Cleanse column names
@@ -32,7 +28,7 @@ def prepare_data(path):
 DATA_PATH = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
 
 class BandWickSurge(Strategy):
-    risk_percent = 0.01  # 1% cosmic risk allocation 🌙
+    risk_percent = 0.01  # 1% cosmic risk allocation 
     max_bars_held = 5    # Planetary orbital period 🪐
 
     def init(self):
@@ -82,18 +78,18 @@ class BandWickSurge(Strategy):
                 
                 risk_per_unit = entry_price - stop_price
                 if risk_per_unit <= 0:
-                    print("🌑 WARNING: Black hole scenario detected - avoiding trade!")
-                    return  # Avoid black hole scenario 🌑
+                    print(" WARNING: Black hole scenario detected - avoiding trade!")
+                    return  # Avoid black hole scenario 
                 
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.buy(
                         size=position_size,
                         sl=stop_price,
-                        tag="Lunar Surge Activation 🌙✨"
+                        tag="Lunar Surge Activation "
                     )
                     self.entry_bar = len(self.data) - 1
-                    print(f"🌙🚀 MOON DEV ENTRY: {position_size} units @ {entry_price} | Shield @ {stop_price} 🌌")
+#                     print(f"🌙🚀 MOON DEV ENTRY: {position_size} units @ {entry_price} | Shield @ {stop_price} 🌌")
 
         # Galactic Exit Protocols 🛸
         else:
@@ -101,11 +97,11 @@ class BandWickSurge(Strategy):
             if (self.data.Close[-2] < self.middle[-2] and 
                 self.data.Close[-1] > self.middle[-1]):
                 self.position.close()
-                print(f"🌕✅ COSMIC EXIT: Middle band transcendence @ {current_close}")
+                print(f" COSMIC EXIT: Middle band transcendence @ {current_close}")
             
             # Time Vortex Exit (5-bar expiration)
             elif (len(self.data) - 1 - self.entry_bar) >= self.max_bars_held:
                 self.position.close()
-                print(f"⏳🌀 TEMPORAL EXIT: Maximum orbital period reached @ {current_close}")
+                print(f"⏳ TEMPORAL EXIT: Maximum orbital period reached @ {current_close}")
 
 #

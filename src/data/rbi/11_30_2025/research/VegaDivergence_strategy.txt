@@ -1,0 +1,62 @@
+STRATEGY_NAME: VegaDivergence
+
+STRATEGY_DETAILS:
+Key components:
+- Premise: Use volatility-price action divergence as an early warning for equity downside. Specifically, when VIX futures rise alongside a rising S&P 500 over a 20-day window, fear is building under the surface, favoring protective/short exposure via long puts.
+- Instruments: Long puts on SPX/SPY (or ES options if futures preferred).
+- Signal horizon: 20 trading days for divergence detection; fast exit via 10-day simple moving average (SMA) breach on SPX/SPY price.
+- Leverage cap: Enforce a strict maximum 2x delta-adjusted notional exposure relative to account equity.
+
+Entry rules:
+- Data construction:
+  - SPX (or SPY) close series.
+  - VIX futures continuous series: use front-month VIX futures, rolling 5–7 trading days before expiry; if you can, create a constant-maturity 20-trading-day VIX futures series via linear interpolation between the two nearest contracts.
+- Divergence definition (bearish):
+  - Compute 20-day rate-of-change (ROC) for SPX and for VIX futures.
+  - Primary trigger: SPX 20D ROC > +1% AND VIX futures 20D ROC > +10%.
+  - Optional confirmation filter (reduces noise): 20D rolling correlation between daily SPX returns and VIX futures returns > 0.2 (unusually positive correlation).
+- Timing:
+  - Enter at the close on the signal day or the next open if liquidity/commissions improve execution.
+- Option selection:
+  - Buy puts with 30–45 days to expiration (DTE).
+  - Delta target: -0.40 to -0.55 (ATM to slightly ITM) to balance theta and gamma; if IV is already very elevated (e.g., VIX > 25), favor slightly ITM (-0.55 to -0.65) to reduce vega risk.
+  - Ticker: Choose SPY for smaller accounts, SPX for capital efficiency; use liquid monthly/weekly expiries as available.
+
+Exit rules:
+- Moving average breach exit (primary):
+  - If at entry SPX/SPA price is above its 10-day SMA: exit the entire position on the first daily close below the 10-day SMA after entry; execute at that close or next open.
+  - If at entry price is below its 10-day SMA: exit on the first daily close back above the 10-day SMA.
+- Time stop:
+  - Exit at 15 trading days in position if the MA breach has not occurred.
+- Risk (adverse move) stop:
+  - Exit if option premium drawdown reaches 50% of cost or if SPX 10-day SMA slopes up and price makes a 5-day high (suggests divergence failed).
+- Signal invalidation:
+  - Exit if VIX futures 20D ROC turns negative and the SPX–VIX 20D rolling correlation falls back below -0.3 (normal inverse regime resumes).
+
+Risk management:
+- Position sizing and leverage:
+  - Define delta-adjusted notional exposure as sum(|option delta|) × SPX (or SPY) price.
+  - Constraint: delta-adjusted notional ≤ 2 × account equity at all times.
+  - Premium-at-risk cap: allocate 0.5%–1.5% of account equity per entry; never exceed 3% total premium at risk across concurrent positions.
+- Execution controls:
+  - Use limit orders near mid-price; allow partial fills; avoid illiquid strikes (open interest < 500 or wide spreads > $0.20 on SPY, > $1 on SPX).
+  - Avoid initiating new positions within 24 hours before major macro releases (CPI, FOMC) unless that is the explicit edge you want; macro prints can distort the divergence.
+- Volatility regime guardrails:
+  - In extreme volatility (VIX > 35), reduce size by 30% and favor ITM strikes to lessen vega.
+  - If VIX term structure is strongly in contango and VIX 20D ROC barely positive (< +5%), skip the trade (weak signal).
+- Holding and decay:
+  - If the MA breach occurs quickly (within 3–5 days), consider a partial profit at +30% to +50% option gain and trail remainder to the MA rule to capture extended selloffs.
+  - If within 7 days of expiration, either exit or roll out to maintain 20–30 DTE if the signal remains valid.
+
+Required indicators and calculations:
+- SPX (or SPY) 20-day ROC = (Close_t / Close_t-20 - 1).
+- VIX futures 20-day ROC computed on a continuous/constant-maturity series.
+- 20-day rolling Pearson correlation between daily SPX returns and VIX futures returns (optional filter).
+- SPX (or SPY) 10-day simple moving average and its slope.
+- Option Greeks (delta, vega) for sizing; real-time IV to assess strike moneyness bias.
+
+Workflow summary:
+1) Daily after market close: update SPX/SPY, VIX futures continuous, compute 20D ROCs and correlation.
+2) If divergence trigger (and optional correlation filter) met, schedule put purchase at close or next open with target DTE and delta, sizing under 2x leverage cap and premium-at-risk limits.
+3) Monitor daily: exit on first 10-day SMA breach per rules; otherwise apply time stop, drawdown stop, or signal invalidation.
+4) Log slippage, spread, and outcomes; periodically recalibrate ROC thresholds and DTE/delta choices based on backtest/live performance.

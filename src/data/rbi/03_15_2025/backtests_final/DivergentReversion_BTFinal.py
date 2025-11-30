@@ -1,6 +1,3 @@
-Here's the fixed code with proper position sizing, Moon Dev themed debug prints, and all technical issues resolved:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -50,11 +47,11 @@ class DivergentReversion(Strategy):
         # Check loss limits 🌙
         daily_loss = (self.daily_high_equity - self.equity)/self.daily_high_equity
         if daily_loss >= 0.03:
-            print("🌙💸 Daily loss limit hit! Trading halted for today")
+            print(" Daily loss limit hit! Trading halted for today")
             return
         weekly_loss = (self.weekly_high_equity - self.equity)/self.weekly_high_equity
         if weekly_loss >= 0.05:
-            print("🌙📉 Weekly loss limit breached! No trades this week")
+            print(" Weekly loss limit breached! No trades this week")
             return
             
         # Check existing positions
@@ -63,7 +60,7 @@ class DivergentReversion(Strategy):
             current_atr = self.atr[-1]
             trailing_stop = self.data.Close[-1] + 0.5*current_atr
             if self.data.High[-1] >= trailing_stop:
-                print(f"🌙✨ Trailing stop triggered at {trailing_stop:.2f}")
+                print(f" Trailing stop triggered at {trailing_stop:.2f}")
                 self.position.close()
             return
             

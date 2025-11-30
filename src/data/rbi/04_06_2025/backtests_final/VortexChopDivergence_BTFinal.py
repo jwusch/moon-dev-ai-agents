@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -25,7 +22,7 @@ data = data.rename(columns={
 class VortexChopDivergence(Strategy):
     def init(self):
         # Moon Dev Indicator Suite 🌙
-        print("🌙 Initializing Moon Dev Trading Tools...")
+#         print("🌙 Initializing Moon Dev Trading Tools...")
         
         # Vortex Indicator (14 period)
         vi_period = 14
@@ -60,7 +57,7 @@ class VortexChopDivergence(Strategy):
         self.long_conditions = deque(maxlen=3)
         self.short_conditions = deque(maxlen=3)
         
-        print("🚀 Moon Dev Indicators Ready! Let's ride the vortex! 🌪️")
+#         print("🚀 Moon Dev Indicators Ready! Let's ride the vortex! 🌪️")'
 
     def next(self):
         # Trading session filter (first 6 hours)

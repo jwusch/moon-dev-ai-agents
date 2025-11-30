@@ -1,6 +1,3 @@
-Here's the fixed code with all necessary adjustments and Moon Dev themed improvements: 🌙✨
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -28,7 +25,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class LiquidationReversal(Strategy):
-    risk_percent = 0.01  # 1% risk per trade - Moon Dev recommended 🌙
+#     risk_percent = 0.01  # 1% risk per trade - Moon Dev recommended 🌙
     
     def init(self):
         # Funding Rate Indicators 🌙✨
@@ -52,7 +49,7 @@ class LiquidationReversal(Strategy):
         self.engulfing = self.I(talib.CDLENGULFING, self.data.Open, self.data.High, self.data.Low, self.data.Close)
 
     def next(self):
-        if len(self.data.Close) < 100:  # Ensure enough lunar cycles 🌑🌒🌓🌔🌕
+        if len(self.data.Close) < 100:  # Ensure enough lunar cycles 
             return
             
         # Current indicator values with Moon Dev precision 🌙
@@ -69,7 +66,7 @@ class LiquidationReversal(Strategy):
                 rsi_oversold = self.rsi[-1] < 30
                 if bullish_engulf or rsi_oversold:
                     self.enter_long()
-                    print(f"🌙🚀 Moon Dev LONG signal activated! Bullish engulf: {bullish_engulf}, RSI: {self.rsi[-1]:.2f}")
+#                     print(f"🌙🚀 Moon Dev LONG signal activated! Bullish engulf: {bullish_engulf}, RSI: {self.rsi[-1]:.2f}")
             
             # Short setup: Extreme positive funding + bearish confirmation
             elif funding_z > 2 and vol_spike:
@@ -77,4 +74,4 @@ class LiquidationReversal(Strategy):
                 rsi_overbought = self.rsi[-1] > 70
                 if bearish_engulf or rsi_overbought:
                     self.enter_short()
-                    print(f"🌙🌑 Moon Dev SHORT signal activated! Bearish engulf: {bearish_engulf}, R
+#                     print(f"🌙🌑 Moon Dev SHORT signal activated! Bearish engulf: {bearish_engulf}, R"

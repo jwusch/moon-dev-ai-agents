@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder functions with manual implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -67,7 +64,7 @@ class VolumetricBandwidth(Strategy):
         
         # 🌙 Volatility filter
         if bb_med_val <= bb_sma50_val:
-            print(f"🌙✨ Volatility too low! Median {bb_med_val:.2f} ≤ SMA50 {bb_sma50_val:.2f}")
+            print(f" Volatility too low! Median {bb_med_val:.2f} ≤ SMA50 {bb_sma50_val:.2f}")
             return
         
         if not self.position:
@@ -80,7 +77,7 @@ class VolumetricBandwidth(Strategy):
                 if size > 0:
                     self.buy(size=size, sl=sl_price)
                     self.entry_bar = len(self.data)
-                    print(f"🌙🚀 LONG LAUNCH! {current_close:.2f}")
+                    print(f" LONG LAUNCH! {current_close:.2f}")
                     print(f"    Size: {size}, SL: {sl_price:.2f}, Risk: {risk_amount:.2f}")
             
             # Short entry constellation 🌙🌑

@@ -1,8 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLDELTABREAKOUT STRATEGY 🚀✨
-
 import pandas as pd
 import numpy as np
 import talib
@@ -27,7 +22,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolDeltaBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     consecutive_losses = 0
     entry_bar = None
     
@@ -51,7 +46,7 @@ class VolDeltaBreakout(Strategy):
     def next(self):
         # 🌑 Risk Management: Check consecutive losses
         if self.consecutive_losses >= 3:
-            print("🌑🌙 MOON DEV RISK ALERT: 3 consecutive losses - pausing trades")
+#             print("🌑🌙 MOON DEV RISK ALERT: 3 consecutive losses - pausing trades")
             return
             
         # 🚀 Entry Logic
@@ -73,7 +68,7 @@ class VolDeltaBreakout(Strategy):
                     position_size = risk_amount / (self.data.Close[-1] - stop_loss)
                     self.buy(size=position_size)
                     self.entry_bar = len(self.data)
-                    print(f"🚀🌙 MOON DEV LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size:.4f}")
+#                     print(f"🚀🌙 MOON DEV LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size:.4f}")
             
             # Short Entry Conditions 🌑
             elif self.data.Close[-2] < lower_band:
@@ -86,4 +81,4 @@ class VolDeltaBreakout(Strategy):
                     position_size = risk_amount / (stop_loss - self.data.Close[-1])
                     self.sell(size=position_size)
                     self.entry_bar = len(self.data)
-                    print(f"🌑🌙 MOON DEV SHORT ENTRY | Price: {self.data.Close[-1]:.2f} |
+#                     print(f"🌑🌙 MOON DEV SHORT ENTRY | Price: {self.data.Close[-1]:.2f} |"

@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -64,20 +62,20 @@ class VoltaicSqueeze(Strategy):
         cond_vol_filter = self.atr[-1] > self.atr_ma[-1]
         
         if cond_vol_contraction and cond_breakout and cond_vol_filter:
-            entry_price = self.data.Open[-1]  # Next candle's open
+            entry_price = self.data.Open[-1]  # Next candle's open'
             atr_value = self.atr[-1]
             stop_loss = entry_price - self.atr_multiplier * atr_value
             risk_per_share = entry_price - stop_loss
             
             if risk_per_share <= 0:
-                print("🌙✨ Risk per share <=0, skipping entry")
+                print(" Risk per share <=0, skipping entry")
                 return
             
             position_size = self._calc_position_size(risk_per_share)
             if position_size > 0:
                 self.buy(size=position_size, tag="VoltaicSqueeze Entry")
                 self.highest_close = entry_price
-                print(f"🚀🌕 MOON DEV ENTRY: Long {position_size} @ {entry_price:.2f}")
+#                 print(f"🚀🌕 MOON DEV ENTRY: Long {position_size} @ {entry_price:.2f}")
     
     def _calc_position_size(self, risk_per_share):
         risk_amount = self.equity * self.risk_percent
@@ -92,9 +90,9 @@ class VoltaicSqueeze(Strategy):
             # Trailing stop exit
             if self.data.Low[-1] < current_stop:
                 self.position.close()
-                print(f"🌑🛑 MOON DEV TRAILING STOP: {self.data.Close[-1]:.2f}")
+#                 print(f"🌑🛑 MOON DEV TRAILING STOP: {self.data.Close[-1]:.2f}")
             
             # Emergency volatility exit
             elif self.bb_percentile[-1] > self.emergency_exit_thresh:
                 self.position.close()
-                print(f"🌪️🔥 MOON DEV VOLATILITY EXIT: {self.data.Close[-1]:.2f
+#                 print(f"🌪️🔥 MOON DEV VOLATILITY EXIT: {self.data.Close[-1]:.2f"

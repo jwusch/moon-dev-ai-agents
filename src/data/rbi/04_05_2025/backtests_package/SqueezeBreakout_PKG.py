@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -25,7 +22,7 @@ data = data.set_index('datetime')
 class SqueezeBreakout(Strategy):
     def init(self):
         # Moon Dev Indicator Factory 🌙✨
-        print("🌌 INITIALIZING MOON DEV TRADING ORBITAL PLATFORM 🌌")
+#         print("🌌 INITIALIZING MOON DEV TRADING ORBITAL PLATFORM 🌌")
         
         self.upper_bb = self.I(self._compute_upper_bb, self.data.Close, 20, 2, name='UPPER_BB')
         self.lower_bb = self.I(self._compute_lower_bb, self.data.Close, 20, 2, name='LOWER_BB')
@@ -33,8 +30,8 @@ class SqueezeBreakout(Strategy):
         self.lower_kc = self.I(self._compute_lower_kc, self.data.High, self.data.Low, self.data.Close, 20, 2, name='LOWER_KC')
         self.volume_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='VOLUME_MA')
         
-        print("🌙 MOON DEV SYSTEM INITIALIZED 🌙\nBollinger Bands & Keltner Channels Armed ✨")
-        print("🚀 Ready for Lunar Trading Missions 🚀")
+#         print("🌙 MOON DEV SYSTEM INITIALIZED 🌙\nBollinger Bands & Keltner Channels Armed ✨")
+        print(" Ready for Lunar Trading Missions ")
 
     @staticmethod
     def _compute_upper_bb(close, period, dev):
@@ -63,7 +60,7 @@ class SqueezeBreakout(Strategy):
     def next(self):
         # Moon Dev Safety Check 🛡️
         if len(self.data) < 20 or self.data.Volume[-1] == 0:
-            print("⚠️ MOON DEV ALERT: Insufficient data or zero volume - skipping cycle")
+#             print("⚠️ MOON DEV ALERT: Insufficient data or zero volume - skipping cycle")
             return
 
         price = self.data.Close[-1]
@@ -86,4 +83,4 @@ class SqueezeBreakout(Strategy):
                     size = int(round(risk_amount / risk_per_unit))
                     if size > 0:
                         self.buy(size=size, sl=sl, tp=price + 2*(price-sl))
-                        print(f"🚀 MOON DEV LONG LAUNCH 🚀
+#                         print(f"🚀 MOON DEV LONG LAUNCH 🚀"

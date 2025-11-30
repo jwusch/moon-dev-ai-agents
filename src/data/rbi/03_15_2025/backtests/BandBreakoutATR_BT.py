@@ -42,12 +42,12 @@ class BandBreakoutATR(Strategy):
                     
                     if moon_size > 0:
                         self.buy(size=moon_size, sl=sl_price)
-                        print(f"🌕🚀 MOON DEV BLASTOFF! LONG {moon_size} @ {price:.2f} | ATR Shield: {sl_price:.2f}")
+                        print(f"🌕🚀 MOON DEV BLASTOFF! LONG {moon_size} @ {price:0.2f} | ATR Shield: {sl_price:0.2f}")
         else:
             # Exit on Lower Band crossunder
             if crossover(self.data.BB_MIDDLE, self.data.BB_LOWER):
                 self.position.close()
-                print(f"🌘✨ MOON PHASE SHIFT! Exiting @ {price:.2f}")
+                print(f"🌘✨ MOON PHASE SHIFT! Exiting @ {price:0.2f}")
 
 # Moon Dev's data preparation ritual 🌙
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -70,7 +70,7 @@ data['DateTime'] = pd.to_datetime(data['DateTime'])
 data.set_index('DateTime', inplace=True)
 
 # Launch the Moon Dev backtest protocol 🚀
-bt = Backtest(data, BandBreakoutATR, cash=1_000_000, commission=.002)
+bt = Backtest(data, BandBreakoutATR, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # Reveal the cosmic truth ✨

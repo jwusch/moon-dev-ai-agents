@@ -1,8 +1,3 @@
-Here's the complete backtesting implementation for the VoltaicSqueeze strategy:
-
-```python
-# 🌙 Moon Dev's VoltaicSqueeze Backtest Implementation 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -42,7 +37,7 @@ class VoltaicSqueeze(Strategy):
         )
         self.volume_sma = self.I(talib.SMA, self.data.Volume, 20)
         
-        print("🌙 Moon Dev Indicators Initialized: BBANDS, ATR, Volume SMA ✨")
+#         print("🌙 Moon Dev Indicators Initialized: BBANDS, ATR, Volume SMA ✨")
 
     def next(self):
         # Wait for sufficient data 🌊
@@ -76,15 +71,15 @@ class VoltaicSqueeze(Strategy):
                 stop_distance = entry_price - initial_stop
                 
                 if stop_distance <= 0:
-                    print("🌑 Invalid stop distance - Trade aborted")
+                    print(" Invalid stop distance - Trade aborted")
                     return
                 
                 position_size = int(round(risk_amount / stop_distance))
                 
                 if position_size > 0:
                     self.buy(size=position_size, 
-                           tag=f"VoltaicSqueeze Entry 🌪️")
-                    print(f"🚀 LONG Entry: {entry_price:.2f} | Size: {position_size}")
+                           tag=f"VoltaicSqueeze Entry ")
+                    print(f" LONG Entry: {entry_price:.2f} | Size: {position_size}")
                     
                     # Initialize exit parameters 📉
                     self.trailing_stop = initial_stop

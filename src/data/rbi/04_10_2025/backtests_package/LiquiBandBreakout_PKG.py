@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation: LiquiBand Breakout Strategy
-
 import pandas as pd
 import talib
 import numpy as np
@@ -29,7 +24,7 @@ class LiquiBandStrategy(Strategy):
         # 💧 Liquidation Cluster Proxy (Volume MA)
         self.volume_ma = self.I(talib.SMA, volume, timeperiod=20, name='Volume MA')
         
-        print("🌙✨ Moon Dev Indicators Initialized! BBANDS, Width MA & Volume MA Ready 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! BBANDS, Width MA & Volume MA Ready 🚀")
 
     def next(self):
         # ⏳ Skip first 20 periods for indicator warmup
@@ -47,36 +42,36 @@ class LiquiBandStrategy(Strategy):
             # 🌕 Long Entry: Close > Upper BB + Contraction + Liquidation Cluster
             if bb_contraction and liquidation_zone and current_close > self.upper_band[-1]:
                 risk_amount = self.equity * self.risk_percent
-                entry_price = self.data.Open[-1]  # Next candle's open
-                stop_loss = self.data.Low[-1]    # Current candle's low
+                entry_price = self.data.Open[-1]  # Next candle's open'
+                stop_loss = self.data.Low[-1]    # Current candle's low'
                 
                 if (risk_per_share := entry_price - stop_loss) > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     self.buy(size=position_size, stop=stop_loss)
-                    print(f"🚀🌙 MOON DEV LONG SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
+#                     print(f"🚀🌙 MOON DEV LONG SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
             
             # 🌑 Short Entry: Close < Lower BB + Contraction + Liquidation Cluster
             elif bb_contraction and liquidation_zone and current_close < self.lower_band[-1]:
                 risk_amount = self.equity * self.risk_percent
-                entry_price = self.data.Open[-1]  # Next candle's open
-                stop_loss = self.data.High[-1]    # Current candle's high
+                entry_price = self.data.Open[-1]  # Next candle's open'
+                stop_loss = self.data.High[-1]    # Current candle's high'
                 
                 if (risk_per_share := stop_loss - entry_price) > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     self.sell(size=position_size, stop=stop_loss)
-                    print(f"🌑🌙 MOON DEV SHORT SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
+#                     print(f"🌑🌙 MOON DEV SHORT SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
 
         # 💸 Exit Conditions
         else:
             # ✨ Long Exit: Price touches Lower BB
             if self.position.is_long and self.data.Low[-1] <= self.lower_band[-1]:
                 self.position.close()
-                print(f"✅🌙 MOON DEV LONG EXIT: Price {self.data.Close[-1]:.2f} touched Lower BB!")
+#                 print(f"✅🌙 MOON DEV LONG EXIT: Price {self.data.Close[-1]:.2f} touched Lower BB!")
             
             # ✨ Short Exit: Price touches Upper BB
             elif self.position.is_short and self.data.High[-1] >= self.upper_band[-1]:
                 self.position.close()
-                print(f"✅🌙 MOON DEV SHORT EXIT: Price {self.data.Close[-1]:.2f} touched Upper BB!")
+#                 print(f"✅🌙 MOON DEV SHORT EXIT: Price {self.data.Close[-1]:.2f} touched Upper BB!")
 
 # 🗃️ Data Preparation
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC"

@@ -1,7 +1,3 @@
-Let me help you debug and enhance the VoltaSqueeze strategy code while maintaining its core logic. Here's the fixed and optimized version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -53,7 +49,7 @@ class VoltaSqueeze(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 
                         timeperiod=20)
         
-        print("🌙 VoltaSqueeze Strategy Activated! May the squeeze be with you! 🚀")
+#         print("🌙 VoltaSqueeze Strategy Activated! May the squeeze be with you! 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -74,7 +70,7 @@ class VoltaSqueeze(Strategy):
                 risk_per_share = current_close - stop_price
                 
                 if risk_per_share <= 0:
-                    print("⚠️ Cosmic Anomaly! Negative risk detected. Aborting launch! 🚨")
+                    print(" Cosmic Anomaly! Negative risk detected. Aborting launch! ")
                     return
                 
                 position_size = (self.equity * self.risk_percent) / risk_per_share
@@ -83,8 +79,8 @@ class VoltaSqueeze(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price, 
                             tag={'atr_entry': self.atr[-1], 'entry_price': current_close})
-                    print(f"🚀 LIFTOFF! Long {position_size} units at {current_close:.2f}")
-                    print(f"🔭 Tracking stop at {stop_price:.2f} | ATR Shield: {self.atr[-1]:.2f}")
+                    print(f" LIFTOFF! Long {position_size} units at {current_close:.2f}")
+                    print(f" Tracking stop at {stop_price:.2f} | ATR Shield: {self.atr[-1]:.2f}")
 
         # Moon Dev Exit Protocol 🌙🎯
         for trade in self.trades:
@@ -94,7 +90,7 @@ class VoltaSqueeze(Strategy):
                 
                 if current_close >= tp_level:
                     trade.close()
-                    print(f"🌕 LUNAR LANDING! TP reached at {tp_level:.2f} | Profit: {trade.pl:.2f}")
+                    print(f" LUNAR LANDING! TP reached at {tp_level:.2f} | Profit: {trade.pl:.2f}")
 
 # Moon Dev Backtest Launch Sequence 🌙🚀
 if __name__ == "__main__":

@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete debugged version with Moon Dev improvements:
-
-```python
-# 🌙 Moon Dev's Volatility Squeeze Breakout Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -30,7 +26,7 @@ class VolatilitySqueezeBreakout(Strategy):
     bb_std = 2
     donchian_length = 20
     atr_length = 14
-    lookback_period = 35040  # 1 year in 15m bars 🌗
+    lookback_period = 35040  # 1 year in 15m bars 
     risk_percent = 0.01  # 1% risk per trade
     
     def init(self):
@@ -66,7 +62,7 @@ class VolatilitySqueezeBreakout(Strategy):
     def next(self):
         # 🌠 Lunar debug console
         if len(self.data) % 1000 == 0:
-            print(f"🌙 Scanning bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | Equity: {self.equity:,.2f} ✨")
+            print(f" Scanning bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | Equity: {self.equity:,.2f} ")
         
         if not self.position:
             # 🌗 Check for cosmic squeeze condition

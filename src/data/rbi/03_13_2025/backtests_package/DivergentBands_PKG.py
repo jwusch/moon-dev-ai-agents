@@ -1,6 +1,3 @@
-The code you provided is already well-structured and avoids using any `backtesting.lib` imports or functions. However, I'll review it to ensure complete compliance with Moon Dev's package requirements and add some cosmic-themed debug prints for better visualization. Here's the enhanced and verified code:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -85,7 +82,7 @@ class DivergentBands(Strategy):
             if position_size > 0:
                 tp = current_close + self.tp_multiplier * atr_value
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🌙✨🚀 MOON BLASTOFF LONG! | Price: {current_close:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" MOON BLASTOFF LONG! | Price: {current_close:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
 
         # Short Entry Black Hole 🌙⬅️🕳️
         elif (current_high >= bb_upper and

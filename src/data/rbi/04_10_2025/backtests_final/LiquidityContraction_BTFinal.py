@@ -1,6 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -33,7 +30,7 @@ class LiquidityContraction(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=50, name='SWING_HIGH')
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=50, name='SWING_LOW')
         
-        print("🌙 MOON DEV BACKTEST INITIALIZED ✨ | ATR3:", self.atr3[-1], "| Swing High:", self.swing_high[-1])
+#         print("🌙 MOON DEV BACKTEST INITIALIZED ✨ | ATR3:", self.atr3[-1], "| Swing High:", self.swing_high[-1])
 
     def next(self):
         if len(self.data) < 50:  # Wait for indicators to warm up
@@ -46,7 +43,7 @@ class LiquidityContraction(Strategy):
         swing_low = self.swing_low[-1]
 
         # Moon-themed debug prints
-        print(f"🌙 {self.data.index[-1]} | Close: {close:.2f} | ATR3: {atr3:.2f} vs ATR20: {atr20:.2f}")
+        print(f" {self.data.index[-1]} | Close: {close:.2f} | ATR3: {atr3:.2f} vs ATR20: {atr20:.2f}")
 
         if not self.position:
             # Long entry logic
@@ -60,8 +57,8 @@ class LiquidityContraction(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price, 
                             tp=close + 3*atr3,
-                            tag="MOON LONG 🌕")
-                    print(f"🚀 MOON DEV LONG ENTRY 🌙 | Size: {position_size} | SL: {sl_price:.2f}")
+                            tag="MOON LONG ")
+#                     print(f"🚀 MOON DEV LONG ENTRY 🌙 | Size: {position_size} | SL: {sl_price:.2f}")
 
             # Short entry logic
             elif (close >= swing_high * 0.99) and (atr3 < atr20):
@@ -74,14 +71,14 @@ class LiquidityContraction(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price,
                              tp=close - 3*atr3,
-                             tag="MOON SHORT 🌑")
-                    print(f"🌑 MOON DEV SHORT ENTRY 🌙 | Size: {position_size} | SL: {sl_price:.2f}")
+                             tag="MOON SHORT ")
+#                     print(f"🌑 MOON DEV SHORT ENTRY 🌙 | Size: {position_size} | SL: {sl_price:.2f}")
 
         else:
             # Volatility expansion exit - replaced crossover with direct comparison
             if (self.atr3[-2] < self.atr20[-2]) and (self.atr3[-1] > self.atr20[-1]):
                 self.position.close()
-                print(f"🌪️ VOLATILITY EXPANSION EXIT | ATR3: {atr3:.2f} > ATR20: {atr20:.2f}")
+                print(f" VOLATILITY EXPANSION EXIT | ATR3: {atr3:.2f} > ATR20: {atr20:.2f}")
 
             # Liquidity grab exit
             if (self.position.is_long and close < swing_low) or \

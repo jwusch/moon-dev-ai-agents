@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -21,7 +20,7 @@ data = data.rename(columns={
 })
 
 class VolumetricStochastic(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙💰
+    risk_per_trade = 0.01  # 1% risk per trade 
     max_open_positions = 3
     atr_multiplier_tp = 1.5
     atr_multiplier_sl = 0.75
@@ -77,7 +76,7 @@ class VolumetricStochastic(Strategy):
                 self.buy(size=position_size, 
                         sl=sl,
                         tp=current_close + (self.atr_multiplier_tp * atr))
-                print(f"🌙✨🚀 BULLISH CONFLUENCE! LONG {position_size} units @ {current_close:.2f}")
+                print(f" BULLISH CONFLUENCE! LONG {position_size} units @ {current_close:.2f}")
 
         # Moon Dev Short Entry Logic 🌙📉
         elif (crossbelow(self.slowk, 80)[-1] and 
@@ -94,4 +93,4 @@ class VolumetricStochastic(Strategy):
                 self.sell(size=position_size,
                          sl=sl,
                          tp=current_close - (self.atr_multiplier_tp * atr))
-                print(f"🌙✨🚀 BEARISH DIVERGENCE! SHORT {position_size} units @ {current_close:.2f}")
+                print(f" BEARISH DIVERGENCE! SHORT {position_size} units @ {current_close:.2f}")

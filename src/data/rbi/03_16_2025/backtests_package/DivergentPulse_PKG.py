@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and proper Moon Dev themed debug prints added:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -49,7 +46,7 @@ class DivergentPulse(Strategy):
         if current_date != self.current_date:
             self.current_date = current_date
             self.trade_count = 0
-            print(f"🌕 New day detected! {current_date.strftime('%Y-%m-%d')} | Trades reset")
+            print(f" New day detected! {current_date.strftime('%Y-%m-%d')} | Trades reset")
 
         if self.position:
             # Exit conditions
@@ -58,19 +55,19 @@ class DivergentPulse(Strategy):
             
             # Upper BB touch
             if current_high >= self.upper_bb[-1]:
-                print(f"🚀 UPPER BB TOUCH | Price: {current_high:.2f}")
+                print(f" UPPER BB TOUCH | Price: {current_high:.2f}")
                 self.position.close()
                 return
             
             # 2% profit target
             if current_high >= entry_price * 1.02:
-                print(f"🎯 PROFIT TARGET HIT | 2% gain")
+                print(f" PROFIT TARGET HIT | 2% gain")
                 self.position.close()
                 return
             
             # Emergency RSI exit
             if self.has_rsi_risen and self.rsi[-1] < 30:
-                print(f"🌧️ RSI DROP EMERGENCY | Current RSI: {self.rsi[-1]:.1f}")
+                print(f" RSI DROP EMERGENCY | Current RSI: {self.rsi[-1]:.1f}")
                 self.position.close()
                 return
             

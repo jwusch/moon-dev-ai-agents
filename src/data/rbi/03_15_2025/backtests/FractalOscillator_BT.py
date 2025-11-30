@@ -1,7 +1,3 @@
-Here's the Moon Dev Backtesting Strategy implementation with celestial-themed logging and robust risk management:
-
-```python
-# 🌙 Moon Dev Backtest AI Core Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -25,7 +21,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class LunarPulseStrategy(Strategy):
-    risk_per_trade = 0.02  # 🌕 2% Cosmic Risk Allocation
+    risk_per_trade = 0.02  #  2% Cosmic Risk Allocation
     rsi_period = 14
     sma_fast = 50
     sma_slow = 200
@@ -33,11 +29,11 @@ class LunarPulseStrategy(Strategy):
 
     def init(self):
         # 🌠 Celestial Indicators Configuration
-        self.sma_fast = self.I(talib.SMA, self.data.Close, timeperiod=self.sma_fast, name='🌠 SMA50')
-        self.sma_slow = self.I(talib.SMA, self.data.Close, timeperiod=self.sma_slow, name='🌌 SMA200')
-        self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=self.rsi_period, name='📉 RSI14')
-        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name='🏔 Swing High')
-        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name='🌊 Swing Low')
+        self.sma_fast = self.I(talib.SMA, self.data.Close, timeperiod=self.sma_fast, name=' SMA50')
+        self.sma_slow = self.I(talib.SMA, self.data.Close, timeperiod=self.sma_slow, name=' SMA200')
+        self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=self.rsi_period, name=' RSI14')
+        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name=' Swing High')
+        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name=' Swing Low')
 
     def next(self):
         # 🌑 Wait for cosmic alignment (sufficient data)
@@ -67,7 +63,7 @@ class LunarPulseStrategy(Strategy):
                 price_diff = abs(price - stop_loss)
                 
                 if price_diff == 0:
-                    print("🌌 Cosmic Anomaly: Zero price difference detected!")
+                    print(" Cosmic Anomaly: Zero price difference detected!")
                     return
                 
                 position_size = risk_amount / price_diff
@@ -76,21 +72,21 @@ class LunarPulseStrategy(Strategy):
                 if position_size > 0:
                     take_profit = price + (2 * price_diff)
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🚀🌕 LUNAR IGNITION! Buying {position_size} units at {price:.2f}")
-                    print(f"   🌑 Stop Loss: {stop_loss:.2f}")
-                    print(f"   🌕 Take Profit: {take_profit:.2f}")
+                    print(f" LUNAR IGNITION! Buying {position_size} units at {price:0.2f}")
+                    print(f"    Stop Loss: {stop_loss:0.2f}")
+                    print(f"    Take Profit: {take_profit:0.2f}")
 
         # 🌒 Exit Protocols
         else:
             if sma_crossunder or self.rsi[-1] > 70:
                 self.position.close()
-                print(f"🌒🌑 COSMIC RETREAT! Closing position at {price:.2f}")
+                print(f" COSMIC RETREAT! Closing position at {price:0.2f}")
 
 # 🌟 Execute Lunar Backtest Ritual
 bt = Backtest(data, LunarPulseStrategy, cash=1_000_000, exclusive_orders=True)
 stats = bt.run()
 
 # 📜 Cosmic Performance Scroll
-print("\n🌕🌖🌗🌘🌑🌒🌓🌔🌕 LUNAR PERFORMANCE REPORT 🌕🌔🌓🌒🌑🌘🌗🌖🌕")
+print("\n LUNAR PERFORMANCE REPORT ")
 print(stats)
-print("\n🔭 STRATEGY
+# print("\n🔭 STRATEGY"

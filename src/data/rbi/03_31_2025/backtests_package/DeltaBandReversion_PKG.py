@@ -1,7 +1,3 @@
-I'll fix the code by removing the `backtesting.lib` import and replacing any usage of its functions with native Python/numpy/pandas alternatives. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's DeltaBand Reversion Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -30,7 +26,7 @@ class DeltaBandReversion(Strategy):
     def next(self):
         # 🌙✨ Moon Dev Debug Prints ✨🚀
         if len(self.data) % 1000 == 0:
-            print(f"\n🌙 Processing Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} ✨")
+            print(f"\n Processing Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} ")
             print(f"   ATR14: {self.atr14[-1]:.2f} | BB Width: {self.bb_width_history[-1] if self.bb_width_history else 0:.4f}")
         
         # Calculate current BB width
@@ -55,7 +51,7 @@ class DeltaBandReversion(Strategy):
                     fib_target = self.swing_low[-1] + swing_range * 0.382
                     tp_price = fib_target + self.atr14[-1]
                     
-                    print(f"\n🚀🌙 LONG SIGNAL TRIGGERED 🌟✨")
+                    print(f"\n LONG SIGNAL TRIGGERED ")
                     print(f"  Size: {position_size} | Entry: {entry_price:.2f}")
                     print(f"  SL: {stop_loss:.2f} | TP: {tp_price:.2f}")
                     print(f"  Current ATR: {self.atr14[-1]:.2f} | BB Width: {current_bb_width:.4f}\n")
@@ -63,7 +59,7 @@ class DeltaBandReversion(Strategy):
                     self.buy(size=position_size, sl=stop_loss, tp=tp_price)
 
     def _entry_signal(self):
-        """🌙✨ All Entry Conditions Combined ✨🌙"""
+        """ All Entry Conditions Combined """
         # BB Width Contraction
         bb_lookback = 50
         if len(self.bb_width_history) < bb_lookback: return False

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -57,20 +54,20 @@ class VolSqueezeBreakout(Strategy):
             self.last_date = current_date
             self.daily_start_equity = self.equity
             self.daily_loss_limit_hit = False
-            print(f"🌙 NEW MOON CYCLE STARTED: {current_date} | Starting Equity: {self.daily_start_equity:.2f}")
+            print(f" NEW MOON CYCLE STARTED: {current_date} | Starting Equity: {self.daily_start_equity:.2f}")
             
         if self.daily_loss_limit_hit:
             return
         
         if self.daily_start_equity and (self.daily_start_equity - self.equity)/self.daily_start_equity >= 0.05:
-            print("🌙🚨 DAILY LOSS LIMIT TRIGGERED! Closing all positions.")
+            print(" DAILY LOSS LIMIT TRIGGERED! Closing all positions.")
             self.position.close()
             self.daily_loss_limit_hit = True
             return
         
         # Check consecutive losses
         if self.consecutive_losses >= 3:
-            print("🌙⚠️ CONSECUTIVE LOSS LIMIT REACHED! Skipping trades today.")
+            print(" CONSECUTIVE LOSS LIMIT REACHED! Skipping trades today.")
             return
         
         # Entry logic
@@ -81,15 +78,15 @@ class VolSqueezeBreakout(Strategy):
             
             if current_bb_width < current_percentile and volume_spike:
                 if self.data.Close[-1] > self.bb_upper[-1]:
-                    print(f"🌙🚀 BULLISH BREAKOUT DETECTED! Entering long at {self.data.Close[-1]}")
+                    print(f" BULLISH BREAKOUT DETECTED! Entering long at {self.data.Close[-1]}")
                     self.enter_long()
                 elif self.data.Close[-1] < self.bb_lower[-1]:
-                    print(f"🌙🌑 BEARISH BREAKOUT DETECTED! Entering short at {self.data.Close[-1]}")
+                    print(f" BEARISH BREAKOUT DETECTED! Entering short at {self.data.Close[-1]}")
                     self.enter_short()
         
         # Exit logic
         else:
             if self.position.is_long:
                 if self.data.Close[-1] < self.bb_upper[-1]:
-                    print(f"🌙✨ RE-ENTERED BANDS! Closing long at {self.data.Close[-1]}")
+                    print(f" RE-ENTERED BANDS! Closing long at {self.data.Close[-1]}")
                     self

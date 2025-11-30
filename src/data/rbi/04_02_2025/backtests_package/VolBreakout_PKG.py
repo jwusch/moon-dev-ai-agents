@@ -1,6 +1,3 @@
-I'll fix the code by removing all backtesting.lib imports and replacing any usage of its functions. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -48,7 +45,7 @@ class VolBreakout(Strategy):
         if (current_time >= datetime.time(16, 0)) or (current_time < datetime.time(9, 30)):
             self.current_oh = max(self.current_oh, self.data.High[-1])
             self.current_ol = min(self.current_ol, self.data.Low[-1])
-            print(f"🌒 Moon Phase Update: Tracking overnight levels | High: {self.current_oh:.2f} | Low: {self.current_ol:.2f}")
+            print(f" Moon Phase Update: Tracking overnight levels | High: {self.current_oh:.2f} | Low: {self.current_ol:.2f}")
             return  # Skip other checks during overnight
         
         # Set overnight levels at regular session start
@@ -56,7 +53,7 @@ class VolBreakout(Strategy):
             if not self.overnight_high:
                 self.overnight_high = self.current_oh
                 self.overnight_low = self.current_ol
-                print(f"🌕 Full Moon Alert! Overnight High: {self.overnight_high:.2f} | Overnight Low: {self.overnight_low:.2f}")
+                print(f" Full Moon Alert! Overnight High: {self.overnight_high:.2f} | Overnight Low: {self.overnight_low:.2f}")
                 
             # Check entry conditions
             vol_condition = self.data.Volume[-1] > 1.5 * self.volume_sma[-1]
@@ -65,12 +62,12 @@ class VolBreakout(Strategy):
             if vol_condition and vola_condition:
                 # Long entry
                 if self.data.High[-1] > self.overnight_high and not self.position:
-                    print(f"🚀 Moon Rocket Launch! Long signal detected at {self.data.Close[-1]:.2f}")
+                    print(f" Moon Rocket Launch! Long signal detected at {self.data.Close[-1]:.2f}")
                     self.calculate_position('long')
                     
                 # Short entry
                 elif self.data.Low[-1] < self.overnight_low and not self.position:
-                    print(f"🌘 Moon Shadow Alert! Short signal detected at {self.data.Close[-1]:.2f}")
+                    print(f" Moon Shadow Alert! Short signal detected at {self.data.Close[-1]:.2f}")
                     self.calculate_position('short')
                     
         # Reset overnight levels after trading window
@@ -79,7 +76,7 @@ class VolBreakout(Strategy):
             self.current_ol = np.inf
             self.overnight_high = None
             self.overnight_low = None
-            print("🌑 New Moon Cycle: Overnight levels reset for next session")
+            print(" New Moon Cycle: Overnight levels reset for next session")
             
     def calculate_position(self, direction):
         # Risk management calculations

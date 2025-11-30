@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper alternatives, and enhanced with Moon Dev theming:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -57,32 +54,32 @@ class SqueezeLiquidationStrategy(Strategy):
         
     def next(self):
         # Moon Dev Debug Prints 🌙💬
-        print(f"🌙 Close: {self.data.Close[-1]:.2f} | BBW: {self.bbw_ind[-1]:.4f} | BBW Low: {self.bbw_low_ind[-1]:.4f} | RSI: {self.rsi_ind[-1]:.2f}")
+        print(f" Close: {self.data.Close[-1]:.2f} | BBW: {self.bbw_ind[-1]:.4f} | BBW Low: {self.bbw_low_ind[-1]:.4f} | RSI: {self.rsi_ind[-1]:.2f}")
 
         if self.position:
             # Time-based exit (3 candles)
             if len(self.data) - self.entry_bar >= 3:
                 self.position.close()
-                print(f"🌙✨ Time exit at bar {len(self.data)}! ⏳")
+                print(f" Time exit at bar {len(self.data)}! ⏳")
             
             # RSI exits - replaced crossovers with direct comparisons
             if self.position.is_long and (self.rsi_ind[-2] < 70 and self.rsi_ind[-1] > 70):
                 self.position.close()
-                print(f"🌙✨ RSI EXIT LONG ({self.rsi_ind[-1]:.2f}) 📉")
+                print(f" RSI EXIT LONG ({self.rsi_ind[-1]:.2f}) ")
             elif self.position.is_short and (self.rsi_ind[-2] > 30 and self.rsi_ind[-1] < 30):
                 self.position.close()
-                print(f"🌙✨ RSI EXIT SHORT ({self.rsi_ind[-1]:.2f}) 📈")
+                print(f" RSI EXIT SHORT ({self.rsi_ind[-1]:.2f}) ")
         else:
             # Check squeeze condition (BBW at 10-day low)
             if self.bbw_ind[-1] <= self.bbw_low_ind[-1]:
                 # Long entry logic
                 if self.data.High[-1] > self.bb_upper_ind[-1]:
                     # Moon Dev Liquidation Confirmation (placeholder) 🌙📈
-                    print("🌙✨ ORDER BOOK CONFIRMS LONG! 🚀")
+                    print(" ORDER BOOK CONFIRMS LONG! ")
                     self._enter_trade('long')
                 
                 # Short entry logic
                 elif self.data.Low[-1] < self.bb_lower_ind[-1]:
                     # Moon Dev Liquidation Confirmation (placeholder) 🌙📉
-                    print("🌙✨ ORDER BOOK CONFIRMS SHORT! 🚀")
+                    print(" ORDER BOOK CONFIRMS SHORT! ")
                     self._enter_trade

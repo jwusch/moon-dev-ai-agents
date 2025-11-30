@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Volatility Threshold Backtest 🌙
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -20,11 +16,11 @@ data = data.rename(columns={
 })
 
 class VolatilityThreshold(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     atr_window = 20 * 96  # 20 days in 15m periods
-    sma_period = 200 * 96  # 200-day SMA ✨
-    hold_period = 5 * 96  # 5-day hold 🕒
-    percentile_window = 252 * 96  # 1-year lookback 🌗
+    sma_period = 200 * 96  # 200-day SMA 
+    hold_period = 5 * 96  # 5-day hold 
+    percentile_window = 252 * 96  # 1-year lookback 
     
     def init(self):
         # 🌙 Core Indicators (Pure TA-Lib Implementation)
@@ -47,7 +43,7 @@ class VolatilityThreshold(Strategy):
         
         # 🌙 Moon Dev Debug Prints (Lunar Phase Aligned)
         if len(self.data) % 1000 == 0:
-            print(f"🌙 Bar {len(self.data)} | Price: {price:.2f} | ATR: {self.atr[-1]:.2f} vs {self.atr_percentile[-1]:.2f}")
+            print(f" Bar {len(self.data)} | Price: {price:.2f} | ATR: {self.atr[-1]:.2f} vs {self.atr_percentile[-1]:.2f}")
         
         # 🚀 Entry Logic (No backtesting.lib used!)
         if not self.position:
@@ -65,7 +61,7 @@ class VolatilityThreshold(Strategy):
                     self.entry_price = price
                     self.entry_atr = self.atr[-1]
                     self.entry_bar = len(self.data)
-                    print(f"🚀 LONG ENTRY 🌕 | Size: {position_size} | Price: {price:.2f} | SL: {sl:.2f}")
+                    print(f" LONG ENTRY  | Size: {position_size} | Price: {price:.2f} | SL: {sl:.2f}")
 
         # 🔴 Exit Logic (Array Indexing Only)
         else:
@@ -75,16 +71,16 @@ class VolatilityThreshold(Strategy):
             
             if current_low <= sl_price:
                 self.position.close()
-                print(f"🔴 STOP LOSS EXIT | Price: {price:.2f} | Bars Held: {len(self.data)-self.entry_bar}")
+                print(f" STOP LOSS EXIT | Price: {price:.2f} | Bars Held: {len(self.data)-self.entry_bar}")
             
             # Time Exit Check (Pure Counter)
             elif len(self.data) - self.entry_bar >= self.hold_period:
                 self.position.close()
-                print(f"🕒 TIME EXIT | Price: {price:.2f} | Bars Held: {len(self.data)-self.entry_bar}")
+                print(f" TIME EXIT | Price: {price:.2f} | Bars Held: {len(self.data)-self.entry_bar}")
 
 # 🌟 Run Backtest (Moon-Powered!)
 bt = Backtest(data, VolatilityThreshold, cash=1_000_000, exclusive_orders=True)
 stats = bt.run()
 
 # 🌙 Print Full Results (Lunar Formatting)
-print("\n" + "="*50 + " MOON DEV FINAL STATS 🌙 " + "="
+# print("\n" + "="*50 + " MOON DEV FINAL STATS 🌙 " + "="

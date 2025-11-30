@@ -66,11 +66,11 @@ class DivergentMomentum(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share > 0:
-                    position_size = (self.broker.equity * self.risk_percent) / risk_per_share
+                    position_size = (self.equity * self.risk_percent) / risk_per_share
                     position_size = int(round(position_size))
                     
                     # Moon-themed debug print
-                    print(f"🌙✨ Lunar Entry! Price: {entry_price:.2f}, Size: {position_size} contracts, SL: {stop_loss:.2f}")
+                    print(f"🌙✨ Lunar Entry! Price: {entry_price:0.2f}, Size: {position_size} contracts, SL: {stop_loss:0.2f}")
                     
                     self.buy(size=position_size, sl=stop_loss)
 
@@ -81,11 +81,11 @@ class DivergentMomentum(Strategy):
                 prev_cci = self.cci[-2]
                 
                 if current_cci > 100 and current_cci < prev_cci:
-                    print(f"🚀🌙 CCI Reversal! Closing position at {self.data.Close[-1]:.2f}")
+                    print(f"🚀🌙 CCI Reversal! Closing position at {self.data.Close[-1]:0.2f}")
                     self.position.close()
 
 # Run backtest
-bt = Backtest(data, DivergentMomentum, cash=1_000_000, commission=.002)
+bt = Backtest(data, DivergentMomentum, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # Print full statistics

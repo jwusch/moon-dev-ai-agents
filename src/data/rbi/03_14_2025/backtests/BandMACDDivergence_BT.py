@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -36,7 +34,7 @@ class BandMACDDivergence(Strategy):
         self.ub_slope = self.I(talib.LINEARREG_SLOPE, self.upper_band, timeperiod=self.slope_period, name='UB Slope')
 
     def next(self):
-        # Moon Dev's cosmic checks 🌌
+        # Moon Dev's cosmic checks 🌌'
         if len(self.data) < 50:  # Ensure enough data
             return
 
@@ -64,17 +62,17 @@ class BandMACDDivergence(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, 
                             tp=price + 3 * atr_value, 
-                            tag="🌕 Moon Beam Long")
-                    print(f"🚀🌙 LIFT OFF! Long {position_size} @ {price:.2f} | "
-                          f"SL: {stop_loss:.2f} | Cosmic Momentum: {ub_slope:.2f}")
+                            tag=" Moon Beam Long")
+                    print(f" LIFT OFF! Long {position_size} @ {price:0.2f} | "
+                          f"SL: {stop_loss:0.2f} | Cosmic Momentum: {ub_slope:0.2f}")
 
         # Galactic exit protocols 🛸
         elif self.position.is_long:
             if (ub_slope < 0 or 
                 crossover(self.macd_signal, self.macd_line)):
                 self.position.close()
-                print(f"🌑🌠 COMET RETREAT! Closing long @ {price:.2f} | "
-                      f"Profit: {self.position.pl_pct:.1f}%")
+                print(f" COMET RETREAT! Closing long @ {price:0.2f} | "
+                      f"Profit: {self.position.pl_pct:0.1f}%")
 
 # Cosmic data preparation 🌍
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

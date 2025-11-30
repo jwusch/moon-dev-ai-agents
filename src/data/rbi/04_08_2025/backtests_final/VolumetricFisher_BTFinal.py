@@ -1,13 +1,10 @@
-Here's the complete fixed backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 
 # Load and preprocess data
-print("🌙 Loading cosmic market data... ✨")
+print(" Loading cosmic market data... ")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
@@ -20,14 +17,14 @@ data = data.rename(columns={
 })
 data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
-print("🌕 Data aligned with lunar cycles successfully! 🚀")
+print(" Data aligned with lunar cycles successfully! ")
 
 class VolumetricFisher(Strategy):
     risk_percent = 0.01
     swing_period = 20
     
     def init(self):
-        print("🌙 Initializing celestial indicators... ✨")
+        print(" Initializing celestial indicators... ")
         # Calculate Fisher Transform components
         median_price = (self.data.High + self.data.Low) / 2
         hh_median = self.I(talib.MAX, median_price, timeperiod=9, name='HH_MED')
@@ -49,7 +46,7 @@ class VolumetricFisher(Strategy):
         # Swing levels for stop loss
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name='SWING_LOW')
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name='SWING_HIGH')
-        print("🌕 Indicators aligned with gravitational forces! 🌑")
+        print(" Indicators aligned with gravitational forces! ")
         
     def next(self):
         if len(self.data) < 50:  # Warmup period
@@ -69,8 +66,8 @@ class VolumetricFisher(Strategy):
             risk_per_share = current_close - sl_price
             if risk_per_share > 0:
                 size = int(round(risk_amount / risk_per_share))
-                print(f"🌙✨ BULLISH CROSS detected! Buying {size} shares at {current_close} 🚀")
-                print(f"🌕 Stop loss set at {sl_price} (Risk: {risk_per_share:.2f} per share)")
+                print(f" BULLISH CROSS detected! Buying {size} shares at {current_close} ")
+                print(f" Stop loss set at {sl_price} (Risk: {risk_per_share:.2f} per share)")
                 self.buy(size=size, sl=sl_price, tag='long_entry')
         
         # Short entry logic

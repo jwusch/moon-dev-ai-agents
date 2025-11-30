@@ -1,4 +1,3 @@
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -41,10 +40,10 @@ class BandwidthBreakout(Strategy):
             atr_value = self.atr[-1]
             if trade.is_long:
                 self.trailing_stop = trade.entry_price - 2 * atr_value
-                print(f"🚀🌙 LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
             else:
                 self.trailing_stop = trade.entry_price + 2 * atr_value
-                print(f"🌙🚀 SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
 
     def next(self):
         # Wait for indicators to stabilize 🌙
@@ -64,7 +63,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))
                     if size > 0:
                         self.buy(size=size)
-                        print(f"🌕🚀 MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
+                        print(f" MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
                 
                 # Short signal 🌑
                 elif self.data.Close[-1] < self.lower_band[-1]:
@@ -73,7 +72,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))
                     if size > 0:
                         self.sell(size=size)
-                        print(f"🚀🌑 DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
+                        print(f" DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
 
         # Trailing stop management 🌙
         else:
@@ -82,7 +81,7 @@ class BandwidthBreakout(Strategy):
                 self.trailing_stop = max(self.trailing_stop, new_stop)
                 if self.data.Low[-1] <= self.trailing_stop:
                     self.position.close()
-                    print(f"🌙✨ LANDING! LONG Exit @ {self.data.Close[-1]:.2f} | Final Stop: {self.trailing_stop:.2f}")
+                    print(f" LANDING! LONG Exit @ {self.data.Close[-1]:.2f} | Final Stop: {self.trailing_stop:.2f}")
             
             elif self.position.is_short:
                 new_stop = self.data.Low[-1] + 2 * self.atr[-1]

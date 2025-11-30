@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -45,7 +44,7 @@ class VortexFisherDivergence(Strategy):
                 size = int(round(risk / (self.data.Open[-1] - sl))) if self.data.Open[-1] > sl else 0
                 if size > 0:
                     self.buy(size=size, sl=sl)
-                    print(f"🚀 Moon Dev LONG: {self.data.Close[-1]} | Size: {size} | SL: {sl}")
+#                     print(f"🚀 Moon Dev LONG: {self.data.Close[-1]} | Size: {size} | SL: {sl}")
             
             # Bearish entry
             elif (self.fisher[-1] < 0 and self.fisher[-2] >= 0) and (self.vi_plus[-1] > self.vi_minus[-1]) and vol_cond and adx_cond:
@@ -54,7 +53,7 @@ class VortexFisherDivergence(Strategy):
                 size = int(round(risk / (sl - self.data.Open[-1]))) if sl > self.data.Open[-1] else 0
                 if size > 0:
                     self.sell(size=size, sl=sl)
-                    print(f"🌑 Moon Dev SHORT: {self.data.Close[-1]} | Size: {size} | SL: {sl}")
+#                     print(f"🌑 Moon Dev SHORT: {self.data.Close[-1]} | Size: {size} | SL: {sl}")
         else:
             current_adx = self.adx[-1]
             prev_adx = self.adx[-2] if len(self.adx) > 1 else current_adx
@@ -62,11 +61,11 @@ class VortexFisherDivergence(Strategy):
             if self.position.is_long:
                 if current_adx < 25 or current_adx < prev_adx or (self.fisher[-1] < 0 and self.fisher[-2] >= 0):
                     self.position.close()
-                    print(f"🌙 Moon Dev EXIT LONG: {self.data.Close[-1]}")
+#                     print(f"🌙 Moon Dev EXIT LONG: {self.data.Close[-1]}")
             elif self.position.is_short:
                 if current_adx < 25 or current_adx < prev_adx or (self.fisher[-1] > 0 and self.fisher[-2] <= 0):
                     self.position.close()
-                    print(f"🌙 Moon Dev EXIT SHORT: {self.data.Close[-1]}")
+#                     print(f"🌙 Moon Dev EXIT SHORT: {self.data.Close[-1]}")
 
 bt = Backtest(data, VortexFisherDivergence, cash=1_000_000, commission=0.002)
 stats = bt.run()

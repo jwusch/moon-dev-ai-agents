@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -53,7 +52,7 @@ class VortexVoltage(Strategy):
     def next(self):
         # Moon Dev Debug Prints 🌙
         if len(self.data) % 500 == 0:
-            print(f"\n🌙 MOON DEV STATUS UPDATE @ {self.data.index[-1]}")
+#             print(f"\n🌙 MOON DEV STATUS UPDATE @ {self.data.index[-1]}")
             print(f"   Balance: ${self.equity:,.2f} | Price: ${self.data.Close[-1]:.2f}")
             print(f"   VI+:{self.vi_plus[-1]:.2f} VI-:{self.vi_minus[-1]:.2f}")
             print(f"   VWADX:{self.vwadx[-1]:.2f} Vol:{self.data.Volume[-1]:.2f} MA:{self.vol_ma[-1]:.2f}")
@@ -68,7 +67,7 @@ class VortexVoltage(Strategy):
                 risk_per_share = self.data.Close[-1] - sl
                 if risk_per_share > 0:
                     size = int(round((self.risk_pct * self.equity) / risk_per_share))
-                    print(f"\n🌕 MOONSHOT LONG! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
+                    print(f"\n MOONSHOT LONG! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
                     self.buy(size=size, sl=sl, tp=self.data.Close[-1] + 2*risk_per_share)
 
             # Short Entry Logic 🌑

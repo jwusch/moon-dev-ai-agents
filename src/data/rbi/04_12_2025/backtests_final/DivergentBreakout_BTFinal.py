@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -61,9 +58,9 @@ class DivergentBreakout(Strategy):
         if self.position:
             if current_adx > self.adx_exit_threshold:
                 if self.position.is_long:
-                    print(f"🌘 MOON WARNING: ADX rising ({current_adx:.2f}), closing long position")
+                    print(f" MOON WARNING: ADX rising ({current_adx:.2f}), closing long position")
                 else:
-                    print(f"🌘 MOON WARNING: ADX rising ({current_adx:.2f}), closing short position")
+                    print(f" MOON WARNING: ADX rising ({current_adx:.2f}), closing short position")
                 self.position.close()
             return
 
@@ -78,7 +75,7 @@ class DivergentBreakout(Strategy):
                     if size > 0:
                         tp = current_close + 2 * risk_per_share
                         self.buy(size=size, sl=sl, tp=tp)
-                        print(f"🌕✨ MOON BULL ALERT! Entry: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
+                        print(f" MOON BULL ALERT! Entry: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
 
             # Short entry
             elif bear_div and current_adx < self.adx_entry_threshold and obv_below:

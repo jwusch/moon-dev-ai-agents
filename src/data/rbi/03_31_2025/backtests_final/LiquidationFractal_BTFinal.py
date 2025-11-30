@@ -1,7 +1,3 @@
-Here's the debugged version of your Liquidation Fractal backtest code with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Liquidation Fractal Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -43,7 +39,7 @@ class LiquidationFractal(Strategy):
 
     def next(self):
         # 🌕 Moon Dev Debug Header
-        print(f"\n🌙✨ Processing {self.data.index[-1]} ✨🌙")
+        print(f"\n Processing {self.data.index[-1]} ")
         
         # Skip if not enough data
         if len(self.data.Close) < self.swing_window * 2:
@@ -73,22 +69,22 @@ class LiquidationFractal(Strategy):
             fib_hits = sum(1 for f in fib_levels if abs(f - sl)/sl <= self.fib_cluster_threshold)
             if fib_hits >= 2:
                 long_zone = True
-                print(f"🚀 BULLISH ZONE DETECTED! Swing Low: {sl:.2f} | Fib Cluster: {fib_levels}")
+                print(f" BULLISH ZONE DETECTED! Swing Low: {sl:.2f} | Fib Cluster: {fib_levels}")
         
         # Short Zone Detection (price near swing high)
         if current_close >= sh * (1 - self.fib_cluster_threshold):
             fib_hits = sum(1 for f in fib_levels if abs(f - sh)/sh <= self.fib_cluster_threshold)
             if fib_hits >= 2:
                 short_zone = True
-                print(f"🌑 BEARISH ZONE DETECTED! Swing High: {sh:.2f} | Fib Cluster: {fib_levels}")
+                print(f" BEARISH ZONE DETECTED! Swing High: {sh:.2f} | Fib Cluster: {fib_levels}")
         
         # ========= ENTRY LOGIC =========
         if long_zone and self._is_bullish_rejection():
-            print(f"🌟 BULLISH REJECTION CONFIRMED!")
+            print(f" BULLISH REJECTION CONFIRMED!")
             self._enter_long(atr)
             
         if short_zone and self._is_bearish_rejection():
-            print(f"🌟 BEARISH REJECTION CONFIRMED!")
+            print(f" BEARISH REJECTION CONFIRMED!")
             self._enter_short(atr)
             
         # ========= RISK MANAGEMENT =========

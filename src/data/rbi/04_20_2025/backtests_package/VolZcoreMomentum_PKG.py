@@ -1,6 +1,3 @@
-Here's the fixed code with proper indicator packages and Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib as ta
@@ -49,7 +46,7 @@ class VolZcoreMomentum(Strategy):
         # Volatility indicator
         self.atr = self.I(ta.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
-        print("🌙 Lunar Launch Initiated! Systems Go! 🚀")
+        print(" Lunar Launch Initiated! Systems Go! ")
 
     def next(self):
         if len(self.data) < 100:
@@ -74,18 +71,18 @@ class VolZcoreMomentum(Strategy):
         # Trade logic
         if not self.position:
             if current_z > self.percentile_75[-1] and current_volume > vol_sma:
-                self.buy(size=position_size, sl=price-stop_loss, tag="🌕 MOONSHOT LONG")
-                print(f"🚀 LIFTOFF! Long {position_size} @ {price:.2f} | SL: {price-stop_loss:.2f}")
+                self.buy(size=position_size, sl=price-stop_loss, tag=" MOONSHOT LONG")
+                print(f" LIFTOFF! Long {position_size} @ {price:.2f} | SL: {price-stop_loss:.2f}")
                 
             elif current_z < self.percentile_25[-1] and current_volume > vol_sma:
-                self.sell(size=position_size, sl=price+stop_loss, tag="🌑 DARK SIDE SHORT")
-                print(f"🌌 BLACK HOLE! Short {position_size} @ {price:.2f} | SL: {price+stop_loss:.2f}")
+                self.sell(size=position_size, sl=price+stop_loss, tag=" DARK SIDE SHORT")
+                print(f" BLACK HOLE! Short {position_size} @ {price:.2f} | SL: {price+stop_loss:.2f}")
                 
         else:
             if self.position.is_long:
                 if current_z < self.percentile_50[-1] or current_z > self.percentile_90[-1]:
                     self.position.close()
-                    print(f"🌗 PARTIAL ECLIPSE: Closing long @ {price:.2f}")
+                    print(f" PARTIAL ECLIPSE: Closing long @ {price:.2f}")
                     
             elif self.position.is_short:
                 if current_z > self.percentile_50[-1] or current_z < self.percentile_10[-1]:

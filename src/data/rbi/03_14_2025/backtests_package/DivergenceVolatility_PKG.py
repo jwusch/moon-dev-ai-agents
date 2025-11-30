@@ -1,7 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and proper Moon Dev themed debug prints added:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -9,10 +5,10 @@ import numpy as np
 from backtesting import Backtest, Strategy
 
 class DivergenceVolatility(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    atr_multiplier = 2  # ATR multiplier for take-profit 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 2  # ATR multiplier for take-profit 
     bb_period = 20  # Bollinger Bands period
-    volume_spike_multiplier = 1.5  # 50% above average volume ✨
+    volume_spike_multiplier = 1.5  # 50% above average volume 
     swing_period = 20  # Swing high/low period
     
     def init(self):
@@ -48,7 +44,7 @@ class DivergenceVolatility(Strategy):
         if len(self.data) < 50:  # Wait for enough data
             return
             
-        # Check if we're already in a position
+        # Check if we're already in a position'
         if not self.position:
             self.check_entry_conditions()
         else:
@@ -86,5 +82,5 @@ class DivergenceVolatility(Strategy):
                 
                 # Enter long position 🚀
                 self.buy(size=position_size, sl=stop_loss)
-                print(f"🌕 MOON DEV ALERT: Long entry at {self.entry_price:.2f}!")
+#                 print(f"🌕 MOON DEV ALERT: Long entry at {self.entry_price:.2f}!")
                 print

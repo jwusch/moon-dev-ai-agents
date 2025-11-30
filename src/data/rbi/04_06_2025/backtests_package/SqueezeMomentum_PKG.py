@@ -1,16 +1,11 @@
-Here's the fixed code with all indicators properly implemented using talib and proper Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING AI - SQUEEZE MOMENTUM STRATEGY IMPLEMENTATION 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 class SqueezeMomentum(Strategy):
-    risk_per_trade = 0.01  # 1% of equity per trade 🌕
-    max_consecutive_losses = 3  # Max allowed consecutive losses 🌑
+    risk_per_trade = 0.01  # 1% of equity per trade 
+    max_consecutive_losses = 3  # Max allowed consecutive losses 
     
     def init(self):
         # 🌙 CALCULATE ALL INDICATORS USING TALIB THROUGH I() WRAPPER
@@ -21,16 +16,16 @@ class SqueezeMomentum(Strategy):
         self.macd = self.I(lambda c: talib.MACD(c, fastperiod=12, slowperiod=26, signalperiod=9)[0], self.data.Close)
         self.signal = self.I(lambda c: talib.MACD(c, fastperiod=12, slowperiod=26, signalperiod=9)[1], self.data.Close)
         
-        self.consecutive_losses = 0  # 🌑 Track bad moon streaks
-        print("🌙✨ MOON INDICATORS INITIALIZED! Ready for lunar launch! 🚀")
+        self.consecutive_losses = 0  #  Track bad moon streaks
+        print(" MOON INDICATORS INITIALIZED! Ready for lunar launch! ")
 
     def next(self):
         # 🌙 MOON TRADE LOGIC ORBITAL CHECK
         if self.position:
-            return  # 🛑 Active position - no new entries
+            return  #  Active position - no new entries
             
         if self.consecutive_losses >= self.max_consecutive_losses:
-            print("🌑☄️ THREE LOSSES! Moon base shutdown - no new entries!")
+            print(" THREE LOSSES! Moon base shutdown - no new entries!")
             return
 
         # 🌙 INDICATOR CONDITION CHECKS
@@ -39,7 +34,7 @@ class SqueezeMomentum(Strategy):
         volume_low = self.data.Volume[-1] < self.volume_ma[-1]
         
         if not (squeeze and adx_weak and volume_low):
-            return  # ❌ Conditions not met
+            return  #  Conditions not met
             
         # 🌙 MACD CROSSOVER CHECK (NO BACKTESTING.LIB USAGE)
         macd_bullish = self.macd[-1] > self.signal[-1] and self.macd[-2] <= self.signal[-2]
@@ -51,11 +46,11 @@ class SqueezeMomentum(Strategy):
             sl_price = max(self.bb_lower[-1], entry_price*0.98)
             risk = entry_price - sl_price
             
-            if risk <= 0: return  # 🛑 Invalid risk calculation
+            if risk <= 0: return  #  Invalid risk calculation
             
             position_size = int(round((self.equity * self.risk_per_trade) / risk))
             self.buy(size=position_size, sl=sl_price, tp=self.bb_upper[-1])
-            print(f"🌕🚀 BLAST OFF! LONG {position_size} @ {entry_price:.2f} | SL: {sl_price:.2f} | TP: {self.bb_upper[-1]:.2f}")
+            print(f" BLAST OFF! LONG {position_size} @ {entry_price:.2f} | SL: {sl_price:.2f} | TP: {self.bb_upper[-1]:.2f}")
 
         # 🌑 SHORT ENTRY CONDITIONS    
         elif self.data.Close[-1] < self.bb_lower[-1] and macd_bearish:
@@ -63,7 +58,7 @@ class SqueezeMomentum(Strategy):
             sl_price = min(self.bb_upper[-1], entry_price*1.02)
             risk = sl_price - entry_price
             
-            if risk <= 0: return  # 🛑 Invalid risk calculation
+            if risk <= 0: return  #  Invalid risk calculation
             
             position_size = int(round((self.equity * self.risk_per_trade) / risk))
             self

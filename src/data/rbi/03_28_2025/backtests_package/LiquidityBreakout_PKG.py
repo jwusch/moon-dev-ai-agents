@@ -1,9 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev compliant implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDITYBREAKOUT STRATEGY 🚀
-
-# REQUIRED IMPORTS
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -26,7 +20,7 @@ data = data.rename(columns={
 })
 
 class LiquidityBreakout(Strategy):
-    risk_percentage = 0.01  # 1% risk per trade 🌙
+    risk_percentage = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 SWING HIGH/LOW DETECTION (20-period)
@@ -44,12 +38,12 @@ class LiquidityBreakout(Strategy):
         # 🌙 VOLATILITY EXPANSION FILTER
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ATR')
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED! Ready for launch sequence...")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED! Ready for launch sequence...")
 
     def next(self):
         # Moon-themed debug prints 🌙
         if len(self.data) % 100 == 0:
-            print(f"🌙 Processing bar {len(self.data)} - Price: {self.data.Close[-1]:.2f}")
+            print(f" Processing bar {len(self.data)} - Price: {self.data.Close[-1]:.2f}")
         
         if not self.position:
             # 🚀 LONG ENTRY CONDITIONS
@@ -69,7 +63,7 @@ class LiquidityBreakout(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     tp_level = self.data.Close[-1] + 3 * self.atr[-1]
                     
-                    print(f"🚀🌙 MOON DEV BREAKOUT DETECTED! Buying {position_size} units")
+#                     print(f"🚀🌙 MOON DEV BREAKOUT DETECTED! Buying {position_size} units")
                     print(f"   ENTRY: {self.data.Close[-1]:.2f} | SL: {sl_level:.2f} | TP: {tp_level:.2f}")
                     self.buy(size=position_size, sl=sl_level, tp=tp_level)
 
@@ -78,4 +72,4 @@ bt = Backtest(data, LiquidityBreakout, cash=1_000_000, commission=.002)
 stats = bt.run()
 
 # PRINT FULL RESULTS ✨
-print("\n🌙✨ MOON DEV FINAL
+# print("\n🌙✨ MOON DEV FINAL"

@@ -1,6 +1,3 @@
-Here's the fixed code with all indicators properly implemented without any backtesting.lib usage, along with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -51,7 +48,7 @@ class BandwidthBreakout(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 
                          timeperiod=14, name='ATR')
         
-        # Previous periods' highs/lows using pandas shift
+        # Previous periods' highs/lows using pandas shift'
         self.prior_high = self.I(lambda x: x.shift(1), self.data.High, name='Prior High')
         self.prior_low = self.I(lambda x: x.shift(1), self.data.Low, name='Prior Low')
         
@@ -81,11 +78,11 @@ class BandwidthBreakout(Strategy):
                             tag='Long Entry')
                     self.trailing_high = current_close
                     self.take_profit = current_close + 3 * atr_value
-                    print(f"🌙✨ MOON ALERT! LONG SIGNAL DETECTED! ✨🌙")
+                    print(f" MOON ALERT! LONG SIGNAL DETECTED! ")
                     print(f"   Entry: {current_close:.2f} | Size: {position_size} contracts")
                     print(f"   Stop Loss: {current_close - stop_distance:.2f}")
                     print(f"   Take Profit: {self.take_profit:.2f}")
-                    print(f"   🚀 Ready for liftoff! 🚀\n")
+                    print(f"    Ready for liftoff! \n")
             
             # Short entry
             elif bb_cond and vol_cond and (self.data.Low[-1] < self.prior_low[-1]):

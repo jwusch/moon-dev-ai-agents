@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the VolSqueezeBreakout strategy:
-
-```python
-# 🌙 Moon Dev's Volatility Squeeze Breakout Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -32,7 +28,7 @@ class VolSqueezeBreakout(Strategy):
         self.volume_median = self.I(lambda x: x.rolling(self.volume_median_window).median(),
                                   self.data.Volume, name='Volume Median')
         
-        print("🌙✨ Moon Dev Strategy Initialized! Ready for Launch! 🚀")
+#         print("🌙✨ Moon Dev Strategy Initialized! Ready for Launch! 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -59,12 +55,12 @@ class VolSqueezeBreakout(Strategy):
         if self.position.is_long:
             if current_close < d_high or c_width > vol_p70:
                 self.position.close()
-                print(f"🌙💎 Closing LONG at {current_close}: {'Reversal' if current_close < d_high else 'Vol Spike'}")
+                print(f" Closing LONG at {current_close}: {'Reversal' if current_close < d_high else 'Vol Spike'}")
 
         elif self.position.is_short:
             if current_close > d_low or c_width > vol_p70:
                 self.position.close()
-                print(f"🌙💎 Closing SHORT at {current_close}: {'Reversal' if current_close > d_low else 'Vol Spike'}")
+                print(f" Closing SHORT at {current_close}: {'Reversal' if current_close > d_low else 'Vol Spike'}")
 
         # 🚀 Entry Conditions
         if not self.position:
@@ -76,7 +72,7 @@ class VolSqueezeBreakout(Strategy):
                 size = calculate_size(current_close, d_low)
                 if size > 0:
                     self.buy(size=size, sl=d_low)
-                    print(f"🌙🚀 LONG ENTRY! Size: {size} @ {current_close}")
+                    print(f" LONG ENTRY! Size: {size} @ {current_close}")
             
             # Short Entry
             elif (current_close < d_low and 
@@ -86,7 +82,7 @@ class VolSqueezeBreakout(Strategy):
                 size = calculate_size(current_close, d_high)
                 if size > 0:
                     self.sell(size=size, sl=d_high)
-                    print(f"🌙🚀 SHORT ENTRY! Size: {size} @ {current_close}")
+                    print(f" SHORT ENTRY! Size: {size} @ {current_close}")
 
 # 🌙 Data Preparation
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

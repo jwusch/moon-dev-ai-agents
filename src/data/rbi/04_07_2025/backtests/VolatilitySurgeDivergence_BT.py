@@ -1,4 +1,3 @@
-```python
 import backtrader as bt
 import talib as TA
 import pandas as pd
@@ -44,9 +43,9 @@ class VolatilitySurgeDivergence(bt.Strategy):
         
         if order.status == order.Completed:
             if order.isbuy():
-                print(f"🌙✨ BUY EXECUTED | Size: {order.executed.size} @ {order.executed.price:.2f} | Equity: {self.broker.getvalue():.2f} 🚀")
+                print(f" BUY EXECUTED | Size: {order.executed.size} @ {order.executed.price:.2f} | Equity: {self.broker.getvalue():.2f} ")
             elif order.issell():
-                print(f"🚀📉 SELL EXECUTED | Profit: {order.executed.pnl:.2f} | Remaining: {self.broker.getvalue():.2f} 🌙")
+                print(f" SELL EXECUTED | Profit: {order.executed.pnl:.2f} | Remaining: {self.broker.getvalue():.2f} ")
         
         self.order = None
 
@@ -78,7 +77,7 @@ class VolatilitySurgeDivergence(bt.Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.stop_price = self.entry_price - stop_distance
-                    print(f"🌙🎯 ENTRY SIGNAL | Size: {position_size} | Entry: {self.entry_price:.2f} | SL: {self.stop_price:.2f} 🎯")
+                    print(f" ENTRY SIGNAL | Size: {position_size} | Entry: {self.entry_price:.2f} | SL: {self.stop_price:.2f} ")
 
         # Exit Logic
         if self.position:
@@ -87,7 +86,7 @@ class VolatilitySurgeDivergence(bt.Strategy):
             
             if self.data.Low[0] <= self.stop_price:
                 self.close()
-                print(f"🚨🌕 STOP TRIGGERED | Exit Price: {self.data.Close[0]:.2f} | Trailing SL: {self.stop_price:.2f} 🔥")
+                print(f" STOP TRIGGERED | Exit Price: {self.data.Close[0]:.2f} | Trailing SL: {self.stop_price:.2f} ")
 
 # Data preparation
-data_path = '/Users/md/Drop
+data_path = '/Users/md/Drop'

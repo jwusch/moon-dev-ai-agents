@@ -1,7 +1,3 @@
-Here's the fixed and completed backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT 🌙
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -61,7 +57,7 @@ class VolumetricSqueeze(Strategy):
     def next(self):
         # 🌙 MOON DEV TRADING LOGIC
         if self.consecutive_losses >= 3:
-            print("🌧️ 3 Consecutive Losses - Trading Halted!")
+            print(" 3 Consecutive Losses - Trading Halted!")
             return
 
         price = self.data.Close[-1]
@@ -90,4 +86,4 @@ class VolumetricSqueeze(Strategy):
                             size = int(round(risk_amount / risk_per_share))
                             take_profit = price + 1.5 * self.data.ATR[-1]
                             self.buy(size=size, sl=stop_loss, tp=take_profit)
-                            print(f"🌕 MOON DEV LONG ENTRY 🌕 | Size: {size} | SL: {stop_loss:.2
+#                             print(f"🌕 MOON DEV LONG ENTRY 🌕 | Size: {size} | SL: {stop_loss:.2"

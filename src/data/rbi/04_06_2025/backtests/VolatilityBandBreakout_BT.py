@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
@@ -53,7 +52,7 @@ class VolatilityBandBreakout(Strategy):
 
     def next(self):
         if self.in_cooldown:
-            print("🌙 Cooldown active! Skipping entries. ⏳")
+            print(" Cooldown active! Skipping entries. ⏳")
             return
             
         if not self.position and len(self.atr) > 1 and len(self.bb_width) > 1:
@@ -79,7 +78,7 @@ class VolatilityBandBreakout(Strategy):
                 current_high = self.data.High[-1]
                 current_low = self.data.Low[-1]
                 
-                print(f"🌙✨ Breakout detected! Placing orders at H:{current_high:.2f} L:{current_low:.2f} 🚀")
+                print(f" Breakout detected! Placing orders at H:{current_high:.2f} L:{current_low:.2f} ")
                 
                 self.buy(stop=current_high, size=position_size, tag={'atr': current_atr, 'type': 'long'})
                 self.sell(stop=current_low, size=position_size, tag={'atr': current_atr, 'type': 'short'})
@@ -89,7 +88,7 @@ class VolatilityBandBreakout(Strategy):
             current_atr = self.atr[-1]
             current_bbw = self.bb_width[-1]
             if current_atr < current_bbw:
-                print(f"🌙🚨 Emergency exit! ATR({current_atr:.2f}) < BBW({current_bbw:.2f})")
+                print(f" Emergency exit! ATR({current_atr:.2f}) < BBW({current_bbw:.2f})")
                 self.position.close()
 
     def notify_order(self, order):

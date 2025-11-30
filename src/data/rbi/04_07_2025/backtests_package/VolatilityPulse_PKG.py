@@ -1,7 +1,3 @@
-Here's the fixed code with all Moon Dev package requirements implemented and debug prints added:
-
-```python
-# 🌙 Moon Dev's Volatility Pulse Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -28,7 +24,7 @@ class VolatilityPulse(Strategy):
     
     def init(self):
         # 🌗 INDICATOR CALCULATION (Pure TA-Lib implementation)
-        print("🌙 Initializing Moon Dev's Volatility Pulse Strategy...")
+#         print("🌙 Initializing Moon Dev's Volatility Pulse Strategy...")'
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, 
                          self.data.Close, self.atr_period, name='ATR')
         self.atr_ma = self.I(talib.SMA, self.atr, 20, name='ATR_MA')
@@ -37,11 +33,11 @@ class VolatilityPulse(Strategy):
         if 'vix' in self.data.df.columns:
             self.vix_low = self.I(talib.MIN, self.data.df['vix'], 1920, name='VIX_LOW')  # 20 days in 15m
         else:
-            print("⚠️ Warning: VIX data not found - using dummy values")
+            print(" Warning: VIX data not found - using dummy values")
             self.vix_low = self.I(np.zeros_like, self.data.Close, name='VIX_LOW')
         
-        self.trade_stops = {}  # 🌊 Trailing stop tracker
-        print("🌙 Indicators initialized successfully!")
+        self.trade_stops = {}  #  Trailing stop tracker
+        print(" Indicators initialized successfully!")
 
     def next(self):
         price = self.data.Close[-1]
@@ -67,8 +63,8 @@ class VolatilityPulse(Strategy):
                     size = min(size, max_size)
                     
                     if size > 0:
-                        self.buy(size=size, tag='🌙 VOLATILITY BREAKOUT')
-                        print(f"🚀 ENTRY | Size: {size} BTC | Entry: {entry_price:.2f} | Stop: {entry_price - stop_dist:.2f}")
+                        self.buy(size=size, tag=' VOLATILITY BREAKOUT')
+                        print(f" ENTRY | Size: {size} BTC | Entry: {entry_price:.2f} | Stop: {entry_price - stop_dist:.2f}")
                         self.trade_stops[self.position.id] = entry_price - stop_dist
 
         # 🌧️ EXIT LOGIC (Pure array-based implementation)
@@ -80,8 +76,8 @@ class VolatilityPulse(Strategy):
                 
                 if self.data.Low[-1] < self.trade_stops[trade.id]:
                     self.position.close()
-                    print(f"🌧️ EXIT | Price: {price:.2f} | Stop: {self.trade_stops[trade.id]:.2f} | Profit: {trade.pl_pct:.2%}")
+                    print(f" EXIT | Price: {price:.2f} | Stop: {self.trade_stops[trade.id]:.2f} | Profit: {trade.pl_pct:.2%}")
                     del self.trade_stops[trade.id]
 
 # 🚀 BACKTEST EXECUTION
-print("\n🌙 Starting Moon Dev's Volatility Pulse Backtest...
+# print("\n🌙 Starting Moon Dev's Volatility Pulse Backtest...'

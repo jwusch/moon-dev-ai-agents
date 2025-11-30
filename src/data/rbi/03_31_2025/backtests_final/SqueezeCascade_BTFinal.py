@@ -1,6 +1,3 @@
-I'll analyze and fix the code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -17,7 +14,7 @@ data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
 required_cols = {'open', 'high', 'low', 'close', 'volume', 'funding_rate'}
 if not required_cols.issubset(data.columns):
     missing = required_cols - set(data.columns)
-    raise ValueError(f"🌙❌ Missing required columns: {missing}")
+    raise ValueError(f" Missing required columns: {missing}")
 
 data.rename(columns={
     'open': 'Open',
@@ -52,7 +49,7 @@ class SqueezeCascade(Strategy):
         self.volume_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("🌙✨ Strategy initialized with Moon Dev indicators!")
+#         print("🌙✨ Strategy initialized with Moon Dev indicators!")
         
     def next(self):
         if self.position:
@@ -62,22 +59,22 @@ class SqueezeCascade(Strategy):
             # Check profit targets
             if current_low <= self.tp1:
                 self.position.close(0.5)
-                print(f"🌙✨ TP1 Hit! Closed 50% at {current_low:.2f}")
+                print(f" TP1 Hit! Closed 50% at {current_low:.2f}")
                 
             if current_low <= self.swing_low[-1]:
                 self.position.close()
-                print(f"🚀📉 Swing Low Reached! Full exit at {current_low:.2f}")
+                print(f" Swing Low Reached! Full exit at {current_low:.2f}")
                 
             # Trailing stop logic
             if current_low <= self.trail_trigger and not self.trailing:
-                print(f"🛡️🌙 Trailing Stop Activated!")
+                print(f" Trailing Stop Activated!")
                 self.trailing = True
                 self.orders[0].sl = self.entry_price  # Update existing SL
                 
             # Stop loss check
             if current_high >= self.sl_price:
                 self.position.close()
-                print(f"🌙💥 SL Triggered at {current_high:.2f}")
+                print(f" SL Triggered at {current_high:.2f}")
                 
             return
             

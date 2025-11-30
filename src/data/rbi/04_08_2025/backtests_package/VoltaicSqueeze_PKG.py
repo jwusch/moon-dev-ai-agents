@@ -1,6 +1,3 @@
-Here's the fixed code with all necessary adjustments and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 from backtesting import Strategy, Backtest
 import talib
@@ -40,7 +37,7 @@ class VoltaicSqueeze(Strategy):
         self.rsi_lows = self.I(talib.MIN, self.rsi, timeperiod=5)
         
         self.trade_params = {}
-        print("🌙✨ MOON DEV INIT: Strategy initialized with celestial precision!")
+#         print("🌙✨ MOON DEV INIT: Strategy initialized with celestial precision!")
 
     def next(self):
         price = self.data.Close[-1]
@@ -48,7 +45,7 @@ class VoltaicSqueeze(Strategy):
         
         # Moon Dev risk management system
         if len(self.trades) >= 3 and all(trade.pl < 0 for trade in self.trades[-3:]):
-            print("🌙🚨 MOON DEV ALERT: 3 consecutive losses! Trading halted for safety.")
+#             print("🌙🚨 MOON DEV ALERT: 3 consecutive losses! Trading halted for safety.")
             return
 
         if not self.position:
@@ -72,10 +69,10 @@ class VoltaicSqueeze(Strategy):
                 sl = self.lower[-1]
                 risk = price - sl
                 if risk <= 0: 
-                    print("🌙⚠️ Risk calculation failed - aborting launch sequence")
+                    print(" Risk calculation failed - aborting launch sequence")
                     return
                 size = int(round((0.01 * equity) / risk))
                 if size > 0:
                     self.buy(size=size)
-                    print(f"🌙🚀 MOON BLASTOFF! LONG {size} @ {price:.2f} (Risk: {risk:.2f})")
+                    print(f" MOON BLASTOFF! LONG {size} @ {price:.2f} (Risk: {risk:.2f})")
                     self.trade

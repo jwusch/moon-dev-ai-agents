@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR CHIKOU VOLATILITY STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -34,10 +29,10 @@ data.set_index('Date', inplace=True)
 # STRATEGY IMPLEMENTATION
 # ====================
 class ChikouVolatility(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     bb_period = 20
     bb_dev = 2
-    chikou_lookback = 26  # Ichimoku lag period 🌗
+    chikou_lookback = 26  # Ichimoku lag period 
 
     def init(self):
         # 🌙 BOLLINGER BANDS CALCULATION
@@ -64,7 +59,7 @@ class ChikouVolatility(Strategy):
     def next(self):
         # 🌙 CORE STRATEGY LOGIC
         if len(self.data) < self.chikou_lookback + 2:
-            return  # Not enough data for calculations 🌑
+            return  # Not enough data for calculations 
 
         # Chikou Span condition calculation ✨
         current_close = self.data.Close[-1]
@@ -105,11 +100,11 @@ class ChikouVolatility(Strategy):
         # 💫 ENTRY LOGIC
         if not self.position:
             if bullish_entry:
-                stop_price = current_lower * 0.999  # 0.1% below lower band 🌑
+                stop_price = current_lower * 0.999  # 0.1% below lower band 
                 size = calculate_size(current_close, stop_price)
                 if size > 0:
                     self.buy(size=size, sl=stop_price)
-                    print(f"🌙🚀 MOON DEV LONG ENTRY | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
+#                     print(f"🌙🚀 MOON DEV LONG ENTRY | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
 
             elif bearish_entry:
                 stop_price = current

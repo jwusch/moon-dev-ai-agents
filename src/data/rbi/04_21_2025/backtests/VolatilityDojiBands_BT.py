@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -69,5 +68,5 @@ class VolatilityDojiBands(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙 MOON DEV LONG ENTRY: {self.data.Close[-1]:.2f} | Size: {position_size} ✨")
+#                     print(f"🌙 MOON DEV LONG ENTRY: {self.data.Close[-1]:.2f} | Size: {position_size} ✨")
                     self.sl = self.data.Close[-1] - stop_loss

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper indicator implementations:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -68,7 +65,7 @@ class VolSqueezeReversion(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price, tag={'entry_width': self.bb_width[-1]})
-                print(f"🚀 MOON DEV LONG LAUNCH: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {sl_price:.2f} 🌙")
+#                 print(f"🚀 MOON DEV LONG LAUNCH: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {sl_price:.2f} 🌙")
         
         # Short entry logic
         elif (not self.position and

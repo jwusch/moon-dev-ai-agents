@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR BANDWIDTHSURGE STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +27,7 @@ data.set_index('datetime', inplace=True)
 # STRATEGY CLASS 🚀✨
 # ======================
 class BandwidthSurge(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # ======================
@@ -64,7 +61,7 @@ class BandwidthSurge(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, 20)
         self.swing_low = self.I(talib.MIN, self.data.Low, 20)
         
-        print("🌙✨ Strategy initialized! Lunar indicators ready! 🚀")
+#         print("🌙✨ Strategy initialized! Lunar indicators ready! 🚀")
 
     def next(self):
         # ======================
@@ -88,7 +85,7 @@ class BandwidthSurge(Strategy):
                         
                         if position_size > 0:
                             self.buy(size=position_size, sl=sl_price)
-                            print(f"🚀🌙 LONG! Size: {position_size} | Entry: {price:.2f} | SL: {sl_price:.2f}")
+                            print(f" LONG! Size: {position_size} | Entry: {price:.2f} | SL: {sl_price:.2f}")
                             
                     elif price < self.bb_lower[-1]:
                         # Short setup 🌙

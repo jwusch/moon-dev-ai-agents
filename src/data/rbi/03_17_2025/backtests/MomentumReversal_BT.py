@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -30,11 +29,11 @@ class MomentumReversal(Strategy):
         # Exit conditions
         if self.position.is_long and crossunder(self.fisher[-3:], 2):
             self.position.close()
-            print(f"🌕 Moon Dev Exit: LONG closed at {self.data.Close[-1]:.2f} | Profit: {self.position.pl_usd:.2f} 💰")
+#             print(f"🌕 Moon Dev Exit: LONG closed at {self.data.Close[-1]:.2f} | Profit: {self.position.pl_usd:.2f} 💰")
             
         if self.position.is_short and crossover(self.fisher[-3:], -2):
             self.position.close()
-            print(f"🌑 Moon Dev Exit: SHORT closed at {self.data.Close[-1]:.2f} | Profit: {self.position.pl_usd:.2f} 💰")
+#             print(f"🌑 Moon Dev Exit: SHORT closed at {self.data.Close[-1]:.2f} | Profit: {self.position.pl_usd:.2f} 💰")
 
         # Entry conditions
         if not self.position:
@@ -63,7 +62,7 @@ class MomentumReversal(Strategy):
         if risk == 0:
             return  # Avoid division by zero
         
-        position_size = (self.broker.equity * self.risk_per_trade) / risk
+        position_size = (self.equity * self.risk_per_trade) / risk
         position_size = int(round(position_size))
         
         if position_size == 0:
@@ -71,10 +70,10 @@ class MomentumReversal(Strategy):
         
         if direction == 'long':
             self.buy(size=position_size, sl=stop_loss)
-            print(f"🚀 Moon Dev LONG Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} 🌙")
+#             print(f"🚀 Moon Dev LONG Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} 🌙")
         else:
             self.sell(size=position_size, sl=stop_loss)
-            print(f"🌒 Moon Dev SHORT Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} 🌙")
+#             print(f"🌒 Moon Dev SHORT Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} 🌙")
 
 # Data preprocessing
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

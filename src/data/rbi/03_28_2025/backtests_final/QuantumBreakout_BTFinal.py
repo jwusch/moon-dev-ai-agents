@@ -1,6 +1,3 @@
-I'll help debug and complete the QuantumBreakout strategy while maintaining all the original logic. Here's the fixed and completed code with Moon Dev enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -40,8 +37,8 @@ class QuantumBreakout(Strategy):
                              self.upper_bb, self.lower_bb, 
                              self.I(talib.SMA, self.data.Close, 20))
         
-        print("🌙 QuantumBreakout Strategy Activated! Ready for stellar performance! 🚀")
-        print("✨ All indicators powered by pure TA-Lib - No backtesting.lib detected! ✅")
+#         print("🌙 QuantumBreakout Strategy Activated! Ready for stellar performance! 🚀")
+        print(" All indicators powered by pure TA-Lib - No backtesting.lib detected! ")
 
     def next(self):
         current_price = self.data.Close[-1]
@@ -63,7 +60,7 @@ class QuantumBreakout(Strategy):
                 
                 if size > 0:
                     self.buy(size=size, sl=sl, tp=current_price + 2*(current_price-sl))
-                    print(f"🚀 LONG Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1 | Moon-bound! 🌕")
+                    print(f" LONG Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1 | Moon-bound! ")
             
             # Short constellation - surfing the cosmic waves 🌑
             elif (obi < mean_obi - 2*std_obi and 
@@ -77,7 +74,7 @@ class QuantumBreakout(Strategy):
                 
                 if size > 0:
                     self.sell(size=size, sl=sl, tp=current_price - 2*(sl - current_price))
-                    print(f"🌑 SHORT Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1 | Riding the gravity wave! 🌊")
+                    print(f" SHORT Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1 | Riding the gravity wave! ")
         
         # Exit conditions with celestial precision 🌓
         else:

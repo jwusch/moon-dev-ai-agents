@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -37,7 +33,7 @@ class ForceBandContraction(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 
                           timeperiod=14, name='ATR')
         
-        print("🌙 MOON DEV INIT COMPLETE ✨ Indicators ready for launch!")
+#         print("🌙 MOON DEV INIT COMPLETE ✨ Indicators ready for launch!")
 
     def next(self):
         current_idx = len(self.data)-1
@@ -72,7 +68,7 @@ class ForceBandContraction(Strategy):
                 if position_size > 0:
                     sl = self.data.Close[current_idx] - self.atr_multiplier * atr
                     self.buy(size=position_size, sl=sl)
-                    print(f"🌙 BULLISH BREAKOUT DETECTED 🚀 | LONG {position_size} units "
+                    print(f" BULLISH BREAKOUT DETECTED  | LONG {position_size} units "
                           f"| Price: {self.data.Close[current_idx]:.2f} | "
                           f"SL: {sl:.2f}")
 

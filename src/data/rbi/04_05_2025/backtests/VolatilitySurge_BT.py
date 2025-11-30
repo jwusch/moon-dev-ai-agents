@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the VolatilitySurge strategy with Moon Dev enhancements:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -26,7 +23,7 @@ class VolatilitySurge(Strategy):
     ema_period = 20
     atr_period = 20
     atr_multiplier = 2.0
-    risk_pct = 0.01  # Risk 1% per trade 🌕
+    risk_pct = 0.01  # Risk 1% per trade 
 
     def init(self):
         # Moon Dev Indicators 🚀
@@ -55,7 +52,7 @@ class VolatilitySurge(Strategy):
                 if risk_per_share > 0:
                     size = int(round((self.equity * self.risk_pct) / risk_per_share))
                     if size > 0:
-                        print(f"🚀🌕 LUNAR LIFT-OFF! Long {size} units at {current_close:.2f}")
+                        print(f" LUNAR LIFT-OFF! Long {size} units at {current_close:.2f}")
                         self.buy(size=size)
                         self.entry_price = current_close
                         self.max_price = current_close
@@ -68,7 +65,7 @@ class VolatilitySurge(Strategy):
                 if risk_per_share > 0:
                     size = int(round((self.equity * self.risk_pct) / risk_per_share))
                     if size > 0:
-                        print(f"🌑🌘 COMET DIVE! Short {size} units at {current_close:.2f}")
+                        print(f" COMET DIVE! Short {size} units at {current_close:.2f}")
                         self.sell(size=size)
                         self.entry_price = current_close
                         self.min_price = current_close
@@ -79,7 +76,7 @@ class VolatilitySurge(Strategy):
                 exit_price = self.max_price - (self.max_price - self.entry_price) * 0.5
                 
                 if current_close < exit_price:
-                    print(f"🌕💫 LUNAR DESCENT! Closing long at {current_close:.2f}")
+                    print(f" LUNAR DESCENT! Closing long at {current_close:.2f}")
                     self.position.close()
                     self.entry_price = None
                     self.max_price = -np.inf
@@ -89,7 +86,7 @@ class VolatilitySurge(Strategy):
                 exit_price = self.min_price + (self.entry_price - self.min_price) * 0.5
                 
                 if current_close > exit_price:
-                    print(f"🌑💥 GRAVITY BREACH! Closing short at {current_close:.2f}")
+                    print(f" GRAVITY BREACH! Closing short at {current_close:.2f}")
                     self.position.close()
                     self.entry_price = None
                     self.min_price = np.inf

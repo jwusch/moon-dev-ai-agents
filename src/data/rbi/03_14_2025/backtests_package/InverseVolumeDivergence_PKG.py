@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and proper Moon Dev themed debug prints added:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -103,6 +100,6 @@ class InverseVolumeDivergence(Strategy):
                 last['rsi'] < prev['rsi'] and 
                 last['stoch'] < prev['stoch']):
                 bearish_div = True
-                print(f"🌙 Bearish divergence detected! Price {last['price']:.2f}↗ vs RSI {last['rsi']:.2f}↘")
+                print(f" Bearish divergence detected! Price {last['price']:.2f}↗ vs RSI {last['rsi']:.2f}↘")
         
         # Bullish divergence check (price ↘ vs indicators ↗

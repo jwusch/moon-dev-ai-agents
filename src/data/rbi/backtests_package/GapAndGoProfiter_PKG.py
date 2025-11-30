@@ -1,9 +1,5 @@
-Here's the fixed code with the required replacements and proper Moon Dev themed debug prints:
-
-```python
-#!/usr/bin/env python3
 """
-Moon Dev’s Backtest AI 🌙 – Backtesting “GapAndGoProfiter”
+# Moon Dev’s Backtest AI 🌙 – Backtesting “GapAndGoProfiter”
 This strategy looks for a significant gap‐up from the previous day’s close and,
 after a pullback toward the 9‐period moving average or VWAP, goes long. 
 It sets a stop‐loss based on the recent low and a take‐profit target defined by a risk–reward ratio.
@@ -32,7 +28,7 @@ def vwap_func(close, high, low, volume):
 # ------------------------------
 class GapAndGoProfiter(Strategy):
     """
-    GapAndGoProfiter Strategy 🌙🚀
+#     GapAndGoProfiter Strategy 🌙🚀
     
     Parameters (to be optimized):
         gap_pct_perc   - Gap percentage in whole numbers compared to previous close (default=2 means 2%)
@@ -44,7 +40,7 @@ class GapAndGoProfiter(Strategy):
       2. If true, then wait for a “pullback” candle that touches the 9-SMA or VWAP and then makes a new high.
       3. When found, calculate risk as (entry - candle low) and invest risk_pct of total equity.
       4. Set a stop loss at the candle low and a take profit based on risk_reward.
-      5. Exit early if the price falls below the 9-SMA (a Moon Dev safety signal ✨).
+#       5. Exit early if the price falls below the 9-SMA (a Moon Dev safety signal ✨).
     """
     # Optimization parameters: using whole-number percentages for easier optimization via range()
     gap_pct_perc = 2     # e.g., 2 -> 2% gap up
@@ -62,7 +58,7 @@ class GapAndGoProfiter(Strategy):
                                  self.data.Low, self.data.Volume)
         
         # Debug initialization print
-        print("🌙✨ Initialized GapAndGoProfiter with parameters: gap_pct = {:.2%}, risk_pct = {:.2%}, risk_reward = {}".format(
+        print(" Initialized GapAndGoProfiter with parameters: gap_pct = {:.2%}, risk_pct = {:.2%}, risk_reward = {}".format(
             self.gap_pct, self.risk_pct, self.risk_reward))
     
     def next(self):

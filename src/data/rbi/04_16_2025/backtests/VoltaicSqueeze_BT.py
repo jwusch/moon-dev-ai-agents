@@ -1,8 +1,3 @@
-Here's the complete backtesting implementation for the VoltaicSqueeze strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING SUITE - VOLTAIC SQUEEZE STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -10,7 +5,7 @@ import talib
 import numpy as np
 
 # ====================== DATA PREPARATION ====================== #
-print("🌙 Preparing lunar market data...")
+print(" Preparing lunar market data...")
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = pd.read_csv(data_path)
 
@@ -28,7 +23,7 @@ data.rename(columns={
 # Configure spacetime coordinates
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("✨ Data aligned with cosmic standards! 🪐")
+print(" Data aligned with cosmic standards! 🪐")
 
 # ====================== CELESTIAL STRATEGY ====================== #
 class VoltaicSqueeze(Strategy):
@@ -65,7 +60,7 @@ class VoltaicSqueeze(Strategy):
         # Trend Strength
         self.adx = self.I(talib.ADX, h, l, c, self.adx_period, name='ADX')
         
-        print("🛸 Indicators charged with quantum energy! ⚡")
+        print(" Indicators charged with quantum energy! ")
 
     def next(self):
         # 🪐 Current Cosmic Readings
@@ -94,7 +89,7 @@ class VoltaicSqueeze(Strategy):
                 risk_distance = price - sl
                 position_size = int(round(risk_amount / risk_distance))
                 
-                print(f"🌕 BULLISH BREAKOUT! | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f} 🚀")
+                print(f" BULLISH BREAKOUT! | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f} ")
                 self.buy(size=position_size, sl=sl)
             
             # 🌑 Short Entry Sequence

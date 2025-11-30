@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev themed implementations:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,7 +49,7 @@ class VolatilityReversion(Strategy):
                     position_size = int(round(risk_amount / (3*current_std)))
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss)
-                        print(f"🌙 MOON DEV SHORT SIGNAL! Sold {position_size} units at {current_close} ✨")
+#                         print(f"🌙 MOON DEV SHORT SIGNAL! Sold {position_size} units at {current_close} ✨")
                         self.entry_bar = len(self.data)
 
                 elif current_close < self.lower_band[-1]:
@@ -61,7 +58,7 @@ class VolatilityReversion(Strategy):
                     position_size = int(round(risk_amount / (3*current_std)))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀 MOON DEV LONG SIGNAL! Bought {position_size} units at {current_close} 🌕")
+#                         print(f"🚀 MOON DEV LONG SIGNAL! Bought {position_size} units at {current_close} 🌕")
                         self.entry_bar = len(self.data)
 
         # Exit logic ⏳✨
@@ -73,16 +70,16 @@ class VolatilityReversion(Strategy):
             # Price reversion exit ✂️
             if self.position.is_long and current_close >= (current_sma + exit_threshold):
                 exit_condition = True
-                print(f"✨ PRICE REVERSION EXIT at {current_close}")
+                print(f" PRICE REVERSION EXIT at {current_close}")
                 
             elif self.position.is_short and current_close <= (current_sma - exit_threshold):
                 exit_condition = True
-                print(f"✨ PRICE REVERSION EXIT at {current_close}")
+                print(f" PRICE REVERSION EXIT at {current_close}")
 
             # VIX contango exit 🌊
             if vix_contango:
                 exit_condition = True
-                print(f"🌊 VIX CONTANGO EXIT at {current_close}")
+                print(f" VIX CONTANGO EXIT at {current_close}")
 
             # Time-based exit ⏰
             if (len(self.data) - self.entry_bar) >= self.time_exit_bars:
@@ -91,7 +88,7 @@ class VolatilityReversion(Strategy):
 
             if exit_condition:
                 self.position.close()
-                print(f"🌙🌙🌙 MOON DEV TRADE CLOSED 🌙🌙🌙")
+#                 print(f"🌙🌙🌙 MOON DEV TRADE CLOSED 🌙🌙🌙")
 
 # Run backtest 💻🚀
 bt = Backtest(data, VolatilityReversion, cash=1_000_000, commission=.002)

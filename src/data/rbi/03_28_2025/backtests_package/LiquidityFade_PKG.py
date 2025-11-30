@@ -1,7 +1,3 @@
-I'll fix the code by removing all backtesting.lib imports and replacing any usage of crossover/crossunder functions. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Liquidity Fade Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -49,11 +45,11 @@ class LiquidityFade(Strategy):
         self.funding_series = self.data.df['funding_rate']
         
         # Moon Dev Debug Initialization
-        print("🌙 Lunar Indicators Initialized:")
+        print(" Lunar Indicators Initialized:")
         print(f"- CMO Period: {self.timeperiod_cmo}")
         print(f"- Swing Period: {self.swing_period}")
         print(f"- ATR Period: {self.atr_period}")
-        print("✨ Ready for liftoff! 🚀")
+        print(" Ready for liftoff! ")
         
     def next(self):
         # Avoid multiple positions
@@ -78,7 +74,7 @@ class LiquidityFade(Strategy):
             if position_size > 0:
                 self.sell(size=position_size, sl=sl_price, 
                          tp=price - atr * 2)
-                print(f"🌑 NEW MOON SHORT! CMO: {cmo:.1f} | Funding: {funding:.4f} | Size: {position_size}")
+                print(f" NEW MOON SHORT! CMO: {cmo:.1f} | Funding: {funding:.4f} | Size: {position_size}")
                 
         elif cmo < 10 and funding < -0.0001 and price <= swing_l * (1 + self.liquidity_proximity):
             # Long Entry Logic
@@ -89,11 +85,11 @@ class LiquidityFade(Strategy):
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price,
                         tp=price + atr * 2)
-                print(f"🌕 FULL MOON LONG! CMO: {cmo:.1f} | Funding: {funding:.4f} | Size: {position_size}")
+                print(f" FULL MOON LONG! CMO: {cmo:.1f} | Funding: {funding:.4f} | Size: {position_size}")
     
     def calculate_size(self, risk_per_share):
-        """Moon-sized Risk Management 🌜"""
+        """Moon-sized Risk Management """
         if risk_per_share <= 0:
-            print("🌘 Warning: Invalid risk calculation - skipping trade")
+            print(" Warning: Invalid risk calculation - skipping trade")
             return 0
         risk_amount = self.equity * self.risk_pct

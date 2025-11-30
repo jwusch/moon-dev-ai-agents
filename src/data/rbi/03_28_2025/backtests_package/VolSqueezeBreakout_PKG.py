@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 Moon Dev's VolSqueezeBreakout Backtest Script 🚀✨
-
 import pandas as pd
 import talib
 import numpy as np
@@ -27,7 +22,7 @@ data = data.rename(columns={
 })
 
 class VolSqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% equity risk per trade 🌙
+    risk_per_trade = 0.01  # 1% equity risk per trade 
     
     def init(self):
         # Bollinger Bands (20,2) with TA-Lib ✨
@@ -75,7 +70,7 @@ class VolSqueezeBreakout(Strategy):
                     if size > 0:
                         self.buy(size=size, sl=sl)
                         self.trailing_peak = self.data.High[-1]
-                        print(f"🌙 MOON DEV LONG ENTRY! Size: {size} ✨ | Price: {close:.2f} 🚀")
+#                         print(f"🌙 MOON DEV LONG ENTRY! Size: {size} ✨ | Price: {close:.2f} 🚀")
                         
                 elif close < lower:
                     # Short entry 🚀
@@ -84,7 +79,7 @@ class VolSqueezeBreakout(Strategy):
                     if size > 0:
                         self.sell(size=size, sl=sl)
                         self.trailing_trough = self.data.Low[-1]
-                        print(f"🌙 MOON DEV SHORT ENTRY! Size: {size} ✨ | Price: {close:.2f} 🚀")
+#                         print(f"🌙 MOON DEV SHORT ENTRY! Size: {size} ✨ | Price: {close:.2f} 🚀")
 
         # Exit management 🌙
         else:
@@ -95,7 +90,7 @@ class VolSqueezeBreakout(Strategy):
                 
                 if close < upper or self.data.Low[-1] < trail_stop:
                     self.position.close()
-                    print(f"🌙 MOON DEV LONG EXIT! ✨ | Price: {close:.2f} 🚀")
+#                     print(f"🌙 MOON DEV LONG EXIT! ✨ | Price: {close:.2f} 🚀")
                     
             elif self.position.is_short:
                 # Update trailing trough 🚀

@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with proper Moon Dev themed debug prints and technical fixes:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -31,7 +28,7 @@ class VolCompressBreakout(Strategy):
         # Volume confirmation
         self.volume_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         
-        print("🌙✨ Moon Dev Strategy Activated! Ready for Cosmic Breakouts! 🚀")
+#         print("🌙✨ Moon Dev Strategy Activated! Ready for Cosmic Breakouts! 🚀")
 
     def next(self):
         current_width = self.bb_width[-1]
@@ -40,9 +37,9 @@ class VolCompressBreakout(Strategy):
         volume = self.data.Volume[-1]
         
         # Moon-themed debug prints
-        print(f"🌙 BB Width: {current_width:.4f} | 6M Min: {min_width:.4f}")
-        print(f"📈 Close: {close:.2f} vs Upper: {self.upper[-1]:.2f} | Lower: {self.lower[-1]:.2f}")
-        print(f"📊 Volume: {volume:.2f} vs SMA20: {self.volume_sma[-1]:.2f}")
+        print(f" BB Width: {current_width:.4f} | 6M Min: {min_width:.4f}")
+        print(f" Close: {close:.2f} vs Upper: {self.upper[-1]:.2f} | Lower: {self.lower[-1]:.2f}")
+        print(f" Volume: {volume:.2f} vs SMA20: {self.volume_sma[-1]:.2f}")
 
         if not self.position:
             # Long entry logic
@@ -60,7 +57,7 @@ class VolCompressBreakout(Strategy):
                              (self.equity*self.max_exposure)/entry_price)
                     size = int(round(size))  # Ensure whole number for units
                     self.buy(size=size, tag={'stop': stop_price})
-                    print(f"🚀🌙 LONG ENTRY! Size: {size} @ {entry_price:.2f} | Cosmic Boom Detected!")
+                    print(f" LONG ENTRY! Size: {size} @ {entry_price:.2f} | Cosmic Boom Detected!")
             
             # Short entry logic
             elif (current_width <= min_width and 
@@ -77,13 +74,13 @@ class VolCompressBreakout(Strategy):
                              (self.equity*self.max_exposure)/entry_price)
                     size = int(round(size))  # Ensure whole number for units
                     self.sell(size=size, tag={'stop': stop_price})
-                    print(f"🌙📉 SHORT ENTRY! Size: {size} @ {entry_price:.2f} | Gravitational Collapse Detected!")
+                    print(f" SHORT ENTRY! Size: {size} @ {entry_price:.2f} | Gravitational Collapse Detected!")
 
         # Exit logic for long positions
         elif self.position.is_long:
             current_stop = max(self.position.tag['stop'], self.lower[-1])
             if self.data.Low[-1] < current_stop:
                 self.position.close()
-                print(f"🌙🔻 EXIT LONG @ {self.data.Close[-1]:.2f} | Moon Shield Activated!")
+                print(f" EXIT LONG @ {self.data.Close[-1]:.2f} | Moon Shield Activated!")
 
         # Exit logic for

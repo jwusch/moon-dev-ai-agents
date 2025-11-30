@@ -36,7 +36,7 @@ class MomentumBreakout(Strategy):
         macd_prev = self.macd_hist[-2] if current_idx > 1 else 0
 
         # Risk calculation
-        equity = self.broker.equity
+        equity = self.equity
         risk_amount = equity * self.risk_pct
         atr_value = self.atr[-1]
         

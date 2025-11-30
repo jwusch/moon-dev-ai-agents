@@ -1,6 +1,3 @@
-Here's the fully debugged backtest code with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -47,24 +44,24 @@ class VolDivergenceExit(Strategy):
                 
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
-                    self.sell(size=position_size, sl=stop_loss, tag='🌑 Short Entry')
+                    self.sell(size=position_size, sl=stop_loss, tag=' Short Entry')
                     self.entry_bar = len(self.data) - 1
-                    print(f"🌑 Moon Dev Signal! SHORT {position_size} units @ {self.data.Close[-1]:.2f} 🚀 SL: {stop_loss:.2f} ✨")
+#                     print(f"🌑 Moon Dev Signal! SHORT {position_size} units @ {self.data.Close[-1]:.2f} 🚀 SL: {stop_loss:.2f} ✨")
         else:
             # Exit conditions check
             if self.data.Low[-1] <= self.sma_50[-1]:
-                self.buy(size=self.position.size, tag='🌙 SMA Exit')
-                print(f"🌙 SMA Touch Exit! Closed @ {self.data.Close[-1]:.2f} ✨")
+                self.buy(size=self.position.size, tag=' SMA Exit')
+                print(f" SMA Touch Exit! Closed @ {self.data.Close[-1]:.2f} ")
             
             # Volatility exit condition
             elif (self.hv_10[-2] <= self.hv_30_avg[-2] and 
                  self.hv_10[-1] > self.hv_30_avg[-1]):
-                self.buy(size=self.position.size, tag='🚨 Vol Exit')
-                print(f"🚨 Volatility Spike! Closed @ {self.data.Close[-1]:.2f} 🌪️")
+                self.buy(size=self.position.size, tag=' Vol Exit')
+                print(f" Volatility Spike! Closed @ {self.data.Close[-1]:.2f} ")
             
             elif (len(self.data) - self.entry_bar) >= 5 * 96:  # 5 days in 15m bars
                 self.buy(size=self.position.size, tag='⏰ Time Exit')
-                print(f"⏰ 5-Day Timeout! Closed @ {self.data.Close[-1]:.2f} 🕒")
+                print(f"⏰ 5-Day Timeout! Closed @ {self.data.Close[-1]:.2f} ")
 
 # Data preparation
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

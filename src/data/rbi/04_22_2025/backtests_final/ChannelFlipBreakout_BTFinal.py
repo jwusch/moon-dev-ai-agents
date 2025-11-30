@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -32,9 +31,9 @@ class ChannelFlipBreakout(Strategy):
         equity = self.equity
         
         # Moon Dev debug variables
-        moon_emoji = "🌙✨"
-        long_signal = "🚀 LONG ALERT" 
-        short_signal = "🐻 SHORT ALERT"
+        moon_emoji = ""
+        long_signal = " LONG ALERT" 
+        short_signal = " SHORT ALERT"
         
         # Entry/Exit conditions
         long_entry = (
@@ -74,7 +73,7 @@ class ChannelFlipBreakout(Strategy):
             self.position.sl = max(self.position.sl, trail_price)
             
             if self.supertrend[-1] == -1:
-                print(f"{moon_emoji} 🌧️ SUPER TREND REVERSAL EXIT LONG @ {price:.2f}")
+                print(f"{moon_emoji}  SUPER TREND REVERSAL EXIT LONG @ {price:.2f}")
                 self.position.close()
                 
         elif self.position.is_short:
@@ -82,7 +81,7 @@ class ChannelFlipBreakout(Strategy):
             self.position.sl = min(self.position.sl, trail_price)
             
             if self.supertrend[-1] == 1:
-                print(f"{moon_emoji} 🌞 SUPER TREND REVERSAL EXIT SHORT @ {price:.2f}")
+                print(f"{moon_emoji}  SUPER TREND REVERSAL EXIT SHORT @ {price:.2f}")
                 self.position.close()
 
 # Data preparation

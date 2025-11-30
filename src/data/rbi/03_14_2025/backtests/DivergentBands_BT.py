@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -56,22 +54,22 @@ class DivergentBands(Strategy):
                 risk_amount = self.equity * self.risk_percentage
                 risk_per_share = entry_price - sl_price
                 if risk_per_share <= 0:
-                    print("🌙⚠️ Aborting trade: Negative risk detected!")
+                    print(" Aborting trade: Negative risk detected!")
                     return
 
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size == 0:
-                    print("🌙⚠️ Position size zero: Not enough equity!")
+                    print(" Position size zero: Not enough equity!")
                     return
 
                 # 🌙🚀 Execute trade with Moon Dev flair
                 self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🌙✨ ENTRY: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f} | SIZE: {position_size} 🚀")
+                print(f" ENTRY: {entry_price:0.2f} | SL: {sl_price:0.2f} | TP: {tp_price:0.2f} | SIZE: {position_size} ")
 
         # 🌙⏰ Time-based exit check
         elif self.position and (len(self.data) - self.position.entry_bar) >= self.max_bars_in_trade:
             self.position.close()
-            print(f"🌙⏰ TIME EXIT: Held {self.max_bars_in_trade} bars")
+            print(f"⏰ TIME EXIT: Held {self.max_bars_in_trade} bars")
 
 # 🌙✨ Data Preparation Ritual
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

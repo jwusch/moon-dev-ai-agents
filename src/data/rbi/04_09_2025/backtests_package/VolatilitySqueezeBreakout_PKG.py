@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -53,8 +50,8 @@ class VolatilitySqueezeBreakout(Strategy):
     def next(self):
         # Moon-themed debug prints
         if len(self.data) % 100 == 0:
-            print(f"🌙 Processing bar {len(self.data)} - Price: {self.data.Close[-1]} ✨")
-            print(f"🌌 Indicators - BB Upper: {self.bb_upper[-1]:.2f}, Keltner Upper: {self.keltner_upper[-1]:.2f}")
+            print(f" Processing bar {len(self.data)} - Price: {self.data.Close[-1]} ")
+            print(f" Indicators - BB Upper: {self.bb_upper[-1]:.2f}, Keltner Upper: {self.keltner_upper[-1]:.2f}")
         
         if not self.position:
             # Check squeeze condition with lunar precision

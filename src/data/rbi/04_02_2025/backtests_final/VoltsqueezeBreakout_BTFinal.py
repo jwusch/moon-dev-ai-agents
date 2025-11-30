@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -66,12 +63,12 @@ class VoltsqueezeBreakout(Strategy):
         current_time = self.data.index[-1].time()
         # Moon Dev session filter 🌓
         if (current_time < datetime.time(0, 30)) or (current_time >= datetime.time(23, 30)):
-            print("🌙 Moon Dev: Outside trading hours - skipping execution")
+#             print("🌙 Moon Dev: Outside trading hours - skipping execution")
             return
             
         # Moon Dev position counter 🌙
         if len(self.positions) >= self.max_positions:
-            print("🌙 Moon Dev: Max positions reached - skipping new entries")
+#             print("🌙 Moon Dev: Max positions reached - skipping new entries")
             return
 
         # Long entry conditions 🚀
@@ -84,7 +81,7 @@ class VoltsqueezeBreakout(Strategy):
             risk_per_unit = entry_price - sl_price
             
             if risk_per_unit <= 0:
-                print("🌙 Moon Dev: Invalid risk calculation - skipping trade")
+#                 print("🌙 Moon Dev: Invalid risk calculation - skipping trade")
                 return
                 
             # Calculate position size

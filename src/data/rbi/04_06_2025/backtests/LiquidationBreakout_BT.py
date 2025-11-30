@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -38,14 +37,14 @@ class LiquidationBreakout(Strategy):
         self.vol_vol = self.I(lambda x,y: x*y, vol_std, self.data.Volume, name='VOL*STD')
         self.vol_vol_avg = self.I(talib.SMA, self.vol_vol, 20, name='VOL VOL AVG')
         
-        print("🌙✨ Lunar indicators activated! Ready for quantum trading!")
+        print(" Lunar indicators activated! Ready for quantum trading!")
 
     def next(self):
         # Avoid weekend liquidity voids 🌌
         if self.data.index[-1].weekday() >= 5:
             if self.position:
                 self.position.close()
-                print("🌙🌃 Closing positions before weekend stargazing...")
+                print(" Closing positions before weekend stargazing...")
             return
 
         close = self.data.Close[-1]
@@ -61,8 +60,8 @@ class LiquidationBreakout(Strategy):
                 risk = close - sl
                 size = int(round((self.equity * 0.01) / risk))
                 if size > 0:
-                    self.buy(size=size, sl=sl, tag='🌕 LONG')
-                    print(f"🚀🌙 LIFTOFF! Long {size} @ {close} | Cosmic SL: {sl}")
+                    self.buy(size=size, sl=sl, tag=' LONG')
+                    print(f" LIFTOFF! Long {size} @ {close} | Cosmic SL: {sl}")
             
             # Short gravity well entry
             elif close < self.swing_low[-1] and vv > 1.5*vv_avg and self.volume_z[-1] > 2:
@@ -70,19 +69,19 @@ class LiquidationBreakout(Strategy):
                 risk = sl - close
                 size = int(round((self.equity * 0.01) / risk))
                 if size > 0:
-                    self.sell(size=size, sl=sl, tag='🌑 SHORT')
-                    print(f"🌙🌌 BLACK HOLE! Short {size} @ {close} | Event Horizon SL: {sl}")
+                    self.sell(size=size, sl=sl, tag=' SHORT')
+                    print(f" BLACK HOLE! Short {size} @ {close} | Event Horizon SL: {sl}")
 
         # Stellar Position Management 🌠
         for trade in self.trades:
             if trade.is_long and close < self.swing_low[-1]:
                 trade.close()
-                print(f"🌙💫 LONG DOCKING! Support breached @ {close}")
+                print(f" LONG DOCKING! Support breached @ {close}")
             elif trade.is_short and close > self.swing_high[-1]:
                 trade.close()
-                print(f"🌙💥 SHORT EJECTION! Resistance broken @ {close}")
+                print(f" SHORT EJECTION! Resistance broken @ {close}")
             
             # Trailing event horizon 🔄
             if trade.pnl_percent >= 1.5 * (atr/trade.entry_price)*100:
                 trade.sl = trade.entry_price
-                print(f"🌙🛡️ SHIELD UP! Breakeven activated @ {trade.entry_price}")
+                print(f" SHIELD UP! Breakeven activated @ {trade.entry_price}")

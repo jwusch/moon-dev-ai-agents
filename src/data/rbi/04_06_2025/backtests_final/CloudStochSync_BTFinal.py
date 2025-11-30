@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -49,19 +46,19 @@ class CloudStochSync(Strategy):
             if (price < max(self.senkou_a[-1], self.senkou_b[-1])) and \
                (price > min(self.senkou_a[-1], self.senkou_b[-1])):
                 self.position.close()
-                print(f"🌙 Cloud exit at {price:.2f}! Floating in the mist... ☁️")
+                print(f" Cloud exit at {price:.2f}! Floating in the mist... ")
 
             # MACD divergence exit
             if len(self.macd_hist) > 3 and \
                self.data.High[-1] > self.data.High[-2] and \
                self.macd_hist[-1] < self.macd_hist[-2]:
                 self.position.close()
-                print(f"🌌 MACD divergence detected! Returning to stardust... 💫")
+                print(f" MACD divergence detected! Returning to stardust... ")
 
             # HA color change exit
             if self.ha_close_4h[-1] < self.ha_open_4h[-1]:
                 self.position.close()
-                print(f"🌑 HA candle turned bearish! Eclipse activated... 🌘")
+                print(f" HA candle turned bearish! Eclipse activated... ")
 
         # Entry conditions
         elif not self.position:

@@ -34,7 +34,7 @@ class VolumetricBollinger(Strategy):
     def next(self):
         # 🌕 Moon Dev Debug Prints 🌕
         if len(self.data) % 100 == 0:
-            print(f"🌙 Processing bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | Equity: {self.equity:.2f}")
+            print(f"🌙 Processing bar {len(self.data)} | Price: {self.data.Close[-1]:0.2f} | Equity: {self.equity:0.2f}")
 
         if not self.position:
             # ✨ Calculate Conditions ✨
@@ -43,7 +43,7 @@ class VolumetricBollinger(Strategy):
             
             # 🚀 Entry Signal Detection 🚀
             if bb_width < 2.0 and vol_condition:
-                print(f"✨🌟 SIGNAL DETECTED! | BB Width: {bb_width:.4f} | Volume: {self.data.Volume[-1]:.2f} (2x {self.avg_volume[-1]:.2f})")
+                print(f"✨🌟 SIGNAL DETECTED! | BB Width: {bb_width:0.4f} | Volume: {self.data.Volume[-1]:0.2f} (2x {self.avg_volume[-1]:0.2f})")
                 self.entry_window = self.entry_window_size
                 
             # 🕒 Entry Window Handling 🕒
@@ -55,7 +55,7 @@ class VolumetricBollinger(Strategy):
                     sl = price * 1.20
                     tp = price * 0.90
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🚀🌕 ENTRY! {position_size} units @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Equity: {self.equity:.2f}")
+                    print(f"🚀🌕 ENTRY! {position_size} units @ {price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f} | Equity: {self.equity:0.2f}")
                 
                 del self.entry_window
             elif hasattr(self, 'entry_window'):
@@ -65,7 +65,7 @@ class VolumetricBollinger(Strategy):
                     print("🌑 Entry window closed without execution")
 
 # 🌙 Backtest Execution 🌙
-bt = Backtest(data, VolumetricBollinger, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolumetricBollinger, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # ✨ Results Print ✨

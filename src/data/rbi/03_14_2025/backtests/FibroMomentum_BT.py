@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -66,9 +65,9 @@ class FibroMomentum(Strategy):
             self.buy(
                 size=int(round(position_size)),
                 sl=stop_loss,
-                tag=f"🌙 FIBRO ENTRY | SL: {stop_loss:.1f}"
+                tag=f" FIBRO ENTRY | SL: {stop_loss:0.1f}"
             )
-            print(f"🚀 MOON SHOT! Entry: {price:.1f} | Size: {int(position_size)}")
+            print(f" MOON SHOT! Entry: {price:0.1f} | Size: {int(position_size)}")
 
         # Exit management 🌘
         if self.position:

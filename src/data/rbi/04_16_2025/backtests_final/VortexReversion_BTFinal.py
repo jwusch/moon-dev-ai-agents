@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with all Moon Dev debug improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -26,8 +23,8 @@ class VortexReversion(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='SwingLow')
         
         self.trade_active = False
-        print("🌙 VortexReversion Strategy Initialized with Moon Power! 🌙")
-        print("✨ All indicators powered by TA-Lib and pandas-ta ✨")
+#         print("🌙 VortexReversion Strategy Initialized with Moon Power! 🌙")
+        print(" All indicators powered by TA-Lib and pandas-ta ")
 
     def _calculate_vortex(self, high, low, close, period, which):
         df = pd.DataFrame({'high': high, 'low': low, 'close': close})
@@ -52,8 +49,8 @@ class VortexReversion(Strategy):
         current_open = self.data.Open[-1]
 
         # Moon Dev Debug Prints
-        print(f"🌙 Current Price: {current_close} | VI+={self.vi_plus[-1]:.2f} VI-={self.vi_minus[-1]:.2f} | CMO={self.cmo[-1]:.2f}")
-        print(f"🌕 Swing High: {self.swing_high[-1]:.2f} | Swing Low: {self.swing_low[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+        print(f" Current Price: {current_close} | VI+={self.vi_plus[-1]:.2f} VI-={self.vi_minus[-1]:.2f} | CMO={self.cmo[-1]:.2f}")
+        print(f" Swing High: {self.swing_high[-1]:.2f} | Swing Low: {self.swing_low[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
 
         if not self.position:
             # Entry Logic

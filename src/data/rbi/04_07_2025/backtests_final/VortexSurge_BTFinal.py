@@ -1,6 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all technical issues resolved:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -8,12 +5,12 @@ import pandas_ta as ta
 from backtesting import Backtest, Strategy
 
 # Moon Dev data preparation 🌙
-print("🌙✨ Initializing Moon Dev's VortexSurge Strategy...")
+# print("🌙✨ Initializing Moon Dev's VortexSurge Strategy...")'
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
 data = pd.read_csv(data_path)
 
 # Clean and format data columns
-print("🌙 Cleaning cosmic data dust...")
+print(" Cleaning cosmic data dust...")
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
 data.rename(columns={
@@ -36,7 +33,7 @@ class VortexSurge(Strategy):
 
     def init(self):
         # 🌙 Vortex Indicator Calculations
-        print("🌙 Calculating cosmic vortex energies...")
+        print(" Calculating cosmic vortex energies...")
         vi = ta.vortex(
             high=self.data.High,
             low=self.data.Low,
@@ -47,14 +44,14 @@ class VortexSurge(Strategy):
         self.vi_minus = self.I(lambda: vi[f'VORTICSN_{self.vi_period}'], name='VI-')
 
         # 🚀 Volume Percentile Calculation
-        print("🌙 Measuring stellar volume patterns...")
+        print(" Measuring stellar volume patterns...")
         self.vol_percentile = self.I(
             lambda: self.data.Volume.rolling(self.volume_lookback).quantile(0.9),
             name='VolTop10%'
         )
 
         # ✨ ATR Calculation
-        print("🌙 Computing celestial volatility...")
+        print(" Computing celestial volatility...")
         self.atr = self.I(talib.ATR,
             self.data.High,
             self.data.Low,
@@ -73,21 +70,21 @@ class VortexSurge(Strategy):
                 # Check VI crossover exit
                 if self.vi_minus[-2] > self.vi_plus[-2] and self.vi_minus[-1] < self.vi_plus[-1]:
                     trade.close()
-                    print(f"🌙✨ Closing LONG position: VI crossover detected")
+                    print(f" Closing LONG position: VI crossover detected")
                 # Check dynamic price exit
                 elif self.data.Close[-1] < (entry_price - self.tp_multiplier * current_atr):
                     trade.close()
-                    print(f"🌙✨ Closing LONG position: Price below 1.5x ATR threshold")
+                    print(f" Closing LONG position: Price below 1.5x ATR threshold")
 
             elif trade.is_short:
                 # Check VI crossover exit
                 if self.vi_plus[-2] < self.vi_minus[-2] and self.vi_plus[-1] > self.vi_minus[-1]:
                     trade.close()
-                    print(f"🌙✨ Closing SHORT position: VI crossover detected")
+                    print(f" Closing SHORT position: VI crossover detected")
                 # Check dynamic price exit
                 elif self.data.Close[-1] > (entry_price + self.tp_multiplier * current_atr):
                     trade.close()
-                    print(f"🌙✨ Closing SHORT position: Price above 1.5x ATR threshold")
+                    print(f" Closing SHORT position: Price above 1.5x ATR threshold")
 
         # Only enter new trades if no existing position
         if not self.position:

@@ -1,10 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🚀
-# PACKAGE AI VERIFIED - NO BACKTESTING.LIB USAGE DETECTED ✨
-
-# 1. IMPORT NECESSARY LIBRARIES
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,7 +21,7 @@ data.set_index('datetime', inplace=True)
 
 # 3. STRATEGY IMPLEMENTATION
 class LiquidationBandwidth(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # 30-day Liquidation Cluster Level (Swing Low)
@@ -82,8 +75,8 @@ class LiquidationBandwidth(Strategy):
                 if risk_per_unit > 0:
                     position_size = int(round(risk_amount / risk_per_unit))
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🌙✨ MOON SIGNAL: LONG @ {price:.2f}")
-                    print(f"🚀 Size: {position_size} | 💥 SL: {stop_price:.2f}")
+                    print(f" MOON SIGNAL: LONG @ {price:.2f}")
+                    print(f" Size: {position_size} |  SL: {stop_price:.2f}")
 
         # 4. EXIT LOGIC 🚀
         else:

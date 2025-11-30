@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -84,4 +83,4 @@ class VoltsqueezeBreakout(Strategy):
             position_size = int(round((self.equity * self.risk_pct) / risk_per_unit))
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price, tag='long')
-                print(f"🚀 MOON DEV LONG ENTRY: {position
+#                 print(f"🚀 MOON DEV LONG ENTRY: {position"

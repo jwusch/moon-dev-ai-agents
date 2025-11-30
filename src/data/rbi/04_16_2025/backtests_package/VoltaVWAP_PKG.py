@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's VoltaVWAP Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import pandas_ta as ta
@@ -26,7 +22,7 @@ data['DateTime'] = pd.to_datetime(data['datetime'])
 data.set_index('DateTime', inplace=True)
 
 class VoltaVWAP(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 INDICATOR CALCULATION 🌙
@@ -54,8 +50,8 @@ class VoltaVWAP(Strategy):
                          timeperiod=14, 
                          name='RSI')
         
-        print("🌙✨ Moon Dev Indicators Initialized! VWAP, ATR, RSI ready 🚀")
-        print("🌌 No backtesting.lib dependencies detected - Pure Moon Dev Power! 🌌")
+#         print("🌙✨ Moon Dev Indicators Initialized! VWAP, ATR, RSI ready 🚀")
+#         print("🌌 No backtesting.lib dependencies detected - Pure Moon Dev Power! 🌌")
 
     def next(self):
         # 🌙 ENTRY LOGIC 🌙
@@ -75,8 +71,8 @@ class VoltaVWAP(Strategy):
                     self.buy(size=position_size, 
                             sl=current_close - atr_value,
                             tag="MoonDev_Long")
-                    print(f"🌙🚀 LONG ENTRY! Size: {position_size} | Price: {current_close:.2f} | SL: {current_close - atr_value:.2f}")
-                    print("🌕 Moon Beam Activated - Bullish Energy Detected! 🌕")
+                    print(f" LONG ENTRY! Size: {position_size} | Price: {current_close:.2f} | SL: {current_close - atr_value:.2f}")
+                    print(" Moon Beam Activated - Bullish Energy Detected! ")
 
             # Short Entry Check 🌙
             elif current_close < lower_band and prev_close >= lower_band:
@@ -88,8 +84,8 @@ class VoltaVWAP(Strategy):
                     self.sell(size=position_size, 
                              sl=current_close + atr_value,
                              tag="MoonDev_Short")
-                    print(f"🌙💫 SHORT ENTRY! Size: {position_size} | Price: {current_close:.2f} | SL: {current_close + atr_value:.2f}")
-                    print("🌑 Dark Moon Phase - Bearish Forces Engaged! 🌑")
+                    print(f" SHORT ENTRY! Size: {position_size} | Price: {current_close:.2f} | SL: {current_close + atr_value:.2f}")
+                    print(" Dark Moon Phase - Bearish Forces Engaged! ")
 
         # 🌙 EXIT LOGIC 🌙
         else:

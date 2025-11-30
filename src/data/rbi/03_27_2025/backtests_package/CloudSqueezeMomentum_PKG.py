@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of its functions with equivalent implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -13,7 +9,7 @@ class CloudSqueezeMomentum(Strategy):
     
     def init(self):
         # Moon Dev Debug 🌙
-        print("✨ Initializing CloudSqueezeMomentum strategy with Moon Dev optimizations ✨")
+#         print("✨ Initializing CloudSqueezeMomentum strategy with Moon Dev optimizations ✨")
         
         # Precompute Heikin-Ashi data
         self.ha_open, self.ha_high, self.ha_low, self.ha_close = (
@@ -61,7 +57,7 @@ class CloudSqueezeMomentum(Strategy):
         # Track previous squeeze state
         self.prev_squeeze_hist = 0
         
-        print("🌙 Indicators initialized successfully! Ready for lunar trading cycles...")
+        print(" Indicators initialized successfully! Ready for lunar trading cycles...")
         
     def next(self):
         price = self.ha_close[-1]

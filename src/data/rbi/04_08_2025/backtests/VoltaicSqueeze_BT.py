@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Strategy, Backtest
 import talib
@@ -44,7 +43,7 @@ class VoltaicSqueeze(Strategy):
         
         # Moon Dev risk management system
         if len(self.trades) >= 3 and all(trade.pl < 0 for trade in self.trades[-3:]):
-            print("🌙🚨 MOON DEV ALERT: 3 consecutive losses! Trading halted for safety.")
+#             print("🌙🚨 MOON DEV ALERT: 3 consecutive losses! Trading halted for safety.")
             return
 
         if not self.position:
@@ -71,7 +70,7 @@ class VoltaicSqueeze(Strategy):
                 size = int(round((0.01 * equity) / risk))
                 if size > 0:
                     self.buy(size=size)
-                    print(f"🌙🚀 MOON BLASTOFF! LONG {size} @ {price:.2f}")
+                    print(f" MOON BLASTOFF! LONG {size} @ {price:.2f}")
                     self.trade_params[self.position] = {
                         'entry': price,
                         'width': self.width[-1],

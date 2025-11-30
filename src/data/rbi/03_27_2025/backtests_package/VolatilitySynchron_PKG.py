@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any related functionality. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -64,11 +61,11 @@ class VolatilitySynchron(Strategy):
         self.exit_atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
 
     def next(self):
-        print(f"🌙 Processing {self.data.index[-1]}...")
-        print(f"✨ Current Equity: {self.equity:.2f}")
+        print(f" Processing {self.data.index[-1]}...")
+        print(f" Current Equity: {self.equity:.2f}")
         
         if len(self.trades) >= self.max_open_trades:
-            print("🚫 Max open trades reached - skipping new entries")
+            print(" Max open trades reached - skipping new entries")
             return
 
         # Entry conditions

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -29,7 +28,7 @@ class SqueezeBreakout(Strategy):
         self.lower_kc = self.I(self._compute_lower_kc, self.data.High, self.data.Low, self.data.Close, 20, 2, name='LOWER_KC')
         self.volume_ma = self.I(talib.SMA, self.data.Volume, 20, name='VOLUME_MA')
         
-        print("🌙 MOON DEV SYSTEM INITIALIZED 🌙\nBollinger Bands & Keltner Channels Armed ✨")
+#         print("🌙 MOON DEV SYSTEM INITIALIZED 🌙\nBollinger Bands & Keltner Channels Armed ✨")
 
     @staticmethod
     def _compute_upper_bb(close, period, dev):
@@ -80,7 +79,7 @@ class SqueezeBreakout(Strategy):
                     size = int(round(risk_amount / risk_per_unit))
                     if size > 0:
                         self.buy(size=size, sl=sl, tp=price + 2*(price-sl))
-                        print(f"🚀 MOON DEV LONG LAUNCH 🚀\nSize: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price + 2*(price-sl):.2f}")
+#                         print(f"🚀 MOON DEV LONG LAUNCH 🚀\nSize: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price + 2*(price-sl):.2f}")
 
             # Short Entry 🌑
             elif (price < lower_bb) and (price > lower_kc) and (vol > vol_ma):

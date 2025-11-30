@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -28,30 +25,36 @@ class VolBandBreakout(Strategy):
     
     def init(self):
         # 3-day VWAP (288 periods = 3 days * 96 periods/day)
-        self.vwap = self.I(ta.vwap,
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
             high=self.data.High,
             low=self.data.Low,
             close=self.data.Close,
-            volume=self.data.Volume,
-            length=288,
-            name='🌙 3D VWAP'
+            volume=self.data.Volume
         )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Bollinger Bands (20, 2)
         self.upper_bb = self.I(
             lambda close: talib.BBANDS(close, timeperiod=20, nbdevup=2, nbdevdn=2)[0],
             self.data.Close,
-            name='✨ Upper BB'
+            name=' Upper BB'
         )
         self.lower_bb = self.I(
             lambda close: talib.BBANDS(close, timeperiod=20, nbdevup=2, nbdevdn=2)[2],
             self.data.Close,
-            name='✨ Lower BB'
+            name=' Lower BB'
         )
         
         # Volume indicators (20-day = 1920 periods)
-        self.volume_avg = self.I(talib.SMA, self.data.Volume, timeperiod=1920, name='📊 Vol Avg')
-        self.volume_std = self.I(talib.STDDEV, self.data.Volume, timeperiod=1920, name='📈 Vol Std')
+        self.volume_avg = self.I(talib.SMA, self.data.Volume, timeperiod=1920, name=' Vol Avg')
+        self.volume_std = self.I(talib.STDDEV, self.data.Volume, timeperiod=1920, name=' Vol Std')
         
     def next(self):
         if len(self.data) < 20:
@@ -80,7 +83,7 @@ class VolBandBreakout(Strategy):
             if risk_per_share > 0:
                 size = int(round(risk_amount / risk_per_share))
                 self.buy(size=size, sl=stop_price)
-                print(f"🚀🌕 MOON DEV LONG SIGNAL: {size} units @ {current_close:.2f} | SL: {stop_price:.2f}")
+#                 print(f"🚀🌕 MOON DEV LONG SIGNAL: {size} units @ {current_close:.2f} | SL: {stop_price:.2f}")
         
         # Short entry conditions
         elif (not self.position and
@@ -95,6 +98,6 @@ class VolBandBreakout(Strategy):
             if risk_per_share > 0:
                 size = int(round(risk_amount / risk_per_share))
                 self.sell(size=size, sl=stop_price)
-                print(f"🌑🚀 MOON DEV SHORT SIGNAL: {size} units @ {current_close:.2f} | SL: {stop_price:.2f}")
+#                 print(f"🌑🚀 MOON DEV SHORT SIGNAL: {size} units @ {current_close:.2f} | SL: {stop_price:.2f}")
         
         # Exit conditions

@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
@@ -33,23 +31,23 @@ class VortexChaikinTrail(Strategy):
         
         # Moon Dev debug prints 🌙✨
         if len(self.data) % 100 == 0:
-            print(f"🌙 Processing bar {self.current_bar} | Equity: {self.equity:,.2f} ✨")
+            print(f" Processing bar {self.current_bar} | Equity: {self.equity:,.2f} ")
         
         # Check exit conditions first
         if self.position:
             # PSAR trailing stop
             if self.position.is_long and self.data.Close[-1] < self.psar[-1]:
                 self.position.close()
-                print(f"🌙✨ Closing LONG at {self.data.Close[-1]:.2f} (PSAR Trail)")
+                print(f" Closing LONG at {self.data.Close[-1]:.2f} (PSAR Trail)")
             elif self.position.is_short and self.data.Close[-1] > self.psar[-1]:
                 self.position.close()
-                print(f"🌙✨ Closing SHORT at {self.data.Close[-1]:.2f} (PSAR Trail)")
+                print(f" Closing SHORT at {self.data.Close[-1]:.2f} (PSAR Trail)")
             
             # Time-based exit after 10 bars
             for trade in self.trades:
                 if not trade.is_closed and (self.current_bar - trade.entry_bar) >= 10:
                     trade.close()
-                    print(f"🌙⏰ Time Exit at {self.data.Close[-1]:.2f}")
+                    print(f"⏰ Time Exit at {self.data.Close[-1]:.2f}")
 
         # Entry logic when flat
         if not self.position:
@@ -67,7 +65,7 @@ class VortexChaikinTrail(Strategy):
                     size = int(round(risk_amount / risk))
                     if size > 0:
                         self.buy(size=size, stop=sl_price)
-                        print(f"🚀🌙 LONG Entry: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
+                        print(f" LONG Entry: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
             
             # Short entry: VI- crosses above VI+ and CMF < -0.05
             if crossover(self.vi_minus, self.vi_plus) and cmf_val < -0.05:
@@ -81,7 +79,7 @@ class VortexChaikinTrail(Strategy):
                     size = int(round(risk_amount / risk))
                     if size > 0:
                         self.sell(size=size, stop=sl_price)
-                        print(f"🌙🚀 SHORT Entry: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
+                        print(f" SHORT Entry: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
 
 # Data handling with Moon Dev standards 🌙📊
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-"

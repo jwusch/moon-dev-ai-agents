@@ -1,7 +1,3 @@
-Here's the fixed code with all indicators properly implemented and Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -42,9 +38,9 @@ class VolatilityReversal(Strategy):
         # Fisher Transform
         self.fisher = self.I(lambda h, l: pd_ta.fisher(high=h, low=l, length=9)['FISHERT_9_1'], high, low)
         
-        print("🌙 Moon Dev Indicators Ready! ✨ Let's launch! 🚀")
-        print(f"🌙 VWAP Period: {self.vw_period} | Multiplier: {self.multiplier}")
-        print(f"🌙 Risk Management: {self.risk_percent*100}% per trade | Time Exit: {self.time_exit_bars} bars")
+#         print("🌙 Moon Dev Indicators Ready! ✨ Let's launch! 🚀")'
+        print(f" VWAP Period: {self.vw_period} | Multiplier: {self.multiplier}")
+        print(f" Risk Management: {self.risk_percent*100}% per trade | Time Exit: {self.time_exit_bars} bars")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -81,8 +77,8 @@ class VolatilityReversal(Strategy):
                     size = int(round((self.equity * self.risk_percent) / risk))
                     if size > 0:
                         self.buy(size=size, sl=sl, tp=tp)
-                        print(f"🌙✨ LONG SIGNAL! Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {size}")
-                        print(f"🌙 Conditions: Price below lower band | Bullish divergence | Fisher < -2")
+                        print(f" LONG SIGNAL! Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {size}")
+                        print(f" Conditions: Price below lower band | Bullish divergence | Fisher < -2")
             
             # Short entry conditions
             elif (current_close > self.upper_band[-1] and 

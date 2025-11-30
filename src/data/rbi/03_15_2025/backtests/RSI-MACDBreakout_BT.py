@@ -1,13 +1,11 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 class RsiMacdBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    rr_ratio = 2  # Risk-reward ratio 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    rr_ratio = 2  # Risk-reward ratio 
     
     def init(self):
         # 🌈 INDICATOR CALCULATIONS USING TA-LIB
@@ -69,7 +67,7 @@ class RsiMacdBreakout(Strategy):
                         self.buy(size=position_size, 
                                 sl=sl_price,
                                 tp=entry_price + self.rr_ratio*risk_per_share)
-                        print(f"🌙 MOON DEV LONG ENTRY 🌕 | Price: {entry_price:.2f} | Size: {position_size} | RSI: {current_rsi:.2f} | MACD Crossover: ✅")
+#                         print(f"🌙 MOON DEV LONG ENTRY 🌕 | Price: {entry_price:0.2f} | Size: {position_size} | RSI: {current_rsi:0.2f} | MACD Crossover: ✅")
             
             # SHORT ENTRY: RSI Overbought + MACD Bearish + Breakdown + Volume Spike 🌑
             elif (current_rsi > 70 and 
@@ -87,4 +85,4 @@ class RsiMacdBreakout(Strategy):
                         self.sell(size=position_size,
                                  sl=sl_price,
                                  tp=entry_price - self.rr_ratio*risk_per_share)
-                        print(f"🌙 MOON DEV SHORT ENTRY 🌑 | Price: {entry_price:.2f} | Size: {position_size} | RSI: {current_rsi:.
+#                         print(f"🌙 MOON DEV SHORT ENTRY 🌑 | Price: {entry_price:0.2f} | Size: {position_size} | RSI: {current_rsi:."

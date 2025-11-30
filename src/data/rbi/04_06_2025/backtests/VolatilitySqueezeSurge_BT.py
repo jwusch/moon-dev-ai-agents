@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -56,7 +55,7 @@ class VolatilitySqueezeSurge(Strategy):
 
     def next(self):
         # Moon-themed debug prints
-        print(f"🌙 Processing {self.data.index[-1]}...")
+        print(f" Processing {self.data.index[-1]}...")
         
         # Skip early bars
         if len(self.data) < self.bandwidth_lookback:
@@ -67,15 +66,15 @@ class VolatilitySqueezeSurge(Strategy):
         if current_day != self.current_day:
             self.current_day = current_day
             self.max_daily_equity = self.equity
-            print(f"✨ New day! Equity: {self.equity:.2f}")
+            print(f" New day! Equity: {self.equity:.2f}")
         daily_loss = (self.max_daily_equity - self.equity) / self.max_daily_equity
         if daily_loss >= 0.03:
-            print(f"🌧️ Daily loss limit hit!")
+            print(f" Daily loss limit hit!")
             return
         
         # Consecutive loss check
         if self.consecutive_losses >= 2:
-            print(f"🚫 2 Consecutive losses - sitting out")
+            print(f" 2 Consecutive losses - sitting out")
             return
         
         # Calculate current bandwidth

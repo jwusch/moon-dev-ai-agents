@@ -1,6 +1,3 @@
-I'll fix the code to remove all `backtesting.lib` imports and replace any related functions with proper alternatives. Here's the corrected version with Moon Dev-themed improvements:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -96,7 +93,7 @@ class VolSqueezeLiquidity(Strategy):
                         sl=stop_loss,
                         tp=take_profit
                     )
-                    print(f"🚀🌙 MOON LAUNCH DETECTED! Long {position_size} units")
+                    print(f" MOON LAUNCH DETECTED! Long {position_size} units")
                     print(f"   Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
                     print(f"   Current BB Width: {self.bb_width[-1]:.2f} | Volume: {self.data.Volume[-1]:.0f}")
 

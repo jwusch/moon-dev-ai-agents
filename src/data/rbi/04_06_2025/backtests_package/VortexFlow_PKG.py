@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -17,8 +14,8 @@ class VortexFlow(Strategy):
             close=self.data.Close, 
             length=14
         )
-        self.vi_plus = self.I(lambda: vi['VTX_+'], name='VI+ 🌊')
-        self.vi_minus = self.I(lambda: vi['VTX_-'], name='VI- 🌊')
+        self.vi_plus = self.I(lambda: vi['VTX_+'], name='VI+ ')
+        self.vi_minus = self.I(lambda: vi['VTX_-'], name='VI- ')
         
         # Calculate Chaikin Money Flow 💰
         cmf = ta.cmf(
@@ -28,11 +25,11 @@ class VortexFlow(Strategy):
             volume=self.data.Volume,
             length=20
         )
-        self.cmf = self.I(lambda: cmf, name='CMF 💰')
+        self.cmf = self.I(lambda: cmf, name='CMF ')
         
         # Swing levels for stop loss 🌙
-        self.swing_high = self.I(talib.MAX, self.data.High, 20, name='Swing High 🔺')
-        self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='Swing Low 🔻')
+        self.swing_high = self.I(talib.MAX, self.data.High, 20, name='Swing High ')
+        self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='Swing Low ')
         
     def next(self):
         if len(self.data) < 20:  # Ensure enough data points
@@ -54,7 +51,7 @@ class VortexFlow(Strategy):
                 if risk > 0:
                     size = int(round((self.risk_per_trade * self.equity) / risk))
                     self.buy(size=size, sl=sl_price)
-                    print(f"🚀🌕 MOON ROCKET LONG! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl_price:.2f}")
+                    print(f" MOON ROCKET LONG! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl_price:.2f}")
                     
             elif short_cond:
                 sl_price = self.swing_high[-1]
@@ -62,16 +59,16 @@ class VortexFlow(Strategy):
                 if risk > 0:
                     size = int(round((self.risk_per_trade * self.equity) / risk))
                     self.sell(size=size, sl=sl_price)
-                    print(f"🌑🌗 MOON ECLIPSE SHORT! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl_price:.2f}")
+                    print(f" MOON ECLIPSE SHORT! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl_price:.2f}")
         
         # Exit signals - Moon Dev reversal detection 🌙
         else:
             if self.position.is_long and (prev_vi_m < prev_vi_p and vi_m > vi_p):
                 self.position.close()
-                print(f"🌙✨ CLOSING LONG: Vortex Reversal Detected! Price: {self.data.Close[-1]:.2f}")
+                print(f" CLOSING LONG: Vortex Reversal Detected! Price: {self.data.Close[-1]:.2f}")
             elif self.position.is_short and (prev_vi_p < prev_vi_m and vi_p > vi_m):
                 self.position.close()
-                print(f"🌙✨ CLOSING SHORT: Vortex Reversal Detected! Price: {self.data.Close[-1]:.2f}")
+                print(f" CLOSING SHORT: Vortex Reversal Detected! Price: {self.data.Close[-1]:.2f}")
 
 # Moon Dev data preparation 🌙📊
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

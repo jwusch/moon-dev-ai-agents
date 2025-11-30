@@ -1,6 +1,3 @@
-I've analyzed the code and found several technical issues that need fixing while preserving the strategy logic. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -51,8 +48,8 @@ class SqueezeReversion(Strategy):
         
         # Moon Dev status update
         if current_bar % 100 == 0:
-            print(f"🌙 Moon Pulse Check | FR: {self.data.Funding_Rate[-1]:.6f} | "
-                  f"OI: {self.data.Open_Interest[-1]:.0f} | RSI: {self.rsi[-1]:.1f} ✨")
+            print(f" Moon Pulse Check | FR: {self.data.Funding_Rate[-1]:.6f} | "
+                  f"OI: {self.data.Open_Interest[-1]:.0f} | RSI: {self.rsi[-1]:.1f} ")
 
         if not self.position:
             # Entry conditions
@@ -74,8 +71,8 @@ class SqueezeReversion(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price, 
                                 tp=entry_price * (1 + self.tp_pct))
-                        print(f"🚀 MOON IGNITION | Size: {position_size} | "
-                              f"Entry: {entry_price:.2f} | SL: {sl_price:.2f} 🌙✨")
+                        print(f" MOON IGNITION | Size: {position_size} | "
+                              f"Entry: {entry_price:.2f} | SL: {sl_price:.2f} ")
 
         else:
             # Exit conditions

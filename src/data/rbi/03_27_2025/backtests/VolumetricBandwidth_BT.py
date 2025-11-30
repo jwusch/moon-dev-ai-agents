@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -65,7 +64,7 @@ class VolumetricBandwidth(Strategy):
                     'stop_loss': stop_loss_price,
                     'entry_type': 'long'
                 })
-                print(f"🌙✨ BULLISH ENTRY: {current_close:.2f} | Size: {position_size} 🚀")
+                print(f" BULLISH ENTRY: {current_close:.2f} | Size: {position_size} ")
         
         # Short entry conditions
         if (not self.position and
@@ -88,11 +87,11 @@ class VolumetricBandwidth(Strategy):
                     'stop_loss': stop_loss_price,
                     'entry_type': 'short'
                 })
-                print(f"🌙✨ BEARISH ENTRY: {current_close:.2f} | Size: {position_size} 🚀")
+                print(f" BEARISH ENTRY: {current_close:.2f} | Size: {position_size} ")
         
         # Exit conditions
         for trade in self.trades:
             if trade.is_long:
                 # Primary exit
                 if self.data.High[-1] >= self.upper[-1]:
-                    trade.close(comment="🌕 Primary Exit: Upper Band")
+                    trade.close(comment=" Primary Exit: Upper Band")

@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's VortexDivergence Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -34,7 +30,7 @@ data = data.set_index('datetime').sort_index()
 # STRATEGY CLASS
 # ---------------------------
 class VortexDivergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     vortex_period = 14
     cmo_period = 14
     volume_ma_period = 20
@@ -86,7 +82,7 @@ class VortexDivergence(Strategy):
                               self.volume_ma_period, 
                               self.swing_period, 
                               self.keltner_ema) + 1:
-            print("🌑 Not enough data yet - waiting for full indicator periods")
+            print(" Not enough data yet - waiting for full indicator periods")
             return
 
         # 🔄 Vortex Crossover Logic (replaced backtesting.lib.crossover)

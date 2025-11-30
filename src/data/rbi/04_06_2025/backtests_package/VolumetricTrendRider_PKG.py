@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints: 🌙✨
-
-```python
-# 🌙 Moon Dev's VolumetricTrendRider Backtest Implementation 🚀
 from backtesting import Backtest, Strategy
 import talib
 import pandas as pd
@@ -22,7 +18,7 @@ data = data.rename(columns={
 })
 
 class VolumetricTrendRider(Strategy):
-    risk_percent = 0.01  # 1% cosmic risk allowance 🌠
+    risk_percent = 0.01  # 1% cosmic risk allowance 
     adx_threshold = 25
     emergency_adx = 20
     atr_multiplier = 3
@@ -45,7 +41,7 @@ class VolumetricTrendRider(Strategy):
         
         # Emergency black hole exit 🕳️
         if self.position and current_adx < self.emergency_adx:
-            print(f"🌙 EMERGENCY EXIT! ADX {current_adx:.1f} < {self.emergency_adx} at {current_close} 🚨")
+            print(f" EMERGENCY EXIT! ADX {current_adx:.1f} < {self.emergency_adx} at {current_close} ")
             self.position.close()
             return
             
@@ -71,11 +67,11 @@ class VolumetricTrendRider(Strategy):
                     if long_cond:
                         self.buy(size=position_size, sl=current_close - 1.5*atr_value)
                         self.max_high = self.data.High[-1]
-                        print(f"🚀 LIFT OFF! LONG {position_size} @ {current_close} | SL: {current_close - 1.5*atr_value:.1f} 🌙")
+                        print(f" LIFT OFF! LONG {position_size} @ {current_close} | SL: {current_close - 1.5*atr_value:.1f} ")
                     else:
                         self.sell(size=position_size, sl=current_close + 1.5*atr_value)
                         self.min_low = self.data.Low[-1]
-                        print(f"🌑 DARK SIDE! SHORT {position_size} @ {current_close} | SL: {current_close + 1.5*atr_value:.1f} 🌙")
+                        print(f" DARK SIDE! SHORT {position_size} @ {current_close} | SL: {current_close + 1.5*atr_value:.1f} ")
 
         # Chandelier Exit Protocol 🕯️
         if self.position.is_long:

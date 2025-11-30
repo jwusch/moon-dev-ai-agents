@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,7 +51,7 @@ class ChannelRSIBreakout(Strategy):
                     self.buy(size=position_size)
                     self.high_in_trade = self.data.High[-1]
                     self.entry_bar = len(self.data)
-                    print(f"🌙🚀 BULLISH BREAKOUT! Long {position_size} units at {entry_price:.2f} | RSI {self.rsi[-1]:.1f} ✨")
+                    print(f" BULLISH BREAKOUT! Long {position_size} units at {entry_price:.2f} | RSI {self.rsi[-1]:.1f} ")
 
             # Short entry logic
             elif current_close < self.donchian_low[-1] and self.rsi[-1] > 70:
@@ -70,7 +69,7 @@ class ChannelRSIBreakout(Strategy):
                     self.sell(size=position_size)
                     self.low_in_trade = self.data.Low[-1]
                     self.entry_bar = len(self.data)
-                    print(f"🌙📉 BEARISH BREAKDOWN! Short {position_size} units at {entry_price:.2f} | RSI {self.rsi[-1]:.1f} ⚠️")
+                    print(f" BEARISH BREAKDOWN! Short {position_size} units at {entry_price:.2f} | RSI {self.rsi[-1]:.1f} ")
         else:
             # Update trailing levels
             if self.position.is_long:
@@ -78,7 +77,7 @@ class ChannelRSIBreakout(Strategy):
                 trailing_stop = self.high_in_trade - self.atr_multiplier * self.atr[-1]
                 if self.data.Low[-1] <= trailing_stop or (len(self.data) - self.entry_bar) >= self.exit_bars:
                     self.position.close()
-                    print(f"🌙🛑 Closing long at {self.data.Close[-1]:.2f} | {'Time exit' if (len(self.data)-self.entry_bar)>=self.exit_bars else 'Trail stop'} 🌗")
+                    print(f" Closing long at {self.data.Close[-1]:.2f} | {'Time exit' if (len(self.data)-self.entry_bar)>=self.exit_bars else 'Trail stop'} ")
 
             elif self.position.is_short:
                 self.low_in_trade = min(self.low_in_trade, self.data.Low[-1])

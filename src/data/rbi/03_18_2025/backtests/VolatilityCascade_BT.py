@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -41,7 +40,7 @@ class VolatilityCascade(Strategy):
         self.ls_ratio = self.data.df['long_short_ratio']
         self.ls_sma = self.I(talib.SMA, self.ls_ratio, timeperiod=20)
         
-        # Calculate ratio flips using Moon Dev's special sauce 🌙
+        # Calculate ratio flips using Moon Dev's special sauce 🌙'
         def count_flips(ratio, sma):
             crosses = ((ratio > sma) & (ratio.shift() <= sma)) | ((ratio < sma) & (ratio.shift() >= sma))
             return crosses.rolling(self.flip_window).sum()
@@ -64,14 +63,14 @@ class VolatilityCascade(Strategy):
     def next(self):
         price = self.data.Close[-1]
         
-        # Moon Dev's Cosmic Exit Conditions 🌌
+        # Moon Dev's Cosmic Exit Conditions 🌌'
         if self.position:
             if (self.position.is_long and crossover(price, self.vwap)) or \
                (self.position.is_short and crossunder(price, self.vwap)):
-                print(f"🌕🚀 Moon Dev Galactic Exit: Closing {self.position.type} at {price:.2f}")
+#                 print(f"🌕🚀 Moon Dev Galactic Exit: Closing {self.position.type} at {price:.2f}")
                 self.position.close()
                 
-        # Moon Dev's Stellar Entry Conditions 🌠
+        # Moon Dev's Stellar Entry Conditions 🌠'
         else:
             if self.flips[-1] >= self.flip_threshold and self.bandwidth[-1] <= self.bandwidth_low:
                 # Long entry
@@ -80,7 +79,7 @@ class VolatilityCascade(Strategy):
                     risk_amount = self.equity * self.risk_pct
                     risk_per_share = price - sl
                     size = int(round(risk_amount / risk_per_share))
-                    print(f"🌙🚀 Moon Dev Long Launch: Entry {price:.2f}, SL {sl:.2f}, Size {size}")
+#                     print(f"🌙🚀 Moon Dev Long Launch: Entry {price:.2f}, SL {sl:.2f}, Size {size}")
                     self.buy(size=size, sl=sl)
                     
                 # Short entry
@@ -89,10 +88,10 @@ class VolatilityCascade(Strategy):
                     risk_amount = self.equity * self.risk_pct
                     risk_per_share = sl - price
                     size = int(round(risk_amount / risk_per_share))
-                    print(f"🌙🚀 Moon Dev Short Blastoff: Entry {price:.2f}, SL {sl:.2f}, Size {size}")
+#                     print(f"🌙🚀 Moon Dev Short Blastoff: Entry {price:.2f}, SL {sl:.2f}, Size {size}")
                     self.sell(size=size, sl=sl)
 
-# Launch Moon Dev's Backtest Rocket 🚀
+# Launch Moon Dev's Backtest Rocket 🚀'
 bt = Backtest(data, VolatilityCascade, cash=1_000_000)
 stats = bt.run()
 print

@@ -1,0 +1,100 @@
+STRATEGY_NAME: KeltnerDivergence
+
+STRATEGY_DETAILS:
+- Key strategy components:
+  - Core idea: Trend-following longs triggered by a bullish momentum divergence, confirmed by a strength breakout above the Keltner Channel, only when volatility is expanding as measured by Bollinger Bands.
+  - Structure:
+    - Trend filter to bias signals in the predominant uptrend.
+    - Momentum divergence (bullish) to identify exhaustion of pullbacks within the trend.
+    - Volatility expansion filter (Bollinger Bandwidth) to avoid low-volatility fakeouts.
+    - Breakout confirmation using Keltner upper-band close.
+  - Trade direction: Long only.
+
+- Required indicators and settings:
+  - Keltner Channel (KC): Basis EMA(20), ATR(20), multiplier 2.0 (tune 1.5–2.5 by asset).
+  - Bollinger Bands (BB): SMA(20), StdDev 2.0. Compute BBWidth = (BB_upper - BB_lower) / BB_middle.
+  - Momentum oscillator for divergence: RSI(14). Alternative: MACD histogram or RSI(9–21) if preferred.
+  - Trend filter: SMA(200) or EMA(100/200); optional ADX(14) > 18–20.
+  - ATR(20) for stops and position sizing.
+
+- Entry rules (Long):
+  1) Trend filter:
+     - Close > SMA(200) (and SMA(200) slope up over last 5 bars) OR ADX(14) > 20.
+  2) Bullish divergence (recent, within last 10–20 bars):
+     - Price makes a lower swing low (LL2 < LL1) while RSI forms a higher low (RSI_LL2 > RSI_LL1).
+     - Confirm the divergence by a break of the minor swing high after LL2, or RSI crossing back above 50.
+  3) Volatility expansion:
+     - BBWidth > SMA(BBWidth, 50) × 1.2, or BBWidth percentile over last 200 bars > 60th percentile.
+     - Optional: d(BBWidth)/d1 > 0 for last 3 bars (expansion slope).
+  4) Breakout confirmation:
+     - Current bar close > KC_upper.
+  5) Timing:
+     - Enter on bar close that satisfies all conditions, or place a stop order at High + 0.1×ATR(20) on the next bar if you prefer reduced slippage risk.
+
+- Exit rules:
+  - Primary exit (correction below channel):
+    - Exit when close < KC_basis (EMA(20)). Conservative alternative: exit when close < KC_lower.
+  - Trailing stop (use one):
+    - Chandelier long stop = Highest(High, 20) − 3×ATR(20).
+    - Or KC_lower as dynamic trailing stop after trade moves ≥1R in profit.
+  - Profit management:
+    - Optional scale-out: Take 50% at +1R; trail remainder with KC_lower or chandelier.
+  - Time stop:
+    - If neither +1R nor stop hit within 20 bars, exit at market on close.
+  - Volatility contraction fail-safe:
+    - If BBWidth < SMA(BBWidth, 50) and RSI < 50, close position (momentum-volatility regime shift).
+
+- Risk management:
+  - Position sizing:
+    - Risk per trade: 0.5%–1% of equity.
+    - Size = (Risk $) / (Initial stop distance). Cap position at max 20% of 20-day ADV and respect broker margin.
+  - Initial stop:
+    - Place at min(KC_basis, Entry − 2×ATR(20)). For higher volatility assets, consider 2.5–3×ATR(20).
+  - Max exposure and correlation:
+    - Max 4 concurrent positions; if correlated (ρ > 0.6), treat basket risk as one position.
+  - Event risk:
+    - No new entries within 30 minutes of scheduled high-impact news (FX/indices) or on single-stock earnings day.
+  - Gap protection:
+    - If open gaps below KC_basis > 1.5×ATR, reduce position by 50% at the open; re-evaluate at close.
+
+- Parameter guidance and adaptation:
+  - Timeframes: Works best on 1h–1D. For intraday (15–60m), reduce lookbacks by ~50% and keep ADX filter on.
+  - Assets: Liquid equities, index futures, major FX, large-cap crypto. Avoid illiquid names with erratic ATR.
+  - Tuning:
+    - KC multiplier: 1.8–2.2 for equities; 1.5–2.0 for FX; 2.0–2.5 for crypto.
+    - Divergence window: 10–30 bars; shorter windows for intraday.
+    - BB expansion: 1.15–1.35× its 50-bar SMA threshold; optimize by asset.
+  - Regime filter (optional):
+    - Skip trades if VIX (or asset vol proxy) is in the top decile unless ADX > 25 (prevents volatility blow-offs).
+
+- Implementation notes:
+  - Swing identification for divergence:
+    - Use pivot lows with left/right strength = 2–3 bars, or a zigzag filter (e.g., 2×ATR threshold).
+  - Debounce signals:
+    - Require 1–2 bar persistence above KC_upper before entry in chop-prone markets.
+  - Avoid duplicate signals:
+    - After a valid entry, ignore new divergence signals until price closes back below KC_basis.
+
+- Pseudocode (condensed):
+  - KC_basis = EMA(close,20); KC_upper = KC_basis + 2×ATR(20); KC_lower = KC_basis − 2×ATR(20)
+  - BB_mid = SMA(close,20); BB_upper/lower = BB_mid ± 2×stdev(20); BBWidth = (BB_upper − BB_lower)/BB_mid
+  - TrendOK = close > SMA(close,200) and slope(SMA(close,200),5) > 0
+  - DivOK = price low forms LL2 < LL1 while RSI(14) at LL2 > RSI at LL1 within last 20 bars, then RSI > 50 or minor swing high broken
+  - VolOK = BBWidth > SMA(BBWidth,50) * 1.2 and BBWidth − BBWidth[1] > 0
+  - BreakoutOK = close > KC_upper
+  - Entry: if not in position and TrendOK and DivOK and VolOK and BreakoutOK then enter long at market
+  - InitialStop = min(KC_basis, entry − 2×ATR(20))
+  - Exit: if close < KC_basis or price < TrailingStop (KC_lower or chandelier) or TimeStop reached or Volatility contraction fail-safe
+
+- Testing and validation:
+  - Backtest across multiple regimes (bull, bear, sideways), then walk-forward with 3–6 month windows.
+  - Evaluate slippage and commissions; use realistic spreads.
+  - Track metrics: win rate, avg R, MAR, drawdowns, time-in-trade, sensitivity to BB expansion threshold.
+
+- Operational checklist:
+  - Confirm trend filter.
+  - Validate recent bullish divergence.
+  - Check BBWidth expansion vs threshold and positive slope.
+  - Confirm close above KC_upper.
+  - Place order, initial stop, and trailing logic.
+  - Log trade with parameter snapshots and screenshots for later review.

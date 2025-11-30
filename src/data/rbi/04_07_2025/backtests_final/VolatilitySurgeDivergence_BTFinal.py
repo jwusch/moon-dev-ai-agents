@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
 import backtrader as bt
 import talib as TA
 import pandas as pd
@@ -18,7 +15,7 @@ class VolatilitySurgeDivergence(bt.Strategy):
 
     def __init__(self):
         # Moon Dev Indicator Initialization 🌙✨
-        print("🌌 Initializing Moon Dev Volatility Surge Strategy...")
+#         print("🌌 Initializing Moon Dev Volatility Surge Strategy...")
         
         # Bollinger Bands components using TA-Lib
         self.upper, self.middle, self.lower = self.I(TA.BBANDS, self.data.Close,
@@ -42,7 +39,7 @@ class VolatilitySurgeDivergence(bt.Strategy):
         self.order = None
         self.stop_price = None
         self.entry_price = None
-        print("🌠 Moon Dev Indicators Ready for Launch! 🚀")
+#         print("🌠 Moon Dev Indicators Ready for Launch! 🚀")
 
     def notify_order(self, order):
         if order.status in [order.Submitted, order.Accepted]:
@@ -50,9 +47,9 @@ class VolatilitySurgeDivergence(bt.Strategy):
         
         if order.status == order.Completed:
             if order.isbuy():
-                print(f"🌙✨ BUY EXECUTED | Size: {order.executed.size} @ {order.executed.price:.2f} | Equity: {self.broker.getvalue():.2f} 🚀")
+                print(f" BUY EXECUTED | Size: {order.executed.size} @ {order.executed.price:.2f} | Equity: {self.broker.getvalue():.2f} ")
             elif order.issell():
-                print(f"🚀📉 SELL EXECUTED | Profit: {order.executed.pnl:.2f} | Remaining: {self.broker.getvalue():.2f} 🌙")
+                print(f" SELL EXECUTED | Profit: {order.executed.pnl:.2f} | Remaining: {self.broker.getvalue():.2f} ")
         
         self.order = None
 
@@ -84,7 +81,7 @@ class VolatilitySurgeDivergence(bt.Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.stop_price = self.entry_price - stop_distance
-                    print(f"🌙🎯 ENTRY SIGNAL | Size: {position_size} | Entry: {self.entry_price:.2f} | SL: {self.stop_price:.2f} 🎯")
+                    print(f" ENTRY SIGNAL | Size: {position_size} | Entry: {self.entry_price:.2f} | SL: {self.stop_price:.2f} ")
 
         # Exit Logic
         if self.position:

@@ -1,7 +1,3 @@
-I'll fix the code by removing the `backtesting.lib` import and replacing any usage of its functions. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# backtesting_funding_band_breach.py
 import pandas as pd
 import talib
 import numpy as np
@@ -32,7 +28,7 @@ def load_data(path):
     return data
 
 class FundingBandBreach(Strategy):
-    risk_pct = 0.05  # Max 5% risk per trade 🌕
+    risk_pct = 0.05  # Max 5% risk per trade 
     
     def init(self):
         # Bollinger Bands (20,2) 🌗
@@ -51,7 +47,7 @@ class FundingBandBreach(Strategy):
         )
         
         self.lookback = 2880  # 30 days lookback
-        print("✨ Strategy initialized with Moon Dev precision! ✨")
+#         print("✨ Strategy initialized with Moon Dev precision! ✨")
 
     def next(self):
         price = self.data.Close[-1]
@@ -75,7 +71,7 @@ class FundingBandBreach(Strategy):
                 bandwidth = upper - lower
                 
                 if bandwidth <= 0:
-                    print("⚠️ Zero bandwidth detected! Cosmic anomaly avoided.")
+                    print(" Zero bandwidth detected! Cosmic anomaly avoided.")
                     return
                 
                 # Risk-based position sizing 🌕
@@ -91,7 +87,7 @@ class FundingBandBreach(Strategy):
                         sl=stop_price,
                         tag="MoonDevShort"
                     )
-                    print(f"🚀🌙 SHORT SIGNAL! Size: {position_size}")
+                    print(f" SHORT SIGNAL! Size: {position_size}")
                     print(f"   Entry: {price:.2f}, Stop: {stop_price:.2f}")
                     print(f"   Funding: {funding:.6f} ≤ 5% ({pct_5:.6f})")
         else:
@@ -102,10 +98,10 @@ class FundingBandBreach(Strategy):
             
             if funding_above_sma:
                 current_position.close()
-                print(f"🌙💫 Funding normalized! Exiting at {price:.2f}")
+                print(f" Funding normalized! Exiting at {price:.2f}")
             elif price_inside_bands:
                 current_position.close()
-                print(f"🚨🌙 Price returned to bands! Emergency exit at {price:.2f}")
+                print(f" Price returned to bands! Emergency exit at {price:.2f}")
 
 # Moon Dev backtest execution 🌕
 if __name__ == "__main__":
@@ -119,4 +115,4 @@ if __name__ == "__main__":
         exclusive_orders=True
     )
     
-    print("🌙✨ Starting Moon Dev Backtest
+#     print("🌙✨ Starting Moon Dev Backtest"

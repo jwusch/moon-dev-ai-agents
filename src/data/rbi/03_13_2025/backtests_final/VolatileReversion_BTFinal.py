@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILEREVERSION STRATEGY 🚀✨
-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -49,13 +46,13 @@ class VolatileReversion(Strategy):
         # Check daily loss limit
         if (self.daily_high - self.equity)/self.daily_high >= self.daily_loss_limit:
             self.position.close()
-            print(f"🌙🚨 DAILY LOSS LIMIT HIT! {self.equity:.2f}")
+            print(f" DAILY LOSS LIMIT HIT! {self.equity:0.2f}")
             return
             
         # Check weekly drawdown
         if (self.weekly_high - self.equity)/self.weekly_high >= self.weekly_dd_limit:
             self.position.close()
-            print(f"🌙🚨 WEEKLY DRAWDOWN LIMIT! {self.equity:.2f}")
+            print(f" WEEKLY DRAWDOWN LIMIT! {self.equity:0.2f}")
             return
             
         # 🌙 EXIT CONDITIONS
@@ -66,13 +63,13 @@ class VolatileReversion(Strategy):
             
             if vix_spike:
                 self.position.close()
-                print(f"🌙✨ VIX SPIKE EXIT | Equity: {self.equity:.2f}")
+                print(f" VIX SPIKE EXIT | Equity: {self.equity:0.2f}")
             elif self.position.is_long and rsi_exit_long:
                 self.position.close()
-                print(f"🌙🌟 RSI NEUTRAL EXIT | Equity: {self.equity:.2f}")
+                print(f" RSI NEUTRAL EXIT | Equity: {self.equity:0.2f}")
             elif self.position.is_short and rsi_exit_short:
                 self.position.close()
-                print(f"🌙🌟 RSI NEUTRAL EXIT | Equity: {self.equity:.2f}")
+                print(f" RSI NEUTRAL EXIT | Equity: {self.equity:0.2f}")
 
         # 🌙 ENTRY CONDITIONS
         if not self.position:

@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR HARMONICSTOCHASTIC STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +22,7 @@ class HarmonicStochastic(Strategy):
         # Volatility Measurement
         self.atr = self.I(talib.ATR, h, l, c, timeperiod=14, name='ATR')
         
-        print("🌙 INITIALIZED MOON DEV TRADING BOT WITH COSMIC INDICATORS ✨")
+#         print("🌙 INITIALIZED MOON DEV TRADING BOT WITH COSMIC INDICATORS ✨")
 
     def next(self):
         # 🌌 CURRENT MARKET CONDITIONS
@@ -47,8 +42,8 @@ class HarmonicStochastic(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl, tp=tp)
-                        print(f"🌙✨ BULLISH BREAKOUT! LONG {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {sl:.2f} | 🎯 TP: {tp:.2f} | 📏 ATR: {atr_value:.2f}")
+                        print(f" BULLISH BREAKOUT! LONG {position_size} @ {current_close:.2f}")
+                        print(f"    SL: {sl:.2f} |  TP: {tp:.2f} |  ATR: {atr_value:.2f}")
 
             # SHORT SIGNAL: RSI crosses below 30 AND Stoch crossunder
             elif (self.rsi[-2] > 30 and self.rsi[-1] < 30) and (self.stoch_k[-2] > self.stoch_d[-2] and self.stoch_k[-1] < self.stoch_d[-1]):
@@ -61,17 +56,17 @@ class HarmonicStochastic(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl, tp=tp)
-                        print(f"🌙✨ BEARISH BREAKDOWN! SHORT {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {sl:.2f} | 🎯 TP: {tp:.2f} | 📏 ATR: {atr_value:.2f}")
+                        print(f" BEARISH BREAKDOWN! SHORT {position_size} @ {current_close:.2f}")
+                        print(f"    SL: {sl:.2f} |  TP: {tp:.2f} |  ATR: {atr_value:.2f}")
 
         # 💫 EXIT LOGIC
         else:
             if self.position.is_long and (self.rsi[-2] > 70 and self.rsi[-1] < 70):
                 self.position.close()
-                print(f"🌙💎 CLOSING LONG POSITION | RSI REVERSAL @ {current_close:.2f}")
+                print(f" CLOSING LONG POSITION | RSI REVERSAL @ {current_close:.2f}")
                 
             elif self.position.is_short and (self.rsi[-2] < 30 and self.rsi[-1] > 30):
                 self.position.close()
-                print(f"🌙💎 CLOSING SHORT POSITION | RSI REVERSAL @ {current_close:.2f}")
+                print(f" CLOSING SHORT POSITION | RSI REVERSAL @ {current_close:.2f}")
 
 #

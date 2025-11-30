@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -21,7 +18,7 @@ def prepare_data(path):
         'low': 'Low',
         'close': 'Close',
         'volume': 'Volume',
-        'liquiditydelta': 'LiquidityDelta'  # Critical orderbook metric 🌊
+        'liquiditydelta': 'LiquidityDelta'  # Critical orderbook metric 
     }
     data = data.rename(columns=column_map)
     return data
@@ -49,7 +46,7 @@ class VelocityDivergence(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, 
                         self.data.Close, timeperiod=self.atr_period)
         
-        print("🌙 Moon Dev Engine Initialized! Ready for cosmic analysis 🌌")
+#         print("🌙 Moon Dev Engine Initialized! Ready for cosmic analysis 🌌")
 
     def next(self):
         current_z = self.zscore[-1]
@@ -72,25 +69,25 @@ class VelocityDivergence(Strategy):
                 sl = close - atr * 1.5
                 tp = close + atr * 3
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🚀 LONG ACTIVATED! Size: {position_size} | Cosmic Momentum Detected 🌠")
+                print(f" LONG ACTIVATED! Size: {position_size} | Cosmic Momentum Detected ")
                 
             elif current_z < -2 and liquidity < -self.liquidity_threshold:
                 sl = close + atr * 1.5
                 tp = close - atr * 3
                 self.sell(size=position_size, sl=sl, tp=tp)
-                print(f"🌑 SHORT ENGAGED! Size: {position_size} | Black Hole Liquidation Detected 🕳️")
+                print(f" SHORT ENGAGED! Size: {position_size} | Black Hole Liquidation Detected ")
 
         # Exit Logic 💫
         else:
             if (self.position.is_long and current_z < 1) or \
                (self.position.is_short and current_z > -1):
                 self.position.close()
-                print(f"🌙 Position Closed | Z-Score Stabilized at {current_z:.1f} σ")
+                print(f" Position Closed | Z-Score Stabilized at {current_z:.1f} σ")
                 
             if (self.position.is_long and current_z > 3) or \
                (self.position.is_short and current_z < -3):
                 self.position.close()
-                print(f"🌪️  Emergency Exit! Extreme Z-Score {current_z:.1f} σ")
+                print(f"  Emergency Exit! Extreme Z-Score {current_z:.1f} σ")
 
 # Cosmic Backtest Execution 🌌
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

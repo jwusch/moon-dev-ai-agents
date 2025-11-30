@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic and adding Moon Dev themed debug prints! Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -12,13 +9,13 @@ class FractalConvergenceStrategy(Strategy):
     
     def init(self):
         # Moon Dev Indicators 🌙✨
-        print("🌙 Initializing Moon Dev Indicators...")
+#         print("🌙 Initializing Moon Dev Indicators...")
         self.max_high = self.I(talib.MAX, self.data.High, timeperiod=5)
         self.min_low = self.I(talib.MIN, self.data.Low, timeperiod=5)
         self.willr = self.I(talib.WILLR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         self.williams_d = self.I(talib.SMA, self.willr, timeperiod=3)
         self.sma20 = self.I(talib.SMA, self.data.Close, timeperiod=20)
-        print("✨ Indicators initialized successfully!")
+        print(" Indicators initialized successfully!")
         
     def next(self):
         if len(self.data) < 20 or len(self.williams_d) < 2:
@@ -56,7 +53,7 @@ class FractalConvergenceStrategy(Strategy):
         risk_per_share = abs(entry_price - sl_price)
         
         if risk_per_share == 0:
-            print("🌙 Warning: Risk per share is zero - skipping trade")
+            print(" Warning: Risk per share is zero - skipping trade")
             return
             
         position_size = risk_amount / risk_per_share
@@ -65,15 +62,15 @@ class FractalConvergenceStrategy(Strategy):
         if position_size > 0:
             if is_long:
                 self.buy(size=position_size, sl=sl_price, tp=entry_price + 2*(entry_price - sl_price))
-                print(f"🌙✨🚀 BULLISH Convergence! LONG {position_size} units @ {entry_price:.2f}")
+                print(f" BULLISH Convergence! LONG {position_size} units @ {entry_price:.2f}")
                 print(f"   SL: {sl_price:.2f} | TP: {entry_price + 2*(entry_price - sl_price):.2f}")
             else:
                 self.sell(size=position_size, sl=sl_price, tp=entry_price - 2*(sl_price - entry_price))
-                print(f"🌙✨🚀 BEARISH Divergence! SHORT {position_size} units @ {entry_price:.2f}")
+                print(f" BEARISH Divergence! SHORT {position_size} units @ {entry_price:.2f}")
                 print(f"   SL: {sl_price:.2f} | TP: {entry_price - 2*(sl_price - entry_price):.2f}")
 
 # Data handling 🌙
-print("🌙 Loading celestial market data...")
+print(" Loading celestial market data...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])

@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -69,12 +68,12 @@ class VolatilityBandit(Strategy):
                 exit_kc = prev_close < self.data['KC_upper'][prev_idx]
                 if exit_bb or exit_kc:
                     self.position.close()
-                    print(f"🌙 Moon Dev Exit LONG: Closed at {self.data.Close[current_idx]:.2f}")
+#                     print(f"🌙 Moon Dev Exit LONG: Closed at {self.data.Close[current_idx]:.2f}")
                 else:
                     # Update trailing stop to max of current lower bands
                     new_stop = max(self.data['BB_lower'][current_idx], self.data['KC_lower'][current_idx])
                     self.position.stop = new_stop
-                    print(f"✨ Trailing Stop Updated: {new_stop:.2f}")
+                    print(f" Trailing Stop Updated: {new_stop:.2f}")
                     
             elif self.position.is_short:
                 prev_close = self.data.Close[prev_idx]
@@ -82,12 +81,12 @@ class VolatilityBandit(Strategy):
                 exit_kc = prev_close > self.data['KC_lower'][prev_idx]
                 if exit_bb or exit_kc:
                     self.position.close()
-                    print(f"🌙 Moon Dev Exit SHORT: Closed at {self.data.Close[current_idx]:.2f}")
+#                     print(f"🌙 Moon Dev Exit SHORT: Closed at {self.data.Close[current_idx]:.2f}")
                 else:
                     # Update trailing stop to min of current upper bands
                     new_stop = min(self.data['BB_upper'][current_idx], self.data['KC_upper'][current_idx])
                     self.position.stop = new_stop
-                    print(f"✨ Trailing Stop Updated: {new_stop:.2f}")
+                    print(f" Trailing Stop Updated: {new_stop:.2f}")
         else:
             # Entry logic
             prev_close = self.data.Close[prev_idx]

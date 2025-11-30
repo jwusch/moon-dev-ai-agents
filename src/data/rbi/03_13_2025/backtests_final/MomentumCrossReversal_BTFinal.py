@@ -49,13 +49,13 @@ class MomentumCrossReversal(Strategy):
                             tp=take_profit,
                             tag="Moon Dev Long Entry 🚀")
                     print(f"🚀 Moon Dev Signal: LONG {position_size} units | "
-                          f"Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                          f"Entry: {price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
 
     def notify_trade(self, trade):
         if trade.is_closed:
             emoji = "🎉" if trade.pl > 0 else "🌧️"
-            print(f"{emoji} Moon Dev Trade Closed | PL: ${trade.pl:.2f} "
-                  f"({trade.pl_pct:.2%}) {'✨' if trade.pl > 0 else '🌙'}")
+            print(f"{emoji} Moon Dev Trade Closed | PL: ${trade.pl:0.2f} "
+                  f"({trade.pl_pct:0.2%}) {'✨' if trade.pl > 0 else '🌙'}")
 
 # 🌙 Data Preparation Section
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

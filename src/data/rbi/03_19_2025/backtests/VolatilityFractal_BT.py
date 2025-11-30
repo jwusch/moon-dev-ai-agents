@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -58,10 +57,10 @@ class VolatilityFractal(Strategy):
         volume_conf = current_volume > volume_sma
 
         # Moon Dev debug prints
-        if squeeze: print(f"🌙 SQUEEZE DETECTED! Bandwidth: {current_bandwidth:.2f}")
-        if cmo_break: print(f"🚀 CMO ROCKETING! {cmo:.2f} > 80")
-        if price_break: print(f"💎 PRICE BREAKOUT! {current_close:.2f} > BB_Upper")
-        if volume_conf: print(f"📈 VOLUME SURGE! {current_volume:.2f} > SMA")
+        if squeeze: print(f" SQUEEZE DETECTED! Bandwidth: {current_bandwidth:.2f}")
+        if cmo_break: print(f" CMO ROCKETING! {cmo:.2f} > 80")
+        if price_break: print(f" PRICE BREAKOUT! {current_close:.2f} > BB_Upper")
+        if volume_conf: print(f" VOLUME SURGE! {current_volume:.2f} > SMA")
 
         # 2. Execute Entry ✨
         if not self.position and all([squeeze, cmo_break, price_break, volume_conf]):
@@ -72,14 +71,14 @@ class VolatilityFractal(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=stop_price, tp=swing_high)
-                print(f"🚀🌙 LONG LAUNCH! Size: {position_size} @ {current_close:.2f}")
-                print(f"    🛡️ SL: {stop_price:.2f} | 🎯 TP: {swing_high:.2f}")
+                print(f" LONG LAUNCH! Size: {position_size} @ {current_close:.2f}")
+                print(f"     SL: {stop_price:.2f} |  TP: {swing_high:.2f}")
 
         # 3. Exit Conditions 🔄
         if self.position:
             # Take profit at fractal resistance
             if current_high >= swing_high:
                 self.position.close()
-                print(f"🏆 FRACTAL TARGET HIT! {swing_high:.2f}")
+                print(f" FRACTAL TARGET HIT! {swing_high:.2f}")
             
             # Momentum

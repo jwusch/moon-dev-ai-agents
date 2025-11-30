@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -52,7 +49,7 @@ class MomentumSurgeBreakout(Strategy):
 
     def next(self):
         current_close = self.data.Close[-1]
-        moon_emoji = '🌙' if current_close > self.bb_middle[-1] else '🌑'
+        moon_emoji = '' if current_close > self.bb_middle[-1] else ''
         
         # 🚀 LONG Entry Constellation Alignment
         if not self.position:
@@ -73,14 +70,14 @@ class MomentumSurgeBreakout(Strategy):
                         sl=stop_loss,
                         tag=f"MoonSurge-{current_close:.2f}"
                     )
-                    print(f"{moon_emoji}✨🚀 MOON BLASTOFF! Entry @ {entry_price:.2f}")
+                    print(f"{moon_emoji} MOON BLASTOFF! Entry @ {entry_price:.2f}")
                     print(f"    Size: {position_size} | SL: {stop_loss:.2f} | CMO: {self.cmo[-1]:.2f}")
         
         # 🌪️ Exit Protocol: Volatility Contraction Detection
         else:
             if self.bb_width[-1] < self.bb_width_percentile[-1]:
                 self.position.close()
-                print(f"{moon_emoji}💨 VOLATILITY COLLAPSE! Exit @ {current_close:.2f}")
+                print(f"{moon_emoji} VOLATILITY COLLAPSE! Exit @ {current_close:.2f}")
                 print(f"    BB Width: {self.bb_width[-1]:.4f} < {self.bb_width_percentile[-1]:.4f}")
 
             # 🌊 Dynamic Trailing Stop (2x ATR)

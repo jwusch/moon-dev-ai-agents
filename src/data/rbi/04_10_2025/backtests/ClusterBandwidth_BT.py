@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -76,7 +74,7 @@ class ClusterBandwidth(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price, tag={'entry_bw': bandwidth})
                     self.trades_today += 1
-                    print(f"🌙✨ LONG signal! Size: {position_size} @ {close_price:.2f} | SL: {sl_price:.2f} 🚀")
+                    print(f" LONG signal! Size: {position_size} @ {close_price:.2f} | SL: {sl_price:.2f} ")
             
             # Short entry conditions
             elif (dist_to_low <= 0.02 and 

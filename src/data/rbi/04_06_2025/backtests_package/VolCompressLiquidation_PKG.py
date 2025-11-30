@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of its functions. Here's the corrected version:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLCOMPRESSLIQUIDATION STRATEGY 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -59,7 +55,7 @@ class VolCompressLiquidation(Strategy):
             if len(self.daily_equity) > 1:
                 daily_return = (self.daily_equity[-1] - self.daily_equity[-2])/self.daily_equity[-2]
                 if daily_return < -self.max_daily_loss:
-                    print("🌚 MOON ALERT: Max daily loss hit! Ceasing trading.")
+                    print(" MOON ALERT: Max daily loss hit! Ceasing trading.")
                     self.position.close()
             self.last_day = current_day
 
@@ -87,11 +83,11 @@ class VolCompressLiquidation(Strategy):
                     self.sell(size=position_size, 
                              sl=self.swing_high[-1] * 1.025,
                              tp=self.data.Close[-1] * 0.97)
-                    print(f"🌙✨ SHORT ENTRY: {position_size} units at {self.data.Close[-1]} ✨")
+                    print(f" SHORT ENTRY: {position_size} units at {self.data.Close[-1]} ")
 
         # 🌑 EXIT LOGIC
         else:
             # Dynamic ATR exit
             if self.atr[-1] > self.atr_ma[-1] + self.atr_std[-1]:
                 self.position.close()
-                print(f"🌗 ATR EXPANSION EXIT: {self.data.Close[-1]}")
+                print(f" ATR EXPANSION EXIT: {self.data.Close[-1]}")

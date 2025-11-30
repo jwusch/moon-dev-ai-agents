@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -27,7 +26,7 @@ class MomentumBandwidth(Strategy):
 
     def next(self):
         # Moon Dev debug prints
-        print(f"🌙 CMO: {self.data.CMO[-1]:.1f} | BW: {self.data.Bandwidth[-1]:.4f} | SMA5: {self.data.Bandwidth_SMA5[-1]:.4f} | SMA20: {self.data.Bandwidth_SMA20[-1]:.4f} | ATR: {self.data.ATR[-1]:.2f}")
+        print(f" CMO: {self.data.CMO[-1]:.1f} | BW: {self.data.Bandwidth[-1]:.4f} | SMA5: {self.data.Bandwidth_SMA5[-1]:.4f} | SMA20: {self.data.Bandwidth_SMA20[-1]:.4f} | ATR: {self.data.ATR[-1]:.2f}")
 
         if not self.position:
             # Long entry logic
@@ -43,7 +42,7 @@ class MomentumBandwidth(Strategy):
                     if position_size > 0:
                         self.trailing_high = self.data.High[-1]
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀🌙 LONG ENTRY! Size: {position_size} | Entry: {entry_price} | SL: {stop_loss:.2f}")
+                        print(f" LONG ENTRY! Size: {position_size} | Entry: {entry_price} | SL: {stop_loss:.2f}")
 
             # Short entry logic
             elif crossunder(self.data.CMO[-1], -50) and self.data.Bandwidth[-1] < self.data.Bandwidth_SMA5[-1]:
@@ -58,7 +57,7 @@ class MomentumBandwidth(Strategy):
                     if position_size > 0:
                         self.trailing_low = self.data.Low[-1]
                         self.sell(size=position_size, sl=stop_loss)
-                        print(f"📉🌙 SHORT ENTRY! Size: {position_size} | Entry: {entry_price} | SL: {stop_loss:.2f}")
+                        print(f" SHORT ENTRY! Size: {position_size} | Entry: {entry_price} | SL: {stop_loss:.2f}")
 
         else:
             # Update trailing stops

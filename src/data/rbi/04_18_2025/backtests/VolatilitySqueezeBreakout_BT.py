@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -77,7 +76,7 @@ class VolatilitySqueezeBreakout(Strategy):
                 self.cumulative_pv = 0
                 self.cumulative_vol = 0
                 self.closes_in_consolidation = []
-                print(f"🌙 MOON DEV ALERT 🌙 | New consolidation started at {self.data.index[-1]}")
+#                 print(f"🌙 MOON DEV ALERT 🌙 | New consolidation started at {self.data.index[-1]}")
             
             # Update cumulative values for VWAP calculation 🧮
             typical_price = (self.data.High[-1] + self.data.Low[-1] + self.data.Close[-1]) / 3

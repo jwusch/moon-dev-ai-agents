@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -77,10 +76,10 @@ class VolatilityZipper(Strategy):
         # Moon Dev Exit Logic 🎯
         if self.position.is_long and disp_z <= 0:
             self.position.close()
-            print(f"🎯 Moon Dev Normalization! Closing long at {close}")
+#             print(f"🎯 Moon Dev Normalization! Closing long at {close}")
         if self.position.is_short and disp_z >= 0:
             self.position.close()
-            print(f"🎯 Moon Dev Normalization! Closing short at {close}")
+#             print(f"🎯 Moon Dev Normalization! Closing short at {close}")
 
     def enter_trade(self, direction):
         risk_amount = self.risk_pct * self.equity
@@ -92,7 +91,7 @@ class VolatilityZipper(Strategy):
             size = int(round(risk_amount / (price - sl)))
             if size > 0:
                 self.buy(size=size, sl=sl, tp=tp)
-                print(f"🚀 Moon Dev LONG! {size} units @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+#                 print(f"🚀 Moon Dev LONG! {size} units @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
         
         elif direction == 'short':
             sl = price * (1 + self.stop_loss_pct)

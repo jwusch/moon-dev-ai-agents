@@ -1,7 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -95,11 +91,11 @@ class LiquidationSqueeze(Strategy):
             self.sell(size=position_size, 
                      sl=sl_price,
                      tp=price - (sl_price - price)*self.rrr)
-            print(f"🌙 MOON DEV SHORT ACTIVATED 🌙")
+#             print(f"🌙 MOON DEV SHORT ACTIVATED 🌙")
             print(f"Entry: {price:.2f} | Size: {position_size}")
             print(f"SL: {sl_price:.2f} | TP: {price - (sl_price - price)*self.rrr:.2f}")
             
     def notify_trade(self, trade):
         if trade.is_closed:
-            emoji = "🚀 PROFIT" if trade.pl > 0 else "💣 LOSS"
+            emoji = " PROFIT" if trade.pl > 0 else " LOSS"
             print

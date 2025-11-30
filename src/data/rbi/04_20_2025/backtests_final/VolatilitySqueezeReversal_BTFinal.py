@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -75,7 +74,7 @@ class VolatilitySqueezeReversal(Strategy):
                 size = int(round(size))
                 if size > 0:
                     self.buy(size=size)
-                    print(f"🌙🚀 MOON ENTRY: Long {size} units at {self.data.Close[-1]:.2f} ✨")
+                    print(f" MOON ENTRY: Long {size} units at {self.data.Close[-1]:.2f} ")
                     self.trailing_stop = stop_loss
                     self.highest_price = self.data.Close[-1]
         else:
@@ -91,4 +90,4 @@ class VolatilitySqueezeReversal(Strategy):
             norm_hurst = (current_hurst - min_h)/(max_h - min_h) if max_h != min_h else 0
             if norm_hurst > 0.7:
                 self.position.close()
-                print(f"🌙🎯 HURST EXIT: Norm Hurst {norm_hurst:.2f} at {self.data.Close[-1]:.2f} ✨")
+                print(f" HURST EXIT: Norm Hurst {norm_hurst:.2f} at {self.data.Close[-1]:.2f} ")

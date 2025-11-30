@@ -1,6 +1,3 @@
-Here's the fixed code with proper Moon Dev themed debug prints and technical issues resolved:
-
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import talib
@@ -82,7 +79,7 @@ class NocturnalReversal(Strategy):
         if risk_distance <= 0:
             return
         if risk_distance/entry_price > 0.02:
-            print(f"🌙⚠️ Black Hole Alert! SL too wide: {risk_distance/entry_price*100:.1f}%")
+            print(f" Black Hole Alert! SL too wide: {risk_distance/entry_price*100:.1f}%")
             return
 
         position_size = int(round(risk_amount / risk_distance))
@@ -94,8 +91,8 @@ class NocturnalReversal(Strategy):
             self.buy(size=position_size)
             self.order = self.sell(size=position_size, sl=stop_loss)
             self.order = self.sell(size=position_size, tp=take_profit)
-            print(f"🌙✨🚀 MOONSHOT ACTIVATED! Long {position_size} @ {entry_price}")
-            print(f"   🛡️SL: {stop_loss} | 🎯TP: {take_profit}")
+            print(f" MOONSHOT ACTIVATED! Long {position_size} @ {entry_price}")
+            print(f"   SL: {stop_loss} | TP: {take_profit}")
 
 # 🌙 Lunar Backtest Initialization
 if __name__ == "__main__":

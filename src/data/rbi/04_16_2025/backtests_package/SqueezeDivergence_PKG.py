@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover-related functions with manual implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -46,7 +42,7 @@ class SqueezeDivergenceStrategy(Strategy):
         
     def next(self):
         # Moon Dev debug prints 🌙
-        print(f"\n🌙 Processing bar: {self.data.index[-1]} ✨")
+        print(f"\n Processing bar: {self.data.index[-1]} ")
         print(f"   Close: {self.data.Close[-1]:.2f}, BB Width: {self.bandwidth[-1]:.4f}")
         print(f"   OBV: {self.obv[-1]:.2f}, ATR: {self.atr[-1]:.2f}")
         
@@ -69,12 +65,12 @@ class SqueezeDivergenceStrategy(Strategy):
             )
             
             if long_cond:
-                print(f"\n🚀🌙 BULLISH SQUEEZE DIVERGENCE DETECTED! ✨")
+                print(f"\n BULLISH SQUEEZE DIVERGENCE DETECTED! ")
                 print(f"   Price Slope: {self.price_slope[-1]:.2f}, OBV Slope: {self.obv_slope[-1]:.2f}")
                 self.enter_long()
                 
             elif short_cond:
-                print(f"\n🌑🌙 BEARISH SQUEEZE DIVERGENCE DETECTED! ✨")
+                print(f"\n BEARISH SQUEEZE DIVERGENCE DETECTED! ")
                 print(f"   Price Slope: {self.price_slope[-1]:.2f}, OBV Slope: {self.obv_slope[-1]:.2f}")
                 self.enter_short()
         

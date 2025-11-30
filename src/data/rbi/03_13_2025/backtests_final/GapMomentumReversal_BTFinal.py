@@ -1,8 +1,3 @@
-Here's the fixed and complete version of your backtest code with Moon Dev themed debug prints and proper implementation:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation for GapMomentumReversal Strategy 🚀
-
 import pandas as pd
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
@@ -49,7 +44,7 @@ class GapMomentumReversal(Strategy):
         current_bottom = self.bottom_band[-1]
         
         # Moon Dev debug prints 🌙
-        print(f"🌙 Range: {current_range:.2f} | Top: {current_top:.2f} | Bottom: {current_bottom:.2f}")
+        print(f" Range: {current_range:0.2f} | Top: {current_top:0.2f} | Bottom: {current_bottom:0.2f}")
         
         if not self.position:
             # Long entry condition 🌕
@@ -63,10 +58,10 @@ class GapMomentumReversal(Strategy):
             # Exit conditions 🚪
             if self.position.is_long and current_range < current_top:
                 self.position.close()
-                print(f"🌙 Closing LONG at {self.data.Close[-1]:.2f} ✨")
+                print(f" Closing LONG at {self.data.Close[-1]:0.2f} ")
             elif self.position.is_short and current_range > current_bottom:
                 self.position.close()
-                print(f"🌙 Closing SHORT at {self.data.Close[-1]:.2f} ✨")
+                print(f" Closing SHORT at {self.data.Close[-1]:0.2f} ")
     
     def enter_trade(self, direction):
         # Risk management calculations 🔒
@@ -86,18 +81,18 @@ class GapMomentumReversal(Strategy):
             return
             
         position_size = (equity * self.risk_pct) / risk_per_share
-        position_size = int(round(position_size))  # Round to whole units 🌙
+        position_size = int(round(position_size))  # Round to whole units 
         
         if position_size > 0:
             if direction == 'long':
                 self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🚀 MOON DEV LONG ENTRY 🌕 | Size: {position_size} @ {price:.2f}")
+#                 print(f"🚀 MOON DEV LONG ENTRY 🌕 | Size: {position_size} @ {price:0.2f}")
             else:
                 self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🚀 MOON DEV SHORT ENTRY 🌑 | Size: {position_size} @ {price:.2f}")
+#                 print(f"🚀 MOON DEV SHORT ENTRY 🌑 | Size: {position_size} @ {price:0.2f}")
 
 # Run backtest and print full stats 📊
-bt = Backtest(data, GapMomentumReversal, cash=1_000_000, commission=.002)
+bt = Backtest(data, GapMomentumReversal, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # Print Moon Dev themed results

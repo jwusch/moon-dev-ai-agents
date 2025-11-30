@@ -50,7 +50,7 @@ class VIXContraMomentum(Strategy):
                     sl = current_price - atr_value * 1.5
                     tp = current_price + atr_value * 3
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Entry: {current_price:0.2f} | Size: {position_size} | SL: {sl:0.2f} | TP: {tp:0.2f}")
 
             # 🌙 INVERTED V SHORT ENTRY 🌙
             elif current_price >= self.swing_low[-1] * (1 + self.vix_threshold):
@@ -59,19 +59,19 @@ class VIXContraMomentum(Strategy):
                     sl = current_price + atr_value * 1.5
                     tp = current_price - atr_value * 3
                     self.sell(size=position_size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Entry: {current_price:0.2f} | Size: {position_size} | SL: {sl:0.2f} | TP: {tp:0.2f}")
 
         else:
             # 🌙 MOON DEV TRAILING LOGIC ✨
             if self.position.is_long and crossover(self.data.Close, self.swing_high):
                 self.position.close()
-                print(f"🌙✨ MOON DEV LONG EXIT | Price: {current_price:.2f}")
+                print(f"🌙✨ MOON DEV LONG EXIT | Price: {current_price:0.2f}")
             elif self.position.is_short and crossover(self.swing_low, self.data.Close):
                 self.position.close()
-                print(f"🌙✨ MOON DEV SHORT EXIT | Price: {current_price:.2f}")
+                print(f"🌙✨ MOON DEV SHORT EXIT | Price: {current_price:0.2f}")
 
 # 🌙✨ BACKTEST EXECUTION 🚀
-bt = Backtest(data, VIXContraMomentum, cash=1_000_000, commission=.002)
+bt = Backtest(data, VIXContraMomentum, cash=1_000_000, commission=0.002)
 stats = bt.run()
 print("\n🌙✨ MOON DEV FINAL STATS 🌙✨")
 print(stats)

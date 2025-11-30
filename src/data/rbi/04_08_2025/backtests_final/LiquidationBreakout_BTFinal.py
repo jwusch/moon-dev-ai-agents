@@ -1,7 +1,3 @@
-I'll complete and fix the `enter_long()` method and add the missing methods while maintaining the strategy logic. Here's the fully debugged version with Moon Dev themed prints:
-
-```python
-# 🌙 Moon Dev's LiquidationBreakout Backtest Script ✨
 import backtrader as bt
 import talib
 import pandas as pd
@@ -52,7 +48,7 @@ class LiquidationBreakout(bt.Strategy):
     def clean_orders(self):
         self.orders = [order for order in self.orders if order.status in [bt.Order.Submitted, bt.Order.Accepted]]
         if len(self.orders) > 0:
-            print(f"🌑 Cleaning moon dust from {len(self.orders)} active orders...")
+            print(f" Cleaning moon dust from {len(self.orders)} active orders...")
 
     def check_volatility_contraction(self):
         # 🌌 Volatility Contraction Condition
@@ -60,7 +56,7 @@ class LiquidationBreakout(bt.Strategy):
         bb_contraction = self.bb_width[0] < 0.5
         self.volatility_contraction = atr_contraction or bb_contraction
         if self.volatility_contraction:
-            print(f"🌙✨ Volatility contraction detected! ATR:{self.atr[0]:.2f} BBW:{self.bb_width[0]:.2f}")
+            print(f" Volatility contraction detected! ATR:{self.atr[0]:.2f} BBW:{self.bb_width[0]:.2f}")
 
     def detect_liquidation_clusters(self):
         # 🪐 Liquidation Cluster Detection
@@ -75,7 +71,7 @@ class LiquidationBreakout(bt.Strategy):
         if cluster_count >= self.p.cluster_levels:
             self.cluster_high = cluster_high
             self.cluster_low = min(h for h in highs if h >= cluster_low)
-            print(f"🚀🌕 Liquidation Cluster Detected! High: {self.cluster_high:.2f} Low: {self.cluster_low:.2f}")
+            print(f" Liquidation Cluster Detected! High: {self.cluster_high:.2f} Low: {self.cluster_low:.2f}")
 
     def check_breakouts(self):
         if not self.cluster_high or not self.volatility_contraction:

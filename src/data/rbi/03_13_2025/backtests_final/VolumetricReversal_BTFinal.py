@@ -1,6 +1,3 @@
-The code is mostly correct, but I found a few technical issues that need to be fixed. Here's the debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -24,8 +21,8 @@ class VolumetricReversal(Strategy):
         # Volume analysis
         self.vol_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         
-        print("🌙✨ Moon Dev Indicators Activated! BBANDS | STOCH | VOL SMA Loaded 🚀")
-        print("🌌 Lunar Trading System Initialized Successfully 🌌")
+#         print("🌙✨ Moon Dev Indicators Activated! BBANDS | STOCH | VOL SMA Loaded 🚀")
+        print(" Lunar Trading System Initialized Successfully ")
 
     def next(self):
         if len(self.data) < 20:  # Wait for indicators to warm up
@@ -54,8 +51,8 @@ class VolumetricReversal(Strategy):
                     if size > 0:
                         tp_price = current_close + (upper - lower)
                         self.buy(size=size, sl=middle, tp=tp_price)
-                        print(f"🌙🚀 MOON BLASTOFF! LONG {size} units @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {middle:.2f} | 🎯 TP: {tp_price:.2f}")
+                        print(f" MOON BLASTOFF! LONG {size} units @ {current_close:0.2f}")
+                        print(f"    SL: {middle:0.2f} |  TP: {tp_price:0.2f}")
             
             # Short Entry: Break lower BB + volume spike + Stoch confirmation
             elif (current_close < lower and vol_spike and stoch_k < 20):
@@ -67,15 +64,15 @@ class VolumetricReversal(Strategy):
                     if size > 0:
                         tp_price = current_close - (upper - lower)
                         self.sell(size=size, sl=middle, tp=tp_price)
-                        print(f"🌙📉 COMET CRASH! SHORT {size} units @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {middle:.2f} | 🎯 TP: {tp_price:.2f}")
+                        print(f" COMET CRASH! SHORT {size} units @ {current_close:0.2f}")
+                        print(f"    SL: {middle:0.2f} |  TP: {tp_price:0.2f}")
         else:
             # Exit on Stochastic reversal
             if self.position.is_long and stoch_k < stoch_d and stoch_k < 80:
                 self.position.close()
-                print(f"🌙✨ LUNAR ECLIPSE! Closing Long | K:{stoch_k:.1f} D:{stoch_d:.1f}")
+                print(f" LUNAR ECLIPSE! Closing Long | K:{stoch_k:0.1f} D:{stoch_d:0.1f}")
             elif self.position.is_short and stoch_k > stoch_d and stoch_k > 20:
                 self.position.close()
-                print(f"🌙✨ STAR RECOVERY! Closing Short | K:{stoch_k:.1f} D:{stoch_d:.1f}")
+                print(f" STAR RECOVERY! Closing Short | K:{stoch_k:0.1f} D:{stoch_d:0.1f}")
 
 # Moon Dev

@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLTASQUEEZE STRATEGY 🚀✨
-
 import pandas as pd
 import talib
 import numpy as np
@@ -24,7 +19,7 @@ data = data.rename(columns={
 })
 
 class VoltaSqueeze(Strategy):
-    risk_pct = 0.01  # 🌑 1% RISK PER TRADE
+    risk_pct = 0.01  #  1% RISK PER TRADE
     
     def init(self):
         # 🌠 CALCULATE CELESTIAL INDICATORS
@@ -39,7 +34,7 @@ class VoltaSqueeze(Strategy):
         # Trailing Stop ATR
         self.atr14 = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ATR14')
         
-        print("🌙 INIT COMPLETE: Stellar indicators activated! ✨")
+        print(" INIT COMPLETE: Stellar indicators activated! ")
 
     def next(self):
         # 🌗 CHECK EXIT CONDITIONS FIRST
@@ -48,14 +43,14 @@ class VoltaSqueeze(Strategy):
             trailing_stop = self.max_high - 2 * self.atr14[-1]
             if self.data.Low[-1] <= trailing_stop:
                 self.position.close()
-                print(f"🌑 LONG EXIT: Trailing Stop {trailing_stop:.2f} | Equity: {self.equity:,.0f} 🌙")
+                print(f" LONG EXIT: Trailing Stop {trailing_stop:.2f} | Equity: {self.equity:,.0f} ")
 
         elif self.position.is_short:
             self.min_low = min(self.min_low, self.data.Low[-1])
             trailing_stop = self.min_low + 2 * self.atr14[-1]
             if self.data.High[-1] >= trailing_stop:
                 self.position.close()
-                print(f"🌑 SHORT EXIT: Trailing Stop {trailing_stop:.2f} | Equity: {self.equity:,.0f} 🌙")
+                print(f" SHORT EXIT: Trailing Stop {trailing_stop:.2f} | Equity: {self.equity:,.0f} ")
 
         # 🌕 CHECK ENTRY CONDITIONS
         if not self.position:
@@ -85,6 +80,6 @@ class VoltaSqueeze(Strategy):
                         if units > 0:
                             self.max_high = self.data.High[-1]
                             self.buy(size=units)
-                            print(f"🚀 LONG ENTRY: {close:.2f} | Size: {units} | Moonshot initiated! 🌕")
+                            print(f" LONG ENTRY: {close:.2f} | Size: {units} | Moonshot initiated! ")
 
                 # 🌑 SHORT EN

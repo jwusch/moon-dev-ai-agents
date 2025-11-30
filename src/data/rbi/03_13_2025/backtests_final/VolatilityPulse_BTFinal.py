@@ -1,6 +1,3 @@
-I'll help fix the incomplete code while maintaining the original strategy logic. Here's the complete and debugged version with Moon Dev themed debug prints:
-
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Strategy, Backtest
@@ -59,7 +56,7 @@ class VolatilityPulse(Strategy):
         position_size = round(risk_amount / (atr * self.atr_multiplier))
         
         if position_size > 0:
-            print(f"🌕 Moon Dev: Entering Long | Size: {position_size} units | Price: {price:.2f}")
+#             print(f"🌕 Moon Dev: Entering Long | Size: {position_size} units | Price: {price:0.2f}")
             self.buy(size=position_size, sl=price - atr * self.trailing_init)
             
     def enter_short(self):
@@ -69,7 +66,7 @@ class VolatilityPulse(Strategy):
         position_size = round(risk_amount / (atr * self.atr_multiplier))
         
         if position_size > 0:
-            print(f"🌑 Moon Dev: Entering Short | Size: {position_size} units | Price: {price:.2f}")
+#             print(f"🌑 Moon Dev: Entering Short | Size: {position_size} units | Price: {price:0.2f}")
             self.sell(size=position_size, sl=price + atr * self.trailing_init)
 
     def next(self):
@@ -80,7 +77,7 @@ class VolatilityPulse(Strategy):
             self.consecutive_losses = 0
             self.daily_high = self.equity
             self.trading_halted = False
-            print(f"🌙 New Moon Day: {current_date} - Fresh trading day started!")
+            print(f" New Moon Day: {current_date} - Fresh trading day started!")
         
         if self.trading_halted:
             return
@@ -90,5 +87,5 @@ class VolatilityPulse(Strategy):
         
         # Check daily drawdown
         if (self.daily_high - self.equity)/self.daily_high >= 0.03:
-            print(f"🌧️ Moon Dev Alert: 3% Daily Drawdown Reached! Trading halted.")
+#             print(f"🌧️ Moon Dev Alert: 3% Daily Drawdown Reached! Trading halted.")
             self.trading_h

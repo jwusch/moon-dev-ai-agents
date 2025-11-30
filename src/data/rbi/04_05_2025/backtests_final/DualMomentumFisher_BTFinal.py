@@ -1,7 +1,3 @@
-Here's the complete fixed code with all technical issues resolved while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev's DualMomentumFisher Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import pandas_ta as ta
@@ -26,7 +22,7 @@ class DualMomentumFisher(Strategy):
         self.fisher = self.I(lambda x: fisher['FISHER_14_1'].values, name='Fisher')
         self.signal = self.I(lambda x: fisher['FISHERs_14_1'].values, name='Signal')
         
-        # 🌪️ Chande's Volatility Index
+        # 🌪️ Chande's Volatility Index'
         self.cvi = self.I(ta.cvi, self.data.High, self.data.Low, length=9, name='CVI')
         
         # 📈 Trend Filter
@@ -39,15 +35,15 @@ class DualMomentumFisher(Strategy):
     def next(self):
         # 🌙 Moon Dev Debug Prints
         current_bar = len(self.data)-1
-        print(f"\n🌙 Bar {current_bar} | Price: {self.data.Close[-1]:.2f} | Equity: {self.equity:,.2f} ✨")
+        print(f"\n Bar {current_bar} | Price: {self.data.Close[-1]:.2f} | Equity: {self.equity:,.2f} ")
         
         # 🛑 Risk Management Checks
         if self._check_daily_loss():
-            print("🌙🛑 DAILY LOSS LIMIT HIT! No new trades today")
+            print(" DAILY LOSS LIMIT HIT! No new trades today")
             return
             
         if self.cvi[-1] > self.cvi_threshold:
-            print(f"🌙⚠️ High Volatility (CVI {self.cvi[-1]:.1f}) - No new entries")
+            print(f" High Volatility (CVI {self.cvi[-1]:.1f}) - No new entries")
             return
             
         # 📉 Exit Conditions

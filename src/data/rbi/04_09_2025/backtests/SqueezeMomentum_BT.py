@@ -1,9 +1,3 @@
-Here's the complete implementation of the SqueezeMomentum strategy for backtesting.py:
-
-```python
-# 🌙 Moon Dev Backtest AI Generated Code 🚀
-
-# 1. Necessary imports
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -47,12 +41,12 @@ class SqueezeMomentum(Strategy):
         
         # Track trading state
         self.consecutive_losses = 0
-        print("✨ Moon Dev Indicators Initialized! Ready for launch! 🚀")
+#         print("✨ Moon Dev Indicators Initialized! Ready for launch! 🚀")
 
     def next(self):
-        # 🌑 Check if we're in cooldown from losses
+        # 🌑 Check if we're in cooldown from losses'
         if self.consecutive_losses >= self.max_consecutive_losses:
-            print("🌪️ Moon Dev Alert: Trading paused - 3 consecutive losses! ✋")
+#             print("🌪️ Moon Dev Alert: Trading paused - 3 consecutive losses! ✋")
             return
 
         # 🚀 Entry Logic
@@ -97,7 +91,7 @@ class SqueezeMomentum(Strategy):
         
         if size > 0:
             self.buy(size=size)
-            print(f"🚀 LONG LAUNCH! {size} units @ {price:.2f} | Equity: {self.equity:,.2f}")
+            print(f" LONG LAUNCH! {size} units @ {price:.2f} | Equity: {self.equity:,.2f}")
             # Initialize trailing stop
             self.trailing_high = self.data.High[-1]
 
@@ -107,7 +101,7 @@ class SqueezeMomentum(Strategy):
         
         if size > 0:
             self.sell(size=size)
-            print(f"🌑 SHORT IGNITION! {size} units @ {price:.2f} | Equity: {self.equity:,.2f}")
+            print(f" SHORT IGNITION! {size} units @ {price:.2f} | Equity: {self.equity:,.2f}")
             # Initialize trailing stop
             self.trailing_low = self.data.Low[-1]
 

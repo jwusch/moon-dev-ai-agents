@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VortexChopFlow Backtest Implementation 🚀
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -29,7 +25,7 @@ class VortexChopFlow(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, 20)
         self.swing_low = self.I(talib.MIN, self.data.Low, 20)
         
-        print("🌙✨ Moon Dev Indicators Activated! Vortex, Choppiness, ATR Ready 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! Vortex, Choppiness, ATR Ready 🚀")
 
     def next(self):
         # 🌙 Current Market Conditions
@@ -49,7 +45,7 @@ class VortexChopFlow(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                     if position_size > 0:
-                        print(f"🌙🚀 BULLISH CROSSOVER! Buying {position_size} units at {entry_price:.2f} ✨")
+                        print(f" BULLISH CROSSOVER! Buying {position_size} units at {entry_price:.2f} ")
                         self.buy(size=position_size, sl=stop_loss)
         
         # 🐻 Short Entry Logic
@@ -63,7 +59,7 @@ class VortexChopFlow(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                     if position_size > 0:
-                        print(f"🌙📉 BEARISH CROSSOVER! Shorting {position_size} units at {entry_price:.2f} ✨")
+                        print(f" BEARISH CROSSOVER! Shorting {position_size} units at {entry_price:.2f} ")
                         self.sell(size=position_size, sl=stop_loss)
         
         # 🛑 Exit Conditions
@@ -73,5 +69,5 @@ class VortexChopFlow(Strategy):
                 exit1 = (self.vi_minus[-2] < self.vi_plus[-2] and self.vi_minus[-1] > self.vi_plus[-1])
                 exit2 = self.data.Close[-1] < self.swing_low[-1]
                 if exit1 or exit2 or chop_exit_condition:
-                    print(f"🌙🛑 Closing LONG Position at {self.data.Close[-1]:.2f} (Choppiness: {self.choppiness[-1]:.1f})")
+                    print(f" Closing LONG Position at {self.data.Close[-1]:.2f} (Choppiness: {self.choppiness[-1]:.1f})")
                     self.position.close()

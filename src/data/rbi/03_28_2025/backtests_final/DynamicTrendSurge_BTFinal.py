@@ -1,8 +1,3 @@
-Here's the fully debugged and Moon Dev themed backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙✨ Moon Dev's DynamicTrendSurge Backtest Implementation 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -13,7 +8,7 @@ class DynamicTrendSurge(Strategy):
     adx_period = 14
     rsi_period = 14
     atr_period = 14
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 TA-Lib Indicators with self.I() wrapper
@@ -30,7 +25,7 @@ class DynamicTrendSurge(Strategy):
 
         # 🌙✨ ENTRY LOGIC: Golden Cross + ADX Strength
         if not self.position:
-            # Check previous bar's conditions
+            # Check previous bar's conditions'
             prev_ema50 = self.ema50[-2]
             prev_ema200 = self.ema200[-2]
             prev_adx = self.adx[-2]
@@ -56,8 +51,8 @@ class DynamicTrendSurge(Strategy):
                         sl=stop_price,
                         tag="MoonSurgeEntry"
                     )
-                    print(f"🌙✨ BUY SIGNAL! Size: {position_size} | Entry: {self.data.Close[-1]:.2f} 🚀")
-                    print(f"🌑 Trailing Stop set at: {stop_price:.2f} (2xATR)")
+                    print(f" BUY SIGNAL! Size: {position_size} | Entry: {self.data.Close[-1]:.2f} ")
+                    print(f" Trailing Stop set at: {stop_price:.2f} (2xATR)")
 
         # 🌑 EXIT LOGIC: RSI Overbought or Trend Weakness
         else:
@@ -68,14 +63,14 @@ class DynamicTrendSurge(Strategy):
             new_stop = self.data.Close[-1] - (2 * self.atr[-1])
             if new_stop > self.position.sl:
                 self.position.sl = new_stop
-                print(f"🌕 Updating Moon Trail to: {new_stop:.2f}")
+                print(f" Updating Moon Trail to: {new_stop:.2f}")
             
             if current_rsi > 70:
                 self.position.close()
-                print(f"🌑✨ SELL SIGNAL! RSI {current_rsi:.1f} >70 | Exit: {self.data.Close[-1]:.2f}")
+                print(f" SELL SIGNAL! RSI {current_rsi:.1f} >70 | Exit: {self.data.Close[-1]:.2f}")
             elif current_adx < 20:
                 self.position.close()
-                print(f"🌑✨ SELL SIGNAL! ADX {current_adx:.1f} <20 | Exit: {self.data.Close[-1]:.2f}")
+                print(f" SELL SIGNAL! ADX {current_adx:.1f} <20 | Exit: {self.data.Close[-1]:.2f}")
 
 # 🌙 DATA PREPARATION 
 data = pd.read_csv('BTC-USD-15m.csv')

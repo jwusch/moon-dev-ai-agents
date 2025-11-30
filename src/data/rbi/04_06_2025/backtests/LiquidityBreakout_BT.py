@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDITYBREAKOUT STRATEGY 🚀
-
-# ========== IMPORTS ========== #
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -71,7 +67,7 @@ class LiquidityBreakout(Strategy):
             position_size = int(round(risk_amount / risk_per_share))
             
             # 🌙 Moon Dev Themed Entry
-            print(f"🚀🌙 MOON DEV LONG SIGNAL! 🚀🌙")
+#             print(f"🚀🌙 MOON DEV LONG SIGNAL! 🚀🌙")
             print(f"Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
             
             self.buy(size=position_size, 
@@ -90,7 +86,7 @@ class LiquidityBreakout(Strategy):
             position_size = int(round(risk_amount / risk_per_share))
             
             # ✨ Moon Dev Themed Entry
-            print(f"🌙🚀 MOON DEV SHORT SIGNAL! 🌙🚀")
+#             print(f"🌙🚀 MOON DEV SHORT SIGNAL! 🌙🚀")
             print(f"Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
             
             self.sell(size=position_size,
@@ -101,4 +97,4 @@ class LiquidityBreakout(Strategy):
         if self.position:
             if len(self.data) == self.position.entry_bar + 3:  # 45min time exit
                 self.position.close()
-                print(f"🌙✨ MOON DEV TIME
+#                 print(f"🌙✨ MOON DEV TIME"

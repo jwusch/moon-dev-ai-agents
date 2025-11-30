@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the VolatilityEdge strategy:
-
-```python
-# 🌙 Moon Dev Backtest Engine v1.0 🚀
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -21,19 +17,19 @@ class VolatilityEdge(Strategy):
                          self.data.Low, 
                          self.data.Close, 
                          timeperiod=self.volatility_period,
-                         name='🌙 Volatility (ATR)')
+                         name=' Volatility (ATR)')
         
         self.swing_high = self.I(talib.MAX, 
                                 self.data.High, 
                                 timeperiod=self.swing_window,
-                                name='🚀 Swing High')
+                                name=' Swing High')
         
         self.swing_low = self.I(talib.MIN, 
                                self.data.Low, 
                                timeperiod=self.swing_window,
-                               name='🎯 Swing Low')
+                               name=' Swing Low')
         
-        print("🌙✨ Strategy Indicators Initialized!")
+#         print("🌙✨ Strategy Indicators Initialized!")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -53,8 +49,8 @@ class VolatilityEdge(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, 
                                 sl=stop_loss,
-                                tag="🌙 HighVol Long")
-                        print(f"🚀🚀 LONG ENTRY | Size: {position_size} | ATR: {current_atr:.2f} | Risk/Reward: 1:{((current_close - stop_loss)/current_atr):.1f}")
+                                tag=" HighVol Long")
+                        print(f" LONG ENTRY | Size: {position_size} | ATR: {current_atr:.2f} | Risk/Reward: 1:{((current_close - stop_loss)/current_atr):.1f}")
             
             # Short Entry: Low Volatility Breakdown
             elif current_atr < 20 and crossunder(self.data.Close, self.swing_low):
@@ -67,17 +63,17 @@ class VolatilityEdge(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size,
                                  sl=stop_loss,
-                                 tag="🌙 LowVol Short")
-                        print(f"🎯🎯 SHORT ENTRY | Size: {position_size} | ATR: {current_atr:.2f} | Risk/Reward: 1:{((stop_loss - current_close)/current_atr):.1f}")
+                                 tag=" LowVol Short")
+                        print(f" SHORT ENTRY | Size: {position_size} | ATR: {current_atr:.2f} | Risk/Reward: 1:{((stop_loss - current_close)/current_atr):.1f}")
         else:
             # 🌙 Exit Conditions
             if self.position.is_long and current_atr < 40:
                 self.position.close()
-                print(f"✨ Closing LONG | ATR Reversion: {current_atr:.2f} < 40")
+                print(f" Closing LONG | ATR Reversion: {current_atr:.2f} < 40")
                 
             if self.position.is_short and current_atr > 25:
                 self.position.close()
-                print(f"✨ Closing SHORT | ATR Reversion: {current_atr:.2f} > 25")
+                print(f" Closing SHORT | ATR Reversion: {current_atr:.2f} > 25")
 
 # 🌙 Data Preparation Ritual
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
@@ -94,7 +90,7 @@ ohlc = ohlc.rename(columns={
     'volume': 'Volume'
 })
 
-print("🌙✨ Data Preparation Complete! First 3 candles:")
+print(" Data Preparation Complete! First 3 candles:")
 print(ohlc.head(3))
 
 # 🚀 Launch Backtest

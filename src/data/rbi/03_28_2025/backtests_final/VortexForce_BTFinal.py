@@ -1,6 +1,3 @@
-I'll debug the code while maintaining the original strategy logic and adding Moon Dev themed improvements. Here's the fixed version:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -48,7 +45,7 @@ class VortexForce(Strategy):
         self.prev_low = self.prev_high = self.prev_efi = None
 
     def calculate_risk(self, direction, stop_price):
-        """Moon Dev Risk Management Protocol 🌙"""
+#         """Moon Dev Risk Management Protocol 🌙"""
         risk_amount = self.equity * self.risk_pct
         if direction == 'long':
             price_diff = self.data.Close[-1] - stop_price
@@ -58,7 +55,7 @@ class VortexForce(Strategy):
         position_size = risk_amount / price_diff
         position_size = round(position_size)  # Ensure whole units
         
-        print(f"🌙 Calculating Moon Position Size: {position_size} units")
+        print(f" Calculating Moon Position Size: {position_size} units")
         return position_size
 
     def next(self):
@@ -77,7 +74,7 @@ class VortexForce(Strategy):
                     sl = self.swing_low[-1] * 0.995
                     size = self.calculate_risk('long', sl)
                     self.buy(size=size, sl=sl)
-                    print(f"🌙 MOON DEV LONG SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
+#                     print(f"🌙 MOON DEV LONG SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
         
         # Short entry constellation 🌑 (replaced crossover)
         elif (self.vi_minus[-2] > self.vi_plus[-2]) and (self.vi_minus[-1] < self.vi_plus[-1]):
@@ -86,4 +83,4 @@ class VortexForce(Strategy):
                     sl = self.swing_high[-1] * 1.005
                     size = self.calculate_risk('short', sl)
                     self.sell(size=size, sl=sl)
-                    print(f"🌙 MOON DEV SHORT SIGNAL ACTIV
+#                     print(f"🌙 MOON DEV SHORT SIGNAL ACTIV"

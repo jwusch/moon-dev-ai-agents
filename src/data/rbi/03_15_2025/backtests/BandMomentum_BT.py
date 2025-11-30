@@ -44,7 +44,7 @@ class BandMomentum(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🌙 MOON DEV LONG SIGNAL 🚀 | Size: {position_size} | Entry: {close:.2f} | SL: {sl_price:.2f}")
+                    print(f"🌙 MOON DEV LONG SIGNAL 🚀 | Size: {position_size} | Entry: {close:0.2f} | SL: {sl_price:0.2f}")
 
         # 📉 Short Entry: Cumprod < 0
         elif cum_prod < 0 and not self.position:
@@ -54,7 +54,7 @@ class BandMomentum(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price)
-                    print(f"🌙 MOON DEV SHORT SIGNAL 📉 | Size: {position_size} | Entry: {close:.2f} | SL: {sl_price:.2f}")
+                    print(f"🌙 MOON DEV SHORT SIGNAL 📉 | Size: {position_size} | Entry: {close:0.2f} | SL: {sl_price:0.2f}")
 
 # 🌙 Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -71,7 +71,7 @@ data.set_index(pd.to_datetime(data['datetime']), inplace=True)
 data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
 
 # 🚀 Run Backtest
-bt = Backtest(data, BandMomentum, cash=1_000_000, commission=.002)
+bt = Backtest(data, BandMomentum, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌕 Print Full Stats

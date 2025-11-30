@@ -1,7 +1,3 @@
-I'll fix the code by removing all backtesting.lib imports and replacing crossover/crossunder functions with manual checks. Here's the corrected version with Moon Dev's cosmic theme:
-
-```python
-# 🌙 Moon Dev's Liquidity Divergence Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -41,10 +37,10 @@ class LiquidityDivergence(Strategy):
     
     def init(self):
         # Cosmic indicators initialization 🌠
-        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name='🌕 Swing High')
-        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name='🌑 Swing Low')
-        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name='🌀 ATR')
-        self.vol_ma = self.I(talib.SMA, self.data.Volume, self.vol_ma_period, name='📈 Vol MA')
+        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name=' Swing High')
+        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name=' Swing Low')
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name=' ATR')
+        self.vol_ma = self.I(talib.SMA, self.data.Volume, self.vol_ma_period, name=' Vol MA')
         
         # Moon tracking variables 🌙
         self.entry_bar = None
@@ -62,7 +58,7 @@ class LiquidityDivergence(Strategy):
             if self.entry_bar and (len(self.data) - self.entry_bar) <= 3:
                 if current_vol < self.surge_volume * 0.5:
                     self.position.close()
-                    print(f"🌙✨ VOLUME COLLAPSE! Exiting at {current_close:.2f}")
+                    print(f" VOLUME COLLAPSE! Exiting at {current_close:.2f}")
                     self.entry_bar = None
                     return
             return
@@ -82,7 +78,7 @@ class LiquidityDivergence(Strategy):
                 self.buy(size=position_size, sl=sl, tp=tp)
                 self.entry_bar = len(self.data)
                 self.surge_volume = current_vol
-                print(f"🌙🚀 BULLISH BREAKOUT! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" BULLISH BREAKOUT! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
             # Short entry constellation 🌠
             elif current_close < self.swing_low[-1]:

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -49,11 +48,11 @@ class LiquidationVolatility(Strategy):
         
         # Momentum
         self.rsi = self.I(talib.RSI, self.data.Close, 14, name='RSI14')
-        self.vwap_slope = self.I(lambda: self.data.VWAP.diff(5), name='VWAP_Slope')
+        self.vwap_slope = self.I(lambda: self.vwap.diff(5), name='VWAP_Slope')
 
     def next(self):
         price = self.data.Close[-1]
-        print(f"🌙 Lunar Cycle Update: Price ${price:.2f} | RSI {self.rsi[-1]:.1f} ✨")
+        print(f" Lunar Cycle Update: Price ${price:.2f} | RSI {self.rsi[-1]:.1f} ")
         
         # Entry logic
         if not self.position:
@@ -73,7 +72,7 @@ class LiquidationVolatility(Strategy):
             
             if long_trigger:
                 sl = price - 1.5 * self.atr20[-1]
-                self.enter_long(sl, "🚀🌕 BULLISH BREAKOUT! Riding the lunar rocket!")
+                self.enter_long(sl, " BULLISH BREAKOUT! Riding the lunar rocket!")
                 
             elif short_trigger:
                 sl = price + 1.5 * self.atr20[-1]

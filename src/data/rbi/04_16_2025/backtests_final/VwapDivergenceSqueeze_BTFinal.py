@@ -1,6 +1,3 @@
-Here's the debugged and completed version of your VwapDivergenceSqueeze strategy with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -39,14 +36,20 @@ class VwapDivergenceSqueeze(Strategy):
 
     def init(self):
         # Compute VWAP with pandas_ta
-        self.vwap = self.I(ta.vwap,
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
             high=self.data.High,
             low=self.data.Low,
             close=self.data.Close,
-            volume=self.data.Volume,
-            length=self.vwap_period,
-            name='VWAP'
+            volume=self.data.Volume
         )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
 
         # VWAP ROC using TA-Lib
         self.vwap_roc = self.I(talib.ROC,
@@ -88,12 +91,12 @@ class VwapDivergenceSqueeze(Strategy):
             name='ATR'
         )
 
-        print("🌙 Lunar Indicators Activated! Ready for Quantum Backtest 🚀")
+        print(" Lunar Indicators Activated! Ready for Quantum Backtest ")
 
     def next(self):
         # Moon Dev Debug Prints
         if len(self.data) % 1000 == 0:
-            print(f"✨ Processing Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} 🌙")
+            print(f" Processing Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} ")
 
         # Exit conditions
         for trade in self.trades:
@@ -102,14 +105,14 @@ class VwapDivergenceSqueeze(Strategy):
                 sl = trade.entry_price - 2 * atr
                 if self.data.Low[-1] < sl:
                     trade.close()
-                    print(f"🌙 CLOSE LONG {self.data.index[-1]} | SL: {sl:.2f} 🛑")
+                    print(f" CLOSE LONG {self.data.index[-1]} | SL: {sl:.2f} ")
             else:
                 sl = trade.entry_price + 2 * atr
                 if self.data.High[-1] > sl:
                     trade.close()
-                    print(f"🌙 CLOSE SHORT {self.data.index[-1]} | SL: {sl:.2f} 🛑")
+                    print(f" CLOSE SHORT {self.data.index[-1]} | SL: {sl:.2f} ")
 
-        # Don't open new trades if max positions reached
+        # Don't open new trades if max positions reached'
         if len(self.trades) >= self.max_positions:
             return
 

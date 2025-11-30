@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper Moon Dev implementations 🌙✨:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITY SQUEEZE BREAKOUT STRATEGY
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +25,7 @@ data = data.rename(columns={
 # STRATEGY IMPLEMENTATION
 # =====================
 class VolatilitySqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
+    risk_per_trade = 0.01  # 1% risk per trade 
     max_concurrent_trades = 3
     open_trades = 0
 
@@ -76,7 +71,7 @@ class VolatilitySqueezeBreakout(Strategy):
         current_time = self.data.index[-1].time()
         if (datetime.time(0, 0) <= current_time < datetime.time(0, 30) or \
            current_time >= datetime.time(23, 30)):
-            print("🌙 Moon Dev Debug: Outside trading hours - skipping")
+#             print("🌙 Moon Dev Debug: Outside trading hours - skipping")
             return
 
         # =====================

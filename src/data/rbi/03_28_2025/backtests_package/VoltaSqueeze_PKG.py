@@ -1,14 +1,10 @@
-I've analyzed the code and found the `backtesting.lib` import that needs to be removed. Here's the fixed version with proper Moon Dev themed indicators and no backtesting.lib usage:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
 
 class VoltaSqueeze(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # Clean data and prepare columns
@@ -69,7 +65,7 @@ class VoltaSqueeze(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl)
-                    print(f"🌙 MOON DEV LONG SIGNAL 🌛 | Price: {current_close:.2f} | BBWP: {bbwp:.1f} | Size: {position_size} 🚀")
+#                     print(f"🌙 MOON DEV LONG SIGNAL 🌛 | Price: {current_close:.2f} | BBWP: {bbwp:.1f} | Size: {position_size} 🚀")
             
             # Short Entry - Black Hole Gravity Pull 🌑🌀
             elif (bbwp < 20 and 

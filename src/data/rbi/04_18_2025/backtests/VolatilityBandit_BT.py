@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITY BANDIT STRATEGY 🚀
-
-# 1. NECESSARY IMPORTS
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -29,9 +25,9 @@ class VolatilityBandit(Strategy):
     def next(self):
         # 🌙 MOON DEBUG: Print key values
         if len(self.data) % 100 == 0:
-            print(f"\n🌙 MOON DEV STATUS UPDATE [Bar {len(self.data)}]")
+#             print(f"\n🌙 MOON DEV STATUS UPDATE [Bar {len(self.data)}]")
             print(f"   Close: {self.data.Close[-1]:.2f} | Upper Band: {self.upper_band[-1]:.2f}")
-            print(f"   RSI: {self.rsi14[-1]:.1f} | Vol SMA5: {self.vol_sma5[-1]:.2f} ✨")
+            print(f"   RSI: {self.rsi14[-1]:.1f} | Vol SMA5: {self.vol_sma5[-1]:.2f} ")
 
         # ⏰ TIME FILTER CHECK
         current_time = self.data.index[-1].time()
@@ -51,8 +47,8 @@ class VolatilityBandit(Strategy):
                     if position_size > 0:
                         sl = self.data.Close[-1] - atr_value
                         self.buy(size=position_size, sl=sl)
-                        print(f"\n🚀🌙 MOON DEV LONG ENTRY! 🌟 Size: {position_size} BTC")
-                        print(f"   Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} | ATR: {atr_value:.2f} ✨")
+#                         print(f"\n🚀🌙 MOON DEV LONG ENTRY! 🌟 Size: {position_size} BTC")
+                        print(f"   Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} | ATR: {atr_value:.2f} ")
 
             # SHORT ENTRY 🌑
             elif self.data.Close[-1] < self.lower_band[-1]:
@@ -63,8 +59,8 @@ class VolatilityBandit(Strategy):
                     if position_size > 0:
                         sl = self.data.Close[-1] + atr_value
                         self.sell(size=position_size, sl=sl)
-                        print(f"\n🌑🌙 MOON DEV SHORT ENTRY! 💫 Size: {position_size} BTC")
-                        print(f"   Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} | ATR: {atr_value:.2f} ✨")
+#                         print(f"\n🌑🌙 MOON DEV SHORT ENTRY! 💫 Size: {position_size} BTC")
+                        print(f"   Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} | ATR: {atr_value:.2f} ")
 
         # 4. EXIT LOGIC
         if self.position:
@@ -75,4 +71,4 @@ class VolatilityBandit(Strategy):
                 
                 if rsi_cross and vol_decline:
                     self.position.close()
-                    print(f"\n🌙📉 MOON DEV LONG EXIT! RSI {self.rsi
+#                     print(f"\n🌙📉 MOON DEV LONG EXIT! RSI {self.rsi"

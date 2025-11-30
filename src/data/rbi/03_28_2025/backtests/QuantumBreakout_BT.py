@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -38,7 +37,7 @@ class QuantumBreakout(Strategy):
                              self.upper_bb, self.lower_bb, 
                              self.I(talib.SMA, self.data.Close, 20))
         
-        print("🌙 QuantumBreakout Strategy Activated! Ready for stellar performance! 🚀")
+#         print("🌙 QuantumBreakout Strategy Activated! Ready for stellar performance! 🚀")
 
     def next(self):
         current_price = self.data.Close[-1]
@@ -60,7 +59,7 @@ class QuantumBreakout(Strategy):
                 
                 if size > 0:
                     self.buy(size=size, sl=sl, tp=current_price + 2*(current_price-sl))
-                    print(f"🚀 LONG Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1")
+                    print(f" LONG Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1")
             
             # Short constellation 🌑
             elif (obi < mean_obi - 2*std_obi and 
@@ -74,17 +73,17 @@ class QuantumBreakout(Strategy):
                 
                 if size > 0:
                     self.sell(size=size, sl=sl, tp=current_price - 2*(sl - current_price))
-                    print(f"🌑 SHORT Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1")
+                    print(f" SHORT Signal! Entry: {current_price:.2f} | Size: {size} | RR: 2:1")
         
         # Exit conditions 🌓
         else:
             # Close on BB width expansion
             if self.bb_width[-1] >= 2:
                 self.position.close()
-                print(f"✨ Closing on BB Width Expansion: {self.bb_width[-1]:.2f}%")
+                print(f" Closing on BB Width Expansion: {self.bb_width[-1]:.2f}%")
                 
             # Close if OBI reverts to mean
             if (self.position.is_long and obi <= mean_obi) or \
                (self.position.is_short and obi >= mean_obi):
                 self.position.close()
-                print(f"🌙 OBI Reversion Exit | Current: {obi:.2f} vs Mean: {mean_obi:.2f}")
+                print(f" OBI Reversion Exit | Current: {obi:.2f} vs Mean: {mean_obi:.2f}")

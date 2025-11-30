@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -65,7 +64,7 @@ class DeltaBandBreakout(Strategy):
         if len(self.trades) >= 3:
             last_three = [t for t in self.trades[-3:] if t.exit_price]
             if len(last_three) >=3 and all(t.pnl < 0 for t in last_three):
-                print("🌙💔 MOON DEV ALERT: 3 consecutive losses - trading paused!")
+#                 print("🌙💔 MOON DEV ALERT: 3 consecutive losses - trading paused!")
                 return
 
         if not self.position:
@@ -88,7 +87,7 @@ class DeltaBandBreakout(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
                     self.entry_bandwidth = band_width
-                    print(f"🌙🚀 MOON BLASTOFF! LONG {position_size} @ {entry_price} | SL: {stop_loss}")
+                    print(f" MOON BLASTOFF! LONG {position_size} @ {entry_price} | SL: {stop_loss}")
 
             # 🌟 Short Entry Conditions (similar structure)
             

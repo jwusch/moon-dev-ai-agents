@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper indicator implementations:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -14,7 +11,7 @@ class AnchoredMomentum(Strategy):
     
     def init(self):
         # Moon Dev debug print 🌙
-        print("✨ Initializing Anchored Momentum Strategy with Moon Dev's Package AI ✨")
+#         print("✨ Initializing Anchored Momentum Strategy with Moon Dev's Package AI ✨")'
         
         # Clean and prepare data
         self.data.df.columns = self.data.df.columns.str.strip().str.lower()

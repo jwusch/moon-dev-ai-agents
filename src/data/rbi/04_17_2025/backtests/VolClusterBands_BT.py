@@ -1,9 +1,3 @@
-Here's the implementation of the VolClusterBands strategy for backtesting.py:
-
-```python
-# 🌙 MOON DEV BACKTESTING SYSTEM - VOLCLUSTERBANDS STRATEGY ✨
-
-# Required imports
 import pandas as pd
 import talib
 import numpy as np
@@ -27,7 +21,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolClusterBands(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌗
+    risk_pct = 0.01  # 1% risk per trade 
     bb_period = 20
     bb_dev = 2
     swing_window = 20
@@ -56,7 +50,7 @@ class VolClusterBands(Strategy):
             self.funding = self.I(lambda x: x, self.data.FundingRate)
             self.funding_roc = self.I(talib.ROC, self.funding, 1)
         else:
-            print("🌙⚠️ MISSING FUNDING RATE DATA! Using neutral values")
+            print(" MISSING FUNDING RATE DATA! Using neutral values")
             self.funding = self.I(lambda x: np.zeros(len(x)), self.data.Close)
             self.funding_roc = self.I(lambda x: np.zeros(len(x)), self.data.Close)
         
@@ -86,13 +80,13 @@ class VolClusterBands(Strategy):
             # Take profit at liquidation level 🌊
             if price >= self.swing_high[-1]:
                 self.position.close()
-                print(f"🌙✅ PROFIT TAKEN at {price:.2f} (Liquidation cluster reached)")
+                print(f" PROFIT TAKEN at {price:.2f} (Liquidation cluster reached)")
                 return
                 
             # Emergency funding rate reversal exit 🚨
             if self.funding_roc[-1] < -1.5:
                 self.position.close()
-                print(f"🌙🚨 EMERGENCY EXIT! Funding ROC: {self.funding_roc[-1]:.2f}")
+                print(f" EMERGENCY EXIT! Funding ROC: {self.funding_roc[-1]:.2f}")
                 return
                 
             # 3-day time exit (288*15m=3 days) ⏳

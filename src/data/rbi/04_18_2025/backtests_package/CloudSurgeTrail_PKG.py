@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder functions with manual implementations. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -20,7 +17,7 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("🌙 Moon Dev: Data loaded and cleaned successfully!")
+# print("🌙 Moon Dev: Data loaded and cleaned successfully!")
 
 class CloudSurgeTrail(Strategy):
     risk_per_trade = 0.01  # 1% risk per trade
@@ -56,21 +53,21 @@ class CloudSurgeTrail(Strategy):
         self.consecutive_losses = 0
         self.daily_equity = self.equity
         self.last_day = None
-        print("✨ Moon Dev: Indicators initialized successfully!")
+#         print("✨ Moon Dev: Indicators initialized successfully!")
 
     def enter_long(self, sl):
         """Moon Dev enhanced long entry with proper position sizing"""
         risk_amount = self.equity * self.risk_per_trade
         size = risk_amount / (self.data.Close[-1] - sl)
         self.buy(sl=sl, size=size)
-        print(f"🚀 Moon Dev Long Entry: {self.data.index[-1]}")
+#         print(f"🚀 Moon Dev Long Entry: {self.data.index[-1]}")
 
     def enter_short(self, sl):
         """Moon Dev enhanced short entry with proper position sizing"""
         risk_amount = self.equity * self.risk_per_trade
         size = risk_amount / (sl - self.data.Close[-1])
         self.sell(sl=sl, size=size)
-        print(f"🌑 Moon Dev Short Entry: {self.data.index[-1]}")
+#         print(f"🌑 Moon Dev Short Entry: {self.data.index[-1]}")
 
     def next(self):
         # Moon Dev risk checks 🌙
@@ -80,11 +77,11 @@ class CloudSurgeTrail(Strategy):
             self.last_day = current_day
             
         if (self.daily_equity - self.equity) / self.daily_equity > 0.05:
-            print("🌧️ Moon Dev Alert: Daily loss limit triggered!")
+#             print("🌧️ Moon Dev Alert: Daily loss limit triggered!")
             return
             
         if self.consecutive_losses >= 3:
-            print("🌧️ Moon Dev Alert: 3 consecutive losses!")
+#             print("🌧️ Moon Dev Alert: 3 consecutive losses!")
             return
             
         price = self.data.Close[-1]

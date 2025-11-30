@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic and adding Moon Dev themed debug prints. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -70,9 +67,9 @@ class FibroMomentum(Strategy):
             self.buy(
                 size=position_size,
                 sl=stop_loss,
-                tag=f"🌙 FIBRO ENTRY | SL: {stop_loss:.1f}"
+                tag=f" FIBRO ENTRY | SL: {stop_loss:.1f}"
             )
-            print(f"🚀 MOON SHOT! Entry: {price:.1f} | Size: {position_size} | ATR: {atr_value:.1f}")
+            print(f" MOON SHOT! Entry: {price:.1f} | Size: {position_size} | ATR: {atr_value:.1f}")
 
         # Exit management 🌘
         if self.position:

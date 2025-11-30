@@ -1,7 +1,3 @@
-Here's the fixed code with all the necessary changes, including the removal of `backtesting.lib` imports and proper indicator package usage:
-
-```python
-# 🌙 Moon Dev's Volatility Divergence Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -23,7 +19,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
 
 class VolatilityDivergence(Strategy):
-    risk_per_trade = 0.01  # 1% of equity per trade 🌕
+    risk_per_trade = 0.01  # 1% of equity per trade 
     
     def init(self):
         # 🌀 MACD Divergence Indicators
@@ -42,7 +38,7 @@ class VolatilityDivergence(Strategy):
         self.price_highs = self.I(talib.MAX, self.data.High, timeperiod=20)
         self.macd_highs = self.I(talib.MAX, self.macd, timeperiod=20)
         
-        print("🌙 Lunar Indicators Activated! Ready for bearish divergence hunting 🚀")
+        print(" Lunar Indicators Activated! Ready for bearish divergence hunting ")
 
     def next(self):
         # Avoid early bars without indicator data
@@ -76,8 +72,8 @@ class VolatilityDivergence(Strategy):
             
             if position_size > 0:
                 self.sell(size=position_size, sl=stop_loss, 
-                        tag="🌙 BEARISH DIVERGENCE SHORT")
-                print(f"🚀 ENTRY: {position_size} shorts @ {entry_price:.2f} | SL: {stop_loss:.2f}")
+                        tag=" BEARISH DIVERGENCE SHORT")
+                print(f" ENTRY: {position_size} shorts @ {entry_price:.2f} | SL: {stop_loss:.2f}")
                 
                 # 📊 Track exit parameters
                 self.entry_volume = self.data.Volume[-1]
@@ -89,7 +85,7 @@ class VolatilityDivergence(Strategy):
             # 📉 Volume Drop Exit
             if self.data.Volume[-1] < self.entry_volume * 0.7:
                 self.position.close()
-                print(f"📉 EXIT: Volume drop @ {self.data.Close[-1]:.2f}")
+                print(f" EXIT: Volume drop @ {self.data.Close[-1]:.2f}")
 
             # ⚡ Volatility Spike Exit
             elif self.atr[-1] > self.entry_atr * 1.10:

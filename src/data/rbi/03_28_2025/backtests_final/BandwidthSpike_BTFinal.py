@@ -1,7 +1,3 @@
-Here's the debugged and optimized version of your BandwidthSpike strategy with Moon Dev enhancements: 🌙✨
-
-```python
-# 🌙 Moon Dev Backtest Implementation for BandwidthSpike Strategy 🚀
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -28,7 +24,7 @@ data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
 # STRATEGY CLASS 🚀🌙
 # =====================
 class BandwidthSpike(Strategy):
-    risk_per_trade = 0.02  # 2% equity risk per trade 🌙
+    risk_per_trade = 0.02  # 2% equity risk per trade 
     
     def init(self):
         # 🌈 Indicator Calculation using TA-Lib
@@ -56,7 +52,7 @@ class BandwidthSpike(Strategy):
         if len(self.data) % 500 == 0:
             current_atr = self.atr[-1] if len(self.atr) > 0 else 0
             current_bbw = self.bbw[-1] if len(self.bbw) > 0 else 0
-            print(f"🌙 Moon Pulse | Bar {len(self.data)} | BBW: {current_bbw:.4f} | ATR: {current_atr:.2f} | Equity: {self.equity:,.2f} ✨")
+            print(f" Moon Pulse | Bar {len(self.data)} | BBW: {current_bbw:.4f} | ATR: {current_atr:.2f} | Equity: {self.equity:,.2f} ")
         
         # 🚀 Entry Logic
         if not self.position:
@@ -73,7 +69,7 @@ class BandwidthSpike(Strategy):
                         if position_size > 0:
                             self.buy(size=position_size)
                             self.highest_high = self.data.High[-1]
-                            print(f"🚀 Lunar Launch! Entry @ {self.data.Close[-1]:.2f} | Size: {position_size} ✨")
+                            print(f" Lunar Launch! Entry @ {self.data.Close[-1]:.2f} | Size: {position_size} ")
         
         # 🌙 Exit Logic
         elif self.position.is_long:
@@ -84,6 +80,6 @@ class BandwidthSpike(Strategy):
             
             if self.data.Low[-1] < stop_price:
                 self.sell(size=self.position.size)
-                print(f"🌑 Moon Retreat! Exit @ {self.data.Close[-1]:.2f} | Trailing Stop: {stop_price:.2f} ✨")
+                print(f" Moon Retreat! Exit @ {self.data.Close[-1]:.2f} | Trailing Stop: {stop_price:.2f} ")
 
 # =

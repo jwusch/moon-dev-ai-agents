@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -48,8 +47,8 @@ class LiquidationBand(Strategy):
                 risk_per_trade = current_close - stop_loss
                 if risk_per_trade > 0:
                     size = int(round((self.equity * self.risk_percent) / risk_per_trade))
-                    self.buy(size=size, sl=stop_loss, tag='🌙 LONG ENTRY')
-                    print(f"🌙 MOON DEV LONG SIGNAL! 🚀 | Price: {current_close:.2f} | Cluster: {bullish_cluster:.2f} | Size: {size}")
+                    self.buy(size=size, sl=stop_loss, tag=' LONG ENTRY')
+#                     print(f"🌙 MOON DEV LONG SIGNAL! 🚀 | Price: {current_close:.2f} | Cluster: {bullish_cluster:.2f} | Size: {size}")
             
             # Short Entry Conditions
             elif (current_bbw < self.bbw_threshold and
@@ -60,8 +59,8 @@ class LiquidationBand(Strategy):
                 risk_per_trade = stop_loss - current_close
                 if risk_per_trade > 0:
                     size = int(round((self.equity * self.risk_percent) / risk_per_trade))
-                    self.sell(size=size, sl=stop_loss, tag='🌙 SHORT ENTRY')
-                    print(f"🌙 MOON DEV SHORT SIGNAL! 🚨 | Price: {current_close:.2f} | Cluster: {bearish_cluster:.2f} | Size: {size}")
+                    self.sell(size=size, sl=stop_loss, tag=' SHORT ENTRY')
+#                     print(f"🌙 MOON DEV SHORT SIGNAL! 🚨 | Price: {current_close:.2f} | Cluster: {bearish_cluster:.2f} | Size: {size}")
         
         # Exit Logic
         if self.position:
@@ -71,13 +70,13 @@ class LiquidationBand(Strategy):
                 if (self.position.is_long and current_close < self.data.Close[-2]) or \
                    (self.position.is_short and current_close > self.data.Close[-2]):
                     self.position.close()
-                    print(f"🌙 VOLUME SURGE EXIT! {'📉' if self.position.is_long else '📈'} | Price: {current_close:.2f}")
+                    print(f" VOLUME SURGE EXIT! {'' if self.position.is_long else ''} | Price: {current_close:.2f}")
             
             # Mid-Band Exit
             if (self.position.is_long and current_close < self.middle_band[-1]) or \
                (self.position.is_short and current_close > self.middle_band[-1]):
                 self.position.close()
-                print(f"🌙 MID-BAND EXIT! 🎯 | Price: {current_close:.2f}")
+                print(f" MID-BAND EXIT!  | Price: {current_close:.2f}")
 
 # Data handling
-data_path = "/Users/md/Dropbox/dev/github
+data_path = "/Users/md/Dropbox/dev/github"

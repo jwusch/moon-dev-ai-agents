@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -81,7 +78,7 @@ class VolCompressSurge(Strategy):
                 risk_per_share = current_close - sl
                 
                 if risk_per_share <= 0:
-                    print("🌙✨ Warning: Risk per share <= 0 - skipping trade")
+                    print(" Warning: Risk per share <= 0 - skipping trade")
                     return
                 
                 risk_amount = 0.02 * self.equity
@@ -89,6 +86,6 @@ class VolCompressSurge(Strategy):
                 if size > 0:
                     tp = current_close + 2 * risk_per_share
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 MOONSHOT LONG! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
+                    print(f" MOONSHOT LONG! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
 
             # Short Entry

@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev Backtest AI Generated Code - SigmaChannelShort Strategy
-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -69,7 +66,7 @@ class SigmaChannelShort(Strategy):
                 risk_per_unit = sl_price - entry_price
                 
                 if risk_per_unit <= 0:
-                    print("🌑 MOON DEV ERROR: Negative risk detected!")
+#                     print("🌑 MOON DEV ERROR: Negative risk detected!")
                     return
                 
                 position_size = int(round((self.equity * self.risk_percent) / risk_per_unit))
@@ -77,7 +74,7 @@ class SigmaChannelShort(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price, tag='SHORT_ENTRY')
                     self.trade_entry_bar = len(self.data)-1
-                    print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} @ {entry_price}")
+#                     print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} @ {entry_price}")
 
         else:
             # Exit Conditions
@@ -87,13 +84,13 @@ class SigmaChannelShort(Strategy):
             # ⏳ Time-based Exit
             if bars_held >= self.trade_duration:
                 self.position.close()
-                print("⌛🌙 MOON DEV TIME EXIT: 48h Limit Reached")
+#                 print("⌛🌙 MOON DEV TIME EXIT: 48h Limit Reached")
                 return
             
             # ✅ EMA20 Take Profit
             if self.data.Close[-1] >= self.ema20[-1]:
                 self.position.close()
-                print(f"✅🌙 MOON DEV PROFIT TAKEN @ {self.data.Close[-1]}")
+#                 print(f"✅🌙 MOON DEV PROFIT TAKEN @ {self.data.Close[-1]}")
 
 # --------------------------
 # BACKTEST EXECUTION

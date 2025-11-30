@@ -43,7 +43,7 @@ class LeveragedRecovery(Strategy):
             if size > 0:
                 self.buy(size=size)
                 self.entry_price = self.data.Close[-1]
-                print(f"🚀🌕 MOON DEV INITIAL ENTRY: Bought {size:,} units at ${self.entry_price:.2f}!")
+                print(f"🚀🌕 MOON DEV INITIAL ENTRY: Bought {size:,} units at ${self.entry_price:0.2f}!")
 
         if len(self.rsi) < 14 or np.isnan(self.rsi[-1]):
             return
@@ -61,7 +61,7 @@ class LeveragedRecovery(Strategy):
                     self.last_sell_size = sell_size
                     self.pending_reentry = True
                     remaining = position_size - sell_size
-                    print(f"🌙✨ SELL SIGNAL: RSI {current_rsi:.2f} <30! Sold {sell_size:,} units (70%). Remaining: {remaining:,}")
+                    print(f"🌙✨ SELL SIGNAL: RSI {current_rsi:0.2f} <30! Sold {sell_size:,} units (70%). Remaining: {remaining:,}")
 
         # Moon Dev Re-entry Logic 🌓
         if self.pending_reentry and not self.position.is_short:
@@ -72,7 +72,7 @@ class LeveragedRecovery(Strategy):
                 if buy_size > 0:
                     self.buy(size=buy_size)
                     new_position = self.position.size
-                    print(f"🚀🌓 RE-ENTRY: Added {buy_size:,} units (120% leverage) at ${self.data.Close[-1]:.2f}. New position: {new_position:,}")
+                    print(f"🚀🌓 RE-ENTRY: Added {buy_size:,} units (120% leverage) at ${self.data.Close[-1]:0.2f}. New position: {new_position:,}")
 
                     # Take 50% profit
                     take_size = int(round(new_position * 0.5))

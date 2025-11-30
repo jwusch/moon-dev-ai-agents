@@ -1,9 +1,3 @@
-Here's the complete fixed code with Moon Dev themed improvements while maintaining the original strategy logic:
-
-```python
-# 🌙 Moon Dev Backtest AI Certified Code - SigmaChannelShort Strategy
-# �✨ Now with cosmic-level error handling and position sizing precision
-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -79,7 +73,7 @@ class SigmaChannelShort(Strategy):
                 risk_per_unit = sl_price - entry_price
                 
                 if risk_per_unit <= 0:
-                    print("🌑 MOON DEV ERROR: Negative risk detected! Aborting launch sequence.")
+#                     print("🌑 MOON DEV ERROR: Negative risk detected! Aborting launch sequence.")
                     return
                 
                 # 🌙 Position sizing with lunar precision
@@ -88,7 +82,7 @@ class SigmaChannelShort(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price, tag='SHORT_ENTRY')
                     self.trade_entry_bar = len(self.data)-1
-                    print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} units @ {entry_price:.2f}")
+#                     print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} units @ {entry_price:.2f}")
 
         else:
             # Exit Conditions (Time and indicator based)

@@ -1,7 +1,3 @@
-Here's the implementation of the VolSync Divergence strategy for backtesting.py:
-
-```python
-# 🌙 Moon Dev's VolSync Divergence Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta

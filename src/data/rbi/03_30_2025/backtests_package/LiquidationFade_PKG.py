@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Liquidation Fade Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -40,27 +36,35 @@ class LiquidationFade(Strategy):
     
     def init(self):
         # 🌙 Core Indicators
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low, 
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          length=self.vwap_period)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         self.price_spike = self.I(talib.MAX,
                                 self.data.High,
                                 timeperiod=5)  # 5-bar spike window
 
-        print("🌙 MOON DEV INIT COMPLETE: Indicators ready for launch! 🚀")
+#         print("🌙 MOON DEV INIT COMPLETE: Indicators ready for launch! 🚀")
 
     def next(self):
         # 🌙 New Day Reset
         if self.data.index[-1].day != self.data.index[-2].day:
             self.trades_today = 0
-            print("🌙 NEW DAY RESET: Trade counter refreshed ✨")
+            print(" NEW DAY RESET: Trade counter refreshed ")
 
         if self.trades_today >= self.max_daily_trades:
-            print("🌙 TRADE LIMIT REACHED: Maximum daily trades executed 🌑")
+            print(" TRADE LIMIT REACHED: Maximum daily trades executed ")
             return
 
         # 🌙 Current Market Conditions
@@ -71,17 +75,17 @@ class LiquidationFade(Strategy):
         # 🌙 Liquidation Spike Detection
         if price_deviation > 0.02 and self.data.imbalance[-1] > 0.7:
             if current_close > current_vwap:  # Bullish liquidation spike
-                print("🌙 BULLISH SPIKE DETECTED: Preparing short entry 🌘")
+                print(" BULLISH SPIKE DETECTED: Preparing short entry ")
                 self.enter_short(current_close, current_vwap)
             else:  # Bearish liquidation spike
-                print("🌙 BEARISH SPIKE DETECTED: Preparing long entry 🌖")
+                print(" BEARISH SPIKE DETECTED: Preparing long entry ")
                 self.enter_long(current_close, current_vwap)
 
         # 🌙 Time-based Exit
         for trade in self.trades:
             if len(self.data) - trade.entry_bar > 2:  # 30min = 2x15m bars
                 trade.close()
-                print(f"🌙 MOON ALERT: Time Exit at {current_close} ✨")
+                print(f" MOON ALERT: Time Exit at {current_close} ")
 
     def enter_short(self, price, vwap):
         # 🌙 Risk Calculation
@@ -94,8 +98,8 @@ class LiquidationFade(Strategy):
                      sl=stop_loss,
                      tp=vwap)
             self.trades_today += 1
-            print(f"🌙 SHORT ENTRY 🌑 Price: {price} | Size: {position_size} 🚀")
-            print(f"🌙 RISK PARAMETERS: SL@{stop_loss:.2f} | TP@{vwap:.2f}")
+            print(f" SHORT ENTRY  Price: {price} | Size: {position_size} ")
+            print(f" RISK PARAMETERS: SL@{stop_loss:.2f} | TP@{vwap:.2f}")
 
     def enter_long(self, price, vwap):
         # 🌙 Risk Calculation

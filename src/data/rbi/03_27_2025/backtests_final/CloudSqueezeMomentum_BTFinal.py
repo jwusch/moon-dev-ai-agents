@@ -1,7 +1,3 @@
-I'll complete and debug the CloudSqueezeMomentum strategy while maintaining all the original logic and adding Moon Dev themed debug prints. Here's the fixed version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -13,7 +9,7 @@ class CloudSqueezeMomentum(Strategy):
     
     def init(self):
         # Moon Dev Debug 🌙
-        print("✨ Initializing CloudSqueezeMomentum strategy with Moon Dev optimizations ✨")
+#         print("✨ Initializing CloudSqueezeMomentum strategy with Moon Dev optimizations ✨")
         
         # Precompute Heikin-Ashi data
         self.ha_open = self.I(lambda: self.data.Open, name='HA Open')
@@ -61,7 +57,7 @@ class CloudSqueezeMomentum(Strategy):
         # Track previous squeeze state
         self.prev_squeeze_hist = 0
         
-        print("🌙 Indicators initialized successfully! Ready for lunar trading cycles...")
+        print(" Indicators initialized successfully! Ready for lunar trading cycles...")
         
     def next(self):
         price = self.ha_close[-1]

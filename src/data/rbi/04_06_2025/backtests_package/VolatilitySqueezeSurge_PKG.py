@@ -1,6 +1,3 @@
-Here's the fixed code with all necessary replacements and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -33,7 +30,7 @@ class VolatilitySqueezeSurge(Strategy):
     
     def init(self):
         # Moon Dev indicator initialization
-        print("🌌 Initializing Moon Dev Trading Strategy...")
+#         print("🌌 Initializing Moon Dev Trading Strategy...")
         
         # Precompute indicators
         self.vwap = self.I(pta.vwap, self.data.High, self.data.Low, self.data.Close, self.data.Volume, name='VWAP')
@@ -61,11 +58,11 @@ class VolatilitySqueezeSurge(Strategy):
 
     def next(self):
         # Moon-themed debug prints
-        print(f"🌙 Processing {self.data.index[-1]}...")
+        print(f" Processing {self.data.index[-1]}...")
         
         # Skip early bars
         if len(self.data) < self.bandwidth_lookback:
-            print("🌑 Not enough data yet...")
+            print(" Not enough data yet...")
             return
         
         # Daily risk check
@@ -73,15 +70,15 @@ class VolatilitySqueezeSurge(Strategy):
         if current_day != self.current_day:
             self.current_day = current_day
             self.max_daily_equity = self.equity
-            print(f"✨ New day! Equity: {self.equity:.2f}")
+            print(f" New day! Equity: {self.equity:.2f}")
         daily_loss = (self.max_daily_equity - self.equity) / self.max_daily_equity
         if daily_loss >= 0.03:
-            print(f"🌧️ Daily loss limit hit!")
+            print(f" Daily loss limit hit!")
             return
         
         # Consecutive loss check
         if self.consecutive_losses >= 2:
-            print(f"🚫 2 Consecutive losses - sitting out")
+            print(f" 2 Consecutive losses - sitting out")
             return
         
         # Calculate current bandwidth
@@ -96,7 +93,7 @@ class VolatilitySqueezeSurge(Strategy):
             recent_bw = self.bandwidth_history[-self.bandwidth_lookback:]
             bw_percentile = np.percentile(recent_bw, 20)
             bw_condition = bw <= bw_percentile
-            print(f"🌓 Bandwidth Condition: {bw_condition}")
+            print(f" Bandwidth Condition: {bw_condition}")
         else:
             bw_condition = False
         

@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the VolSqueezeLiquidity strategy:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -96,15 +93,15 @@ class VolSqueezeLiquidity(Strategy):
                         sl=stop_loss,
                         tp=take_profit
                     )
-                    print(f"🚀🌙 MOON LAUNCH! Long {position_size} units")
+                    print(f" MOON LAUNCH! Long {position_size} units")
                     print(f"   Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
     def notify_trade(self, trade):
         if trade.is_closed:
             profit = trade.pl_pct
             if profit > 0:
-                print(f"✨💰 MOON PROFIT! +{profit:.2%}")
+                print(f" MOON PROFIT! +{profit:.2%}")
             else:
-                print(f"🔥🚨 COSMIC BURN! {profit:.2%}")
+                print(f" COSMIC BURN! {profit:.2%}")
 
 # Moon Dev

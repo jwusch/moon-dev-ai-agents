@@ -1,13 +1,8 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLTAIC SQUEEZE STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
-import pandas_ta as ta  # 🌌 ADDED FOR ALTERNATIVE INDICATORS
+import pandas_ta as ta  #  ADDED FOR ALTERNATIVE INDICATORS
 
 # 🌌 DATA PREPARATION WITH MOON DEV STANDARDS
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
@@ -25,7 +20,7 @@ data = data.rename(columns={
 })
 
 class VoltaicSqueeze(Strategy):
-    risk_pct = 0.01  # 🌑 1% RISK PER TRADE
+    risk_pct = 0.01  #  1% RISK PER TRADE
     bb_period = 20
     bb_dev = 2
     atr_period = 14
@@ -78,7 +73,7 @@ class VoltaicSqueeze(Strategy):
                     )
                     self.entry_price = self.data.Open[0]
                     self.entry_atr = atr_value
-                    print(f"🌙✨🚀 VOLTAIC IGNITION! Entry @ {self.entry_price:.2f} | Size: {position_size}")
+                    print(f" VOLTAIC IGNITION! Entry @ {self.entry_price:.2f} | Size: {position_size}")
         
         # 🌕 EXIT LOGIC (COSMIC PROFIT RELEASE)
         if self.position:
@@ -87,12 +82,12 @@ class VoltaicSqueeze(Strategy):
             # PROFIT TARGET (STARGAZER ACHIEVED)
             if self.data.High[0] >= target_price:
                 self.position.close()
-                print(f"🌕🚀 COSMIC PROFIT! Exited @ {target_price:.2f}")
+                print(f" COSMIC PROFIT! Exited @ {target_price:.2f}")
             
             # BB REVERSION EXIT (SQUEEZE RELEASE)
             elif self.data.Close[0] < self.bb_upper[0]:
                 self.position.close()
-                print(f"🌙💫 SQUEEZE RELEASED! Exited @ {self.data.Close[0]:.2f}")
+                print(f" SQUEEZE RELEASED! Exited @ {self.data.Close[0]:.2f}")
     
     def notify_trade(self, trade):
         if trade.is_closed:

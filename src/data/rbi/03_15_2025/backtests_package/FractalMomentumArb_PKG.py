@@ -1,6 +1,3 @@
-I'll help fix the code by removing all `backtesting.lib` imports and replacing the crossover/crossunder functions with proper implementations. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -74,7 +71,7 @@ class FractalMomentumArb(Strategy):
             size = calculate_size(price, sl)
             if size > 0:
                 self.buy(size=size, sl=sl, tp=tp)
-                print(f"🌙🚀 BULLISH BREAKOUT! Entry: {price:.2f}, Size: {size}, Moon Target: {tp:.2f}")
+                print(f" BULLISH BREAKOUT! Entry: {price:.2f}, Size: {size}, Moon Target: {tp:.2f}")
 
         # Short entry constellation 🌌
         elif not self.position and bearish_break and vol_spike and not rsi_above_50 and macd_crossunder:

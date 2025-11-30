@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta
@@ -11,7 +9,7 @@ class VortexSqueeze(Strategy):
     
     def init(self):
         # 🌙 Moon Dev Indicator Calculation Phase ✨
-        print("🌙 Initializing VortexSqueeze strategy with Moon Dev power...")
+#         print("🌙 Initializing VortexSqueeze strategy with Moon Dev power...")
         
         # 1. Vortex Indicator
         vortex = pandas_ta.vortex(
@@ -59,10 +57,10 @@ class VortexSqueeze(Strategy):
             position_size = risk_amount / risk_per_share
             position_size = int(round(position_size))
             
-            print(f"🌙 VortexSqueeze BUY TRIGGERED! ✨\n"
+            print(f" VortexSqueeze BUY TRIGGERED! \n"
                   f"Entry: {current_close:.2f} | "
                   f"SL: {stop_loss:.2f} | "
-                  f"Size: {position_size} contracts 🚀")
+                  f"Size: {position_size} contracts ")
             
             self.buy(size=position_size, sl=stop_loss)
 
@@ -70,7 +68,7 @@ class VortexSqueeze(Strategy):
         elif self.position.is_long:
             # VI- crosses above VI+
             if crossover(self.vi_minus, self.vi_plus):
-                print(f"🌙 Vortex Reversal DETECTED! 🛑 Closing position at {current_close:.2f}")
+                print(f" Vortex Reversal DETECTED!  Closing position at {current_close:.2f}")
                 self.position.close()
 
 # 🌙 Moon Dev Data Preparation Ritual ✨
@@ -87,10 +85,10 @@ data.rename(columns={
 data['DateTime'] = pd.to_datetime(data['datetime'])
 data.set_index('DateTime', inplace=True)
 
-print("🌙 Launching Backtest with 1,000,000 Moon Dev Bucks... 🚀")
+# print("🌙 Launching Backtest with 1,000,000 Moon Dev Bucks... 🚀")
 bt = Backtest(data, VortexSqueeze, cash=1_000_000, commission=.002)
 stats = bt.run()
 
-print("\n🌙🌙🌙 FINAL BACKTEST RESULTS 🌙🌙🌙")
+print("\n FINAL BACKTEST RESULTS ")
 print(stats)
 print

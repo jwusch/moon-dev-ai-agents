@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# -*- coding: utf-8 -*-
 import backtrader as bt
 import talib
 import numpy as np
@@ -18,7 +14,7 @@ class DivergenceAnchor(bt.Strategy):
 
     def log(self, txt, dt=None):
         dt = dt or self.datas[0].datetime.datetime(0)
-        print(f'🌙 {dt.strftime("%Y-%m-%d %H:%M")} ✨ {txt}')
+        print(f' {dt.strftime("%Y-%m-%d %H:%M")}  {txt}')
 
     def __init__(self):
         # MACD components using TA-Lib
@@ -43,9 +39,9 @@ class DivergenceAnchor(bt.Strategy):
     def notify_order(self, order):
         if order.status in [order.Completed]:
             if order.isbuy():
-                self.log(f'🚀 BUY EXECUTED - Size: {order.size} @ {order.executed.price:.2f}')
+                self.log(f' BUY EXECUTED - Size: {order.size} @ {order.executed.price:.2f}')
             elif order.issell():
-                self.log(f'🌑 SELL EXECUTED - Size: {order.size} @ {order.executed.price:.2f}')
+                self.log(f' SELL EXECUTED - Size: {order.size} @ {order.executed.price:.2f}')
 
     def next(self):
         # Moon Dev Divergence Detection System 🌙
@@ -59,10 +55,10 @@ class DivergenceAnchor(bt.Strategy):
                 
                 # Bearish divergence condition
                 if (current_high > last_high) and (self.macd_line[0] < last_macd):
-                    self.log(f'🔻 BEARISH DIVERGENCE DETECTED! Price ↗️ {current_high:.2f} vs {last_high:.2f}, MACD ↘️ {self.macd_line[0]:.2f} vs {last_macd:.2f}')
+                    self.log(f' BEARISH DIVERGENCE DETECTED! Price ↗ {current_high:.2f} vs {last_high:.2f}, MACD ↘ {self.macd_line[0]:.2f} vs {last_macd:.2f}')
                     
                     if self.macd_hist[0] < 0:  # Confirm bearish momentum
-                        self.log('📉 MACD Histogram confirms bearish momentum')
+                        self.log(' MACD Histogram confirms bearish momentum')
                         self.check_entry_conditions()
 
             # Update peaks array (keep last 2 peaks)
@@ -75,18 +71,18 @@ class DivergenceAnchor(bt.Strategy):
             self.check_exit_conditions()
 
     def check_entry_conditions(self):
-        '''Moon Dev Entry Logic Validation 🌙'''
+#         '''Moon Dev Entry Logic Validation 🌙'''
         current_low = self.data.Low[0]
         current_close = self.data.Close[0]
         support_level = self.swing_low[0]
         
         # Price action confirmation
         if current_close > support_level and current_low >= support_level:
-            self.log(f'✨ PRICE BOUNCE CONFIRMED @ {support_level:.2f}')
+            self.log(f' PRICE BOUNCE CONFIRMED @ {support_level:.2f}')
             self.execute_long_entry(support_level)
 
     def execute_long_entry(self, support):
-        '''Moon Dev Risk-Managed Entry 🚀'''
+#         '''Moon Dev Risk-Managed Entry 🚀'''
         account_value = self.broker.getvalue()
         risk_amount = account_value * self.p.risk_percent
         

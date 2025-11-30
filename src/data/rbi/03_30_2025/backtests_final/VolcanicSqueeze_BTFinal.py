@@ -1,8 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLCANICSQUEEZE STRATEGY ✨
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -14,7 +9,7 @@ class VolcanicSqueeze(Strategy):
     
     def init(self):
         # 🌋 VOLCANIC INDICATORS INITIALIZATION
-        print("🌋 Initializing Moon Dev Volcanic Indicators...")
+#         print("🌋 Initializing Moon Dev Volcanic Indicators...")
         
         # Bollinger Bands
         self.bb_upper = self.I(talib.BBANDS, self.data.Close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0, name='BB Upper', index=0)
@@ -23,7 +18,7 @@ class VolcanicSqueeze(Strategy):
         
         # Keltner Channels (using pandas_ta)
         def calculate_kc(high, low, close, length, multiplier):
-            print(f"✨ Calculating Keltner Channels with length {length}...")
+            print(f" Calculating Keltner Channels with length {length}...")
             kc = ta.keltner(high=high, low=low, close=close, length=length, multiplier=multiplier)
             return kc.iloc[:, 0], kc.iloc[:, 1], kc.iloc[:, 2]
         
@@ -42,7 +37,7 @@ class VolcanicSqueeze(Strategy):
         self.bb_width_max = self.I(talib.MAX, self.bb_width, timeperiod=100, name='BB Width Max')
         self.bb_width_min = self.I(talib.MIN, self.bb_width, timeperiod=100, name='BB Width Min')
         
-        print("🌕 Moon Dev Indicators Initialized Successfully!")
+#         print("🌕 Moon Dev Indicators Initialized Successfully!")
         
     def _calculate_position_size(self, stop_price):
         """Calculate proper position size based on risk parameters"""
@@ -50,7 +45,7 @@ class VolcanicSqueeze(Strategy):
         risk_per_unit = abs(self.data.Close[-1] - stop_price)
         
         if risk_per_unit <= 0:
-            print("⚠️ Moon Dev Warning: Invalid stop price, using minimum size")
+#             print("⚠️ Moon Dev Warning: Invalid stop price, using minimum size")
             return 0.01  # Minimum position size
         
         size = risk_amount / risk_per_unit
@@ -62,7 +57,7 @@ class VolcanicSqueeze(Strategy):
         size = self._calculate_position_size(stop_price)
         
         if size > 0:
-            print(f"🌕 Moon Dev Executing Long: {size} units at {self.data.Close[-1]}")
+#             print(f"🌕 Moon Dev Executing Long: {size} units at {self.data.Close[-1]}")
             self.buy(
                 size=size,
                 sl=stop_price,

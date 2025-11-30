@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -19,7 +18,7 @@ data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 }, inplace=True)
-assert 'funding' in data.columns, "🌙 CRITICAL: Missing funding rate column - check data source!"
+assert 'funding' in data.columns, " CRITICAL: Missing funding rate column - check data source!"
 data['Funding'] = data['funding']
 
 class FundingBandExtreme(Strategy):
@@ -59,7 +58,7 @@ class FundingBandExtreme(Strategy):
                 if risk_per_share > 0:
                     size = int(round((self.equity * self.risk_pct) / risk_per_share))
                     self.sell(size=size, tag='short_entry')
-                    print(f"🌙 SHORT FIRED! Price: {price:.2f} | Funding: {current_funding:.5f} ✨")
+                    print(f" SHORT FIRED! Price: {price:.2f} | Funding: {current_funding:.5f} ")
             
             # Long entry
             elif current_low <= self.lower_band[-1] and current_funding < self.short_threshold:
@@ -68,7 +67,7 @@ class FundingBandExtreme(Strategy):
                 if risk_per_share > 0:
                     size = int(round((self.equity * self.risk_pct) / risk_per_share))
                     self.buy(size=size, tag='long_entry')
-                    print(f"🚀 LONG LAUNCHED! Price: {price:.2f} | Funding: {current_funding:.5f} 🌙")
+                    print(f" LONG LAUNCHED! Price: {price:.2f} | Funding: {current_funding:.5f} ")
         
         else:
             # Exit logic
@@ -79,14 +78,14 @@ class FundingBandExtreme(Strategy):
             # Volatility contraction
             if current_width <= entry_width * (1 - self.contraction_pct):
                 position.close()
-                print(f"🌙 VOLATILITY COLLAPSE! Closed {position.size} units 🌊")
+                print(f" VOLATILITY COLLAPSE! Closed {position.size} units ")
             
             # Funding normalization
             elif abs(self.funding_rate[-1]) <= self.funding_neutral:
                 position.close()
-                print(f"✨ FUNDING NORMALIZED! Rate: {self.funding_rate[-1]:.5f} 🌙")
+                print(f" FUNDING NORMALIZED! Rate: {self.funding_rate[-1]:.5f} ")
             
             # Stop loss check
             elif position.is_short and self.data.High[-1] >= price * (1 + self.stop_loss_pct):
                 position.close()
-                print(f"🛑 SHORT STOPPED OUT! Loss: {position.pl_pct:.2%} 🌧️")
+                print(f" SHORT STOPPED OUT! Loss: {position.pl_pct:.2%} ")

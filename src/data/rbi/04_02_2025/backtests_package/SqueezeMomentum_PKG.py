@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -56,7 +52,7 @@ class SqueezeMomentum(Strategy):
         self.adx = self.I(talib.ADX, high, low, close, timeperiod=self.adx_period, name='ADX')
         
         # Moon Dev Debug Initialization Complete ✨
-        print("🌙 Moon Dev Indicators Initialized Successfully!")
+#         print("🌙 Moon Dev Indicators Initialized Successfully!")
         
     def next(self):
         # Moon Dev Safety Checks 🌙

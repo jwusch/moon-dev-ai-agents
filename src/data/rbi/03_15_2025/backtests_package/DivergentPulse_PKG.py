@@ -1,6 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the `crossover` function with manual crossover detection. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -70,7 +67,7 @@ class DivergentPulse(Strategy):
                         self.buy(size=position_size)
                         self.trailing_stop = stop_loss
                         self.peak_price = price
-                        print(f"🌙✨🚀 Lunar Boost: LONG {position_size} @ {price:.2f} | SL: {stop_loss:.2f} ✨")
+                        print(f" Lunar Boost: LONG {position_size} @ {price:.2f} | SL: {stop_loss:.2f} ")
         else:
             # Update trailing stop
             self.peak_price = max(self.peak_price, self.data.High[-1])
@@ -80,9 +77,9 @@ class DivergentPulse(Strategy):
             # Exit conditions
             if self.data.Low[-1] <= self.trailing_stop:
                 self.position.close()
-                print(f"🌙💥 Cosmic Stop: Exited @ {self.data.Close[-1]:.2f} | P/L: {self.position.pl:.2f}")
+                print(f" Cosmic Stop: Exited @ {self.data.Close[-1]:.2f} | P/L: {self.position.pl:.2f}")
             elif (self.sma50[-2] > self.ema10[-2] and self.sma50[-1] < self.ema10[-1]):
                 self.position.close()
-                print(f"🌙📉 Gravity Pull: EMA/SMA Cross @ {self.data.Close[-1]:.2f}")
+                print(f" Gravity Pull: EMA/SMA Cross @ {self.data.Close[-1]:.2f}")
 
 #

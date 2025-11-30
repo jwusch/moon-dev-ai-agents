@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT 🚀
-
-# 1. NECESSARY IMPORTS
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -69,19 +65,19 @@ class LiquidationBounce(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price)
                         self.entry_bar = len(self.data)
-                        print(f"🌕 MOON DEV SHORT ACTIVATED! 🌑\nEntry: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f}")
+#                         print(f"🌕 MOON DEV SHORT ACTIVATED! 🌑\nEntry: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f}")
 
         # 🚀 EXIT CONDITIONS 
         elif self.position.is_short:
             # Keltner midline exit
             if price > self.keltner[-1]:
                 self.position.close()
-                print(f"✨ KELTNER EXIT TRIGGERED @ {price:.2f}")
+                print(f" KELTNER EXIT TRIGGERED @ {price:.2f}")
             
             # Bollinger Band re-entry exit
             elif price > self.lower_bb[-1]:
                 self.position.close()
-                print(f"🛑 EMERGENCY BB EXIT @ {price:.2f}")
+                print(f" EMERGENCY BB EXIT @ {price:.2f}")
             
             # Time-based exit
             elif (len(self.data) - self.entry_bar) >= self.time_exit_bars:
@@ -94,4 +90,4 @@ stats = bt.run()
 
 # 5. MOON DEV RESULTS DISPLAY 🌙
 print("\n" + "="*50)
-print("🌙✨ MOON DEV BACKTEST COMPL
+# print("🌙✨ MOON DEV BACKTEST COMPL"

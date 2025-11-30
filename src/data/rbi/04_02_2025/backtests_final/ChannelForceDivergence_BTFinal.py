@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -11,16 +8,16 @@ class ChannelForceDivergence(Strategy):
 
     def init(self):
         # Calculate indicators with TA-Lib using self.I()
-        self.donchian_upper = self.I(talib.MAX, self.data.High, timeperiod=20, name='Donchian Upper 🌙')
-        self.donchian_lower = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Donchian Lower 🌙')
+        self.donchian_upper = self.I(talib.MAX, self.data.High, timeperiod=20, name='Donchian Upper ')
+        self.donchian_lower = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Donchian Lower ')
         
         # Elder Force Index (13-period EMA of Force Index)
         mom = self.I(talib.MOM, self.data.Close, timeperiod=1, name='MOM_1')
         force_index_raw = mom * self.data.Volume
-        self.efi = self.I(talib.EMA, force_index_raw, timeperiod=13, name='EFI 🚀')
+        self.efi = self.I(talib.EMA, force_index_raw, timeperiod=13, name='EFI ')
         
         # 4-hour RSI with resampling
-        self.rsi_4h = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI_4H 🔍', aspan='4H')
+        self.rsi_4h = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI_4H ', aspan='4H')
         
         # Divergence tracking
         self.prev_4h_rsi = []
@@ -43,14 +40,14 @@ class ChannelForceDivergence(Strategy):
                 rsi1, close1 = self.prev_4h_rsi[-2], self.prev_4h_close[-2]
                 rsi2, close2 = self.prev_4h_rsi[-1], self.prev_4h_close[-1]
                 
-                # Moon Dev's manual crossover detection ✨
+                # Moon Dev's manual crossover detection ✨'
                 self.bullish_divergence = (close2 < close1) and (rsi2 > rsi1)
                 self.bearish_divergence = (close2 > close1) and (rsi2 < rsi1)
                 
                 if self.bullish_divergence:
-                    print(f"🌙✨ Bullish Divergence Detected! Price: {close2:.2f} < {close1:.2f} | RSI: {rsi2:.2f} > {rsi1:.2f}")
+                    print(f" Bullish Divergence Detected! Price: {close2:.2f} < {close1:.2f} | RSI: {rsi2:.2f} > {rsi1:.2f}")
                 if self.bearish_divergence:
-                    print(f"🌙✨ Bearish Divergence Detected! Price: {close2:.2f} > {close1:.2f} | RSI: {rsi2:.2f} < {rsi1:.2f}")
+                    print(f" Bearish Divergence Detected! Price: {close2:.2f} > {close1:.2f} | RSI: {rsi2:.2f} < {rsi1:.2f}")
 
             self.prev_4h_rsi.append(new_rsi)
             self.prev_4h_close.append(new_close)
@@ -65,8 +62,8 @@ class ChannelForceDivergence(Strategy):
                 risk = current_close - sl
                 position_size = int(round((self.risk_per_trade * self.equity) / risk))
                 if position_size > 0:
-                    self.buy(size=position_size, sl=sl, tag="LONG-ENTRY 🌕")
-                    print(f"🚀🌕 MOONSHOT LONG | Size: {position_size} | SL: {sl:.2f} | Risk: {risk:.2f}")
+                    self.buy(size=position_size, sl=sl, tag="LONG-ENTRY ")
+                    print(f" MOONSHOT LONG | Size: {position_size} | SL: {sl:.2f} | Risk: {risk:.2f}")
 
             # Short Entry
             elif (current_close < donchian_lower and efi < 0 and self.bearish_divergence):

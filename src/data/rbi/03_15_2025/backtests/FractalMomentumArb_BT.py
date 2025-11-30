@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -68,7 +67,7 @@ class FractalMomentumArb(Strategy):
             size = calculate_size(price, sl)
             if size > 0:
                 self.buy(size=size, sl=sl, tp=tp)
-                print(f"🌙🚀 BULLISH BREAKOUT! Entry: {price:.2f}, Size: {size}, Moon Target: {tp:.2f}")
+                print(f" BULLISH BREAKOUT! Entry: {price:0.2f}, Size: {size}, Moon Target: {tp:0.2f}")
 
         # Short entry constellation 🌌
         elif not self.position and bearish_break and vol_spike and not rsi_above_50 and crossunder(self.macd[0], self.macd[1]):
@@ -77,7 +76,7 @@ class FractalMomentumArb(Strategy):
             size = calculate_size(price, sl)
             if size > 0:
                 self.sell(size=size, sl=sl, tp=tp)
-                print(f"🌙🌑 BEARISH BREAKOUT! Entry: {price:.2f}, Size: {size}, Moon Target: {tp:.2f}")
+                print(f" BEARISH BREAKOUT! Entry: {price:0.2f}, Size: {size}, Moon Target: {tp:0.2f}")
 
         # ATR Trailing stops 🌈
         for trade in self.trades:

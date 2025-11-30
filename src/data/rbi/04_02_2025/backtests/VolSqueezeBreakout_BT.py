@@ -1,6 +1,3 @@
-Here's the complete backtest implementation for the VolSqueezeBreakout strategy:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -45,12 +42,12 @@ class VolSqueezeBreakout(Strategy):
         self.keltner_upper = self.I(lambda ema, atr: ema + 2*atr, self.ema20, self.atr20)
         self.keltner_lower = self.I(lambda ema, atr: ema - 2*atr, self.ema20, self.atr20)
         
-        print("🌙 MOON DEVS STRATEGY INITIALIZED! 🚀✨ Ready to catch volatility waves!")
+#         print("🌙 MOON DEVS STRATEGY INITIALIZED! 🚀✨ Ready to catch volatility waves!")
 
     def next(self):
         # Moon-themed debug prints every 500 bars
         if len(self.data) % 500 == 0:
-            print(f"🌙 Moon Base Status Update ✨ | Bar: {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BBW: {self.bbw[-1]:.4f} | Vol Ratio: {self.data.Volume[-1]/self.volume_sma50[-1]:.2f}x")
+            print(f" Moon Base Status Update  | Bar: {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BBW: {self.bbw[-1]:.4f} | Vol Ratio: {self.data.Volume[-1]/self.volume_sma50[-1]:.2f}x")
         
         # Trade entry logic
         if not self.position:
@@ -77,11 +74,11 @@ class VolSqueezeBreakout(Strategy):
         # Exit logic
         else:
             if self.position.is_long and crossunder(self.data.Close, self.ema20):
-                print(f"🌙 Lunar Profit Taken! 🚀 Closing long at {self.data.Close[-1]:.2f}")
+                print(f" Lunar Profit Taken!  Closing long at {self.data.Close[-1]:.2f}")
                 self.position.close()
             
             elif self.position.is_short and crossover(self.data.Close, self.ema20):
-                print(f"🌙 Short Circuit Exit! 🌑 Closing short at {self.data.Close[-1]:.2f}")
+                print(f" Short Circuit Exit!  Closing short at {self.data.Close[-1]:.2f}")
                 self.position.close()
 
     def enter_long(self):
@@ -90,7 +87,7 @@ class VolSqueezeBreakout(Strategy):
         risk_per_share = entry_price - stop_loss
         
         if risk_per_share <= 0:
-            print("🌙 Abort Launch! 🚨 Negative risk detected in long entry")
+            print(" Abort Launch!  Negative risk detected in long entry")
             return
         
         position_size = self

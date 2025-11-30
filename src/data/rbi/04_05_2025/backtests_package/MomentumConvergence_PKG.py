@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -37,7 +34,7 @@ class MomentumConvergence(Strategy):
 
     def next(self):
         # Moon Dev Debug Prints
-        print(f"🌙 Current Close: {self.data.Close[-1]} | Fisher: {self.fisher[-1]:.2f} | CMF: {self.cmf[-1]:.2f}")
+        print(f" Current Close: {self.data.Close[-1]} | Fisher: {self.fisher[-1]:.2f} | CMF: {self.cmf[-1]:.2f}")
         
         # Entry Conditions
         if not self.position:
@@ -77,5 +74,5 @@ class MomentumConvergence(Strategy):
         position_size = int(round(risk_amount / sl_distance))
         
         if position_size > 0:
-            print(f"🌙✨🚀 MOON DEV LONG ENTRY: Buying {position_size} units at {self.data.Close[-1]}")
+#             print(f"🌙✨🚀 MOON DEV LONG ENTRY: Buying {position_size} units at {self.data.Close[-1]}")
             self.buy

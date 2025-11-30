@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VolSqueezeBreakout Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
@@ -45,7 +43,7 @@ class VolSqueezeBreakout(Strategy):
         
         # Track maximum equity for drawdown calculation
         self.max_equity = self._broker.starting_cash
-        print("✨ Moon Dev Indicators Initialized! Ready for launch! 🚀")
+#         print("✨ Moon Dev Indicators Initialized! Ready for launch! 🚀")
 
     def next(self):
         # 🌙 Trading Logic Execution 🌙
@@ -62,7 +60,7 @@ class VolSqueezeBreakout(Strategy):
             # Time-based exit
             if len(self.data) - trade.entry_bar >= 5:
                 trade.close()
-                print(f"🌙 Lunar Time Exit! 🕒 Closed position at {current_close}")
+                print(f" Lunar Time Exit!  Closed position at {current_close}")
             
             # Trailing stop logic
             if trade.is_long:
@@ -100,6 +98,6 @@ class VolSqueezeBreakout(Strategy):
                             sl=stop_price,
                             tp=tp_price,
                             tag="VolSqueezeLong")
-                    print(f"🚀 MOONSHOT LONG! 🌕 Size: {position_size} | Entry: {current_close} | Stop: {stop_price} | Target: {tp_price}")
+                    print(f" MOONSHOT LONG!  Size: {position_size} | Entry: {current_close} | Stop: {stop_price} | Target: {tp_price}")
             
             # Short entry conditions (mirror logic)

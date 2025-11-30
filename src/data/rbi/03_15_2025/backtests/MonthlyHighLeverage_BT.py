@@ -51,17 +51,17 @@ class MonthlyHighLeverage(Strategy):
                              tag="Moon Put Strike 🎯")
                     print(f"🚀 LAUNCHING SHORT POSITION 🌑\n"
                           f"Size: {position_size} | Entry: {current_open}\n"
-                          f"Cosmic Strike: {strike_price} | Risk: {risk_per_unit/current_open:.2%}")
+                          f"Cosmic Strike: {strike_price} | Risk: {risk_per_unit/current_open:0.2%}")
 
         # 🌑 LUNAR CYCLE EXIT (End of month closure)
         if self.position and current_dt.time() == pd.Timestamp('23:45:00').time():
             self.position.close()
             print(f"🌕 FULL MOON CLOSURE 🌕\n"
                   f"Final Price: {self.data.Close[-1]} | "
-                  f"P&L: {self.position.pl_pct:.2%}")
+                  f"P&L: {self.position.pl_pct:0.2%}")
 
 # 🌟 STARGAZER BACKTEST
-bt = Backtest(data, MonthlyHighLeverage, cash=1_000_000, commission=.002)
+bt = Backtest(data, MonthlyHighLeverage, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 📡 TRANSMITTING MOON STATS

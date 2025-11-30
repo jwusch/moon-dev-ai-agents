@@ -1,6 +1,3 @@
-I've analyzed the code and found a few technical issues that need fixing while preserving the strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -44,7 +41,7 @@ class VolatilitySqueezeBreach(Strategy):
         self.volume_avg = self.I(lambda: pd.Series(talib.SMA(volume, 960)), 'Volume Avg')
         self.swing_low = self.I(lambda: pd.Series(talib.MIN(low, 5)), 'Swing Low')
         
-        print("🌙 MOON DEV: Lunar indicators activated! Trading systems at full power! 🚀✨")
+#         print("🌙 MOON DEV: Lunar indicators activated! Trading systems at full power! 🚀✨")
 
     def next(self):
         price = self.data.Close[-1]
@@ -64,23 +61,23 @@ class VolatilitySqueezeBreach(Strategy):
                     size = int(round((self.equity * risk_percent) / risk_per_share))
                     if size > 0:
                         self.buy(size=size)
-                        print(f"🌕 MOON DEV LIFTOFF: Long {size} units @ {price} - Cosmic thrusters engaged! 🚀🌌")
+#                         print(f"🌕 MOON DEV LIFTOFF: Long {size} units @ {price} - Cosmic thrusters engaged! 🚀🌌")
 
         # Exit conditions - Re-entry protocol activated 🪂
         elif self.position:
             exit_trade = False
             if self.data.Low[-1] <= self.lower_band[-1]:
-                print(f"🌑 MOON DEV LANDING: Lower band touched @ {price} - Gravitational pull too strong! 🌙")
+#                 print(f"🌑 MOON DEV LANDING: Lower band touched @ {price} - Gravitational pull too strong! 🌙")
                 exit_trade = True
             elif self.data.Volume[-1] < self.volume_avg[-1]:
-                print(f"🌒 MOON DEV ECLIPSE: Volume dropped @ {price} - Cosmic energy fading! 🌘")
+#                 print(f"🌒 MOON DEV ECLIPSE: Volume dropped @ {price} - Cosmic energy fading! 🌘")
                 exit_trade = True
             
             if exit_trade:
                 self.position.close()
-                print(f"🌗 MOON DEV ORBIT: Position closed @ {price} - Safe in mothership! 💫🛸")
+#                 print(f"🌗 MOON DEV ORBIT: Position closed @ {price} - Safe in mothership! 💫🛸")
 
 # Execute backtest - Lunar mission commencing 🌖
 bt = Backtest(data, VolatilitySqueezeBreach, cash=1_000_000)
 stats = bt.run()
-print("🌕 MOON DEV MISSION COMPLETE: Back
+# print("🌕 MOON DEV MISSION COMPLETE: Back"

@@ -1,6 +1,3 @@
-I've analyzed the code and it's already clean from any `backtesting.lib` imports or functions! 🌙 The implementation correctly uses TA-Lib for indicators and proper pandas/numpy operations. Here's the complete verified code with some Moon Dev enhancements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -56,7 +53,7 @@ class VoltaMomentumStrategy(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl,
                             tag={'entry_bar': len(self.data)})
-                    print(f"🌙✨ LUNAR BULLISH CONVERGENCE! 🚀 Long {position_size} @ {price:.2f}")
+                    print(f" LUNAR BULLISH CONVERGENCE!  Long {position_size} @ {price:.2f}")
             
             # Short entry conditions
             elif roc < -0.02 and bw > bw_sma:
@@ -67,15 +64,15 @@ class VoltaMomentumStrategy(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl,
                              tag={'entry_bar': len(self.data)})
-                    print(f"🌙✨ DARK MOON BEARISH ENERGY! 💥 Short {position_size} @ {price:.2f}")
+                    print(f" DARK MOON BEARISH ENERGY!  Short {position_size} @ {price:.2f}")
 
         # Exit logic
         for trade in self.trades:
             # Volatility contraction exit
             if bw < bw_sma:
                 trade.close()
-                moon_emoji = '🌑' if trade.pl_pct < 0 else '🌕'
-                print(f"{moon_emoji} COSMIC VOLATILITY SHIFT! 🛑 Closing {trade.type}")
+                moon_emoji = '' if trade.pl_pct < 0 else ''
+                print(f"{moon_emoji} COSMIC VOLATILITY SHIFT!  Closing {trade.type}")
 
             # Time-based exit (5 days = 480 15m bars)
             elif len(self.data) - trade.entry_bar >= 480:

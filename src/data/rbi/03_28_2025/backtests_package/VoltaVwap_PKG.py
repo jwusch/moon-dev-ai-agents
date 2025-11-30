@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing them with proper alternatives. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -43,39 +40,39 @@ class VoltaVwap(Strategy):
                 # Update trailing stop
                 if self.data.High[-1] >= self.entry_price + self.adr_at_entry:
                     self.stop_loss = self.entry_price
-                    print(f"✨ Moon Dev Trailing stop moved to breakeven @ {self.stop_loss}")
+#                     print(f"✨ Moon Dev Trailing stop moved to breakeven @ {self.stop_loss}")
                 
                 # Check exits
                 if self.data.Low[-1] <= self.stop_loss:
                     self.position.close()
-                    print(f"🌙🛑 Moon Dev Long stopped out @ {self.stop_loss}")
+#                     print(f"🌙🛑 Moon Dev Long stopped out @ {self.stop_loss}")
                 elif self.data.High[-1] >= self.take_profit:
                     self.position.close()
-                    print(f"🚀✅ Moon Dev Long TP hit @ {self.take_profit}")
+#                     print(f"🚀✅ Moon Dev Long TP hit @ {self.take_profit}")
                 elif (self.volatility_vwap[-2] < self.data.Close[-2] and 
                       self.volatility_vwap[-1] > self.data.Close[-1]):
                     self.position.close()
-                    print(f"🌙✨ Moon Dev Opposing signal exit @ {self.data.Close[-1]}")
+#                     print(f"🌙✨ Moon Dev Opposing signal exit @ {self.data.Close[-1]}")
             
             elif self.position.is_short:
                 # Update trailing stop
                 if self.data.Low[-1] <= self.entry_price - self.adr_at_entry:
                     self.stop_loss = self.entry_price
-                    print(f"✨ Moon Dev Trailing stop moved to breakeven @ {self.stop_loss}")
+#                     print(f"✨ Moon Dev Trailing stop moved to breakeven @ {self.stop_loss}")
                 
                 # Check exits
                 if self.data.High[-1] >= self.stop_loss:
                     self.position.close()
-                    print(f"🌙🛑 Moon Dev Short stopped out @ {self.stop_loss}")
+#                     print(f"🌙🛑 Moon Dev Short stopped out @ {self.stop_loss}")
                 elif self.data.Low[-1] <= self.take_profit:
                     self.position.close()
-                    print(f"🚀✅ Moon Dev Short TP hit @ {self.take_profit}")
+#                     print(f"🚀✅ Moon Dev Short TP hit @ {self.take_profit}")
                 elif (self.data.Close[-2] < self.volatility_vwap[-2] and 
                       self.data.Close[-1] > self.volatility_vwap[-1]):
                     self.position.close()
-                    print(f"🌙✨ Moon Dev Opposing signal exit @ {self.data.Close[-1]}")
+#                     print(f"🌙✨ Moon Dev Opposing signal exit @ {self.data.Close[-1]}")
             
             # End-of-day close
             if self.end_of_day[-1]:
                 self.position.close()
-                print(f"🌙⌛ Moon Dev EOD position
+#                 print(f"🌙⌛ Moon Dev EOD position"

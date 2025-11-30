@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the `crossover` function with proper array comparisons. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -84,7 +81,7 @@ class VortexCompression(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl)
-                    print(f"🌙 MOON DEV LONG ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f} | VI+ {self.vi_plus[-1]:.2f} > VI- {self.vi_minus[-1]:.2f}")
+#                     print(f"🌙 MOON DEV LONG ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f} | VI+ {self.vi_plus[-1]:.2f} > VI- {self.vi_minus[-1]:.2f}")
 
             # Short Entry 🌪️
             elif ((self.vi_minus[-2] < self.vi_plus[-2] and self.vi_minus[-1] > self.vi_plus[-1]) and

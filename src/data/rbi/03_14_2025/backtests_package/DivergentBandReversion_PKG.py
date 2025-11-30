@@ -1,6 +1,3 @@
-I'll help fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder logic with proper array indexing comparisons. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -59,7 +56,7 @@ class DivergentBandReversion(Strategy):
                 bearish_div = (self.swing_high_price[-1] > self.last_swing_high_price) and \
                               (self.swing_high_macd[-1] < self.last_swing_high_macd)
                 if bearish_div:
-                    print(f"🌑 Bearish divergence detected! Price Swing High: {self.swing_high_price[-1]:.2f}, MACD Swing High: {self.swing_high_macd[-1]:.2f}")
+                    print(f" Bearish divergence detected! Price Swing High: {self.swing_high_price[-1]:.2f}, MACD Swing High: {self.swing_high_macd[-1]:.2f}")
             self.last_swing_high_price = self.swing_high_price[-1]
             self.last_swing_high_macd = self.swing_high_macd[-1]
             
@@ -68,6 +65,6 @@ class DivergentBandReversion(Strategy):
                 bullish_div = (self.swing_low_price[-1] < self.last_swing_low_price) and \
                                (self.swing_low_macd[-1] > self.last_swing_low_macd)
                 if bullish_div:
-                    print(f"🚀 Bullish divergence detected! Price Swing Low: {self.swing_low_price[-1]:.2f}, MACD Swing Low: {self.swing_low_macd[-1]:.2f}")
+                    print(f" Bullish divergence detected! Price Swing Low: {self.swing_low_price[-1]:.2f}, MACD Swing Low: {self.swing_low_macd[-1]:.2f}")
             self.last_swing_low_price = self.swing_low_price[-1]
             self.last_swing_low_m

@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VoltaVWAP Backtest Script
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -25,11 +23,24 @@ data = data.set_index('datetime')
 class VoltaVWAPStrategy(Strategy):
     def init(self):
         # 🌗 INDICATOR SETUP
-        self.vwap = self.I(ta.vwap, self.data.High, self.data.Low, self.data.Close, self.data.Volume, 20)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         self.rsi = self.I(talib.RSI, self.data.Close, 14)
         
-        print("🌕 Moon Dev Indicators Activated: VWAP(20), ATR(14), RSI(14)")
+#         print("🌕 Moon Dev Indicators Activated: VWAP(20), ATR(14), RSI(14)")
 
     def next(self):
         # 🌑 CURRENT MARKET CONDITIONS
@@ -42,8 +53,8 @@ class VoltaVWAPStrategy(Strategy):
         lower_band = vwap_val - 2 * atr_val
 
         # 🌔 DEBUG DISPLAY
-        print(f"\n🌙 Price: {price:.2f} | VWAP: {vwap_val:.2f} ± {2*atr_val:.2f}")
-        print(f"✨ Upper: {upper_band:.2f}, Lower: {lower_band:.2f} | RSI: {rsi_val:.2f}")
+        print(f"\n Price: {price:.2f} | VWAP: {vwap_val:.2f} ± {2*atr_val:.2f}")
+        print(f" Upper: {upper_band:.2f}, Lower: {lower_band:.2f} | RSI: {rsi_val:.2f}")
 
         # 💰 RISK MANAGEMENT
         risk_pct = 0.01
@@ -55,8 +66,8 @@ class VoltaVWAPStrategy(Strategy):
                 size = int(round(risk_amount / (1.5 * atr_val)))
                 if size > 0:
                     sl = price - 1.5 * atr_val
-                    print(f"\n🚀🌕 BULLISH BREAKOUT! Buying {size} units")
-                    print(f"🔒 Stop Loss: {sl:.2f} ({1.5*atr_val:.2f} risk)")
+                    print(f"\n BULLISH BREAKOUT! Buying {size} units")
+                    print(f" Stop Loss: {sl:.2f} ({1.5*atr_val:.2f} risk)")
                     self.buy(size=size, sl=sl)
             
             # 🚀 SHORT ENTRY: Price < Lower Band & RSI >=30
@@ -64,22 +75,22 @@ class VoltaVWAPStrategy(Strategy):
                 size = int(round(risk_amount / (1.5 * atr_val)))
                 if size > 0:
                     sl = price + 1.5 * atr_val
-                    print(f"\n🚀🌑 BEARISH BREAKOUT! Shorting {size} units")
-                    print(f"🔒 Stop Loss: {sl:.2f} ({1.5*atr_val:.2f} risk)")
+                    print(f"\n BEARISH BREAKOUT! Shorting {size} units")
+                    print(f" Stop Loss: {sl:.2f} ({1.5*atr_val:.2f} risk)")
                     self.sell(size=size, sl=sl)
         else:
             # 🌓 EXIT CONDITIONS
             if self.position.is_long:
                 if crossunder(self.rsi, 70):
-                    print(f"\n🌗 LONG EXIT: RSI ({rsi_val:.2f}) crosses below 70")
+                    print(f"\n LONG EXIT: RSI ({rsi_val:.2f}) crosses below 70")
                     self.position.close()
             
             elif self.position.is_short:
                 if crossover(self.rsi, 30):
-                    print(f"\n🌗 SHORT EXIT: RSI ({rsi_val:.2f}) crosses above 30")
+                    print(f"\n SHORT EXIT: RSI ({rsi_val:.2f}) crosses above 30")
                     self.position.close()
 
 # 🌟 BACKTEST EXECUTION
 bt = Backtest(data, VoltaVWAPStrategy, cash=1_000_000, exclusive_orders=True)
 stats = bt.run()
-print("\n🌕🌖🌗🌘🌑🌒🌓🌔 MOON DEV FINAL REPORT 🌔🌓🌒🌑🌘🌗🌖
+# print("\n🌕🌖🌗🌘🌑🌒🌓🌔 MOON DEV FINAL REPORT 🌔🌓🌒🌑🌘🌗🌖"

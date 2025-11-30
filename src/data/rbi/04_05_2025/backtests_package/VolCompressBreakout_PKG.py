@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -21,8 +18,8 @@ class VolCompressBreakout(Strategy):
         self.volume_avg = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙✨ Moon Dev Indicators Activated! BBW Matrix Online 🚀")
-        print("🌌 All systems nominal - No backtesting.lib dependencies detected ✅")
+#         print("🌙✨ Moon Dev Indicators Activated! BBW Matrix Online 🚀")
+        print(" All systems nominal - No backtesting.lib dependencies detected ")
 
     def next(self):
         if len(self.data) < 20:
@@ -53,15 +50,15 @@ class VolCompressBreakout(Strategy):
                             sl=self.data.Close[-1] - sl_distance,
                             tp=self.data.Close[-1] + 2*sl_distance
                         )
-                        print(f"🌙🚀 MOONSHOT! Long entry at {self.data.Close[-1]} | Size: {position_size} ✨")
-                        print(f"🌕 Stop Loss: {self.data.Close[-1] - sl_distance:.2f} | Take Profit: {self.data.Close[-1] + 2*sl_distance:.2f}")
+                        print(f" MOONSHOT! Long entry at {self.data.Close[-1]} | Size: {position_size} ")
+                        print(f" Stop Loss: {self.data.Close[-1] - sl_distance:.2f} | Take Profit: {self.data.Close[-1] + 2*sl_distance:.2f}")
         
         # Exit logic - Bearish crossover replacement            
         else:
             if (self.bbw[-2] < bbw_75_level and self.bbw[-1] > bbw_75_level):
                 self.position.close()
-                print(f"🌙⏳ Closing position at {self.data.Close[-1]} | Profit: {self.position.pl_pct:.2f}% 🌘")
-                print("🌑 Returning to stasis until next signal pattern...")
+                print(f"⏳ Closing position at {self.data.Close[-1]} | Profit: {self.position.pl_pct:.2f}% ")
+                print(" Returning to stasis until next signal pattern...")
 
 # Data preparation                
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -78,8 +75,8 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 # Launch Moon Dev Backtest Suite 🚀🌙
-print("\n🌠 Initializing Moon Dev Quantum Backtest Engine...")
+# print("\n🌠 Initializing Moon Dev Quantum Backtest Engine...")
 bt = Backtest(data, VolCompressBreakout, cash=1_000_000, commission=.002)
 stats = bt.run()
-print("\n🌕🌖🌗🌘🌑🌒🌓🌔 MOON DEV FINAL REPORT 🌔🌓🌒🌑🌘🌗🌖🌕")
+# print("\n🌕🌖🌗🌘🌑🌒🌓🌔 MOON DEV FINAL REPORT 🌔🌓🌒🌑🌘🌗🌖🌕")
 print

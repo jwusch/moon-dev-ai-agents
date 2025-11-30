@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VoltaicBreakout Backtest Implementation ✨
 import pandas as pd
 import numpy as np
 import talib
@@ -30,7 +26,7 @@ data = data.rename(columns={
 # ========================
 class VoltaicBreakout(Strategy):
     def init(self):
-        print("🌙 Initializing Moon Dev's Voltaic Breakout...")
+#         print("🌙 Initializing Moon Dev's Voltaic Breakout...")'
         
         # ===== BOLLINGER BANDS & BANDWIDTH =====
         self.upper, self.middle, self.lower = self.I(talib.BBANDS, 
@@ -54,7 +50,7 @@ class VoltaicBreakout(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, 96)  # Daily swing low
         self.swing_high = self.I(talib.MAX, self.data.High, 96) # Daily swing high
         
-        print("✨ Strategy Components Activated: BBANDS | Volume Surge | Swing Levels")
+#         print("✨ Strategy Components Activated: BBANDS | Volume Surge | Swing Levels")
 
     def next(self):
         # Skip first 5000 bars for indicator warmup
@@ -84,7 +80,7 @@ class VoltaicBreakout(Strategy):
                     tp = price + 2*(price - sl)  # 2:1 RR
                     
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🚀🌙 LONG SIGNAL | Size: {position_size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" LONG SIGNAL | Size: {position_size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             
             # Short Entry Conditions    
             elif (bbw_pct < 20 and 

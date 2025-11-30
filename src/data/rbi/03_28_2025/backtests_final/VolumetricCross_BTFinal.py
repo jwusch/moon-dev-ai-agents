@@ -1,8 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev's debug improvements:
-
-```python
-# 🌙 Moon Dev's VolumetricCross Backtest Script 🚀
-
 import pandas as pd
 import numpy as np
 import talib
@@ -55,16 +50,16 @@ class VolumetricCross(Strategy):
                 risk_per_unit = entry_price - stop_loss_level
                 
                 if risk_per_unit <= 0:
-                    print("🌑 Moon Dev Warning: Invalid stop loss level detected! Aborting trade.")
+#                     print("🌑 Moon Dev Warning: Invalid stop loss level detected! Aborting trade.")
                     return  # Avoid invalid SL
                 
                 position_size = int(round(risk_amount / risk_per_unit))
                 take_profit = entry_price + 2 * (entry_price - stop_loss_level)
 
                 # 🌙✨ Execute entry with Moon-themed print
-                print(f"🚀 Moon Dev Long Signal! 🌙 EMA crossover + Volume spike detected!")
-                print(f"📈 Entry: {entry_price:.2f} | SL: {stop_loss_level:.2f} | TP: {take_profit:.2f}")
-                print(f"💎 Position Size: {position_size} units | Risk: {self.risk_percent*100}%")
+#                 print(f"🚀 Moon Dev Long Signal! 🌙 EMA crossover + Volume spike detected!")
+                print(f" Entry: {entry_price:.2f} | SL: {stop_loss_level:.2f} | TP: {take_profit:.2f}")
+                print(f" Position Size: {position_size} units | Risk: {self.risk_percent*100}%")
                 
                 self.buy(size=position_size, 
                         sl=stop_loss_level,
@@ -72,7 +67,7 @@ class VolumetricCross(Strategy):
 
         # 🌕 Exit Condition - RSI Overbought
         elif self.position.is_long and self.rsi[-1] > 70:
-            print(f"🌕 Moon Dev Exit Signal! RSI {self.rsi[-1]:.2f} > 70 - Taking profits!")
+#             print(f"🌕 Moon Dev Exit Signal! RSI {self.rsi[-1]:.2f} > 70 - Taking profits!")
             self.position.close()
 
 # 🌙 Data Preparation Magic

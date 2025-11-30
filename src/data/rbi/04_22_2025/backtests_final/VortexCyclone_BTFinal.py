@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -33,17 +32,17 @@ class VortexCycloneStrategy(Strategy):
             if trade.is_long:
                 if (self.vi_minus[-2] > self.vi_plus[-2] and self.vi_minus[-1] < self.vi_plus[-1]) or (self.dpo[-2] < upper_exit and self.dpo[-1] > upper_exit):
                     trade.close()
-                    print(f"🌙✨ LONG exit at {self.data.Close[-1]} (VI-/DPO exit)")
+                    print(f" LONG exit at {self.data.Close[-1]} (VI-/DPO exit)")
                 elif len(self.data) - trade.entry_bar >= self.max_trade_duration:
                     trade.close()
-                    print(f"🌙⏳ LONG exit (max duration)")
+                    print(f"⏳ LONG exit (max duration)")
             else:
                 if (self.vi_plus[-2] > self.vi_minus[-2] and self.vi_plus[-1] < self.vi_minus[-1]) or (-self.dpo[-2] < upper_exit and -self.dpo[-1] > upper_exit):
                     trade.close()
-                    print(f"🌙✨ SHORT exit at {self.data.Close[-1]} (VI+/DPO exit)")
+                    print(f" SHORT exit at {self.data.Close[-1]} (VI+/DPO exit)")
                 elif len(self.data) - trade.entry_bar >= self.max_trade_duration:
                     trade.close()
-                    print(f"🌙⏳ SHORT exit (max duration)")
+                    print(f"⏳ SHORT exit (max duration)")
         
         # Entry conditions
         if not self.position:
@@ -62,7 +61,7 @@ class VortexCycloneStrategy(Strategy):
                 if risk_per_unit > 0:
                     size = int(round(risk_amount / risk_per_unit))
                     self.buy(size=size, sl=swing_low)
-                    print(f"🌪️🚀 LONG ENTRY {size} units at {self.data.Close[-1]}!")
+                    print(f" LONG ENTRY {size} units at {self.data.Close[-1]}!")
             
             elif vi_cross_down and dpo_cross_below:
                 swing_high = max(self.data.High[-5:])
@@ -71,7 +70,7 @@ class VortexCycloneStrategy(Strategy):
                 if risk_per_unit > 0:
                     size = int(round(risk_amount / risk_per_unit))
                     self.sell(size=size, sl=swing_high)
-                    print(f"🌪️💥 SHORT ENTRY {size} units at {self.data.Close[-1]}!")
+                    print(f" SHORT ENTRY {size} units at {self.data.Close[-1]}!")
 
 # Data handling
 data = pd.read_csv('your_data.csv', parse_dates=['Date'], index_col='Date')

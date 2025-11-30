@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -47,12 +44,12 @@ class VolClusterBreakout(Strategy):
 
         # Median ATR for volatility filter
         self.median_atr = self.atr.series.median()
-        print(f"🌙 Lunar Strategy Initialized | Median ATR: {self.median_atr:.2f}")
+#         print(f"🌙 Lunar Strategy Initialized | Median ATR: {self.median_atr:.2f}")
 
     def next(self):
         # Skip trades during high volatility or existing positions
         if self.atr[-1] > 3*self.median_atr:
-            print(f"🌙⚠️ Cosmic Volatility Alert! ATR {self.atr[-1]:.2f} > 3x median ({3*self.median_atr:.2f})")
+            print(f" Cosmic Volatility Alert! ATR {self.atr[-1]:.2f} > 3x median ({3*self.median_atr:.2f})")
             return
             
         if self.position:
@@ -75,7 +72,7 @@ class VolClusterBreakout(Strategy):
                 self.buy(size=position_size, 
                         sl=sl_price,
                         tp=price_close + 2*risk_per_unit)
-                print(f"🌙🚀 LUNAR ASCENT SIGNAL! Size: {position_size} | Entry: {price_close:.2f}")
+                print(f" LUNAR ASCENT SIGNAL! Size: {position_size} | Entry: {price_close:.2f}")
                 print(f"   CRATER STOP: {sl_price:.2f} | STARGAZER TP: {price_close + 2*risk_per_unit:.2f}")
 
         # Bearish crossover detection (replaced backtesting.lib.crossunder)

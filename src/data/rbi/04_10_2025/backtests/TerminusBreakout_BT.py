@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR TERMINUSBREAKOUT STRATEGY 🚀
-
-# ===== REQUIRED IMPORTS =====
 import pandas as pd
 import talib
 import numpy as np
@@ -31,7 +27,7 @@ data.rename(columns={
 
 # ===== STRATEGY IMPLEMENTATION =====
 class TerminusBreakout(Strategy):
-    risk_pct = 0.02  # 2% risk per trade 🌗
+    risk_pct = 0.02  # 2% risk per trade 
     band_period = 20
     
     def init(self):

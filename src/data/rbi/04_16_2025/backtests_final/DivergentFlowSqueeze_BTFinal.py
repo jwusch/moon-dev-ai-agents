@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -36,16 +33,16 @@ class DivergentFlowSqueeze(Strategy):
         
         # Risk management variables
         self.consecutive_losses = 0
-        print("🌕 Moon Dev Initialization Complete - All Indicators Set!")
+#         print("🌕 Moon Dev Initialization Complete - All Indicators Set!")
 
     def next(self):
         # Skip if not enough data or 3 consecutive losses
         if len(self.data) < 21:
-            print("🌘 Moon Dev Warning: Not enough data points (need 21)")
+#             print("🌘 Moon Dev Warning: Not enough data points (need 21)")
             return
             
         if self.consecutive_losses >= 3:
-            print("🌑 Moon Dev Alert: 3 consecutive losses - trading halted!")
+#             print("🌑 Moon Dev Alert: 3 consecutive losses - trading halted!")
             return
         
         # Current values

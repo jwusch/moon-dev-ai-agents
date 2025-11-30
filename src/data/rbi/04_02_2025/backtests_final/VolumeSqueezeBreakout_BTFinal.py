@@ -1,15 +1,11 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
-# 🌙 Moon Dev's Volume Squeeze Breakout Backtest 🌙
 from backtesting import Backtest, Strategy
 from talib import BBANDS, ATR, RSI, MIN, MAX, SMA
 import pandas as pd
 import numpy as np
 
 class VolumeSqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
-    atr_multiplier = 2    # 2x ATR trailing stop 🛑
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 2    # 2x ATR trailing stop 
     
     def init(self):
         # 🌌 Calculate Indicators with TA-Lib
@@ -33,10 +29,10 @@ class VolumeSqueezeBreakout(Strategy):
         current_price = self.data.Close[-1]
         
         # 🌙 Moon Dev Debug Prints
-        print(f"\n🌙 Moon Dev Debug | Bar {len(self.data)-1}")
-        print(f"✨ Price: {current_price:.2f} | Vol: {self.current_volume[-1]:.0f} vs {self.volume_sma[-1]:.0f}")
-        print(f"🌀 BB Width: {(self.upper[-1]-self.lower[-1])/self.middle[-1]*100:.2f}% | 10D Low: {self.bb_low[-1]:.2f}")
-        print(f"📈 RSI: {self.rsi[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+#         print(f"\n🌙 Moon Dev Debug | Bar {len(self.data)-1}")
+        print(f" Price: {current_price:.2f} | Vol: {self.current_volume[-1]:.0f} vs {self.volume_sma[-1]:.0f}")
+        print(f" BB Width: {(self.upper[-1]-self.lower[-1])/self.middle[-1]*100:.2f}% | 10D Low: {self.bb_low[-1]:.2f}")
+        print(f" RSI: {self.rsi[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
         
         # Exit conditions first
         if self.position:
@@ -46,7 +42,7 @@ class VolumeSqueezeBreakout(Strategy):
                 trail_stop = self.trailing_high - self.atr_multiplier * self.atr[-1]
                 
                 if current_price <= trail_stop or current_price <= self.lower[-1]:
-                    print(f"🚀🌕 MOON EXIT LONG! Price: {current_price:.2f}")
+                    print(f" MOON EXIT LONG! Price: {current_price:.2f}")
                     self.position.close()
                     
             elif self.position.is_short:
@@ -55,7 +51,7 @@ class VolumeSqueezeBreakout(Strategy):
                 trail_stop = self.trailing_low + self.atr_multiplier * self.atr[-1]
                 
                 if current_price >= trail_stop or current_price >= self.upper[-1]:
-                    print(f"🌑✨ MOON EXIT SHORT! Price: {current_price:.2f}")
+                    print(f" MOON EXIT SHORT! Price: {current_price:.2f}")
                     self.position.close()
         
         # Entry conditions
@@ -65,7 +61,7 @@ class VolumeSqueezeBreakout(Strategy):
             bb_condition = (self.upper[-1] - self.lower[-1])/self.middle[-1] * 100 <= self.bb_low[-1]
             rsi_condition = 30 < self.rsi[-1] < 70
             
-            print(f"🌌 Entry Check | Vol: {vol_condition} | BB: {bb_condition} | RSI: {rsi_condition}")
+            print(f" Entry Check | Vol: {vol_condition} | BB: {bb_condition} | RSI: {rsi_condition}")
             
             if vol_condition and bb_condition and rsi_condition:
                 # Calculate position size 🌕

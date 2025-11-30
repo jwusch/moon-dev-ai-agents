@@ -1,6 +1,3 @@
-Here's the complete fixed code with all necessary replacements and Moon Dev themed debug prints:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -33,7 +30,7 @@ def load_data():
 data = load_data()
 
 class VoltaicConvergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     bb_period = 20
     bb_dev = 2
     rsi_period = 14
@@ -65,7 +62,7 @@ class VoltaicConvergence(Strategy):
     def next(self):
         # Wait for enough data 🌙
         if len(self.data) < 50:
-            print("🌙 Waiting for more data... Need at least 50 candles")
+            print(" Waiting for more data... Need at least 50 candles")
             return
 
         # 🌠 CURRENT MARKET CONDITIONS 🌠

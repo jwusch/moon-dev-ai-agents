@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Liquidation Fade Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -39,12 +37,20 @@ class LiquidationFade(Strategy):
     
     def init(self):
         # 🌙 Core Indicators
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low, 
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          length=self.vwap_period)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         self.price_spike = self.I(talib.MAX,
                                 self.data.High,
@@ -74,7 +80,7 @@ class LiquidationFade(Strategy):
         for trade in self.trades:
             if len(self.data) - trade.entry_bar > 2:  # 30min = 2x15m bars
                 trade.close()
-                print(f"🌙 MOON ALERT: Time Exit at {current_close} ✨")
+                print(f" MOON ALERT: Time Exit at {current_close} ")
 
     def enter_short(self, price, vwap):
         # 🌙 Risk Calculation
@@ -87,7 +93,7 @@ class LiquidationFade(Strategy):
                      sl=stop_loss,
                      tp=vwap)
             self.trades_today += 1
-            print(f"🌙 SHORT ENTRY 🌑 Price: {price} | Size: {position_size} 🚀")
+            print(f" SHORT ENTRY  Price: {price} | Size: {position_size} ")
 
     def enter_long(self, price, vwap):
         # 🌙 Risk Calculation
@@ -100,7 +106,7 @@ class LiquidationFade(Strategy):
                     sl=stop_loss,
                     tp=vwap)
             self.trades_today += 1
-            print(f"🌙 LONG ENTRY 🌕 Price: {price} | Size: {position_size} 🚀")
+            print(f" LONG ENTRY  Price: {price} | Size: {position_size} ")
 
 # ========================
 # 🌙 BACKTEST EXECUTION

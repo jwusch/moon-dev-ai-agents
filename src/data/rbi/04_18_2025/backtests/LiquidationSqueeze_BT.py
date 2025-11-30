@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -94,7 +93,7 @@ class LiquidationSqueeze(Strategy):
                         if size > 0:
                             tp_price = current_close + (current_close - sl_price) * self.tp_multiplier
                             self.buy(size=size, sl=sl_price, tp=tp_price)
-                            print(f"🌙✨ MOON LIFT-OFF! LONG {size} units at {current_close} 🚀")
+                            print(f" MOON LIFT-OFF! LONG {size} units at {current_close} ")
             
             # Short entry logic
             elif current_close < current_lower and current_volume > volume_ma:

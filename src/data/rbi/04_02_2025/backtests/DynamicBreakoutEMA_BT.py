@@ -62,7 +62,7 @@ class DynamicBreakoutEMA(Strategy):
                     tp_price = entry_price + 3 * atr_value
                     
                     # Position Size Alchemy ✨
-                    risk_amount = self.broker.equity * self.risk_pct
+                    risk_amount = self.equity * self.risk_pct
                     position_size = int(round(risk_amount / (entry_price - sl_price)))
                     
                     if position_size > 0:

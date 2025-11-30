@@ -1,13 +1,9 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation 🚀
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 
 class LiquiClusterBreakout(Strategy):
-    risk_pct = 0.02  # 2% risk per trade 🌙
+    risk_pct = 0.02  # 2% risk per trade 
     cluster_window = 20  # Liquidation cluster period
     volume_ma_period = 10  # Taker volume MA
     spread_ma_period = 5  # Spread analysis window
@@ -35,14 +31,14 @@ class LiquiClusterBreakout(Strategy):
         
         # 🌙 Moon Dev Debug Prints ✨
         if len(self.data) % 100 == 0:
-            print(f"🌙 Lunar Cycle {len(self.data)}: Price={price:.2f} | Equity={self.equity:,.0f} 🚀")
+            print(f" Lunar Cycle {len(self.data)}: Price={price:.2f} | Equity={self.equity:,.0f} ")
 
         # Existing position management
         if self.position:
             # Check spread-based exit
             if spread > spread_ma * 1.2:
                 self.position.close()
-                print(f"🌙 Exit! Spread Explosion {spread:.2f} > {spread_ma*1.2:.2f} ✨")
+                print(f" Exit! Spread Explosion {spread:.2f} > {spread_ma*1.2:.2f} ")
             return
 
         # 🚀 Long Entry Logic
@@ -66,7 +62,7 @@ class LiquiClusterBreakout(Strategy):
                 if size > 0:  # Ensure valid position size
                     tp = price + 1.5 * self.atr[-1]
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🚀 LUNAR LIFT OFF! Long {size} @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} 🌙")
+                    print(f" LUNAR LIFT OFF! Long {size} @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} ")
 
         elif short_trigger:
             sl = self.swing_high[-1]
@@ -76,7 +72,7 @@ class LiquiClusterBreakout(Strategy):
                 if size > 0:  # Ensure valid position size
                     tp = price - 1.5 * self.atr[-1]
                     self.sell(size=size, sl=sl, tp=tp)
-                    print(f"🌑 GRAVITY PULL! Short {size} @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} ✨")
+                    print(f" GRAVITY PULL! Short {size} @ {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} ")
 
 # Data loading and preparation 🌙
 def load_data(filepath):

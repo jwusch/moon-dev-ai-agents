@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the crossover functions with manual implementations. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -34,7 +30,7 @@ class LiquidityReversalTrigger(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_window)
         
     def next(self):
-        moon_emoji = '🌙' * (np.random.randint(1,4)) + '✨'  # Random moon sparkles
+        moon_emoji = '' * (np.random.randint(1,4)) + ''  # Random moon sparkles
 
         if not self.position:
             current_swing = self.swing_high[-1]
@@ -56,7 +52,7 @@ class LiquidityReversalTrigger(Strategy):
                         
                         self.sell(size=position_size)
                         print(f"{moon_emoji} SHORT ENTERED! Size: {position_size} @ {entry_price}")
-                        print(f"   🎯 TP: {self.tp_price:.2f} | 🛑 SL: {stop_price:.2f}")
+                        print(f"    TP: {self.tp_price:.2f} |  SL: {stop_price:.2f}")
         else:
             current_high = self.data.High[-1]
             current_low = self.data.Low[-1]
@@ -69,13 +65,13 @@ class LiquidityReversalTrigger(Strategy):
                 
                 print(f"{moon_emoji} EXIT TRIGGERED!")
                 if current_high >= self.stop_price:
-                    print(f"   🛑 STOP LOSS HIT! ({self.stop_price:.2f})")
+                    print(f"    STOP LOSS HIT! ({self.stop_price:.2f})")
                 elif current_low <= self.tp_price:
-                    print(f"   🎯 TAKE PROFIT REACHED! ({self.tp_price:.2f})")
+                    print(f"    TAKE PROFIT REACHED! ({self.tp_price:.2f})")
                 elif current_high > self.current_cluster * 1.02:
-                    print(f"   🚨 EMERGENCY EXIT! Cluster Break: {self.current_cluster*1.02:.2f}")
+                    print(f"    EMERGENCY EXIT! Cluster Break: {self.current_cluster*1.02:.2f}")
                 else:
-                    print(f"   📉 ATR SPIKE DETECTED! ({self.atr[-1]:.2f} > {self.atr_5day[-1]:.2f})")
+                    print(f"    ATR SPIKE DETECTED! ({self.atr[-1]:.2f} > {self.atr_5day[-1]:.2f})")
                 
                 self.position.close()
 

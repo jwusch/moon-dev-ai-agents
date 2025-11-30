@@ -1,7 +1,3 @@
-```python
-# 🌙 Moon Dev's FundingPulse Backtest Script 🚀
-
-# 1. Necessary imports
 import pandas as pd
 import numpy as np
 import talib
@@ -26,7 +22,7 @@ class FundingPulse(Strategy):
         self.std_funding = self.I(lambda x: x.rolling(self.median_window).std(), 
                                  self.data.funding_rate, name='STD_FUND')
         
-        print("🌙 FundingPulse Strategy Initialized with Moon Power! 🌕")
+#         print("🌙 FundingPulse Strategy Initialized with Moon Power! 🌕")
 
     def next(self):
         # 🌑 Skip if not enough data or missing values
@@ -46,19 +42,19 @@ class FundingPulse(Strategy):
         band_lower = median - std
 
         # 🌔 Moon-themed debug prints ✨
-        print(f"🌙 Moon Pulse Check │ ADX: {current_adx:.1f} │ Funding: {current_funding*100:.3f}% │ Median Band: [{band_lower*100:.3f}% - {band_upper*100:.3f}%]")
+        print(f" Moon Pulse Check  ADX: {current_adx:.1f}  Funding: {current_funding*100:.3f}%  Median Band: [{band_lower*100:.3f}% - {band_upper*100:.3f}%]")
 
         # 3. Exit logic first 🌗
         if self.position:
             if self.position.is_long and (current_adx > self.adx_threshold_exit or 
                                          (band_lower < current_funding < band_upper)):
                 self.position.close()
-                print(f"🌙 MOON DEV LONG EXIT 🌗 │ Reason: {'ADX Trend' if current_adx >35 else 'Funding Normalized'}")
+#                 print(f"🌙 MOON DEV LONG EXIT 🌗 │ Reason: {'ADX Trend' if current_adx >35 else 'Funding Normalized'}")
 
             elif self.position.is_short and (current_adx > self.adx_threshold_exit or 
                                             (band_lower < current_funding < band_upper)):
                 self.position.close()
-                print(f"🌙 MOON DEV SHORT EXIT 🌓 │ Reason: {'ADX Trend' if current_adx >35 else 'Funding Normalized'}")
+#                 print(f"🌙 MOON DEV SHORT EXIT 🌓 │ Reason: {'ADX Trend' if current_adx >35 else 'Funding Normalized'}")
 
         # 4. Entry logic with risk management 🌚
         if not self.position:
@@ -71,7 +67,7 @@ class FundingPulse(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🌙 MOON DEV LONG ENTRY 🌕 │ Size: {position_size} │ Stop: {sl_price:.2f}")
+#                     print(f"🌙 MOON DEV LONG ENTRY 🌕 │ Size: {position_size} │ Stop: {sl_price:.2f}")
 
             # Short entry: extreme positive funding + low trend
             elif current_funding > self.funding_threshold and current_adx < self.adx_threshold_entry:

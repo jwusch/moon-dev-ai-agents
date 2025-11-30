@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VORTEXSQUEEZE STRATEGY 🚀
-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -57,15 +54,15 @@ class VortexSqueeze(Strategy):
         )
 
     def next(self):
-        # Moon Dev's Cosmic Trade Execution Logic 🌌
+        # Moon Dev's Cosmic Trade Execution Logic 🌌'
         if self.position:
             # Parabolic SAR Exit Conditions
             if self.position.is_long and self.data.Close[-1] < self.sar[-1]:
                 self.position.close()
-                print(f"🌙 MOON DEV LONG EXIT ✨ | Price: {self.data.Close[-1]:.2f}, SAR: {self.sar[-1]:.2f}")
+#                 print(f"🌙 MOON DEV LONG EXIT ✨ | Price: {self.data.Close[-1]:.2f}, SAR: {self.sar[-1]:.2f}")
             elif self.position.is_short and self.data.Close[-1] > self.sar[-1]:
                 self.position.close()
-                print(f"🌙 MOON DEV SHORT EXIT ✨ | Price: {self.data.Close[-1]:.2f}, SAR: {self.sar[-1]:.2f}")
+#                 print(f"🌙 MOON DEV SHORT EXIT ✨ | Price: {self.data.Close[-1]:.2f}, SAR: {self.sar[-1]:.2f}")
         else:
             # Calculate current market conditions
             current_bb_width = self.upper_bb[-1] - self.lower_bb[-1]
@@ -89,4 +86,4 @@ class VortexSqueeze(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌙 MOON DEV LONG ENTRY 🚀 | Size: {position_size}, Entry: {self.data.Close[-1
+#                     print(f"🌙 MOON DEV LONG ENTRY 🚀 | Size: {position_size}, Entry: {self.data.Close[-1"

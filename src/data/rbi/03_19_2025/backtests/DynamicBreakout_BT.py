@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -7,7 +5,7 @@ from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 
 class DynamicBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     atr_multiplier = 2
     
     def init(self):
@@ -47,7 +45,7 @@ class DynamicBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙✨ MOON ENTRY SIGNAL ✨🌙")
+                    print(f" MOON ENTRY SIGNAL ")
                     print(f"Entry Price: {self.data.Close[-1]:.2f}")
                     print(f"Position Size: {position_size} units | Risk: {self.risk_per_trade*100:.1f}%")
                     
@@ -62,7 +60,7 @@ class DynamicBreakout(Strategy):
             # Exit Logic 🛑
             if self.data.Close[-1] < self.trailing_stop:
                 self.position.close()
-                print(f"🌙🛑 MOON EXIT SIGNAL 🛑🌙")
+                print(f" MOON EXIT SIGNAL ")
                 print(f"Exit Price: {self.data.Close[-1]:.2f} | Peak: {self.peak_price:.2f}")
                 print("-----------------------------------")
 
@@ -83,4 +81,4 @@ data = data.rename(columns={
 # Run backtest 🌙🚀
 bt = Backtest(data, DynamicBreakout, cash=1_000_000, exclusive_orders=True)
 stats = bt.run()
-print("\n🌕🌖🌗🌘🌑🌒🌓🌔🌕 MOON DEV BACKTEST RESULTS 🌕🌖
+# print("\n🌕🌖🌗🌘🌑🌒🌓🌔🌕 MOON DEV BACKTEST RESULTS 🌕🌖"

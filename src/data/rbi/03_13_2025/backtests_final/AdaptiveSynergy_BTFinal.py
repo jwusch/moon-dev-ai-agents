@@ -1,10 +1,31 @@
-I'll help fix the code while maintaining the strategy logic and adding Moon Dev themed debug prints. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
+import os
+import sys
+
+# Add parent directories to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+# Import utils for dynamic path resolution
+try:
+    from utils import get_data_file_path, prepare_backtest_data
+except ImportError:
+    # Fallback if utils not found
+    def get_data_file_path(filename='BTC-USD-15m.csv'):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        paths = [
+            os.path.join(script_dir, '..', '..', filename),
+            os.path.join(script_dir, '..', '..', 'rbi', filename),
+            '/mnt/c/Users/jwusc/moon-dev-ai-agents/src/data/rbi/BTC-USD-15m.csv',
+            '/mnt/c/Users/jwusc/moon-dev-ai-agents/src/data/BTC-USD-15m.csv'
+        ]
+        for path in paths:
+            if os.path.exists(path):
+                return path
+        raise FileNotFoundError(f"Could not find {filename}")
 
 class AdaptiveSynergy(Strategy):
     def init(self):
@@ -15,17 +36,32 @@ class AdaptiveSynergy(Strategy):
         self.atr_series = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
         # Calculate VWAP using pandas_ta
-        vwap_values = ta.vwap(
-            high=self.data.High,
-            low=self.data.Low,
-            close=self.data.Close,
-            volume=self.data.Volume
+        # Create a DataFrame for pandas_ta
+        df = pd.DataFrame({
+            'high': self.data.High,
+            'low': self.data.Low,
+            'close': self.data.Close,
+            'volume': self.data.Volume
+        })
+        
+        vwap_result = ta.vwap(
+            high=df['high'],
+            low=df['low'],
+            close=df['close'],
+            volume=df['volume']
         )
-        self.I(vwap_values, name='VWAP')
+        
+        # If VWAP returns None or empty, use typical price as fallback
+        if vwap_result is None or len(vwap_result) == 0:
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+        
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
 
     def next(self):
         current_close = self.data.Close[-1]
-        print(f"🌙 Moon Dev Pulse | Close: {current_close:.2f} | MACD: {self.macd_line[-1]:.2f} | RSI: {self.rsi_series[-1]:.2f}")
+        print(f"🌙 Moon Dev Pulse | Close: {current_close:0.2f} | MACD: {self.macd_line[-1]:0.2f} | RSI: {self.rsi_series[-1]:0.2f}")
 
         if not self.position:
             # Entry conditions with Moon Dev precision 🌙
@@ -33,12 +69,12 @@ class AdaptiveSynergy(Strategy):
                 (self.macd_line[-2] < self.macd_signal_line[-2] and self.macd_line[-1] > self.macd_signal_line[-1]),  # Bullish crossover
                 50 < self.rsi_series[-1] < 70,
                 current_close > self.upper_bb[-1],
-                current_close > self.data.VWAP[-1]
+                current_close > self.vwap[-1]
             ]
             
             if all(entry_conditions):
                 risk_percent = 0.01
-                equity = self.broker.equity
+                equity = self.equity
                 risk_amount = equity * risk_percent
                 entry_price = self.data.Open[-1]  # Next candle's open
                 atr_value = self.atr_series[-1]
@@ -55,7 +91,7 @@ class AdaptiveSynergy(Strategy):
                         sl=stop_loss,
                         tp=take_profit
                     )
-                    print(f"🚀🌙 Moon Dev LONG Launch | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f"🚀🌙 Moon Dev LONG Launch | Size: {position_size} | Entry: {entry_price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
 
         else:
             # Exit conditions with Moon Dev vigilance 🌙
@@ -63,15 +99,37 @@ class AdaptiveSynergy(Strategy):
                 (self.macd_signal_line[-2] < self.macd_line[-2] and self.macd_signal_line[-1] > self.macd_line[-1]),  # Bearish crossover
                 self.rsi_series[-1] >= 70,
                 current_close < self.middle_bb[-1],
-                current_close < self.data.VWAP[-1]
+                current_close < self.vwap[-1]
             ]
             
             if any(exit_conditions):
                 self.position.close()
-                print(f"🌑🌙 Moon Dev Exit Signal | Price: {current_close:.2f} | Equity: {self.broker.equity:.2f}")
+                print(f"🌑🌙 Moon Dev Exit Signal | Price: {current_close:0.2f} | Equity: {self.equity:0.2f}")
 
 # Moon Dev Data Preparation Ritual 🌙✨
-data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
+try:
+    data_path = get_data_file_path('BTC-USD-15m.csv')
+    data = pd.read_csv(data_path)
+    print(f"✅ Found data file at: {data_path}")
+except FileNotFoundError:
+    print("⚠️ No data file found, using sample data")
+    # Create sample data for testing
+    import numpy as np
+    dates = pd.date_range(start='2023-01-01', end='2023-12-01', freq='15min')
+    n = len(dates)
+    np.random.seed(42)
+    price = 30000 + np.cumsum(np.random.randn(n) * 100)
+    
+    data = pd.DataFrame({
+        'datetime': dates,
+        'Open': price + np.random.randn(n) * 50,
+        'High': price + np.abs(np.random.randn(n) * 100),
+        'Low': price - np.abs(np.random.randn(n) * 100),
+        'Close': price,
+        'Volume': np.random.randint(100, 10000, n)
+    })
+
+# Clean columns
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
 data = data.rename(columns={
@@ -81,10 +139,13 @@ data = data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 })
-data['datetime'] = pd.to_datetime(data['datetime'])
-data = data.set_index('datetime')
+
+# Set datetime index
+if 'datetime' in data.columns:
+    data['datetime'] = pd.to_datetime(data['datetime'])
+    data = data.set_index('datetime')
 
 # Execute Moon Dev Backtest Ritual 🌙💫
-bt = Backtest(data, AdaptiveSynergy, cash=1_000_000, commission=.002)
+bt = Backtest(data, AdaptiveSynergy, cash=1_000_000, commission=0.002)
 stats = bt.run()
-print(f"🌙✨ Moon Dev
+print(f"🌙✨ Moon Dev Backtest Complete! Return: {stats['Return [%]']:0.2f}% | Sharpe: {stats['Sharpe Ratio']:0.2f}")

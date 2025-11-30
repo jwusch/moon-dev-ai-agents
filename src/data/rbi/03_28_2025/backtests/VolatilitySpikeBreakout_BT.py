@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITY SPIKE BREAKOUT STRATEGY
-
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -34,11 +30,20 @@ class VolatilitySpikeBreakout(Strategy):
     
     def init(self):
         # 🌙✨ INDICATOR CALCULATIONS
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low, 
-                          close=self.data.Close, 
-                          volume=self.data.Volume)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         self.std_dev = self.I(talib.STDDEV, 
                              self.data.Close, 
@@ -62,7 +67,7 @@ class VolatilitySpikeBreakout(Strategy):
             self.daily_equity = self.equity
             self.last_day = current_day
         if (self.equity - self.daily_equity)/self.daily_equity <= -0.05:
-            print("🌙🛑 MOON DEV ALERT: Daily loss limit triggered!")
+#             print("🌙🛑 MOON DEV ALERT: Daily loss limit triggered!")
             return
             
         # 🌙 LIQUIDITY HOURS FILTER (00:00-04:00 UTC)
@@ -105,7 +110,7 @@ class VolatilitySpikeBreakout(Strategy):
         risk_per_share = abs(entry_price - stop_price)
         
         if risk_per_share == 0:
-            return  # 🌙 Safety check
+            return  #  Safety check
             
         # 🌙 POSITION SIZING
         risk_amount = self.risk_pct * self.equity

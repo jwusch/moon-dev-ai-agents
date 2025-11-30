@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder usage with manual checks. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -61,7 +58,7 @@ class LiquidationSpikeBreakout(Strategy):
                 self.spike_high = current_high
                 self.spike_low = current_low
                 self.in_spike_setup = True
-                print(f"🌙✨ MOON DEV ALERT: Liquidation spike detected! {self.data.index[-1]} High: {self.spike_high}")
+#                 print(f"🌙✨ MOON DEV ALERT: Liquidation spike detected! {self.data.index[-1]} High: {self.spike_high}")
         
         # Check for breakout entries
         if self.in_spike_setup and not self.position:
@@ -76,7 +73,7 @@ class LiquidationSpikeBreakout(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.buy(size=size, sl=sl_price, tag="LiquidationBreakoutLong")
-                    print(f"🚀🌙 MOON DEV TRADE: LONG ENTRY! Size: {size} @ {entry_price}")
+#                     print(f"🚀🌙 MOON DEV TRADE: LONG ENTRY! Size: {size} @ {entry_price}")
                     self.in_spike_setup = False
             
             # Short entry
@@ -90,4 +87,4 @@ class LiquidationSpikeBreakout(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.sell(size=size, sl=sl_price, tag="LiquidationBreakoutShort")
-                    print(f"🌙💥 MOON DEV TRADE: SHORT ENTRY! Size
+#                     print(f"🌙💥 MOON DEV TRADE: SHORT ENTRY! Size"

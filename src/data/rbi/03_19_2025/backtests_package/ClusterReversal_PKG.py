@@ -1,6 +1,3 @@
-Here's the fixed code with all the necessary changes and improvements, ensuring no `backtesting.lib` imports or functions are used:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -54,7 +51,7 @@ class ClusterReversal(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("🌙 Lunar indicators initialized! Ready for launch 🚀")
+        print(" Lunar indicators initialized! Ready for launch ")
 
     def next(self):
         if len(self.data) < 20:
@@ -85,8 +82,8 @@ class ClusterReversal(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tp=current_close - 2*(stop_loss-current_close))
-                        print(f"🌑 BEARISH REVERSAL! Short {position_size} @ {current_close:.2f}")
-                        print(f"   🛑 SL: {stop_loss:.2f} | 🎯 TP: {current_close - 2*(stop_loss-current_close):.2f}")
+                        print(f" BEARISH REVERSAL! Short {position_size} @ {current_close:.2f}")
+                        print(f"    SL: {stop_loss:.2f} |  TP: {current_close - 2*(stop_loss-current_close):.2f}")
 
             # Long signal constellation 🌕
             elif ha_bullish and not prev_ha_bullish and volatility_ok:

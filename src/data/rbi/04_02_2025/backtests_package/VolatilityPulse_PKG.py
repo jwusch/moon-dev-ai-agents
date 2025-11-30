@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 Moon Dev's Volatility Pulse Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -24,7 +20,7 @@ def load_data(path):
     return data
 
 class VolatilityPulse(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌗 Calculate indicators using TA-Lib
@@ -33,13 +29,13 @@ class VolatilityPulse(Strategy):
         self.atr_ma = self.I(talib.SMA, self.atr, timeperiod=20, name='ATR_MA_20')
         self.vix_sma = self.I(talib.SMA, self.data['vix'], timeperiod=10, name='VIX_SMA_10')
         
-        print("✨ Indicators Initialized:")
+        print(" Indicators Initialized:")
         print(f"   ATR(14): {self.atr[-1]:.2f}")
         print(f"   ATR MA(20): {self.atr_ma[-1]:.2f}")
         print(f"   VIX SMA(10): {self.vix_sma[-1]:.2f}")
     
     def next(self):
-        print(f"\n🌙 Processing {self.data.index[-1]}")
+        print(f"\n Processing {self.data.index[-1]}")
         
         # Skip early bars
         if len(self.data) < 20: return
@@ -59,7 +55,7 @@ class VolatilityPulse(Strategy):
         forbidden = (pd.Timestamp('00:00') <= time <= pd.Timestamp('00:30')) or \
                     (pd.Timestamp('23:30') <= time <= pd.Timestamp('23:59:59'))
         
-        print(f"✨ ATR CROSS: {atr_cross} | VIX FILTER: {vix_filter}")
+        print(f" ATR CROSS: {atr_cross} | VIX FILTER: {vix_filter}")
         print(f"⏰ Time Check: {time} | Forbidden: {forbidden}")
         
         # 🚀 Long entry logic
@@ -70,19 +66,19 @@ class VolatilityPulse(Strategy):
             position_size = int(round(risk_amount / stop_distance))
             
             if position_size > 0:
-                print(f"🚀 BUY SIGNAL! Size: {position_size}")
+                print(f" BUY SIGNAL! Size: {position_size}")
                 self.buy(size=position_size)
                 # Initialize trailing stop
                 self.highest_high = self.data.High[-1]
                 self.position.sl = self.highest_high - 2 * current_atr
-                print(f"🔐 Initial SL: {self.position.sl:.2f}")
+                print(f" Initial SL: {self.position.sl:.2f}")
         
         # 🔄 Update trailing stop for open positions
         if self.position:
             # Update highest high
             if self.data.High[-1] > self.highest_high:
                 self.highest_high = self.data.High[-1]
-                print(f"🌕 New High! {self.highest_high:.2f}")
+                print(f" New High! {self.highest_high:.2f}")
             
             # Update stop loss
             new_sl = self.highest_high - 2 * self.atr[-1]

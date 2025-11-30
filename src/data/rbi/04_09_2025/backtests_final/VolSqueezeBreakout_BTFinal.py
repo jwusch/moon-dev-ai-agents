@@ -1,8 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOL SQUEEZE BREAKOUT STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -64,10 +59,10 @@ class VolSqueezeBreakout(Strategy):
             return
 
         # 🌙 MOON DEV DEBUG PRINTS ✨
-        print(f"\n🌕 DATE: {self.data.index[-1]} | PRICE: {self.data.Close[-1]:.2f}")
-        print(f"🔍 BB WIDTH: {self.bb_width[-1]:.4f} | 6M LOW: {self.bb_width_min[-1]:.4f}")
-        print(f"📈 VOLUME: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
-        print(f"⚡ ATR(14): {self.atr[-1]:.2f}")
+        print(f"\n DATE: {self.data.index[-1]} | PRICE: {self.data.Close[-1]:.2f}")
+        print(f" BB WIDTH: {self.bb_width[-1]:.4f} | 6M LOW: {self.bb_width_min[-1]:.4f}")
+        print(f" VOLUME: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
+        print(f" ATR(14): {self.atr[-1]:.2f}")
 
         # ENTRY LOGIC 🚪
         if not self.position:

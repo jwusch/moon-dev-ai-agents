@@ -1,8 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of `crossover` or `crossunder` with manual implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLDELTABREAKOUT STRATEGY 🚀✨
-
 import pandas as pd
 import numpy as np
 import talib
@@ -27,7 +22,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolDeltaBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     consecutive_losses = 0
     entry_bar = None
     
@@ -51,7 +46,7 @@ class VolDeltaBreakout(Strategy):
     def next(self):
         # 🌑 Risk Management: Check consecutive losses
         if self.consecutive_losses >= 3:
-            print("🌑🌙 MOON DEV RISK ALERT: 3 consecutive losses - pausing trades")
+#             print("🌑🌙 MOON DEV RISK ALERT: 3 consecutive losses - pausing trades")
             return
             
         # 🚀 Entry Logic
@@ -68,7 +63,7 @@ class VolDeltaBreakout(Strategy):
                 vol_delta_ma = self.volume_delta_ma[-2]
                 if vol_delta >= vol_delta_ma * 1.25 and vol_delta_ma != 0:
                     self.enter_long()
-                    print(f"🚀🌙 MOON DEV LONG ENTRY | Price: {self.data.Close[-1]:.2f}")
+#                     print(f"🚀🌙 MOON DEV LONG ENTRY | Price: {self.data.Close[-1]:.2f}")
             
             # Short Entry Conditions 🌑
             elif self.data.Close[-2] < lower_band:
@@ -76,7 +71,7 @@ class VolDeltaBreakout(Strategy):
                 vol_delta_ma = self.volume_delta_ma[-2]
                 if vol_delta <= vol_delta_ma * 0.75 and vol_delta_ma != 0:
                     self.enter_short()
-                    print(f"🌑🌙 MOON DEV SHORT ENTRY | Price: {self.data.Close[-1]:.2f}")
+#                     print(f"🌑🌙 MOON DEV SHORT ENTRY | Price: {self.data.Close[-1]:.2f}")
         
         # ✨ Exit Logic
         else:
@@ -88,4 +83,4 @@ class VolDeltaBreakout(Strategy):
                 lower_band = current_vwap - 2 * current_atr
                 if (self.data.Close[-1] < current_vwap) or (self.data.Low[-1] <= lower_band):
                     self.position.close()
-                    print(f"🌑🌙 MOON DEV LONG EXIT | Price: {self.data.Close[-1]:
+#                     print(f"🌑🌙 MOON DEV LONG EXIT | Price: {self.data.Close[-1]:"

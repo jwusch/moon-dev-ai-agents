@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's VoltaicBreakout Backtest Script 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -36,7 +33,7 @@ data.set_index('datetime', inplace=True)
 # ========================
 
 class VoltaicBreakout(Strategy):
-    risk_pct = 0.01  # 🌑 1% risk per trade
+    risk_pct = 0.01  #  1% risk per trade
     
     def init(self):
         # 🌗 Bollinger Bands (20,2)
@@ -50,10 +47,10 @@ class VoltaicBreakout(Strategy):
         self.atr = self.I(lambda h,l,c: talib.ATR(h,l,c,14), 
                          self.data.High, self.data.Low, self.data.Close)
         
-        self.entry_atr = None  # 🌕 Track ATR at entry
+        self.entry_atr = None  #  Track ATR at entry
 
     def next(self):
-        # 🌑 Moon Dev's Core Logic 🌑
+        # 🌑 Moon Dev's Core Logic 🌑'
         if not self.position:
             # 🌟 Long Entry: Close > BB_Upper & Volume < SMA(5)
             if self.data.Close[-1] > self.bb_upper[-1] and self.data.Volume[-1] < self.volume_sma[-1]:
@@ -63,7 +60,7 @@ class VoltaicBreakout(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size)
                         self.entry_atr = self.atr[-1]
-                        print(f"🌙✨🚀 MOON DEV LONG! Size: {position_size} @ {self.data.Close[-1]} 🚀")
+#                         print(f"🌙✨🚀 MOON DEV LONG! Size: {position_size} @ {self.data.Close[-1]} 🚀")
             
             # 🌟 Short Entry: Close < BB_Lower & Volume < SMA(5)
             elif self.data.Close[-1] < self.bb_lower[-1] and self.data.Volume[-1] < self.volume_sma[-1]:
@@ -73,20 +70,20 @@ class VoltaicBreakout(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size)
                         self.entry_atr = self.atr[-1]
-                        print(f"🌙✨🚀 MOON DEV SHORT! Size: {position_size} @ {self.data.Close[-1]} 🚀")
+#                         print(f"🌙✨🚀 MOON DEV SHORT! Size: {position_size} @ {self.data.Close[-1]} 🚀")
         else:
             # 🌗 Exit Logic: 2x ATR Trailing Stop
             if self.position.is_long:
                 exit_price = self.position.entry_price - 2*self.entry_atr
                 if self.data.Low[-1] <= exit_price:
                     self.position.close()
-                    print(f"🌙💥 LONG EXIT! Price fell 2xATR ({2*self.entry_atr:.1f}) 💥")
+                    print(f" LONG EXIT! Price fell 2xATR ({2*self.entry_atr:.1f}) ")
             
             elif self.position.is_short:
                 exit_price = self.position.entry_price + 2*self.entry_atr
                 if self.data.High[-1] >= exit_price:
                     self.position.close()
-                    print(f"🌙💥 SHORT EXIT! Price rose 2xATR ({2*self.entry_atr:.1f}) 💥")
+                    print(f" SHORT EXIT! Price rose 2xATR ({2*self.entry_atr:.1f}) ")
 
 # ========================
 # 🌕 BACKTEST EXEC

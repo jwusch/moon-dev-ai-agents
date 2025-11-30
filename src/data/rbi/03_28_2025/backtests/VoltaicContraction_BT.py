@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VoltaicContraction Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -70,7 +68,7 @@ class VoltaicContraction(Strategy):
 
     def next(self):
         # Moon Dev debug monitoring 🌙
-        print(f"🌙 Bar {len(self.data)} | Close: {self.data.Close[-1]:.2f} | "
+        print(f" Bar {len(self.data)} | Close: {self.data.Close[-1]:.2f} | "
               f"BW: {self.bandwidth[-1]:.4f} | ADX: {self.adx[-1]:.1f} | "
               f"RSI: {self.rsi[-1]:.1f} | ATR: {self.atr[-1]:.2f}")
 

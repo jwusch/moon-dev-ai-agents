@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -63,7 +62,7 @@ class VolClusterBreakout(Strategy):
     def next(self):
         # 🌙 Moon Dev Status Update
         if len(self.data) % 100 == 0:
-            print(f"🌙 Moon Pulse: Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BB%: {self.bb_width_pct[-1]:.1f}")
+            print(f" Moon Pulse: Bar {len(self.data)} | Price: {self.data.Close[-1]:.2f} | BB%: {self.bb_width_pct[-1]:.1f}")
 
         if self.position:
             self.bars_held += 1
@@ -88,7 +87,7 @@ class VolClusterBreakout(Strategy):
             risk = 1.5 * atr_value
             position_size = self.calculate_position_size(risk)
             if position_size > 0:
-                print(f"🚀🌕 MOON BLASTOFF LONG: {position_size} units")
+                print(f" MOON BLASTOFF LONG: {position_size} units")
                 self.buy(size=position_size, 
                         sl=close_price - risk,
                         tp=self.swing_high[-1])

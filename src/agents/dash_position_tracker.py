@@ -167,7 +167,7 @@ class DashPositionTracker:
         print(f"  Entry:    ${self.entry_size:.2f}")
         print(f"  Current:  ${data['position_value']:.2f}")
         color = "green" if data['pnl_price'] >= 0 else "red"
-        print(f"  P&L:      {colored(f'${data[\"pnl_price\"]:+.2f} ({data[\"pnl_price_pct\"]:+.1f}%)', color)}")
+        print(f"  P&L:      {colored(f'${data['pnl_price']:+.2f} ({data['pnl_price_pct']:+.1f}%)', color)}")
 
         # Funding
         print(f"\n" + colored(" FUNDING INCOME:", "yellow", attrs=['bold']))
@@ -176,7 +176,7 @@ class DashPositionTracker:
             print(colored(" (you get paid)", "green"))
         else:
             print(colored(" (you pay)", "red"))
-        print(f"  Earned:        {colored(f'${data[\"funding_earned\"]:.4f}', 'green')} ({data['funding_pct']:.4f}%)")
+        print(f"  Earned:        {colored(f'${data['funding_earned']:.4f}', 'green')} ({data['funding_pct']:.4f}%)")
 
         # Total
         print(f"\n" + colored(" TOTAL P&L:", "cyan", attrs=['bold']))
@@ -185,7 +185,7 @@ class DashPositionTracker:
         print(f"  Funding:       ${data['funding_earned']:+.4f}")
         print(f"  " + "-" * 30)
         color = "green" if data['total_pnl'] >= 0 else "red"
-        print(f"  TOTAL:         {colored(f'${data[\"total_pnl\"]:+.4f} ({data[\"total_pnl_pct\"]:+.2f}%)', color, attrs=['bold'])}")
+        print(f"  TOTAL:         {colored(f'${data['total_pnl']:+.4f} ({data['total_pnl_pct']:+.2f}%)', color, attrs=['bold'])}")
 
         # Projection
         if data['funding_earned'] > 0:

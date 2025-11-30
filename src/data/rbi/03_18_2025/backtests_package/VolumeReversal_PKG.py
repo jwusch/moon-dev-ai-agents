@@ -1,8 +1,3 @@
-Here's the fixed code with all the necessary changes to remove any `backtesting.lib` imports and functions, and to ensure proper indicator usage:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLUMEREVERSAL STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -60,11 +55,11 @@ class VolumeReversal(Strategy):
         # 🌔 MOMENTUM INDICATOR
         self.rsi = self.I(talib.RSI, self.data.Close, self.rsi_period, name='RSI')
         
-        print("🌙 MOON DEV INDICATORS INITIALIZED! 🚀")
+#         print("🌙 MOON DEV INDICATORS INITIALIZED! 🚀")
 
     def next(self):
         if self.position:
-            return  # 🌑 Only one position at a time
+            return  #  Only one position at a time
             
         # 🌟 CURRENT VALUES
         price = self.data.Close[-1]
@@ -90,4 +85,4 @@ class VolumeReversal(Strategy):
             position_size = int(round((self.equity * self.risk_pct) / risk))
             fib_exit = sl + 0.382*(sh - sl)
             self.sell(size=position_size, sl=stop_price, tp=fib_exit)
-            print(f"🚀 MOON DEV SHORT! 🌑 | Entry: {price:.2f} | Size: {position_size} | SL: {stop_price:.2f}
+#             print(f"🚀 MOON DEV SHORT! 🌑 | Entry: {price:.2f} | Size: {position_size} | SL: {stop_price:.2f}"

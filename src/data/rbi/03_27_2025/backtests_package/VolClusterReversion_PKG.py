@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
@@ -42,11 +38,11 @@ class VolClusterReversion(Strategy):
         self.low_10 = self.I(talib.MIN, self.data.Low, timeperiod=self.low_period)
         self.atr_ma = self.I(talib.SMA, self.atr, timeperiod=20)  # Volatility filter
         
-        print("🌙 MOON DEV STRATEGY INITIALIZED 🌙")
+#         print("🌙 MOON DEV STRATEGY INITIALIZED 🌙")
         print(f"| ATR Period: {self.atr_period}")
         print(f"| High Period: {self.high_period}")
         print(f"| Low Period: {self.low_period}")
-        print("✨ READY FOR LIFTOFF! 🚀\n")
+        print(" READY FOR LIFTOFF! \n")
 
     def next(self):
         price = self.data.Close[-1]
@@ -57,7 +53,7 @@ class VolClusterReversion(Strategy):
 
         # Moon Dev Volatility Check 🌙⚡
         if atr_value < atr_ma_value:
-            print("🌑 VOLATILITY TOO LOW - STANDING ASIDE")
+            print(" VOLATILITY TOO LOW - STANDING ASIDE")
             return
 
         # Calculate trading signals
@@ -74,7 +70,7 @@ class VolClusterReversion(Strategy):
                 position_size = int(round(risk_amount / risk_per_unit))
                 
                 if position_size > 0:
-                    print(f"\n🚀 MOON DEV LONG SIGNAL 🌙")
+#                     print(f"\n🚀 MOON DEV LONG SIGNAL 🌙")
                     print(f"| Price: {price:.2f}")
                     print(f"| Entry Level: {long_entry_level:.2f}")
                     print(f"| Position Size: {position_size}")
@@ -84,7 +80,7 @@ class VolClusterReversion(Strategy):
         
         else:
             if price >= exit_level:
-                print(f"\n🌕 MOON DEV EXIT SIGNAL 🌙")
+#                 print(f"\n🌕 MOON DEV EXIT SIGNAL 🌙")
                 print(f"| Price reached target: {price:.2f}")
                 self.position.close()
 
@@ -92,7 +88,7 @@ class VolClusterReversion(Strategy):
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = load_data(data_path)
 
-print("🌙 INITIATING MOON DEV BACKTEST 🌙")
+# print("🌙 INITIATING MOON DEV BACKTEST 🌙")
 print("|----------------------------------")
 print(f"| Data Points: {len(data)}")
 print(f"| Start Date: {data.index[0]}")

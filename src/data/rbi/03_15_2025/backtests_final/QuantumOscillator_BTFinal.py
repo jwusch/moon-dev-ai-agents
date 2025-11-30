@@ -1,7 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 Moon Dev's QuantumOscillator Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -31,7 +27,7 @@ class QuantumOscillator(Strategy):
         # Average True Range
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period, name='ATR')
         
-        print("🌌 QuantumOscillator Strategy Initialized! 🚀")
+#         print("🌌 QuantumOscillator Strategy Initialized! 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -40,7 +36,7 @@ class QuantumOscillator(Strategy):
         current_atr = self.atr[-1]
         
         # Moon-themed debug prints ✨
-        print(f"🌙 Current Close: {current_close:.2f} | QVI: {current_qvi:.2f} | RSI: {current_rsi:.2f} | ATR: {current_atr:.2f}")
+        print(f" Current Close: {current_close:.2f} | QVI: {current_qvi:.2f} | RSI: {current_rsi:.2f} | ATR: {current_atr:.2f}")
         
         # Risk Management Calculations
         equity = self.equity
@@ -50,12 +46,12 @@ class QuantumOscillator(Strategy):
         # Volatility adjustment
         if current_qvi > 70:
             position_size *= 0.5
-            print("⚡ Volatility Alert! Reducing position size by 50%")
+            print(" Volatility Alert! Reducing position size by 50%")
         
         # Ensure position size is a whole number
         position_size = int(round(position_size))
         if position_size < 1:
-            print("🌑 Position size too small, skipping trade")
+            print(" Position size too small, skipping trade")
             return  # Skip trade if size too small
             
         # Entry Logic
@@ -76,7 +72,7 @@ class QuantumOscillator(Strategy):
                 sl = current_close - 0.75 * current_atr
                 tp = current_close + 1.5 * current_atr
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🚀 LONG ENTRY! Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" LONG ENTRY! Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
             
             # Short Entry Conditions
             elif (current_qvi > 70 and
@@ -86,4 +82,4 @@ class QuantumOscillator(Strategy):
                 sl = current_close + 0.75 * current_atr
                 tp = current_close - 1.5 * current_atr
                 self.sell(size=position_size, sl=sl, tp=tp)
-                print(f"🌧️ SHORT ENTRY! Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" SHORT ENTRY! Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")

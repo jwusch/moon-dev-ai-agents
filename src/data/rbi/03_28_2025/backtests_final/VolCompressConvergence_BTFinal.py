@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -32,7 +29,7 @@ def rolling_percentile(series, window, percentile):
     return series.rolling(window).quantile(percentile)
 
 class VolCompressConvergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     max_trades = 3   # Maximum concurrent trades
     
     def init(self):
@@ -46,8 +43,20 @@ class VolCompressConvergence(Strategy):
         self.bb_low_percentile = self.I(rolling_percentile, self.bb_width, 100, 0.1)
         
         # Price-VWAP convergence ✨
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low,
-                          close=self.data.Close, volume=self.data.Volume, anchor='D')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # ATR for risk management 🚀
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low,
@@ -81,7 +90,7 @@ class VolCompressConvergence(Strategy):
                             'atr_entry': current_atr
                         }
                     )
-                    print(f"🌙✨ MOON DEV ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} | ATR: {current_atr:.2f}")
+#                     print(f"🌙✨ MOON DEV ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} | ATR: {current_atr:.2f}")
 
         # Check exits for all open trades 🌑
         for trade in self.trades:

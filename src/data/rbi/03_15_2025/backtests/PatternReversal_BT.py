@@ -68,8 +68,8 @@ class PatternReversal(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌙🚀 MOON DEV ENTRY at {self.data.Close[-1]:.2f}")
-                    print(f"Size: {position_size} | SL: {stop_loss:.2f} | TP: {self.neckline + (self.neckline - self.head_low):.2f}")
+                    print(f"🌙🚀 MOON DEV ENTRY at {self.data.Close[-1]:0.2f}")
+                    print(f"Size: {position_size} | SL: {stop_loss:0.2f} | TP: {self.neckline + (self.neckline - self.head_low):0.2f}")
 
     def find_shoulder(self, head_idx, direction):
         # Shoulder detection logic 👥

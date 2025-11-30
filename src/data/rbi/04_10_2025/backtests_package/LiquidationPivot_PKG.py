@@ -1,6 +1,3 @@
-I've analyzed the code and found it's already clean of any `backtesting.lib` imports or functions - great job! The code properly uses talib for indicators and avoids forbidden imports. Here's the verified code with some Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -57,17 +54,17 @@ class LiquidationPivot(Strategy):
                               self.swing_period,
                               name='SWING_LOW')
 
-        print("🌙 Lunar Indicators Activated! 🚀")
-        print("✨ Pivot System Online | Volume Radar Scanning | Swing Detector Engaged ✨")
+        print(" Lunar Indicators Activated! ")
+        print(" Pivot System Online | Volume Radar Scanning | Swing Detector Engaged ")
 
     def next(self):
         # Skip weekends and Friday nights
         current_dt = self.data.index[-1]
         if current_dt.weekday() >= 5 or (current_dt.weekday() == 4 and current_dt.hour >= 20):
-            print(f"🌙 Skipping low liquidity period: {current_dt} ✨")
+            print(f" Skipping low liquidity period: {current_dt} ")
             return
 
-        print(f"🌙 Price: {self.data.Close[-1]:.2f} | Pivot: {self.pivot[-1]:.2f} | Volume: {self.data.Volume[-1]:.0f} ✨")
+        print(f" Price: {self.data.Close[-1]:.2f} | Pivot: {self.pivot[-1]:.2f} | Volume: {self.data.Volume[-1]:.0f} ")
 
         if not self.position:
             # Entry conditions
@@ -80,7 +77,7 @@ class LiquidationPivot(Strategy):
                 risk_per_unit = sl_price - self.data.Close[-1]
                 
                 if risk_per_unit <= 0:
-                    print("🚨 Invalid risk value - aborting launch! 🌙")
+                    print(" Invalid risk value - aborting launch! ")
                     return
                 
                 position_size = int(round((self.equity * self.risk_pct) / risk_per_unit))
@@ -91,10 +88,10 @@ class LiquidationPivot(Strategy):
                             tp=self.swing_low[-1],
                             tag="Liquidation Cascade Short")
                     
-                    print(f"🚀 SHORT INITIATED! 🌙")
+                    print(f" SHORT INITIATED! ")
                     print(f"   Size: {position_size} units")
                     print(f"   Entry: {self.data.Close[-1]:.2f}")
-                    print(f"   SL: {sl_price:.2f} | TP: {self.swing_low[-1]:.2f} ✨")
-                    print("🌑🌒🌓🌔🌕🌖🌗🌘🌑")
+                    print(f"   SL: {sl_price:.2f} | TP: {self.swing_low[-1]:.2f} ")
+                    print("")
 
 # Execute back

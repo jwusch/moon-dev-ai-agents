@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's FlowMomentum Backtest Implementation 🚀
-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -28,7 +25,7 @@ class FlowMomentum(Strategy):
         # 🌙 Check for new OBV crossover
         if crossover(self.obv, self.obv_ma):
             self.signal_bar = len(self.data) - 1
-            print(f"✨ Potential Moon Signal Detected at {self.data.index[-1]}")
+            print(f" Potential Moon Signal Detected at {self.data.index[-1]}")
 
         # Check active signal status
         if self.signal_bar == -1:
@@ -75,7 +72,7 @@ class FlowMomentum(Strategy):
                         tp=take_profit,
                         tag="Moon Momentum Entry"
                     )
-                    print(f"🚀🌙 LONG ENTRY | Size: {position_size} | Price: {current_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f" LONG ENTRY | Size: {position_size} | Price: {current_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
                     self.signal_bar = -1
 
         # Exit conditions for open positions
@@ -83,7 +80,7 @@ class FlowMomentum(Strategy):
             # 🌘 Momentum reversal exit
             if crossover(self.obv_ma, self.obv):
                 self.position.close()
-                print(f"🌒🌊 Momentum Reversal Exit at {self.data.Close[-1]:.2f}")
+                print(f" Momentum Reversal Exit at {self.data.Close[-1]:.2f}")
 
 # Data preparation 🌍
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

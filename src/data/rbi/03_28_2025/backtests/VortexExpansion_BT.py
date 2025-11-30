@@ -1,14 +1,3 @@
-To address this problem, we need to create a backtesting implementation for the VortexExpansion strategy using the backtesting.py framework. The strategy involves using the Vortex Indicator and ATR for entry and exit signals, along with proper risk management and position sizing.
-
-### Approach
-1. **Data Handling**: Load and preprocess the data to ensure proper column names and formatting.
-2. **Indicator Calculation**: Compute the Vortex Indicator (VI+ and VI-) using pandas_ta and the ATR values using TA-Lib, ensuring they are added as indicators using the `self.I()` wrapper.
-3. **Entry/Exit Logic**: Implement the logic for entering long positions when VI+ crosses above VI- and ATR is expanding, and exiting when VI+ crosses below VI- or ATR contracts.
-4. **Risk Management**: Calculate position sizes based on a fixed percentage of equity risk and round to the nearest integer to comply with backtesting.py's requirements.
-5. **Execution**: Run the backtest with an initial cash amount of 1,000,000 and print the results.
-
-### Solution Code
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -82,4 +71,4 @@ class VortexExpansion(Strategy):
             position_size = int(round(risk_amount / risk_per_share))
             position_size = max(1, position_size)  # Minimum 1 unit
             
-            print(f"🌙✨ MOON DEV LONG SIGNAL ✨ Entry: {entry_price:.
+#             print(f"🌙✨ MOON DEV LONG SIGNAL ✨ Entry: {entry_price:."

@@ -1,121 +1,173 @@
-class PositionSizingMethod:
-    """Fixed fractional sizing."""
-    def get_size(self, account_balance, risk_free_rate):
-        max_risk = 0.02  # 2% maximum daily risk
-        position_size = (max_risk * account_balance) / (risk_free_rate * 100)
-        return int(position_size)
-
-# Include PSM in strategy
-bt.psm = PositionSizingMethod(bt.account_balance, getcurve(bt.data, 'C', 0))
-
-def calculate_vix(self, high_data, low_data):
-    """Calculate VIX using ATR."""
-    return talib.ATR(np.array(high_data), np.array(low_data), np.array(close_data))
-
-# Slice data correctly before passing to I()
-vix =bt.I('VIX', self.data, 14).get()
-vix = vix[-len(data):]  # Ensure it matches the correct length
-
-stats = bt.run()
-
-print("🌕 MOON DEV BACKTEST RESULTS 🌕")
-print(f"Total Trades: {stats.total_trades}")
-print(f"Winning Ratio: {stats.winning_ratio:.2%}")
-print(f"Profit Factor: {stats.profit_factor:.2f}")
-
-# Execute starlight sequence
-bt.run()
-stats = bt.run()
-
-print("🌕 MOON DEV BACKTEST RESULTS 🌕")
-print(stats._strategy)
-
+# 🌙 Moon Dev Correlation Reversal Strategy
 import pandas as pd
-from backtrader import I, getcurve
-from backtrader.dataSource import CSVSource
-from backtrader.trader import Backtest
 import numpy as np
+import talib
+from backtesting import Backtest, Strategy
+import os
+import sys
 
-class PositionSizingMethod:
-    def __init__(self, account_balance, risk_free_rate):
-        self.account_balance = account_balance
-        self.risk_free_rate = risk_free_rate
+# Add parent directories to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+# Import utils for dynamic path resolution
+try:
+    from utils import get_data_file_path, prepare_backtest_data
+except ImportError:
+    # Fallback if utils not found
+    def get_data_file_path(filename='BTC-USD-15m.csv'):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        paths = [
+            os.path.join(script_dir, '..', '..', filename),
+            os.path.join(script_dir, '..', '..', 'rbi', filename),
+            '/mnt/c/Users/jwusc/moon-dev-ai-agents/src/data/rbi/BTC-USD-15m.csv',
+            '/mnt/c/Users/jwusc/moon-dev-ai-agents/src/data/BTC-USD-15m.csv'
+        ]
+        for path in paths:
+            if os.path.exists(path):
+                return path
+        raise FileNotFoundError(f"Could not find {filename}")
+
+class CorrelationReversal(Strategy):
+    # Parameters
+    vix_period = 14
+    corr_period = 20
+    risk_per_trade = 0.02  # 2% risk per trade
     
-    def get_size(self):
-        max_risk = 0.02  # 2% maximum daily risk
-        position_size = (max_risk * self.account_balance) / (self.risk_free_rate * 100)
-        return int(position_size)
-
-class CorrelationReversal(CorrelationStrategy):
-    def __init__(self, data, params):
-        super().__init__(data, params)
-        self.vix_period = params.get('vix', 14)
-        self.corr_period = params.get('corr', 20)
-        self.risk_free_rate = params.get('rf', 0.02)  # Assume 2% risk-free rate
-
-    def preinit(self):
-        self.vix = None
-        self.corr = None
-    
-    def start(self):
-        super().start()
-        self.psm = PositionSizingMethod(self.account_balance, self.risk_free_rate)
+    def init(self):
+        # 🌙 Calculate ATR (VIX proxy)
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.vix_period)
         
-    def log_price(self, price):
-        if not self.position:
-            return
+        # 🌙 Calculate price rate of change for correlation
+        self.roc = self.I(talib.ROC, self.data.Close, timeperiod=1)
         
-        # Calculate VIX and Correlation
-        high_data, low_data, close_data = self.data.get asset_high(), self.data.asset_low(), self.data.asset_close()
-        vix = talib.ATR(np.array(high_data), np.array(low_data), np.array(close_data))
-        correlation = talib.CORREL(self.data(asset).get(size=self.corr_period), 
-                                self.data(asset).get(size=self.corr_period -1))
-        
-        self.vix = pd.Series(vix, index=self.data.get_datetimelabels())
-        self.corr = pd.Series(correlation, index=self.data.get_datetimelabels())
-
-    def next(self):
-        if not self.position:
-            return
-        
-        # Check PSM
-        position_size = self.psm.get_size()
-        
-        if len(self) >= 2 * position_size:  # Twice the position size to be safe
-            self.position = self.position * (1 / (position_size * 2))
+        # 🌙 Calculate moving correlation of returns
+        # Using rolling correlation between price and volume as proxy
+        def rolling_correlation(close, volume, period):
+            # Convert to pandas for correlation calculation
+            close_series = pd.Series(close)
+            volume_series = pd.Series(volume)
             
-        # Correlation Trading Logic
-        corr = self.corr[-1] if self.corr is not None else 0
+            # Calculate rolling correlation
+            corr = close_series.rolling(window=period).corr(volume_series)
+            return corr.fillna(0).values
         
-        if corr > 0.5 and len(self) >= position_size:
-            self.sell(size=position_size)
+        self.correlation = self.I(
+            rolling_correlation,
+            self.data.Close,
+            self.data.Volume,
+            self.corr_period,
+            name='CORRELATION'
+        )
         
-        elif corr < -0.5 and len(self) >= position_size:
-            self.buy(size=position_size)
+        # 🌙 Calculate RSI for additional confirmation
+        self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=14)
+        
+        # 🌙 Moving averages for trend
+        self.sma50 = self.I(talib.SMA, self.data.Close, timeperiod=50)
+        self.sma200 = self.I(talib.SMA, self.data.Close, timeperiod=200)
+        
+    def next(self):
+        current_price = self.data.Close[-1]
+        current_atr = self.atr[-1]
+        current_corr = self.correlation[-1]
+        current_rsi = self.rsi[-1]
+        
+        print(f"🌙 Moon Dev | Price: {current_price:0.2f} | ATR: {current_atr:0.2f} | Corr: {current_corr:0.3f}")
+        
+        if not self.position:
+            # 🚀 Entry Logic - Look for correlation reversals
+            # Low correlation suggests decorrelation and potential reversal
+            if (abs(current_corr) < 0.2 and  # Low correlation
+                current_rsi < 30 and  # Oversold
+                current_price > self.sma50[-1] and  # Above short-term MA
+                current_atr > self.atr[-20:].mean()):  # Volatility expansion
+                
+                # Calculate position size
+                equity = self.equity
+                risk_amount = equity * self.risk_per_trade
+                stop_loss = current_price - (2 * current_atr)
+                risk_per_share = current_price - stop_loss
+                
+                if risk_per_share > 0:
+                    position_size = int(risk_amount / risk_per_share)
+                    take_profit = current_price + (3 * current_atr)
+                    
+                    self.buy(size=position_size, sl=stop_loss, tp=take_profit)
+                    print(f"🚀 LONG Entry | Size: {position_size} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
+                    
+            # 📉 Short entry conditions
+            elif (abs(current_corr) < 0.2 and  # Low correlation
+                  current_rsi > 70 and  # Overbought
+                  current_price < self.sma50[-1] and  # Below short-term MA
+                  current_atr > self.atr[-20:].mean()):  # Volatility expansion
+                
+                # Calculate position size
+                equity = self.equity
+                risk_amount = equity * self.risk_per_trade
+                stop_loss = current_price + (2 * current_atr)
+                risk_per_share = stop_loss - current_price
+                
+                if risk_per_share > 0:
+                    position_size = int(risk_amount / risk_per_share)
+                    take_profit = current_price - (3 * current_atr)
+                    
+                    self.sell(size=position_size, sl=stop_loss, tp=take_profit)
+                    print(f"📉 SHORT Entry | Size: {position_size} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
+        
+        else:
+            # 🛑 Exit conditions - High correlation suggests trend continuation
+            if abs(current_corr) > 0.7:  # High correlation, trend following
+                self.position.close()
+                print(f"🛑 Exit Position | High Correlation: {current_corr:0.3f}")
 
-# Backtest parameters
-params = dict(
-    vix=14,
-    corr=20,
-    account_balance=100000,  # $100k initial capital
-    risk_free_rate=0.02      # 2% annual risk-free rate
-)
+# 🌙 Load data
+try:
+    data_path = get_data_file_path('BTC-USD-15m.csv')
+    data = pd.read_csv(data_path)
+    print(f"✅ Found data file at: {data_path}")
+except FileNotFoundError:
+    print("⚠️ No data file found, generating sample data")
+    dates = pd.date_range(start='2023-01-01', end='2023-12-01', freq='15min')
+    n = len(dates)
+    np.random.seed(42)
+    price = 30000 + np.cumsum(np.random.randn(n) * 100)
+    
+    data = pd.DataFrame({
+        'datetime': dates,
+        'Open': price + np.random.randn(n) * 50,
+        'High': price + np.abs(np.random.randn(n) * 100),
+        'Low': price - np.abs(np.random.randn(n) * 100),
+        'Close': price,
+        'Volume': np.random.randint(100, 10000, n)
+    })
 
-# Create data source
-data = CSVSource(
-    data='path_to_data.csv',  # Replace with your CSV path
-    dt=(lambda x: pd.to_datetime(x, utc=True)),
-    na='nan',
-    Header=0,
-    sep=','
-)
+# Clean and prepare data
+data.columns = data.columns.str.strip().str.lower()
+data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
+data = data.rename(columns={
+    'open': 'Open',
+    'high': 'High',
+    'low': 'Low',
+    'close': 'Close',
+    'volume': 'Volume'
+})
 
-# Run backtest
-bt = Backtest(data, CorrelationReversal, params=params)
-bt.run()
+if 'datetime' in data.columns:
+    data['datetime'] = pd.to_datetime(data['datetime'])
+    data = data.set_index('datetime')
 
-# Display results after PSM setup and execution
-print("🌕 MOON DEV BACKTEST RESULTS 🌕")
-print(f"Total Trades: {bt.stats.total_trades}")
-print(f"Winning Ratio: {bt.stats.winning_ratio:.2%}")
-print(f"Profit Factor: {bt.stats.profit_factor:.2f}")
+# 🚀 Run backtest
+bt = Backtest(data, CorrelationReversal, cash=1_000_000, commission=0.002)
+stats = bt.run()
+
+# 🌕 Print results
+print("\n🌕 MOON DEV BACKTEST RESULTS 🌕")
+print("="*50)
+print(f"Return [%]: {stats['Return [%]']:0.2f}")
+print(f"Max Drawdown [%]: {stats['Max. Drawdown [%]']:0.2f}")
+print(f"Sharpe Ratio: {stats['Sharpe Ratio']:0.2f}")
+print(f"Win Rate [%]: {stats['Win Rate [%]']:0.2f}")
+print(f"Profit Factor: {stats['Profit Factor']:0.2f}")
+print(f"Total Trades: {stats['# Trades']}")
+print("="*50)

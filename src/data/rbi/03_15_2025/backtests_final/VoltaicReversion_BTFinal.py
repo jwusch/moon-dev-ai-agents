@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -71,7 +68,7 @@ class VoltaicReversion(Strategy):
         for trade in self.trades:
             # Time-based exit (5 days in 15m intervals)
             if len(self.data) - trade.entry_bar >= 480:
-                print(f"🌙⏰ Time exit after 5 days! Closing {trade.tag['type']}")
+                print(f"⏰ Time exit after 5 days! Closing {trade.tag['type']}")
                 trade.close()
                 continue
             
@@ -80,10 +77,10 @@ class VoltaicReversion(Strategy):
 
             # Stellar exit conditions 🌟
             if trade.tag['type'] == 'long' and (self.stoch_k[-1] >= 80 or self.stoch_d[-1] >= 80):
-                print(f"🌙📈 Overbought supernova! Closing long")
+                print(f" Overbought supernova! Closing long")
                 trade.close()
             elif trade.tag['type'] == 'short' and (self.stoch_k[-1] <= 20 or self.stoch_d[-1] <= 20):
-                print(f"🌙📉 Oversold black hole! Closing short")
+                print(f" Oversold black hole! Closing short")
                 trade.close()
 
     def enter_long(self):

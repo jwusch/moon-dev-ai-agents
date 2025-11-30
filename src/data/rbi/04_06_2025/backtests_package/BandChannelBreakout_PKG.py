@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper alternatives, and Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's BandChannelBreakout Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -76,7 +72,7 @@ class BandChannelBreakout(Strategy):
                    (self.data.Close[-1] < self.kc_upper[-1]) or \
                    (duration >= self.max_duration)):
                     self.position.close()
-                    print(f"🌙 Moon Exit | LONG CLOSE | Price: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f} ✨")
+                    print(f" Moon Exit | LONG CLOSE | Price: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f} ")
             
             else:  # Short position
                 if ((self.data.Close[-2] < self.sar[-2] and self.data.Close[-1] > self.sar[-1]) or \
@@ -84,7 +80,7 @@ class BandChannelBreakout(Strategy):
                    (self.data.Close[-1] > self.kc_lower[-1]) or \
                    (duration >= self.max_duration)):
                     self.position.close()
-                    print(f"🌙 Moon Exit | SHORT CLOSE | Price: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f} ✨")
+                    print(f" Moon Exit | SHORT CLOSE | Price: {self.data.Close[-1]:.2f} | RSI: {self.rsi[-1]:.2f} ")
 
         # 🌙 Entry Conditions
         if not self.position:

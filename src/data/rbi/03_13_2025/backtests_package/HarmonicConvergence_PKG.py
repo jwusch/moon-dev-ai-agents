@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with appropriate alternatives. I've also added Moon Dev themed debug prints for better visualization:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -50,8 +47,8 @@ class HarmonicConvergence(Strategy):
                     tp_price = current_close + self.rr_ratio * risk_per_share
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                        print(f"🌙🚀 BULLISH CONVERGENCE! LONG {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {sl_price:.2f}, 🎯 TP: {tp_price:.2f}")
+                        print(f" BULLISH CONVERGENCE! LONG {position_size} @ {current_close:.2f}")
+                        print(f"    SL: {sl_price:.2f},  TP: {tp_price:.2f}")
 
             # Short entry conditions
             elif self.sma50[-1] < self.sma200[-1] and current_ho < 0 and self.prev_ho >= 0:
@@ -62,15 +59,15 @@ class HarmonicConvergence(Strategy):
                     tp_price = current_close - self.rr_ratio * risk_per_share
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                        print(f"🌙🌒 BEARISH DIVERGENCE! SHORT {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️ SL: {sl_price:.2f}, 🎯 TP: {tp_price:.2f}")
+                        print(f" BEARISH DIVERGENCE! SHORT {position_size} @ {current_close:.2f}")
+                        print(f"    SL: {sl_price:.2f},  TP: {tp_price:.2f}")
 
         else:
             # Exit conditions
             if self.position.is_long:
                 if current_ho < 0 or self.sma50[-1] < self.sma200[-1]:
                     self.position.close()
-                    print(f"🌙✨ CLOSING LONG @ {current_close:.2f} - {'HO Reversal' if current_ho < 0 else 'MA Bearish Flip'}")
+                    print(f" CLOSING LONG @ {current_close:.2f} - {'HO Reversal' if current_ho < 0 else 'MA Bearish Flip'}")
 
             elif self.position.is_short:
                 if current_ho > 0 or self.sma50[-1] > self.sma200[-1]:

@@ -1,9 +1,3 @@
-Here's the fixed code with all Moon Dev themed improvements and proper indicator package usage:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILEBREAKOUT STRATEGY 🌙
-
-# ===== REQUIRED IMPORTS =====
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -26,7 +20,7 @@ data = data.rename(columns={
 
 # ===== STRATEGY IMPLEMENTATION =====
 class VolatileBreakout(Strategy):
-    risk_pct = 0.01  # 🌙 1% risk per trade as per Moon Dev standards 🌙
+#     risk_pct = 0.01  # 🌙 1% risk per trade as per Moon Dev standards 🌙
     
     def init(self):
         # 🌌 COSMIC INDICATOR CALCULATIONS 🌌
@@ -36,7 +30,7 @@ class VolatileBreakout(Strategy):
         self.recent_high = self.I(talib.MAX, self.data.High, timeperiod=20)
         self.recent_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("✨ MOON DEV INDICATORS INITIALIZED ✨")
+#         print("✨ MOON DEV INDICATORS INITIALIZED ✨")
 
     def next(self):
         # 🌑 MOON PHASE CHECK - ONLY TRADE WHEN INDICATORS ARE READY 🌑
@@ -65,7 +59,7 @@ class VolatileBreakout(Strategy):
         risk_per_share = entry_price - stop_loss
         
         if risk_per_share <= 0:
-            print("🌑 MOON DEV ABORT: Negative risk detected!")
+#             print("🌑 MOON DEV ABORT: Negative risk detected!")
             return
 
         # 🪐 ASTROLOGICAL RISK MANAGEMENT 🪐
@@ -74,7 +68,7 @@ class VolatileBreakout(Strategy):
         position_size = int(round(position_size))
         
         if position_size <= 0:
-            print("🌒 CRESCENT WARNING: Position size too small!")
+            print(" CRESCENT WARNING: Position size too small!")
             return
 
         take_profit = entry_price + 2 * risk_per_share
@@ -85,7 +79,7 @@ class VolatileBreakout(Strategy):
                 tp=take_profit,
                 tag="MoonDev Long Position")
         
-        print(f"🌕 MOON DEV LONG ENTRY 🌕 | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+#         print(f"🌕 MOON DEV LONG ENTRY 🌕 | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
     def enter_short(self):
         # 🌑 DARK SIDE POSITION SIZING 🌑

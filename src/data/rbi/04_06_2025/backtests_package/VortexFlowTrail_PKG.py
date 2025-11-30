@@ -1,6 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the crossover functions with manual comparisons. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -66,7 +63,7 @@ class VortexFlowTrail(Strategy):
                           timeperiod=self.atr_period,
                           name='ATR')
 
-        print("🌙✨ VortexFlowTrail initialized with Moon Dev precision! Parameters:")
+#         print("🌙✨ VortexFlowTrail initialized with Moon Dev precision! Parameters:")
         print(f"VI Period: {self.vi_period}, CMF Period: {self.cmf_period}, ATR Multiplier: {self.atr_multiplier}")
 
     def next(self):
@@ -78,7 +75,7 @@ class VortexFlowTrail(Strategy):
             if vi_cross and cmf_cross:
                 atr_value = self.atr[-1]
                 if atr_value == 0:
-                    print("🌑 Warning: Zero ATR value detected - skipping trade")
+                    print(" Warning: Zero ATR value detected - skipping trade")
                     return
                 
                 # Risk-based position sizing
@@ -90,7 +87,7 @@ class VortexFlowTrail(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.trailing_stop = self.data.Close[-1] - stop_distance
-                    print(f"🌙✨ Moon Dev BUY Signal! 🚀 Size: {position_size} BTC")
+#                     print(f"🌙✨ Moon Dev BUY Signal! 🚀 Size: {position_size} BTC")
                     print(f"Entry: {self.data.Close[-1]:.2f}, Initial Stop: {self.trailing_stop:.2f}")
 
         else:
@@ -101,7 +98,7 @@ class VortexFlowTrail(Strategy):
             # Check for stop trigger
             if self.data.Low[-1] < self.trailing_stop:
                 self.position.close()
-                print(f"🌙✨ Cosmic Stop Activated! 🌌 Exit: {self.data.Close[-1]:.2f}")
-                print(f"Profit: {self.position.pl_pct:.2f}% 📈➡️📉")
+                print(f" Cosmic Stop Activated!  Exit: {self.data.Close[-1]:.2f}")
+                print(f"Profit: {self.position.pl_pct:.2f}% ")
 
 # Execute backtest with Moon

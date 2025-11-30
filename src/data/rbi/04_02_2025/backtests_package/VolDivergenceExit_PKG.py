@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 Moon Dev's VolDivergenceExit Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -20,8 +16,8 @@ data.rename(columns={
 data.set_index('datetime', inplace=True)
 
 class VolDivergenceExit(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
-    obv_lookback = 5  # Divergence detection period 🌗
+    risk_per_trade = 0.01  # 1% risk per trade 
+    obv_lookback = 5  # Divergence detection period 
     
     def init(self):
         # 🌌 Cosmic Indicators
@@ -54,7 +50,7 @@ class VolDivergenceExit(Strategy):
                 if price_div and obv_div:
                     # Check volatility contraction
                     if (2.5*atr) < (0.5 * self.atr20[-20:].mean()):
-                        print("🌌 Moon Alert: Volatility contraction - skipping trade!")
+                        print(" Moon Alert: Volatility contraction - skipping trade!")
                         return
                     
                     # Calculate lunar position size 🌝
@@ -67,7 +63,7 @@ class VolDivergenceExit(Strategy):
                         self.buy(size=size)
                         self.trailing_stop = lower
                         self.max_obv = self.obv[-1]
-                        print(f"🚀 LUNAR LIFTOFF! Entry: {price}, Size: {size}, Stop: {lower:.2f}")
+                        print(f" LUNAR LIFTOFF! Entry: {price}, Size: {size}, Stop: {lower:.2f}")
 
         # 🌕 Managing open positions
         else:
@@ -77,11 +73,11 @@ class VolDivergenceExit(Strategy):
             # Primary Exit: OBV confirmation 🌊
             if self.obv[-1] > self.max_obv:
                 self.position.close()
-                print(f"✨ STARGAZER EXIT! OBV Confirmation at {price}")
+                print(f" STARGAZER EXIT! OBV Confirmation at {price}")
                 return
                 
             # Secondary Exit: Trailing stop 🌄
             if price < self.trailing_stop:
                 self.position.close()
-                print(f"🛑 COMET TAIL EXIT! Trailing Stop at {self.trailing_stop:.2f}")
+                print(f" COMET TAIL EXIT! Trailing Stop at {self.trailing_stop:.2f}")
                 return

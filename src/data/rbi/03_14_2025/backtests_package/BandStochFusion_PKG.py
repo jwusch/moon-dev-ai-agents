@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙✨ Moon Dev's BandStoch Fusion Backtest Script 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +17,7 @@ def prepare_data(path):
     return data
 
 class BandStochFusion(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌱
+    risk_pct = 0.01  # 1% risk per trade 
     bb_period = 20
     stoch_period = 14
     swing_window = 20
@@ -65,7 +60,7 @@ class BandStochFusion(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_window)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_window)
         
-        print("🌙✨ Lunar Indicators Activated! Ready for Cosmic Trading! 🚀")
+        print(" Lunar Indicators Activated! Ready for Cosmic Trading! ")
 
     def next(self):
         price = self.data.Close[-1]
@@ -74,14 +69,14 @@ class BandStochFusion(Strategy):
         if self.position.is_long:
             if (self.data.High[-1] >= self.middle[-1] or
                 (self.stoch_k[-2] > 80 and self.stoch_k[-1] <= 80)):  # Replaced crossunder
-                print(f"🌗 Closing LONG at {price:.2f} (Middle Band/Stoch Exit)")
+                print(f" Closing LONG at {price:.2f} (Middle Band/Stoch Exit)")
                 self.position.close()
         
         # 🌑 Short Exit Conditions
         elif self.position.is_short:
             if (self.data.Low[-1] <= self.middle[-1] or
                 (self.stoch_k[-2] < 20 and self.stoch_k[-1] >= 20)):  # Replaced crossover
-                print(f"🌘 Closing SHORT at {price:.2f} (Middle Band/Stoch Exit)")
+                print(f" Closing SHORT at {price:.2f} (Middle Band/Stoch Exit)")
                 self.position.close()
                 
         # Entry Signals Only When Flat

@@ -29,7 +29,20 @@ class LiquidationRebound(Strategy):
     def init(self):
         # 🌟 Indicator Calculations
         self.oi_roc = self.I(talib.ROCP, self.data.open_interest, self.oi_period) * 100
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period)
         self.swing_low = self.I(talib.MIN, self.data.Low, self.swing_window)
         

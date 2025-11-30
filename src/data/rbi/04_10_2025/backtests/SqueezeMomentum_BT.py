@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,7 +27,7 @@ class SqueezeMomentum(Strategy):
         self.band_squeeze = self.I(talib.MIN, self.band_width, 20, name='Squeeze')
 
     def next(self):
-        # Skip early bars where indicators aren't calculated
+        # Skip early bars where indicators aren't calculated'
         if len(self.data) < 50:
             return
         
@@ -48,7 +47,7 @@ class SqueezeMomentum(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🚀🌕 MOON SHOT! LONG {position_size} @ {entry_price:.2f} | SL {sl_price:.2f}")
+                    print(f" MOON SHOT! LONG {position_size} @ {entry_price:.2f} | SL {sl_price:.2f}")
             
             # Short Entry Eclipse 🌑 
             elif (entry_price < self.lower_band[-1] and
@@ -62,22 +61,22 @@ class SqueezeMomentum(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price)
-                    print(f"🌑💫 BLACK HOLE! SHORT {position_size} @ {entry_price:.2f} | SL {sl_price:.2f}")
+                    print(f" BLACK HOLE! SHORT {position_size} @ {entry_price:.2f} | SL {sl_price:.2f}")
         
         else:
             # Exit Conditions 🌙
             if self.position.is_long:
                 if (entry_price < self.upper_band[-1]) or (self.adx[-1] < 20):
                     self.position.close()
-                    print(f"🌕💸 MOON LANDING! LONG CLOSED @ {entry_price:.2f}")
+                    print(f" MOON LANDING! LONG CLOSED @ {entry_price:.2f}")
             
             if self.position.is_short:
                 if (entry_price > self.lower_band[-1]) or (self.adx[-1] < 20):
                     self.position.close()
-                    print(f"🌑💥 SUPERNOVA! SHORT CLOSED @ {entry_price:.2f}")
+                    print(f" SUPERNOVA! SHORT CLOSED @ {entry_price:.2f}")
 
     def _calculate_size(self, risk_distance):
-        """Moon Dev Risk Management Rocket 🚀"""
+#         """Moon Dev Risk Management Rocket 🚀"""
         if risk_distance <= 0:
             return 0
         risk_amount = self.risk_per_trade * self.equity

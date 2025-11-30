@@ -1,9 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code for the ForceSqueezeTrail strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR ForceSqueezeTrail STRATEGY �
-# 🌟 FULLY COMPLIANT WITH MOON DEV PACKAGE STANDARDS 🌟
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -54,7 +48,7 @@ class ForceSqueezeTrail(Strategy):
         
         # 🌙✨ MOON DEV DEBUG PRINTS
         if current_bar % 100 == 0:
-            print(f"🌙 Bar {current_bar} | Close: {self.data.Close[-1]:.2f} | EFI: {self.efi[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | ATR: {self.atr[-1]:.2f}")
+            print(f" Bar {current_bar} | Close: {self.data.Close[-1]:.2f} | EFI: {self.efi[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | ATR: {self.atr[-1]:.2f}")
 
         # Skip if not enough data
         if len(self.efi) < 2 or len(self.bb_width_sma) < 1:
@@ -81,7 +75,7 @@ class ForceSqueezeTrail(Strategy):
                 stop_loss = entry_price - atr_value  # 1x ATR initial stop
                 risk_per_share = entry_price - stop_loss
                 if risk_per_share <= 0:
-                    print("🌙 WARNING: Invalid risk per share calculation - skipping trade")
+                    print(" WARNING: Invalid risk per share calculation - skipping trade")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))

@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of its functions with native Python implementations. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -87,14 +84,14 @@ class VolSqueezeRenko(Strategy):
         if self.renko_trend == 'up':
             if high >= self.last_brick_close + brick_size:
                 self.last_brick_close += brick_size
-                print(f"🌕 New UP Brick: {self.last_brick_close}")
+                print(f" New UP Brick: {self.last_brick_close}")
             elif low <= self.last_brick_close - 2*brick_size:
                 self.last_brick_close -= brick_size
                 self.renko_trend = 'down'
-                print(f"🌑 Reversal DOWN: {self.last_brick_close}")
+                print(f" Reversal DOWN: {self.last_brick_close}")
         elif self.renko_trend == 'down':
             if low <= self.last_brick_close - brick_size:
                 self.last_brick_close -= brick_size
-                print(f"🌑 New DOWN Brick: {self.last_brick_close}")
+                print(f" New DOWN Brick: {self.last_brick_close}")
             elif high >= self.last_brick_close + 2*brick_size:
                 self.last_brick_close += brick

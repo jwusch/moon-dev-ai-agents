@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import pandas_ta as ta
@@ -92,7 +89,7 @@ class VortexBreakout(Strategy):
             position_size = int(round(risk_amount / stop_loss))
             
             self.buy(size=position_size)
-            print(f"🌙✨ MOONSHOT LONG! ✨ {self.data.Close[-1]} | Size: {position_size} BTC 🚀")
+            print(f" MOONSHOT LONG!  {self.data.Close[-1]} | Size: {position_size} BTC ")
 
     def update_trailing_stop(self):
         for trade in self.trades:

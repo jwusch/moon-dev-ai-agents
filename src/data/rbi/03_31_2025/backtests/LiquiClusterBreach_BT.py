@@ -1,6 +1,3 @@
-```python
-# 🌙✨ Moon Dev's LiquiClusterBreach Backtest Script 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -51,7 +48,7 @@ class LiquiClusterBreach(Strategy):
         current_time = self.data.index[-1]
         
         # 🌙✨ Moon Dev Debug Prints
-        print(f"🌙 Processing {current_time} | Close: {current_close:.2f} | UpperBB: {self.upper[-1]:.2f} | LowerBB: {self.lower[-1]:.2f}")
+        print(f" Processing {current_time} | Close: {current_close:.2f} | UpperBB: {self.upper[-1]:.2f} | LowerBB: {self.lower[-1]:.2f}")
         
         # Entry Conditions
         if not self.position:
@@ -78,7 +75,7 @@ class LiquiClusterBreach(Strategy):
                 self.buy(size=position_size, 
                         sl=stop_loss,
                         tp=current_close + 1.5*self.atr[-1])
-                print(f"🚀🌙 LONG ENTRY | Size: {position_size} | SL: {stop_loss:.2f}")
+                print(f" LONG ENTRY | Size: {position_size} | SL: {stop_loss:.2f}")
             
             # Short Entry Logic 🌑    
             elif (current_close < self.lower[-1] and 

@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR ForceSqueezeTrail STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,7 +49,7 @@ class ForceSqueezeTrail(Strategy):
         
         # 🌙✨ MOON DEV DEBUG PRINTS
         if current_bar % 100 == 0:
-            print(f"🌙 Bar {current_bar} | Close: {self.data.Close[-1]} | EFI: {self.efi[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | ATR: {self.atr[-1]:.2f}")
+            print(f" Bar {current_bar} | Close: {self.data.Close[-1]} | EFI: {self.efi[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | ATR: {self.atr[-1]:.2f}")
 
         # Skip if not enough data
         if len(self.efi) < 2 or len(self.bb_width_sma) < 1:
@@ -86,7 +83,7 @@ class ForceSqueezeTrail(Strategy):
                     self.buy(size=position_size)
                     self.entry_bar = current_bar
                     self.highest_high = self.data.High[-1]
-                    print(f"\n🚀🌙 ENTRY | Price: {entry_price} | Size: {position_size} | SL: {stop_loss:.1f}")
+                    print(f"\n ENTRY | Price: {entry_price} | Size: {position_size} | SL: {stop_loss:.1f}")
 
         # =====================
         # EXIT LOGIC 🌙🔒

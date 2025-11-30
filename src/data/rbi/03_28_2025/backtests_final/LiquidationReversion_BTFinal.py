@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -44,10 +41,10 @@ class LiquidationReversion(Strategy):
         # Detect new swing points
         if self.data.High[-1] == self.swing_high[-1]:
             self.last_swing_high_idx = current_idx
-            print(f"🌙🚨 NEW SWING HIGH DETECTED AT {self.data.index[-1]} (Price: {self.data.High[-1]:.2f})")
+            print(f" NEW SWING HIGH DETECTED AT {self.data.index[-1]} (Price: {self.data.High[-1]:.2f})")
         if self.data.Low[-1] == self.swing_low[-1]:
             self.last_swing_low_idx = current_idx
-            print(f"🌙🚨 NEW SWING LOW DETECTED AT {self.data.index[-1]} (Price: {self.data.Low[-1]:.2f})")
+            print(f" NEW SWING LOW DETECTED AT {self.data.index[-1]} (Price: {self.data.Low[-1]:.2f})")
         
         # Calculate anchored VWAP
         vwap_long = vwap_short = None
@@ -65,7 +62,7 @@ class LiquidationReversion(Strategy):
                 cum_vol = self.cum_vol[current_idx] - self.cum_vol[anchor_idx-1]
             if cum_vol > 0:
                 vwap_long = cum_tpv / cum_vol
-                print(f"🌙💧 LONG VWAP CALCULATED: {vwap_long:.2f} (Anchor: {self.data.index[anchor_idx]})")
+                print(f" LONG VWAP CALCULATED: {vwap_long:.2f} (Anchor: {self.data.index[anchor_idx]})")
         
         # Short setup (swing high anchor)
         if self.last_swing_high_idx != -1:

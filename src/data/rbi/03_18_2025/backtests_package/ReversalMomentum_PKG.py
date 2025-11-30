@@ -1,8 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the crossover function with proper array indexing comparisons. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR REVERSALMOMENTUM STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -23,7 +18,7 @@ class ReversalMomentum(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, timeperiod=self.adx_period)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period)
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED SUCCESSFULLY 🚀")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED SUCCESSFULLY 🚀")
 
     def next(self):
         # 🌑 MOON DEV TRADE LOGIC: ENTRY/EXIT CONDITIONS ✨
@@ -45,7 +40,7 @@ class ReversalMomentum(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🌙✨ MOON DEV ENTRY: LONG {position_size} units at {price:.2f} | SL: {sl_price:.2f} 🚀")
+#                         print(f"🌙✨ MOON DEV ENTRY: LONG {position_size} units at {price:.2f} | SL: {sl_price:.2f} 🚀")
 
         else:
             # 🌑 EXIT CONDITIONS 🌗
@@ -54,7 +49,7 @@ class ReversalMomentum(Strategy):
             
             if current_adx >= self.adx_exit_threshold or ema50_below:
                 self.position.close()
-                print(f"🌙💫 MOON DEV EXIT: ADX {current_adx:.1f} | Price {price:.2f} 🌑")
+#                 print(f"🌙💫 MOON DEV EXIT: ADX {current_adx:.1f} | Price {price:.2f} 🌑")
 
 # 🌙 DATA PREPARATION MAGIC ✨
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -76,11 +71,11 @@ data = data.rename(columns={
 data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
 
-print("🌙✨ MOON DEV DATA PREPARATION COMPLETE 🚀")
+# print("🌙✨ MOON DEV DATA PREPARATION COMPLETE 🚀")
 
 # 🚀 LAUNCH MOON DEV BACKTEST 🌕
 bt = Backtest(data, ReversalMomentum, cash=1_000_000, exclusive_orders=True)
 stats = bt.run()
 
 # 📊 PRINT FULL MOON STATISTICS 🌕
-print("\n🌙✨ MOON DEV FINAL BACK
+# print("\n🌙✨ MOON DEV FINAL BACK"

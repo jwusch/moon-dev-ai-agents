@@ -1,15 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here are the key issues I found and fixed:
-
-1. Fixed incomplete print statement in the long entry logic
-2. Added missing short entry logic
-3. Properly rounded position sizes to whole numbers
-4. Ensured stop loss and take profit are price levels
-5. Added proper exit conditions for Fibonacci targets
-6. Fixed string formatting in debug prints
-
-Here's the complete fixed code:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +18,7 @@ def prepare_data(path):
     })
     return data
 
-# Moon Dev's Channel Fibonacci Breakout Strategy 🚀📈
+# Moon Dev's Channel Fibonacci Breakout Strategy 🚀📈'
 class ChannelFibonacciBreakout(Strategy):
     risk_pct = 0.01  # 1% risk per trade
     consecutive_losses = 0
@@ -60,10 +48,10 @@ class ChannelFibonacciBreakout(Strategy):
     def next(self):
         # Moon Dev debug prints 🌙🔍
         if len(self.data) % 100 == 0:
-            print(f"🌙 Current Close: {self.data.Close[-1]:.2f} | Hybrid Upper: {self.hybrid_upper[-1]:.2f} | Volume SMA: {self.volume_sma[-1]:.2f}")
+            print(f" Current Close: {self.data.Close[-1]:.2f} | Hybrid Upper: {self.hybrid_upper[-1]:.2f} | Volume SMA: {self.volume_sma[-1]:.2f}")
 
         if self.consecutive_losses >= 3:
-            print("🚫 3 consecutive losses - trading halted!")
+            print(" 3 consecutive losses - trading halted!")
             return
 
         price = self.data.Close[-1]

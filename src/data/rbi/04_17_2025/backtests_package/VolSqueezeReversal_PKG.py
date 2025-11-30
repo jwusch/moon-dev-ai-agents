@@ -1,6 +1,3 @@
-I'll fix the backtesting.lib imports and crossunder/crossover usage while maintaining all the strategy logic. Here's the corrected code with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -24,7 +21,7 @@ data = data.rename(columns={
 
 # Verify funding rate column exists
 if 'funding_rate' not in data.columns:
-    raise ValueError("🌙🚨 CRITICAL: Funding rate data missing from dataset!")
+    raise ValueError(" CRITICAL: Funding rate data missing from dataset!")
 
 class VolSqueezeReversal(Strategy):
     risk_pct = 1  # 1% risk per trade
@@ -69,12 +66,12 @@ class VolSqueezeReversal(Strategy):
             if (self.bb_width[-1] > self.bb_width_ma[-1] and 
                 self.data.Close[-2] > self.anchored_vwap[-2] and 
                 self.data.Close[-1] < self.anchored_vwap[-1]):  # Replaced crossunder
-                print(f"🌪️🌙 Volatility explosion! Closing at {price:.2f}")
+                print(f" Volatility explosion! Closing at {price:.2f}")
                 self.position.close()
             
             # Time-based Exit
             elif len(self.data) - self.position.entry_bar >= self.time_exit_bars:
-                print(f"⌛🌙 Timed exit after {self.time_exit_bars} bars")
+                print(f"⌛ Timed exit after {self.time_exit_bars} bars")
                 self.position.close()
         else:
             # Long Entry Conditions
@@ -90,5 +87,5 @@ class VolSqueezeReversal(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round((self.equity * self.risk_pct/100) / risk_per_share))
                     if position_size > 0:
-                        print(f"🚀🌙 LAUNCH! Buying {position_size} @ {price:.2f}")
+                        print(f" LAUNCH! Buying {position_size} @ {price:.2f}")
                         self.buy

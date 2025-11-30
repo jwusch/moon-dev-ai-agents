@@ -1,9 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper Moon Dev compliant implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLUMETRIC SQUEEZE STRATEGY 🚀
-# PACKAGE AI VERIFIED - NO BACKTESTING.LIB USAGE DETECTED ✨
-
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -30,7 +24,7 @@ data = data.rename(columns={
 # STRATEGY IMPLEMENTATION 🌗
 # ======================
 class VolumetricSqueeze(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌊
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # ======================

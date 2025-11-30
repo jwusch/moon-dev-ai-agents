@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -70,7 +69,7 @@ class VolSqueezeDivergence(Strategy):
                     position_size = int(round(risk_amount / risk_per_trade))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🌙✨ MOON DEV LONG ENTRY: {current_close} 🚀 PCR: {put_call:.2f} | Vol: {volume:.2f}")
+#                         print(f"🌙✨ MOON DEV LONG ENTRY: {current_close} 🚀 PCR: {put_call:.2f} | Vol: {volume:.2f}")
 
             elif (bandwidth <= bandwidth_min and
                   put_call > put_call_sma * 1.15 and
@@ -85,7 +84,7 @@ class VolSqueezeDivergence(Strategy):
                       position_size = int(round(risk_amount / risk_per_trade))
                       if position_size > 0:
                           self.sell(size=position_size, sl=stop_loss)
-                          print(f"🌙✨ MOON DEV SHORT ENTRY: {current_close} 🚀 PCR: {put_call:.2f} | Vol: {volume:.2f}")
+#                           print(f"🌙✨ MOON DEV SHORT ENTRY: {current_close} 🚀 PCR: {put_call:.2f} | Vol: {volume:.2f}")
 
         else:
             for trade in self.trades:

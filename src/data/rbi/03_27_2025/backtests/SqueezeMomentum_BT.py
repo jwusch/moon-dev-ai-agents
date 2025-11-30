@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -43,7 +42,7 @@ class SqueezeMomentum(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.buy(size=size, sl=sl_price, tag='Long')
-                    print(f"🌙 MOON DEV LONG ALERT! Entered {size} units at {self.data.Close[-1]} ✨")
+#                     print(f"🌙 MOON DEV LONG ALERT! Entered {size} units at {self.data.Close[-1]} ✨")
             
             # Short Entry Conditions
             cmo_down = crossover(self.cmo_signal, self.cmo)
@@ -57,17 +56,17 @@ class SqueezeMomentum(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.sell(size=size, sl=sl_price, tag='Short')
-                    print(f"🌙 MOON DEV SHORT ALERT! Entered {size} units at {self.data.Close[-1]} ✨")
+#                     print(f"🌙 MOON DEV SHORT ALERT! Entered {size} units at {self.data.Close[-1]} ✨")
         else:
             # Exit Conditions
             if self.position.is_long:
                 if crossover(self.cmo_signal, self.cmo) or self.data.Close[-1] < self.bb_upper[-1]:
                     self.position.close()
-                    print(f"🌙 MOON DEV EXIT LONG! Closed at {self.data.Close[-1]} 🛑")
+#                     print(f"🌙 MOON DEV EXIT LONG! Closed at {self.data.Close[-1]} 🛑")
             elif self.position.is_short:
                 if crossover(self.cmo, self.cmo_signal) or self.data.Close[-1] > self.bb_lower[-1]:
                     self.position.close()
-                    print(f"🌙 MOON DEV EXIT SHORT! Closed at {self.data.Close[-1]} 🛑")
+#                     print(f"🌙 MOON DEV EXIT SHORT! Closed at {self.data.Close[-1]} 🛑")
 
 # Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the VolumetricVortex strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -32,7 +28,7 @@ class VolumetricVortex(Strategy):
                                             drift=1,
                                             append=False)
         
-        # Chande's Kroll Volatility Bands
+        # Chande's Kroll Volatility Bands'
         def calc_upper_band(high, low, close):
             hh = talib.MAX(high, self.kroll_period)
             atr = talib.ATR(high, low, close, self.kroll_period)
@@ -46,7 +42,7 @@ class VolumetricVortex(Strategy):
         self.upper_band = self.I(calc_upper_band, self.data.High, self.data.Low, self.data.Close)
         self.lower_band = self.I(calc_lower_band, self.data.High, self.data.Low, self.data.Close)
         
-        print("🌙 VolumetricVortex Strategy Initialized! 🚀")
+#         print("🌙 VolumetricVortex Strategy Initialized! 🚀")
 
     def next(self):
         price = self.data.Close[-1]
@@ -79,7 +75,7 @@ class VolumetricVortex(Strategy):
         position_size = self.calculate_position_size(risk)
         if position_size > 0:
             self.buy(size=position_size, sl=sl)
-            print(f"🚀 MOON DEV LONG ENTRY: {price:.2f} | LVN: {sl:.2f} | Size: {position_size} ✨")
+#             print(f"🚀 MOON DEV LONG ENTRY: {price:.2f} | LVN: {sl:.2f} | Size: {position_size} ✨")
 
     def enter_short(self, price):
         sl = self.low_volume_node[-1]
@@ -89,7 +85,7 @@ class VolumetricVortex(Strategy):
         position_size = self.calculate_position_size(risk)
         if position_size > 0:
             self.sell(size=position_size, sl=sl)
-            print(f"🌪️ MOON DEV SHORT ENTRY: {price:.2f} | LVN: {sl:.2f} | Size: {position_size} ✨")
+#             print(f"🌪️ MOON DEV SHORT ENTRY: {price:.2f} | LVN: {sl:.2f} | Size: {position_size} ✨")
 
     def calculate_position_size(self, risk):
         risk_amount = self.equity * self.risk_per_trade
@@ -101,7 +97,7 @@ class VolumetricVortex(Strategy):
             new_sl = self.lower_band[-1]
             if new_sl > self.position.sl:
                 self.position.sl = new_sl
-                print(f"🔼 LONG TRAILING STOP: {new_sl:.2f} 🌙")
+                print(f" LONG TRAILING STOP: {new_sl:.2f} ")
         
         elif self.position.is_short:
             new_sl = self.upper_band[-1]

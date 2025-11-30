@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's DeltaClusterBreakout Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -51,7 +47,7 @@ class DeltaClusterBreakout(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=5)
         
         # Print Moon Dev initialization message
-        print("🌙 Moon Dev Strategy Activated! 🚀\n")
+#         print("🌙 Moon Dev Strategy Activated! 🚀\n")
         
     def next(self):
         # Skip initial bars for indicator warmup
@@ -88,7 +84,7 @@ class DeltaClusterBreakout(Strategy):
                 if position_size > 0:
                     # Enter long with initial stop loss
                     self.buy(size=position_size, sl=stop_loss, tag='DeltaClusterEntry')
-                    print(f"🌙 MOON DEV ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} | SL: {stop_loss:.2f} ✨")
+#                     print(f"🌙 MOON DEV ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} | SL: {stop_loss:.2f} ✨")
         
         # 🌙 Dynamic trailing stops
         for trade in self.trades:
@@ -100,7 +96,7 @@ class DeltaClusterBreakout(Strategy):
                 # Update stop loss if conditions met
                 if new_sl > trade.sl:
                     trade.sl = max(new_sl, trade.sl)
-                    print(f"🌙 TRAILING UPDATE 🌙 | New SL: {new_sl:.2f} | Current Price: {current_close:.2f}")
+                    print(f" TRAILING UPDATE  | New SL: {new_sl:.2f} | Current Price: {current_close:.2f}")
 
 # Load and prepare data
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for'

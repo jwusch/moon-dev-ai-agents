@@ -1,6 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the crossover function with the proper implementation. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -26,8 +23,8 @@ class DivergentRay(Strategy):
         self.bull_highs = self.I(talib.MAX, self.bull_power, self.swing_high_window)
         self.bull_sma = self.I(talib.SMA, self.bull_power, self.bull_sma_period)
         
-        print("🌙✨ Moon Dev Strategy Activated! Ready to hunt bearish divergences 🚀")
-        print("🌌 Indicators initialized:")
+#         print("🌙✨ Moon Dev Strategy Activated! Ready to hunt bearish divergences 🚀")
+        print(" Indicators initialized:")
         print(f"   - Bull Power EMA: {self.bull_power_ema} periods")
         print(f"   - ADX Period: {self.adx_period}")
         print(f"   - Swing High Window: {self.swing_high_window}")
@@ -49,14 +46,14 @@ class DivergentRay(Strategy):
             risk_distance = stop_loss - self.data.Close[-1]
             
             if risk_distance <= 0:
-                print("🌙⚠️ Invalid risk distance, trade skipped")
+                print(" Invalid risk distance, trade skipped")
                 return
                 
             position_size = int(round((self.equity * self.risk_percent) / risk_distance))
             if position_size > 0:
                 self.sell(size=position_size, sl=stop_loss)
-                print(f"🌙🚀 BEARISH DIVERGENCE DETECTED! Short {position_size} units at {self.data.Close[-1]:.2f} 🌌")
-                print(f"   SL: {stop_loss:.2f} | ADX: {self.adx[-1]:.2f} 📉")
+                print(f" BEARISH DIVERGENCE DETECTED! Short {position_size} units at {self.data.Close[-1]:.2f} ")
+                print(f"   SL: {stop_loss:.2f} | ADX: {self.adx[-1]:.2f} ")
 
         elif self.position:
             # Replaced crossover with direct comparison
@@ -65,8 +62,8 @@ class DivergentRay(Strategy):
             
             if bull_cross or trend_weak:
                 self.position.close()
-                reason = "Bull Power breakout 🌤️" if bull_cross else "Trend weakening 📉"
-                print(f"🌙✨ Closing position: {reason} at {self.data.Close[-1]:.2f} 🏁")
+                reason = "Bull Power breakout " if bull_cross else "Trend weakening "
+                print(f" Closing position: {reason} at {self.data.Close[-1]:.2f} ")
 
 # Data preprocessing
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

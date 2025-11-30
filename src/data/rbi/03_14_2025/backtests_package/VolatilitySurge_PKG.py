@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's VolatilitySurge Backtest Implementation ✨
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,10 +26,10 @@ class VolatilitySurge(Strategy):
         self.sma = self.I(talib.SMA, self.data.Close, 
                          timeperiod=self.sma_period, name='SMA')
         
-        print("🌙 MOON DEV: Indicators initialized successfully! ✨")
-        print("🌌 ATR Period:", self.atr_period)
-        print("🌠 Swing Period:", self.swing_period)
-        print("✨ SMA Period:", self.sma_period)
+#         print("🌙 MOON DEV: Indicators initialized successfully! ✨")
+        print(" ATR Period:", self.atr_period)
+        print(" Swing Period:", self.swing_period)
+        print(" SMA Period:", self.sma_period)
 
     def next(self):
         # Skip initial bars without indicator values
@@ -68,8 +64,8 @@ class VolatilitySurge(Strategy):
                 position_size = int(round((self.risk_percent * equity) / risk_per_share))
                 
                 # Moon Dev Entry Signal 🌙
-                print(f"🚀 MOON DEV LONG SIGNAL @ {current_close:.2f}")
-                print(f"✨ Size: {position_size} | SL: {stop_loss:.2f} | TP: {current_close + (self.take_profit_multiplier * atr_value):.2f}")
+#                 print(f"🚀 MOON DEV LONG SIGNAL @ {current_close:.2f}")
+                print(f" Size: {position_size} | SL: {stop_loss:.2f} | TP: {current_close + (self.take_profit_multiplier * atr_value):.2f}")
                 self.buy(size=position_size, 
                          sl=stop_loss,
                          tp=current_close + (self.take_profit_multiplier * atr_value))
@@ -85,8 +81,8 @@ class VolatilitySurge(Strategy):
                 position_size = int(round((self.risk_percent * equity) / risk_per_share))
                 
                 # Moon Dev Entry Signal 🌙
-                print(f"🌑 MOON DEV SHORT SIGNAL @ {current_close:.2f}")
-                print(f"✨ Size: {position_size} | SL: {stop_loss:.2f} | TP: {current_close - (self.take_profit_multiplier * atr_value):.2f}")
+#                 print(f"🌑 MOON DEV SHORT SIGNAL @ {current_close:.2f}")
+                print(f" Size: {position_size} | SL: {stop_loss:.2f} | TP: {current_close - (self.take_profit_multiplier * atr_value):.2f}")
                 self.sell(size=position_size,
                           sl=stop_loss,
                           tp=current_close - (self.take_profit_multiplier * atr_value))

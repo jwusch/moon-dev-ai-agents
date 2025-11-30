@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -64,7 +63,7 @@ class LiquidationBand(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     take_profit = entry_price + self.bb_width[-1] * self.tp_multiplier
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🌙✨ LONG ENTRY! ✨ Entry: {entry_price:.2f}, Size: {position_size}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
+                    print(f" LONG ENTRY!  Entry: {entry_price:.2f}, Size: {position_size}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
             
             # Short entry conditions
             if (self.bb_width[-1] < self.contraction_threshold * self.bb_width_avg[-1] and

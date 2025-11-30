@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VortexVolumeBreakout Strategy 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -40,7 +38,7 @@ class VortexVolumeBreakout(Strategy):
         self.vi_minus = self.I(talib.VORTEX, self.data.High, self.data.Low, self.data.Close,
                               timeperiod=14, name='VI-', which=1)
         
-        # 📈 Elder's Volume Force Calculation
+        # 📈 Elder's Volume Force Calculation'
         mom = self.I(talib.MOM, self.data.Close, timeperiod=1, name='MOM1')
         self.volume_force = self.I(lambda: mom * self.data.Volume, name='VolumeForce')
         self.vf_ema = self.I(talib.EMA, self.volume_force, timeperiod=20, name='VF_EMA')
@@ -58,7 +56,7 @@ class VortexVolumeBreakout(Strategy):
         
     def next(self):
         # 🌑 Moon-powered debug console
-        print(f"🌙 Current Price: {self.data.Close[-1]:.2f} | VI+:{self.vi_plus[-1]:.2f} VI-:{self.vi_minus[-1]:.2f}")
+        print(f" Current Price: {self.data.Close[-1]:.2f} | VI+:{self.vi_plus[-1]:.2f} VI-:{self.vi_minus[-1]:.2f}")
         
         # 🚨 Entry Conditions
         if not self.position:
@@ -75,4 +73,4 @@ class VortexVolumeBreakout(Strategy):
                 position_size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🚀🌕 BULLISH BREAKOUT! Entry: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {sl_price:.2f}")
+                    print(f" BULLISH BREAKOUT! Entry: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {sl_price:.2f}")

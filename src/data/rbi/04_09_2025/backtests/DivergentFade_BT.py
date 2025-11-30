@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -47,7 +45,7 @@ class DivergentFade(Strategy):
     def next(self):
         # Moon Dev Risk Force Field 🌙🛡️
         if self.consecutive_losses >= 3:
-            print("🌙⚡ Moon Dev Circuit Breaker: 3 Consecutive Losses!")
+#             print("🌙⚡ Moon Dev Circuit Breaker: 3 Consecutive Losses!")
             return
             
         if not self.position:
@@ -64,7 +62,7 @@ class DivergentFade(Strategy):
                         size = int(round(risk_amount / (stop_loss - self.data.Close[-1])))
                         
                         if size > 0:
-                            print(f"🌙🚀 Moon Dev Short Signal! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
+#                             print(f"🌙🚀 Moon Dev Short Signal! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
                             self.sell(size=size, sl=stop_loss, tag='short_entry')
             
             # Long Entry Constellation 🌙💫
@@ -80,5 +78,5 @@ class DivergentFade(Strategy):
                         size = int(round(risk_amount / (self.data.Close[-1] - stop_loss)))
                         
                         if size > 0:
-                            print(f"🌙🚀 Moon Dev Long Signal! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
+#                             print(f"🌙🚀 Moon Dev Long Signal! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
                             self.buy

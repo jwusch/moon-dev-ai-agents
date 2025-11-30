@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -60,8 +59,8 @@ class LiquidationSqueeze(Strategy):
                     sl_price = self.swing_low[-1] * 0.99
                     position_size = int(round(risk_amount/(current_close - sl_price)))
                     self.buy(size=position_size, sl=sl_price, 
-                            tag="🌙 LONG: Squeeze + Cluster Support!")
-                    print(f"🌕 MOON DEV LONG ENTRY @ {current_close:.2f} | Size: {position_size} 🚀")
+                            tag=" LONG: Squeeze + Cluster Support!")
+#                     print(f"🌕 MOON DEV LONG ENTRY @ {current_close:.2f} | Size: {position_size} 🚀")
 
             # 🌑 SHORT Entry: Squeeze + Upper Band + Cluster Resistance
             elif squeeze_active and near_upper and volume_spike:
@@ -70,8 +69,8 @@ class LiquidationSqueeze(Strategy):
                     sl_price = self.swing_high[-1] * 1.01
                     position_size = int(round(risk_amount/(sl_price - current_close)))
                     self.sell(size=position_size, sl=sl_price,
-                             tag="🌙 SHORT: Squeeze + Cluster Resistance!")
-                    print(f"🌑 MOON DEV SHORT ENTRY @ {current_close:.2f} | Size: {position_size} 💥")
+                             tag=" SHORT: Squeeze + Cluster Resistance!")
+#                     print(f"🌑 MOON DEV SHORT ENTRY @ {current_close:.2f} | Size: {position_size} 💥")
 
         else:
             # 🎯 Exit Rules
@@ -81,4 +80,4 @@ class LiquidationSqueeze(Strategy):
             if (self.position.is_long and current_close > self.upper_band[-1]) or \
                (self.position.is_short and current_close < self.lower_band[-1]):
                 self.position.close()
-                print(f"🎯 MOON DEV BREAKOUT EXIT
+#                 print(f"🎯 MOON DEV BREAKOUT EXIT"

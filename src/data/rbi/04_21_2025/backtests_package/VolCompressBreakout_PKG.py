@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -65,4 +64,4 @@ class VolCompressBreakout(Strategy):
                         self.position.data['max_high'] = self.data.High[-1]
                         self.position.data['entry_price'] = entry_price
                         self.position.data['bb_width'] = (self.bb_upper[-1] - self.bb_lower[-1])/self.bb_mid[-1]
-                        print(f"🌕🚀 MOON DEV LONG ENTRY! Price: {entry_price}, Size: {position_size}")
+#                         print(f"🌕🚀 MOON DEV LONG ENTRY! Price: {entry_price}, Size: {position_size}")

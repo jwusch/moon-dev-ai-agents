@@ -1,7 +1,3 @@
-Here's the fixed and complete backtest code with proper position sizing and Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -57,7 +53,7 @@ class VolatilityHarmonic(Strategy):
         self.atr = self.I(talib.ATR, self.spx_high, self.spx_low, self.spx_close, 
                          timeperiod=14, name='ATR')
 
-        print("🌙✨ Moon Dev Indicators Initialized! Ready for Launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready for Launch! 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -69,11 +65,11 @@ class VolatilityHarmonic(Strategy):
         if self.position:
             if self.position.is_long and (z_spread >= 0 or z_bbw >= 0):
                 self.position.close()
-                print(f"🌕💎 Moon Dev Profit Taken! Closed long at {current_close:.2f}")
+#                 print(f"🌕💎 Moon Dev Profit Taken! Closed long at {current_close:.2f}")
                 
             elif self.position.is_short and (z_spread <= 0 or z_bbw <= 0):
                 self.position.close()
-                print(f"🌕💎 Moon Dev Profit Taken! Closed short at {current_close:.2f}")
+#                 print(f"🌕💎 Moon Dev Profit Taken! Closed short at {current_close:.2f}")
         else:
             # Long Entry: Volatility Expansion Signal 🌌
             if z_spread < -2 and z_bbw < -2:

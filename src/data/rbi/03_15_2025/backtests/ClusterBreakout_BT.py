@@ -38,8 +38,8 @@ class ClusterBreakout(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size)
                         self.entry_price = self.data.Close[-1]
-                        print(f"🚀🌕 **LIFTOFF!** Buying {position_size} shares at {self.entry_price:.2f}")
-                        print(f"   🌙 Stop Loss: {stop_loss_price:.2f} | Cluster High: {self.cluster_high[-1]:.2f}")
+                        print(f"🚀🌕 **LIFTOFF!** Buying {position_size} shares at {self.entry_price:0.2f}")
+                        print(f"   🌙 Stop Loss: {stop_loss_price:0.2f} | Cluster High: {self.cluster_high[-1]:0.2f}")
 
         # ✨ Exit Logic
         else:
@@ -48,12 +48,12 @@ class ClusterBreakout(Strategy):
             # 1% Retracement Exit
             if current_price < self.entry_price * 0.99:
                 self.sell()
-                print(f"🌑✨ **GRAVITY PULL** Selling at {current_price:.2f} (1% Retracement)")
+                print(f"🌑✨ **GRAVITY PULL** Selling at {current_price:0.2f} (1% Retracement)")
                 
             # Trend Line Break Exit
             elif current_price < self.trend_low[-1]:
                 self.sell()
-                print(f"🌑🌪️ **BLACK HOLE EXIT** Selling at {current_price:.2f} (Trend Break)")
+                print(f"🌑🌪️ **BLACK HOLE EXIT** Selling at {current_price:0.2f} (Trend Break)")
 
 # 🌙 Cosmic Data Preparation
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
@@ -78,7 +78,7 @@ data.set_index('DateTime', inplace=True)
 data.sort_index(inplace=True)
 
 # 🚀 Launch Backtest
-bt = Backtest(data, ClusterBreakout, cash=1_000_000, commission=.002)
+bt = Backtest(data, ClusterBreakout, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌕 Display Moon Results

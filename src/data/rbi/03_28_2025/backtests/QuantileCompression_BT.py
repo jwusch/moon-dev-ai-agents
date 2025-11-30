@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -55,7 +54,7 @@ class QuantileCompression(Strategy):
         self.rsi = self.I(talib.RSI, self.data.Close, self.rsi_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙✨ MOON DEV INIT: Strategy initialized with stellar indicators ✨🚀")
+#         print("🌙✨ MOON DEV INIT: Strategy initialized with stellar indicators ✨🚀")
 
     def next(self):
         if len(self.data) < max(self.quantile_window, self.bb_period) + 1:
@@ -80,14 +79,14 @@ class QuantileCompression(Strategy):
                 position_size = int(round((self.equity * self.risk_pct) / risk))
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, tp=self.data.Close[-1]+1.5*self.atr[-1])
-                    print(f"🌙🚀 MOON DEV ENTRY: Long {position_size} units at {self.data.Close[-1]} ✨")
+#                     print(f"🌙🚀 MOON DEV ENTRY: Long {position_size} units at {self.data.Close[-1]} ✨")
         
         else:
             if volatility_spike or breakout:
                 self.position.close()
-                print(f"🌙🌑 MOON DEV EXIT: Closing position at {self.data.Close[-1]} ✨")
+#                 print(f"🌙🌑 MOON DEV EXIT: Closing position at {self.data.Close[-1]} ✨")
 
 # Run backtest
 bt = Backtest(data, QuantileCompression, cash=1_000_000, commission=.002)
 stats = bt.run()
-print("\n🌕🌖🌗🌘 MOON DEV BACK
+# print("\n🌕🌖🌗🌘 MOON DEV BACK"

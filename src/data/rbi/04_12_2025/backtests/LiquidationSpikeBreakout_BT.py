@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -60,7 +59,7 @@ class LiquidationSpikeBreakout(Strategy):
                 self.spike_high = current_high
                 self.spike_low = current_low
                 self.in_spike_setup = True
-                print(f"🌙✨ Liquidation spike detected! {self.data.index[-1]} High: {self.spike_high}")
+                print(f" Liquidation spike detected! {self.data.index[-1]} High: {self.spike_high}")
         
         # Check for breakout entries
         if self.in_spike_setup and not self.position:
@@ -75,7 +74,7 @@ class LiquidationSpikeBreakout(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.buy(size=size, sl=sl_price, tag="LiquidationBreakoutLong")
-                    print(f"🚀🌙 LONG ENTRY! Size: {size} @ {entry_price}")
+                    print(f" LONG ENTRY! Size: {size} @ {entry_price}")
                     self.in_spike_setup = False
             
             # Short entry
@@ -89,7 +88,7 @@ class LiquidationSpikeBreakout(Strategy):
                 size = int(round((self.equity * self.risk_per_trade) / risk))
                 if size > 0:
                     self.sell(size=size, sl=sl_price, tag="LiquidationBreakoutShort")
-                    print(f"🌙💥 SHORT ENTRY! Size: {size} @ {entry_price}")
+                    print(f" SHORT ENTRY! Size: {size} @ {entry_price}")
                     self.in_spike_setup = False
         
         # Exit conditions

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -108,7 +107,7 @@ class LiquidationReversion(Strategy):
         
         if extreme_wick and volume_spike:
             # Moon Dev debug print 🌙🔍
-            print(f"🌙 MOON ALERT! Liquidation event detected at {self.data.index[prev_idx]}")
+            print(f" MOON ALERT! Liquidation event detected at {self.data.index[prev_idx]}")
             
             # Bollinger Band touch check
             prev_high = self.data.High[prev_idx]

@@ -1,6 +1,3 @@
-Here's the fixed and complete code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib as ta
@@ -76,13 +73,13 @@ class FractalDivergence(Strategy):
                 risk = self.risk_percent * self.equity
                 risk_per_unit = self.data.Close[-1] - sl
                 if risk_per_unit <= 0: 
-                    print("🌙 WARNING: Invalid risk per unit for long trade")
+                    print(" WARNING: Invalid risk per unit for long trade")
                     return
                 size = int(round(risk / risk_per_unit))
                 if size > 0:
                     tp = self.data.Close[-1] + 2 * risk_per_unit
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 BULLISH BREAKOUT! Long {size} units at {self.data.Close[-1]:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" BULLISH BREAKOUT! Long {size} units at {self.data.Close[-1]:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             
             # Short entry
             elif bearish_div and self.data.Close[-1] < self.data.Low[-3] and ema_slope_down and rsi_valid:

@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev enhancements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -58,7 +55,7 @@ class VolSqueezeDivergence(Strategy):
 
         # Squeeze detection
         squeeze_active = self.bandwidth[-1] <= self.bandwidth_min[-1]
-        moon_phase = "🌑" if squeeze_active else "🌕"
+        moon_phase = "" if squeeze_active else ""
         print(f"{moon_phase} Moon Dev Squeeze Scan: Bandwidth {self.bandwidth[-1]:.2f} vs Min {self.bandwidth_min[-1]:.2f}")
 
         # Divergence detection

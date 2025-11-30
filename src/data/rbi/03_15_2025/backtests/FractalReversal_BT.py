@@ -1,7 +1,3 @@
-To address the problem, we'll create a backtesting implementation for the FractalReversal strategy using the specified requirements. Here's the structured solution:
-
-```python
-# backtest_fractal_reversal.py
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -46,12 +42,12 @@ class FractalReversal(Strategy):
             ma_bearish = self.sma50[-2] > self.sma200[-2] and self.sma50[-1] < self.sma200[-1]
             
             if ma_bullish:
-                print(f"🌕 BULLISH CROSSOVER detected! SMA50 ({self.sma50[-1]:.2f}) > SMA200 ({self.sma200[-1]:.2f})")
+                print(f" BULLISH CROSSOVER detected! SMA50 ({self.sma50[-1]:0.2f}) > SMA200 ({self.sma200[-1]:0.2f})")
                 self.bullish_signal = True
                 self.bearish_signal = False
                 
             if ma_bearish:
-                print(f"🌑 BEARISH CROSSOVER detected! SMA50 ({self.sma50[-1]:.2f}) < SMA200 ({self.sma200[-1]:.2f})")
+                print(f" BEARISH CROSSOVER detected! SMA50 ({self.sma50[-1]:0.2f}) < SMA200 ({self.sma200[-1]:0.2f})")
                 self.bearish_signal = True
                 self.bullish_signal = False
 
@@ -69,7 +65,7 @@ class FractalReversal(Strategy):
         if not self.position:
             # Bearish reversal entry (Short)
             if self.bearish_signal and fractal_bullish:
-                print(f"🚨 BEARISH REVERSAL SIGNAL @ {self.data.index[-1]}")
+                print(f" BEARISH REVERSAL SIGNAL @ {self.data.index[-1]}")
                 entry = self.data.Close[-1]
                 sl = self.data.High[-3] * 1.005  # 0.5% above fractal high
                 risk = sl - entry
@@ -78,11 +74,11 @@ class FractalReversal(Strategy):
                     tp = entry - (risk * self.rr_ratio)
                     size = int(round((self.equity * self.risk_pct) / risk))
                     self.sell(size=size, sl=sl, tp=tp)
-                    print(f"🚀 SHORT ENTRY {size} units | Entry: {entry:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" SHORT ENTRY {size} units | Entry: {entry:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
                     self.bearish_signal = False
 
             # Bullish reversal entry (Long)
             elif self.bullish_signal and fractal_bearish:
-                print(f"🚨 BULLISH REVERSAL SIGNAL @ {self.data.index[-1]}")
+                print(f" BULLISH REVERSAL SIGNAL @ {self.data.index[-1]}")
                 entry = self.data.Close[-1]
                 sl = self

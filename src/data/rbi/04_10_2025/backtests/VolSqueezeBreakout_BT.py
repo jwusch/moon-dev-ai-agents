@@ -1,5 +1,3 @@
-```python
-# moon_dev_vol_squeeze_breakout.py
 import numpy as np
 import pandas as pd
 import talib
@@ -65,7 +63,7 @@ class VolSqueezeBreakout(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙✨ LONG SIGNAL! Entered at {entry_price:.2f} | Size: {position_size} | Moon Power Activated! 🚀")
+                    print(f" LONG SIGNAL! Entered at {entry_price:.2f} | Size: {position_size} | Moon Power Activated! ")
             
             # Short entry conditions
             elif (current_close < self.keltner_lower[-1] and 
@@ -81,7 +79,7 @@ class VolSqueezeBreakout(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.sell(size=position_size)
-                    print(f"🌙✨ SHORT SIGNAL! Entered at {entry_price:.2f} | Size: {position_size} | Dark Side Energy Engaged! 🌑")
+                    print(f" SHORT SIGNAL! Entered at {entry_price:.2f} | Size: {position_size} | Dark Side Energy Engaged! ")
         
         # Exit logic
         else:

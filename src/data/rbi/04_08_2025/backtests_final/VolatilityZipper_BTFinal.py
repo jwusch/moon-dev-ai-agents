@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -8,7 +5,7 @@ import talib
 
 # Moon Dev Data Preparation 🌙✨
 def prepare_data(path):
-    print("🌙 Moon Dev is preparing your cosmic data...")
+#     print("🌙 Moon Dev is preparing your cosmic data...")
     data = pd.read_csv(path)
     data.columns = data.columns.str.strip().str.lower()
     data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
@@ -21,7 +18,7 @@ def prepare_data(path):
     })
     data['datetime'] = pd.to_datetime(data['datetime'])
     data.set_index('datetime', inplace=True)
-    print("✨ Data preparation complete! Ready for lunar analysis.")
+    print(" Data preparation complete! Ready for lunar analysis.")
     return data
 
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
@@ -35,7 +32,7 @@ class VolatilityZipper(Strategy):
     in_cool_down = False
 
     def init(self):
-        print("🌌 Initializing Moon Dev's Volatility Zipper Strategy...")
+#         print("🌌 Initializing Moon Dev's Volatility Zipper Strategy...")'
         
         # Trend Filter 🌙
         self.sma20 = self.I(talib.SMA, self.data.Close, timeperiod=20)
@@ -49,7 +46,7 @@ class VolatilityZipper(Strategy):
         self.vol_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         self.vol_accel = []
         self.vol_z = []
-        print("🛰️ Moon Dev indicators locked and loaded!")
+#         print("🛰️ Moon Dev indicators locked and loaded!")
 
     def next(self):
         if len(self.data) < 20 or self.in_cool_down:
@@ -84,10 +81,10 @@ class VolatilityZipper(Strategy):
         # Moon Dev Exit Logic 🎯
         if self.position.is_long and disp_z <= 0:
             self.position.close()
-            print(f"🎯 Moon Dev Normalization! Closing long at {close}")
+#             print(f"🎯 Moon Dev Normalization! Closing long at {close}")
         if self.position.is_short and disp_z >= 0:
             self.position.close()
-            print(f"🎯 Moon Dev Normalization! Closing short at {close}")
+#             print(f"🎯 Moon Dev Normalization! Closing short at {close}")
 
     def enter_trade(self, direction):
         risk_amount = self.risk_pct * self.equity

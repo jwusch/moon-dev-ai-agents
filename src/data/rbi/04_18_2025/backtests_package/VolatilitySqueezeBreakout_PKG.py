@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder functions with manual checks. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -28,7 +25,7 @@ def prepare_data(path):
     return data
 
 class VolatilitySqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% of equity per trade 🌙
+    risk_per_trade = 0.01  # 1% of equity per trade 
     
     def init(self):
         # Calculate indicators using TA-Lib 🌟
@@ -78,7 +75,7 @@ class VolatilitySqueezeBreakout(Strategy):
                 self.cumulative_pv = 0
                 self.cumulative_vol = 0
                 self.closes_in_consolidation = []
-                print(f"🌙 MOON DEV ALERT 🌙 | New consolidation started at {self.data.index[-1]}")
+#                 print(f"🌙 MOON DEV ALERT 🌙 | New consolidation started at {self.data.index[-1]}")
             
             # Update cumulative values for VWAP calculation 🧮
             typical_price = (self.data.High[-1] + self.data.Low[-1] + self.data.Close[-1]) / 3

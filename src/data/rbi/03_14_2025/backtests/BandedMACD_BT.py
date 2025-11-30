@@ -68,7 +68,7 @@ class BandedMACD(Strategy):
                     risk_amount = self.equity() * self.risk_pct
                     position_size = int(round(risk_amount / risk_per_share))
                     
-                    print(f"🌙 Moon Dev Entry: Buying {position_size} units at {entry_price:.2f} 🚀")
+                    print(f"🌙 Moon Dev Entry: Buying {position_size} units at {entry_price:0.2f} 🚀")
                     self.buy(size=position_size)
         
         # 💎 Exit Logic
@@ -83,7 +83,7 @@ class BandedMACD(Strategy):
             
             # Execute Exit
             if close_below_swing_high or current_low < trailing_stop:
-                print(f"🌙 Moon Dev Exit: Closing {self.position.size} units at {price:.2f} ✨")
+                print(f"🌙 Moon Dev Exit: Closing {self.position.size} units at {price:0.2f} ✨")
                 self.position.close()
 
 # 🌙🚀 Backtest Execution
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     data = prepare_data('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
     
     # Run backtest
-    bt = Backtest(data, BandedMACD, cash=1_000_000, commission=.002)
+    bt = Backtest(data, BandedMACD, cash=1_000_000, commission=0.002)
     stats = bt.run()
     
     # 🌕 Print Full Stats

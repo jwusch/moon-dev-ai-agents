@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper Moon Dev implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION: LiquidityFisherFade Strategy 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -29,11 +25,11 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class LiquidityFisherFade(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌊
-    fisher_length = 9       # Fisher Transform period 🌗
-    bb_length = 20          # Bollinger Bands period 📈
-    swing_period = 20       # Swing high/low period 🌓
-    cluster_tolerance = 0.001  # 0.1% price tolerance 🌐
+    risk_per_trade = 0.01  # 1% risk per trade 
+    fisher_length = 9       # Fisher Transform period 
+    bb_length = 20          # Bollinger Bands period 
+    swing_period = 20       # Swing high/low period 
+    cluster_tolerance = 0.001  # 0.1% price tolerance 
     
     def init(self):
         # 🌗 MEDIAN PRICE CHANNEL: (H+L+C)/3
@@ -68,19 +64,19 @@ class LiquidityFisherFade(Strategy):
             if self.position.is_long:
                 # 🌕 LONG EXIT: Close above upper BB or Fisher crosses 0
                 if current_close > self.upper_band[-1]:
-                    print(f"🚀🌕 MOON EXIT LONG | Price {current_close:.2f} > Upper BB {self.upper_band[-1]:.2f}")
+                    print(f" MOON EXIT LONG | Price {current_close:.2f} > Upper BB {self.upper_band[-1]:.2f}")
                     self.position.close()
                 elif self.fisher[-2] < 0 and self.fisher[-1] > 0:  # Bullish crossover replacement
-                    print(f"🌑🐻 BEARISH FISHER CROSS | Closing LONG")
+                    print(f" BEARISH FISHER CROSS | Closing LONG")
                     self.position.close()
                     
             elif self.position.is_short:
                 # 🌑 SHORT EXIT: Close below lower BB or Fisher crosses 0
                 if current_close < self.lower_band[-1]:
-                    print(f"🌌🌑 MOON EXIT SHORT | Price {current_close:.2f} < Lower BB {self.lower_band[-1]:.2f}")
+                    print(f" MOON EXIT SHORT | Price {current_close:.2f} < Lower BB {self.lower_band[-1]:.2f}")
                     self.position.close()
                 elif self.fisher[-2] > 0 and self.fisher[-1] < 0:  # Bearish crossover replacement
-                    print(f"🌕🐂 BULLISH FISHER CROSS | Closing SHORT")
+                    print(f" BULLISH FISHER CROSS | Closing SHORT")
                     self.position.close()
         else:
             # 🌓 CALCULATE TRADE PARAMETERS

@@ -1,7 +1,3 @@
-Here's the debugged version of your VortexVwapSync strategy with proper Moon Dev themed fixes ✨🌙:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -35,10 +31,10 @@ def prepare_data(path):
     return data
 
 class VortexVwapSync(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🚦
-    vwap_slope_period = 20  # Slope calculation period 📈
-    vortex_period = 14  # Standard vortex settings 🌪️
-    trade_counts = {'long': 0, 'short': 0}  # Daily trade counter 📆
+    risk_per_trade = 0.01  # 1% risk per trade 
+    vwap_slope_period = 20  # Slope calculation period 
+    vortex_period = 14  # Standard vortex settings 
+    trade_counts = {'long': 0, 'short': 0}  # Daily trade counter 
     
     def init(self):
         # Calculate VWAP with lunar precision 🌕
@@ -71,13 +67,13 @@ class VortexVwapSync(Strategy):
         self.recent_high = self.I(talib.MAX, self.data.High, timeperiod=5, name='Recent High')
         self.recent_low = self.I(talib.MIN, self.data.Low, timeperiod=5, name='Recent Low')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Let's ride the Vortex! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Let's ride the Vortex! 🚀")'
 
     def next(self):
         # Reset daily trade counters at midnight 🌃
         if len(self.data) > 0 and self.data.index[-1].hour == 0 and self.data.index[-1].minute == 0:
             self.trade_counts = {'long': 0, 'short': 0}
-            print("🌙🔄 Daily trade counters reset! Fresh starts are lunar-powered! 🌗")
+            print(" Daily trade counters reset! Fresh starts are lunar-powered! ")
 
         # Skip trades outside first 6 hours ⏳
         if len(self.data) == 0 or self.data.index[-1].hour >= 6:

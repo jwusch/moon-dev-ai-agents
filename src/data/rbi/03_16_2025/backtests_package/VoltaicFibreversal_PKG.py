@@ -1,7 +1,3 @@
-I've checked the code and found that it uses `from backtesting.lib import crossover`. Let me fix that and ensure all indicators are properly implemented without any backtesting.lib dependencies. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's VoltaicFibreversal Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VoltaicFibreversal(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     atr_period = 14
     swing_window = 20
     divergence_window = 5
@@ -72,7 +68,7 @@ class VoltaicFibreversal(Strategy):
         risk_per_unit = entry_price - stop_price
         
         if risk_per_unit <= 0:
-            return  # Avoid invalid calculation 🌙
+            return  # Avoid invalid calculation 
 
         position_size = int(round(risk_amount / risk_per_unit))
         
@@ -88,11 +84,11 @@ class VoltaicFibreversal(Strategy):
         self.buy(
             size=position_size,
             sl=stop_price,
-            tag=f"🌕 VOLTAIC ENTRY | Size: {position_size} | Risk: {self.risk_pct*100}%"
+            tag=f" VOLTAIC ENTRY | Size: {position_size} | Risk: {self.risk_pct*100}%"
         )
         
-        print(f"🚀 MOON DEV ALERT: Long Entry @ {entry_price:.2f}")
-        print(f"🎯 Fib Targets: 38.2% {self.fib_targets[0]:.2f} | 50% {self.fib_targets[1]:.2f} | 61.8% {self.fib_targets[2]:.2f}")
+#         print(f"🚀 MOON DEV ALERT: Long Entry @ {entry_price:.2f}")
+        print(f" Fib Targets: 38.2% {self.fib_targets[0]:.2f} | 50% {self.fib_targets[1]:.2f} | 61.8% {self.fib_targets[2]:.2f}")
 
     def manage_position(self):
         price = self

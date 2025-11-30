@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +38,7 @@ class MomentumBreakoutEMA(Strategy):
             if position_size > 0:
                 self.buy(size=position_size)
                 self.trailing_high = self.data.High[-1]
-                print(f"🚀🌙 LONG ENTRY! Size: {position_size} @ {entry_price:.2f}")
+                print(f" LONG ENTRY! Size: {position_size} @ {entry_price:.2f}")
             self.signal_long = False
 
         elif self.signal_short and not self.position:
@@ -57,16 +56,16 @@ class MomentumBreakoutEMA(Strategy):
             if position_size > 0:
                 self.sell(size=position_size)
                 self.trailing_low = self.data.Low[-1]
-                print(f"🌑🌙 SHORT ENTRY! Size: {position_size} @ {entry_price:.2f}")
+                print(f" SHORT ENTRY! Size: {position_size} @ {entry_price:.2f}")
             self.signal_short = False
 
         # Detect new signals
         if crossover(self.ema50, self.ema200) and self.adx[-1] > 25:
-            print(f"✨🌙 GOLDEN CROSS! EMA50({self.ema50[-1]:.2f}) > EMA200({self.ema200[-1]:.2f}) ADX: {self.adx[-1]:.2f}")
+            print(f" GOLDEN CROSS! EMA50({self.ema50[-1]:.2f}) > EMA200({self.ema200[-1]:.2f}) ADX: {self.adx[-1]:.2f}")
             self.signal_long = True
             
         elif crossunder(self.ema50, self.ema200) and self.adx[-1] > 25:
-            print(f"💀🌙 DEATH CROSS! EMA50({self.ema50[-1]:.2f}) < EMA200({self.ema200[-1]:.2f}) ADX: {self.adx[-1]:.2f}")
+            print(f" DEATH CROSS! EMA50({self.ema50[-1]:.2f}) < EMA200({self.ema200[-1]:.2f}) ADX: {self.adx[-1]:.2f}")
             self.signal_short = True
 
         # Manage exits
@@ -76,7 +75,7 @@ class MomentumBreakoutEMA(Strategy):
             
             if self.data.Low[-1] <= stop_level:
                 self.position.close()
-                print(f"🌙🔻 LONG EXIT! Trail High: {self.trailing_high:.2f} Stop: {stop_level:.2f}")
+                print(f" LONG EXIT! Trail High: {self.trailing_high:.2f} Stop: {stop_level:.2f}")
 
         elif self.position.is_short:
             self.trailing_low = min(self.trailing_low, self.data.Low[-1])
@@ -84,7 +83,7 @@ class MomentumBreakoutEMA(Strategy):
             
             if self.data.High[-1] >= stop_level:
                 self.position.close()
-                print(f"🌙🔺 SHORT EXIT! Trail Low: {self.trailing_low:.2f} Stop: {stop_level:.2f}")
+                print(f" SHORT EXIT! Trail Low: {self.trailing_low:.2f} Stop: {stop_level:.2f}")
 
 # Data preprocessing
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-t
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-t"

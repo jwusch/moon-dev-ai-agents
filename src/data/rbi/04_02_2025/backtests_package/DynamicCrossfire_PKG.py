@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 Moon Dev's DynamicCrossfire Backtest Implementation ✨
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -22,7 +18,7 @@ class DynamicCrossfire(Strategy):
         self.rsi = self.I(talib.RSI, self.data.Close, 14, name='RSI14')
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='SwingLow20')
         
-        print("🌙 MOON DEV INIT: Indicators locked and loaded for lunar trajectory! 🚀")
+#         print("🌙 MOON DEV INIT: Indicators locked and loaded for lunar trajectory! 🚀")
         
     def next(self):
         # 🌑 Skip initial warmup period (Moon phases need time to align)
@@ -54,22 +50,22 @@ class DynamicCrossfire(Strategy):
                     position_size = int(round((self.equity * self.risk_per_trade) / risk_per_unit))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price)
-                        print(f"🌕 MOON DEV ALERT: Long Entry at {entry_price:.2f}")
-                        print(f"   ░ Size: {position_size}, Stop: {stop_price:.2f}")
-                        print(f"   ░ EMAs: 50({ema50_now:.2f}) > 200({ema200_now:.2f})")
-                        print(f"   ░ ADX: {adx_now:.2f}, RSI: {rsi_now:.2f}\n")
+#                         print(f"🌕 MOON DEV ALERT: Long Entry at {entry_price:.2f}")
+                        print(f"    Size: {position_size}, Stop: {stop_price:.2f}")
+                        print(f"    EMAs: 50({ema50_now:.2f}) > 200({ema200_now:.2f})")
+                        print(f"    ADX: {adx_now:.2f}, RSI: {rsi_now:.2f}\n")
         
         # 🛑 Exit Management (Re-entry Protocol)
         else:
             # RSI Exit Signal (Overbought Warning)
             if rsi_prev >= self.rsi_exit_level and rsi_now < self.rsi_exit_level:
                 self.position.close()
-                print(f"🌑 MOON DEV EXIT: RSI Reversal {rsi_prev:.2f}→{rsi_now:.2f}")
+#                 print(f"🌑 MOON DEV EXIT: RSI Reversal {rsi_prev:.2f}→{rsi_now:.2f}")
             
             # Death Cross Protection (Black Hole Avoidance)
             if ema50_prev >= ema200_prev and ema50_now < ema200_now:
                 self.position.close()
-                print(f"💀 DEATH CROSS DETECTED: EMAs 50({ema50_now:.2f}) < 200({ema200_now:.2f})")
+                print(f" DEATH CROSS DETECTED: EMAs 50({ema50_now:.2f}) < 200({ema200_now:.2f})")
 
 # 🌍 Data Preparation (Moon Base Setup)
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

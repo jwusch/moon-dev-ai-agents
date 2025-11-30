@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's BandwidthBreakout Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -58,7 +56,7 @@ class BandwidthBreakout(Strategy):
             return
         
         # 🌙 Moon Dev Debug Prints 🌙
-        print(f"✨ Current Close: {self.data.Close[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | Vol: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
+        print(f" Current Close: {self.data.Close[-1]:.2f} | BB Width: {self.bb_width[-1]:.4f} | Vol: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
         
         if not self.position:
             # 🌙 Long entry condition
@@ -78,7 +76,7 @@ class BandwidthBreakout(Strategy):
                         self.buy(size=position_size)
                         self.stop_loss = stop_loss
                         self.trailing_high = entry_price
-                        print(f"🚀🌙 MOON DEV LONG SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f}")
+#                         print(f"🚀🌙 MOON DEV LONG SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f}")
 
             # 🌙 Short entry condition        
             elif (self.data.Close[-1] < self.bb_lower[-1] and

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -33,7 +32,7 @@ class MomentumConverge(Strategy):
         # ATR for Fibonacci extensions
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14, name='ATR')
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED! Ready for launch! 🚀")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED! Ready for launch! 🚀")
 
     def next(self):
         if len(self.data.Close) < 2:
@@ -47,7 +46,7 @@ class MomentumConverge(Strategy):
         atr_val = self.atr[-1]
         
         # Moon Dev debug prints
-        print(f"🌙 CMO: {current_cmo:.1f} | VWAP Dev: {vwap_dev:.2f}% | SuperTrend: {supertrend_line:.2f}")
+        print(f" CMO: {current_cmo:.1f} | VWAP Dev: {vwap_dev:.2f}% | SuperTrend: {supertrend_line:.2f}")
         
         # Long Entry Conditions
         if (not self.position.is_long and
@@ -61,7 +60,7 @@ class MomentumConverge(Strategy):
             risk_per_trade = entry_price - stop_loss
             
             if risk_per_trade <= 0:
-                print("🌙✨⚠️ Risk per trade invalid. Aborting launch!")
+                print(" Risk per trade invalid. Aborting launch!")
                 return
             
             position_size = int(round(risk_amount / risk_per_trade))
@@ -80,4 +79,4 @@ class MomentumConverge(Strategy):
             if size_tp2 > 0:
                 self.buy(size=size_tp2, sl=stop_loss, tp=tp2, tag="MOON_DEV_LONG_TP2")
             
-            print(f"🌙✨🚀 MOON DEV LONG ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}
+#             print(f"🌙✨🚀 MOON DEV LONG ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}"

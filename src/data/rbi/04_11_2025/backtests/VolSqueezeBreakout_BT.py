@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -26,11 +25,11 @@ class VolSqueezeBreakout(Strategy):
         self.bb_width = self.I(lambda u, l: u - l, self.upper_band, self.lower_band)
         self.bb_width_low = self.I(talib.MIN, self.bb_width, timeperiod=20)
         self.volume_sma50 = self.I(talib.SMA, self.data.Volume, timeperiod=50)
-        print("🌙 Lunar Indicators Activated! Tracking BB Squeeze & Volume Surges")
+        print(" Lunar Indicators Activated! Tracking BB Squeeze & Volume Surges")
 
     def next(self):
         if self.position:
-            return  # Single trade at a time 🌕
+            return  # Single trade at a time 
 
         if len(self.data) < 50:  # Ensure warmup period
             return
@@ -75,7 +74,7 @@ class VolSqueezeBreakout(Strategy):
             take_profit = entry_price - 2 * bb_width_entry
 
         if risk_per_share <= 0:
-            print(f"🌙 Aborting {direction} trade: Black Hole Risk Detected!")
+            print(f" Aborting {direction} trade: Black Hole Risk Detected!")
             return
 
         # Lunar Position Sizing 🌜🌛
@@ -84,15 +83,15 @@ class VolSqueezeBreakout(Strategy):
 
         if position_value > max_exposure:
             position_size = max(int(max_exposure // entry_price), 1)
-            print(f"✨ Adjusted {direction} size to {position_size} for cosmic safety!")
+            print(f" Adjusted {direction} size to {position_size} for cosmic safety!")
 
         # Launch Trade Sequence 🛰️
         if direction == 'long':
             self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-            print(f"🚀 MOON SHOT! Long Entry at {entry_price:.2f}")
+            print(f" MOON SHOT! Long Entry at {entry_price:.2f}")
         else:
             self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-            print(f"🌑 SHORT CIRCUIT! Short Entry at {entry_price:.2f}")
+            print(f" SHORT CIRCUIT! Short Entry at {entry_price:.2f}")
 
         print(f"   Stardust Trail » SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 

@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILITYMOMENTUM STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +27,7 @@ class VolatilityMomentum(Strategy):
         # Volatility stop calculations
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED! READY FOR LIFTOFF! 🚀")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED! READY FOR LIFTOFF! 🚀")
 
     def next(self):
         # 🌙 STRATEGY LOGIC EXECUTION
@@ -53,14 +50,14 @@ class VolatilityMomentum(Strategy):
                 atr_value = self.atr[-1]
                 
                 if atr_value == 0:
-                    print("🌙⚠️ ZERO ATR DETECTED! ABORTING TRADE! ⚠️")
+                    print(" ZERO ATR DETECTED! ABORTING TRADE! ")
                     return
                 
                 sl_price = self.data.Close[-1] - 1.5 * atr_value
                 risk_per_share = abs(self.data.Close[-1] - sl_price)
                 
                 if risk_per_share == 0:
-                    print("🌙⚠️ ZERO RISK PER SHARE! TRADE SKIPPED! ⚠️")
+                    print(" ZERO RISK PER SHARE! TRADE SKIPPED! ")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
@@ -74,7 +71,7 @@ class VolatilityMomentum(Strategy):
                             tp=tp_price,
                             tag="MOON_DEV_LONG")
                     
-                    print(f"🌙✨🚀 MOON DEV TRADE LAUNCHED! 🚀✨")
+#                     print(f"🌙✨🚀 MOON DEV TRADE LAUNCHED! 🚀✨")
                     print(f"Entry: {self.data.Close[-1]:.2f} | Size: {position_size} units")
                     print(f"SL: {sl_price:.2f} | TP: {tp_price:.2f} | ATR: {atr_value:.2f}\n")
         else:

@@ -1,13 +1,10 @@
-Here's the debugged and optimized backtest code with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
 import numpy as np
 
 # Load and preprocess data with Moon Dev precision 🌙
-print("🌌 Loading celestial price data...")
+print(" Loading celestial price data...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 # Clean column names with lunar precision
@@ -26,27 +23,27 @@ data = data.rename(columns={
 # Convert datetime and set index
 data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
-print("🌠 Data aligned with cosmic coordinates!")
+print(" Data aligned with cosmic coordinates!")
 
 class VolatilitySqueezeDivergence(Strategy):
     def init(self):
         # Bollinger Bands (20,2) using TA-Lib
-        print("🌗 Calculating Bollinger Bands with lunar precision...")
+        print(" Calculating Bollinger Bands with lunar precision...")
         self.upper, self.middle, self.lower = self.I(talib.BBANDS, self.data.Close, 
                                                     timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
         
         # Cumulative Delta Indicator (custom implementation)
-        print("🌓 Tracking cosmic order flow...")
+        print(" Tracking cosmic order flow...")
         self.cumulative_delta = self.I(self._calculate_cumulative_delta)
         
         # Swing Lows for Divergence Detection using TA-Lib MIN
-        print("🌑 Identifying gravitational lows...")
+        print(" Identifying gravitational lows...")
         self.price_lows = self.I(talib.MIN, self.data.Low, timeperiod=5)
         self.delta_lows = self.I(talib.MIN, self.cumulative_delta, timeperiod=5)
         
         # Track BB Width history
         self.bb_width_history = []
-        print("🌕 All indicators aligned with moon phases!")
+        print(" All indicators aligned with moon phases!")
 
     def _calculate_cumulative_delta(self, data):
         cumulative = 0

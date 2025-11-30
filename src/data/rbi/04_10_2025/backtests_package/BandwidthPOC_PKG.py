@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -51,7 +48,7 @@ class BandwidthPOC(Strategy):
             
         self.poc = self.I(calculate_poc, self.data.Volume, self.data.Close, 50)
         
-        print("🌙✨ Moon Dev Indicators Activated! BB Width, POC, and Volume Surge ready for launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! BB Width, POC, and Volume Surge ready for launch! 🚀")
 
     def next(self):
         if len(self.data) < 100:  # Wait for indicators to warm up
@@ -65,7 +62,7 @@ class BandwidthPOC(Strategy):
         poc = self.poc[-1]
 
         # Moon Dev Debug Prints 🌙
-        print(f"🌙 Current BB Width: {bbw:.4f} | POC: {poc:.2f} | Volume Ratio: {vol/vol_ma:.1f}x")
+        print(f" Current BB Width: {bbw:.4f} | POC: {poc:.2f} | Volume Ratio: {vol/vol_ma:.1f}x")
 
         # Entry logic
         if not self.position:
@@ -82,7 +79,7 @@ class BandwidthPOC(Strategy):
                 if risk_per_unit > 0:
                     size = int(round(risk_amount / risk_per_unit))
                     self.buy(size=size, sl=sl_price, tp=price + 3*risk_per_unit)
-                    print(f"🚀🌙 LONG LAUNCH! Size: {size} | Entry: {price:.2f} | SL: {sl_price:.2f} | TP: {price + 3*risk_per_unit:.2f}")
+                    print(f" LONG LAUNCH! Size: {size} | Entry: {price:.2f} | SL: {sl_price:.2f} | TP: {price + 3*risk_per_unit:.2f}")
 
             # Short setup
             elif (bbw < self.bbw_low_threshold[-1] and

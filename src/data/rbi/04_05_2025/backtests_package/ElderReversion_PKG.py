@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and replaced with proper Moon Dev themed implementations:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -37,12 +34,12 @@ class ElderReversion(Strategy):
                          self.data.Close, 
                          timeperiod=14, name='ATR')
         
-        print("🌙 Moon Dev Indicators Activated! ✨")
+#         print("🌙 Moon Dev Indicators Activated! ✨")
 
     def next(self):
         # Moon Dev progress tracker
         if len(self.data) % 100 == 0:
-            print(f"🌕 Scanning Bar {len(self.data)} | Close: {self.data.Close[-1]:.2f} | ADX: {self.adx[-1]:.2f}")
+            print(f" Scanning Bar {len(self.data)} | Close: {self.data.Close[-1]:.2f} | ADX: {self.adx[-1]:.2f}")
 
         # Entry Strategy
         if not self.position:
@@ -59,7 +56,7 @@ class ElderReversion(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("⚠️ Invalid SL! Trade aborted.")
+                    print(" Invalid SL! Trade aborted.")
                     return
                 
                 # Position sizing with Moon Dev safety
@@ -72,13 +69,13 @@ class ElderReversion(Strategy):
                     self.buy(size=position_size, 
                             sl=stop_loss, 
                             tp=take_profit)
-                    print(f"🚀 LONG {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} 🌙")
+                    print(f" LONG {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} ")
 
         # Exit Strategy
         else:
             if (self.efi_signal[-2] < self.efi[-2] and self.efi_signal[-1] > self.efi[-1]):  # EFI cross below signal (replaced crossover)
                 self.position.close()
-                print(f"🌑 Exit Signal @ {self.data.Close[-1]:.2f} | Profit: {self.position.pl_pct:.2%} ✨")
+                print(f" Exit Signal @ {self.data.Close[-1]:.2f} | Profit: {self.position.pl_pct:.2%} ")
 
 # Data preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

@@ -1,13 +1,9 @@
-Here's the fully debugged and Moon Dev themed version of your LiquidationPulse strategy:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 
 # 🌙 MOON DEV DATA PREPARATION 🌙
-print("🌙✨ INITIALIZING MOON DEV DATA PIPELINE ✨🌙")
+# print("🌙✨ INITIALIZING MOON DEV DATA PIPELINE ✨🌙")
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
@@ -29,7 +25,7 @@ class LiquidationPulse(Strategy):
     
     def init(self):
         # 🌙 CORE INDICATORS ✨
-        print("🌙 INITIALIZING MOON DEV INDICATOR SUITE...")
+#         print("🌙 INITIALIZING MOON DEV INDICATOR SUITE...")
         
         # Funding Rate Analysis
         self.funding_rate = self.I(lambda x: x, self.data.df['funding_rate'], name='FUNDING_RATE')

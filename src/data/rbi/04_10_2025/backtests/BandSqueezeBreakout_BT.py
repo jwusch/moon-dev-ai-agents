@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -47,7 +45,7 @@ class BandSqueezeBreakout(Strategy):
         self.squeeze = self.I(lambda ub,uk,lb,lk: (ub < uk) & (lb > lk),
                             self.upper_bb, self.upper_kc, self.lower_bb, self.lower_kc)
         
-        print("🌙 MOON DEV INIT: Strategy engines primed for launch! 🚀✨")
+#         print("🌙 MOON DEV INIT: Strategy engines primed for launch! 🚀✨")
 
     def next(self):
         # Skip early bars
@@ -63,7 +61,7 @@ class BandSqueezeBreakout(Strategy):
                 if size > 0:
                     self.buy(size=size, sl=self.pending_entry['sl'], 
                             tp=entry_price + 2*risk)
-                    print(f"🌙✨ MOON ALERT: Long entered at {entry_price}!")
+                    print(f" MOON ALERT: Long entered at {entry_price}!")
                 del self.pending_entry
             elif self.pending_entry['direction'] == 'SHORT':
                 risk = self.pending_entry['sl'] - entry_price
@@ -71,7 +69,7 @@ class BandSqueezeBreakout(Strategy):
                 if size > 0:
                     self.sell(size=size, sl=self.pending_entry['sl'],
                              tp=entry_price - 2*risk)
-                    print(f"🌙✨ MOON ALERT: Short entered at {entry_price}!")
+                    print(f" MOON ALERT: Short entered at {entry_price}!")
                 del self.pending_entry
         
         # Detect new signals

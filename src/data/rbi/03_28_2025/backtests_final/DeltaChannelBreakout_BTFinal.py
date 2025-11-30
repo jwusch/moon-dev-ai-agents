@@ -1,7 +1,3 @@
-I'll analyze and fix the backtest code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -28,9 +24,9 @@ data.set_index('datetime', inplace=True)
 data.index = data.index.tz_localize('UTC')
 
 class DeltaChannelBreakout(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
-    max_daily_trades = 3  # 🚀 Max 3 trades per day
-    swing_period = 20  # 🌌 Swing period for highs/lows
+    risk_pct = 0.01  # 1% risk per trade 
+    max_daily_trades = 3  #  Max 3 trades per day
+    swing_period = 20  #  Swing period for highs/lows
     
     def init(self):
         # Heikin-Ashi calculations 🌙 Lunar Candles
@@ -57,7 +53,7 @@ class DeltaChannelBreakout(Strategy):
         self.current_day = None
         
     def calculate_position(self, stop_loss, direction):
-        """🌕 Calculate position size based on risk percentage"""
+        """ Calculate position size based on risk percentage"""
         risk_amount = self.equity * self.risk_pct
         if direction == 'long':
             price_diff = abs(self.data.Close[-1] - stop_loss)
@@ -65,7 +61,7 @@ class DeltaChannelBreakout(Strategy):
             price_diff = abs(stop_loss - self.data.Close[-1])
             
         position_size = risk_amount / price_diff
-        position_size = round(position_size, 8)  # ✨ Prevent floating point errors
+        position_size = round(position_size, 8)  #  Prevent floating point errors
         
         if direction == 'long':
             self.buy(size=position_size, sl=stop_loss)
@@ -73,7 +69,7 @@ class DeltaChannelBreakout(Strategy):
             self.sell(size=position_size, sl=stop_loss)
         
         self.trades_today += 1
-        print(f"🌙 Moon Dev Trade Alert: {direction.upper()} position opened | Size: {position_size:.4f} | SL: {stop_loss:.2f}")
+#         print(f"🌙 Moon Dev Trade Alert: {direction.upper()} position opened | Size: {position_size:.4f} | SL: {stop_loss:.2f}")
         
     def next(self):
         # Time session check 🕒 Cosmic Clock

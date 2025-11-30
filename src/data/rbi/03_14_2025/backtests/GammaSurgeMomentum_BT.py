@@ -85,9 +85,9 @@ class GammaSurgeMomentum(Strategy):
                     size=position_size,
                     sl=sl_price,
                     tp=tp_price,
-                    tag=f"🌙 ENTRY: {entry_price:.2f} 🚀"
+                    tag=f"🌙 ENTRY: {entry_price:0.2f} 🚀"
                 )
-                print(f"🌕✨ MOON DEV TRADE: {position_size} units @ {entry_price:.2f}")
+                print(f"🌕✨ MOON DEV TRADE: {position_size} units @ {entry_price:0.2f}")
                 
         # Time-based exits
         for trade in self.trades:

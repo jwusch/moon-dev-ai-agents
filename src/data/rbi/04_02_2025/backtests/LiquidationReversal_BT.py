@@ -1,5 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATION REVERSAL STRATEGY
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -36,11 +34,11 @@ class LiquidationReversal(Strategy):
 
     def init(self):
         # 🌙 INDICATORS USING TALIB
-        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_lookback, name='🌙 SWING HIGH')
-        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_lookback, name='🌑 SWING LOW')
-        self.obv = self.I(talib.OBV, self.data.Close, self.data.Volume, name='✨ OBV')
-        self.ema = self.I(talib.EMA, self.data.Close, timeperiod=self.ema_period, name='📈 EMA')
-        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period, name='🌊 ATR')
+        self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_lookback, name=' SWING HIGH')
+        self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_lookback, name=' SWING LOW')
+        self.obv = self.I(talib.OBV, self.data.Close, self.data.Volume, name=' OBV')
+        self.ema = self.I(talib.EMA, self.data.Close, timeperiod=self.ema_period, name=' EMA')
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period, name=' ATR')
 
     def next(self):
         # 🌙 MOON DEV DEBUGGING CHECKS
@@ -61,8 +59,8 @@ class LiquidationReversal(Strategy):
                 position_size = int(round((self.risk_pct * self.equity) / risk_per_share))
                 
                 if position_size > 0:
-                    self.sell(size=position_size, sl=sl_price, tag='🌑 BEARISH DIVERGENCE')
-                    print(f"🚀🌑 MOON DEV SHORT ENTRY | Price: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f}")
+                    self.sell(size=position_size, sl=sl_price, tag=' BEARISH DIVERGENCE')
+#                     print(f"🚀🌑 MOON DEV SHORT ENTRY | Price: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f}")
 
         # 🌙 BULLISH DIVERGENCE CHECK (LONG)
         if self.data.Low[-1] <= self.swing_low[-1] * (1 + self.buffer_pct):
@@ -73,5 +71,5 @@ class LiquidationReversal(Strategy):
                 position_size = int(round((self.risk_pct * self.equity) / risk_per_share))
                 
                 if position_size > 0:
-                    self.buy(size=position_size, sl=sl_price, tag='✨ BULLISH DIVERGENCE')
-                    print(f"🌙✨ MOON DEV LONG ENTRY | Price:
+                    self.buy(size=position_size, sl=sl_price, tag=' BULLISH DIVERGENCE')
+#                     print(f"🌙✨ MOON DEV LONG ENTRY | Price:"

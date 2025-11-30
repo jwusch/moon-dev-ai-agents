@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev compliant backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev Backtest Engine ✨
 import pandas as pd
 import talib
 import pandas_ta
@@ -42,7 +38,7 @@ class BandwidthPulse(Strategy):
         # 🛡️ ATR for Volatility Stop
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌕 Moon Dev Indicators Activated! Trading at Lightspeed 🚀")
+#         print("🌕 Moon Dev Indicators Activated! Trading at Lightspeed 🚀")
 
     def next(self):
         # 💡 Wait for full indicator warmup
@@ -70,14 +66,14 @@ class BandwidthPulse(Strategy):
             if bw_contraction:
                 if kvo_bullish and position_size > 0:
                     self.buy(size=position_size, sl=price - atr_value)
-                    print(f"🌙✨ BULLISH PULSE DETECTED! Long {position_size} units @ {price:.2f} 🚀")
+                    print(f" BULLISH PULSE DETECTED! Long {position_size} units @ {price:.2f} ")
                     
                 elif kvo_bearish and position_size > 0:
                     self.sell(size=position_size, sl=price + atr_value)
-                    print(f"🌙🌑 BEARISH VORTEX SPOTTED! Short {position_size} units @ {price:.2f} 🚨")
+                    print(f" BEARISH VORTEX SPOTTED! Short {position_size} units @ {price:.2f} ")
                     
         elif bw_expanding:
             self.position.close()
-            print(f"🌗 VOLATILITY SURGE! Closing position @ {price:.2f}")
+            print(f" VOLATILITY SURGE! Closing position @ {price:.2f}")
 
 #

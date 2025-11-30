@@ -1,10 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper alternatives, along with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION: VOLATILITYFLIP STRATEGY
-# 🌌✨ Now with 100% backtesting.lib-free implementation!
-
-# 1. NECESSARY IMPORTS
 import pandas as pd
 import talib
 import numpy as np
@@ -70,7 +63,7 @@ class VolatilityFlip(Strategy):
     def next(self):
         # 🌙✨ MOON DEV DEBUG CHECKS
         if len(self.data) < max(self.sma_period, self.bb_period, 14):
-            print("🌙⏳ Not enough data points yet, waiting...")
+            print("⏳ Not enough data points yet, waiting...")
             return
             
         current_chaikin = self.chaikin[-1]
@@ -99,7 +92,7 @@ class VolatilityFlip(Strategy):
                 stop_price = sl_short
                 
             if risk_amount <= 0:
-                print("🌙❌ Invalid risk amount, skipping trade")
+                print(" Invalid risk amount, skipping trade")
                 return
                 
             # Calculate position size (volatility-adjusted)

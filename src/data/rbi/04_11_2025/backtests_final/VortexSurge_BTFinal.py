@@ -1,6 +1,3 @@
-Here's the fully debugged and Moon Dev enhanced version of your VortexSurge strategy: 🌙✨
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import pandas_ta as ta
@@ -38,10 +35,10 @@ class VortexSurge(Strategy):
         
         # Moon Dev debug prints 🌙
         if len(self.data) % 100 == 0:
-            print(f"\n🌙 Moon Dev Status Update @ {self.data.index[-1]} ✨")
+#             print(f"\n🌙 Moon Dev Status Update @ {self.data.index[-1]} ✨")
             print(f"   Close: {current_close:.2f}, VI+:{self.vi_plus[-1]:.2f}, VI-:{self.vi_minus[-1]:.2f}")
             print(f"   ADX: {self.adx[-1]:.2f}, Vol Ratio: {current_volume/self.vol_ma[-1]:.2f}x")
-            print(f"   ATR: {self.atr[-1]:.2f}, Equity: {self.equity:.2f} 🌊")
+            print(f"   ATR: {self.atr[-1]:.2f}, Equity: {self.equity:.2f} ")
 
         if not self.position:
             # Long entry condition (replaced crossover with manual check)
@@ -62,10 +59,10 @@ class VortexSurge(Strategy):
             # Exit condition for both long/short
             if self.adx[-1] < self.exit_adx:
                 self.position.close()
-                print(f"🌙🌊 ADX Collapse! Closing @ {current_close:.2f} (ADX: {self.adx[-1]:.2f}) ✨")
+                print(f" ADX Collapse! Closing @ {current_close:.2f} (ADX: {self.adx[-1]:.2f}) ")
 
     def _enter_trade(self, direction, entry_price):
-        """Moon Dev's Unified Trade Entry Logic 🚀"""
+#         """Moon Dev's Unified Trade Entry Logic 🚀"""'
         atr_value = self.atr[-1]
         stop_loss = atr_value * self.atr_multiplier
         

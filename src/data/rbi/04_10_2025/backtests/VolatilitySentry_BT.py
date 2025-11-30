@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev Backtest Script for VolatilitySentry Strategy
 import pandas as pd
 import talib
 import numpy as np

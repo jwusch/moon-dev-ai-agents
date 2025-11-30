@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper alternatives, and Moon Dev themed debug prints added:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -65,8 +62,8 @@ class VolumetricFisher(Strategy):
             risk_per_share = current_close - sl_price
             if risk_per_share > 0:
                 size = int(round(risk_amount / risk_per_share))
-                print(f"🌙✨ BULLISH CROSS detected! Buying {size} shares at {current_close} 🚀")
-                print(f"🌕 Stop loss set at {sl_price} (Risk: {risk_per_share:.2f} per share)")
+                print(f" BULLISH CROSS detected! Buying {size} shares at {current_close} ")
+                print(f" Stop loss set at {sl_price} (Risk: {risk_per_share:.2f} per share)")
                 self.buy(size=size, sl=sl_price, tag='long_entry')
         
         # Short entry logic - replaced crossunder with manual check

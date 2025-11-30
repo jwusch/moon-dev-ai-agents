@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -56,7 +54,7 @@ class VolumetricBandwidth(Strategy):
         # Trend strength
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, self.adx_period)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -92,4 +90,4 @@ class VolumetricBandwidth(Strategy):
                 return
                 
             # Moon Dev Debug Print 🌕
-            print(f"🚀 MOON DEV LONG SIGNAL!
+#             print(f"🚀 MOON DEV LONG SIGNAL!"

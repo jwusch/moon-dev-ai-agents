@@ -1,6 +1,3 @@
-I notice the code was cut off mid-sentence in the exit logic section. I'll complete the strategy implementation while maintaining all the original rules and adding proper Moon Dev themed debug prints. Here's the complete fixed code:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -50,7 +47,7 @@ class LiquidationAcceleration(Strategy):
                 
                 atr_value = self.atr[-1]
                 if atr_value == 0:
-                    print("🌙⚠️ ATR value is zero - skipping trade")
+                    print(" ATR value is zero - skipping trade")
                     return
                 
                 stop_distance = self.chandelier_multiplier * atr_value
@@ -61,7 +58,7 @@ class LiquidationAcceleration(Strategy):
                     self.buy(size=position_size)
                     self.entry_bar = len(self.data) - 1
                     self.max_high = self.data.High[-1]
-                    print(f"🌙🚀 LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]-stop_distance:.2f} | Moon Rocket Activated! 🌕")
+                    print(f" LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]-stop_distance:.2f} | Moon Rocket Activated! ")
 
             # Short entry logic
             elif (self.data.Close[-2] > self.swing_low[-2] and 
@@ -70,7 +67,7 @@ class LiquidationAcceleration(Strategy):
                 
                 atr_value = self.atr[-1]
                 if atr_value == 0:
-                    print("🌙⚠️ ATR value is zero - skipping trade")
+                    print(" ATR value is zero - skipping trade")
                     return
                 
                 stop_distance = self.chandelier_multiplier * atr_value
@@ -81,7 +78,7 @@ class LiquidationAcceleration(Strategy):
                     self.sell(size=position_size)
                     self.entry_bar = len(self.data) - 1
                     self.min_low = self.data.Low[-1]
-                    print(f"🌙📉 SHORT ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]+stop_distance:.2f} | Lunar Gravity Engaged! 🌑")
+                    print(f" SHORT ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]+stop_distance:.2f} | Lunar Gravity Engaged! ")
 
         else:
             # Update trailing levels and check exits

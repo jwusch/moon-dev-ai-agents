@@ -1,7 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -38,27 +34,27 @@ class DynamicDivergence(Strategy):
 
     def next(self):
         # Moon Dev debug prints 🌙✨
-        print(f"\n🌙 New candle: {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f}")
+        print(f"\n New candle: {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f}")
         
         if len(self.data) < max(self.adx_period, self.vwap_period, self.swing_window)+1:
-            print("    ✨ Not enough data yet, skipping...")
+            print("     Not enough data yet, skipping...")
             return
 
         current_adx = self.adx[-1]
         if current_adx < 25:
-            print(f"    ✨ ADX {current_adx:.1f} <25 - Market not trending")
+            print(f"     ADX {current_adx:.1f} <25 - Market not trending")
             return
 
         # Detect swing points
         current_price_low = self.data.Low[-1]
         if current_price_low == self.price_swing_low[-1]:
             self.price_lows.append((len(self.data)-1, current_price_low))
-            print(f"    🌙 Price Swing Low at {current_price_low:.2f}")
+            print(f"     Price Swing Low at {current_price_low:.2f}")
             
         current_obv_low = self.obv[-1]
         if current_obv_low == self.obv_swing_low[-1]:
             self.obv_lows.append((len(self.data)-1, current_obv_low))
-            print(f"    🌙 OBV Swing Low at {current_obv_low:.2f}")
+            print(f"     OBV Swing Low at {current_obv_low:.2f}")
 
         # Check for divergences
         long_signal = self.check_bullish_divergence()
@@ -66,7 +62,7 @@ class DynamicDivergence(Strategy):
 
         # Entry conditions
         vwap_distance = abs(self.data.Close[-1] - self.vwap[-1])/self.vwap[-1]
-        print(f"    ✨ VWAP Distance: {vwap_distance*100:.2f}%")
+        print(f"     VWAP Distance: {vwap_distance*100:.2f}%")
         
         if not self.position:
             if long_signal and vwap_distance < 0.005:

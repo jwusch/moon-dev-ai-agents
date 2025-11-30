@@ -1,5 +1,3 @@
-```python
-# moon_dev_backtest.py 🌙🚀
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +28,7 @@ class MomentumSqueeze(Strategy):
         # TICK calculations (assuming 'tick' column exists)
         self.tick_ma = self.I(talib.SMA, self.data.Tick, 5)
         
-        print("🌙✨ MOON DEV INIT COMPLETE! Indicators ready for launch! 🚀")
+#         print("🌙✨ MOON DEV INIT COMPLETE! Indicators ready for launch! 🚀")
 
     def next(self):
         current_bar = len(self.data) - 1
@@ -44,7 +42,7 @@ class MomentumSqueeze(Strategy):
 
         # Moon Dev themed debug prints 🌕
         if current_bar % 100 == 0:
-            print(f"🌙 BAR {current_bar} | CMO: {cmo:.1f} | BB Width: {self.bb_bandwidth[-1]:.2f} | Volume Ratio: {self.data.Volume[-1]/self.volume_sma[-1]:.2f}x")
+            print(f" BAR {current_bar} | CMO: {cmo:.1f} | BB Width: {self.bb_bandwidth[-1]:.2f} | Volume Ratio: {self.data.Volume[-1]/self.volume_sma[-1]:.2f}x")
 
         # Close positions first
         if self.position:
@@ -54,7 +52,7 @@ class MomentumSqueeze(Strategy):
                     self.data.Close[-1] < self.bb_lower[-1] or
                     self.position.duration >= 5):
                     
-                    print(f"🌑 CLOSING LONG | CMO: {cmo:.1f} | Duration: {self.position.duration} bars ✨")
+                    print(f" CLOSING LONG | CMO: {cmo:.1f} | Duration: {self.position.duration} bars ")
                     self.position.close()
 
             # Exit conditions for shorts
@@ -63,7 +61,7 @@ class MomentumSqueeze(Strategy):
                     self.data.Close[-1] > self.bb_upper[-1] or
                     self.position.duration >= 5):
                     
-                    print(f"🌑 CLOSING SHORT | CMO: {cmo:.1f} | Duration: {self.position.duration} bars ✨")
+                    print(f" CLOSING SHORT | CMO: {cmo:.1f} | Duration: {self.position.duration} bars ")
                     self.position.close()
         else:
             # Long entry with Moon Dev flare 🚀
@@ -74,6 +72,6 @@ class MomentumSqueeze(Strategy):
                 
                 if size > 0 and risk > 0:
                     self.buy(size=size, sl=sl)
-                    print(f"🚀🌙 BULLISH LAUNCH! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} 🌕")
+                    print(f" BULLISH LAUNCH! Size: {size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f} ")
 
             # Short entry with cosmic precision 🌑

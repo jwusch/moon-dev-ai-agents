@@ -1,6 +1,3 @@
-I'll help fix the code by removing the `backtesting.lib` import and replacing all crossover detections with proper implementations. Here's the corrected code:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta

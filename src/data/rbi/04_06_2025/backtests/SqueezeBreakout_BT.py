@@ -1,7 +1,3 @@
-Here's the complete backtesting.py implementation for the SqueezeBreakout strategy:
-
-```python
-# 🌙 Moon Dev SqueezeBreakout Backtest
 import pandas as pd
 import talib
 import numpy as np
@@ -100,7 +96,7 @@ class SqueezeBreakout(Strategy):
         risk_distance = entry_price - stop_price
         
         if risk_distance <= 0:
-            print(f"✨ Moon Dev Alert: Invalid long stop at {stop_price}")
+#             print(f"✨ Moon Dev Alert: Invalid long stop at {stop_price}")
             return
 
         position_size = self.calculate_size(risk_distance)
@@ -112,4 +108,4 @@ class SqueezeBreakout(Strategy):
             tp=take_profit,
             tag={'entry_bar': len(self.data), 'type': 'long'}
         )
-        print(f"🚀 MOON DEV LONG ENTRY 🌕\nEntry: {entry_price:.2f} | Size: {position_size} | SL: {
+#         print(f"🚀 MOON DEV LONG ENTRY 🌕\nEntry: {entry_price:.2f} | Size: {position_size} | SL: {"

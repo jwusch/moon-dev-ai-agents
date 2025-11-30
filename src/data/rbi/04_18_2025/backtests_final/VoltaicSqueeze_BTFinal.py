@@ -1,6 +1,3 @@
-Here's the fixed and completed version of the VoltaicSqueeze strategy with Moon Dev themed debug prints and proper position sizing:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -8,7 +5,7 @@ import pandas_ta as ta
 import numpy as np
 
 # Moon Dev Data Loading 🌙
-print("🌙 Loading celestial market data...")
+print(" Loading celestial market data...")
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
@@ -22,7 +19,7 @@ data = data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 })
-print("🌙 Data purification complete! Ready for lunar analysis ✨")
+print(" Data purification complete! Ready for lunar analysis ")
 
 class VoltaicSqueeze(Strategy):
     bb_period = 20
@@ -34,7 +31,7 @@ class VoltaicSqueeze(Strategy):
 
     def init(self):
         # Moon Dev Indicator Initialization 🌙
-        print("🌙 Initializing celestial indicators...")
+        print(" Initializing celestial indicators...")
         
         # Bollinger Bands
         def bb_upper(close):
@@ -64,14 +61,14 @@ class VoltaicSqueeze(Strategy):
 
         # Volume MA
         self.vol_ma = self.I(talib.SMA, self.data.Volume, 20, name='Vol_MA')
-        print("🌙 All indicators aligned with lunar cycles! Ready for trading ✨")
+        print(" All indicators aligned with lunar cycles! Ready for trading ")
 
     def next(self):
         if len(self.data.Close) < 100:
             return
 
         # Moon Dev Debug Prints 🌙
-        print(f"🌙 Current BW Percentile: {self.bw_percentile[-1]:.1f}% | Price: {self.data.Close[-1]:.2f} | OBV: {self.obv[-1]:.0f}")
+        print(f" Current BW Percentile: {self.bw_percentile[-1]:.1f}% | Price: {self.data.Close[-1]:.2f} | OBV: {self.obv[-1]:.0f}")
 
         if not self.position:
             if self.bw_percentile[-1] < self.bandwidth_threshold:

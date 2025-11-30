@@ -1,6 +1,3 @@
-```python
-# 🌙✨ MOON DEV BACKTESTING SCRIPT FOR VOLTAIC SQUEEZE STRATEGY ✨🌙
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -55,13 +52,13 @@ class VoltaicSqueeze(Strategy):
                 # 🌓 LONG EXIT CONDITIONS
                 if price < upper or \
                 price <= trade.sl:
-                    print(f"🌙📉 MOON DEV LONG EXIT | Price: {price:.2f}")
+#                     print(f"🌙📉 MOON DEV LONG EXIT | Price: {price:.2f}")
                     trade.close()
             else:
                 # 🌗 SHORT EXIT CONDITIONS
                 if price > lower or \
                 price >= trade.sl:
-                    print(f"🌙📈 MOON DEV SHORT EXIT | Price: {price:.2f}")
+#                     print(f"🌙📈 MOON DEV SHORT EXIT | Price: {price:.2f}")
                     trade.close()
 
         # 🌌 NEW STARGAZING OPPORTUNITIES
@@ -74,7 +71,7 @@ class VoltaicSqueeze(Strategy):
                 
                 if position_size > 0:
                     sl = price - 1.5 * atr
-                    print(f"🚀🌙 MOON DEV LONG ENTRY | Size: {position_size} | SL: {sl:.2f}")
+#                     print(f"🚀🌙 MOON DEV LONG ENTRY | Size: {position_size} | SL: {sl:.2f}")
                     self.buy(size=position_size, sl=sl, tag="VoltaicLong")
 
             # 🌑 SHORT ENTRY PROTOCOL
@@ -85,4 +82,4 @@ class VoltaicSqueeze(Strategy):
                 
                 if position_size > 0:
                     sl = price + 1.5 * atr
-                    print(f"🌑💫 MOON DEV SHORT ENTRY | Size: {position_size} | SL: {
+#                     print(f"🌑💫 MOON DEV SHORT ENTRY | Size: {position_size} | SL: {"

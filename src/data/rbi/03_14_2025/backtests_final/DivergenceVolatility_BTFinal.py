@@ -1,7 +1,3 @@
-Here's the debugged and fixed version of your backtest code with Moon Dev themed debug prints and proper position sizing rules:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -9,10 +5,10 @@ import numpy as np
 from backtesting import Backtest, Strategy
 
 class DivergenceVolatility(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    atr_multiplier = 2  # ATR multiplier for take-profit 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 2  # ATR multiplier for take-profit 
     bb_period = 20  # Bollinger Bands period
-    volume_spike_multiplier = 1.5  # 50% above average volume ✨
+    volume_spike_multiplier = 1.5  # 50% above average volume 
     swing_period = 20  # Swing high/low period
     
     def init(self):
@@ -48,7 +44,7 @@ class DivergenceVolatility(Strategy):
         if len(self.data) < 50:  # Wait for enough data
             return
             
-        # Check if we're already in a position
+        # Check if we're already in a position'
         if not self.position:
             self.check_entry_conditions()
         else:
@@ -75,7 +71,7 @@ class DivergenceVolatility(Strategy):
             stop_loss = swing_low * 0.995  # 0.5% below swing low
             risk_amount = self.risk_per_trade * self.equity
             risk_per_share = self.data.Close[-1] - stop_loss
-            position_size = int(round(risk_amount / risk_per_share))  # Round to whole units 🌙
+            position_size = int(round(risk_amount / risk_per_share))  # Round to whole units 
             
             if position_size > 0:
                 # Record entry conditions 🌙
@@ -86,4 +82,4 @@ class DivergenceVolatility(Strategy):
                 
                 # Enter long position 🚀
                 self.buy(size=position_size, sl=stop_loss)
-                print(f"🌕 MOON DEV ALERT: Long entry at {self.entry
+#                 print(f"🌕 MOON DEV ALERT: Long entry at {self.entry"

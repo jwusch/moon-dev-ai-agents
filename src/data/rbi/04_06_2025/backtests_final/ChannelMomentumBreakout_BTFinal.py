@@ -1,7 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's ChannelMomentumBreakout Strategy Backtest 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -78,10 +74,10 @@ class ChannelMomentumBreakout(Strategy):
             if self.position.is_long:
                 if self.bb_pctb[-1] >= 1.0:
                     self.position.close()
-                    print(f"✨🌕 Moon Take Profit! Closing long at {price}")
+                    print(f" Moon Take Profit! Closing long at {price}")
                 elif self.bb_pctb[-1] <= 0.0:
                     self.position.close()
-                    print(f"🌧️🌕 Moon Stop Loss! Closing long at {price}")
+                    print(f" Moon Stop Loss! Closing long at {price}")
             elif self.position.is_short:
                 if self.bb_pctb[-1] <= 0.0:
                     self

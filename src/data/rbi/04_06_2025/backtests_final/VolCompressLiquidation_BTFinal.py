@@ -1,7 +1,3 @@
-Here's the debugged version of your backtest code with Moon Dev themed improvements while maintaining the original strategy logic:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLCOMPRESSLIQUIDATION STRATEGY 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -10,12 +6,12 @@ import numpy as np
 # =====================
 # DATA PREPARATION
 # =====================
-print("🌙 Initializing Moon Dev Data Preparation...")
+# print("🌙 Initializing Moon Dev Data Preparation...")
 try:
     data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
-    print("✨ CSV successfully loaded!")
+    print(" CSV successfully loaded!")
 except FileNotFoundError:
-    raise FileNotFoundError("🌚 MOON ALERT: Data file not found! Please check the file path.")
+    raise FileNotFoundError(" MOON ALERT: Data file not found! Please check the file path.")
 
 # Clean and prepare columns 🌙
 data.columns = data.columns.str.strip().str.lower().str.replace(' ', '')
@@ -31,9 +27,9 @@ data.rename(columns={
 try:
     data['datetime'] = pd.to_datetime(data['datetime'])
     data.set_index('datetime', inplace=True)
-    print("🌗 Datetime index successfully set!")
+    print(" Datetime index successfully set!")
 except KeyError:
-    raise KeyError("🌚 MOON ALERT: 'datetime' column not found in data!")
+    raise KeyError(" MOON ALERT: 'datetime' column not found in data!")
 
 # =====================
 # STRATEGY IMPLEMENTATION
@@ -46,7 +42,7 @@ class VolCompressLiquidation(Strategy):
     max_daily_loss = 0.03
     
     def init(self):
-        print("🌕 Initializing Moon Dev Strategy Indicators...")
+#         print("🌕 Initializing Moon Dev Strategy Indicators...")
         # 🌗 VOLATILITY INDICATORS
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         self.atr_ma = self.I(talib.SMA, self.atr, 20)
@@ -62,7 +58,7 @@ class VolCompressLiquidation(Strategy):
         # Track daily performance 🌙
         self.last_day = None
         self.daily_equity = []
-        print("✨ Indicators successfully initialized!")
+        print(" Indicators successfully initialized!")
 
     def next(self):
         # 🌑 DAILY LOSS CHECK
@@ -72,7 +68,7 @@ class VolCompressLiquidation(Strategy):
             if len(self.daily_equity) > 1:
                 daily_return = (self.daily_equity[-1] - self.daily_equity[-2])/self.daily_equity[-2]
                 if daily_return < -self.max_daily_loss:
-                    print("🌚 MOON ALERT: Max daily loss hit! Ceasing trading.")
+                    print(" MOON ALERT: Max daily loss hit! Ceasing trading.")
                     self.position.close()
             self.last_day = current_day
 

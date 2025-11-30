@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 Moon Dev's Voltaic Contraction Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -30,8 +26,8 @@ data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
 
 # ======== VOLTAIC CONTRACTION STRATEGY ========
 class VoltaicContraction(Strategy):
-    risk_pct = 0.02  # 🌙 2% risk per trade
-    tp_ratio = 2     # 🚀 2:1 reward:risk
+    risk_pct = 0.02  #  2% risk per trade
+    tp_ratio = 2     #  2:1 reward:risk
     max_bars = 5      # ⏳ Time-based exit
     
     def init(self):
@@ -78,7 +74,7 @@ class VoltaicContraction(Strategy):
                     self.buy(size=size, sl=sl, tp=tp)
                     self.entry_bar = len(self.data)
                     
-                    print(f"🌙✨🚀 LONG ENTRY @ {price:.2f}")
+                    print(f" LONG ENTRY @ {price:.2f}")
                     print(f"Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
 
         # ======== EXIT LOGIC ========
@@ -86,15 +82,15 @@ class VoltaicContraction(Strategy):
             # Time Exit ⏳
             if (len(self.data) - self.entry_bar) >= self.max_bars:
                 self.position.close()
-                print(f"🌙🕒 TIME EXIT @ {price:.2f}")
+                print(f" TIME EXIT @ {price:.2f}")
             
             # Volatility Expansion Exit 🌪️
             if self.bbw[-1] > 1.5:
                 self.position.close()
-                print(f"🌙📈 BBW EXPANSION EXIT @ {price:.2f}")
+                print(f" BBW EXPANSION EXIT @ {price:.2f}")
 
     def notify_trade(self, trade):
         if trade.is_closed:
-            print(f"🌙💸 TRADE CLOSED: PnL ${trade.pnl:.2f}")
+            print(f" TRADE CLOSED: PnL ${trade.pnl:.2f}")
 
 # ========

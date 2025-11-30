@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints: 🌙✨
-
-```python
-# 🌙 Moon Dev's LiquiSqueeze Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -49,7 +45,7 @@ class LiquiSqueeze(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
 
     def _near_liquidation(self, price, reference):
-        """Check if price is near liquidation zone 🌊"""
+        """Check if price is near liquidation zone """
         return abs(price - reference) <= (reference * self.liquidity_proximity)
 
     def next(self):
@@ -82,7 +78,7 @@ class LiquiSqueeze(Strategy):
                             'entry_type': 'long'
                         }
                     )
-                    print(f"🌙 MOON ALERT: LONG ENTRY @ {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} ✨")
+                    print(f" MOON ALERT: LONG ENTRY @ {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} ")
 
             # Short Entry Logic 🌑
             short_trigger = (price < bb_lower) or (price < self.swing_low[-1])

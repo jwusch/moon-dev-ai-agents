@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage with proper alternatives. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -43,7 +40,7 @@ class VolBandReversion(Strategy):
         self.stop_price = 0
 
     def next(self):
-        # Skip early bars where indicators aren't calculated
+        # Skip early bars where indicators aren't calculated'
         if len(self.data) < 200:
             return
 
@@ -73,7 +70,7 @@ class VolBandReversion(Strategy):
                     position_size = int(round(position_size))
                     
                     if position_size > 0:
-                        print(f"🌙✨ SHORT SIGNAL! Entry: {entry_price:.2f}, Stop: {self.stop_price:.2f}, Size: {position_size}")
+                        print(f" SHORT SIGNAL! Entry: {entry_price:.2f}, Stop: {self.stop_price:.2f}, Size: {position_size}")
                         self.sell(size=position_size, sl=self.stop_price)
                         self.entry_bar = len(self.data)
 
@@ -82,13 +79,13 @@ class VolBandReversion(Strategy):
             # Profit target (lower Bollinger Band)
             if self.data.Low[-1] <= self.bb_lower[-1]:
                 self.position.close()
-                print(f"🎯 PROFIT TARGET HIT! Closing at {self.data.Close[-1]:.2f}")
+                print(f" PROFIT TARGET HIT! Closing at {self.data.Close[-1]:.2f}")
                 return
 
             # Time-based exit (5 days in 15m intervals = 480 bars)
             if (len(self.data) - self.entry_bar) >= 480:
                 self.position.close()
-                print(f"🕒 TIME EXIT! Held for 5 days")
+                print(f" TIME EXIT! Held for 5 days")
                 return
 
 # Data preparation 🌐✨

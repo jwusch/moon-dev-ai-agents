@@ -19,7 +19,14 @@ class AdaptiveSynergy(Strategy):
             close=self.data.Close,
             volume=self.data.Volume
         )
-        self.I(vwap_values, name='VWAP')
+        
+        # If VWAP returns None or empty, use typical price as fallback
+        if vwap_values is None or (hasattr(vwap_values, '__len__') and len(vwap_values) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        elif hasattr(vwap_values, 'fillna'):
+            vwap_values = vwap_values.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+        
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -31,12 +38,12 @@ class AdaptiveSynergy(Strategy):
                 crossover(self.macd_line, self.macd_signal_line),
                 50 < self.rsi_series[-1] < 70,
                 current_close > self.upper_bb[-1],
-                current_close > self.data.VWAP[-1]
+                current_close > self.vwap[-1]
             ]
             
             if all(entry_conditions):
                 risk_percent = 0.01
-                equity = self.broker.equity
+                equity = self.equity
                 risk_amount = equity * risk_percent
                 entry_price = self.data.Open[-1]  # Next candle's open
                 atr_value = self.atr_series[-1]
@@ -61,12 +68,12 @@ class AdaptiveSynergy(Strategy):
                 crossover(self.macd_signal_line, self.macd_line),
                 self.rsi_series[-1] >= 70,
                 current_close < self.middle_bb[-1],
-                current_close < self.data.VWAP[-1]
+                current_close < self.vwap[-1]
             ]
             
             if any(exit_conditions):
                 self.position.close()
-                print(f"🌑🌙 Moon Dev Exit Signal | Price: {current_close:.2f} | Equity: {self.broker.equity:.2f}")
+                print(f"🌑🌙 Moon Dev Exit Signal | Price: {current_close:.2f} | Equity: {self.equity:.2f}")
 
 # Moon Dev Data Preparation Ritual 🌙✨
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

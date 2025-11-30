@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the original strategy logic. Here's the complete fixed version with proper position sizing and technical corrections:
-
-```python
-# 🌙 Moon Dev's VolumetricExpansion Backtest 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -66,7 +62,7 @@ class VolumetricExpansion(Strategy):
         current_price = self.data.Close[-1]
         
         # 🌟 Moon Dev Debug Prints 🌟
-        print(f"\n🌕 Moon Dev Status: Bar {len(self.data)-1}")
+#         print(f"\n🌕 Moon Dev Status: Bar {len(self.data)-1}")
         print(f"   Close: {current_price:.2f} | BB Width: {(self.upper[-1]-self.lower[-1])/self.middle[-1]:.4f}")
         print(f"   OBV: {self.obv[-1]:.2f} vs High: {self.obv_high[-1]:.2f}")
         print(f"   ATR: {self.atr[-1]:.2f} | Equity: {self.equity:,.2f}")
@@ -77,7 +73,7 @@ class VolumetricExpansion(Strategy):
             self.trailing_stop = self.peak_price - self.atr_multiplier * self.atr[-1]
             
             if self.data.Close[-1] < self.trailing_stop:
-                print(f"🚨 MOON EXIT SIGNAL 🚨 | Price: {current_price:.2f} < Trailing Stop: {self.trailing_stop:.2f}")
+                print(f" MOON EXIT SIGNAL  | Price: {current_price:.2f} < Trailing Stop: {self.trailing_stop:.2f}")
                 self.position.close()
                 self.trailing_stop = None
                 self.peak_price = None

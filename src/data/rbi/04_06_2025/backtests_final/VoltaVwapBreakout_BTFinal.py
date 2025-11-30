@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with all technical issues resolved while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -46,10 +43,10 @@ class VoltaVwapBreakout(Strategy):
         # Detect new swing points
         if self.data.High[-1] == self.swing_high[-1]:
             self.anchor_idx_short = current_idx
-            print(f"🌙 New Swing High Detected at {self.data.High[-1]:.2f}")
+            print(f" New Swing High Detected at {self.data.High[-1]:.2f}")
         if self.data.Low[-1] == self.swing_low[-1]:
             self.anchor_idx_long = current_idx
-            print(f"🌙 New Swing Low Detected at {self.data.Low[-1]:.2f}")
+            print(f" New Swing Low Detected at {self.data.Low[-1]:.2f}")
         
         # Calculate anchored VWAPs
         if self.anchor_idx_long != -1:
@@ -75,7 +72,7 @@ class VoltaVwapBreakout(Strategy):
                 if risk_share > 0:
                     size = int(round((self.equity * self.risk_per_trade) / risk_share))
                     self.buy(size=size, sl=sl_price)
-                    print(f"🚀 LONG ENTRY: {close:.2f} | Size: {size} | SL: {sl_price:.2f}")
+                    print(f" LONG ENTRY: {close:.2f} | Size: {size} | SL: {sl_price:.2f}")
                     
             elif bb_signal and close < self.vwap_short:
                 # Short entry calculations

@@ -1,6 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your VolBand Reversion strategy:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -43,7 +40,7 @@ class VolBandReversion(Strategy):
         self.stop_price = 0
 
     def next(self):
-        # Skip early bars where indicators aren't calculated
+        # Skip early bars where indicators aren't calculated'
         if len(self.data) < 200:
             return
 
@@ -73,7 +70,7 @@ class VolBandReversion(Strategy):
                     position_size = int(round(position_size))  # Ensure whole units
                     
                     if position_size > 0:
-                        print(f"🌙✨ MOON DEV ALERT: SHORT SIGNAL DETECTED!")
+#                         print(f"🌙✨ MOON DEV ALERT: SHORT SIGNAL DETECTED!")
                         print(f"   Entry Price: {entry_price:.2f}")
                         print(f"   Stop Loss: {self.stop_price:.2f}")
                         print(f"   Position Size: {position_size} units")
@@ -85,7 +82,7 @@ class VolBandReversion(Strategy):
             # Profit target (lower Bollinger Band)
             if self.data.Low[-1] <= self.bb_lower[-1]:
                 self.position.close()
-                print(f"🎯 MOON DEV EXIT: PROFIT TARGET REACHED!")
+#                 print(f"🎯 MOON DEV EXIT: PROFIT TARGET REACHED!")
                 print(f"   Exit Price: {self.data.Close[-1]:.2f}")
                 print(f"   P/L: {self.position.pl:.2f}")
                 return
@@ -93,5 +90,5 @@ class VolBandReversion(Strategy):
             # Time-based exit (5 days in 15m intervals = 480 bars)
             if (len(self.data) - self.entry_bar) >= 480:
                 self.position.close()
-                print(f"🕒 MOON DEV EXIT: TIME LIMIT REACHED (5 days)")
+#                 print(f"🕒 MOON DEV EXIT: TIME LIMIT REACHED (5 days)")
                 print

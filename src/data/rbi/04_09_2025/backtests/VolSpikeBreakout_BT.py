@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,8 +50,8 @@ class VolSpikeBreakout(Strategy):
         vol_threshold = self.vol_pct[-1]
         
         # Moon Dev Debug Prints 🌙
-        print(f"🌙 Current Price: {price:.2f} | Upper BB: {upper_band:.2f} | Lower BB: {lower_band:.2f}")
-        print(f"🌕 Volume: {volume:.2f} | 90th Percentile: {vol_threshold:.2f}")
+        print(f" Current Price: {price:.2f} | Upper BB: {upper_band:.2f} | Lower BB: {lower_band:.2f}")
+        print(f" Volume: {volume:.2f} | 90th Percentile: {vol_threshold:.2f}")
         
         if not self.position:
             # Long entry logic
@@ -67,7 +65,7 @@ class VolSpikeBreakout(Strategy):
                 if position_size > 0:
                     tp_price = price + 1.5 * band_width
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"\n🚀🌕 MOON DEV LONG SIGNAL 🚀")
+#                     print(f"\n🚀🌕 MOON DEV LONG SIGNAL 🚀")
                     print(f"Entry: {price:.2f} | Size: {position_size}")
                     print(f"TP: {tp_price:.2f} | SL: {sl_price:.2f}\n")
             
@@ -82,7 +80,7 @@ class VolSpikeBreakout(Strategy):
                 if position_size > 0:
                     tp_price = price - 1.5 * band_width
                     self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"\n🔻🌕 MOON DEV SHORT SIGNAL 🔻")
+#                     print(f"\n🔻🌕 MOON DEV SHORT SIGNAL 🔻")
                     print(f"Entry: {price:.2f} | Size: {position_size}")
                     print(f"TP: {tp_price:.2f} | SL: {sl_price:.2f}\n")
         
@@ -90,7 +88,7 @@ class VolSpikeBreakout(Strategy):
         else:
             if self.position.is_long and price < upper_band:
                 self.position.close()
-                print(f"\n🌙📉 MOON DEV EXIT: Price returned inside bands at {price:.2f}\n")
+#                 print(f"\n🌙📉 MOON DEV EXIT: Price returned inside bands at {price:.2f}\n")
             elif self.position.is_short and price > lower_band:
                 self.position.close()
-                print(f"\n🌙📈 MOON DEV EXIT: Price returned inside bands at {price:.
+#                 print(f"\n🌙📈 MOON DEV EXIT: Price returned inside bands at {price:."

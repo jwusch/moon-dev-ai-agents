@@ -1,13 +1,10 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing them with proper alternatives. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
 from backtesting import Backtest, Strategy
 
 # Moon Dev Data Preparation 🌙
-print("🌕 MOON DEV INITIALIZING DATA PREPARATION...")
+# print("🌕 MOON DEV INITIALIZING DATA PREPARATION...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 # Clean and prepare data
@@ -22,7 +19,7 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("🌖 DATA CLEANING COMPLETE - MOON STANDARDS MET")
+print(" DATA CLEANING COMPLETE - MOON STANDARDS MET")
 
 class VolumetricSqueezeExtension(Strategy):
     initial_capital = 1_000_000
@@ -31,7 +28,7 @@ class VolumetricSqueezeExtension(Strategy):
     daily_loss_limit = 0.05
     
     def init(self):
-        print("🌗 INITIALIZING MOON DEV STRATEGY COMPONENTS...")
+#         print("🌗 INITIALIZING MOON DEV STRATEGY COMPONENTS...")
         # Clean data columns
         self.data.df.columns = self.data.df.columns.str.strip().str.lower()
         
@@ -69,12 +66,12 @@ class VolumetricSqueezeExtension(Strategy):
         # Swing points
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20, name='Swing High')
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
-        print("🌘 STRATEGY INITIALIZATION COMPLETE - READY FOR LIFTOFF")
+#         print("🌘 STRATEGY INITIALIZATION COMPLETE - READY FOR LIFTOFF")
         
     def next(self):
         # Moon Dev risk management checks 🌙
         if self.equity < self.initial_capital * (1 - self.daily_loss_limit):
-            print(f"🌑 MOON DEV ALERT: Daily loss limit hit! Stopping trading.")
+#             print(f"🌑 MOON DEV ALERT: Daily loss limit hit! Stopping trading.")
             self.position.close()
             return
             

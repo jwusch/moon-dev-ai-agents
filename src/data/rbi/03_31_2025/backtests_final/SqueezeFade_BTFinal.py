@@ -1,9 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete and debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING SUITE - SQUEEZEFADE STRATEGY 🚀
-# 🌌 PACKAGE AI CERTIFIED - NO backtesting.lib USAGE DETECTED 🌠
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +24,7 @@ class SqueezeFade(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, 20)
         self.swing_low = self.I(talib.MIN, self.data.Low, 20)
         
-        print("✨ Strategy initialized with Moon Dev precision! All indicators powered by TALIB 🌕")
+#         print("✨ Strategy initialized with Moon Dev precision! All indicators powered by TALIB 🌕")
 
     def next(self):
         # Skip early bars without indicator data
@@ -66,12 +60,12 @@ class SqueezeFade(Strategy):
                 and self.data.Close[-2] > self.bb_middle[-2] 
                 and self.data.Close[-1] < self.bb_middle[-1]):
                 self.position.close()
-                print(f"🌑 Closing short early! Price reclaimed squeeze zone at {self.data.Close[-1]} ✨")
+                print(f" Closing short early! Price reclaimed squeeze zone at {self.data.Close[-1]} ")
             elif (self.position.is_long 
                   and self.data.Close[-2] < self.bb_middle[-2] 
                   and self.data.Close[-1] > self.bb_middle[-1]):
                 self.position.close()
-                print(f"🌕 Closing long early! Price reclaimed squeeze zone at {self.data.Close[-1]} 🚀")
+                print(f" Closing long early! Price reclaimed squeeze zone at {self.data.Close[-1]} ")
 
     def enter_short(self):
         entry_price = self

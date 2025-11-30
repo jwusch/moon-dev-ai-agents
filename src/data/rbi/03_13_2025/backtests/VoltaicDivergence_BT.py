@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -70,7 +68,7 @@ class VoltaicDivergence(Strategy):
                     self.entry_bar = len(self.data)
                     self.buy(size=position_size, sl=sl_price, 
                             tp=entry_price + current_atr*1.5)
-                    print(f"🌙✨ MOON DEV LONG SIGNAL: {position_size} units at {entry_price:.2f} | SL: {sl_price:.2f} | TP: {entry_price + current_atr*1.5:.2f}")
+#                     print(f"🌙✨ MOON DEV LONG SIGNAL: {position_size} units at {entry_price:.2f} | SL: {sl_price:.2f} | TP: {entry_price + current_atr*1.5:.2f}")
             
             elif bearish_div and volatility_ok:
                 risk_amount = self.equity * self.risk_percent
@@ -84,4 +82,4 @@ class VoltaicDivergence(Strategy):
                     self.entry_bar = len(self.data)
                     self.sell(size=position_size, sl=sl_price, 
                              tp=entry_price - current_atr*1.5)
-                    print(f"🌙✨ MOON DEV SHORT SIGNAL: {position_size} units at {entry_price:.2f}
+#                     print(f"🌙✨ MOON DEV SHORT SIGNAL: {position_size} units at {entry_price:.2f}"

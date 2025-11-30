@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VolatilityFilterEMA Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -53,14 +49,14 @@ class VolatilityFilterEMA(Strategy):
 
         # 🌠 Moon Dev Debug Console
         if len(self.data) % 100 == 0:
-            print(f"\n🌕 Lunar Status Report 🌕")
-            print(f"│ Price: {price:.2f} │ EMA50: {ema50:.2f}")
-            print(f"│ EMA200: {ema200:.2f} │ ATR: {atr:.2f}")
-            print(f"╰──────────────── ATR Avg: {atr_avg:.2f} ────────────────╯")
+            print(f"\n Lunar Status Report ")
+            print(f" Price: {price:.2f}  EMA50: {ema50:.2f}")
+            print(f" EMA200: {ema200:.2f}  ATR: {atr:.2f}")
+            print(f" ATR Avg: {atr_avg:.2f} ")
 
         # 🚀 Launch Sequence (Entry Conditions)
         if not self.position:
-            # 🌙 Moon Dev's Crossover Detection (replaces backtesting.lib)
+            # 🌙 Moon Dev's Crossover Detection (replaces backtesting.lib)'
             if (self.ema50[-2] < self.ema200[-2] and self.ema50[-1] > self.ema200[-1]):
                 if atr < atr_avg:
                     # 💰 Risk Management Protocol
@@ -72,10 +68,10 @@ class VolatilityFilterEMA(Strategy):
                         position_size = int(round(position_size))
                         
                         if position_size > 0:
-                            print(f"\n🚀🌙 LIFTOFF DETECTED! 🚀")
-                            print(f"│ Entry Price: {price:.2f}")
-                            print(f"│ Position Size: {position_size} units")
-                            print(f"╰────── Stop Loss: {price - stop_loss:.2f} ──────╯")
+                            print(f"\n LIFTOFF DETECTED! ")
+                            print(f" Entry Price: {price:.2f}")
+                            print(f" Position Size: {position_size} units")
+                            print(f" Stop Loss: {price - stop_loss:.2f} ")
                             self.buy(size=position_size, 
                                     sl=price - stop_loss,
                                     tag='GoldenCrossEntry')
@@ -83,8 +79,8 @@ class VolatilityFilterEMA(Strategy):
         # 🌑 Black Hole Exit (Volatility Spike)
         else:
             if atr > atr_avg:
-                print(f"\n🌑⚡ VOLATILITY SPIKE! EXITING! ⚡")
-                print(f"╰──── Current ATR: {atr:.2f} > Avg {atr_avg:.2f} ────╯")
+                print(f"\n VOLATILITY SPIKE! EXITING! ")
+                print(f" Current ATR: {atr:.2f} > Avg {atr_avg:.2f} ")
                 self.sell()
 
 # 🪐 Galactic Backtest Execution

@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -48,13 +46,13 @@ class FundingVwapRejection(Strategy):
         
     def next(self):
         current_idx = len(self.data)-1
-        print(f"\n🌙 Processing {self.data.index[-1]} ✨")
+        print(f"\n Processing {self.data.index[-1]} ")
         
         if not self.position:
             # Funding rate check
             funding = self.data.df['funding_rate'].iloc[-1]
             if funding <= self.entry_funding:
-                print(f"🔻 Funding rate {funding*100:.2f}% ≤ entry threshold", flush=True)
+                print(f" Funding rate {funding*100:.2f}% ≤ entry threshold", flush=True)
                 return
                 
             # VWAP cluster check (2+ touches in last 20 candles)
@@ -63,7 +61,7 @@ class FundingVwapRejection(Strategy):
                 self.data.Low[-i] <= self.vwap[-i]
             ))
             if touches < 2:
-                print(f"🔺 Only {touches} VWAP touches", flush=True)
+                print(f" Only {touches} VWAP touches", flush=True)
                 return
                 
             # Rejection candle check
@@ -78,12 +76,12 @@ class FundingVwapRejection(Strategy):
             )
             
             if not (is_pinbar or engulf_cond):
-                print("🔁 No valid rejection pattern", flush=True)
+                print(" No valid rejection pattern", flush=True)
                 return
                 
             # Volume check
             if self.data.Volume[-1] < self.vol_sma[-1]:
-                print(f"🔇 Volume {self.data.Volume[-1]:.0f} < SMA {self.vol_sma[-1]:.0f}", flush=True)
+                print(f" Volume {self.data.Volume[-1]:.0f} < SMA {self.vol_sma[-1]:.0f}", flush=True)
                 return
                 
             # Entry trigger

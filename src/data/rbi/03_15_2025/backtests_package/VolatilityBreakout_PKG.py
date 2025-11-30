@@ -1,7 +1,3 @@
-I've checked the code and found that it uses `backtesting.lib.crossover`. I'll fix this and ensure all indicators are properly implemented without any `backtesting.lib` imports. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's Volatility Breakout Strategy Backtest 🚀
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -29,7 +25,7 @@ class VolatilityBreakout(Strategy):
         # 🛡️ Swing Low for Stop Loss
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
         
-        print("🌙 VolatilityBreakout Strategy Initialized with Moon Dev Power! 🚀")
+#         print("🌙 VolatilityBreakout Strategy Initialized with Moon Dev Power! 🚀")
 
     def next(self):
         # 🌌 Check for entry signals
@@ -45,7 +41,7 @@ class VolatilityBreakout(Strategy):
             
             if price_break and macd_bullish and volatility_ok:
                 # 🧮 Risk Management Calculations
-                entry_price = self.data.Open[-1]  # Next bar's open price
+                entry_price = self.data.Open[-1]  # Next bar's open price'
                 stop_loss = self.swing_low[-1]
                 risk_per_share = entry_price - stop_loss
                 
@@ -55,7 +51,7 @@ class VolatilityBreakout(Strategy):
                     
                     # 🚀 Execute Buy Order with Stop Loss
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌕 MOON ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} 🚀")
+                    print(f" MOON ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} ")
         
         else:
             # 🌑 Check exit conditions
@@ -65,7 +61,7 @@ class VolatilityBreakout(Strategy):
             
             if exit_price or exit_macd or exit_vol:
                 self.position.close()
-                print(f"🌒 MOON EXIT! P/L: {self.position.pl:.2f} | Equity: {self.equity:.2f} ✨")
+                print(f" MOON EXIT! P/L: {self.position.pl:.2f} | Equity: {self.equity:.2f} ")
 
 # 🛠️ Data Preparation
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

@@ -1,9 +1,3 @@
-Here's the fixed backtest code with all technical issues resolved while preserving the original strategy logic:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT: VOLUMETRIC BREAKOUT STRATEGY �✨
-
-# === REQUIRED IMPORTS ===
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -50,7 +44,7 @@ class VolumetricBreakout(Strategy):
 
     def next(self):
         # === MOON DEV DEBUG PRINT 🌕 ===
-        print(f"🌙 Processing {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} | Equity: {self.equity:.2f}")
+        print(f" Processing {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} | Equity: {self.equity:.2f}")
         
         # === ENTRY LOGIC ===
         if not self.position:
@@ -69,7 +63,7 @@ class VolumetricBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🚀🌕 MOON ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
+                    print(f" MOON ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
                     # Initialize trail metrics
                     self.trade_highest = self.data.High[-1]
                     self.trail_stop = self.trade_highest - self.atr_multiplier * atr_value
@@ -84,4 +78,4 @@ class VolumetricBreakout(Strategy):
             # Check stop breach
             if self.data.Low[-1] <= self.trail_stop:
                 self.position.close()
-                print(f"🌙✨ TRAILING STOP HIT! Exit: {self.data.Close[-1]:.2f}")
+                print(f" TRAILING STOP HIT! Exit: {self.data.Close[-1]:.2f}")

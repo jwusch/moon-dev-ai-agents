@@ -1,15 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here are the issues I found and fixed:
-
-1. Fixed incomplete print statement in entry logic
-2. Added missing exit logic (SMA crossover)
-3. Ensured proper position sizing with whole numbers
-4. Added proper stop loss implementation
-5. Fixed string formatting in print statements
-
-Here's the complete fixed code with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -73,7 +61,7 @@ class VolatileDivergence(Strategy):
         if current_low == self.low_min[-1]:
             if self.last_low_price is not None:
                 if (current_low < self.last_low_price) and (current_rsi > self.last_low_rsi):
-                    print(f"🌙✨ BULLISH DIVERGENCE! Price LL: {self.last_low_price:.2f}→{current_low:.2f} | RSI HL: {self.last_low_rsi:.2f}→{current_rsi:.2f}")
+                    print(f" BULLISH DIVERGENCE! Price LL: {self.last_low_price:.2f}→{current_low:.2f} | RSI HL: {self.last_low_rsi:.2f}→{current_rsi:.2f}")
                     bullish_divergence = True
                 self.last_low_price = current_low
                 self.last_low_rsi = current_rsi
@@ -84,7 +72,7 @@ class VolatileDivergence(Strategy):
         # Moon Dev ATR Volatility Check 🌪️
         atr_condition = current_atr5 > 2 * current_atr20
         if atr_condition:
-            print(f"📈 ATR Expansion! {current_atr5:.2f} > 2x{current_atr20:.2f}")
+            print(f" ATR Expansion! {current_atr5:.2f} > 2x{current_atr20:.2f}")
         
         # Moon Dev Entry Logic 🚀
         if not self.position and bullish_divergence and atr_condition:

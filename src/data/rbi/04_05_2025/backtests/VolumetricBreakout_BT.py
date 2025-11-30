@@ -1,16 +1,3 @@
-To address this problem, we need to create a backtesting implementation for the VolumetricBreakout strategy using the backtesting.py framework. This strategy involves trend confirmation via EMA crossovers, volume filtering, breakout entry, and ATR-based exits. Here's the structured solution:
-
-### Approach
-1. **Data Handling**: Clean and prepare the data by renaming columns to the required format and dropping any unnecessary columns.
-2. **Indicators Calculation**: Use TA-Lib to compute EMA, ATR, recent highs, and average volume within the strategy class.
-3. **Entry Conditions**: Check for the Golden Cross (EMA50 crossing above EMA200), high volume, and price breakout above a recent high.
-4. **Exit Conditions**: Implement an initial stop loss at 2x ATR and a trailing stop at 1.5x ATR, along with trend reversal detection.
-5. **Risk Management**: Calculate position size based on a fixed risk percentage (1%) of equity, ensuring the size is an integer.
-6. **Moon Dev Themed Logging**: Include debug messages with emojis to track entry/exit signals and key metrics.
-
-### Solution Code
-```python
-# 🌙 Moon Dev's VolumetricBreakout Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -58,23 +45,23 @@ class VolumetricBreakout(Strategy):
             return
 
         # 🌙 Moon Dev Debug Prints
-        print(f"🌙 Current Close: {self.data.Close[-1]:.2f} | EMA50: {self.ema50[-1]:.2f} vs EMA200: {self.ema200[-1]:.2f}")
+        print(f" Current Close: {self.data.Close[-1]:.2f} | EMA50: {self.ema50[-1]:.2f} vs EMA200: {self.ema200[-1]:.2f}")
 
         # Entry Logic
         if not self.position:
             # Golden Cross Check
             golden_cross = crossover(self.ema50, self.ema200)[-1]
             if golden_cross:
-                print(f"✨🌙 GOLDEN CROSS! EMA50 ({self.ema50[-1]:.2f}) > EMA200 ({self.ema200[-1]:.2f})")
+                print(f" GOLDEN CROSS! EMA50 ({self.ema50[-1]:.2f}) > EMA200 ({self.ema200[-1]:.2f})")
 
             # Volume Filter
             volume_ok = self.data.Volume[-1] > self.avg_volume[-1]
             if volume_ok:
-                print(f"📈 VOLUME SPIKE! {self.data.Volume[-1]:.2f} > Avg {self.avg_volume[-1]:.2f}")
+                print(f" VOLUME SPIKE! {self.data.Volume[-1]:.2f} > Avg {self.avg_volume[-1]:.2f}")
 
             # Breakout Check
             price_breakout = self.data.Close[-1] > self.recent_high[-1]
             if price_breakout:
-                print(f"🚀 PRICE BREAKOUT! Close {self.data.Close[-1]:.2f} > Recent High {self.recent_high[-1]:.2f}")
+                print(f" PRICE BREAKOUT! Close {self.data.Close[-1]:.2f} > Recent High {self.recent_high[-1]:.2f}")
 
             # All conditions

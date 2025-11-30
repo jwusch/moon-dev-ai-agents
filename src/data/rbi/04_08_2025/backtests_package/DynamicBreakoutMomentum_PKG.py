@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the crossover function with the proper implementation. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -66,8 +63,8 @@ class DynamicBreakoutMomentum(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.highest_high = self.data.High[-1]  # Initialize trailing stop
-                    print(f"🌕 MOON DEV ALERT: Long entry at {self.data.Close[-1]:.2f}!")
-                    print(f"🚀 Size: {position_size} contracts | Risk: {self.risk_percent*100}% Equity")
+#                     print(f"🌕 MOON DEV ALERT: Long entry at {self.data.Close[-1]:.2f}!")
+                    print(f" Size: {position_size} contracts | Risk: {self.risk_percent*100}% Equity")
 
         # Exit management
         else:
@@ -78,13 +75,13 @@ class DynamicBreakoutMomentum(Strategy):
             # Trailing stop exit
             if self.data.Low[-1] < trail_stop:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT: Trailing stop triggered at {trail_stop:.2f}!")
-                print(f"💎 Profit: {self.position.pl_pct:.2%} P/L")
+#                 print(f"🌙 MOON DEV EXIT: Trailing stop triggered at {trail_stop:.2f}!")
+                print(f" Profit: {self.position.pl_pct:.2%} P/L")
             
             # RSI overbought exit
             elif self.rsi5[-1] > 70:
                 self.position.close()
-                print(f"🚨 MOON DEV EXIT: RSI {self.rsi5[-1]:.2f} overbought!")
-                print(f"💎 Profit: {self.position.pl_pct:.2%} P/L")
+#                 print(f"🚨 MOON DEV EXIT: RSI {self.rsi5[-1]:.2f} overbought!")
+                print(f" Profit: {self.position.pl_pct:.2%} P/L")
 
 # Run backtest

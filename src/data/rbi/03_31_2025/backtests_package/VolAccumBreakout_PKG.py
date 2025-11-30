@@ -1,8 +1,3 @@
-I'll fix the backtesting.lib imports and ensure all indicators are properly implemented. Here's the corrected code with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation ✨
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -29,8 +24,8 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolAccumBreakout(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
-    rr_ratio = 1.5    # Moonshot reward ratio 🚀
+    risk_pct = 0.01  # 1% risk per trade 
+    rr_ratio = 1.5    # Moonshot reward ratio 
     consolidation_lookback = 20  # Bars to check for consolidation
     
     def init(self):
@@ -90,9 +85,9 @@ class VolAccumBreakout(Strategy):
                             take_profit = close + 1.5*(consolidation_high - consolidation_low)
                             
                             # 🌙 Moon Dev Entry Alert
-                            print(f"🌕✨ MOONSHOT ALERT! Entering long at {close:.2f}")
-                            print(f"🎯 TP: {take_profit:.2f} | 🛑 SL: {stop_loss:.2f}")
-                            print(f"📈 Size: {position_size} contracts 🌙\n")
+                            print(f" MOONSHOT ALERT! Entering long at {close:.2f}")
+                            print(f" TP: {take_profit:.2f} |  SL: {stop_loss:.2f}")
+                            print(f" Size: {position_size} contracts \n")
                             
                             self.buy(size=position_size,
                                    sl=stop_loss,
@@ -101,6 +96,6 @@ class VolAccumBreakout(Strategy):
         # 🌑 Exit Signal: CMF crosses below zero
         if self.position and cmf < 0 and prev_cmf >= 0:
             self.position.close()
-            print(f"🌑🛑 MOON RETREAT! Closing position at {close:.2f}\n")
+            print(f" MOON RETREAT! Closing position at {close:.2f}\n")
 
 # 🚀 Launch Back

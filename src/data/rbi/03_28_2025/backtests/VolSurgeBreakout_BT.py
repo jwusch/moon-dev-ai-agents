@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -67,7 +66,7 @@ class VolSurgeBreakout(Strategy):
                     position_size = int(round((self.equity * risk_pct) / risk_per_share))
                     self.buy(size=position_size, sl=stop_loss)
                     self.entry_bar = len(self.data)
-                    print(f"🌙✨🚀 LONG Entry! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | BBW%: {bbw_percentile:.1f}% 🌟")
+                    print(f" LONG Entry! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | BBW%: {bbw_percentile:.1f}% ")
             
             # Short entry
             elif (bbw_percentile < 10 and
@@ -83,11 +82,11 @@ class VolSurgeBreakout(Strategy):
                     position_size = int(round((self.equity * risk_pct) / risk_per_share))
                     self.sell(size=position_size, sl=stop_loss)
                     self.entry_bar = len(self.data)
-                    print(f"🌙✨🔻 SHORT Entry! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | BBW%: {bbw_percentile:.1f}% 🌟")
+                    print(f" SHORT Entry! | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | BBW%: {bbw_percentile:.1f}% ")
 
         # Exit logic
         if self.position.is_long:
             # Opposite band exit
             if self.data.Low[-1] <= self.lower_band[-1]:
                 self.position.close()
-                print(f"🌙📉 LONG Exit! | Price: {self.data.Close[-1]:.2f} | Profit: {self.position.pl_pct:.2f}% 🌌")
+                print(f" LONG Exit! | Price: {self.data.Close[-1]:.2f} | Profit: {self.position.pl_pct:.2f}% ")

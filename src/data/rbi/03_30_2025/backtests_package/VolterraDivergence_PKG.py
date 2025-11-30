@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,8 +19,8 @@ def prepare_data(path):
     return data
 
 class VolterraDivergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
-    max_alloc = 0.05  # 5% max allocation 🚀
+    risk_pct = 0.01  # 1% risk per trade 
+    max_alloc = 0.05  # 5% max allocation 
     
     def init(self):
         # Bollinger Bands (20,2) with TA-Lib 📈
@@ -35,7 +32,7 @@ class VolterraDivergence(Strategy):
         self.band_width = self.I(lambda u, l: u - l, self.bb_upper, self.bb_lower)
         self.avg_band_width = self.I(talib.SMA, self.band_width, 20)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         price = self.data.Close[-1]
@@ -64,13 +61,13 @@ class VolterraDivergence(Strategy):
         risk_per_share = entry_price - stop_price
         
         if risk_per_share <= 0:
-            print("🌙 Invalid Stop for Long! Skipping 🚫")
+            print(" Invalid Stop for Long! Skipping ")
             return
         
         size = self.calc_position_size(risk_per_share, entry_price)
         if size > 0:
             self.buy(size=size, sl=stop_price, tag='LONG')
-            print(f"🚀 LONG ENTRY: {size} units @ {entry_price} 🌕")
+            print(f" LONG ENTRY: {size} units @ {entry_price} ")
 
     def enter_short(self):
         entry_price = self.data.Close[-1]
@@ -78,13 +75,13 @@ class VolterraDivergence(Strategy):
         risk_per_share = stop_price - entry_price
         
         if risk_per_share <= 0:
-            print("🌙 Invalid Stop for Short! Skipping 🚫")
+            print(" Invalid Stop for Short! Skipping ")
             return
         
         size = self.calc_position_size(risk_per_share, entry_price)
         if size > 0:
             self.sell(size=size, sl=stop_price, tag='SHORT')
-            print(f"🌑 SHORT ENTRY: {size} units @ {entry_price} 🌕")
+            print(f" SHORT ENTRY: {size} units @ {entry_price} ")
 
     def calc_position_size(self, risk_per_share, entry_price):
         risk_amount = self.risk_pct * self.equity

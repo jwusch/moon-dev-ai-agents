@@ -45,7 +45,7 @@ class DivergentCloud(Strategy):
         
         # Risk management calculations
         if bearish_entry and not self.position:
-            equity = self.broker.equity
+            equity = self.equity
             risk_amount = equity * self.risk_per_trade
             stop_loss = price * 1.01  # 1% stop loss
             risk_per_unit = abs(price - stop_loss)

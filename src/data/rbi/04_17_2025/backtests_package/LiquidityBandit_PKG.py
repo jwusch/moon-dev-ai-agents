@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -34,7 +30,7 @@ def prepare_data(filepath):
     
     return data
 
-# Moon Dev's Liquidity Bandit Strategy 🌙💎
+# Moon Dev's Liquidity Bandit Strategy 🌙💎'
 class LiquidityBandit(Strategy):
     # Strategy parameters
     bb_period = 20
@@ -50,7 +46,7 @@ class LiquidityBandit(Strategy):
         self.bb_lower = self.I(talib.BBANDS, self.data.Close, timeperiod=self.bb_period,
                               nbdevup=2, nbdevdn=2, matype=0, name='BB_LOWER', which=2)
         
-        # Calculate Bollinger Band Width (Moon Dev's special formula ✨)
+        # Calculate Bollinger Band Width (Moon Dev's special formula ✨)'
         self.bb_width = self.I(lambda u, l: (u - l)/self.bb_upper,
                                self.bb_upper, self.bb_lower, name='BB_WIDTH')
         self.bb_width_avg = self.I(talib.SMA, self.bb_width, timeperiod=self.bb_period,
@@ -64,8 +60,8 @@ class LiquidityBandit(Strategy):
         self.liquidity_roc = self.I(talib.ROC, self.data['Exchange_Net_Flows'], 
                                    timeperiod=2, name='LIQUIDITY_ROC')
         
-        print("🌙✨ Moon Dev Indicators Activated! Lunar scanners engaged! 🛰️💫")
-        print("🚀 All systems nominal - Ready for lunar trading operations! 🌌")
+#         print("🌙✨ Moon Dev Indicators Activated! Lunar scanners engaged! 🛰️💫")
+        print(" All systems nominal - Ready for lunar trading operations! ")
 
     def next(self):
         # Skip initial bars for indicator warmup
@@ -79,7 +75,7 @@ class LiquidityBandit(Strategy):
         vol_ma = self.vol_ma[-1]
         liquidity_roc = self.liquidity_roc[-1]
         
-        # Moon Dev's Entry Conditions 🌙
+        # Moon Dev's Entry Conditions 🌙'
         entry_conditions = (
             current_bb_width < 0.2 * bb_width_avg and  # Bandwidth contraction
             current_vol > 2 * vol_ma and              # Volume spike
@@ -95,7 +91,7 @@ class LiquidityBandit(Strategy):
                 risk_per_share = entry_price - sl_price
                 
                 if risk_per_share <= 0:
-                    print("🌑 Warning: Invalid risk calculation - Aborting lunar launch!")
+                    print(" Warning: Invalid risk calculation - Aborting lunar launch!")
                     return
                 
                 # Position sizing (Moon Math engaged 🌙)

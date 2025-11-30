@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's FlowReversal Backtest Implementation
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -64,7 +62,7 @@ class FlowReversal(Strategy):
                     size = int(round((equity * self.risk_percent) / risk_per_share))
                     tp = price + 2 * risk_per_share  # 2:1 reward:risk
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 BULLISH REVERSAL! Long {size} @ {price:.2f} | SL: {sl:.2f} TP: {tp:.2f}")
+                    print(f" BULLISH REVERSAL! Long {size} @ {price:.2f} | SL: {sl:.2f} TP: {tp:.2f}")
             
             # 🧨 Short entry logic
             elif macd_bearish and delta_bearish:
@@ -74,15 +72,15 @@ class FlowReversal(Strategy):
                     size = int(round((equity * self.risk_percent) / risk_per_share))
                     tp = price - 2 * risk_per_share  # 2:1 reward:risk
                     self.sell(size=size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 BEARISH REVERSAL! Short {size} @ {price:.2f} | SL: {sl:.2f} TP: {tp:.2f}")
+                    print(f" BEARISH REVERSAL! Short {size} @ {price:.2f} | SL: {sl:.2f} TP: {tp:.2f}")
         else:
             # 💸 Exit logic for open positions
             if self.position.is_long and macd_bearish:
                 self.position.close()
-                print(f"🌙 MACD Bearish Cross! Closing long @ {price:.2f}")
+                print(f" MACD Bearish Cross! Closing long @ {price:.2f}")
             elif self.position.is_short and macd_bullish:
                 self.position.close()
-                print(f"🌙 MACD Bullish Cross! Closing short @ {price:.2f}")
+                print(f" MACD Bullish Cross! Closing short @ {price:.2f}")
 
 # 🛠️ Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

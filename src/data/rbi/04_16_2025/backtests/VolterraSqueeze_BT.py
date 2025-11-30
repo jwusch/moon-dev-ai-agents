@@ -1,15 +1,10 @@
-Here's the complete backtesting implementation for the VolterraSqueeze strategy:
-
-```python
-# 🌙 Moon Dev's VolterraSqueeze Backtest Implementation ✨
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 
 class VolterraSqueeze(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌑
+    risk_percent = 0.01  # 1% risk per trade 
     bb_period = 20
     kc_period = 20
     atr_period = 14
@@ -57,7 +52,7 @@ class VolterraSqueeze(Strategy):
         if len(self.trades) >= 3:
             last_three = [t for t in self.trades[-3:] if t.pl <= 0]
             if len(last_three) >= 3:
-                print("🚨 Cosmic Warning: 3 Losses! Trading Halted 🌌")
+                print(" Cosmic Warning: 3 Losses! Trading Halted ")
                 return
 
         if not self.position:

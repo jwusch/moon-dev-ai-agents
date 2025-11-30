@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -30,7 +29,7 @@ class SqueezeReversal(Strategy):
 
     def next(self):
         # Moon Dev debug prints for key values 🌙
-        print(f"🌙 EMA: {self.ema[-1]:.2f} | Upper: {self.upper_band[-1]:.2f} | Lower: {self.lower_band[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
+        print(f" EMA: {self.ema[-1]:.2f} | Upper: {self.upper_band[-1]:.2f} | Lower: {self.lower_band[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
 
         if not self.position:
             # Entry logic
@@ -41,7 +40,7 @@ class SqueezeReversal(Strategy):
 
             if in_keltner and bandwidth_tightening and volume_declining:
                 if volume_spike:
-                    print("🚨🌙 Moon Dev Alert: Volume spike detected - avoiding crowded trade!")
+#                     print("🚨🌙 Moon Dev Alert: Volume spike detected - avoiding crowded trade!")
                     return
                 
                 # Calculate stop loss and position size
@@ -51,13 +50,13 @@ class SqueezeReversal(Strategy):
                 stop_loss_pips = entry_price - stop_loss_price
                 
                 if stop_loss_pips <= 0:
-                    print("❌🌙 Moon Dev Alert: Invalid stop loss distance!")
+#                     print("❌🌙 Moon Dev Alert: Invalid stop loss distance!")
                     return
                 
                 position_size = int(round(risk_amount / stop_loss_pips))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss_price)
-                    print(f"🚀🌕 MOON DEV LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | Stop: {stop_loss_price:.2f}")
+#                     print(f"🚀🌕 MOON DEV LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | Stop: {stop_loss_price:.2f}")
 
         else:
             # Exit logic for long positions
@@ -66,4 +65,4 @@ class SqueezeReversal(Strategy):
 
             if price_outside and rsi_reversal:
                 self.position.close()
-                print(f"🌙✨ MOON DEV EXIT @ {self.data.Close[-1]:.
+#                 print(f"🌙✨ MOON DEV EXIT @ {self.data.Close[-1]:."

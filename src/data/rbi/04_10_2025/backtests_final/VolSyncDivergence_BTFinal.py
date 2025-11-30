@@ -1,7 +1,3 @@
-Here's the debugged version of your VolSync Divergence backtest code with Moon Dev themed fixes ✨🌙:
-
-```python
-# 🌙 Moon Dev's VolSync Divergence Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta

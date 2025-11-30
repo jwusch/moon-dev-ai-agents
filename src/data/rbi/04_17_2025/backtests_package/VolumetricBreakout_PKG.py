@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLUMETRIC BREAKOUT STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -51,7 +46,7 @@ class VolumetricBreakout(Strategy):
     def next(self):
         # Wait for sufficient data ✨
         if len(self.data) < 200:
-            print("🌙 Waiting for sufficient data... (200 bars required)")
+            print(" Waiting for sufficient data... (200 bars required)")
             return
 
         # 🌙 ENTRY LOGIC
@@ -66,7 +61,7 @@ class VolumetricBreakout(Strategy):
                 # 🌙 RISK MANAGEMENT CALCULATIONS
                 current_atr = self.atr[-1]
                 if current_atr <= 0:
-                    print("🌙⚠️ Warning: Invalid ATR value detected - skipping trade")
+                    print(" Warning: Invalid ATR value detected - skipping trade")
                     return  # Avoid invalid calculations
                 
                 # Calculate position size based on 1% risk
@@ -78,8 +73,8 @@ class VolumetricBreakout(Strategy):
                 if position_size > 0:
                     # 🌙 ENTRY EXECUTION
                     self.buy(size=position_size)
-                    print(f"🌙✨ MOON DEV ENTRY SIGNAL: Long {position_size} units at {self.data.Close[-1]:.2f}!")
-                    print(f"🌙📊 Entry Conditions:")
+#                     print(f"🌙✨ MOON DEV ENTRY SIGNAL: Long {position_size} units at {self.data.Close[-1]:.2f}!")
+                    print(f" Entry Conditions:")
                     print(f"   - EMA50: {self.ema50[-1]:.2f} > EMA200: {self.ema200[-1]:.2f}")
                     print(f"   - Volume: {self.data.Volume[-1]:.0f} > SMA: {self.volume_sma[-1]:.0f}")
                     print(f"   - ATR Stop Distance: {stop_distance:.2f}")

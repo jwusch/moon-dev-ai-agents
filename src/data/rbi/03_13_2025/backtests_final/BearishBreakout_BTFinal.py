@@ -36,7 +36,7 @@ class BearishBreakout(Strategy):
         if self.engulfing[-1] == -100:  # Fixed: Corrected engulfing pattern value
             self.current_engulfing_low = self.data.Low[-1]
             self.current_engulfing_high = self.data.High[-1]
-            print(f"🌑 Bearish Engulfing Pattern Detected! | Low: {self.current_engulfing_low:.2f} | High: {self.current_engulfing_high:.2f}")
+            print(f"🌑 Bearish Engulfing Pattern Detected! | Low: {self.current_engulfing_low:0.2f} | High: {self.current_engulfing_high:0.2f}")
 
         # 🌓 Entry Logic
         if self.current_engulfing_low and not self.position:
@@ -58,15 +58,15 @@ class BearishBreakout(Strategy):
                         self.sell(size=position_size, 
                                  sl=stop_loss,
                                  tp=take_profit)
-                        print(f"🚀🌒 SHORT ENTRY | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                        print(f"🚀🌒 SHORT ENTRY | Size: {position_size} | Entry: {entry_price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
 
         # 🌓 Exit Logic
         if self.position and self.data.Close[-1] > self.current_engulfing_low:
             self.position.close()
-            print(f"🌙✨ EXIT SIGNAL | Price closed above pattern low: {self.current_engulfing_low:.2f}")
+            print(f"🌙✨ EXIT SIGNAL | Price closed above pattern low: {self.current_engulfing_low:0.2f}")
 
 # 🌕 Run Backtest
-bt = Backtest(data, BearishBreakout, cash=1_000_000, commission=.002)
+bt = Backtest(data, BearishBreakout, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌖 Print Full Statistics

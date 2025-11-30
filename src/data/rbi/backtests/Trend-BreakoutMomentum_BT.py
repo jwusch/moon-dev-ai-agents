@@ -1,6 +1,3 @@
-Sure, here's the backtesting.py implementation for the Trend-Breakout Momentum strategy:
-
-```python
 import os
 import pandas as pd
 import talib

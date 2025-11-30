@@ -1,7 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints:
-
-```python
-# -*- coding: utf-8 -*-
 import os
 import numpy as np
 import pandas as pd
@@ -9,7 +5,7 @@ import talib
 from backtesting import Backtest, Strategy
 
 # Moon Dev Package AI 🌙 - Trading under lunar cycles
-print("🌙✨ Moon Dev Debug AI activated - Preparing for celestial market analysis!")
+# print("🌙✨ Moon Dev Debug AI activated - Preparing for celestial market analysis!")
 
 # Data preparation
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
@@ -48,7 +44,7 @@ class VolSqueezeBreakout(Strategy):
         )
         
         # Moon Dev Indicator Initialization 🌑
-        print("🌙✨ Initializing lunar trading indicators...")
+        print(" Initializing lunar trading indicators...")
         
         # Add indicators using self.I()
         self.bb_upper = self.I(self._wrap(self.upper), name='BB_Upper')
@@ -86,16 +82,16 @@ class VolSqueezeBreakout(Strategy):
         # Moon Dev position sizing validation
         if size >= 1:
             size = int(round(size))
-            print(f"🌙📊 Position size rounded to {size} units (lunar cycle approved)")
+            print(f" Position size rounded to {size} units (lunar cycle approved)")
         else:
-            print(f"🌙📊 Using fractional position size: {size:.4f} of equity")
+            print(f" Using fractional position size: {size:.4f} of equity")
 
         if direction == 'long':
             self.buy(sl=stop_price, size=size)
-            print(f"🌙🚀 New Moon Long: Entry {self.data.Close[-1]:.2f}, Stop {stop_price:.2f}")
+            print(f" New Moon Long: Entry {self.data.Close[-1]:.2f}, Stop {stop_price:.2f}")
         else:
             self.sell(sl=stop_price, size=size)
-            print(f"🌙🌘 Dark Moon Short: Entry {self.data.Close[-1]:.2f}, Stop {stop_price:.2f}")
+            print(f" Dark Moon Short: Entry {self.data.Close[-1]:.2f}, Stop {stop_price:.2f}")
 
     def next(self):
         if not self.position:

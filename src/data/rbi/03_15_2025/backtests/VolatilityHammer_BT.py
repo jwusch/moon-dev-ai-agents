@@ -50,7 +50,7 @@ class VolatilityHammer(Strategy):
         
         # Moon Dev Debug Console 📢
         if hammer_detected:
-            print(f"🌙✨ HAMMER DETECTED! | Price: {price:.2f} | ATR: {self.atr[-1]:.2f} | Volatile: {volatile_market}")
+            print(f"🌙✨ HAMMER DETECTED! | Price: {price:0.2f} | ATR: {self.atr[-1]:0.2f} | Volatile: {volatile_market}")
             
         # Entry Logic 🚪
         if not self.position and hammer_detected and in_downtrend and volatile_market:
@@ -72,12 +72,12 @@ class VolatilityHammer(Strategy):
                     sl=sl,
                     tp=tp,
                     tag="🌕 VOLATILITY HAMMER STRIKE!")
-            print(f"🚀 ENTRY | Size: {position_size} | Risk: {risk_per_unit:.2f} | TP: {tp:.2f}")
+            print(f"🚀 ENTRY | Size: {position_size} | Risk: {risk_per_unit:0.2f} | TP: {tp:0.2f}")
 
 # Run backtest with Moon Dev settings 🌙
 bt = Backtest(data, VolatilityHammer, 
              cash=1_000_000,
-             commission=.002,
+             commission=0.002,
              exclusive_orders=True)
 
 stats = bt.run()

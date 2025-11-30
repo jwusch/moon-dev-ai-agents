@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -49,7 +48,7 @@ class VolatilitySqueezeBreakout(Strategy):
                         size = int(round((self.risk_pct * self.equity) / risk))
                         self.buy(size=size, sl=sl)
                         self.entry_width = self.bb_width[-1]
-                        print(f"🌙 LONG ENTRY @ {self.data.Close[-1]:.2f} | Vol: {self.data.Volume[-1]:.2f} (3x MA) | BBW: {self.bb_width[-1]:.4f} 🚀")
+                        print(f" LONG ENTRY @ {self.data.Close[-1]:.2f} | Vol: {self.data.Volume[-1]:.2f} (3x MA) | BBW: {self.bb_width[-1]:.4f} ")
                         
                     elif self.data.Close[-1] < self.lower[-1]:
                         sl = self.upper[-1]
@@ -58,12 +57,12 @@ class VolatilitySqueezeBreakout(Strategy):
                         size = int(round((self.risk_pct * self.equity) / risk))
                         self.sell(size=size, sl=sl)
                         self.entry_width = self.bb_width[-1]
-                        print(f"🌙 SHORT ENTRY @ {self.data.Close[-1]:.2f} | Vol: {self.data.Volume[-1]:.2f} (3x MA) | BBW: {self.bb_width[-1]:.4f} 🚀")
+                        print(f" SHORT ENTRY @ {self.data.Close[-1]:.2f} | Vol: {self.data.Volume[-1]:.2f} (3x MA) | BBW: {self.bb_width[-1]:.4f} ")
         else:
             if self.position.is_long:
                 if self.data.Close[-1] < self.upper[-1] or self.bb_width[-1] >= 3 * self.entry_width:
                     self.position.close()
-                    print(f"✨ EXIT LONG @ {self.data.Close[-1]:.2f} | {'BB Close' if self.data.Close[-1] < self.upper[-1] else 'Width Expand'} 🌙")
+                    print(f" EXIT LONG @ {self.data.Close[-1]:.2f} | {'BB Close' if self.data.Close[-1] < self.upper[-1] else 'Width Expand'} ")
                 else:
                     trail = self.data.High[-1] - 2 * self.atr[-1]
                     self.position.sl = max(self.position.sl, trail)

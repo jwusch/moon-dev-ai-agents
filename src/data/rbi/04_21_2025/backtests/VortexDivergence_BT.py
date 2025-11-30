@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -48,10 +47,10 @@ class VortexDivergence(Strategy):
         for trade in self.trades:
             if trade.is_long and (self.data.Close[-1] < self.cks_long[-1] or crossover(self.vi_minus, self.vi_plus)):
                 trade.close()
-                print(f"🌙✨💼 Closing LONG at {self.data.Close[-1]} (SL: {self.cks_long[-1]:.2f})")
+                print(f" Closing LONG at {self.data.Close[-1]} (SL: {self.cks_long[-1]:.2f})")
             elif trade.is_short and (self.data.Close[-1] > self.cks_short[-1] or crossover(self.vi_plus, self.vi_minus)):
                 trade.close()
-                print(f"🌙✨💼 Closing SHORT at {self.data.Close[-1]} (SL: {self.cks_short[-1]:.2f})")
+                print(f" Closing SHORT at {self.data.Close[-1]} (SL: {self.cks_short[-1]:.2f})")
 
         if self.position:
             return
@@ -71,4 +70,4 @@ class VortexDivergence(Strategy):
             if risk <= 0: return
             size = int(round((self.equity * self.risk_pct) / risk))
             self.buy(size=size, sl=self.cks_long[-1])
-            print(f"🌙✨🚀 LONG Entry {size} units at {self.data.Close[-1]} (SL: {self.cks_long[-1]:.2f})")
+            print(f" LONG Entry {size} units at {self.data.Close[-1]} (SL: {self.cks_long[-1]:.2f})")

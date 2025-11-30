@@ -66,16 +66,16 @@ class InverseMidpoint(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tag='ShortEntry')
-                        print(f"🚀🌙 Moon Dev SHORT Signal! Entry: {entry_price:.2f}, Size: {position_size} ✨")
+                        print(f"🚀🌙 Moon Dev SHORT Signal! Entry: {entry_price:0.2f}, Size: {position_size} ✨")
 
         # Exit logic: Price above midpoint or volume drops 📈
         elif self.position.is_short:
             if current_close > midpoint or current_volume < 0.1 * avg_vol:
                 self.position.close()
-                print(f"🌙💫 Closing SHORT at {current_close:.2f} - Moon Profit Activated! 🎯")
+                print(f"🌙💫 Closing SHORT at {current_close:0.2f} - Moon Profit Activated! 🎯")
 
 # Run backtest with $1M capital 🌕
-bt = Backtest(daily_data, InverseMidpoint, cash=1_000_000, commission=.002)
+bt = Backtest(daily_data, InverseMidpoint, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # Print full Moon Dev performance report 🌙

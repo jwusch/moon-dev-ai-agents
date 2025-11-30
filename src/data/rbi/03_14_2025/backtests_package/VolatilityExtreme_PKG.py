@@ -1,8 +1,3 @@
-Here's the fixed code with all the necessary changes to remove any `backtesting.lib` imports and ensure proper indicator usage:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITYEXTREME STRATEGY
-
 import pandas as pd
 import talib
 import numpy as np
@@ -43,7 +38,7 @@ class VolatilityExtreme(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
                         self.entry_bar = len(self.data)-1
-                        print(f"🌙🚀 MOON DEV LONG: {current_close:.2f} < 3σ {lower_3std:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
+#                         print(f"🌙🚀 MOON DEV LONG: {current_close:.2f} < 3σ {lower_3std:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
 
             # 📉 SHORT ENTRY: 2-3σ ABOVE MEAN
             elif upper_2std < current_close < upper_3std:
@@ -57,7 +52,7 @@ class VolatilityExtreme(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss)
                         self.entry_bar = len(self.data)-1
-                        print(f"🌙📉 MOON DEV SHORT: {current_close:.2f} > 2σ {upper_2std:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
+#                         print(f"🌙📉 MOON DEV SHORT: {current_close:.2f} > 2σ {upper_2std:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
         else:
             # ⏰ TIME-BASED EXIT CHECK
             current_bar = len(self.data)-1
@@ -65,7 +60,7 @@ class VolatilityExtreme(Strategy):
             
             if bars_held >= self.max_hold_bars:
                 self.position.close()
-                print(f"🌙⏰ MOON DEV TIME EXIT: Held {bars_held} bars")
+#                 print(f"🌙⏰ MOON DEV TIME EXIT: Held {bars_held} bars")
                 return
 
             # ✨ MEAN REVERSION EXIT
@@ -73,12 +68,12 @@ class VolatilityExtreme(Strategy):
                 exit_level = current_sma - current_std
                 if current_close >= exit_level:
                     self.position.close()
-                    print(f"🌙✨ MOON DEV LONG EXIT: {current_close:.2f} >= 1σ {exit_level:.2f}")
+#                     print(f"🌙✨ MOON DEV LONG EXIT: {current_close:.2f} >= 1σ {exit_level:.2f}")
             elif self.position.is_short:
                 exit_level = current_sma + current_std
                 if current_close <= exit_level:
                     self.position.close()
-                    print(f"🌙✨ MOON DEV SHORT EXIT: {current_close:.2f} <= 1σ {exit_level:.2f}")
+#                     print(f"🌙✨ MOON DEV SHORT EXIT: {current_close:.2f} <= 1σ {exit_level:.2f}")
 
 # 🌙 DATA PREPARATION
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

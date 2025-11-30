@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
@@ -10,8 +8,8 @@ class FractalStochastic(Strategy):
     
     def init(self):
         # Calculate fractal channels
-        self.upper_fractal = self.I(talib.MAX, self.data.High, timeperiod=20, name='Upper Fractal 🌄')
-        self.lower_fractal = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Lower Fractal 🌊')
+        self.upper_fractal = self.I(talib.MAX, self.data.High, timeperiod=20, name='Upper Fractal ')
+        self.lower_fractal = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Lower Fractal ')
         
         # Calculate Stochastic Oscillator
         stoch_k, stoch_d = self.I(
@@ -22,7 +20,7 @@ class FractalStochastic(Strategy):
                                                 slowd_period=3,
                                                 slowd_matype=0),
             self.data.High, self.data.Low, self.data.Close,
-            name=['%K 🚀', '%D 🌙']
+            name=['%K ', '%D ']
         )
         self.stoch_k = stoch_k
         self.stoch_d = stoch_d
@@ -57,7 +55,7 @@ class FractalStochastic(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price, 
                             tp=current_close + 3*risk_per_share)  # 3:1 RR
-                    print(f"🌙✨🚀 BULLISH BREAKOUT! Long {position_size} @ {current_close:.2f} | SL: {sl_price:.2f}")
+                    print(f" BULLISH BREAKOUT! Long {position_size} @ {current_close:0.2f} | SL: {sl_price:0.2f}")
 
         # Short Entry Logic 🌙
         elif (not self.position.is_short and
@@ -74,16 +72,16 @@ class FractalStochastic(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price, 
                              tp=current_close - 3*risk_per_share)  # 3:1 RR
-                    print(f"🌙✨🚀 BEARISH BREAKDOWN! Short {position_size} @ {current_close:.2f} | SL: {sl_price:.2f}")
+                    print(f" BEARISH BREAKDOWN! Short {position_size} @ {current_close:0.2f} | SL: {sl_price:0.2f}")
 
         # Close trades if opposite fractal breaks 🌙
         for trade in self.trades:
             if trade.is_long and crossover(self.data.Low, self.lower_fractal):
                 trade.close()
-                print(f"🌙✨⚠️ LONG EXIT: Price hit lower fractal @ {self.data.Low[-1]:.2f}")
+                print(f" LONG EXIT: Price hit lower fractal @ {self.data.Low[-1]:0.2f}")
             elif trade.is_short and crossover(self.upper_fractal, self.data.High):
                 trade.close()
-                print(f"🌙✨⚠️ SHORT EXIT: Price hit upper fractal @ {self.data.High[-1]:.2f}")
+                print(f" SHORT EXIT: Price hit upper fractal @ {self.data.High[-1]:0.2f}")
 
 # Data preparation 🌙
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv',

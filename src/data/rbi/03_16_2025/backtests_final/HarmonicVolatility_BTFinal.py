@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR HARMONIC VOLATILITY STRATEGY 🌙
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -21,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class HarmonicVolatility(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     atr_period = 14
     swing_window = 5
     volatility_multiplier = 2.0
@@ -58,7 +55,7 @@ class HarmonicVolatility(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=sl, tp=price + 3*risk_per_share)
-                print(f"🌙 MOON DEV LONG SIGNAL 🌙 | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price + 3*risk_per_share:.2f} | Size: {position_size} 🚀")
+#                 print(f"🌙 MOON DEV LONG SIGNAL 🌙 | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price + 3*risk_per_share:.2f} | Size: {position_size} 🚀")
 
         # 🌑 SHORT ENTRY CONDITION 🌑
         elif (price >= upper * 0.995 and 
@@ -72,6 +69,6 @@ class HarmonicVolatility(Strategy):
             
             if position_size > 0:
                 self.sell(size=position_size, sl=sl, tp=price - 3*risk_per_share)
-                print(f"🌑 MOON DEV SHORT SIGNAL 🌑 | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price - 3*risk_per_share:.2f} | Size: {position_size} 🌑")
+#                 print(f"🌑 MOON DEV SHORT SIGNAL 🌑 | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price - 3*risk_per_share:.2f} | Size: {position_size} 🌑")
 
 # 🌕 RUN

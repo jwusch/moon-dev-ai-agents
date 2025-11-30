@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's ReversalRetracement Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -78,7 +76,7 @@ class ReversalRetracement(Strategy):
                                     sl=stop_loss,
                                     tag='MoonDevEntry'
                                 )
-                                print(f"🌙✨🚀 MOON DEV LONG SIGNAL | Entry: {entry_price:.2f} | Size: {size} | SL: {stop_loss:.2f}")
+#                                 print(f"🌙✨🚀 MOON DEV LONG SIGNAL | Entry: {entry_price:0.2f} | Size: {size} | SL: {stop_loss:0.2f}")
                                 
                                 # Store trade parameters 🌙
                                 self.entry_swing_high = swing_high_val
@@ -95,9 +93,9 @@ class ReversalRetracement(Strategy):
             # Take profit condition
             if self.data.Low[current_idx] <= tp_price:
                 self.position.close()
-                print(f"🌙✨🎯 MOON DEV TP HIT | Price: {tp_price:.2f}")
+#                 print(f"🌙✨🎯 MOON DEV TP HIT | Price: {tp_price:0.2f}")
             
             # RSI exit
             if self.rsi[current_idx] > 70:
                 self.position.close()
-                print(f"🌙✨📉 MOON DEV RSI EXIT
+#                 print(f"🌙✨📉 MOON DEV RSI EXIT"

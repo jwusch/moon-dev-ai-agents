@@ -1,6 +1,3 @@
-Here's the debugged backtest code with Moon Dev themed improvements while maintaining the original strategy logic:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -51,7 +48,7 @@ class VolatilitySpikeReversal(Strategy):
             return
         
         # Moon Dev Debug Prints 🌙✨
-        print(f"\n🌙 Moon Dev Analysis - Bar {len(self.data)}:")
+#         print(f"\n🌙 Moon Dev Analysis - Bar {len(self.data)}:")
         print(f"   Current Close: {self.data.Close[-1]:.2f}")
         print(f"   Upper Band: {self.upper_band[-1]:.2f}")
         print(f"   Lower Band: {self.lower_band[-1]:.2f}")
@@ -75,7 +72,7 @@ class VolatilitySpikeReversal(Strategy):
                 position_size = int(round(position_size))  # Ensuring whole units
                 
                 # Moon Dev Position Sizing ✨
-                print(f"\n🚀 Moon Dev Trade Signal!")
+#                 print(f"\n🚀 Moon Dev Trade Signal!")
                 print(f"   Entry Price: {entry_price:.2f}")
                 print(f"   Stop Loss: {stop_loss:.2f}")
                 print(f"   Calculated Size: {position_size} units")
@@ -86,13 +83,13 @@ class VolatilitySpikeReversal(Strategy):
         if self.position.is_long:
             # Take profit at upper band
             if self.data.High[-1] >= self.upper_band[-1]:
-                print(f"\n💰 Moon Dev Profit Capture!")
+#                 print(f"\n💰 Moon Dev Profit Capture!")
                 print(f"   Upper Band Hit: {self.upper_band[-1]:.2f}")
                 self.position.close()
             
             # Stop loss at lower band
             elif self.data.Close[-1] < self.lower_band[-1]:
-                print(f"\n🌧️ Moon Dev Risk Protection!")
+#                 print(f"\n🌧️ Moon Dev Risk Protection!")
                 print(f"   Lower Band Breach: {self.lower_band[-1]:.2f}")
                 self.position.close()
 

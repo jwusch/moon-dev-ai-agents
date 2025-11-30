@@ -1,7 +1,3 @@
-Let me analyze and debug the provided code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's Volatility Breakout Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -55,7 +51,7 @@ class VolatilityBreakout(Strategy):
         low_band = self.recent_low[-1]
         
         # 🌙 Moon Dev Debugging
-        print(f"🌙 [BAR] Close: {price:.2f} | RSI: {rsi:.1f} | ATR: {atr:.2f} | High Band: {high_band:.2f} | Low Band: {low_band:.2f}")
+        print(f" [BAR] Close: {price:.2f} | RSI: {rsi:.1f} | ATR: {atr:.2f} | High Band: {high_band:.2f} | Low Band: {low_band:.2f}")
         
         if not self.position:
             # Long Entry 🚀
@@ -67,7 +63,7 @@ class VolatilityBreakout(Strategy):
                 if units > 0:
                     sl = price - atr
                     tp = price + 1.5 * atr
-                    print(f"🚀 [LONG] Size: {units} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" [LONG] Size: {units} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
                     self.buy(size=units, sl=sl, tp=tp)
             
             # Short Entry 🌑
@@ -79,15 +75,15 @@ class VolatilityBreakout(Strategy):
                 if units > 0:
                     sl = price + atr
                     tp = price - 1.5 * atr
-                    print(f"🌑 [SHORT] Size: {units} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" [SHORT] Size: {units} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
                     self.sell(size=units, sl=sl, tp=tp)
         else:
             # Exit on RSI Reversal 🛑
             if self.position.is_long and rsi < 50:
-                print(f"🛑 [EXIT LONG] RSI Reversal at {rsi:.1f}")
+                print(f" [EXIT LONG] RSI Reversal at {rsi:.1f}")
                 self.position.close()
             elif self.position.is_short and rsi > 50:
-                print(f"🛑 [EXIT SHORT] RSI Reversal at {rsi:.1f}")
+                print(f" [EXIT SHORT] RSI Reversal at {rsi:.1f}")
                 self.position.close()
 
 # ========================

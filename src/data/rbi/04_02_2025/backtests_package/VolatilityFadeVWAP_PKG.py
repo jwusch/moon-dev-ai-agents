@@ -1,6 +1,3 @@
-I'll fix the code by removing the backtesting.lib import and replacing any crossover functionality with the proper manual implementation. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -87,10 +84,10 @@ class VolatilityFadeVWAP(Strategy):
                 self.sell(size=position_size,
                         sl=close + atr,
                         tp=close - self.atr_multiplier*atr,
-                        tag="🌙 SHORT ENTRY")
-                print(f"🌙 MOON DEV ROCKET LAUNCH 🌙 | Entry: {close:.2f} | Size: {position_size}")
+                        tag=" SHORT ENTRY")
+#                 print(f"🌙 MOON DEV ROCKET LAUNCH 🌙 | Entry: {close:.2f} | Size: {position_size}")
 
     def _check_slope_exit(self, trade):
         if abs(self.vwma_slope[-1]) > 0.3:
             trade.close()
-            print(f"✨ MOON DEV SLOPE BAILOUT ✨ | Exit: {
+#             print(f"✨ MOON DEV SLOPE BAILOUT ✨ | Exit: {"

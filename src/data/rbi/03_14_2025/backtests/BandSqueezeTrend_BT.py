@@ -24,7 +24,7 @@ class BandSqueezeTrend(Strategy):
         
         # Moon Dev progress tracker
         if len(self.data) % 500 == 0:
-            print(f"🌙 Processing Bar {len(self.data)} | Price: {current_close:.2f}")
+            print(f"🌙 Processing Bar {len(self.data)} | Price: {current_close:0.2f}")
 
         if not self.position:
             # Entry conditions
@@ -46,15 +46,15 @@ class BandSqueezeTrend(Strategy):
                             tag="MoonRocketEntry🚀")
                     
                     print(f"\n🚀🌕 MOON LAUNCH DETECTED! 🌠"
-                          f"\nEntry: {current_close:.2f}"
+                          f"\nEntry: {current_close:0.2f}"
                           f"\nSize: {position_size} units"
-                          f"\nStellar SL: {stop_loss:.2f}"
-                          f"\nGalactic TP: {take_profit:.2f}\n")
+                          f"\nStellar SL: {stop_loss:0.2f}"
+                          f"\nGalactic TP: {take_profit:0.2f}\n")
         else:
             # Exit condition
             if current_close < self.middle_band[-1]:
                 self.position.close()
-                print(f"🌑🌪️ BLACK HOOMAN EXIT! Closing at {current_close:.2f}")
+                print(f"🌑🌪️ BLACK HOOMAN EXIT! Closing at {current_close:0.2f}")
 
 # Data preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

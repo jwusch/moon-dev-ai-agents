@@ -1,9 +1,3 @@
-I'll fix the code while maintaining the original strategy logic and adding Moon Dev themed debug prints. Here's the corrected version:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATIONRETRACE STRATEGY 🌙
-# 🌌 PACKAGE AI VERIFIED - NO BACKTESTING.LIB USAGE DETECTED 🌌
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -44,7 +38,7 @@ class LiquidationRetrace(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_window)
         self.vol_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED ✨🌙")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED ✨🌙")
         print(f"SMA200 | RSI{self.rsi_period} | Swing{self.swing_window} | VolumeMA20")
 
     def next(self):
@@ -76,10 +70,10 @@ class LiquidationRetrace(Strategy):
                     position_size = int(round(risk_amount / risk_per_unit))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price)
-                        print(f"🌙✨ MOON DEV ENTRY SIGNAL ✨🌙")
-                        print(f"│ Price: {current_close:.2f} | Size: {position_size}")
-                        print(f"│ RSI: {self.rsi[-1]:.1f} | Stop: {stop_price:.2f}")
-                        print("🌙"*40)
+#                         print(f"🌙✨ MOON DEV ENTRY SIGNAL ✨🌙")
+                        print(f" Price: {current_close:.2f} | Size: {position_size}")
+                        print(f" RSI: {self.rsi[-1]:.1f} | Stop: {stop_price:.2f}")
+                        print(""*40)
 
         # Exit Conditions 🏁
         elif self.position:

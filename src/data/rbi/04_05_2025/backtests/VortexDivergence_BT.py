@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VortexDivergence Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
@@ -32,7 +30,7 @@ data = data.set_index('datetime').sort_index()
 # STRATEGY CLASS
 # ---------------------------
 class VortexDivergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     vortex_period = 14
     cmo_period = 14
     volume_ma_period = 20

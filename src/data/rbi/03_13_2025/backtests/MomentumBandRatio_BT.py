@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -72,7 +71,7 @@ class MomentumBandRatio(Strategy):
                 risk_per_share = price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌙🚫 Invalid SL. Trade skipped.")
+                    print(" Invalid SL. Trade skipped.")
                     return
                 
                 # Position sizing with BB width adjustment
@@ -82,18 +81,18 @@ class MomentumBandRatio(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🚀🌙 LONG {position_size} @ {price:.2f} | RSI: {rsi_val:.1f} BB%: {bb_position:.2f}")
+                    print(f" LONG {position_size} @ {price:.2f} | RSI: {rsi_val:.1f} BB%: {bb_position:.2f}")
 
         # Exit conditions
         else:
             # Take profit on RSI crossover
             if crossover(self.rsi, 70):
                 self.position.close()
-                print(f"🌙✨ TP Hit: RSI {self.rsi[-1]:.1f} > 70")
+                print(f" TP Hit: RSI {self.rsi[-1]:.1f} > 70")
                 
             # Trailing stop on BB upper
             if price >= self.bb_upper[-1]:
                 self.position.close()
-                print(f"🌙✨ TP Hit: Price {price:.2f} > BB Upper")
+                print(f" TP Hit: Price {price:.2f} > BB Upper")
 
 # 🌙 MOON DEV BACKTEST

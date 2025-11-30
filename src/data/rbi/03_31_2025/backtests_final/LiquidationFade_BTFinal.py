@@ -1,7 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Liquidation Fade Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -26,7 +22,7 @@ def prepare_data(path):
     return data
 
 class LiquidationFade(Strategy):
-    risk_pct = 0.01  # 1% cosmic dust risk per trade 🌠
+    risk_pct = 0.01  # 1% cosmic dust risk per trade 
     bb_period = 20
     bb_dev = 2
     keltner_mult = 1.5
@@ -77,8 +73,8 @@ class LiquidationFade(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price, 
-                             tag="🌕 SHORT ENTRY")
-                    print(f"🚀🌑 MOON DEV ALERT: Shorting {position_size} units at {entry_price:.2f}! Liquidations spiking 🌊")
+                             tag=" SHORT ENTRY")
+#                     print(f"🚀🌑 MOON DEV ALERT: Shorting {position_size} units at {entry_price:.2f}! Liquidations spiking 🌊")
 
         # 🌕 Exit When Volatility Contracts
         elif self.position.is_short:
@@ -88,4 +84,4 @@ class LiquidationFade(Strategy):
             
             if mid_cross and volatility_ok:
                 self.position.close()
-                print(f"🌖 MOON DEV EX
+#                 print(f"🌖 MOON DEV EX"

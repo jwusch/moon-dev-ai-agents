@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Volatility Arbitrage Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -27,7 +25,7 @@ data.set_index('datetime', inplace=True)
 # STRATEGY CLASS
 # =====================
 class VolatilityArbitrage(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     atr_period = 14
     spread_window = 20
     threshold = 1.5  # Z-score threshold
@@ -67,7 +65,7 @@ class VolatilityArbitrage(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl)
-                    print(f"🚀 MOON SHOT LONG: {price:.2f} | Size: {position_size} | Equity: {equity:,.2f}")
+                    print(f" MOON SHOT LONG: {price:.2f} | Size: {position_size} | Equity: {equity:,.2f}")
             
             # Short entry on positive Z-score extreme
             elif self.z_score[-1] > self.threshold:
@@ -77,7 +75,7 @@ class VolatilityArbitrage(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl)
-                    print(f"🌒 DARK SIDE SHORT: {price:.2f} | Size: {position_size} | Equity: {equity:,.2f}")
+                    print(f" DARK SIDE SHORT: {price:.2f} | Size: {position_size} | Equity: {equity:,.2f}")
 
         # =====================
         # EXIT LOGIC
@@ -88,7 +86,7 @@ class VolatilityArbitrage(Strategy):
                (self.position.is_short and self.z_score[-1] <= 0.5):
                
                 self.position.close()
-                print(f"💰 STAR GAZER EXIT: {price:.2f} | P&L: {self.position.pl:+,.2f}")
+                print(f" STAR GAZER EXIT: {price:.2f} | P&L: {self.position.pl:+,.2f}")
 
 # =====================
 # BACKTEST EXECUTION
@@ -99,4 +97,4 @@ bt = Backtest(data, VolatilityArbitrage,
              exclusive_orders=True)
 
 stats = bt.run()
-print("\n" + "🌙✨ Moon Dev's Volatility Arbitrage Back
+# print("\n" + "🌙✨ Moon Dev's Volatility Arbitrage Back'

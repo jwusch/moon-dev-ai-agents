@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of `crossover` or `crossunder` with proper array comparisons. Here's the corrected version:
-
-```python
-# -*- coding: utf-8 -*-
 import talib
 import pandas as pd
 import numpy as np
@@ -48,14 +44,14 @@ class VoltaicCluster(Strategy):
         self.entry_price = None
         
     def calculate_chaikin(self):
-        """🌙 Chaikin Volatility Indicator"""
+        """ Chaikin Volatility Indicator"""
         hl_range = self.data.High - self.data.Low
         ema1 = talib.EMA(hl_range, timeperiod=self.chaikin_period)
         ema2 = talib.EMA(ema1, timeperiod=self.chaikin_period*2)
         return ((ema1 - ema2) / ema2) * 100  # Percentage volatility change
     
     def calculate_delta(self):
-        """🌙 Mock Order Book Delta (Simulated Imbalance)"""
+        """ Mock Order Book Delta (Simulated Imbalance)"""
         # Using RSI as temporary placeholder for delta calculation
         return pta.rsi(self.data.Close, length=self.delta_window) - 50  # Centered at zero
     
@@ -81,18 +77,18 @@ class VoltaicCluster(Strategy):
         if self.position:
             # 🌙 Trailing Stop Logic
             if self.chaikin[-1] < self.chaikin[-2] * 0.9:
-                print(f"🌙✨ Chaikin Volatility Contracting! Preparing to exit...")
+                print(f" Chaikin Volatility Contracting! Preparing to exit...")
                 self.position.close()
                 
             # Fibonacci Exit Logic
             if (self.position.is_long and current_price >= fib_ext) or \
                (self.position.is_short and current_price <= fib_ext):
-                print(f"🚀💎 Reached Fib Extension at {fib_ext:.2f}! Taking profits!")
+                print(f" Reached Fib Extension at {fib_ext:.2f}! Taking profits!")
                 self.position.close()
         
         # Entry Conditions
         if not self.position:
             # Long Entry: Chaikin Expansion + Bullish Delta
             if self.chaikin[-1] > self.volatility_threshold and self.delta[-1] > 5:
-                print(f"🌙🚀 BULLISH CLUSTER DETECTED! Buying {position_size} units")
+                print(f" BULLISH CLUSTER DETECTED! Buying {position_size} units")
                 self.buy(size=position_size)

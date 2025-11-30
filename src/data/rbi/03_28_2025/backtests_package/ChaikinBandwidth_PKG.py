@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
-# 🌙 Moon Dev Backtest Engine: ChaikinBandwidth Strategy Implementation ✨
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -76,7 +71,7 @@ class ChaikinBandwidth(Strategy):
                     size = int(round((self.equity * self.risk_pct) / risk_per_share))
                     self.buy(size=size, sl=sl_price)
                     self.entry_width = bb_width
-                    print(f"🌙🚀 BULLISH BREAKOUT! Size: {size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
+                    print(f" BULLISH BREAKOUT! Size: {size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
 
         # ✨ Short Entry Logic
             # Bearish Divergence Check

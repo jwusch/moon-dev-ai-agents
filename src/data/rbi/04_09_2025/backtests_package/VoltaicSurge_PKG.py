@@ -1,9 +1,3 @@
-Here's the fixed code with all necessary adjustments to remove any `backtesting.lib` dependencies and ensure proper indicator usage:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLTAIC SURGE STRATEGY 🚀
-
-# Required imports
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -57,7 +51,7 @@ class VoltaicSurge(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.highest_high = self.data.High[-1]  # Initialize trailing stop
-                    print(f"🌙🚀 MOON DEV ENTRY: Long {position_size} units at {current_close:.2f}")
+#                     print(f"🌙🚀 MOON DEV ENTRY: Long {position_size} units at {current_close:.2f}")
         
         # 🌑 Exit Management for open positions
         else:
@@ -68,12 +62,12 @@ class VoltaicSurge(Strategy):
             # Trailing stop exit
             if self.data.Low[-1] < stop_price:
                 self.position.close()
-                print(f"🌙🛑 MOON DEV TRAILING STOP: Exit at {self.data.Close[-1]:.2f}")
+#                 print(f"🌙🛑 MOON DEV TRAILING STOP: Exit at {self.data.Close[-1]:.2f}")
             
             # Emergency trend failure exit
             elif current_close < current_ema:
                 self.position.close()
-                print(f"🌙⚠️ EMERGENCY EXIT: Price closed below EMA at {current_close:.2f}")
+                print(f" EMERGENCY EXIT: Price closed below EMA at {current_close:.2f}")
 
 # 🌙 Data Preparation Ritual
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

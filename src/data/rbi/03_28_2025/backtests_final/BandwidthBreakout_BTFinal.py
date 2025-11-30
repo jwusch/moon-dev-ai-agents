@@ -1,7 +1,3 @@
-I'll complete and fix the code while maintaining the original strategy logic. Here's the fully debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's BandwidthBreakout Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -24,7 +20,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
 
 class BandwidthBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌟 Core Indicators 🌟
@@ -67,7 +63,7 @@ class BandwidthBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙✨ MOON DEV LONG ENTRY @ {self.data.Close[-1]:.2f} | Size: {position_size} BTC 🚀")
+#                     print(f"🌙✨ MOON DEV LONG ENTRY @ {self.data.Close[-1]:.2f} | Size: {position_size} BTC 🚀")
             
             # Short Entry Conditions 🌌
             elif (self.bb_width[-1] == self.bb_width_low[-1] and
@@ -82,7 +78,7 @@ class BandwidthBreakout(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size)
-                    print(f"🌙✨ MOON DEV SHORT ENTRY @ {self.data.Close[-1]:.2f} | Size: {position_size} BTC 🌌")
+#                     print(f"🌙✨ MOON DEV SHORT ENTRY @ {self.data.Close[-1]:.2f} | Size: {position_size} BTC 🌌")
         
         # 🌑 Exit Logic
         else:

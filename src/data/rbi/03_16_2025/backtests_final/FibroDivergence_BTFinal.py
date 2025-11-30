@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -35,7 +32,7 @@ class FibroDivergence(Strategy):
         self.sma50 = self.I(talib.SMA, self.data.Close, timeperiod=50)
         
     def next(self):
-        # Moon Dev's Trading Logic ✨
+        # Moon Dev's Trading Logic ✨'
         price = self.data.Close[-1]
         equity = self.equity
         
@@ -63,8 +60,8 @@ class FibroDivergence(Strategy):
                             risk_amount = equity * self.risk_pct
                             position_size = int(round(risk_amount / (stop_loss - price)))
                             
-                            print(f"🌙 BEARISH DIVERGENCE! Shorting at {price:.2f} ✨")
-                            print(f"📉 Entry: {price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
+                            print(f" BEARISH DIVERGENCE! Shorting at {price:.2f} ")
+                            print(f" Entry: {price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
                             self.sell(size=position_size, sl=stop_loss)
                             break
                             
@@ -82,8 +79,8 @@ class FibroDivergence(Strategy):
                             risk_amount = equity * self.risk_pct
                             position_size = int(round(risk_amount / (price - stop_loss)))
                             
-                            print(f"🌙 BULLISH DIVERGENCE! Buying at {price:.2f} 🚀")
-                            print(f"📈 Entry: {price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
+                            print(f" BULLISH DIVERGENCE! Buying at {price:.2f} ")
+                            print(f" Entry: {price:.2f} | SL: {stop_loss:.2f} | Size: {position_size}")
                             self.buy(size=position_size, sl=stop_loss)
                             break
         

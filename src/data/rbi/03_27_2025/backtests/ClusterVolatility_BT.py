@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR ClusterVolatility STRATEGY 🌙
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,7 +25,7 @@ data = data.rename(columns={
 # CORE STRATEGY CLASS 🚀
 # =====================
 class ClusterVolatility(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # =====================
@@ -52,7 +49,7 @@ class ClusterVolatility(Strategy):
         # Volume Filter ✨
         self.vol_sma = self.I(talib.SMA, self.data.Volume, 20, name='Volume SMA')
         
-        print("🌙✨ MOON DEV INDICATORS LOADED ✨🚀")
+#         print("🌙✨ MOON DEV INDICATORS LOADED ✨🚀")
 
     def next(self):
         # =====================
@@ -77,7 +74,7 @@ class ClusterVolatility(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round((self.equity * self.risk_per_trade) / risk_per_share))
                     self.sell(size=position_size, sl=stop_level, tag="MoonDev Short")
-                    print(f"🚀🌙 MOON DEV SHORT ENTRY 🚀 | Price: {self.data.Close[-1]:.2f}")
-                    print(f"   ✨ Size: {position_size} | SL: {stop_level:.2f} | Risk: {risk_per_share:.2f}")
+#                     print(f"🚀🌙 MOON DEV SHORT ENTRY 🚀 | Price: {self.data.Close[-1]:.2f}")
+                    print(f"    Size: {position_size} | SL: {stop_level:.2f} | Risk: {risk_per_share:.2f}")
 
         # =

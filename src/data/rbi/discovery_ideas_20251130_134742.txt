@@ -1,0 +1,34 @@
+# Strategy Discovery Agent - Generated Ideas
+# Generated on 2025-11-30 13:47:42
+# 5 strategies recommended for implementation
+
+# Strategy: Ichimoku Cloud Momentum
+# Source: Expert Research
+# Confidence: 0.75
+# Recommendation: implement
+Use Ichimoku components for trend identification. Enter when price above cloud, TK line bullish cross, and strong momentum. Trailing stop at cloud edge.
+
+# Strategy: Stochastic RSI Divergence
+# Source: Expert Research
+# Confidence: 0.73
+# Recommendation: implement
+Look for divergences between price and Stochastic RSI. Enter on bullish divergence with oversold conditions. Combine with higher timeframe trend.
+
+# Strategy: Earnings Announcement Volatility
+# Source: Market Phenomena Research
+# Confidence: 0.70
+# Recommendation: implement
+Trade volatility around earnings announcements. Use options implied volatility vs realized volatility.
+
+# Strategy: Federal Reserve Meeting Patterns
+# Source: Market Phenomena Research
+# Confidence: 0.68
+# Recommendation: implement
+Trade patterns around FOMC meeting announcements. Often see pre-meeting positioning and post-meeting reversals.
+
+# Strategy: Monday Effect Mean Reversion
+# Source: Market Phenomena Research
+# Confidence: 0.65
+# Recommendation: implement
+Exploit Monday market opening effects. Look for weekend gap reversal patterns on Monday open.
+

@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -29,7 +28,7 @@ class ContangoFade(Strategy):
         self.bb_width_sma = self.I(talib.SMA, self.bb_width, 20)
         
         # Print Moon Dev initialization message
-        print("🌙 Moon Dev Backtest Initialized! Ready to fade contango ✨")
+#         print("🌙 Moon Dev Backtest Initialized! Ready to fade contango ✨")
 
     def next(self):
         current_price = self.data.Close[-1]
@@ -56,8 +55,8 @@ class ContangoFade(Strategy):
                         'entry_vix': current_vix,
                         'entry_price': current_price
                     })
-                    print(f"🚀 MOON SHORT ENTRY 🚀 Contango: {current_contango:.2f}% | ADX: {current_adx:.2f}")
-                    print(f"Size: {position_size} | Entry VIX: {current_vix:.2f} | Moon Power: 100% 🌕")
+                    print(f" MOON SHORT ENTRY  Contango: {current_contango:.2f}% | ADX: {current_adx:.2f}")
+                    print(f"Size: {position_size} | Entry VIX: {current_vix:.2f} | Moon Power: 100% ")
         else:
             # Get current values for exit checks
             current_vix_front = self.data.vix_front[-1]
@@ -73,17 +72,17 @@ class ContangoFade(Strategy):
             
             # Bollinger Band expansion exit
             if bb_width > bb_width_sma:
-                print(f"✨ BB Width Alert! {bb_width:.2f} > {bb_width_sma:.2f} - Preparing lunar escape 🚀")
+                print(f" BB Width Alert! {bb_width:.2f} > {bb_width_sma:.2f} - Preparing lunar escape ")
                 exit_signal = True
             
             # Contango flip exit
             if current_contango <= 0:
-                print(f"🌌 Contango Flip Detected! Current: {current_contango:.2f}% - Initiating dark matter protocol 🌑")
+                print(f" Contango Flip Detected! Current: {current_contango:.2f}% - Initiating dark matter protocol ")
                 exit_signal = True
                 
             # VIX spike stop loss
             if current_vix >= entry_vix * 1.10:
-                print(f"🌪️ VIX STORM DETECTED! {current_vix:.2f} vs {entry_vix:.2f} - Activating moon shields 🛡️")
+                print(f" VIX STORM DETECTED! {current_vix:.2f} vs {entry_vix:.2f} - Activating moon shields ")
                 exit_signal = True
                 
             if exit_signal:

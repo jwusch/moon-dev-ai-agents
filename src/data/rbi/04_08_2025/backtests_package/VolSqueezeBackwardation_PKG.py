@@ -1,10 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of its functions. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT - VolSqueezeBackwardation Strategy 🌙
-# 🚀 COMPLETELY FREE OF backtesting.lib IMPORTS! 🚀
-
-# Required imports
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -34,13 +27,13 @@ def prepare_data(data_path):
     data = data.set_index('datetime')
     data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
     
-    print("🌙 DATA PREPROCESSING COMPLETE! FIRST 3 ROWS:")
+    print(" DATA PREPROCESSING COMPLETE! FIRST 3 ROWS:")
     print(data.head(3))
     return data
 
 class VolSqueezeBackwardation(Strategy):
     # Strategy parameters
-    risk_per_trade = 0.02  # 2% risk per trade 🌔
+    risk_per_trade = 0.02  # 2% risk per trade 
     squeeze_period = 100   # Lookback for squeeze detection
     squeeze_threshold = 0.2  # 20th percentile
     
@@ -71,7 +64,7 @@ class VolSqueezeBackwardation(Strategy):
         # 5. ATR (14-period) 📏
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, close, timeperiod=14, name='ATR')
         
-        print("🌙 INDICATORS INITIALIZED WITHOUT backtesting.lib! MOON DEV APPROVED! 🌕")
+#         print("🌙 INDICATORS INITIALIZED WITHOUT backtesting.lib! MOON DEV APPROVED! 🌕")
 
     def next(self):
         # 🌙 STRATEGY LOGIC EXECUTION PHASE ✨

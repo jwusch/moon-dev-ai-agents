@@ -1,6 +1,3 @@
-To address the problem, we need to create a backtesting script for the VolatilitySurge strategy using the specified requirements. Here's the implementation:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -49,7 +46,7 @@ class VolatilitySurge(Strategy):
     def next(self):
         # Moon Dev progress tracker
         if len(self.data) % 1000 == 0:
-            print(f"🌙 Processing candle {len(self.data)} - Equity: ${self.equity:,.2f} ✨")
+            print(f" Processing candle {len(self.data)} - Equity: ${self.equity:,.2f} ")
 
         if not self.position:
             # Entry logic
@@ -61,7 +58,7 @@ class VolatilitySurge(Strategy):
                 if (self.atr20[-1] < self.atr_percentile[-1] and 
                     self.data.Close[-1] > self.sma200[-1]):
                     
-                    print(f"\n🚀🌕 MOON SHOT DETECTED! 🚀")
+                    print(f"\n MOON SHOT DETECTED! ")
                     print(f"ATR20({self.atr_period}): {self.atr20[-1]:.2f} < 10th %ile: {self.atr_percentile[-1]:.2f}")
                     print(f"Close ${self.data.Close[-1]:.2f} > SMA200 ${self.sma200[-1]:.2f}")
 
@@ -76,9 +73,9 @@ class VolatilitySurge(Strategy):
                         self.entry_atr = self.atr20[-1]
                         self.highest_price = self.data.Close[-1]
                         self.bars_held = 0
-                        print(f"📈 LONG ENTRY: {position_size} units at ${self.entry_price:.2f}")
+                        print(f" LONG ENTRY: {position_size} units at ${self.entry_price:.2f}")
                     else:
-                        print("⚠️ Zero position size - risk parameters too tight!")
+                        print(" Zero position size - risk parameters too tight!")
         else:
             # Update trailing values
             self.highest_price = max(self.highest_price, self.data.Close[-1])

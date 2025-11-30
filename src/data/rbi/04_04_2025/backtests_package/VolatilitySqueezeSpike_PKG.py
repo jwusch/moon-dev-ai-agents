@@ -1,6 +1,3 @@
-Here's the fixed code with all indicator packages properly implemented and Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -32,12 +29,12 @@ class VolatilitySqueezeSpike(Strategy):
         self.atr = self.I(talib.ATR, high, low, close, timeperiod=self.atr_period, name='ATR14')
         
         # ✨ MOON DEV DEBUG INIT ✨
-        print("🌕 MOON DEV STRATEGY ACTIVATED 🌕")
+#         print("🌕 MOON DEV STRATEGY ACTIVATED 🌕")
         print("| Indicators Loaded:")
         print(f"| - Bollinger Bandwidth (BBW) 10-day low")
         print(f"| - Volume MA20 Spike Check")
         print(f"| - Keltner Channels (EMA20 + 2xATR14)")
-        print("🌙 NO BACKTESTING.LIB USAGE DETECTED - CLEAN CODE! 🌙")
+        print(" NO BACKTESTING.LIB USAGE DETECTED - CLEAN CODE! ")
         
     def next(self):
         current_close = self.data.Close[-1]
@@ -66,14 +63,14 @@ class VolatilitySqueezeSpike(Strategy):
                     risk_per_share = current_close - stop_price
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
-                        print(f"🚀 MOON DEV LONG SIGNAL 🚀 | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
+#                         print(f"🚀 MOON DEV LONG SIGNAL 🚀 | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
                         self.buy(size=size, sl=stop_price)
                 else:
                     stop_price = current_close + (atr_val * stop_pct)
                     risk_per_share = stop_price - current_close
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
-                        print(f"🌑 MOON DEV SHORT SIGNAL 🌑 | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
+#                         print(f"🌑 MOON DEV SHORT SIGNAL 🌑 | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
                         self.sell(size=size, sl=stop_price)
         
         # 💫 EXIT CONDITIONS 💫

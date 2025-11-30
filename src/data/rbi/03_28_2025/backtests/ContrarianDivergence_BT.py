@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -8,7 +7,7 @@ import numpy as np
 class ContrarianDivergence(Strategy):
     def init(self):
         # Moon Dev initialization message
-        print("🌙 Initializing Moon Dev's Contrarian Divergence Strategy...")
+#         print("🌙 Initializing Moon Dev's Contrarian Divergence Strategy...")'
         
         # Clean and prepare data
         df = self.data.df
@@ -46,7 +45,7 @@ class ContrarianDivergence(Strategy):
 
     def next(self):
         # Moon Dev progress tracking
-        print(f"\n🌙 Processing {self.data.datetime[-1]} - Lunar cycle in progress...")
+        print(f"\n Processing {self.data.datetime[-1]} - Lunar cycle in progress...")
         
         # Skip initial warmup period
         if len(self.data) < 30*24*4:
@@ -86,7 +85,7 @@ class ContrarianDivergence(Strategy):
     
     def _update_swing_high(self, price):
         # Moon Dev swing high detection
-        print(f"🌕 New Swing High Detected at {price}")
+        print(f" New Swing High Detected at {price}")
         if self.last_swing_high_price:
             self.previous_swing_high_price = self.last_swing_high_price
             self.previous_swing_high_rsi = self.last_swing_high_rsi
@@ -95,4 +94,4 @@ class ContrarianDivergence(Strategy):
     
     def _update_swing_low(self, price):
         # Moon Dev swing low detection
-        print(f"🌑 New Swing Low Detected at {price}")
+        print(f" New Swing Low Detected at {price}")

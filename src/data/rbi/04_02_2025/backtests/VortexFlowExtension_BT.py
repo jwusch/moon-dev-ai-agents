@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -43,11 +42,11 @@ class VortexFlowExtension(Strategy):
             price = self.data.Close[-1]
             if trade.is_long:
                 if crossover(self.vi_minus, self.vi_plus):
-                    print(f"🌙🚨 EMERGENCY EXIT LONG @ {price:.2f}")
+                    print(f" EMERGENCY EXIT LONG @ {price:.2f}")
                     trade.close()
             else:
                 if crossover(self.vi_plus, self.vi_minus):
-                    print(f"🌙🚨 EMERGENCY EXIT SHORT @ {price:.2f}")
+                    print(f" EMERGENCY EXIT SHORT @ {price:.2f}")
                     trade.close()
         
         # Check existing positions
@@ -81,7 +80,7 @@ class VortexFlowExtension(Strategy):
                 
                 self.buy(size=half, sl=swing_low, tp=tp1, tag='Long_TP1')
                 self.buy(size=rem, sl=swing_low, tp=tp2, tag='Long_TP2')
-                print(f"🌙✨ LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | Moon Power Activated! 🚀")
+                print(f" LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | Moon Power Activated! ")
         
         # Short entry conditions
         vi_cross_short = crossover(self.vi_minus, self.vi_plus)

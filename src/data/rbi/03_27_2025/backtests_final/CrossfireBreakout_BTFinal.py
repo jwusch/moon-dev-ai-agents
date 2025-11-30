@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -44,14 +40,14 @@ class CrossfireBreakout(Strategy):
             new_stop = prev_close - 2 * prev_atr
             if new_stop > self.stop_loss:
                 self.stop_loss = new_stop
-                print(f"🌙✨ Trailing SL Updated: {self.stop_loss:.2f} | Moon Phase: Waxing")
+                print(f" Trailing SL Updated: {self.stop_loss:.2f} | Moon Phase: Waxing")
         elif self.position.is_short and len(self.data.Close) >= 2:
             prev_close = self.data.Close[-2]
             prev_atr = self.atr[-2]
             new_stop = prev_close + 2 * prev_atr
             if new_stop < self.stop_loss:
                 self.stop_loss = new_stop
-                print(f"🌙✨ Trailing SL Updated: {self.stop_loss:.2f} | Moon Phase: Waning")
+                print(f" Trailing SL Updated: {self.stop_loss:.2f} | Moon Phase: Waning")
 
     def check_entries(self):
         # Replaced crossover with direct array comparison
@@ -74,14 +70,14 @@ class CrossfireBreakout(Strategy):
         risk_per_share = self.data.Close[-1] - stop_loss_price
         
         if risk_per_share <= 0:
-            print("🌙⚠️ Risk per share invalid for LONG - Moon alignment unfavorable")
+            print(" Risk per share invalid for LONG - Moon alignment unfavorable")
             return
             
         position_size = int(round(risk_amount / risk_per_share))
         if position_size > 0:
             self.buy(size=position_size)
             self.stop_loss = stop_loss_price
-            print(f"🌙🚀✨ LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.stop_loss:.2f} | Moon Power: Strong")
+            print(f" LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.stop_loss:.2f} | Moon Power: Strong")
 
     def enter_short(self):
         risk_amount = self.equity * self.risk_per_trade

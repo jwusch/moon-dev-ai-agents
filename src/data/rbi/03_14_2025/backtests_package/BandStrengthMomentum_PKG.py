@@ -1,7 +1,3 @@
-I'll help you fix the code by removing all `backtesting.lib` imports and replacing the crossover/crossunder functions with proper implementations. Here's the corrected version with Moon Dev themed logging:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -70,13 +66,13 @@ class BandStrengthMomentum(Strategy):
         for trade in self.trades:
             if trade.is_long and current_rsi < 40:
                 trade.close()
-                print(f"🌑 Moon Dev Exit! RSI fell below 40 at {current_rsi:.1f}")
+#                 print(f"🌑 Moon Dev Exit! RSI fell below 40 at {current_rsi:.1f}")
             elif trade.is_short and current_rsi > 60:
                 trade.close()
-                print(f"🌑 Moon Dev Exit! RSI rose above 60 at {current_rsi:.1f}")
+#                 print(f"🌑 Moon Dev Exit! RSI rose above 60 at {current_rsi:.1f}")
         
         if self.position:
-            return  # Don't open new positions if already in one
+            return  # Don't open new positions if already in one'
             
         # Moon Dev Long Entry Conditions 🌟
         long_trigger = (

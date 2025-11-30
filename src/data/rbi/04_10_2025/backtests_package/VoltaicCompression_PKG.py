@@ -1,6 +1,3 @@
-I'll analyze and fix the code to ensure no backtesting.lib imports are used and all indicators are properly implemented. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -22,7 +19,7 @@ data.set_index('datetime', inplace=True)
 
 class VoltaicCompression(Strategy):
     def init(self):
-        # Core indicators - Powered by Moon Dev's celestial calculations ✨
+        # Core indicators - Powered by Moon Dev's celestial calculations ✨'
         self.ema20 = self.I(talib.EMA, self.data.Close, timeperiod=20)
         self.atr20 = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=20)
         self.vol_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
@@ -37,7 +34,7 @@ class VoltaicCompression(Strategy):
     def next(self):
         # Skip early bars without sufficient data
         if len(self.data) < 40: 
-            print("🌙 Waiting for more cosmic data... Need at least 40 bars")
+            print(" Waiting for more cosmic data... Need at least 40 bars")
             return
         
         # Current market conditions
@@ -48,7 +45,7 @@ class VoltaicCompression(Strategy):
         upper_keltner = ema + 1.5*atr20
         lower_keltner = ema - 1.5*atr20
         
-        # Volatility contraction check - Moon's gravitational pull analysis 🌕
+        # Volatility contraction check - Moon's gravitational pull analysis 🌕'
         keltner_width = 3 * atr20
         median_width = np.median([3*x for x in self.atr20[-20:]])
         contraction = keltner_width < median_width
@@ -67,7 +64,7 @@ class VoltaicCompression(Strategy):
                 
                 if risk_per_share > 0:
                     size = int(round(risk_amount / risk_per_share))
-                    print(f"🌙✨🚀 MOON ROCKET LONG LAUNCH! Entry: {close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
+                    print(f" MOON ROCKET LONG LAUNCH! Entry: {close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
                     self.buy(size=size, sl=stop_loss)
                     self.entry_bar = len(self.data)-1
                     self.highest_close = close
@@ -81,6 +78,6 @@ class VoltaicCompression(Strategy):
                 
                 if risk_per_share > 0:
                     size = int(round(risk_amount / risk_per_share))
-                    print(f"🌑💫☄️ MOON COMET SHORT BLAST! Entry: {close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
+                    print(f" MOON COMET SHORT BLAST! Entry: {close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
                     self.sell(size=size, sl=stop_loss)
                     self

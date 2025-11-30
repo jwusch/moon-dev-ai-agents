@@ -1,16 +1,11 @@
-Here's the fixed code with all necessary replacements and Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VolatilityReversal Backtest Script 🚀
-
 import pandas as pd
 import numpy as np
 import talib
 from backtesting import Backtest, Strategy
 
 class VolatilityReversal(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌊
-    atr_multiplier = 1.5  # ATR expansion threshold ✨
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 1.5  # ATR expansion threshold 
 
     def init(self):
         # 🌗 Indicator Calculations using TA-Lib
@@ -42,7 +37,7 @@ class VolatilityReversal(Strategy):
 
         # Track equity peak for drawdown calculation
         self.peak_equity = self._broker.starting_cash
-        self.max_drawdown = 0.15  # 15% max allowed 🌑
+        self.max_drawdown = 0.15  # 15% max allowed 
 
     def next(self):
         # 🌑 Check maximum drawdown limit
@@ -50,7 +45,7 @@ class VolatilityReversal(Strategy):
         self.peak_equity = max(self.peak_equity, current_equity)
         drawdown = (self.peak_equity - current_equity) / self.peak_equity
         if drawdown >= self.max_drawdown:
-            print(f"🌑🌑 MOON DEV EMERGENCY: Max Drawdown Breached {drawdown:.2%}! Stopping trading.")
+#             print(f"🌑🌑 MOON DEV EMERGENCY: Max Drawdown Breached {drawdown:.2%}! Stopping trading.")
             self.position.close()
             return
 
@@ -81,7 +76,7 @@ class VolatilityReversal(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_level,
                                 tp=self.data.Channel_High[-1])
-                        print(f"🌙✨ MOON DEV ENTRY: Long {position_size} @ {self.data.Open[-1]:.2f} | SL: {sl_level:.2f}")
+#                         print(f"🌙✨ MOON DEV ENTRY: Long {position_size} @ {self.data.Open[-1]:.2f} | SL: {sl_level:.2f}")
 
         # Exit Logic 🚀🌊
         else:

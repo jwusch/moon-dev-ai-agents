@@ -1,11 +1,3 @@
-Here's the fully debugged and fixed backtest code for the BandwidthSurge strategy with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR BANDWIDTHSURGE STRATEGY 🚀
-
-# ================
-# IMPORTS
-# ================
 import pandas as pd
 import talib
 import numpy as np
@@ -39,8 +31,8 @@ data = data.set_index('Date')
 # STRATEGY CLASS
 # ================
 class BandwidthSurge(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    atr_multiplier = 1.5  # Trailing stop multiplier 🛡️
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 1.5  # Trailing stop multiplier 
     
     def init(self):
         # 🌙 BOLLINGER BAND CALCULATIONS
@@ -65,7 +57,7 @@ class BandwidthSurge(Strategy):
         
     def next(self):
         # Moon Dev debug prints for key indicators 🌙
-        print(f"🌙 Current BB Width: {self.bb_width[-1]:.2f} | 10D Low: {self.bb_width_low[-1]:.2f} | Volume: {self.data.Volume[-1]:.2f} vs SMA: {self.volume_sma[-1]:.2f}")
+        print(f" Current BB Width: {self.bb_width[-1]:.2f} | 10D Low: {self.bb_width_low[-1]:.2f} | Volume: {self.data.Volume[-1]:.2f} vs SMA: {self.volume_sma[-1]:.2f}")
         
         # Only trade when no position exists
         if not self.position:
@@ -82,7 +74,7 @@ class BandwidthSurge(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size)
-                        print(f"🚀 MOON LAUNCH: LONG {position_size} BTC @ {self.data.Close[-1]:.2f} | ATR: {atr_value:.2f} 🌕")
+                        print(f" MOON LAUNCH: LONG {position_size} BTC @ {self.data.Close[-1]:.2f} | ATR: {atr_value:.2f} ")
                 
                 # Short entry condition 🌑
                 elif self.data.Close[-1] < self.lower_band[-1]:

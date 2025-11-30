@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -38,8 +36,8 @@ class VortexVolumeSurge(Strategy):
         current_close = self.data.Close[-1]
         
         # Moon Dev Debug Prints 🌙
-        print(f"🌙 Current Close: {current_close:.2f} | VI+ {self.vi_plus[-1]:.2f} vs VI- {self.vi_minus[-1]:.2f}")
-        print(f"📈 Volume: {self.data.Volume[-1]:.2f} vs SMA {self.volume_sma[-1]:.2f}")
+        print(f" Current Close: {current_close:.2f} | VI+ {self.vi_plus[-1]:.2f} vs VI- {self.vi_minus[-1]:.2f}")
+        print(f" Volume: {self.data.Volume[-1]:.2f} vs SMA {self.volume_sma[-1]:.2f}")
         
         # Entry Logic 🌕
         if not self.position:
@@ -64,8 +62,8 @@ class VortexVolumeSurge(Strategy):
                     self.buy(size=position_size)
                     self.trailing_stop = stop_loss
                     self.highest_high = entry_price
-                    print(f"🌕 MOON DEV ALERT: Long Entry at {entry_price:.2f}")
-                    print(f"🔒 Initial Stop: {stop_loss:.2f} | Size: {position_size}")
+#                     print(f"🌕 MOON DEV ALERT: Long Entry at {entry_price:.2f}")
+                    print(f" Initial Stop: {stop_loss:.2f} | Size: {position_size}")
 
         # Exit Logic 🌗
         elif self.position.is_long:
@@ -76,16 +74,16 @@ class VortexVolumeSurge(Strategy):
             if current_high > self.highest_high:
                 self.highest_high = current_high
                 self.trailing_stop = self.highest_high - 3 * atr_value
-                print(f"🎯 New Trail Stop: {self.trailing_stop:.2f}")
+                print(f" New Trail Stop: {self.trailing_stop:.2f}")
 
             # Check for exits
             if crossover(self.vi_minus, self.vi_plus):
                 self.position.close()
-                print(f"🌗 MOON DEV EXIT: VI- crossed VI+ at {current_close:.2f}")
+#                 print(f"🌗 MOON DEV EXIT: VI- crossed VI+ at {current_close:.2f}")
                 
             elif self.data.Low[-1] < self.trailing_stop:
                 self.position.close()
-                print(f"🚨 STOP HIT: Closed at {current_close:.2f} | Max Profit: {(self.highest_high - self.position.entry_price):.2f}")
+                print(f" STOP HIT: Closed at {current_close:.2f} | Max Profit: {(self.highest_high - self.position.entry_price):.2f}")
 
 # Data handling
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

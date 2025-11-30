@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR SQUEEZE SURGE STRATEGY 🚀✨
-
 import pandas as pd
 import numpy as np
 import talib
@@ -38,7 +33,7 @@ data.set_index('datetime', inplace=True)
 # STRATEGY IMPLEMENTATION
 # ======================
 class SqueezeSurge(Strategy):
-    risk_per_trade = 0.01  # 1% of equity per trade 🌙
+    risk_per_trade = 0.01  # 1% of equity per trade 
     
     def init(self):
         # 🌗 BOLLINGER BAND CALCULATIONS
@@ -85,7 +80,7 @@ class SqueezeSurge(Strategy):
                     self.buy(size=position_size)
                     self.entry_price = self.data.Close[-1]
                     self.highest_high = self.data.High[-1]
-                    print(f"🌕 MOON DEV LONG ENTRY! 🌕 | Size: {position_size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
+#                     print(f"🌕 MOON DEV LONG ENTRY! 🌕 | Size: {position_size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
         
         # 🛑 POSITION MANAGEMENT
         else:

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Strategy, Backtest
 import talib
@@ -49,7 +48,7 @@ class VortexFlow(Strategy):
         
     def next(self):
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌙 Moon Dev Status Update 🌙\nCurrent Close: {self.data.Close[-1]}")
+#         print(f"\n🌙 Moon Dev Status Update 🌙\nCurrent Close: {self.data.Close[-1]}")
         
         # Entry Conditions
         vi_cross_up = self.vi_plus[-1] > self.vi_minus[-1] and self.vi_plus[-2] <= self.vi_minus[-2]
@@ -70,7 +69,7 @@ class VortexFlow(Strategy):
             position_size = int(round(risk_amount / (self.data.Close[-1] - sl_price)))
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price, tp=self.data.Close[-1] + (atr * 3))
-                print(f"🚀🌙 MOON DEV LONG ENTRY! Size: {position_size}")
+#                 print(f"🚀🌙 MOON DEV LONG ENTRY! Size: {position_size}")
         
         # Short Entry
         elif not self.position and vi_cross_down and bear_div:

@@ -58,13 +58,13 @@ class YieldCurveReversal(Strategy):
                 if position_size > 0:
                     tp_price = current_price * (1 + self.tp_pct)
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🌙✨🚀 MOON SHOT! Long Entry @ {current_price:.2f}")
-                    print(f"   Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+                    print(f"🌙✨🚀 MOON SHOT! Long Entry @ {current_price:0.2f}")
+                    print(f"   Size: {position_size} | SL: {sl_price:0.2f} | TP: {tp_price:0.2f}")
 
         # 🌗 Exit Signal: Price Descends Below MA50 🌘
         elif position and crossover(self.ma50, self.price):
             self.position.close()
-            print(f"🌙☄️ COMET RETREAT! Exit @ {current_price:.2f}")
+            print(f"🌙☄️ COMET RETREAT! Exit @ {current_price:0.2f}")
 
 # 🌕 Launching Moon Base Backtest 🌕
 bt = Backtest(data, YieldCurveReversal, cash=1_000_000, exclusive_orders=True)

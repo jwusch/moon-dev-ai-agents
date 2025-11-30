@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's VoltaicCompression Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -49,7 +45,7 @@ class VoltaicCompression(Strategy):
         price_close = self.data.Close[-1]
         
         # 🌙 Debug Prints
-        print(f"🌙 MOON DEV DEBUG || BB Width: {bb_width:.4f} | ADX: {adx_value:.2f} | Close: {price_close:.2f}")
+#         print(f"🌙 MOON DEV DEBUG || BB Width: {bb_width:.4f} | ADX: {adx_value:.2f} | Close: {price_close:.2f}")
         
         # 🛑 Skip trades during news events (placeholder)
         
@@ -68,11 +64,11 @@ class VoltaicCompression(Strategy):
             if self.position.is_long:
                 if price_close < self.middle_band[-1]:
                     self.position.close()
-                    print(f"🌙✨ PROFIT MOONSHOT! Closed LONG at {price_close:.2f}")
+                    print(f" PROFIT MOONSHOT! Closed LONG at {price_close:.2f}")
             elif self.position.is_short:
                 if price_close > self.middle_band[-1]:
                     self.position.close()
-                    print(f"🌙✨ SHORT CIRCUIT! Closed SHORT at {price_close:.2f}")
+                    print(f" SHORT CIRCUIT! Closed SHORT at {price_close:.2f}")
     
     def enter_long(self):
         entry_price = self.data.Open[-1]
@@ -81,7 +77,7 @@ class VoltaicCompression(Strategy):
         risk_per_share = entry_price - stop_loss
         
         if risk_per_share <= 0:
-            print("🌑 MOON ALERT! Negative risk detected - aborting launch")
+            print(" MOON ALERT! Negative risk detected - aborting launch")
             return
             
         position_size = int(round(risk_amount / risk_per_share))
@@ -90,7 +86,7 @@ class VoltaicCompression(Strategy):
             
         take_profit = entry_price + 2*(entry_price - stop_loss)
         self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-        print(f"🚀🌕 MOONSHOT LAUNCH! LONG {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+        print(f" MOONSHOT LAUNCH! LONG {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
     
     def enter_short(self):
         entry_price = self

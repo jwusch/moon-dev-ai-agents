@@ -1,9 +1,3 @@
-I'll complete and fix the code while maintaining the original strategy logic. Here's the fully debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR LIQUIDITYSURGE STRATEGY ✨
-
-# Required imports
 import pandas as pd
 import talib
 import numpy as np
@@ -71,12 +65,12 @@ class LiquiditySurge(Strategy):
     def _enter_long(self, price, upper, lower):
         risk_share = price - lower
         if risk_share <= 0:
-            print("🌙🚨 MOON DEV ALERT: INVALID LONG RISK CALCULATION")
+#             print("🌙🚨 MOON DEV ALERT: INVALID LONG RISK CALCULATION")
             return
         
         size = int(round((self.equity * self.risk_percent) / risk_share))
         if size <= 0:
-            print("🌙🚨 MOON DEV ALERT: ZERO LONG POSITION SIZE")
+#             print("🌙🚨 MOON DEV ALERT: ZERO LONG POSITION SIZE")
             return
         
         self.current_take_profit = price + 1.5*(upper - lower)
@@ -84,17 +78,17 @@ class LiquiditySurge(Strategy):
         self.entry_upper_kc = upper
         
         self.buy(size=size)
-        print(f"🚀🌙 MOON DEV LONG SIGNAL | Entry: {price:.2f} | Size: {size} | TP: {self.current_take_profit:.2f} | SL: {lower:.2f}")
+#         print(f"🚀🌙 MOON DEV LONG SIGNAL | Entry: {price:.2f} | Size: {size} | TP: {self.current_take_profit:.2f} | SL: {lower:.2f}")
 
     def _enter_short(self, price, upper, lower):
         risk_share = upper - price
         if risk_share <= 0:
-            print("🌙🚨 MOON DEV ALERT: INVALID SHORT RISK CALCULATION")
+#             print("🌙🚨 MOON DEV ALERT: INVALID SHORT RISK CALCULATION")
             return
         
         size = int(round((self.equity * self.risk_percent) / risk_share))
         if size <= 0:
-            print("🌙🚨 MOON DEV ALERT: ZERO SHORT POSITION SIZE")
+#             print("🌙🚨 MOON DEV ALERT: ZERO SHORT POSITION SIZE")
             return
         
         self.current_take_profit = price - 1.5*(upper - lower)
@@ -102,4 +96,4 @@ class LiquiditySurge(Strategy):
         self.entry_lower_kc = lower
         
         self.sell(size=size)
-        print(f"📉🌙 MOON DEV SHORT SIGNAL | Entry: {price:.2f} | Size: {size} | TP:
+#         print(f"📉🌙 MOON DEV SHORT SIGNAL | Entry: {price:.2f} | Size: {size} | TP:"

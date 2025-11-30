@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -38,7 +37,20 @@ class VoltaicContraction(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, self.adx_period)
         
         # VWAP with 2σ bands
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume, anchor='D')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.vwap_std = self.I(talib.STDDEV, self.data.Close, 14)
         self.upper_band = self.I(lambda vwap, std: vwap + 2*std, self.vwap, self.vwap_std)
         self.lower_band = self.I(lambda vwap, std: vwap - 2*std, self.vwap, self.vwap_std)
@@ -62,7 +74,7 @@ class VoltaicContraction(Strategy):
                     (self.position.is_short and price >= self.stop_loss)
             
             if bb_width < self.bb_width_threshold or time_exit or sl_hit:
-                moon_emoji = '🌙✨' if bb_width < self.bb_width_threshold else '🕒⏳' if time_exit else '🔴💔'
+                moon_emoji = '' if bb_width < self.bb_width_threshold else '⏳' if time_exit else ''
                 print(f"{moon_emoji} Closing position | BB Width: {bb_width:.4f}")
                 self.position.close()
         else:
@@ -80,6 +92,6 @@ class VoltaicContraction(Strategy):
                     self.stop_loss = price - stop_distance
                     position_size = int(round(risk_amount / stop_distance))
                     self.buy(size=position_size)
-                    print(f"🚀🌙 LONG | Size: {position_size} | SL: {self.stop_loss:.2f}")
+                    print(f" LONG | Size: {position_size} | SL: {self.stop_loss:.2f}")
                 else:  # Short setup
                     self.stop_loss = price + stop

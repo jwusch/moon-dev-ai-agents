@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -82,7 +81,7 @@ class LiquidationBreakout(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, 
                             tp=current_close + 3*atr_value)
-                    print(f"🚀 MOON DEV LONG LAUNCH 🚀 | Size: {position_size} | Entry: {current_close} | SL: {sl:.2f}")
+#                     print(f"🚀 MOON DEV LONG LAUNCH 🚀 | Size: {position_size} | Entry: {current_close} | SL: {sl:.2f}")
             
             elif short_trigger:
                 sl = current_close + 1.5 * atr_value
@@ -91,4 +90,4 @@ class LiquidationBreakout(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl, 
                              tp=current_close - 3*atr_value)
-                    print(f"🌒 MOON DEV SH
+#                     print(f"🌒 MOON DEV SH"

@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementation:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITY BANDIT STRATEGY ✨
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -48,14 +44,14 @@ class VolatilityBandit(Strategy):
                 
                 atr_value = self.atr[-1]
                 if atr_value <= 0: 
-                    print("🌑 MOON DEV WARNING: Invalid ATR value detected")
+#                     print("🌑 MOON DEV WARNING: Invalid ATR value detected")
                     return
                 
                 # 🚀 RISK CALCULATION
                 risk_amount = self.risk_pct * self._broker.equity
                 size = int(round(risk_amount / atr_value))
                 if size <= 0: 
-                    print("🌑 MOON DEV WARNING: Position size too small")
+#                     print("🌑 MOON DEV WARNING: Position size too small")
                     return
                 
                 # 🌙 ENTRY EXECUTION
@@ -63,7 +59,7 @@ class VolatilityBandit(Strategy):
                 self.entry_price = self.data.Close[-1]
                 self.extreme_price = self.data.High[-1]
                 self.position_type = 'LONG'
-                print(f"🚀🌙 MOON DEV LONG ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
+#                 print(f"🚀🌙 MOON DEV LONG ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
 
             # 🌑 SHORT ENTRY LOGIC (REPLACED CROSSOVER WITH MANUAL CHECK)    
             elif (self.data.Close[-1] < self.lower_band[-1] and 
@@ -71,14 +67,14 @@ class VolatilityBandit(Strategy):
                 
                 atr_value = self.atr[-1]
                 if atr_value <= 0: 
-                    print("🌑 MOON DEV WARNING: Invalid ATR value detected")
+#                     print("🌑 MOON DEV WARNING: Invalid ATR value detected")
                     return
                 
                 # 📉 RISK CALCULATION
                 risk_amount = self.risk_pct * self._broker.equity
                 size = int(round(risk_amount / atr_value))
                 if size <= 0: 
-                    print("🌑 MOON DEV WARNING: Position size too small")
+#                     print("🌑 MOON DEV WARNING: Position size too small")
                     return
                 
                 # 🌙 ENTRY EXECUTION
@@ -86,4 +82,4 @@ class VolatilityBandit(Strategy):
                 self.entry_price = self.data.Close[-1]
                 self.extreme_price = self.data.Low[-1]
                 self.position_type = 'SHORT'
-                print(f"🌑📉 MOON DEV SHORT ENTRY: {self.data.index[-1]} | Size: {size} |
+#                 print(f"🌑📉 MOON DEV SHORT ENTRY: {self.data.index[-1]} | Size: {size} |"

@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VolumetricSqueeze Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -49,7 +47,7 @@ class VolumetricSqueeze(Strategy):
         self.vol_pct80 = self.I(ta.percentile, self.data.Volume, 50, q=80, name='VOL_PCT80')
         self.vol_pct90 = self.I(ta.percentile, self.data.Volume, 50, q=90, name='VOL_PCT90')
         
-        print("🌙 Lunar Indicators Activated! 🚀")
+        print(" Lunar Indicators Activated! ")
 
     def next(self):
         # 🌑 Skip early bars
@@ -59,10 +57,10 @@ class VolumetricSqueeze(Strategy):
         # 🛑 Exit Conditions
         if self.position:
             if self.position.is_long and (self.data.Volume[-1] > self.vol_pct90[-1] or self.data.Close[-1] < self.trailing_sl):
-                print(f"🌕 Closing LONG at {self.data.Close[-1]:.2f} | Moon Profit Protection! 🌙")
+                print(f" Closing LONG at {self.data.Close[-1]:.2f} | Moon Profit Protection! ")
                 self.position.close()
             elif self.position.is_short and (self.data.Volume[-1] > self.vol_pct90[-1] or self.data.Close[-1] > self.trailing_sl):
-                print(f"🌑 Closing SHORT at {self.data.Close[-1]:.2f} | Stellar Exit Protocol! 🌠")
+                print(f" Closing SHORT at {self.data.Close[-1]:.2f} | Stellar Exit Protocol! ")
                 self.position.close()
         
         # 🚀 Entry Logic

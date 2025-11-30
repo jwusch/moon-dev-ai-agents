@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements while preserving the original strategy logic:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -29,7 +26,7 @@ data = data.rename(columns=required_mapping)
 required_columns = ['Open', 'High', 'Low', 'Close', 'Volume', 'Liquidations']
 for col in required_columns:
     if col not in data.columns:
-        raise ValueError(f"🌠 Cosmic Error! Missing required column: {col} - Aborting lunar mission!")
+        raise ValueError(f" Cosmic Error! Missing required column: {col} - Aborting lunar mission!")
 
 class LiquidationDivergence(Strategy):
     rsi_period = 14
@@ -50,7 +47,7 @@ class LiquidationDivergence(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, self.swing_low_period)
         
         self.entry_flag = False
-        print("🌖 Lunar Indicators Initialized! Tracking cosmic signals...")
+        print(" Lunar Indicators Initialized! Tracking cosmic signals...")
 
     def next(self):
         if self.position:
@@ -61,10 +58,10 @@ class LiquidationDivergence(Strategy):
             
             if current_price >= profit_target:
                 self.position.close()
-                print(f"🚀 Take Profit Reached! Moon Profit: {profit_target:.2f}")
+                print(f" Take Profit Reached! Moon Profit: {profit_target:.2f}")
             elif current_price <= self.position.sl:
                 self.position.close()
-                print(f"🌑 Stop Loss Hit! Lunar Protection Shield Activated")
+                print(f" Stop Loss Hit! Lunar Protection Shield Activated")
         else:
             if self.entry_flag:
                 risk_amount = self.equity * self.risk_percent
@@ -72,7 +69,7 @@ class LiquidationDivergence(Strategy):
                 sl_price = self.swing_low[-1] * 0.995
                 
                 if entry_price <= sl_price:
-                    print("⚠️ Invalid SL Price - Aborting Lunar Entry Sequence")
+                    print(" Invalid SL Price - Aborting Lunar Entry Sequence")
                     self.entry_flag = False
                     return
                 
@@ -89,7 +86,7 @@ class LiquidationDivergence(Strategy):
                         sl=sl_price,
                         tp=tp_price
                     )
-                    print(f"🌕 LUNAR ENTRY! Long {position_size} units")
+                    print(f" LUNAR ENTRY! Long {position_size} units")
                     print(f"   Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
                     self.entry_flag = False
 

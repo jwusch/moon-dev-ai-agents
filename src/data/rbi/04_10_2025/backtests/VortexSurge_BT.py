@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the VortexSurge strategy with Moon Dev's requirements:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -32,7 +29,7 @@ class VortexSurge(Strategy):
 
     def next(self):
         price = self.data.Close[-1]
-        moon_emoji = '🌙✨🚀'  # Standard Moon Dev emojis
+#         moon_emoji = '🌙✨🚀'  # Standard Moon Dev emojis
         
         # Entry logic
         if not self.position:

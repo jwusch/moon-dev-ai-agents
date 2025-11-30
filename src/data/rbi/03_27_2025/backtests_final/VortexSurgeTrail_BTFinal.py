@@ -1,7 +1,3 @@
-Here's the fixed and completed backtest code with all technical issues resolved while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev's VortexSurgeTrail Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -58,7 +54,7 @@ class VortexSurgeTrail(Strategy):
     def next(self):
         # 🌑 Avoid low volatility periods
         if self.keltner_width[-1] <= 1.5 * self.avg_width[-1]:
-            print("🌙 Volatility too low - cosmic energies calm")
+            print(" Volatility too low - cosmic energies calm")
             return
             
         # 🚀 Long Entry Sequence
@@ -73,11 +69,11 @@ class VortexSurgeTrail(Strategy):
             risk_per_share = entry_price - stop_price
             
             if risk_per_share <= 0:
-                print(f"🚫 Invalid cosmic alignment (risk: {risk_per_share:.2f})")
+                print(f" Invalid cosmic alignment (risk: {risk_per_share:.2f})")
                 return
                 
             size = int(round(risk_amount / risk_per_share))
             self.buy(size=size, sl=stop_price, tag='BullishSurge')
-            print(f"🚀🌙 LONG ENTRY! Size: {size} | Entry: {entry_price:.2f} | Cosmic Stop: {stop_price:.2f}")
+            print(f" LONG ENTRY! Size: {size} | Entry: {entry_price:.2f} | Cosmic Stop: {stop_price:.2f}")
 
         # 🌑 Short Entry Sequence

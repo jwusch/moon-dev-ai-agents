@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -9,8 +6,8 @@ import numpy as np
 class ContrarianDivergence(Strategy):
     def init(self):
         # Moon Dev initialization message
-        print("🌙 Initializing Moon Dev's Contrarian Divergence Strategy...")
-        print("✨ Preparing lunar indicators for cosmic market analysis...")
+#         print("🌙 Initializing Moon Dev's Contrarian Divergence Strategy...")'
+        print(" Preparing lunar indicators for cosmic market analysis...")
         
         # Clean and prepare data
         df = self.data.df
@@ -48,9 +45,9 @@ class ContrarianDivergence(Strategy):
 
     def next(self):
         # Moon Dev progress tracking
-        if len(self.data) % 100 == 0:  # Don't print every tick
-            print(f"\n🌙 Processing {self.data.datetime[-1]} - Lunar cycle in progress...")
-            print("🔭 Scanning for celestial trading opportunities...")
+        if len(self.data) % 100 == 0:  # Don't print every tick'
+            print(f"\n Processing {self.data.datetime[-1]} - Lunar cycle in progress...")
+            print(" Scanning for celestial trading opportunities...")
         
         # Skip initial warmup period
         if len(self.data) < 30*24*4:
@@ -78,12 +75,12 @@ class ContrarianDivergence(Strategy):
         if not self.position:
             # Short Entry
             if current_funding > upper_band and bearish_div:
-                print("🌘 Bearish divergence detected! Preparing short position...")
+                print(" Bearish divergence detected! Preparing short position...")
                 self._enter_short()
             
             # Long Entry
             elif current_funding < lower_band and bullish_div:
-                print("🌒 Bullish divergence detected! Preparing long position...")
+                print(" Bullish divergence detected! Preparing long position...")
                 self._enter_long()
         
         # Exit Logic

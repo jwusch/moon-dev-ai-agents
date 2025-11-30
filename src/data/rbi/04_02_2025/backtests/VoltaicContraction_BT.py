@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -54,7 +53,7 @@ class VoltaicContraction(Strategy):
         self.atr_trailing = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
         self.contraction_count = 0
-        print("✨ Moon Dev Indicators Initialized! Ready for cosmic analysis 🚀")
+#         print("✨ Moon Dev Indicators Initialized! Ready for cosmic analysis 🚀")
 
     def next(self):
         # 🌙 Check existing positions
@@ -62,25 +61,25 @@ class VoltaicContraction(Strategy):
             if self.position.is_long:
                 # Long exit conditions
                 if self.data.Close[-1] < self.kc_lower[-1]:
-                    print(f"🌙 Closing LONG at {self.data.Close[-1]} (KC Lower Break)")
+                    print(f" Closing LONG at {self.data.Close[-1]} (KC Lower Break)")
                     self.position.close()
                 elif self.eis_current == -1:
-                    print(f"🌙 Closing LONG at {self.data.Close[-1]} (EIS Bearish Flip)")
+                    print(f" Closing LONG at {self.data.Close[-1]} (EIS Bearish Flip)")
                     self.position.close()
                 else:
                     # Update trailing stop
                     trail = self.data.Close[-1] - 3 * self.atr_trailing[-1]
                     self.trailing_stop = max(trail, self.trailing_stop) if hasattr(self, 'trailing_stop') else trail
                     if self.data.Low[-1] < self.trailing_stop:
-                        print(f"🚨 Trailing Stop Hit! Closing LONG at {self.trailing_stop}")
+                        print(f" Trailing Stop Hit! Closing LONG at {self.trailing_stop}")
                         self.position.close()
             else:
                 # Short exit conditions
                 if self.data.Close[-1] > self.kc_upper[-1]:
-                    print(f"🌙 Closing SHORT at {self.data.Close[-1]} (KC Upper Break)")
+                    print(f" Closing SHORT at {self.data.Close[-1]} (KC Upper Break)")
                     self.position.close()
                 elif self.eis_current == 1:
-                    print(f"🌙 Closing SHORT at {self.data.Close[-1]} (EIS Bullish Flip)")
+                    print(f" Closing SHORT at {self.data.Close[-1]} (EIS Bullish Flip)")
                     self.position.close()
                 else:
                     trail = self.data.Close[-1] + 3 * self.atr_trailing[-1]

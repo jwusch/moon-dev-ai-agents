@@ -1,6 +1,3 @@
-I'll fix the backtesting.lib imports and ensure all indicators use proper packages. Here's the corrected code with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,7 +49,7 @@ class VolSpikeReversal(Strategy):
             current_vol_avg = self.vol_weighted_vol_avg[-1]
             if current_vol >= self.exit_vol_multiplier * current_vol_avg:
                 self.position.close()
-                print(f"🌪️ MOON DEV VOL EXIT | Bar {current_bar} | Price: {self.data.Close[-1]:.2f}")
+#                 print(f"🌪️ MOON DEV VOL EXIT | Bar {current_bar} | Price: {self.data.Close[-1]:.2f}")
                 return
 
             # Time-based exit after 24 hours (96 periods)
@@ -78,7 +75,7 @@ class VolSpikeReversal(Strategy):
                 risk_per_share = stop_loss - entry_price
                 
                 if risk_per_share <= 0:
-                    print("⚠️ MOON DEV RISK ERROR: Invalid stop loss")
+#                     print("⚠️ MOON DEV RISK ERROR: Invalid stop loss")
                     return
 
                 position_size = int(round((equity * self.risk_percent) / risk_per_share))
@@ -86,4 +83,4 @@ class VolSpikeReversal(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_loss)
                     self.entry_bar = current_bar
-                    print(f"🚀 MOON DEV SHORT EN
+#                     print(f"🚀 MOON DEV SHORT EN"

@@ -1,8 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT - FIBRODELTA BREAKOUT STRATEGY 🚀✨
-
 import numpy as np
 import pandas as pd
 import talib
@@ -13,7 +8,7 @@ class FibroDeltaBreakout(Strategy):
     
     def init(self):
         # 🌌 INITIALIZING MOON DEV STRATEGY...
-        print("🌠 PREPARING COSMIC INDICATORS...")
+        print(" PREPARING COSMIC INDICATORS...")
         
         # 🌀 Fibonacci Indicators (fixed indicator calculations)
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20, name='SWING HIGH')
@@ -68,7 +63,7 @@ class FibroDeltaBreakout(Strategy):
                 # 🎯 Take Profit Calculation (127% extension)
                 tp = current_close + (sh - sl) * 0.272
                 self.buy(size=position_size, sl=stop_loss, tp=tp)
-                print(f"🌕 MOON DEV LONG SIGNAL! Size: {position_size:,} | Entry: {current_close:.2f} | SL: {stop_loss:.2f} | TP: {tp:.2f} 🌙")
+#                 print(f"🌕 MOON DEV LONG SIGNAL! Size: {position_size:,} | Entry: {current_close:.2f} | SL: {stop_loss:.2f} | TP: {tp:.2f} 🌙")
         
         # 🌑 Short Entry Logic (fixed position sizing)
         elif (not self.position and
@@ -85,4 +80,4 @@ class FibroDeltaBreakout(Strategy):
                 # 🎯 Take Profit Calculation
                 tp = current_close - (sh - sl) * 0.272
                 self.sell(size=position_size, sl=stop_loss, tp=tp)
-                print(f"🌑 MOON DEV SHORT SIGNAL! Size: {position_size:,} |
+#                 print(f"🌑 MOON DEV SHORT SIGNAL! Size: {position_size:,} |"

@@ -1,6 +1,3 @@
-I'll fix the code by removing all backtesting.lib imports and replacing crossover/crossunder functions with manual implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -72,7 +69,7 @@ class VolatilityAnchoredBreakout(Strategy):
             self.current_date = current_date
             self.daily_pnl[current_date] = 0
             self.trading_allowed = True
-            print(f"🌙 New Moon Cycle Starting: {current_date}")
+            print(f" New Moon Cycle Starting: {current_date}")
 
         if not self.trading_allowed:
             return

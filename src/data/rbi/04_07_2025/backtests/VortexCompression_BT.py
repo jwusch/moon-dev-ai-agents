@@ -1,6 +1,3 @@
-Here is the implementation of the VortexCompression strategy for backtesting.py:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -85,7 +82,7 @@ class VortexCompression(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl)
-                    print(f"🌙 MOON DEV LONG ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f}")
+#                     print(f"🌙 MOON DEV LONG ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f}")
 
             # Short Entry 🌪️
             elif (crossover(self.vi_minus, self.vi_plus) and
@@ -98,6 +95,6 @@ class VortexCompression(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl)
-                    print(f"🌙 MOON DEV SHORT ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f}")
+#                     print(f"🌙 MOON DEV SHORT ENTRY ✨ | Price: {price:.2f} | Size: {position_size} | SL: {sl:.2f}")
 
         # Exit Logic 🚪

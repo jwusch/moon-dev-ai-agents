@@ -1,9 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed improvements, ensuring all technical requirements are met while preserving the original strategy logic:
-
-```python
-# 🌙✨ Moon Dev Backtest AI - Liquidation Reclaim Strategy 🚀
-# 🌙 CRITICAL: Position Sizing Rules Verified - Whole Numbers for Units ✅
-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -40,7 +34,7 @@ class LiquidationReclaim(Strategy):
                           self.atr_period, name='ATR')
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='Swing_Low')
         
-        print("🌙✨ Moon Dev Indicators Initialized - Ready for Cosmic Trading! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized - Ready for Cosmic Trading! 🚀")
 
     def next(self):
         # 🌙✨ Trading Logic Execution
@@ -72,7 +66,7 @@ class LiquidationReclaim(Strategy):
                     
                     if position_size > 0:  # Ensure valid position size
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🌙 BUY Signal: {position_size} units at {current_close}")
+                        print(f" BUY Signal: {position_size} units at {current_close}")
         
         else:  # Existing position management
             # Bollinger Squeeze Exit Logic
@@ -81,7 +75,7 @@ class LiquidationReclaim(Strategy):
             
             if squeeze_cond and current_close > self.upper_bb[-1]:
                 self.position.close()
-                print("🌙 EXIT Signal: Bollinger Squeeze Breakout")
+                print(" EXIT Signal: Bollinger Squeeze Breakout")
             
             # ATR Trailing Stop
             if current_close > self.position.entry_price + self.atr[-1]:

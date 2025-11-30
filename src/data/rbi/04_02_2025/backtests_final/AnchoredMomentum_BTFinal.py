@@ -1,6 +1,3 @@
-Here's the fixed backtest code with all technical issues resolved while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -14,7 +11,7 @@ class AnchoredMomentum(Strategy):
     
     def init(self):
         # Moon Dev debug print 🌙
-        print("✨ Initializing Anchored Momentum Strategy with Moon Dev's Package AI ✨")
+#         print("✨ Initializing Anchored Momentum Strategy with Moon Dev's Package AI ✨")'
         
         # Clean and prepare data
         self.data.df.columns = [col.strip().lower() for col in self.data.df.columns]

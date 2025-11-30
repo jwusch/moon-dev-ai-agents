@@ -36,8 +36,8 @@ class VolatilityMomentum(Strategy):
         # 🌙 Moon Dev Debug Console
         if current_bar % 100 == 0:
             print(f"\n🌌 Bar {current_bar}")
-            print(f"   Close: {self.data.Close[-1]:.2f} | EMA10: {self.ema10[-1]:.2f}")
-            print(f"   ATR: {self.atr[-1]:.2f} | 20-period MIN ATR: {self.min_atr[-1]:.2f}")
+            print(f"   Close: {self.data.Close[-1]:0.2f} | EMA10: {self.ema10[-1]:0.2f}")
+            print(f"   ATR: {self.atr[-1]:0.2f} | 20-period MIN ATR: {self.min_atr[-1]:0.2f}")
 
         if not self.position:
             # 🌠 Entry Conditions: Low Volatility + Momentum Cross
@@ -58,7 +58,7 @@ class VolatilityMomentum(Strategy):
                 
                 if position_size > 0:
                     print(f"\n🚀 LAUNCH DETECTED! Buying {position_size} shares")
-                    print(f"   Entry: {entry_price:.2f} | Stop: {stop_price:.2f}")
+                    print(f"   Entry: {entry_price:0.2f} | Stop: {stop_price:0.2f}")
                     self.buy(size=position_size, sl=stop_price)
                     
         else:
@@ -68,16 +68,16 @@ class VolatilityMomentum(Strategy):
             
             # Take Profit Condition
             if self.data.Close[-1] >= current_ema * self.take_profit:
-                print(f"\n✨ PROFIT HARVEST! Closing at {self.data.Close[-1]:.2f}")
+                print(f"\n✨ PROFIT HARVEST! Closing at {self.data.Close[-1]:0.2f}")
                 self.position.close()
                 
             # Stop Loss Condition
             elif self.data.Low[-1] <= entry_price * self.stop_loss_pct:
-                print(f"\n🌧️ COSMIC PROTECTION ACTIVATED! Closing at {self.data.Low[-1]:.2f}")
+                print(f"\n🌧️ COSMIC PROTECTION ACTIVATED! Closing at {self.data.Low[-1]:0.2f}")
                 self.position.close()
 
 # 🚀 Launch Backtest
-bt = Backtest(data, VolatilityMomentum, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolatilityMomentum, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌕 Display Cosmic Performance

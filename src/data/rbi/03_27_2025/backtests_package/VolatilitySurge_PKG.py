@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's VolatilitySurge Backtest Implementation 🚀
-
 import pandas as pd
 import talib
 import numpy as np
@@ -23,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolatilitySurge(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     bb_period = 20
     atr_period = 14
     
@@ -49,7 +44,7 @@ class VolatilitySurge(Strategy):
         self.peak_price = None
 
     def next(self):
-        # Moon Dev's Trading Logic 🌙
+        # Moon Dev's Trading Logic 🌙'
         if not self.position:
             # Entry Conditions Check 🌟
             bb_contraction = self.bb_width[-1] < 0.5 * self.bb_width_ma[-1]
@@ -66,7 +61,7 @@ class VolatilitySurge(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.peak_price = self.data.High[-1]
-                    print(f"🌙 MOON DEV ALERT: Long Entry at {self.data.Close[-1]:.2f} | Size: {position_size} | ATR Stop: {self.data.Close[-1] - atr_value:.2f} 🚀")
+#                     print(f"🌙 MOON DEV ALERT: Long Entry at {self.data.Close[-1]:.2f} | Size: {position_size} | ATR Stop: {self.data.Close[-1] - atr_value:.2f} 🚀")
         else:
             # Update Trailing Stop 🌈
             self.peak_price = max(self.peak_price, self.data.High[-1])
@@ -75,6 +70,6 @@ class VolatilitySurge(Strategy):
             # Exit Condition 🌌
             if self.data.Low[-1] < self.trail_stop:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT: Trailing Stop Triggered at {self.trail_stop:.2f} | Profit: {self.position.pl:.2f} ✨")
+#                 print(f"🌙 MOON DEV EXIT: Trailing Stop Triggered at {self.trail_stop:.2f} | Profit: {self.position.pl:.2f} ✨")
 
 # Run Backtest and Print Full Stats

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -62,7 +59,7 @@ class VortexForce(Strategy):
                 if (price_low < self.prev_low) and (efi_val > self.prev_efi):
                     sl = self.swing_low[-1] * 0.995
                     self.calculate_risk('long', sl)
-                    print(f"🌙 MOON DEV LONG SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
+#                     print(f"🌙 MOON DEV LONG SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
         
         # Short entry constellation 🌑 (replaced crossover)
         elif (self.vi_minus[-2] > self.vi_plus[-2]) and (self.vi_minus[-1] < self.vi_plus[-1]):
@@ -70,16 +67,16 @@ class VortexForce(Strategy):
                 if (price_high > self.prev_high) and (efi_val < self.prev_efi):
                     sl = self.swing_high[-1] * 1.005
                     self.calculate_risk('short', sl)
-                    print(f"🌙 MOON DEV SHORT SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
+#                     print(f"🌙 MOON DEV SHORT SIGNAL ACTIVATED ✨ at {self.data.Close[-1]}")
         
         # Moon exit protocol 🚪
         if self.position:
             if self.position.is_long and self.cmo[-1] < 70 and self.cmo[-2] >= 70:
                 self.position.close()
-                print(f"🌙 MOON DEV LONG EXIT ✨ at {self.data.Close[-1]}")
+#                 print(f"🌙 MOON DEV LONG EXIT ✨ at {self.data.Close[-1]}")
             elif self.position.is_short and self.cmo[-1] > 30 and self.cmo[-2] <= 30:
                 self.position.close()
-                print(f"🌙 MOON DEV SHORT EXIT ✨ at {self.data.Close[-1]}")
+#                 print(f"🌙 MOON DEV SHORT EXIT ✨ at {self.data.Close[-1]}")
         
         # Update previous values 🌗
         self.prev_low = price_low

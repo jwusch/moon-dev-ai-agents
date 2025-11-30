@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -37,7 +34,7 @@ class VolatilitySqueezeEdge(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 
                          timeperiod=14, name='ATR')
         
-        print("🌙✨ MOON DEV INDICATORS LOADED! Ready to launch profits! 🚀")
+#         print("🌙✨ MOON DEV INDICATORS LOADED! Ready to launch profits! 🚀")
 
     def next(self):
         if len(self.data) < 34:  # Warm-up period for indicators
@@ -69,8 +66,8 @@ class VolatilitySqueezeEdge(Strategy):
                     sl = current_close - atr_value
                     tp = current_close + 2 * atr_value
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🌕🚀 MOON BLASTOFF! LONG {position_size} units at {current_close:.2f}")
-                    print(f"   RSI: {rsi_value:.2f} | ATR Guard: ±{atr_value:.2f} ✨")
+                    print(f" MOON BLASTOFF! LONG {position_size} units at {current_close:.2f}")
+                    print(f"   RSI: {rsi_value:.2f} | ATR Guard: ±{atr_value:.2f} ")
 
             # Short entry logic        
             elif (volatility_squeeze and
@@ -87,8 +84,8 @@ class VolatilitySqueezeEdge(Strategy):
                     sl = current_close + atr_value
                     tp = current_close - 2 * atr_value
                     self.sell(size=position_size, sl=sl, tp=tp)
-                    print(f"🌑🌌 BLACK HOLE SHORT! {position_size} units at {current_close:.2f}")
-                    print(f"   RSI: {rsi_value:.2f} | ATR Guard: ±{atr_value:.2f} ✨")
+                    print(f" BLACK HOLE SHORT! {position_size} units at {current_close:.2f}")
+                    print(f"   RSI: {rsi_value:.2f} | ATR Guard: ±{atr_value:.2f} ")
 
     def notify_trade(self, trade):
         if trade.is_closed:

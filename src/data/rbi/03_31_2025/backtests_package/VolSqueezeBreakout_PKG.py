@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -28,7 +24,7 @@ def prepare_data(path):
     return data
 
 class VolSqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     volume_multiplier = 1.5
     bb_period = 20
     bb_dev = 2
@@ -77,7 +73,7 @@ class VolSqueezeBreakout(Strategy):
                     sl_price = lower
                     risk_distance = price - sl_price
                     if risk_distance <= 0: 
-                        print("🌙⚠️ Risk distance too small for long entry")
+                        print(" Risk distance too small for long entry")
                         return
                     
                     position_size = (self.risk_per_trade * self.equity) / risk_distance
@@ -85,10 +81,10 @@ class VolSqueezeBreakout(Strategy):
                     
                     if position_size > 0:
                         tp_price = price + 2 * risk_distance
-                        print(f"🌙✨🚀 MOON DEV LONG ENTRY: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+#                         print(f"🌙✨🚀 MOON DEV LONG ENTRY: {price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
                         self.buy(size=position_size, sl=sl_price, tp=tp_price)
                     else:
-                        print("🌙⚠️ Position size too small for long entry")
+                        print(" Position size too small for long entry")
                 
                 # Short Entry
                 elif price < lower:

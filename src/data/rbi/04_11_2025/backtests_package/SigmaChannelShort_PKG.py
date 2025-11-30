@@ -1,9 +1,3 @@
-I've analyzed the code and it's already clean from any `backtesting.lib` imports or functions - great job! 🌙✨ The strategy uses proper indicator implementations with talib and custom calculations. Here's the verified code with some Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev Backtest AI Generated Code - SigmaChannelShort Strategy
-# ✅ Certified backtesting.lib FREE by Moon Dev Package AI 🌙
-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -79,7 +73,7 @@ class SigmaChannelShort(Strategy):
                 risk_per_unit = sl_price - entry_price
                 
                 if risk_per_unit <= 0:
-                    print("🌑 MOON DEV ERROR: Negative risk detected! Aborting launch sequence.")
+#                     print("🌑 MOON DEV ERROR: Negative risk detected! Aborting launch sequence.")
                     return
                 
                 position_size = int(round((self.equity * self.risk_percent) / risk_per_unit))
@@ -87,7 +81,7 @@ class SigmaChannelShort(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price, tag='SHORT_ENTRY')
                     self.trade_entry_bar = len(self.data)-1
-                    print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} @ {entry_price}")
+#                     print(f"🚀🌙 MOON DEV SHORT SIGNAL! Size: {position_size} @ {entry_price}")
 
         else:
             # Exit Conditions (Time and indicator based)

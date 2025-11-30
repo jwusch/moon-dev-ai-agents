@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILITY SQUEEZE TRIGGER STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np

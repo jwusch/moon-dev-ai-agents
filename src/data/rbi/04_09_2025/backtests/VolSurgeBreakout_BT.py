@@ -1,6 +1,3 @@
-Here's the complete backtesting.py implementation for the VolSurge Breakout strategy:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -65,7 +62,7 @@ class VolSurgeBreakout(Strategy):
                 stop_price = min(swing_low, atr_stop)
                 
                 if stop_price >= price:
-                    print(f"🌙⚠️ Invalid stop {stop_price} >= {price}. Trade aborted.")
+                    print(f" Invalid stop {stop_price} >= {price}. Trade aborted.")
                     return
                 
                 # Position sizing
@@ -76,7 +73,7 @@ class VolSurgeBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🌙✨🚀 MOON DEV ENTRY: {position_size} @ {price} | SL {stop_price}")
+#                     print(f"🌙✨🚀 MOON DEV ENTRY: {position_size} @ {price} | SL {stop_price}")
                     self.trade_entry_bar = len(self.data)
                     self.trailing_high = price
         else:
@@ -85,9 +82,9 @@ class VolSurgeBreakout(Strategy):
                 self.trailing_high = self.data.High[-1]
                 new_sl = self.trailing_high - self.trailing_atr_multiplier * self.atr[-1]
                 self.position.sl = new_sl
-                print(f"🌙🔄 Trailing SL updated to {new_sl}")
+                print(f" Trailing SL updated to {new_sl}")
             
             # Exit conditions
             if self.bb_width[-1] < self.bb_threshold[-1]:
                 self.position.close()
-                print(f"🌙✨🚀 MOON DEV EXIT: Boll
+#                 print(f"🌙✨🚀 MOON DEV EXIT: Boll"

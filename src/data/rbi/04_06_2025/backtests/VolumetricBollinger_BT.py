@@ -1,5 +1,3 @@
-```python
-# backtesting_implementation.py
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -24,13 +22,13 @@ class VolumetricBollinger(Strategy):
     def next(self):
         current_bar = len(self.data) - 1
         
-        # Moon Dev's Cosmic Entry Conditions 🌌
+        # Moon Dev's Cosmic Entry Conditions 🌌'
         if not self.position:
             # Check VIX filter if available
             vix_ok = True
             if hasattr(self.data, 'VIX') and self.data.VIX[-1] > 30:
                 vix_ok = False
-                print("🌪️ VIX too high! Moon Dev suspends trading.")
+#                 print("🌪️ VIX too high! Moon Dev suspends trading.")
 
             # Entry conditions
             price_touching_bb = self.data.Low[-1] <= self.lower[-1]
@@ -52,22 +50,22 @@ class VolumetricBollinger(Strategy):
                         self.buy(size=position_size, sl=stop_loss)
                         self.entry_price = entry_price
                         self.trailing_active = False
-                        print(f"🚀🌙 LONG ENTRY @ {entry_price:.2f} | Size: {position_size} "
+                        print(f" LONG ENTRY @ {entry_price:.2f} | Size: {position_size} "
                               f"| Cosmic Alignment Achieved!")
 
-        # Moon Dev's Stellar Exit System 🌠
+        # Moon Dev's Stellar Exit System 🌠'
         if self.position:
             # Take profit at upper BB
             if self.data.High[-1] >= self.upper[-1]:
                 self.position.close()
-                print(f"🎯🌙 UPPER BB HIT @ {self.data.Close[-1]:.2f} | Cosmic Profits Realized!")
+                print(f" UPPER BB HIT @ {self.data.Close[-1]:.2f} | Cosmic Profits Realized!")
 
             # Trailing stop activation check
             if not self.trailing_active:
                 price_move = self.data.Close[-1] - self.entry_price
                 if price_move >= (self.profit_atr_multiplier * self.atr[-1]):
                     self.trailing_active = True
-                    print(f"✨🌙 TRAILING ACTIVATED | Moon Dev's Profit Shield Engaged!")
+#                     print(f"✨🌙 TRAILING ACTIVATED | Moon Dev's Profit Shield Engaged!")'
 
             # Update trailing stop
             if self.trailing_active:
@@ -77,9 +75,9 @@ class VolumetricBollinger(Strategy):
             # Emergency ADX exit
             if self.adx[-1] < self.emergency_adx:
                 self.position.close()
-                print(f"⚠️🌙 EMERGENCY EXIT @ {self.data.Close[-1]:.2f} | ADX Collapse Detected!")
+                print(f" EMERGENCY EXIT @ {self.data.Close[-1]:.2f} | ADX Collapse Detected!")
 
-# Moon Dev's Data Ritual 🔮
+# Moon Dev's Data Ritual 🔮'
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data

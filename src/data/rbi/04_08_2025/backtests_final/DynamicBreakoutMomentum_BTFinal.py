@@ -1,6 +1,3 @@
-Here's the fully debugged and optimized backtest code with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -38,7 +35,7 @@ class DynamicBreakoutMomentum(Strategy):
         self.recent_high = self.I(talib.MAX, self.data.High, 20, name='20-period High')
         
         self.highest_high = None  # For trailing stop calculation
-        print("🌕 MOON DEV: Indicators initialized successfully!")
+#         print("🌕 MOON DEV: Indicators initialized successfully!")
 
     def next(self):
         # Wait for sufficient data
@@ -72,8 +69,8 @@ class DynamicBreakoutMomentum(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.highest_high = self.data.High[-1]
-                    print(f"🌕 MOON DEV ALERT: Long entry at {self.data.Close[-1]:.2f}!")
-                    print(f"🚀 Size: {position_size} units | Risk: ${risk_amount:.2f} ({self.risk_percent*100}% equity)")
+#                     print(f"🌕 MOON DEV ALERT: Long entry at {self.data.Close[-1]:.2f}!")
+                    print(f" Size: {position_size} units | Risk: ${risk_amount:.2f} ({self.risk_percent*100}% equity)")
 
         # Exit management
         elif self.position:
@@ -84,10 +81,10 @@ class DynamicBreakoutMomentum(Strategy):
             # Trailing stop exit
             if self.data.Low[-1] < trail_stop:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT: Trailing stop triggered at {trail_stop:.2f}!")
-                print(f"💎 Profit: ${self.position.pl:.2f} ({self.position.pl_pct:.2%})")
+#                 print(f"🌙 MOON DEV EXIT: Trailing stop triggered at {trail_stop:.2f}!")
+                print(f" Profit: ${self.position.pl:.2f} ({self.position.pl_pct:.2%})")
             
             # RSI overbought exit
             elif self.rsi5[-1] > 70:
                 self.position.close()
-                print(f"🚨 MOON DEV EXIT: RSI {self.rsi5
+#                 print(f"🚨 MOON DEV EXIT: RSI {self.rsi5"

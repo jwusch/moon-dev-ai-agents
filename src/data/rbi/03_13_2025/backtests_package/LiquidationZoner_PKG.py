@@ -1,9 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with appropriate alternatives:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATIONZONER STRATEGY 🚀
-
-# Import necessary libraries
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +33,7 @@ DATA_PATH = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/dat
 data = prepare_data(DATA_PATH)
 
 class LiquidationZoner(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌟
+    risk_percent = 0.01  # 1% risk per trade 
     rr_ratio = 2  # Risk-reward ratio
     swing_period = 20  # Swing high/low calculation period
     
@@ -92,7 +86,7 @@ class LiquidationZoner(Strategy):
                 sl=stop_loss,
                 tp=take_profit)
         
-        print(f"🌙 MOON DEV LONG SIGNAL 🌕 | Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+#         print(f"🌙 MOON DEV LONG SIGNAL 🌕 | Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
     def enter_short(self):
         # 🌙 RISK MANAGEMENT CALCULATIONS

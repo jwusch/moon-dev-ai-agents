@@ -1,10 +1,3 @@
-Here's the fixed and properly formatted backtest code with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT - LIQUIDITY BAND REVERSION 🌙
-# ✨ DEBUGGED BY MOON DEV AI - STRATEGY LOGIC PRESERVED ✨
-
-# REQUIRED IMPORTS
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -56,7 +49,7 @@ class LiquidityBandReversion(Strategy):
             self.last_date = current_date
             
         if self.daily_pnl <= -self.max_daily_loss * self.equity:
-            print(f"🌧️ MOON DEV DAILY LOSS LIMIT TRIGGERED! - ${-self.daily_pnl:.2f}")
+#             print(f"🌧️ MOON DEV DAILY LOSS LIMIT TRIGGERED! - ${-self.daily_pnl:.2f}")
             return
             
         # 🌙 CORE STRATEGY LOGIC
@@ -87,7 +80,7 @@ class LiquidityBandReversion(Strategy):
                 if position_size > 0:
                     tp_price = price + 1.5*(price - sl_price)
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🚀 MOON DEV LONG LAUNCH! | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+#                     print(f"🚀 MOON DEV LONG LAUNCH! | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
             
             elif short_cond:
                 risk_amount = self.equity * self.risk_pct

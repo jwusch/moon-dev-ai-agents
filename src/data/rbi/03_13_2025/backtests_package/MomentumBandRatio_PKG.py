@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -73,7 +70,7 @@ class MomentumBandRatio(Strategy):
                 risk_per_share = price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌙🚫 Invalid SL. Trade skipped.")
+                    print(" Invalid SL. Trade skipped.")
                     return
                 
                 # Position sizing with BB width adjustment
@@ -83,14 +80,14 @@ class MomentumBandRatio(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🚀🌙 LONG {position_size} @ {price:.2f} | RSI: {rsi_val:.1f} BB%: {bb_position:.2f}")
+                    print(f" LONG {position_size} @ {price:.2f} | RSI: {rsi_val:.1f} BB%: {bb_position:.2f}")
 
         # Exit conditions
         else:
             # Take profit on RSI crossover
             if self.rsi[-2] < 70 and self.rsi[-1] > 70:  # Replaced crossover
                 self.position.close()
-                print(f"🌙✨ TP Hit: RSI {self.rsi[-1]:.1f} > 70")
+                print(f" TP Hit: RSI {self.rsi[-1]:.1f} > 70")
                 
             # Trailing stop on BB upper
             if price >= self.bb_upper[-1]:

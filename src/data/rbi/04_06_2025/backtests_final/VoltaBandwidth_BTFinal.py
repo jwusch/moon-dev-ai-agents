@@ -1,8 +1,3 @@
-I'll debug the VoltaBandwidth backtest code while maintaining the original strategy logic. Here are the fixes:
-
-```python
-# 🌙 Moon Dev's VoltaBandwidth Backtest Implementation 🚀✨
-
 import pandas as pd
 import numpy as np
 import talib
@@ -97,15 +92,15 @@ class VoltaBandwidth(Strategy):
         if current_date != self.current_date:
             self.current_date = current_date
             self.daily_initial_equity = self.equity
-            print(f"🌄 New Moon Day {current_date} | Starting Equity: {self.equity:,.2f}")
+            print(f" New Moon Day {current_date} | Starting Equity: {self.equity:,.2f}")
 
         # 🚫 Risk Management Checks
         if self.consecutive_losses >= 3:
-            print("🌘 Three Consecutive Losses! Trading Halted Until Next Win")
+            print(" Three Consecutive Losses! Trading Halted Until Next Win")
             return
             
         if self.daily_initial_equity and self.equity < self.daily_initial_equity * 0.97:
-            print(f"🌧️ Daily Loss Limit Hit! Current Equity: {self.equity:,.2f}")
+            print(f" Daily Loss Limit Hit! Current Equity: {self.equity:,.2f}")
             if self.position:
                 self.position.close()
             return

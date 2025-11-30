@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -50,7 +47,7 @@ class VortexDivergence(Strategy):
         if self.position:
             if self.bbw[-1] < 0.5 * self.bbw_sma[-1]:
                 self.position.close()
-                print(f"🌙✨ Moon Dev Exit Signal! Closing position at {price:.2f} (BBW contraction)")
+#                 print(f"🌙✨ Moon Dev Exit Signal! Closing position at {price:.2f} (BBW contraction)")
                 
         # Entry conditions
         else:
@@ -76,7 +73,7 @@ class VortexDivergence(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🚀🌙 Moon Dev LONG Entry! Size: {position_size} @ {entry_price:.2f}")
+#                     print(f"🚀🌙 Moon Dev LONG Entry! Size: {position_size} @ {entry_price:.2f}")
             
             # Short entry logic
             elif vi_cross_bear and bear_div:

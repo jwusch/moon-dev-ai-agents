@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +21,7 @@ data.rename(columns={
 }, inplace=True)
 
 class LiquidationReversion(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     funding_rate_threshold = -0.001  # -0.1% 
     funding_rate_normal = -0.0005    # Normalization threshold
     bb_period = 20
@@ -49,8 +48,8 @@ class LiquidationReversion(Strategy):
         # Access funding rate data 🌊
         self.funding_rates = self.data.df['funding_rate'].values
         
-        print("🌙 Lunar Strategy Activated! Tracking BTC Short Squeezes 🚀")
-        print(f"🔮 Config | Risk: {self.risk_per_trade*100}% | BB: {self.bb_period}/{self.bb_std} | FR Threshold: {self.funding_rate_threshold*100}%")
+#         print("🌙 Lunar Strategy Activated! Tracking BTC Short Squeezes 🚀")
+        print(f" Config | Risk: {self.risk_per_trade*100}% | BB: {self.bb_period}/{self.bb_std} | FR Threshold: {self.funding_rate_threshold*100}%")
     
     def next(self):
         current_idx = len(self.data) - 1
@@ -63,17 +62,17 @@ class LiquidationReversion(Strategy):
             # Take profit at middle BB 🎯
             if price >= self.middle[-1]:
                 self.position.close()
-                print(f"🚀✨ TP Reached! Exited at {price:.2f} (Middle BB)")
+                print(f" TP Reached! Exited at {price:.2f} (Middle BB)")
             
             # Funding rate normalization 🌀
             elif current_funding >= self.funding_rate_normal:
                 self.position.close()
-                print(f"🌊🔄 Funding Normalized! Exited at {price:.2f}")
+                print(f" Funding Normalized! Exited at {price:.2f}")
             
             # Stop loss check 🛑
             elif self.data.Low[-1] < self.swing_low[-1]:
                 self.position.close()
-                print(f"🌪️💥 SL Triggered! Exited at {self.data.Low[-1]:.2f}")
+                print(f" SL Triggered! Exited at {self.data.Low[-1]:.2f}")
         else:
             # Entry conditions 🚪
             entry_condition = (
@@ -93,11 +92,11 @@ class LiquidationReversion(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🌙🚀 LONG ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
+                        print(f" LONG ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
                     else:
-                        print("⚠️🌙 Insufficient Size - Trade Skipped")
+                        print(" Insufficient Size - Trade Skipped")
                 else:
-                    print(f"⚠️🌙 Invalid SL | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
+                    print(f" Invalid SL | Entry: {entry_price:.2f} | SL: {sl_price:.2f}")
 
 # Execute backtest 🌕
 bt = Backtest(data, LiquidationReversion, cash=1_000_000, commission=.002)

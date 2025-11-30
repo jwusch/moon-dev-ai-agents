@@ -1,6 +1,3 @@
-Here's the fixed code with all necessary modifications and Moon Dev themed debug prints 🌙:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -64,7 +61,7 @@ class MomentumReversion(Strategy):
         atr_ratio = self.atr_ratio[-1]
         
         # Moon Dev debug prints 🌙
-        print(f"🌙 Current Close: {current_close:.2f} | ATR: {current_atr:.2f} | ATR Ratio: {atr_ratio:.2f}")
+        print(f" Current Close: {current_close:.2f} | ATR: {current_atr:.2f} | ATR Ratio: {atr_ratio:.2f}")
         
         if not self.position:
             # Long entry conditions

@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VolSurge Bandit Backtest 🌙
 import pandas as pd
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
@@ -9,7 +7,20 @@ import datetime
 class VolSurgeBandit(Strategy):
     def init(self):
         # 🚀 Initialize Indicators with Moon Dev Magic
-        self.vwap = self.I(ta.vwap, self.data.High, self.data.Low, self.data.Close, self.data.Volume, name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.atr = self.I(ta.atr, self.data.High, self.data.Low, self.data.Close, 14, name='ATR')
         self.vwap_upper = self.I(lambda vwap, atr: vwap + 2*atr, self.vwap, self.atr, name='UPPER_BAND')
         self.vwap_lower = self.I(lambda vwap, atr: vwap - 2*atr, self.vwap, self.atr, name='LOWER_BAND')
@@ -17,7 +28,7 @@ class VolSurgeBandit(Strategy):
         
         # 🌙 Track equity for dynamic position sizing
         self.equity = self._broker.starting_cash
-        print("✨ Moon Dev Indicators Activated! ✨")
+#         print("✨ Moon Dev Indicators Activated! ✨")
 
     def next(self):
         # 🌙 Update current equity
@@ -47,7 +58,7 @@ class VolSurgeBandit(Strategy):
                     take_profit = self.data.Open[-1] + 2*risk_per_share
                     
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🌕🚀 LONG SIGNAL! Size: {position_size} | Entry: {self.data.Open[-1]:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f" LONG SIGNAL! Size: {position_size} | Entry: {self.data.Open[-1]:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
         # 🌑 SHORT Entry Logic
         if not self.position:
@@ -64,15 +75,15 @@ class VolSurgeBandit(Strategy):
                     take_profit = self.data.Open[-1] - 2*risk_per_share
                     
                     self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🌑✨ SHORT SIGNAL! Size: {position_size} | Entry: {self.data.Open[-1]:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f" SHORT SIGNAL! Size: {position_size} | Entry: {self.data.Open[-1]:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
         # 💎 Exit Logic
         if self.position.is_long and crossover(self.vwap[-1], self.data.Close[-1]):
             self.position.close()
-            print(f"🌙📉 LONG EXIT at VWAP {self.vwap[-1]:.2f}")
+            print(f" LONG EXIT at VWAP {self.vwap[-1]:.2f}")
             
         if self.position.is_short and crossover(self.data.Close[-1], self.vwap[-1]):
             self.position.close()
-            print(f"🌙📈 SHORT EXIT at VWAP {self.vwap[-1]:.2f}")
+            print(f" SHORT EXIT at VWAP {self.vwap[-1]:.2f}")
 
 # 🧹

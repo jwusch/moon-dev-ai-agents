@@ -1,15 +1,11 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all necessary technical fixes:
-
-```python
-# 🌙 Moon Dev's DualWaveReversion Backtest Script
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 class DualWaveReversion(Strategy):
-    risk_percent = 0.02  # 2% risk per trade 🌊
-    leverage = 2  # 2x leverage 🚀
+    risk_percent = 0.02  # 2% risk per trade 
+    leverage = 2  # 2x leverage 
     atr_period = 14
     sma_period = 50
     ema_period = 20
@@ -47,16 +43,16 @@ class DualWaveReversion(Strategy):
             # 🧮 Risk Calculation
             risk_per_share = entry_price - stop_loss
             if risk_per_share <= 0:
-                return  # Avoid invalid calculation 🚫
+                return  # Avoid invalid calculation 
 
             risk_amount = self.equity * self.risk_percent
             position_size = (risk_amount / risk_per_share) * self.leverage
-            position_size = int(round(position_size))  # 🌙 Ensure whole number units
+            position_size = int(round(position_size))  #  Ensure whole number units
 
             if position_size > 0:
                 self.buy(size=position_size, sl=stop_loss, tp=take_profit,
                         tag={'entry_bar': len(self.data), 'type': 'long'})
-                print(f"🌙 MOON ENTRY 🚀 | Price: {entry_price:.2f} | Size: {position_size} "
+                print(f" MOON ENTRY  | Price: {entry_price:.2f} | Size: {position_size} "
                       f"| SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
 
         # 🌗 Time-Based Exit Check
@@ -65,7 +61,7 @@ class DualWaveReversion(Strategy):
                 bars_in_trade = len(self.data) - trade.tag['entry_bar']
                 if bars_in_trade >= self.time_exit_bars:
                     trade.close()
-                    print(f"🌓 TIME EXIT ⏳ | Bars: {bars_in_trade} | Price: {self.data.Close[-1]:.2f}")
+                    print(f" TIME EXIT ⏳ | Bars: {bars_in_trade} | Price: {self.data.Close[-1]:.2f}")
 
 # 🛰️ Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -86,4 +82,4 @@ bt = Backtest(data, DualWaveReversion, cash=1_000_000, commission=.002)
 stats = bt.run()
 
 # 🌙 Moon Dev Performance Report
-print("\n🌕🌖🌗 MOON DEV
+# print("\n🌕🌖🌗 MOON DEV"

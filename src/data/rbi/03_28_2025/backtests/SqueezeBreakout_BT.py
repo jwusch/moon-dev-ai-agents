@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR SQUEEZEBREAKOUT STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +24,7 @@ data = data.rename(columns={
 # STRATEGY CLASS 🌗
 # =====================
 class SqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # =====================
@@ -81,7 +78,7 @@ class SqueezeBreakout(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price)
-                        print(f"🌙✨ MOON DEV LONG! 🚀 Entry: {current_close:.2f} | Size: {position_size} | SL: {stop_price:.2f}")
+#                         print(f"🌙✨ MOON DEV LONG! 🚀 Entry: {current_close:.2f} | Size: {position_size} | SL: {stop_price:.2f}")
                         
                 elif breakout_below:
                     # 🌑 SHORT ENTRY SIGNAL 🌪️
@@ -91,4 +88,4 @@ class SqueezeBreakout(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_price)
-                        print(f"🌙✨ MOON DEV SHORT! 🌪️ Entry: {
+#                         print(f"🌙✨ MOON DEV SHORT! 🌪️ Entry: {"

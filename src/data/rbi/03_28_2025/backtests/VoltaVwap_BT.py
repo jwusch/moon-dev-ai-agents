@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -41,40 +40,40 @@ class VoltaVwap(Strategy):
                 # Update trailing stop
                 if self.data.High[-1] >= self.entry_price + self.adr_at_entry:
                     self.stop_loss = self.entry_price
-                    print(f"✨ Trailing stop moved to breakeven @ {self.stop_loss}")
+                    print(f" Trailing stop moved to breakeven @ {self.stop_loss}")
                 
                 # Check exits
                 if self.data.Low[-1] <= self.stop_loss:
                     self.position.close()
-                    print(f"🌙🛑 Long stopped out @ {self.stop_loss}")
+                    print(f" Long stopped out @ {self.stop_loss}")
                 elif self.data.High[-1] >= self.take_profit:
                     self.position.close()
-                    print(f"🚀✅ Long TP hit @ {self.take_profit}")
+                    print(f" Long TP hit @ {self.take_profit}")
                 elif crossover(self.volatility_vwap, self.data.Close):
                     self.position.close()
-                    print(f"🌙✨ Opposing signal exit @ {self.data.Close[-1]}")
+                    print(f" Opposing signal exit @ {self.data.Close[-1]}")
             
             elif self.position.is_short:
                 # Update trailing stop
                 if self.data.Low[-1] <= self.entry_price - self.adr_at_entry:
                     self.stop_loss = self.entry_price
-                    print(f"✨ Trailing stop moved to breakeven @ {self.stop_loss}")
+                    print(f" Trailing stop moved to breakeven @ {self.stop_loss}")
                 
                 # Check exits
                 if self.data.High[-1] >= self.stop_loss:
                     self.position.close()
-                    print(f"🌙🛑 Short stopped out @ {self.stop_loss}")
+                    print(f" Short stopped out @ {self.stop_loss}")
                 elif self.data.Low[-1] <= self.take_profit:
                     self.position.close()
-                    print(f"🚀✅ Short TP hit @ {self.take_profit}")
+                    print(f" Short TP hit @ {self.take_profit}")
                 elif crossover(self.data.Close, self.volatility_vwap):
                     self.position.close()
-                    print(f"🌙✨ Opposing signal exit @ {self.data.Close[-1]}")
+                    print(f" Opposing signal exit @ {self.data.Close[-1]}")
             
             # End-of-day close
             if self.end_of_day[-1]:
                 self.position.close()
-                print(f"🌙⌛ EOD position closed @ {self.data.Close[-1]}")
+                print(f"⌛ EOD position closed @ {self.data.Close[-1]}")
 
         else:
             # Moon Dev entry logic 🌙🚀

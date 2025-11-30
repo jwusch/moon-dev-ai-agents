@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with Moon Dev themed debug prints and technical fixes:
-
-```python
-# 🌙 Moon Dev's Volatility Breakout Strategy Backtest 🚀
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +26,7 @@ class VolatilityBreakout(Strategy):
         # 🛡️ Swing Low for Stop Loss
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
         
-        print("🌙 VolatilityBreakout Strategy Initialized with Moon Dev Power! 🚀")
+#         print("🌙 VolatilityBreakout Strategy Initialized with Moon Dev Power! 🚀")
 
     def next(self):
         # 🌌 Check for entry signals
@@ -56,7 +52,7 @@ class VolatilityBreakout(Strategy):
                     
                     # 🚀 Execute Buy Order with Stop Loss
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌕 MOON ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} 🚀")
+                    print(f" MOON ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {stop_loss:.2f} ")
         
         else:
             # 🌑 Check exit conditions
@@ -66,7 +62,7 @@ class VolatilityBreakout(Strategy):
             
             if exit_price or exit_macd or exit_vol:
                 self.position.close()
-                print(f"🌒 MOON EXIT! P/L: {self.position.pl:.2f} | Equity: {self.equity:.2f} ✨")
+                print(f" MOON EXIT! P/L: {self.position.pl:.2f} | Equity: {self.equity:.2f} ")
 
 # 🛠️ Data Preparation
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
@@ -88,4 +84,4 @@ data = data.set_index('datetime')
 # 🚀 Run Backtest
 bt = Backtest(data, VolatilityBreakout, cash=10000, commission=.002)
 stats = bt.run()
-print("🌙 Backtest Complete! Moon Dev Stats
+# print("🌙 Backtest Complete! Moon Dev Stats"

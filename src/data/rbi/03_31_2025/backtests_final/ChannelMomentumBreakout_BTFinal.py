@@ -1,7 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 Moon Dev's ChannelMomentumBreakout Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -32,7 +28,7 @@ def load_data(path):
     data['datetime'] = pd.to_datetime(data['datetime'])
     data.set_index('datetime', inplace=True)
     
-    print("🌌 MOON DEV DATA LOAD COMPLETE -", data.shape[0], "candles loaded ✨")
+#     print("🌌 MOON DEV DATA LOAD COMPLETE -", data.shape[0], "candles loaded ✨")
     return data
 
 # =====================
@@ -70,7 +66,7 @@ class ChannelMomentumBreakout(Strategy):
         keltner_width = self.upper_keltner - self.lower_keltner
         self.min_width = self.I(talib.MIN, keltner_width, 20, name='KC_MinWidth20')
         
-        print("🌠 MOON DEV INDICATORS INITIALIZED - Ready for launch! 🚀")
+#         print("🌠 MOON DEV INDICATORS INITIALIZED - Ready for launch! 🚀")
 
     def next(self):
         # =====================

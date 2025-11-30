@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper indicator usage:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -39,7 +36,7 @@ class ChannelSurgeTrail(Strategy):
                 sl = self.data.Close[-1] - self.atr_multiplier * current_atr
                 self.buy(size=position_size, sl=sl)
                 self.position.data['extreme'] = self.data.High[-1]
-                print(f"🌙 MOON DEV LONG ENTRY! ✨ Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f}")
+#                 print(f"🌙 MOON DEV LONG ENTRY! ✨ Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f}")
                 
             elif self.data.Close[-1] < self.lower_band[-1] and current_adx > self.adx_threshold:
                 risk_amount = self.risk_per_trade * self.equity
@@ -49,7 +46,7 @@ class ChannelSurgeTrail(Strategy):
                 sl = self.data.Close[-1] + self.atr_multiplier * current_atr
                 self.sell(size=position_size, sl=sl)
                 self.position.data['extreme'] = self.data.Low[-1]
-                print(f"🌙 MOON DEV SHORT ENTRY! ✨ Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f}")
+#                 print(f"🌙 MOON DEV SHORT ENTRY! ✨ Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {sl:.2f}")
         else:
             if self.position.is_long:
                 self.position.data['extreme'] = max(self.data.High[-1], self.position.data['extreme'])
@@ -57,10 +54,10 @@ class ChannelSurgeTrail(Strategy):
                 self.position.sl = max(new_sl, self.position.sl or 0)
                 
                 if self.data.Low[-1] <= self.position.sl:
-                    print(f"🚀 MOON TRAIL STOP HIT! | Exit: {self.position.sl:.2f} | PnL: {self.position.pl:.2f}")
+                    print(f" MOON TRAIL STOP HIT! | Exit: {self.position.sl:.2f} | PnL: {self.position.pl:.2f}")
                     self.position.close()
                 elif current_adx < self.adx_exit_threshold:
-                    print(f"⚠️ MOON EMERGENCY EXIT! | ADX: {current_adx:.2f} | PnL: {self.position.pl:.2f}")
+                    print(f" MOON EMERGENCY EXIT! | ADX: {current_adx:.2f} | PnL: {self.position.pl:.2f}")
                     self.position.close()
                     
             elif self.position.is_short:
@@ -69,5 +66,5 @@ class ChannelSurgeTrail(Strategy):
                 self.position.sl = min(new_sl, self.position.sl or np.inf)
                 
                 if self.data.High[-1] >= self.position.sl:
-                    print(f"🚀 MOON TRAIL STOP HIT! | Exit: {self.position.sl:.2f} | PnL: {self.position.pl:.2f}")
+                    print(f" MOON TRAIL STOP HIT! | Exit: {self.position.sl:.2f} | PnL: {self.position.pl:.2f}")
                     self.position.close

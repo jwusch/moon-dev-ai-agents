@@ -1,13 +1,10 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all necessary technical fixes:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 # Load and preprocess data
-print("🌙 Initializing Moon Data Systems...")
+print(" Initializing Moon Data Systems...")
 data = pd.read_csv(
     '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv',
     parse_dates=['datetime'],
@@ -22,7 +19,7 @@ data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 }, inplace=True)
-print("🌙✨ Data Loading Complete! Lunar Database Online!")
+print(" Data Loading Complete! Lunar Database Online!")
 
 class FractalTrender(Strategy):
     risk_percent = 0.01  # 1% risk per trade
@@ -32,7 +29,7 @@ class FractalTrender(Strategy):
         self.sma50 = self.I(talib.SMA, self.data.Close, timeperiod=50, name='SMA 50')
         self.fractal_high = self.I(talib.MAX, self.data.High, timeperiod=5, name='Fractal High')
         self.fractal_low = self.I(talib.MIN, self.data.Low, timeperiod=5, name='Fractal Low')
-        print("🌙✨ Moon Indicators Activated! SMA 50, Fractal High/Low Online!")
+        print(" Moon Indicators Activated! SMA 50, Fractal High/Low Online!")
         
     def next(self):
         current_idx = len(self.data) - 1
@@ -56,7 +53,7 @@ class FractalTrender(Strategy):
                 if position_size > 0:
                     tp_price = entry_price + 2*risk_per_share
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🚀🌙 LONG ENTRY: {entry_price:.2f} | Size: {position_size} | Risk: {risk_per_share:.2f} | Moon Power Activated!")
+                    print(f" LONG ENTRY: {entry_price:0.2f} | Size: {position_size} | Risk: {risk_per_share:0.2f} | Moon Power Activated!")
         
         # Bearish entry check
         fractal_high_bar = self.data.High[current_idx-2]
@@ -75,17 +72,17 @@ class FractalTrender(Strategy):
                 if position_size > 0:
                     tp_price = entry_price - 2*risk_per_share
                     self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🌙🐻 SHORT ENTRY: {entry_price:.2f} | Size: {position_size} | Risk: {risk_per_share:.2f} | Bearish Moon Gravity!")
+                    print(f" SHORT ENTRY: {entry_price:0.2f} | Size: {position_size} | Risk: {risk_per_share:0.2f} | Bearish Moon Gravity!")
         
         # Fractal exit checks
         if self.position.is_long and current_idx >= 2:
             if self.data.High[current_idx-2] == self.fractal_high[current_idx-2]:
                 self.position.close()
-                print(f"🌙✨ Closing LONG at {self.data.Close[-1]:.2f} | Bearish Fractal Detected! Moon Shield Activated!")
+                print(f" Closing LONG at {self.data.Close[-1]:0.2f} | Bearish Fractal Detected! Moon Shield Activated!")
                 
         if self.position.is_short and current_idx >= 2:
             if self.data.Low[current_idx-2] == self.fractal_low[current_idx-2]:
                 self.position.close()
-                print(f"🌙✨ Closing SHORT at {self.data.Close[-1]:.2f} | Bullish Fractal Detected! Moon Defense Protocol!")
+                print(f" Closing SHORT at {self.data.Close[-1]:0.2f} | Bullish Fractal Detected! Moon Defense Protocol!")
 
 # Run backtest with 1M capital

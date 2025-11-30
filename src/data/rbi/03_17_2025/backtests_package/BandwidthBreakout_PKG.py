@@ -1,6 +1,3 @@
-The code you provided is already using the correct indicator packages (`talib`) and doesn't contain any `backtesting.lib` imports or functions. However, I noticed a few minor issues and improvements that can be made to ensure the code is fully optimized and adheres to best practices. Here's the fixed and improved version of your code:
-
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -43,10 +40,10 @@ class BandwidthBreakout(Strategy):
             atr_value = self.atr[-1]
             if trade.is_long:
                 self.trailing_stop = trade.entry_price - 2 * atr_value
-                print(f"🚀🌙 LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
             else:
                 self.trailing_stop = trade.entry_price + 2 * atr_value
-                print(f"🌙🚀 SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
 
     def next(self):
         # Wait for indicators to stabilize 🌙
@@ -66,7 +63,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))
                     if size > 0:
                         self.buy(size=size)
-                        print(f"🌕🚀 MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
+                        print(f" MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
                 
                 # Short signal 🌑
                 elif self.data.Close[-1] < self.lower_band[-1]:
@@ -75,7 +72,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))
                     if size > 0:
                         self.sell(size=size)
-                        print(f"🚀🌑 DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
+                        print(f" DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
 
         # Trailing stop management 🌙
         else:

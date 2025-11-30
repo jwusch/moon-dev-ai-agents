@@ -68,7 +68,7 @@ class DivergentPulse(Strategy):
                         self.buy(size=position_size)
                         self.trailing_stop = stop_loss
                         self.peak_price = price
-                        print(f"🌙✨🚀 Lunar Boost: LONG {position_size} @ {price:.2f} | SL: {stop_loss:.2f} ✨")
+                        print(f"🌙✨🚀 Lunar Boost: LONG {position_size} @ {price:0.2f} | SL: {stop_loss:0.2f} ✨")
         else:
             # Update trailing stop
             self.peak_price = max(self.peak_price, self.data.High[-1])
@@ -78,13 +78,13 @@ class DivergentPulse(Strategy):
             # Exit conditions
             if self.data.Low[-1] <= self.trailing_stop:
                 self.position.close()
-                print(f"🌙💥 Cosmic Stop: Exited @ {self.data.Close[-1]:.2f} | P/L: {self.position.pl:.2f}")
+                print(f"🌙💥 Cosmic Stop: Exited @ {self.data.Close[-1]:0.2f} | P/L: {self.position.pl:0.2f}")
             elif crossover(self.sma50, self.ema10):
                 self.position.close()
-                print(f"🌙📉 Gravity Pull: EMA/SMA Cross @ {self.data.Close[-1]:.2f}")
+                print(f"🌙📉 Gravity Pull: EMA/SMA Cross @ {self.data.Close[-1]:0.2f}")
 
 # Execute backtest
-bt = Backtest(data, DivergentPulse, cash=1_000_000, commission=.002)
+bt = Backtest(data, DivergentPulse, cash=1_000_000, commission=0.002)
 stats = bt.run()
 print(stats)
 print(stats._strategy)

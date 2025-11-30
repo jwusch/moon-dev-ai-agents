@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -56,13 +55,13 @@ class LiquidationVolBreakout(Strategy):
         # Volume Vortex 🌊
         self.vol_ma = self.I(talib.SMA, self.data.Volume, 20, name='Volume MA')
         
-        print("🌙 Moon Dev Hyperdrive Activated! Indicators locked and loaded")
+#         print("🌙 Moon Dev Hyperdrive Activated! Indicators locked and loaded")
 
     def next(self):
         # Skip if in cooldown after 3 losses
         if self.consecutive_losses >= 3:
             if len(self.trades) == 0:
-                print("🚨 Cosmic Shield Active: Trading paused after 3 consecutive losses")
+                print(" Cosmic Shield Active: Trading paused after 3 consecutive losses")
             return
 
         # Current celestial alignments 🌟
@@ -87,9 +86,9 @@ class LiquidationVolBreakout(Strategy):
                     size=position_size,
                     sl=stop_loss,
                     tp=price + 1.5 * atr,
-                    tag="🌕 Lunar Launch"
+                    tag=" Lunar Launch"
                 )
-                print(f"🚀 IGNITION! Long {position_size} @ {price:.2f} | SL: {stop_loss:.2f} | TP: {price + 1.5 * atr:.2f}")
+                print(f" IGNITION! Long {position_size} @ {price:.2f} | SL: {stop_loss:.2f} | TP: {price + 1.5 * atr:.2f}")
 
         # Stellar Exit Protocol 🌠
         if self.position:

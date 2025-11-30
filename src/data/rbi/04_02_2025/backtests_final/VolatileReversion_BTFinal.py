@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -34,14 +31,14 @@ class VolatileReversion(Strategy):
             self.weekly_high = self.data.High[-1]
             self.weekly_low = self.data.Low[-1]
             self.last_week = (year, week)
-            print(f"🌙 New Moon Cycle Detected! {current_dt.date()} | Weekly High: {self.weekly_high:.2f}, Low: {self.weekly_low:.2f} ✨")
+            print(f" New Moon Cycle Detected! {current_dt.date()} | Weekly High: {self.weekly_high:.2f}, Low: {self.weekly_low:.2f} ")
         else:
             self.weekly_high = max(self.weekly_high, self.data.High[-1])
             self.weekly_low = min(self.weekly_low, self.data.Low[-1])
 
         # Skip if not enough data
         if len(self.data) < 5 or len(self.rsi) < 5:
-            print("🌙 Waiting for cosmic alignment (insufficient data)...")
+            print(" Waiting for cosmic alignment (insufficient data)...")
             return
 
         # Get current values
@@ -62,7 +59,7 @@ class VolatileReversion(Strategy):
                 if risk_per_unit > 0:
                     size = int(round(risk_amount / risk_per_unit))
                     self.buy(size=size, sl=sl, tp=self.vwap[-1])
-                    print(f"🌙🚀 LUNAR ASCENT INITIATED | Entry: {entry_price:.2f} | Cosmic Shield: {sl:.2f} | Stellar Target: {self.vwap[-1]:.2f} | Moon Fuel: {size} units")
+                    print(f" LUNAR ASCENT INITIATED | Entry: {entry_price:.2f} | Cosmic Shield: {sl:.2f} | Stellar Target: {self.vwap[-1]:.2f} | Moon Fuel: {size} units")
 
             # Short Entry Logic
             short_trigger = self.data.High[-1] >= (self.weekly_high + 2*atr)

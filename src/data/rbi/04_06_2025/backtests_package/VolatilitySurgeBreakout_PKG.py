@@ -1,6 +1,3 @@
-Here's the fixed code with all the necessary adjustments and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib

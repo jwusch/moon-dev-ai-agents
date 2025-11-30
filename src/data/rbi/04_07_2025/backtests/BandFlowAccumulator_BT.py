@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's BandFlow Accumulator Backtest 🌙
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -11,7 +9,7 @@ class BandFlowAccumulator(Strategy):
     
     def init(self):
         # 🌙 Indicator Calculation Phase
-        print("🌙 Initializing Moon Dev's Quantum Indicators...")
+#         print("🌙 Initializing Moon Dev's Quantum Indicators...")'
         
         # Bollinger Bands Components
         self.middle = self.I(talib.SMA, self.data.Close, 20, name='Middle BB')
@@ -31,11 +29,11 @@ class BandFlowAccumulator(Strategy):
         # Volatility Measurement
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14, name='ATR 14')
         
-        print("✨ Cosmic indicators aligned! Ready for launch 🚀")
+        print(" Cosmic indicators aligned! Ready for launch ")
 
     def next(self):
         # 🌙 Debugging Pulse
-        print(f"\n🌙 Candle: {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} | Lower BB: {self.lower[-1]:.2f} | CMF: {self.cmf[-1]:.4f}")
+        print(f"\n Candle: {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} | Lower BB: {self.lower[-1]:.2f} | CMF: {self.cmf[-1]:.4f}")
         
         if not self.position:
             # 🚀 Entry Logic
@@ -51,11 +49,11 @@ class BandFlowAccumulator(Strategy):
                 
                 # 🛡️ Risk Validation
                 if risk_per_share <= 0:
-                    print(f"🚫 Aborted: Stop loss {stop_loss:.2f} above entry {entry_price:.2f}")
+                    print(f" Aborted: Stop loss {stop_loss:.2f} above entry {entry_price:.2f}")
                     return
                     
                 if risk_per_share > 2 * atr_value:
-                    print(f"🚫 Aborted: Risk {risk_per_share:.2f} > 2xATR ({2*atr_value:.2f})")
+                    print(f" Aborted: Risk {risk_per_share:.2f} > 2xATR ({2*atr_value:.2f})")
                     return
                 
                 # 💰 Position Sizing
@@ -63,11 +61,11 @@ class BandFlowAccumulator(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 
                 if position_size < 1:
-                    print(f"🚫 Aborted: Micro position {position_size} shares")
+                    print(f" Aborted: Micro position {position_size} shares")
                     return
                 
                 # 🚀 Execute Trade
-                print(f"\n🔥🌕 COSMIC BUY SIGNAL! 🔥")
+                print(f"\n COSMIC BUY SIGNAL! ")
                 print(f"Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
                 print(f"TP: {self.middle[-1]:.2f} | Size: {position_size} shares")
                 self.buy(size=position_size, sl=stop_loss, tp=self.middle[-1])
@@ -75,7 +73,7 @@ class BandFlowAccumulator(Strategy):
         else:
             # 🌧️ Exit Conditions
             if crossover(-self.cmf, 0)[-1]:  # CMF crosses below zero
-                print(f"\n🌧️ CMF DARKENING! Closing position at {self.data.Close[-1]:.2f}")
+                print(f"\n CMF DARKENING! Closing position at {self.data.Close[-1]:.2f}")
                 self.position.close()
 
 # 🛠️ Data Preparation Ritual

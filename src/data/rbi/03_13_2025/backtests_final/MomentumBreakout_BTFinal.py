@@ -44,9 +44,9 @@ class MomentumBreakout(Strategy):
         atr_value = self.atr[-1]
         
         # Moon Dev Debug Dashboard ✨
-        print((f"🌙 Moon Dev System Status | RSI: {self.rsi[-1]:.1f} | "
-               f"Resistance: {self.resistance[-1]:.1f} | MA: {ma_value:.1f} | "
-               f"ATR: {atr_value:.1f} | Price: {price:.1f}"))
+        print((f"🌙 Moon Dev System Status | RSI: {self.rsi[-1]:0.1f} | "
+               f"Resistance: {self.resistance[-1]:0.1f} | MA: {ma_value:0.1f} | "
+               f"ATR: {atr_value:0.1f} | Price: {price:0.1f}"))
 
         if not self.position:
             # Entry Logic: RSI Oversold + Breakout 🌌
@@ -64,13 +64,13 @@ class MomentumBreakout(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     
                     if position_size > 0:
-                        print((f"🚀🌕 MOON SHOT! Entering {position_size} units at {entry_price:.1f} | "
-                               f"SL: {sl_price:.1f} ({self.atr_multiplier*100}% ATR)"))
+                        print((f"🚀🌕 MOON SHOT! Entering {position_size} units at {entry_price:0.1f} | "
+                               f"SL: {sl_price:0.1f} ({self.atr_multiplier*100}% ATR)"))
                         self.buy(size=position_size, sl=sl_price)
         else:
             # Exit Logic: MA Trailing Stop 🌈
             if price < ma_value:
-                print(f"🌙💫 STARDUST EXIT! Closing at MA: {ma_value:.1f}")
+                print(f"🌙💫 STARDUST EXIT! Closing at MA: {ma_value:0.1f}")
                 self.position.close()
 
 # Launch Moon Dev Backtest 🚀

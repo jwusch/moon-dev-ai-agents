@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -20,7 +19,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class FibroMomentum(Strategy):
-    risk_per_trade = 0.01  # 🌙 1% risk per trade
+    risk_per_trade = 0.01  #  1% risk per trade
     
     def init(self):
         # 🚀 MOON DEV INDICATORS ✨
@@ -71,8 +70,8 @@ class FibroMomentum(Strategy):
                     self.buy(size=position_size, 
                             sl=sl_price,
                             tp=tp_price,
-                            tag=f"🌙 BULLISH FIB {level:.1f}")
-                    print(f"🚀🌙✨ Moon Dev LONG! Entry: {current_close:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+                            tag=f" BULLISH FIB {level:.1f}")
+#                     print(f"🚀🌙✨ Moon Dev LONG! Entry: {current_close:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
                     break
                     
             elif not ema_trend and rsi_bear and (current_low <= level <= current_high):
@@ -91,6 +90,6 @@ class FibroMomentum(Strategy):
                     self.sell(size=position_size,
                              sl=sl_price,
                              tp=tp_price,
-                             tag=f"🌙 BEARISH FIB {level:.1f}")
-                    print(f"🚀🌙✨ Moon Dev SHORT! Entry: {current_close:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+                             tag=f" BEARISH FIB {level:.1f}")
+#                     print(f"🚀🌙✨ Moon Dev SHORT! Entry: {current_close:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
                     break

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -48,7 +47,7 @@ class LiquidationBreakout(Strategy):
                 position_size = int(round((0.01 * self.equity) / risk))
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, tp=price + 1.5*atr)
-                    print(f"🌙🚀 LONG ENTRY! Price: {price:.2f}, Size: {position_size}, Moon Power: {self.funding[-1]:.4f}")
+                    print(f" LONG ENTRY! Price: {price:.2f}, Size: {position_size}, Moon Power: {self.funding[-1]:.4f}")
             
             liq_cluster_short = price < self.swing_low[-1]
             funding_drop = self.funding[-1] < self.funding_ma[-1] * 0.7
@@ -59,16 +58,16 @@ class LiquidationBreakout(Strategy):
                 position_size = int(round((0.01 * self.equity) / risk))
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl, tp=price - 1.5*atr)
-                    print(f"🌙🌑 SHORT ENTRY! Price: {price:.2f}, Size: {position_size}, Dark Energy: {self.funding[-1]:.4f}")
+                    print(f" SHORT ENTRY! Price: {price:.2f}, Size: {position_size}, Dark Energy: {self.funding[-1]:.4f}")
         else:
             # Exit conditions
             if self.position.pl_pct >= 0.75 * (atr/price):
                 self.position.close()
-                print(f"✨💫 PROFIT MOONSHOT! Closed at {price:.2f}")
+                print(f" PROFIT MOONSHOT! Closed at {price:.2f}")
             elif (self.position.is_long and self.funding[-1] < self.funding_ma[-1]) or \
                  (self.position.is_short and self.funding[-1] > self.funding_ma[-1]):
                 self.position.close()
-                print(f"🌙⚠️ FUNDING REVERSION! Closed at {price:.2f}")
+                print(f" FUNDING REVERSION! Closed at {price:.2f}")
 
 bt = Backtest(data, LiquidationBreakout, cash=1_000_000)
 stats = bt.run()

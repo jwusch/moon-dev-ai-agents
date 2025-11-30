@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the strategy logic and adding Moon Dev themed debug prints. Here's the complete fixed code:
-
-```python
-# 🌙 Moon Dev's CloudConvergence Backtest 🌕
 from backtesting import Backtest, Strategy
 import talib
 import pandas as pd
@@ -24,7 +20,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class CloudConvergenceStrategy(Strategy):
-    risk_percent = 0.01  # 🌑 1% risk per trade
+    risk_percent = 0.01  #  1% risk per trade
     
     def init(self):
         # 🌗 Ichimoku Components
@@ -75,8 +71,8 @@ class CloudConvergenceStrategy(Strategy):
                     self.buy(size=position_size, sl=close - sl_distance)
                     self.trade_entry = close
                     self.peak_price = close
-                    print(f"🚀🌙 MOON LAUNCH! Long {position_size} @ {close:.2f} ✨")
-                    print(f"    🛡️ Initial SL: {close - sl_distance:.2f} 🌑")
+                    print(f" MOON LAUNCH! Long {position_size} @ {close:.2f} ")
+                    print(f"     Initial SL: {close - sl_distance:.2f} ")
 
         # 🌈 Manage Open Position
         else:
@@ -87,7 +83,7 @@ class CloudConvergenceStrategy(Strategy):
             new_sl = self.peak_price - 1.5 * atr
             if new_sl > self.position.sl:
                 self.position.sl = new_sl
-                print(f"✨🛡️ Shields Up! Trail SL ➡️ {new_sl:.2f}")
+                print(f" Shields Up! Trail SL  {new_sl:.2f}")
             
             # 🪐 Profit Targets
             tp1 = self.trade_entry + atr

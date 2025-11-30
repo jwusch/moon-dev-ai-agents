@@ -1,10 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR LIQUIDATIONFRACTAL STRATEGY 🚀
-# MOON PACKAGE AI CERTIFIED - PROPER POSITION SIZING IMPLEMENTED 🌕
-
-# REQUIRED IMPORTS
 from backtesting import Backtest, Strategy
 import talib
 import pandas as pd
@@ -25,20 +18,20 @@ data['DateTime'] = pd.to_datetime(data['datetime'])
 data.set_index('DateTime', inplace=True)
 
 class LiquidationFractal(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     swing_period = 20
     atr_period = 14
     fib_levels = [0.382, 0.5, 0.618]
     
     def init(self):
         # 🌙 CORE INDICATORS USING TA-LIB (MOON DEV APPROVED)
-        self.swing_high = self.I(talib.MAX, self.data.High, self.swing_period, name='🌙 SWING HIGH')
-        self.swing_low = self.I(talib.MIN, self.data.Low, self.swing_period, name='🌑 SWING LOW')
-        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name='🌀 ATR')
+        self.swing_high = self.I(talib.MAX, self.data.High, self.swing_period, name=' SWING HIGH')
+        self.swing_low = self.I(talib.MIN, self.data.Low, self.swing_period, name=' SWING LOW')
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name=' ATR')
         
     def next(self):
         if self.position:
-            return  # 🛑 Avoid moon hoarding - one position at a time
+            return  #  Avoid moon hoarding - one position at a time
             
         current_high = self.swing_high[-1]
         current_low = self.swing_low[-1]
@@ -59,7 +52,7 @@ class LiquidationFractal(Strategy):
                 if self._bullish_reversal():
                     sl = fib_price - 1.5 * atr_value
                     self._execute_trade('LONG', current_close, sl)
-                    return  # 🚀 Launch sequence initiated
+                    return  #  Launch sequence initiated
 
         # 🌑 SHORT ENTRY LOGIC
         for level, fib_price in fibs.items():
@@ -67,7 +60,7 @@ class LiquidationFractal(Strategy):
                 if self._bearish_reversal():
                     sl = fib_price + 1.5 * atr_value
                     self._execute_trade('SHORT', current_close, sl)
-                    return  # 💫 Black hole entry confirmed
+                    return  #  Black hole entry confirmed
 
     def _near_price(self, price, target, threshold=0.005):
         return abs(price - target) <= target * threshold
@@ -89,7 +82,7 @@ class LiquidationFractal(Strategy):
         price_diff = abs(entry_price - sl)
         
         if price_diff == 0:
-            print("🌌 Zero price difference detected - aborting trade launch")
+            print(" Zero price difference detected - aborting trade launch")
             return
             
         # 🌙 PRO

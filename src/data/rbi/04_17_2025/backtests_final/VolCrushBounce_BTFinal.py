@@ -1,6 +1,3 @@
-Here's the fully debugged and fixed backtest code with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -17,7 +14,7 @@ class VolCrushBounce(Strategy):
         self.oi_peak = self.I(talib.MAX, self.data.Open_Interest, timeperiod=20, name='OI_PEAK')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ATR14')
         self.high_5 = self.I(talib.MAX, self.data.High, timeperiod=5, name='HIGH_5')
-        print("🌙 MOON DEV INIT: Cosmic indicators activated! �✨")
+#         print("🌙 MOON DEV INIT: Cosmic indicators activated! �✨")
 
     def next(self):
         # 🌌 Check for existing positions
@@ -53,7 +50,7 @@ class VolCrushBounce(Strategy):
             
             if position_size > 0:
                 self.sell(size=position_size, sl=stop_loss)
-                print(f"🌑🚀 MOON DEV SHORT ACTIVATED! 🌌\nEntry: {entry_price:.2f} | Size: {position_size} | Cosmic Stop: {stop_loss:.2f}")
+#                 print(f"🌑🚀 MOON DEV SHORT ACTIVATED! 🌌\nEntry: {entry_price:.2f} | Size: {position_size} | Cosmic Stop: {stop_loss:.2f}")
 
         # 🌕 Exit Conditions
         for trade in self.trades:
@@ -61,17 +58,17 @@ class VolCrushBounce(Strategy):
                 # Primary Exit
                 if self.data.Close[-1] > self.sma20[-1]:
                     trade.close()
-                    print(f"✨🌕 PRIMARY EXIT: Closed above SMA20 ({self.sma20[-1]:.2f})")
+                    print(f" PRIMARY EXIT: Closed above SMA20 ({self.sma20[-1]:.2f})")
                 
                 # Emergency Exit
                 if self.data.High[-1] > self.high_5[-1]:  # Fixed index from -2 to -1
                     trade.close()
-                    print(f"🚨🌑 EMERGENCY EXIT: 5-period high breached ({self.high_5[-1]:.2f})")
+                    print(f" EMERGENCY EXIT: 5-period high breached ({self.high_5[-1]:.2f})")
                 
                 # Time Exit
                 if len(self.data) - trade.entry_bar >= 96:
                     trade.close()
-                    print(f"⏳🌓 TIME EXIT: 24-hour cosmic cycle completed")
+                    print(f"⏳ TIME EXIT: 24-hour cosmic cycle completed")
 
 # 🛰️ Data Preparation
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

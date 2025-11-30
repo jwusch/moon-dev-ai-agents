@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VolSqueezeAccel Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -63,24 +61,24 @@ class VolSqueezeAccel(Strategy):
 
     def next(self):
         # 🌙 Lunar Debug Console
-        print(f"\n🌕 Moon Phase Update | Close: {self.data.Close[-1]:.2f} | Volume Z: {self.volume_accel[-1]:.2f}σ | BB Width: {self.bb_width[-1]:.4f}")
+        print(f"\n Moon Phase Update | Close: {self.data.Close[-1]:.2f} | Volume Z: {self.volume_accel[-1]:.2f}σ | BB Width: {self.bb_width[-1]:.4f}")
         
         if self.position:
             # 🚨 Active Position Management
             price = self.data.Close[-1]
             if self.position.is_long:
                 if self.data.Low[-1] <= self.position.sl:
-                    print(f"🌘 LONG STOP LOSS ACTIVATED! Collision at {self.position.sl:.2f}")
+                    print(f" LONG STOP LOSS ACTIVATED! Collision at {self.position.sl:.2f}")
                     self.position.close()
                 elif self.data.High[-1] >= self.position.tp:
-                    print(f"🌖 LONG TAKE PROFIT REACHED! Docking at {self.position.tp:.2f}")
+                    print(f" LONG TAKE PROFIT REACHED! Docking at {self.position.tp:.2f}")
                     self.position.close()
             else:
                 if self.data.High[-1] >= self.position.sl:
-                    print(f"🌒 SHORT STOP LOSS TRIGGERED! Breach at {self.position.sl:.2f}")
+                    print(f" SHORT STOP LOSS TRIGGERED! Breach at {self.position.sl:.2f}")
                     self.position.close()
                 elif self.data.Low[-1] <= self.position.tp:
-                    print(f"🌔 SHORT TAKE PROFIT ACHIEVED! Landing at {self.position.tp:.2f}")
+                    print(f" SHORT TAKE PROFIT ACHIEVED! Landing at {self.position.tp:.2f}")
                     self.position.close()
             return
 

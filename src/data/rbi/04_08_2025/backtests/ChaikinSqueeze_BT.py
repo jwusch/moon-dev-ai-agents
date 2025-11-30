@@ -1,5 +1,3 @@
-```python
-# backtesting_chaikin_squeeze.py
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -38,7 +36,7 @@ class ChaikinSqueeze(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, self.adx_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def _chaikin_oscillator(self):
         ad = talib.AD(self.data.High, self.data.Low, self.data.Close, self.data.Volume)
@@ -55,9 +53,9 @@ class ChaikinSqueeze(Strategy):
             return
 
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌕 Bar {current_idx} | Price: {self.data.Close[-1]:.2f}")
-        print(f"✨ BBW: {self.bbw[-1]:.4f} vs MA: {self.bbw_ma[-1]:.4f}")
-        print(f"📈 ADX: {self.adx[-1]:.2f}, Volume: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
+        print(f"\n Bar {current_idx} | Price: {self.data.Close[-1]:.2f}")
+        print(f" BBW: {self.bbw[-1]:.4f} vs MA: {self.bbw_ma[-1]:.4f}")
+        print(f" ADX: {self.adx[-1]:.2f}, Volume: {self.data.Volume[-1]:.2f} vs MA: {self.volume_ma[-1]:.2f}")
 
         # Check position exists
         if self.position:
@@ -82,7 +80,7 @@ class ChaikinSqueeze(Strategy):
         price_in_bands = (self.data.Close[-1] < self.upper[-1]) and (self.data.Close[-1] > self.lower[-1])
 
         if in_squeeze and divergence and price_in_bands:
-            print("🚀 MOON DEV LONG SIGNAL! 🌟")
+#             print("🚀 MOON DEV LONG SIGNAL! 🌟")
             self._enter_long()
 
     def _enter_long(self):

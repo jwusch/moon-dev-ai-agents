@@ -1,7 +1,3 @@
-The code you've provided is already free from any `backtesting.lib` imports and functions, which is excellent! However, I'll review it to ensure all indicators are properly implemented and add some Moon Dev themed debug prints for enhanced cosmic monitoring. Here's the verified and enhanced version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -70,28 +66,28 @@ class BandDivergence(Strategy):
             
             risk_per_unit = stop_price - entry_price
             if risk_per_unit <= 0:
-                print("🕳️ Black hole scenario detected! Avoiding trade.")
-                return  # Avoid black hole scenarios 🕳️
+                print(" Black hole scenario detected! Avoiding trade.")
+                return  # Avoid black hole scenarios 
             
             position_size = int(round((self.equity * risk_pct) / risk_per_unit))
             
             if position_size > 0:
                 self.sell(size=position_size, sl=stop_price, tp=take_profit)
                 self.trade_duration = 0
-                print(f"🌙✨ MOON SHORT ACTIVATED! ✨")
+                print(f" MOON SHORT ACTIVATED! ")
                 print(f"Entry: {entry_price:.2f} | SL: {stop_price:.2f} | TP: {take_profit:.2f}")
-                print(f"Cosmic Position Size: {position_size} units 🚀")
+                print(f"Cosmic Position Size: {position_size} units ")
 
         # Time-based exit after 10 lunar cycles ⏰🌙
         if self.position:
             self.trade_duration += 1
             if self.trade_duration >= 10:
                 self.position.close()
-                print(f"⏳🌙 TIME PORTAL CLOSED after 10 cycles")
+                print(f"⏳ TIME PORTAL CLOSED after 10 cycles")
 
 # Launch Backtest Rocket 🚀📊
 bt = Backtest(data, BandDivergence, cash=1_000_000, commission=.002)
 stats = bt.run()
 
 # Display Cosmic Performance Report 🌌📜
-print("\n🌠🌠🌠 MOON DEV BACKTEST RESULTS 🌠
+# print("\n🌠🌠🌠 MOON DEV BACKTEST RESULTS 🌠"

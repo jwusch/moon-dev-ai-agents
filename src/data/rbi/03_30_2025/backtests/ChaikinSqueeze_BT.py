@@ -34,7 +34,20 @@ class ChaikinSqueeze(Strategy):
         self.min_width = self.I(talib.MIN, self.bb_width, 20, name='MIN_WIDTH')
         
         # VWAP and volume indicators
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume, name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.vol_sma = self.I(talib.SMA, self.data.Volume, 10, name='VOL_SMA')
         
         # Swing high/low for stops

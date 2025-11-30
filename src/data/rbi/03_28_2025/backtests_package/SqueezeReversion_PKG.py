@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,7 +24,7 @@ class SqueezeReversion(Strategy):
         # 📈 ATR for risk management (pure talib)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period, name='ATR')
         
-        self.entry_signal = False  # 🌙 Signal tracking
+        self.entry_signal = False  #  Signal tracking
         
     def next(self):
         # 🚀 MOON DEV CORE LOGIC
@@ -43,7 +39,7 @@ class SqueezeReversion(Strategy):
         # 🌋 Entry Condition Check
         if bb_squeeze and funding_drop and not self.position:
             self.entry_signal = True
-            print(f"🌋 MOON ERUPTION: Squeeze + Funding Drop @ {self.data.Close[-1]}")
+            print(f" MOON ERUPTION: Squeeze + Funding Drop @ {self.data.Close[-1]}")
 
         # 🚀 Execute Entry on next candle
         if self.entry_signal and not self.position:
@@ -56,7 +52,7 @@ class SqueezeReversion(Strategy):
             position_size = int(round(risk_amount / atr_value))
             if position_size > 0:
                 self.buy(size=position_size, tag={'entry_price': self.data.Close[-1], 'atr': atr_value})
-                print(f"🚀 LIFTOFF: {position_size} units @ {self.data.Close[-1]} | ATR: {atr_value:.2f}")
+                print(f" LIFTOFF: {position_size} units @ {self.data.Close[-1]} | ATR: {atr_value:.2f}")
             self.entry_signal = False
 
         # 🔄 Exit Conditions
@@ -68,11 +64,11 @@ class SqueezeReversion(Strategy):
                 # 🎯 Profit Target (2x ATR)
                 if self.data.High[-1] >= entry_price + 2 * atr_entry:
                     trade.close()
-                    print(f"🎯 MOON SHOT: +2ATR Target Reached (+{2*atr_entry:.2f})")
+                    print(f" MOON SHOT: +2ATR Target Reached (+{2*atr_entry:.2f})")
                 
                 # ⚠️ Funding Rate Reversion
                 elif self.funding_rate[-1] >= 0:
                     trade.close()
-                    print(f"⚡ FUNDING REVERTED: {self.funding_rate[-1]:.6f} (Exit @ {self.data.Close[-1]})")
+                    print(f" FUNDING REVERTED: {self.funding_rate[-1]:.6f} (Exit @ {self.data.Close[-1]})")
                 
                 #

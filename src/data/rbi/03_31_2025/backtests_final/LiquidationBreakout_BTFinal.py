@@ -1,7 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -60,12 +56,12 @@ class LiquidationBreakout(Strategy):
         # 🌑 SWING LOW DETECTION 🌑
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("🌙 MOON DEV INDICATORS INITIALIZED 🌙")
+#         print("🌙 MOON DEV INDICATORS INITIALIZED 🌙")
 
     def next(self):
         # 🌠 MOON DEV DEBUG PRINT 🌠
         if len(self.data) % 100 == 0:
-            print(f"🌕 PROCESSING BAR {len(self.data)} | Price: {self.data.Close[-1]:.2f} 🌕")
+            print(f" PROCESSING BAR {len(self.data)} | Price: {self.data.Close[-1]:.2f} ")
 
         # 🚀 LONG ENTRY CONDITION 🚀
         if not self.position:
@@ -79,12 +75,12 @@ class LiquidationBreakout(Strategy):
                 
                 if risk_per_share > 0:
                     position_size = (self.equity * self.risk_pct) / risk_per_share
-                    position_size = int(round(position_size))  # 🌙 Ensuring whole units
+                    position_size = int(round(position_size))  #  Ensuring whole units
                     
                     if position_size > 0:
                         self.buy(size=position_size)
                         self.entry_bar = len(self.data)
-                        print(f"🚀🌙 LONG ENTRY 🚀🌙 | Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {stop_price:.2f} | Funding: {self.data.fundingrate[-1]:.4f} 🌌")
+                        print(f" LONG ENTRY  | Size: {position_size} | Entry: {self.data.Close[-1]:.2f} | SL: {stop_price:.2f} | Funding: {self.data.fundingrate[-1]:.4f} ")
 
         # ✨ EXIT CONDITIONS ✨
         elif self.position:

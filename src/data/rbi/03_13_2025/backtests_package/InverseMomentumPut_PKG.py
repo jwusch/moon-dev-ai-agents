@@ -1,7 +1,3 @@
-I've checked the code and fixed the indicator packages by removing the `backtesting.lib` import and replacing the crossover logic. Here's the corrected version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -20,7 +16,7 @@ class InverseMomentumPut(Strategy):
         self.sma9 = self.I(talib.SMA, self.data.Close, timeperiod=9, name='SMA9')
         self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI')
         
-        print("🌙 Moon Dev Indicators Activated! SMA3/9 & RSI(14) Ready 🚀")
+#         print("🌙 Moon Dev Indicators Activated! SMA3/9 & RSI(14) Ready 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -42,7 +38,7 @@ class InverseMomentumPut(Strategy):
                 risk_per_share = stop_loss_price - current_close
                 
                 if risk_per_share <= 0:
-                    print("⚠️ Risk per share <=0, trade skipped")
+                    print(" Risk per share <=0, trade skipped")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
@@ -51,8 +47,8 @@ class InverseMomentumPut(Strategy):
                     self.entry_price = current_close
                     self.stop_loss_level = stop_loss_price
                     self.sell(size=position_size)
-                    print(f"🌙✨ SHORT ENTERED! Size: {position_size} @ {current_close}")
-                    print(f"   🛑 Stop Loss: {self.stop_loss_level:.2f} | 📉 Risk: {self.risk_per_trade*100}%")
+                    print(f" SHORT ENTERED! Size: {position_size} @ {current_close}")
+                    print(f"    Stop Loss: {self.stop_loss_level:.2f} |  Risk: {self.risk_per_trade*100}%")
         
         # Exit conditions
         else:
@@ -68,7 +64,7 @@ class InverseMomentumPut(Strategy):
             
             if bullish_crossover or rsi_undersold or stop_hit:
                 self.position.close()
-                print(f"🚀 EXIT TRIGGERED! Closing @ {current_close}")
+                print(f" EXIT TRIGGERED! Closing @ {current_close}")
                 print(f"   Reason: {'Bullish crossover' if bullish_crossover else ''} "
                       f"{'RSI undersold' if rsi_undersold else ''} "
                       f"{'Stop loss hit' if stop_hit else ''}")
@@ -88,10 +84,10 @@ data.rename(columns={
     'volume': 'Volume'
 }, inplace=True)
 
-print("🌕 Moon Dev Data Preparation Complete! Columns:")
+# print("🌕 Moon Dev Data Preparation Complete! Columns:")
 print(data.columns)
 
 # Initialize and run backtest
 bt = Backtest(data, InverseMomentumPut, cash=1_000_000, margin=1.0)
 stats = bt.run()
-print("\n🌙✨ MOON DEV BACKTEST RESULTS
+# print("\n🌙✨ MOON DEV BACKTEST RESULTS"

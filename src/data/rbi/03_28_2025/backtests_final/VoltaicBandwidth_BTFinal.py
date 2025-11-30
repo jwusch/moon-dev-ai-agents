@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -54,7 +51,7 @@ class VoltaicBandwidth(Strategy):
         # Volume MA
         self.vol_ma = self.I(lambda: talib.SMA(self.data.Volume, 20), name='VOL_MA')
         
-        print("🌙✨ Moon Dev systems engaged! Trading at lightspeed 🚀")
+#         print("🌙✨ Moon Dev systems engaged! Trading at lightspeed 🚀")
 
     def next(self):
         # Moon Dev position tracking
@@ -62,7 +59,7 @@ class VoltaicBandwidth(Strategy):
         
         # Risk management checks
         if len(self.positions) >= 5:
-            print("🌑 Maximum positions reached! Holding pattern initiated")
+            print(" Maximum positions reached! Holding pattern initiated")
             return
             
         # Entry logic
@@ -75,20 +72,20 @@ class VoltaicBandwidth(Strategy):
             sl = self.lower_band[-1]
             risk = price - sl
             if risk <= 0: 
-                print("🌘 Invalid risk calculation - aborting trade")
+                print(" Invalid risk calculation - aborting trade")
                 return
             
             size = int(round((0.01 * self.equity) / risk))
             if size > 0:
                 self.buy(size=size, sl=sl, tp=price + 2*risk)
-                print(f"🚀🌙 LIFT OFF! Long {size} units @ {price:.2f} | Stop: {sl:.2f}")
+                print(f" LIFT OFF! Long {size} units @ {price:.2f} | Stop: {sl:.2f}")
         
         # Short entry
         elif price < self.lower_band[-1] and bb_expanding and vol_ok:
             sl = self.upper_band[-1]
             risk = sl - price
             if risk <= 0:
-                print("🌘 Invalid risk calculation - aborting trade")
+                print(" Invalid risk calculation - aborting trade")
                 return
             
             size = int(round((0.01 * self.equity) / risk))

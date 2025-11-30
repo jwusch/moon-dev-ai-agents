@@ -1,6 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -27,7 +24,7 @@ class DivergenceSqueeze(Strategy):
         
     def next(self):
         price = self.data.Close[-1]
-        print(f"🌙 Current Price: {price:.2f} | MACD: {self.macd[-1]:.2f} | Volume: {self.vol[-1]:.2f}")
+        print(f" Current Price: {price:.2f} | MACD: {self.macd[-1]:.2f} | Volume: {self.vol[-1]:.2f}")
         
         if not self.position:
             # Bullish divergence check
@@ -55,7 +52,7 @@ class DivergenceSqueeze(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=stop_loss)
-            print(f"🚀🌕 MOON DEV LONG ENTRY! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+#             print(f"🚀🌕 MOON DEV LONG ENTRY! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
     
     def enter_short(self):
         price = self.data.Close[-1]
@@ -66,7 +63,7 @@ class DivergenceSqueeze(Strategy):
         
         if position_size > 0:
             self.sell(size=position_size, sl=stop_loss)
-            print(f"🌑🌙 MOON DEV SHORT ENTRY! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+#             print(f"🌑🌙 MOON DEV SHORT ENTRY! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
     
     def check_exits(self):
         if self.position.is_long:
@@ -74,13 +71,13 @@ class DivergenceSqueeze(Strategy):
             if (self.data.High[-1] >= self.bb_upper[-1] or
                 (self.macd_signal[-2] > self.macd[-2] and self.macd_signal[-1] < self.macd[-1])):
                 self.position.close()
-                print(f"✨🎯 Closing LONG at {self.data.Close[-1]:.2f} (Exit Signal)")
+                print(f" Closing LONG at {self.data.Close[-1]:.2f} (Exit Signal)")
         
         elif self.position.is_short:
             # Bearish crossover detection
             if (self.data.Low[-1] <= self.bb_lower[-1] or
                 (self.macd[-2] > self.macd_signal[-2] and self.macd[-1] < self.macd_signal[-1])):
                 self.position.close()
-                print(f"✨🎯 Closing SHORT at {self.data.Close[-1]:.2f} (Exit Signal)")
+                print(f" Closing SHORT at {self.data.Close[-1]:.2f} (Exit Signal)")
 
 # Moon Dev Backtest Execution

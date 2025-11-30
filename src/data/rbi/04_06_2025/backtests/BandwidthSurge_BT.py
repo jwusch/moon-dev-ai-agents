@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's BandwidthSurge Backtest Script
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +37,7 @@ class BandwidthSurge(Strategy):
         self.macd_hist = self.I(macd_hist, self.data.Close)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
-        print("🌑🌒🌓🌔🌕🌖🌗🌘 Moon Dev Indicators Activated!")
+#         print("🌑🌒🌓🌔🌕🌖🌗🌘 Moon Dev Indicators Activated!")
 
     def next(self):
         # 🌠 Wait for cosmic alignment (sufficient data)
@@ -52,7 +50,7 @@ class BandwidthSurge(Strategy):
             for trade in self.trades:
                 if current_bw >= 2 * trade.tag['entry_bw']:
                     trade.close()
-                    print(f"🌪️✨ Cosmic Expansion! Closing trade at {self.data.Close[-1]}")
+                    print(f" Cosmic Expansion! Closing trade at {self.data.Close[-1]}")
 
         if not self.position:
             # 🌙 Long Entry Constellation
@@ -73,7 +71,7 @@ class BandwidthSurge(Strategy):
                         tp=self.data.Close[-1] + 3*atr_val,
                         tag={'entry_bw': self.bb_width[-1]}
                     )
-                    print(f"🚀🌕 BULLISH ASCENSION! Entry: {self.data.Close[-1]} | Size: {position_size}")
+                    print(f" BULLISH ASCENSION! Entry: {self.data.Close[-1]} | Size: {position_size}")
 
             # 🌑 Short Entry Eclipse
             macd_bear = crossunder(self.macd_hist, 0)
@@ -90,6 +88,6 @@ class BandwidthSurge(Strategy):
                         tp=self.data.Close[-1] - 3*atr_val,
                         tag={'entry_bw': self.bb_width[-1]}
                     )
-                    print(f"🌑📉 BEARISH COLLAPSE! Entry: {self.data.Close[-1]} | Size: {position_size}")
+                    print(f" BEARISH COLLAPSE! Entry: {self.data.Close[-1]} | Size: {position_size}")
 
 #

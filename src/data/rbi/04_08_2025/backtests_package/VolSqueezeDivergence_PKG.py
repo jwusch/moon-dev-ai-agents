@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev Backtest Script for VolSqueezeDivergence Strategy
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -49,8 +45,8 @@ class VolSqueezeDivergence(Strategy):
         self.swing_low_price = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period, name='SWING_LOW')
         self.swing_low_rsi = self.I(talib.MIN, self.vw_rsi, timeperiod=self.swing_period, name='RSI_SWING_LOW')
 
-        print("✨ Moon Dev Indicators Initialized! ✨")
-        print("🌙 All indicators powered by TA-Lib with no backtesting.lib dependencies! 🌙")
+#         print("✨ Moon Dev Indicators Initialized! ✨")
+        print(" All indicators powered by TA-Lib with no backtesting.lib dependencies! ")
 
     def next(self):
         # 🌙 Skip initial bars without indicator data

@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR CHAIKIN TSI BREAKOUT STRATEGY 🚀
-
-# REQUIRED IMPORTS
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -51,7 +47,7 @@ class ChaikinTSIBreakout(Strategy):
         self.sar = self.I(talib.SAR, self.data.High, self.data.Low, 
                         acceleration=0.02, maximum=0.2, name='SAR')
         
-        print("🌙✨ MOON DEV STRATEGY INITIALIZED WITH LUNAR POWER! 🚀")
+#         print("🌙✨ MOON DEV STRATEGY INITIALIZED WITH LUNAR POWER! 🚀")
 
     def next(self):
         # 🌙 CORE LOGIC EXECUTION
@@ -76,7 +72,7 @@ class ChaikinTSIBreakout(Strategy):
                 size = int(round(risk_amount / risk_per_unit))
                 if size > 0:
                     self.buy(size=size)
-                    print(f"🌙🚀 BULLISH BREAKOUT! Long {size} units @ {entry:.2f} ✨")
+                    print(f" BULLISH BREAKOUT! Long {size} units @ {entry:.2f} ")
 
         # SHORT ENTRY CONDITIONS 🌙
         cmf_bearish = self.cmf[-1] < 0 and self.cmf[-2] >= 0

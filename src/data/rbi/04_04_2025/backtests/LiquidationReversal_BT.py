@@ -1,6 +1,3 @@
-Here's the implementation of the LiquidationReversal strategy for backtesting.py:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -71,8 +68,8 @@ class LiquidationReversal(Strategy):
         position_size = self.calculate_position_size(risk)
         if position_size > 0:
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌙✨ BULLISH REVERSAL! Buying {position_size} @ {entry_price:.2f}")
-            print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f} 🚀\n")
+            print(f" BULLISH REVERSAL! Buying {position_size} @ {entry_price:.2f}")
+            print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f} \n")
 
     def enter_short(self, entry_price, tp_price):
         sl_price = self.swing_high[-1] * (1 + self.buffer_pct)
@@ -82,8 +79,8 @@ class LiquidationReversal(Strategy):
         position_size = self.calculate_position_size(risk)
         if position_size > 0:
             self.sell(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌙✨ BEARISH REVERSAL! Selling {position_size} @ {entry_price:.2f}")
-            print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f} 🌑\n")
+            print(f" BEARISH REVERSAL! Selling {position_size} @ {entry_price:.2f}")
+            print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f} \n")
 
     def calculate_position_size(self, risk_per_share):
         risk_amount = self.risk_pct * self.equity

@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# 🌙 Moon Dev's VoltaicTrend Backtest Implementation ✨
 import pandas as pd
 import numpy as np
 import talib
@@ -32,7 +28,7 @@ class VoltaicTrend(Strategy):
         # 🏔️ Swing Lows for Stop Loss
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("✨ Moon Dev Indicators Activated! ✨")
+#         print("✨ Moon Dev Indicators Activated! ✨")
 
     def _bollinger_bands(self, close):
         upper, middle, lower = talib.BBANDS(
@@ -50,7 +46,7 @@ class VoltaicTrend(Strategy):
 
     def next(self):
         # 🌙 Debug Dashboard
-        print(f"🌙 Close: {self.data.Close[-1]:.2f} | EMA20/50: {self.ema20[-1]:.2f}/{self.ema50[-1]:.2f} | RSI: {self.rsi[-1]:.2f} | BWW: {self.bbw[-1]:.4f}")
+        print(f" Close: {self.data.Close[-1]:0.2f} | EMA20/50: {self.ema20[-1]:0.2f}/{self.ema50[-1]:0.2f} | RSI: {self.rsi[-1]:0.2f} | BWW: {self.bbw[-1]:0.4f}")
 
         if not self.position:
             # 🚀 Entry Logic
@@ -64,14 +60,14 @@ class VoltaicTrend(Strategy):
                 risk_per_share = self.data.Close[-1] - stop_price
                 
                 if risk_per_share <= 0:
-                    print("🌑 Abort Launch! Negative risk detected")
+                    print(" Abort Launch! Negative risk detected")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
                 
                 # 🚀 Execute Launch
                 self.buy(size=position_size, sl=stop_price)
-                print(f"🚀 LIFTOFF! Long {position_size} shares at {self.data.Close[-1]:.2f}")
+                print(f" LIFTOFF! Long {position_size} shares at {self.data.Close[-1]:0.2f}")
         
         else:
             # 🛬 Exit Logic
@@ -80,18 +76,18 @@ class VoltaicTrend(Strategy):
             # 📉 BWW Contraction
             if self.bbw[-1] < self.bbw[-2]:
                 exit_trade = True
-                print("🌒 BWW Shrinking!")
+                print(" BWW Shrinking!")
                 
             # 📉 RSI Divergence
             if (self.data.High[-1] > self.data.High[-2] and
                 self.rsi[-1] < self.rsi[-2]):
                 exit_trade = True
-                print("🌓 RSI Divergence Detected!")
+                print(" RSI Divergence Detected!")
                 
             # 📉 EMA Crossover
             if self.ema50[-2] > self.ema20[-2] and self.ema50[-1] < self.ema20[-1]:  # Bearish EMA crossover
                 exit_trade = True
-                print("🌔 EMA Death Cross!")
+                print(" EMA Death Cross!")
                 
             # 🛑 Trailing Stop
             trailing_stop = max

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -64,7 +63,7 @@ class DeltaBandwidth(Strategy):
                 position_size = int(round(risk_amount / (current_close - stop_price)))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🚀 MOON DEV LONG! 🌙 Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f} ✨")
+#                     print(f"🚀 MOON DEV LONG! 🌙 Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f} ✨")
 
             # Short entry
             elif current_close < liquidity_low:
@@ -73,13 +72,13 @@ class DeltaBandwidth(Strategy):
                 position_size = int(round(risk_amount / (stop_price - current_close)))
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price)
-                    print(f"🌑 MOON DEV SHORT! 🌙 Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f} ✨")
+#                     print(f"🌑 MOON DEV SHORT! 🌙 Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f} ✨")
 
         # Exit logic
         elif self.position.is_long and current_close < self.exit_sma[-1]:
             self.position.close()
-            print(f"🌕 MOON DEV EXIT LONG! 🌙 Price {current_close:.2f} < SMA {self.exit_sma[-1]:.2f}")
+#             print(f"🌕 MOON DEV EXIT LONG! 🌙 Price {current_close:.2f} < SMA {self.exit_sma[-1]:.2f}")
 
         elif self.position.is_short and current_close > self.exit_sma[-1]:
             self.position.close()
-            print(f"🌓 MOON DEV EXIT SHORT! 🌙 Price {current_close:.2f} > SMA {self.exit_sma[-
+#             print(f"🌓 MOON DEV EXIT SHORT! 🌙 Price {current_close:.2f} > SMA {self.exit_sma[-"

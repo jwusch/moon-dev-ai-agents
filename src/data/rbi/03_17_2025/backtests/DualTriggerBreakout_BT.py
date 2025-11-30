@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -63,10 +62,10 @@ class DualTriggerBreakout(Strategy):
         # Intergalactic order execution 🌠🚀
         if direction == 'long':
             self.buy(size=position_size, sl=sl, tp=tp)
-            print(f"🌙🚀 MOON SHOT! LONG {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {position_size}")
+            print(f" MOON SHOT! LONG {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {position_size}")
         else:
             self.sell(size=position_size, sl=sl, tp=tp)
-            print(f"🌙🌑 BLACK HOLE! SHORT {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {position_size}")
+            print(f" BLACK HOLE! SHORT {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f} | Size: {position_size}")
 
 # Data preparation ritual 🌙📜
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

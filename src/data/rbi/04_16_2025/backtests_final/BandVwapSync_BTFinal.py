@@ -1,7 +1,3 @@
-Here's the debugged code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev's BandVwapSync Backtest Implementation 🚀
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -9,7 +5,7 @@ from backtesting import Backtest, Strategy
 import numpy as np
 
 class BandVwapSync(Strategy):
-    risk_per_trade = 0.02  # 2% risk per trade 🌙
+    risk_per_trade = 0.02  # 2% risk per trade 
     
     def init(self):
         # 🌗 Bollinger Bands (20,2) with TA-Lib
@@ -51,7 +47,7 @@ class BandVwapSync(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🌙 MOON DEV ALERT: LONG @ {entry_price:.2f} ✨ | Size: {position_size} | SL: {stop_loss:.2f} 🚀")
+#                         print(f"🌙 MOON DEV ALERT: LONG @ {entry_price:.2f} ✨ | Size: {position_size} | SL: {stop_loss:.2f} 🚀")
         
         # 💼 Exit Logic
         else:
@@ -59,17 +55,17 @@ class BandVwapSync(Strategy):
             if len(self.vwap_ma_5) > 1 and len(self.vwap_20) > 1:
                 if self.vwap_ma_5[-2] < self.vwap_20[-2] and self.vwap_ma_5[-1] > self.vwap_20[-1]:
                     self.position.close()
-                    print("🌙 VWAP Trend Reversal - Closing Position! 🏁")
+                    print(" VWAP Trend Reversal - Closing Position! ")
                 
             # 🎯 Upper band profit taking
             if self.data.High[-1] >= self.bb_upper[-1]:
                 self.position.close()
-                print("🚀 Upper Band Reached - Profit Harvest! 🌕")
+                print(" Upper Band Reached - Profit Harvest! ")
                 
             # 🛡️ Trailing stop to breakeven
             if self.data.High[-1] >= self.bb_middle[-1] and self.position.sl < self.position.entry_price:
                 self.position.sl = self.position.entry_price
-                print("🌙 Trail Stop Activated - Breakeven Secured! 🛡️")
+                print(" Trail Stop Activated - Breakeven Secured! ")
 
 # 🧹 Data Cleaning Ritual
 data = pd.read_csv('BTC-USD-15m.csv')
@@ -88,6 +84,6 @@ data = data.set_index('DateTime').sort_index()
 # 🌙 Launch Backtest
 bt = Backtest(data, BandVwapSync, commission=.002, exclusive_orders=True)
 stats = bt.run()
-print("🌙✨ Backtest Complete! Moon Dev's Cosmic Performance Report:")
+# print("🌙✨ Backtest Complete! Moon Dev's Cosmic Performance Report:")'
 print(stats)
 bt.plot

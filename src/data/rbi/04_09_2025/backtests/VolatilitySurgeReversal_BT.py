@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -58,29 +56,29 @@ class VolatilitySurgeReversal(Strategy):
         prev_oi = self.open_interest[-2] if len(self.open_interest) > 1 else current_oi
         
         # Moon Dev debug prints 🌙
-        print(f"\n🌙 Moon Dev Debug - Bar: {self.data.index[-1]}")
+#         print(f"\n🌙 Moon Dev Debug - Bar: {self.data.index[-1]}")
         print(f"   Close: {current_close:.2f}, Vol: {current_volume:.2f}, OI: {current_oi} → {current_oi < prev_oi}")
         print(f"   3σ Level: {self.mean_close[-1] - 3*self.std_dev[-1]:.2f}")
         print(f"   RSI: {self.rsi[-1]:.2f}, ATR: {self.atr[-1]:.2f}")
 
-        # Check if we're in position
+        # Check if we're in position'
         if self.position:
             # Update trailing stop logic
             self.highest_high = max(self.highest_high, self.data.High[-1])
             self.trailing_stop = self.highest_high - self.atr[-1] * self.atr_multiplier
             
-            print(f"🚀 Position Active! Entry: {self.entry_price:.2f}")
+            print(f" Position Active! Entry: {self.entry_price:.2f}")
             print(f"   Trailing Stop: {self.trailing_stop:.2f}, Current High: {self.highest_high:.2f}")
 
             # Exit conditions
             if crossover(self.rsi, 50):
-                print(f"✨ RSI Exit Signal! Closing position at {current_close:.2f}")
+                print(f" RSI Exit Signal! Closing position at {current_close:.2f}")
                 self.position.close()
             elif self.data.Low[-1] < self.entry_low:
-                print(f"🚨 Emergency Exit! Price made new low at {self.data.Low[-1]:.2f}")
+                print(f" Emergency Exit! Price made new low at {self.data.Low[-1]:.2f}")
                 self.position.close()
             elif self.data.Close[-1] < self.trailing_stop:
-                print(f"🔻 Trailing Stop Hit! Closing at {self.data.Close[-1]:.2f}")
+                print(f" Trailing Stop Hit! Closing at {self.data.Close[-1]:.2f}")
                 self.position.close()
             return
 

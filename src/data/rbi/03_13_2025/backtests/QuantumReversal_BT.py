@@ -1,5 +1,3 @@
-```python
-# 🌙 QuantumReversal Backtest by Moon Dev AI 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -29,7 +27,7 @@ data = data.rename(columns={
 # 🚀 QUANTUM REVERSAL STRATEGY
 # ========================
 class QuantumReversal(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     bb_period = 20
     rsi_period = 14
     macd_fast = 12
@@ -90,7 +88,7 @@ class QuantumReversal(Strategy):
             
             # 🚀 Engage Hyperdrive (Long)
             self.buy(size=position_size, sl=sl, tp=tp)
-            print(f"🌙✨🚀 LONG SIGNAL: Price {price:.2f} | Size {position_size} | Shield {sl:.2f} | Target {tp:.2f}")
+            print(f" LONG SIGNAL: Price {price:.2f} | Size {position_size} | Shield {sl:.2f} | Target {tp:.2f}")
 
         # 🌌 SHORT Entry: Cosmic Overextension!
         elif (price >= bb_upper and 

@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -12,8 +8,8 @@ class BandwidthSurge(Strategy):
     
     def init(self):
         # Moon Dev Indicator Setup 🌙
-        print("🌙 Initializing Moon Dev BandwidthSurge Strategy...")
-        print("✨ Loading celestial indicators from TA-Lib constellation...")
+#         print("🌙 Initializing Moon Dev BandwidthSurge Strategy...")
+        print(" Loading celestial indicators from TA-Lib constellation...")
         
         # Convert to numpy arrays for TA-Lib
         close = self.data.Close.values.astype('float')
@@ -33,20 +29,20 @@ class BandwidthSurge(Strategy):
         
         # 2. Volume SMA(20)
         self.volume_sma = self.I(lambda: talib.SMA(volume, timeperiod=20), name='Volume SMA')
-        print("🌙 Volume SMA(20) initialized - tracking lunar tidal patterns...")
+        print(" Volume SMA(20) initialized - tracking lunar tidal patterns...")
         
         # 3. RSI(14)
         self.rsi = self.I(lambda: talib.RSI(close, timeperiod=14), name='RSI')
-        print("🌙 RSI(14) activated - measuring cosmic momentum...")
+        print(" RSI(14) activated - measuring cosmic momentum...")
         
         # 4. ATR(14) for risk management
         self.atr = self.I(lambda: talib.ATR(high, low, close, timeperiod=14), name='ATR')
-        print("🌙 ATR(14) online - calculating celestial risk boundaries...")
+        print(" ATR(14) online - calculating celestial risk boundaries...")
         
         # Swing indicators using TA-Lib
         self.bandwidth_10_low = self.I(lambda: talib.MIN(bandwidth, timeperiod=10), name='Bandwidth 10L')
         self.bandwidth_5_high = self.I(lambda: talib.MAX(bandwidth, timeperiod=5), name='Bandwidth 5H')
-        print("🌙 Bandwidth oscillators calibrated - ready for launch sequence...")
+        print(" Bandwidth oscillators calibrated - ready for launch sequence...")
         
     def next(self):
         # Moon Dev Strategy Logic 🌙✨
@@ -75,7 +71,7 @@ class BandwidthSurge(Strategy):
             if all([entry_condition_1, entry_condition_2, entry_condition_3]):
                 atr_value = self.atr[-1]
                 if atr_value <= 0:
-                    print("🌙⚠️ ATR anomaly detected - aborting launch sequence!")
+                    print(" ATR anomaly detected - aborting launch sequence!")
                     return  # Safety check
                 
                 # Risk management calculations

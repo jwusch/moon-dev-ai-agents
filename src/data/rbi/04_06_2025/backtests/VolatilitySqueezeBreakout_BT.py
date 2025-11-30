@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -59,7 +58,7 @@ class VolatilitySqueezeBreakout(Strategy):
                         if position_size > 0:
                             take_profit = self.data.Close[-1] + 2*risk_per_share
                             self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                            print(f"🚀🌙 LONG: {self.data.Close[-1]} | Size: {position_size} | SL: {stop_loss} | TP: {take_profit}")
+                            print(f" LONG: {self.data.Close[-1]} | Size: {position_size} | SL: {stop_loss} | TP: {take_profit}")
                 
                 # 🌑 Short Entry
                 elif self.data.Close[-1] < lower_bb:
@@ -72,7 +71,7 @@ class VolatilitySqueezeBreakout(Strategy):
                         if position_size > 0:
                             take_profit = self.data.Close[-1] - 2*risk_per_share
                             self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-                            print(f"🌑🌙 SHORT: {self.data.Close[-1]} | Size: {position_size} | SL: {stop_loss} | TP: {take_profit}")
+                            print(f" SHORT: {self.data.Close[-1]} | Size: {position_size} | SL: {stop_loss} | TP: {take_profit}")
 
 # 🌙 Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

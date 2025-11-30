@@ -1,6 +1,3 @@
-Here's the fixed code with proper indicator packages and Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -61,7 +58,7 @@ class VolatilityDivergence(Strategy):
                 position_size = int(round(risk_amount / (current_close - sl_price)))
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🌙🚀 MOON DEV LONG SIGNAL! Size: {position_size} @ {current_close:.2f} SL: {sl_price:.2f}")
+#                     print(f"🌙🚀 MOON DEV LONG SIGNAL! Size: {position_size} @ {current_close:.2f} SL: {sl_price:.2f}")
 
             # Short logic
             elif (current_close < self.lower_band[-1] and
@@ -73,10 +70,10 @@ class VolatilityDivergence(Strategy):
                 position_size = int(round(risk_amount / (sl_price - current_close)))
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price)
-                    print(f"🌙🌒 MOON DEV SHORT SIGNAL! Size: {position_size} @ {current_close:.2f} SL: {sl_price:.2f}")
+#                     print(f"🌙🌒 MOON DEV SHORT SIGNAL! Size: {position_size} @ {current_close:.2f} SL: {sl_price:.2f}")
 
         elif current_atr < exit_threshold:
             self.position.close()
-            print(f"🌙💤 MOON DEV VOLATILITY EXIT! Closed @ {current_close:.2f} (ATR: {current_atr:.2f})")
+#             print(f"🌙💤 MOON DEV VOLATILITY EXIT! Closed @ {current_close:.2f} (ATR: {current_atr:.2f})")
 
 bt

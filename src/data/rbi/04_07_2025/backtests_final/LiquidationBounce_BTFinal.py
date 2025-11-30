@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your LiquidationBounce strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING SUITE :: LiquidationBounce Strategy 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -34,7 +30,7 @@ data.set_index('datetime', inplace=True)
 # ===================
 class LiquidationBounce(Strategy):
     entry_bar = 0
-    _consecutive_losses = 0  # Track cosmic misfortune 🌑
+    _consecutive_losses = 0  # Track cosmic misfortune 
     
     def init(self):
         # 🌗 Calculate Bollinger Bands using TA-Lib
@@ -77,18 +73,18 @@ class LiquidationBounce(Strategy):
                 risk_per_unit = entry_price - stop_loss
                 
                 if risk_per_unit <= 0:
-                    print("🌑 ABORT: Negative risk detected!")
+                    print(" ABORT: Negative risk detected!")
                     return
                 
                 # 🪐 Calculate position size (rounded to whole units)
                 position_size = int(round(risk_amount / risk_per_unit))
                 
                 if position_size <= 0:
-                    print(f"🌒 Tiny position: {position_size} units")
+                    print(f" Tiny position: {position_size} units")
                     return
                 
                 if self._consecutive_losses >= 3:
-                    print("🌑 COOLDOWN: 3 consecutive losses")
+                    print(" COOLDOWN: 3 consecutive losses")
                     return
                 
                 # 🚀 Execute moon mission
@@ -99,7 +95,7 @@ class LiquidationBounce(Strategy):
                 )
                 self.entry_bar = len(self.data) -1
                 
-                print(f"\n🚀 MOON SHOT! 🚀"
+                print(f"\n MOON SHOT! "
                       f"\nEntry: {entry_price:.2f}"
                       f"\nSize: {position_size} units"
                       f"\nSL: {stop_loss:.2f}"
@@ -108,7 +104,7 @@ class LiquidationBounce(Strategy):
         # 🌗 Time-based exit
         if self.position and (len(self.data)-1 - self.entry_bar) >= 5:
             self.position.close()
-            print(f"🌑 TIME EXIT after 5 bars")
+            print(f" TIME EXIT after 5 bars")
 
     def notify_trade(self, trade):
         """Track cosmic fortunes"""

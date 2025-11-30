@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and crossover functions replaced with manual implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR DynamicTrendSync STRATEGY
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -17,7 +13,7 @@ class DynamicTrendSync(Strategy):
         self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=14)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20)
         
-        print("🌙✨ Moon Dev Indicators Activated: EMA(50/200), ADX(14), RSI(14), SwingLow(20)")
+#         print("🌙✨ Moon Dev Indicators Activated: EMA(50/200), ADX(14), RSI(14), SwingLow(20)")
 
     def next(self):
         # Skip early bars without sufficient data
@@ -25,8 +21,8 @@ class DynamicTrendSync(Strategy):
             return
 
         # 🌙 DEBUG PRINT CURRENT MARKET STATE
-        print(f"🌕 Close: {self.data.Close[-1]:.2f} | EMA50: {self.ema50[-1]:.2f} ➔ EMA200: {self.ema200[-1]:.2f}")
-        print(f"📶 ADX: {self.adx[-1]:.2f} | RSI: {self.rsi[-1]:.2f} | SwingLow: {self.swing_low[-1]:.2f}")
+        print(f" Close: {self.data.Close[-1]:.2f} | EMA50: {self.ema50[-1]:.2f}  EMA200: {self.ema200[-1]:.2f}")
+        print(f" ADX: {self.adx[-1]:.2f} | RSI: {self.rsi[-1]:.2f} | SwingLow: {self.swing_low[-1]:.2f}")
 
         # 💹 ENTRY LOGIC
         if not self.position:
@@ -43,20 +39,20 @@ class DynamicTrendSync(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price, tag="MoonDev_Long")
-                        print(f"🚀🌙 MOON DEV ENTRY SIGNAL! Long {position_size} units")
-                        print(f"🎯 Entry: {entry_price:.2f} | Stop: {stop_price:.2f} | Risk: {risk_per_share:.2f}")
+#                         print(f"🚀🌙 MOON DEV ENTRY SIGNAL! Long {position_size} units")
+                        print(f" Entry: {entry_price:.2f} | Stop: {stop_price:.2f} | Risk: {risk_per_share:.2f}")
 
         # 🔴 EXIT LOGIC
         else:
             # RSI Exit Signal
             if self.rsi[-1] < 70 and self.rsi[-2] >= 70:
                 self.position.close()
-                print(f"🎯🌙 RSI EXIT SIGNAL! Closed at {self.data.Close[-1]:.2f}")
+                print(f" RSI EXIT SIGNAL! Closed at {self.data.Close[-1]:.2f}")
 
             # Death Cross Emergency Exit
             if (self.ema200[-2] < self.ema50[-2] and self.ema200[-1] > self.ema50[-1]):
                 self.position.close()
-                print(f"🌑💥 DEATH CROSS EXIT! Closed at {self.data.Close[-1]:.2f}")
+                print(f" DEATH CROSS EXIT! Closed at {self.data.Close[-1]:.2f}")
 
 # 🌙 DATA PREPARATION
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
@@ -78,5 +74,5 @@ bt = Backtest(data, DynamicTrendSync, cash=1_000_000, commission=.002)
 stats = bt.run()
 
 # 📊 RESULTS
-print("\n🌙✨ MOON DEV BACKTEST COMPLETE! FULL STRATEGY STATS:")
+# print("\n🌙✨ MOON DEV BACKTEST COMPLETE! FULL STRATEGY STATS:")
 print(stats)

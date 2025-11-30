@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's Chaikin Squeeze Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -65,7 +61,7 @@ class ChaikinSqueeze(Strategy):
                 risk_per_share = entry_price - stop_price
                 
                 if risk_per_share <= 0:
-                    print(f"🌙 Moon Dev Alert: Invalid SL {stop_price:.2f} >= Entry {entry_price:.2f}")
+#                     print(f"🌙 Moon Dev Alert: Invalid SL {stop_price:.2f} >= Entry {entry_price:.2f}")
                     return
                 
                 risk_amount = self.equity * self.risk_per_trade
@@ -77,13 +73,13 @@ class ChaikinSqueeze(Strategy):
                     self.buy(size=position_size, 
                             sl=stop_price,
                             tp=tp_price)
-                    print(f"🚀 MOON DEV LONG ENTRY 🌙 Size: {position_size} @ {entry_price:.2f}")
+#                     print(f"🚀 MOON DEV LONG ENTRY 🌙 Size: {position_size} @ {entry_price:.2f}")
                     print(f"   SL: {stop_price:.2f} | TP: {tp_price:.2f} | Risk/Reward: {(tp_price-entry_price)/(entry_price-stop_price):.1f}")
         else:
             self.bars_held += 1
             if self.bars_held >= self.exit_bars:
                 self.position.close()
-                print(f"🌙 TIME EXIT: Held {self.exit_bars} bars")
+                print(f" TIME EXIT: Held {self.exit_bars} bars")
 
 # 🌙 DATA PREPARATION
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

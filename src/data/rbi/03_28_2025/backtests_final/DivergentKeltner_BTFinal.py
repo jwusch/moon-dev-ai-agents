@@ -1,7 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -33,11 +29,11 @@ class DivergentKeltner(Strategy):
         if 'netflow' in self.data.df.columns:
             self.netflow_ma = self.I(talib.SMA, self.data.df['netflow'], timeperiod=self.netflow_ma_period, name='Netflow MA')
         else:
-            print("⚠️ Moon Dev Warning: 'netflow' column not found in data! 🌑")
+#             print("⚠️ Moon Dev Warning: 'netflow' column not found in data! 🌑")
             self.netflow_ma = self.I(lambda: np.zeros(len(self.data.Close)), name='Netflow MA')
         
-        print("🌙 Moon Dev Indicators Activated! ✨")
-        print("🚀 All systems nominal - No backtesting.lib detected! 🌌")
+#         print("🌙 Moon Dev Indicators Activated! ✨")
+        print(" All systems nominal - No backtesting.lib detected! ")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -59,8 +55,8 @@ class DivergentKeltner(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🌙 LONG Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} 🚀")
-                    print("✨ Bullish divergence confirmed - Lunar thrusters engaged! 🌕")
+                    print(f" LONG Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} ")
+                    print(" Bullish divergence confirmed - Lunar thrusters engaged! ")
 
             # Short Entry Conditions        
             elif (current_close > self.upper_keltner[-1] and
@@ -73,8 +69,8 @@ class DivergentKeltner(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price)
-                    print(f"🌙 SHORT Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} 💥")
-                    print("☄️ Bearish divergence detected - Cosmic shields activated! 🛡️")
+                    print(f" SHORT Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} ")
+                    print(" Bearish divergence detected - Cosmic shields activated! ")
 
         else:
             # Exit Conditions
@@ -82,8 +78,8 @@ class DivergentKeltner(Strategy):
                 # SAR Reversal Exit
                 if current_sar > current_close:
                     self.position.close()
-                    print(f"🌙 Closing LONG (SAR Reversal) @ {current_close:.2f} 🛑")
-                    print("🌑 Lunar cycle complete - Returning to base! 🏁")
+                    print(f" Closing LONG (SAR Reversal) @ {current_close:.2f} ")
+                    print(" Lunar cycle complete - Returning to base! ")
                 
                 # Emergency Exits
                 else:

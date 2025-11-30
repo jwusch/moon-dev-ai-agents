@@ -1,7 +1,3 @@
-Here's the debugged code with Moon Dev themed debug prints and technical fixes:
-
-```python
-# 🌙 Moon Dev's SymmetricVolatility Backtest AI Implementation 🚀
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -21,7 +17,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class SymmetricVolatility(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌗
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌟 Cosmic Indicators
@@ -45,11 +41,11 @@ class SymmetricVolatility(Strategy):
         # 🌑 Track Lunar Cycles (Swing Points)
         if self.data.High[-1] == self.swing_high[-1]:
             self.last_swing_high = self.data.High[-1]
-            print(f"🚀 NEW COSMIC HIGH: {self.last_swing_high:.2f}")
+            print(f" NEW COSMIC HIGH: {self.last_swing_high:0.2f}")
             
         if self.data.Low[-1] == self.swing_low[-1]:
             self.last_swing_low = self.data.Low[-1]
-            print(f"🌊 NEW ABYSSAL LOW: {self.last_swing_low:.2f}")
+            print(f" NEW ABYSSAL LOW: {self.last_swing_low:0.2f}")
 
         if not (self.last_swing_high and self.last_swing_low):
             return
@@ -75,12 +71,12 @@ class SymmetricVolatility(Strategy):
                         sl = self.last_swing_low
                         risk_per_share = current_close - sl
                         if risk_per_share <= 0: 
-                            print("🌑 WARNING: Risk per share <= 0, skipping trade")
+                            print(" WARNING: Risk per share <= 0, skipping trade")
                             continue
                         
                         size = int(round(risk_amount / risk_per_share))
                         if size <= 0:
-                            print("🌑 WARNING: Calculated size <= 0, skipping trade")
+                            print(" WARNING: Calculated size <= 0, skipping trade")
                             continue
                             
                         tp = current_close + self.swing_diff * 1.272

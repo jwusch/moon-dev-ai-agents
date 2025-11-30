@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Volatility Squeeze Impulse Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -43,7 +41,7 @@ class VolatilitySqueezeImpulse(Strategy):
         # 🌍 Planetary Protection (Risk Management)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙✨ Moon Dev Systems Online - Ready for Quantum Trading! 🚀")
+#         print("🌙✨ Moon Dev Systems Online - Ready for Quantum Trading! 🚀")
 
     def calculate_impulse(self):
         ema_dir = np.where(self.ema13 > self.ema13.shift(1), 1, -1)
@@ -67,7 +65,7 @@ class VolatilitySqueezeImpulse(Strategy):
                 position_size = int(round(risk_amount / (2 * atr)))
                 if position_size > 0:
                     self.buy(size=position_size, sl=self.data.Close[-1]-2*atr)
-                    print(f"🌙🚀 STARGAZER LONG! Size: {position_size} | Entry: {self.data.Close[-1]:.2f} 🌌")
+                    print(f" STARGAZER LONG! Size: {position_size} | Entry: {self.data.Close[-1]:.2f} ")
             
             # 🌑 Short Entry: Dark Matter Momentum 🌑
             elif (self.bb_width[-1] < self.bb_width_pct_20[-1] and

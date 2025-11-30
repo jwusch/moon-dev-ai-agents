@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's LiquidityVolt Backtest Implementation 🚀
-
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -47,7 +44,7 @@ class LiquidityVolt(Strategy):
         self.volume_sma = self.I(talib.SMA, self.data.Volume, 1920)  # 20-day volume SMA
         self.sma_200 = self.I(talib.SMA, self.data.Close, 200)  # Trend filter
         
-        print("🌙✨ Moon Dev Indicators Activated! Ready for Quantum Trading 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! Ready for Quantum Trading 🚀")
 
     def next(self):
         if len(self.data) < 1920:  # Wait for full indicator window
@@ -82,7 +79,7 @@ class LiquidityVolt(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌙🚀 LONG Activated! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+                    print(f" LONG Activated! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
 
             elif in_sell_zone and volatility_ok and not trend_bullish:
                 stop_loss = swing_high * 1.005  # 0.5% above cluster
@@ -92,4 +89,4 @@ class LiquidityVolt(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_loss)
-                    print(f"🌙🚀 SHORT Activated! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+                    print(f" SHORT Activated! Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")

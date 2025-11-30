@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -64,11 +61,11 @@ class VolatilitySqueezeBreakout(Strategy):
                 self.data.Close[-1] > self.range_high[-2] and
                 oi_surge):
                 
-                self.buy(size=position_size, tag="🌙 MOON DEV LONG ENTRY")
+#                 self.buy(size=position_size, tag="🌙 MOON DEV LONG ENTRY")
                 entry_price = self.data.Close[-1]
                 self.stop_loss = entry_price - atr_value
                 self.take_profit = entry_price + 2 * atr_value
-                print(f"🚀🌕 MOON DEV LONG TRIGGERED! Entry: {entry_price}, SL: {self.stop_loss}, TP: {self.take_profit}")
+#                 print(f"🚀🌕 MOON DEV LONG TRIGGERED! Entry: {entry_price}, SL: {self.stop_loss}, TP: {self.take_profit}")
             
             # Short entry conditions
             elif (current_keltner_percentile <= 0.3 and
@@ -76,15 +73,15 @@ class VolatilitySqueezeBreakout(Strategy):
                   self.data.Close[-1] < self.range_low[-2] and
                   oi_surge):
                 
-                self.sell(size=position_size, tag="🌙 MOON DEV SHORT ENTRY")
+#                 self.sell(size=position_size, tag="🌙 MOON DEV SHORT ENTRY")
                 entry_price = self.data.Close[-1]
                 self.stop_loss = entry_price + atr_value
                 self.take_profit = entry_price - 2 * atr_value
-                print(f"🌑💫 MOON DEV SHORT TRIGGERED! Entry: {entry_price}, SL: {self.stop_loss}, TP: {self.take_profit}")
+#                 print(f"🌑💫 MOON DEV SHORT TRIGGERED! Entry: {entry_price}, SL: {self.stop_loss}, TP: {self.take_profit}")
         
         else:
             # Exit conditions
             if self.position.is_long:
                 if self.data.Close[-1] >= self.take_profit:
                     self.position.close()
-                    print(f"💰✨ MOON DEV TP HIT! Long closed at {
+#                     print(f"💰✨ MOON DEV TP HIT! Long closed at {"

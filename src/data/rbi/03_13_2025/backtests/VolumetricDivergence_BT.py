@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -37,8 +36,8 @@ class VolumetricDivergenceStrategy(Strategy):
             return
             
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌙 Moon Dev Status Bar [{self.data.index[-1]}]")
-        print(f"✨ Price: {self.data.Close[-1]} | VO: {self.volume_osc[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
+#         print(f"\n🌙 Moon Dev Status Bar [{self.data.index[-1]}]")
+        print(f" Price: {self.data.Close[-1]} | VO: {self.volume_osc[-1]:.2f} | RSI: {self.rsi[-1]:.2f}")
         
         entry_price = self.data.Close[-1]
         current_position = self.position
@@ -74,7 +73,7 @@ class VolumetricDivergenceStrategy(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🚀 BULLISH DIVERGENCE DETECTED! Long {position_size} @ {entry_price}")
+                    print(f" BULLISH DIVERGENCE DETECTED! Long {position_size} @ {entry_price}")
                     print(f"   SL: {sl_price:.2f} | TP: {tp_price:.2f}")
                     
             elif bear_div:

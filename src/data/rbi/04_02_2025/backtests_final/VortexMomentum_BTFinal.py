@@ -1,7 +1,3 @@
-Here's the fully debugged and fixed backtest code with proper Moon Dev theming and all technical issues resolved:
-
-```python
-# 🌙 Moon Dev's VortexMomentum Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -14,16 +10,16 @@ class VortexMomentum(Strategy):
     
     def init(self):
         # 🌟 Indicator Calculation Phase 🌟
-        print("🌙 Initializing Moon Dev's Vortex Momentum Strategy...")
+#         print("🌙 Initializing Moon Dev's Vortex Momentum Strategy...")'
         self.vi_plus, self.vi_minus = self.calculate_vortex()
         self.cmf = self.I(talib.AD, self.data.High, self.data.Low, self.data.Close, self.data.Volume, timeperiod=20, name='CMF')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ATR')
         self.volume_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='Volume_MA')
-        print("✨ Indicators successfully initialized with pure TA-Lib!")
+        print(" Indicators successfully initialized with pure TA-Lib!")
         
     def calculate_vortex(self):
         # 🌀 Vortex Indicator Calculation 🌀
-        print("🌀 Calculating Moon Dev's Vortex Indicator...")
+#         print("🌀 Calculating Moon Dev's Vortex Indicator...")'
         high = self.data.High
         low = self.data.Low
         
@@ -45,7 +41,7 @@ class VortexMomentum(Strategy):
         vi_plus = sum_vm_plus / sum_tr
         vi_minus = sum_vm_minus / sum_tr
         
-        print("🌊 Vortex Indicator components successfully calculated!")
+        print(" Vortex Indicator components successfully calculated!")
         return (
             self.I(lambda x: x, vi_plus, name='VI+'),
             self.I(lambda x: x, vi_minus, name='VI-')
@@ -58,7 +54,7 @@ class VortexMomentum(Strategy):
             
         # Volume filter 🌊
         if self.data.Volume[-1] < self.volume_ma[-1]:
-            print("🌙 Volume too low - skipping trade opportunity")
+            print(" Volume too low - skipping trade opportunity")
             return
             
         # Long Entry Conditions 🌈
@@ -83,8 +79,8 @@ class VortexMomentum(Strategy):
         # 💰 Risk Management Magic 💰
         risk_per_share = abs(self.data.Close[-1] - sl_price)
         if risk_per_share == 0:
-            print("⚠️ Risk per share is zero - trade cancelled")
+            print(" Risk per share is zero - trade cancelled")
             return
         
         position_size = (self.equity * self.risk_per_trade) / risk_per_share
-        position_size = int(round(position_size))  # 🌙 Fixed: Rounded to whole units
+        position_size = int(round(position_size))  #  Fixed: Rounded to whole units

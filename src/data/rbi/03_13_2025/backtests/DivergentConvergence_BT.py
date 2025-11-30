@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR DIVERGENTCONVERGENCE STRATEGY ✨
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -40,7 +37,7 @@ class DivergentConvergence(Strategy):
             return
             
         # 🌙 MOON DEV DEBUG: Print current candle status 🕯️
-        print(f"\n🌙 Processing {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} 🌈")
+        print(f"\n Processing {self.data.index[-1]} | Close: {self.data.Close[-1]:.2f} ")
         
         # Check for existing positions
         if self.position:
@@ -79,7 +76,7 @@ class DivergentConvergence(Strategy):
         risk_per_share = entry_price - sl_price
         
         if risk_per_share <= 0:
-            print("🌙 Invalid SL for long entry, skipping 🌌")
+            print(" Invalid SL for long entry, skipping ")
             return
             
         # 🚀 Position sizing calculation
@@ -92,5 +89,5 @@ class DivergentConvergence(Strategy):
             self.buy(size=position_size, 
                     sl=sl_price,
                     tp=tp_price)
-            print(f"🌙✨🚀 MOON BULLISH ENTRY! Size: {position_size} | Entry: {entry_price:.2f}")
+            print(f" MOON BULLISH ENTRY! Size: {position_size} | Entry: {entry_price:.2f}")
             print

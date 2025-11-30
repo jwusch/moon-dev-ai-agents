@@ -1,7 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed enhancements while maintaining the original strategy logic:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation: VolumetricBreakout Strategy 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -38,7 +34,7 @@ class VolumetricBreakout(Strategy):
         self.volume_sma20 = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='Vol_SMA20')
         self.volume_threshold = self.I(lambda: self.volume_sma20 * 1.5, name='Vol_Threshold')
 
-        print("🌙✨🚀 Moon Dev Indicators Initialized! Ready for cosmic profits! 🌙✨🚀")
+#         print("🌙✨🚀 Moon Dev Indicators Initialized! Ready for cosmic profits! 🌙✨🚀")
 
     def next(self):
         # Skip first 20 bars for warmup
@@ -68,7 +64,7 @@ class VolumetricBreakout(Strategy):
                     if position_size > 0:
                         self.entry_bar = len(self.data)
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀🌕 MOON SHOT! LONG {position_size} @ {price:.2f} | Vol {volume:.2f} > {vol_thresh:.2f} 🌕🚀")
+                        print(f" MOON SHOT! LONG {position_size} @ {price:.2f} | Vol {volume:.2f} > {vol_thresh:.2f} ")
 
             # 🌑 SHORT ENTRY: Price below BB_Lower + Volume Spike
             elif price < lower and volume > vol_thresh:
@@ -81,7 +77,7 @@ class VolumetricBreakout(Strategy):
                     if position_size > 0:
                         self.entry_bar = len(self.data)
                         self.sell(size=position_size, sl=stop_loss)
-                        print(f"🌑🌙 BLACK HOLE! SHORT {position_size} @ {price:.2f} | Vol {volume:.2f} > {vol_thresh:.2f} 🌙🌑")
+                        print(f" BLACK HOLE! SHORT {position_size} @ {price:.2f} | Vol {volume:.2f} > {vol_thresh:.2f} ")
 
         # ======== EXIT LOGIC ========
         else:

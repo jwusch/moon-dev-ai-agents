@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -44,7 +40,7 @@ class VolCompressBreakout(Strategy):
     def next(self):
         # 🌌 Moon Dev Debug Prints 🌌
         if len(self.data) % 500 == 0:
-            print(f"🌙 MOON CHECK: Bar {len(self.data)} | Close={self.data.Close[-1]} | BB Width={self.bb_width[-1]:.4f} ✨")
+            print(f" MOON CHECK: Bar {len(self.data)} | Close={self.data.Close[-1]} | BB Width={self.bb_width[-1]:.4f} ")
         
         if not self.position:
             # 🌟 Long Entry Conditions 🌟
@@ -54,7 +50,7 @@ class VolCompressBreakout(Strategy):
             
             if bb_compress and close_above_upper and volume_spike:
                 sl_price = self.lower[-1]
-                risk_amount = self.broker.equity * self.risk_percent
+                risk_amount = self.equity * self.risk_percent
                 risk_per_share = self.data.Close[-1] - sl_price
                 
                 if risk_per_share > 0:
@@ -62,14 +58,14 @@ class VolCompressBreakout(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
                         self.trailing_high = self.data.High[-1]
-                        print(f"🚀🌕 MOON LONG: {self.data.Close[-1]} | Size: {position_size} | SL: {sl_price} 🌌")
+                        print(f" MOON LONG: {self.data.Close[-1]} | Size: {position_size} | SL: {sl_price} ")
 
             # 🌑 Short Entry Conditions 🌑
             close_below_lower = self.data.Close[-1] < self.lower[-1]
             
             if bb_compress and close_below_lower and volume_spike:
                 sl_price = self.upper[-1]
-                risk_amount = self.broker.equity * self.risk_percent
+                risk_amount = self.equity * self.risk_percent
                 risk_per_share = sl_price - self.data.Close[-1]
                 
                 if risk_per_share > 0:
@@ -77,7 +73,7 @@ class VolCompressBreakout(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price)
                         self.trailing_low = self.data.Low[-1]
-                        print(f"🌑🚀 MOON SHORT: {self.data.Close[-1]} | Size: {position_size} | SL: {sl_price} 🌌")
+                        print(f" MOON SHORT: {self.data.Close[-1]} | Size: {position_size} | SL: {sl_price} ")
         else:
             # 🌓 Position Management 🌓
             if self.position.is_long:

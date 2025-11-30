@@ -51,12 +51,12 @@ class ATRRatioReversal(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
                     print(f"🌙🚀 LAUNCHING LONG! Size: {position_size} | "
-                          f"Entry: {price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+                          f"Entry: {price:0.2f} | SL: {sl_price:0.2f} | TP: {tp_price:0.2f}")
 
         # Moon Dev Exit Check 🌕
         if self.position and self.position.pl_pct >= 0.5:
             self.position.close()
-            print(f"🌕💰 Cosmic profit taken! PL: {self.position.pl:.2f}")
+            print(f"🌕💰 Cosmic profit taken! PL: {self.position.pl:0.2f}")
 
 # Execute Moon Dev Backtest 🌙✨
 bt = Backtest(data, ATRRatioReversal, cash=1_000_000, margin=1.0, trade_on_close=True)

@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your SqueezeSurge backtest code:
-
-```python
-# 🌙 Moon Dev's SqueezeSurge Backtest Implementation ✨
 import pandas as pd
 import talib
 import numpy as np
@@ -31,7 +27,7 @@ class SqueezeSurge(Strategy):
         self.volume_sma = talib.SMA(volume, timeperiod=10)
         self.I(lambda: self.volume_sma, name='Volume_SMA')
         
-        print("🌙 Indicators initialized! Ready to catch those surges! 🚀")
+        print(" Indicators initialized! Ready to catch those surges! ")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -66,7 +62,7 @@ class SqueezeSurge(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-            print(f"🌙✨ LONG ENTRY! Price: {entry_price:.2f}, Size: {position_size} 🚀 SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
+            print(f" LONG ENTRY! Price: {entry_price:.2f}, Size: {position_size}  SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
 
     def enter_short(self):
         entry_price = self.data.Close[-1]
@@ -82,7 +78,7 @@ class SqueezeSurge(Strategy):
         
         if position_size > 0:
             self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-            print(f"🌙✨ SHORT ENTRY! Price: {entry_price:.2f}, Size: {position_size} 🚀 SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
+            print(f" SHORT ENTRY! Price: {entry_price:.2f}, Size: {position_size}  SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
 
 # 🚀 Data Preparation
 data = pd.read_csv('BTC-USD-15m.csv')

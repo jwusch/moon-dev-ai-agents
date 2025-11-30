@@ -1,16 +1,3 @@
-To address this problem, we need to create a backtesting script for the VolatilityBreakout strategy using the backtesting.py framework. This strategy leverages Bollinger Bands to identify periods of low volatility and potential breakout points. The goal is to enter short positions when a breakout occurs and manage risk through position sizing and stop-loss orders.
-
-### Approach
-1. **Data Handling**: Read and preprocess the data to ensure it has the correct columns in the proper format.
-2. **Indicators Calculation**: Use TA-Lib to compute Bollinger Bands, their width, and the average width of the bands.
-3. **Entry/Exit Logic**: Enter a short position when the price closes below the lower Bollinger Band and volatility is below average. Exit the position when the price touches the upper Bollinger Band.
-4. **Risk Management**: Calculate position size based on a fixed risk percentage (1% of equity) and set a stop-loss at the upper Bollinger Band level at entry.
-5. **Moon Dev Themed Debugging**: Include themed print statements for entry and exit signals.
-
-### Solution Code
-
-```python
-# 🌙 Moon Dev's Volatility Breakout Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -29,10 +16,10 @@ class VolatilityBreakout(Strategy):
         self.band_width = self.I(lambda: self.bb_upper - self.bb_lower, name='BAND_WIDTH')
         self.avg_band_width = self.I(talib.SMA, self.band_width, 20, name='AVG_BAND_WIDTH')
         
-        print("🌙✨ Moon Dev Indicators Initialized! SMA20, BBANDS, Volatility Ready! ✨")
+#         print("🌙✨ Moon Dev Indicators Initialized! SMA20, BBANDS, Volatility Ready! ✨")
 
     def next(self):
-        # 🌙 Check if we're not in a position
+        # 🌙 Check if we're not in a position'
         if not self.position:
             # Calculate conditions
             current_volatility = self.band_width[-1]
@@ -49,7 +36,7 @@ class VolatilityBreakout(Strategy):
                 # Calculate risk per share and position size
                 risk_per_share = entry_bb_upper - entry_price
                 if risk_per_share <= 0:
-                    print("🌙⚠️ Moon Dev Warning: Negative/Zero Risk Per Share - Trade Skipped!")
+#                     print("🌙⚠️ Moon Dev Warning: Negative/Zero Risk Per Share - Trade Skipped!")
                     return
                 
                 risk_amount = self.equity * account_risk
@@ -57,18 +44,18 @@ class VolatilityBreakout(Strategy):
                 position_size = int(round(position_size))
                 
                 if position_size <= 0:
-                    print("🌙⚠️ Moon Dev Warning: Invalid Position Size - Trade Skipped!")
+#                     print("🌙⚠️ Moon Dev Warning: Invalid Position Size - Trade Skipped!")
                     return
                 
                 # 🌙 Enter short position with stop loss at upper band
                 self.sell(size=position_size, sl=entry_bb_upper)
-                print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {entry_bb_upper:.2f} 🚀")
+#                 print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {entry_bb_upper:.2f} 🚀")
         
         # 🌙 Check for exit conditions on existing short position
         else:
             if self.data.High[-1] >= self.bb_upper[-1]:
                 self.position.close()
-                print(f"🌙🎯 MOON DEV EXIT! Price Touched Upper Band @ {self.data.Close[-1]:.2f} 🎯")
+#                 print(f"🌙🎯 MOON DEV EXIT! Price Touched Upper Band @ {self.data.Close[-1]:.2f} 🎯")
 
 # 🌙✨ Data Preparation Magic ✨
 data = pd.read_csv(

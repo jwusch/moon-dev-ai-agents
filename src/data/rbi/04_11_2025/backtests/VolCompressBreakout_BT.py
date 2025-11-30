@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev Backtest Implementation for VolCompress Breakout Strategy
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -43,13 +41,13 @@ class VolCompressBreakout(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='SWING_LOW')
         
         # 🌙 Debug prints for indicator confirmation
-        print("✨ Moon Dev Indicators Initialized:")
+#         print("✨ Moon Dev Indicators Initialized:")
         print(f"   BBW(20,2) | KIJUN(26) | VOL_MA20 | SWING(20)")
         
     def next(self):
         # 🌙 Moon Dev Themed Debugging
         if len(self.data) % 500 == 0:
-            print(f"\n🌕 MOON DEV STATUS UPDATE 🌕")
+#             print(f"\n🌕 MOON DEV STATUS UPDATE 🌕")
             print(f"Bar {len(self.data)} | Close: {self.data.Close[-1]:.2f}")
             print(f"BBW: {self.bbw[-1]:.4f} | Percentile: {self.bbw_percentile[-1]:.4f}")
             print(f"Volume: {self.data.Volume[-1]:.2f} vs MA: {self.volume_avg[-1]:.2f}")
@@ -71,7 +69,7 @@ class VolCompressBreakout(Strategy):
                     position_size = risk_amount / risk_per_share
                     position_size = int(round(position_size))
                     if position_size > 0:
-                        print(f"\n🚀🌙 MOON ROCKET SIGNAL 🚀")
+                        print(f"\n MOON ROCKET SIGNAL ")
                         print(f"LONG Entry: {self.data.Close[-1]:.2f}")
                         print(f"Size: {position_size} | SL: {sl_price:.2f}")
                         self.buy(size=position_size, sl=sl_price)

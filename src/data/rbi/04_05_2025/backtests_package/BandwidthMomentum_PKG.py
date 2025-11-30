@@ -1,13 +1,9 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints added:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
 from backtesting import Backtest, Strategy
 
-# Moon Dev's BandwidthMomentum Strategy 🌙✨
+# Moon Dev's BandwidthMomentum Strategy 🌙✨'
 class BandwidthMomentum(Strategy):
     # Strategy parameters
     risk_per_trade = 0.01  # 1% risk per trade
@@ -37,7 +33,7 @@ class BandwidthMomentum(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20, name='Swing High')
         
-        print("🌙✨ Moon Dev indicators initialized! Ready for cosmic analysis!")
+#         print("🌙✨ Moon Dev indicators initialized! Ready for cosmic analysis!")
 
     def next(self):
         # Skip first 20 periods to allow indicator calculations
@@ -69,7 +65,7 @@ class BandwidthMomentum(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, tag='Long Entry')
                         self.entry_bandwidth = self.bandwidth[-1]
-                        print(f"🌕🚀 BULLISH ALERT! Long entry at {entry_price:.2f} "
+                        print(f" BULLISH ALERT! Long entry at {entry_price:.2f} "
                               f"Size: {position_size} contracts")
 
             # Short entry: CMO crosses below signal line during contraction

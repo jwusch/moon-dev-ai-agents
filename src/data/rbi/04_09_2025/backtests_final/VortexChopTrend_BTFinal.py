@@ -1,6 +1,3 @@
-Here's the fully debugged and Moon Dev themed backtest code with all technical issues fixed:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -8,7 +5,7 @@ import pandas_ta
 import numpy as np
 
 # Data preparation
-print("🌙 Initializing Moon Dev Data Preparation... ✨")
+# print("🌙 Initializing Moon Dev Data Preparation... ✨")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
@@ -25,7 +22,7 @@ data.rename(columns={
 
 data['DateTime'] = pd.to_datetime(data['DateTime'])
 data.set_index('DateTime', inplace=True)
-print("🌕 Data successfully loaded and formatted! ✨")
+print(" Data successfully loaded and formatted! ")
 
 class VortexChopTrend(Strategy):
     risk_percent = 0.01  # 1% risk per trade
@@ -42,8 +39,8 @@ class VortexChopTrend(Strategy):
                          self.data.High, 
                          self.data.Low, 
                          self.data.Close, 14)
-        print("🌙 VortexChopTrend Strategy Initialized! ✨")
-        print("🚀 Moon Dev Indicators Ready for Launch! 🌙")
+#         print("🌙 VortexChopTrend Strategy Initialized! ✨")
+#         print("🚀 Moon Dev Indicators Ready for Launch! 🌙")
 
     def _calculate_ci(self, high, low, close, length):
         # Convert numpy arrays to pandas Series for pandas_ta
@@ -56,7 +53,7 @@ class VortexChopTrend(Strategy):
     def next(self):
         # Moon Dev progress tracker
         if len(self.data) % 1000 == 0:
-            print(f"🌙 Processing bar {len(self.data)} | Price: {self.data.Close[-1]} | VI+={self.vi_plus[-1]:.2f}, VI-={self.vi_minus[-1]:.2f}, CI={self.ci[-1]:.2f}")
+            print(f" Processing bar {len(self.data)} | Price: {self.data.Close[-1]} | VI+={self.vi_plus[-1]:.2f}, VI-={self.vi_minus[-1]:.2f}, CI={self.ci[-1]:.2f}")
 
         # Entry logic
         if not self.position:
@@ -77,8 +74,8 @@ class VortexChopTrend(Strategy):
                             sl=stop_loss, 
                             tp=take_profit,
                             tag="VortexBullishEntry")
-                    print(f"🚀🌙 LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | CI: {self.ci[-1]:.2f} ✨")
-                    print("🌕 Moon Dev Trade Executed! May the lunar cycles favor us! 🌙")
+                    print(f" LONG ENTRY @ {entry_price:.2f} | Size: {position_size} | CI: {self.ci[-1]:.2f} ")
+#                     print("🌕 Moon Dev Trade Executed! May the lunar cycles favor us! 🌙")
 
         # Exit logic
         else:
@@ -87,8 +84,8 @@ class VortexChopTrend(Strategy):
                 self.position.close()
                 exit_reason = ('VI-' if (self.vi_minus[-2] < self.vi_plus[-2] and self.vi_minus[-1] > self.vi_plus[-1]) 
                               else 'CI Threshold')
-                print(f"🌑 EXIT @ {self.data.Close[-1]:.2f} | Reason: {exit_reason} 🌙")
-                print("🌘 Moon Dev Exit Signal - Protecting our lunar capital! ✨")
+                print(f" EXIT @ {self.data.Close[-1]:.2f} | Reason: {exit_reason} ")
+#                 print("🌘 Moon Dev Exit Signal - Protecting our lunar capital! ✨")
 
 # Backtest execution
-print("🚀🌙 Starting Moon Dev
+# print("🚀🌙 Starting Moon Dev"

@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -28,13 +25,20 @@ class VolumetricBandwidth(Strategy):
     
     def init(self):
         # Core indicators
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low,
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          anchor='D',
-                          name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Bollinger Bands
         self.bb_upper, self.bb_middle, self.bb_lower = self.I(
@@ -59,26 +63,26 @@ class VolumetricBandwidth(Strategy):
     def next(self):
         # Moon Dev Safety Checks 🌙
         if len(self.data) < 50:
-            print("🌙 Moon Dev Alert: Not enough data points (need at least 50)")
+#             print("🌙 Moon Dev Alert: Not enough data points (need at least 50)")
             return
             
         # Session timing filter (first 2 hours)
         current_hour = self.data.index[-1].hour
         if not (0 <= current_hour < 2):
-            print("🌙 Moon Dev Alert: Outside trading window (0-2 hours)")
+#             print("🌙 Moon Dev Alert: Outside trading window (0-2 hours)")
             return
             
         # Volatility filter 🌊
         current_tr = self.data.High[-1] - self.data.Low[-1]
         if current_tr > 3 * self.atr[-1]:
-            print("🌪️ Moon Dev Warning: Volatility too high, skipping trade")
+#             print("🌪️ Moon Dev Warning: Volatility too high, skipping trade")
             return
             
         # Historical percentile calculations
         lookback = 50
         hist_bb_width = self.bb_width[-lookback:-1]
         if len(hist_bb_width) < lookback-1:
-            print("🌙 Moon Dev Alert: Not enough historical BB width data")
+#             print("🌙 Moon Dev Alert: Not enough historical BB width data")
             return
             
         bb_90 = np.percentile(hist_bb_width, 90)

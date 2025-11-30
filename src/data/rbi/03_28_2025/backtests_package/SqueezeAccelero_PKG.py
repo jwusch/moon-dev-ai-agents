@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -56,14 +53,14 @@ class SqueezeAccelero(Strategy):
                 self.data.Close[-2] > self.middle_band[-2] and 
                 self.data.Close[-1] < self.middle_band[-1]):
                 self.position.close()
-                print(f"✨🌙 LONG EXIT | Price: {price:.2f} | Middle Band: {self.middle_band[-1]:.2f}")
+                print(f" LONG EXIT | Price: {price:.2f} | Middle Band: {self.middle_band[-1]:.2f}")
                 
             # ✨ Short Exit: Price crosses above Middle BB
             elif (self.position.is_short and 
                   self.data.Close[-2] < self.middle_band[-2] and 
                   self.data.Close[-1] > self.middle_band[-1]):
                 self.position.close()
-                print(f"✨🌙 SHORT EXIT | Price: {price:.2f} | Middle Band: {self.middle_band[-1]:.2f}")
+                print(f" SHORT EXIT | Price: {price:.2f} | Middle Band: {self.middle_band[-1]:.2f}")
 
     def calculate_risk(self, direction, entry_price, sl_price):
         # 🌙 Risk Management Protocol
@@ -73,19 +70,19 @@ class SqueezeAccelero(Strategy):
         if direction == 'LONG':
             price_diff = entry_price - sl_price
             if price_diff <= 0:
-                print("🌙🚫 Invalid LONG stop loss! Moon Dev shields engaged!")
+#                 print("🌙🚫 Invalid LONG stop loss! Moon Dev shields engaged!")
                 return
         else:
             price_diff = sl_price - entry_price
             if price_diff <= 0:
-                print("🌙🚫 Invalid SHORT stop loss! Moon Dev shields engaged!")
+#                 print("🌙🚫 Invalid SHORT stop loss! Moon Dev shields engaged!")
                 return
         
         position_size = risk_amount / price_diff
         position_size = int(round(position_size))
         
         if position_size == 0:
-            print(f"🌙💤 Zero size calculated! {direction} trade skipped")
+            print(f" Zero size calculated! {direction} trade skipped")
             return
             
         # 🚀

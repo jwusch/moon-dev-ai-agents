@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -77,14 +75,14 @@ class BandwidthReversal(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"\n🌙✨ MOON DEV ALERT: LONG ENTERED! ✨")
-                    print(f"📈 Size: {position_size} | 💰 Equity: {self.equity:,.2f}")
-                    print(f"🔒 Risk: ${risk_amount:,.2f} | 📉 ATR Stop: {1.5*atr_value:.2f}")
+#                     print(f"\n🌙✨ MOON DEV ALERT: LONG ENTERED! ✨")
+                    print(f" Size: {position_size} |  Equity: {self.equity:,.2f}")
+                    print(f" Risk: ${risk_amount:,.2f} |  ATR Stop: {1.5*atr_value:.2f}")
                     
                     # Initialize trailing stop
                     self.highest_high = self.data.High[-1]
                     self.trailing_stop = self.highest_high - 1.5 * atr_value
-                    print(f"🎯 Initial Stop: {self.trailing_stop:.2f}")
+                    print(f" Initial Stop: {self.trailing_stop:.2f}")
 
         # Exit Logic
         else:

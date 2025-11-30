@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -21,17 +20,17 @@ class VolumetricBreakoutStrategy(Strategy):
             if self.position.is_long:
                 if self.data.Close[-1] < self.ema3[-1]:
                     self.sell()
-                    print(f"🌙✨ Moon Dev Trailing Stop Exit Long at {self.data.Close[-1]:.2f}")
+#                     print(f"🌙✨ Moon Dev Trailing Stop Exit Long at {self.data.Close[-1]:.2f}")
                 elif len(self.data) - self.position.entry_bar >= 480:
                     self.sell()
-                    print(f"🕒🌙 Moon Dev Time Exit Long after 5 days at {self.data.Close[-1]:.2f}")
+#                     print(f"🕒🌙 Moon Dev Time Exit Long after 5 days at {self.data.Close[-1]:.2f}")
             elif self.position.is_short:
                 if self.data.Close[-1] > self.ema3[-1]:
                     self.cover()
-                    print(f"🌙✨ Moon Dev Trailing Stop Exit Short at {self.data.Close[-1]:.2f}")
+#                     print(f"🌙✨ Moon Dev Trailing Stop Exit Short at {self.data.Close[-1]:.2f}")
                 elif len(self.data) - self.position.entry_bar >= 480:
                     self.cover()
-                    print(f"🕒🌙 Moon Dev Time Exit Short after 5 days at {self.data.Close[-1]:.2f}")
+#                     print(f"🕒🌙 Moon Dev Time Exit Short after 5 days at {self.data.Close[-1]:.2f}")
         else:
             if len(self.data) < self.high_period:
                 return
@@ -58,7 +57,7 @@ class VolumetricBreakoutStrategy(Strategy):
                 if size > 0:
                     tp = current_close + 2 * risk
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🚀🌙 Moon Dev LONG Entry! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
+#                     print(f"🚀🌙 Moon Dev LONG Entry! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
             
             elif current_close < min_low and current_close < ema3 and volume_condition:
                 sl = max_high
@@ -70,7 +69,7 @@ class VolumetricBreakoutStrategy(Strategy):
                 if size > 0:
                     tp = current_close - 2 * risk
                     self.sell(size=size, sl=sl, tp=tp)
-                    print(f"🌑🌙 Moon Dev SHORT Entry! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
+#                     print(f"🌑🌙 Moon Dev SHORT Entry! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
 
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()

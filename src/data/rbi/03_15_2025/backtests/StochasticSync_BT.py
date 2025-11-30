@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,7 +27,7 @@ class StochasticSync(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period)
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period)
         
-        print("🌙✨ Moon Dev Indicators Initialized! SMA50, SMA200, Stochastic, Swing Levels ready 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! SMA50, SMA200, Stochastic, Swing Levels ready 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -49,7 +48,7 @@ class StochasticSync(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🌙✨🚀 LONG ENTRY: {position_size} shares at {current_close:.2f} | SL: {sl_price:.2f} | Moon Power Activated! 🌕")
+                        print(f" LONG ENTRY: {position_size} shares at {current_close:0.2f} | SL: {sl_price:0.2f} | Moon Power Activated! ")
             
             # Short Entry Conditions
             elif (self.sma50[-1] < self.sma200[-1] and
@@ -64,7 +63,7 @@ class StochasticSync(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price)
-                        print(f"🌙✨🚀 SHORT ENTRY: {position_size} shares at {current_close:.2f} | SL: {sl_price:.2f} | Lunar Gravity Engaged! 🌑")
+                        print(f" SHORT ENTRY: {position_size} shares at {current_close:0.2f} | SL: {sl_price:0.2f} | Lunar Gravity Engaged! ")
         
         # Exit Logic
         else:
@@ -72,21 +71,21 @@ class StochasticSync(Strategy):
                 # Trend Reversal Exit
                 if self.sma50[-1] < self.sma200[-1]:
                     self.position.close()
-                    print(f"🌙🌕 LONG EXIT: SMA Death Cross Detected! Moon Radiation Shield Activated!")
+                    print(f" LONG EXIT: SMA Death Cross Detected! Moon Radiation Shield Activated!")
                 # Take Profit Exit
                 elif self.stoch_k[-1] >= 80:
                     self.position.close()
-                    print(f"🌙💎 LONG TP: Stochastic Overbought! Moon Diamond Hands Cash Out! 💰")
+                    print(f" LONG TP: Stochastic Overbought! Moon Diamond Hands Cash Out! ")
             
             elif self.position.is_short:
                 # Trend Reversal Exit
                 if self.sma50[-1] > self.sma200[-1]:
                     self.position.close()
-                    print(f"🌙🌑 SHORT EXIT: SMA Golden Cross Detected! Lunar Retreat Protocol!")
+                    print(f" SHORT EXIT: SMA Golden Cross Detected! Lunar Retreat Protocol!")
                 # Take Profit Exit
                 elif self.stoch_k[-1] <= 20:
                     self.position.close()
-                    print(f"🌙💎 SHORT TP: Stochastic Oversold! Moon Mining Profit Collected! ⛏️")
+                    print(f" SHORT TP: Stochastic Oversold! Moon Mining Profit Collected! ")
 
 # Data Handling
 data_path

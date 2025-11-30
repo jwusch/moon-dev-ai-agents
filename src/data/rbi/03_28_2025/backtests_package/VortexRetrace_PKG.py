@@ -1,7 +1,3 @@
-Here's the fixed version of the code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -61,7 +57,7 @@ class VortexRetrace(Strategy):
     
     def next(self):
         price = self.data.Close[-1]
-        print(f"🌙 Processing candle: {self.data.index[-1]} | Close: {price:.2f}")
+        print(f" Processing candle: {self.data.index[-1]} | Close: {price:.2f}")
         
         if not self.position:
             self._check_entries()
@@ -81,13 +77,13 @@ class VortexRetrace(Strategy):
         if (prev_vi_plus < prev_vi_minus and current_vi_plus > current_vi_minus) and volume_ok:
             self.pending_entry = 'long'
             self.entry_price = self.data.High[-1]
-            print(f"🚀 LONG signal! VI+ crossed VI- | Entry threshold: {self.entry_price:.2f}")
+            print(f" LONG signal! VI+ crossed VI- | Entry threshold: {self.entry_price:.2f}")
             
         # Short condition (replaced crossover with manual check)
         elif (prev_vi_minus < prev_vi_plus and current_vi_minus > current_vi_plus) and volume_ok:
             self.pending_entry = 'short'
             self.entry_price = self.data.Low[-1]
-            print(f"🚀 SHORT signal! VI- crossed VI+ | Entry threshold: {self.entry_price:.2f}")
+            print(f" SHORT signal! VI- crossed VI+ | Entry threshold: {self.entry_price:.2f}")
         
         # Check entry confirmation
         if self.pending_entry == 'long' and self.data.Close[-1] > self.entry_price:

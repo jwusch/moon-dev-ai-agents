@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -51,7 +50,7 @@ class VortexDivergence(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
                     self.trailing_high = self.data.High[-1]
-                    print(f"🚀 MOON DEV LONG ENTRY: {position_size} units @ {current_close} | Cosmic alignment detected! 🌙")
+#                     print(f"🚀 MOON DEV LONG ENTRY: {position_size} units @ {current_close} | Cosmic alignment detected! 🌙")
 
             # Short entry
             elif bearish_crossover and bearish_divergence:
@@ -63,7 +62,7 @@ class VortexDivergence(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price)
                     self.trailing_low = self.data.Low[-1]
-                    print(f"🌑 MOON DEV SHORT ENTRY: {position_size} units @ {current_close} | Stellar bearish convergence! 🌌")
+#                     print(f"🌑 MOON DEV SHORT ENTRY: {position_size} units @ {current_close} | Stellar bearish convergence! 🌌")
 
         # Position management
         else:
@@ -82,4 +81,4 @@ class VortexDivergence(Strategy):
                 # Check exits
                 if self.data.Low[-1] < self.trailing_stop:
                     self.position.close()
-                    print(f"🌙 MOON DEV TRAIL
+#                     print(f"🌙 MOON DEV TRAIL"

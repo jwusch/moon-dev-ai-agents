@@ -1,8 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing crossover functions with proper array comparisons. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation for VortexKST Surge Strategy 🚀
-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -10,7 +5,7 @@ import talib
 import pandas_ta as ta
 
 class VortexKSTSurge(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 Clean data and prepare indicators using self.I()

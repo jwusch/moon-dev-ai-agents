@@ -1,6 +1,3 @@
-I'll debug this backtest code while maintaining the original strategy logic. Here's the fixed version with Moon Dev improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -80,10 +77,10 @@ class VortexSqueeze(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tag='MoonEntry')
-                    print(f"🌙✨ MOON DEV LONG SIGNAL ACTIVATED ✨🌙")
-                    print(f"🌕 Entry Price: {self.data.Close[-1]:.2f}")
-                    print(f"🛡️ Stop Loss: {stop_loss:.2f} ({2*atr:.2f} ATR)")
-                    print(f"📊 Position Size: {position_size:,} shares")
+#                     print(f"🌙✨ MOON DEV LONG SIGNAL ACTIVATED ✨🌙")
+                    print(f" Entry Price: {self.data.Close[-1]:.2f}")
+                    print(f" Stop Loss: {stop_loss:.2f} ({2*atr:.2f} ATR)")
+                    print(f" Position Size: {position_size:,} shares")
                     print("="*40)
 
         # Moon Dev Exit Logic ✨

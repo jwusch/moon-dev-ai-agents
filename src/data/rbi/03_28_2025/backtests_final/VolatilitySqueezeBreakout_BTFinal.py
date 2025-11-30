@@ -1,6 +1,3 @@
-I'll complete and fix the code while maintaining the original strategy logic. Here's the fully debugged version with Moon Dev improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -29,12 +26,12 @@ class VolatilitySqueezeBreakout(Strategy):
     risk_pct = 0.01
     atr_multiplier = 1.5
     trailing_atr_multiplier = 2.0
-    volatility_threshold = 500  # Lunar volatility threshold 🌕
+    volatility_threshold = 500  # Lunar volatility threshold 
 
     def init(self):
         close = self.data.Close
         
-        # Calculate indicators with TA-Lib's cosmic precision 🌌
+        # Calculate indicators with TA-Lib's cosmic precision 🌌'
         self.bb_upper, self.bb_middle, self.bb_lower = talib.BBANDS(
             close, timeperiod=self.bb_period, nbdevup=self.bb_dev, nbdevdn=self.bb_dev
         )
@@ -63,7 +60,7 @@ class VolatilitySqueezeBreakout(Strategy):
                     if size > 0:
                         trade = self.buy(size=size, sl=stop_loss)
                         self.trade_data[trade] = {'high': self.data.High[-1], 'low': self.data.Low[-1]}
-                        print(f"🌙🚀 MOON ENTRY LONG | Price: {current_close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
+                        print(f" MOON ENTRY LONG | Price: {current_close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
 
                 elif current_close < self.bb_lower[-1]:
                     risk_amount = self.risk_pct * self.equity
@@ -72,7 +69,7 @@ class VolatilitySqueezeBreakout(Strategy):
                     if size > 0:
                         trade = self.sell(size=size, sl=stop_loss)
                         self.trade_data[trade] = {'high': self.data.High[-1], 'low': self.data.Low[-1]}
-                        print(f"🌙🌑 MOON ENTRY SHORT | Price: {current_close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
+                        print(f" MOON ENTRY SHORT | Price: {current_close:.2f} | Size: {size} | SL: {stop_loss:.2f}")
 
         # Moon Dev Trailing Stop Management 🌙🛡️
         for trade in self.trades:

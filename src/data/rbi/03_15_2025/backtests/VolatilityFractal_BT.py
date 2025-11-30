@@ -1,6 +1,3 @@
-Here's the implementation of the VolatilityFractal strategy for backtesting.py:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -51,7 +48,7 @@ class VolatilityFractal(Strategy):
 
     def next(self):
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌕 New Candle: {self.data.index[-1]} | Close: {self.data.Close[-1]} 🌑")
+        print(f"\n New Candle: {self.data.index[-1]} | Close: {self.data.Close[-1]} ")
         
         # Update swing points
         self._update_swings()
@@ -70,26 +67,26 @@ class VolatilityFractal(Strategy):
             self.price_peaks.append((len(self.data)-1, self.data.High[-1]))
             if len(self.price_peaks) > 3:
                 self.price_peaks.pop(0)
-            print(f"✨ New Price Peak: {self.data.High[-1]} ✨")
+            print(f" New Price Peak: {self.data.High[-1]} ")
 
         if self.data.Low[-1] == self.swing_low[-1]:
             self.price_troughs.append((len(self.data)-1, self.data.Low[-1]))
             if len(self.price_troughs) > 3:
                 self.price_troughs.pop(0)
-            print(f"🌑 New Price Trough: {self.data.Low[-1]} 🌑")
+            print(f" New Price Trough: {self.data.Low[-1]} ")
 
         # RSI swings
         if self.rsi[-1] == self.I(talib.MAX, self.rsi, 5)[-1]:
             self.rsi_peaks.append((len(self.data)-1, self.rsi[-1]))
             if len(self.rsi_peaks) > 3:
                 self.rsi_peaks.pop(0)
-            print(f"📈 New RSI Peak: {self.rsi[-1]} 📈")
+            print(f" New RSI Peak: {self.rsi[-1]} ")
 
         if self.rsi[-1] == self.I(talib.MIN, self.rsi, 5)[-1]:
             self.rsi_troughs.append((len(self.data)-1, self.rsi[-1]))
             if len(self.rsi_troughs) > 3:
                 self.rsi_troughs.pop(0)
-            print(f"📉 New RSI Trough: {self.rsi[-1]} 📉")
+            print(f" New RSI Trough: {self.rsi[-1]} ")
 
     def _check_entries(self):
         # Bullish divergence check

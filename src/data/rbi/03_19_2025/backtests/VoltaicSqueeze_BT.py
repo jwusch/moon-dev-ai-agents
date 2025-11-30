@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -62,13 +61,13 @@ class VoltaicSqueeze(Strategy):
             daily_pnl = (self.equity - self.daily_equity_start)/self.daily_equity_start
             if daily_pnl <= -self.max_daily_loss:
                 self.daily_loss_hit = True
-                print(f"🌙 DAILY LOSS LIMIT ({daily_pnl*100:.1f}%)! Trading halted 🚫")
+                print(f" DAILY LOSS LIMIT ({daily_pnl*100:.1f}%)! Trading halted ")
         
         if self.weekly_equity_start:
             weekly_pnl = (self.equity - self.weekly_equity_start)/self.weekly_equity_start
             if weekly_pnl <= -self.max_weekly_loss:
                 self.weekly_loss_hit = True
-                print(f"🌙 WEEKLY LOSS LIMIT ({weekly_pnl*100:.1f}%)! Trading halted 🚫")
+                print(f" WEEKLY LOSS LIMIT ({weekly_pnl*100:.1f}%)! Trading halted ")
 
         if not self.position:
             if self.daily_loss_hit or self.weekly_loss_hit:
@@ -86,7 +85,7 @@ class VoltaicSqueeze(Strategy):
                     if size > 0:
                         self.buy(size=size)
                         self.max_high = self.data.High[-1]
-                        print(f"🌙🚀 LONG ENTRY! Size: {size} @ {self.data.Open[-1]:.2f}")
+                        print(f" LONG ENTRY! Size: {size} @ {self.data.Open[-1]:.2f}")
                 
                 # Short entry logic 🌌
                 elif self.data.Close[-2] < self.lower_band[-2]:

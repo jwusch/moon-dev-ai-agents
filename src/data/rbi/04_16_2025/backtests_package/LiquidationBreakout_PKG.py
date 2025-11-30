@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATIONBREAKOUT STRATEGY 🚀
-
 import pandas as pd
 import talib
 import numpy as np
@@ -31,7 +26,7 @@ data.set_index('datetime', inplace=True)
 # STRATEGY IMPLEMENTATION 🌙
 # =====================
 class LiquidationBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
+    risk_per_trade = 0.01  # 1% risk per trade 
     swing_period = 20      # Swing high/low detection period
     
     def init(self):
@@ -75,7 +70,7 @@ class LiquidationBreakout(Strategy):
                 if position_size > 0:
                     tp_price = current_price + (3 * risk_per_share)  # 3:1 RR
                     self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🌙 MOON DEV LONG SIGNAL 🌕 | Entry: {current_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f} | Size: {position_size} ✨")
+#                     print(f"🌙 MOON DEV LONG SIGNAL 🌕 | Entry: {current_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f} | Size: {position_size} ✨")
             
             # 🌙 Short Entry Condition
             elif near_lower:
@@ -87,4 +82,4 @@ class LiquidationBreakout(Strategy):
                 if position_size > 0:
                     tp_price = current_price - (3 * risk_per_share)  # 3:1 RR
                     self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                    print(f"🌙 MOON DEV SHORT SIGNAL 🌑 | Entry: {current_price:.2f} | SL: {sl
+#                     print(f"🌙 MOON DEV SHORT SIGNAL 🌑 | Entry: {current_price:.2f} | SL: {sl"

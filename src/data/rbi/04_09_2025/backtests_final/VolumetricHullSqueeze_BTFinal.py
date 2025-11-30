@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pdta
@@ -64,7 +61,7 @@ class VolumetricHullSqueeze(Strategy):
         current_bar = len(self.data) - 1
         
         # Moon-themed debug prints 🌕
-        print(f"\n🌙 Processing {self.data.index[-1]} - Close: {self.data.Close[-1]:.2f}")
+        print(f"\n Processing {self.data.index[-1]} - Close: {self.data.Close[-1]:.2f}")
         print(f"HMA Slope: {self.hma_slope[-1]:.4f} | BB Width: {self.bb_width[-1]:.4f}")
         print(f"Volume Osc: {self.vol_osc[-1]:.1f}% | ATR: {self.atr[-1]:.2f}")
 

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -72,8 +69,8 @@ class VolSqueezeBreakout(Strategy):
             talib.SMA, self.hist_vol, timeperiod=20, name='Avg_Hist_Vol'
         )
         
-        print("🌙 MOON DEV INDICATORS READY FOR LIFTOFF! 🚀")
-        print("✨ ALL SYSTEMS GO - NO BACKTESTING.LIB DETECTED! ✨")
+#         print("🌙 MOON DEV INDICATORS READY FOR LIFTOFF! 🚀")
+        print(" ALL SYSTEMS GO - NO BACKTESTING.LIB DETECTED! ")
 
     def next(self):
         # Emergency volatility exit
@@ -82,7 +79,7 @@ class VolSqueezeBreakout(Strategy):
             avg_vol = self.avg_hist_vol[-1]
             if current_vol > 2 * avg_vol:
                 self.position.close()
-                print(f"🌪️ VOLATILITY STORM! Closing position at {self.data.Close[-1]} ✨")
+                print(f" VOLATILITY STORM! Closing position at {self.data.Close[-1]} ")
         
         # Entry logic
         else:

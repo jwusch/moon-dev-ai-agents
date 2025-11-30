@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -77,6 +73,6 @@ class VortexVolumeSynergy(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tag='MoonDev_Entry')
-                    print(f"🌕 MOON DEV ENTRY 🌕 | Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+#                     print(f"🌕 MOON DEV ENTRY 🌕 | Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
         
         # EXIT LOGIC ✨

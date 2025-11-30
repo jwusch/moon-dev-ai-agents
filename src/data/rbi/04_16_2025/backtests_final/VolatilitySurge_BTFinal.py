@@ -1,7 +1,3 @@
-I've analyzed the code and found a few technical issues that need fixing while preserving the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VolatilitySurge Backtest Script 🌙
 import pandas as pd
 import talib
 import pandas_ta as pd_ta
@@ -16,12 +12,12 @@ class VolatilitySurge(Strategy):
         self.atr_ma = self.I(talib.SMA, self.atr, timeperiod=20)
         self.vwap = self.I(pd_ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume)
         
-        print("🌙 MOON DEV INDICATORS INITIALIZED 🌙 | ATR(14) | SMA(20) | VWAP ✨")
+#         print("🌙 MOON DEV INDICATORS INITIALIZED 🌙 | ATR(14) | SMA(20) | VWAP ✨")
 
     def next(self):
         # 🌙 Check minimum data length
         if len(self.data) < 20:
-            print("🌑 WAITING FOR ENOUGH DATA 🌑 | Need at least 20 periods")
+            print(" WAITING FOR ENOUGH DATA  | Need at least 20 periods")
             return
 
         # 🚀 Get indicator values
@@ -46,17 +42,17 @@ class VolatilitySurge(Strategy):
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌙 MOON DEV BUY SIGNAL 🌙 | Entry: {current_close:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | ATR: {current_atr:.2f} ✨")
+#                     print(f"🌙 MOON DEV BUY SIGNAL 🌙 | Entry: {current_close:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | ATR: {current_atr:.2f} ✨")
 
         # 🔄 Update Trailing Stop
         if self.position:
             new_sl = self.data.Close[-1] - 2 * self.atr[-1]
             if new_sl > self.position.sl:
                 self.position.sl = new_sl
-                print(f"🚀 TRAILING STOP UPDATED 🚀 | New SL: {new_sl:.2f} | Price: {self.data.Close[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+                print(f" TRAILING STOP UPDATED  | New SL: {new_sl:.2f} | Price: {self.data.Close[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
 
 # 📂 Data Preparation
-print("🌕 MOON DEV DATA PREPARATION STARTED 🌕")
+# print("🌕 MOON DEV DATA PREPARATION STARTED 🌕")
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")
 
 # 🧹 Clean and format data
@@ -71,16 +67,16 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("✨ DATA CLEANING COMPLETE ✨ | Columns standardized and indexed")
+print(" DATA CLEANING COMPLETE  | Columns standardized and indexed")
 
 # 🚀 Run Backtest
-print("\n🌙 MOON DEV BACKTEST INITIATED 🌙")
+# print("\n🌙 MOON DEV BACKTEST INITIATED 🌙")
 bt = Backtest(data, VolatilitySurge, cash=1_000_000, commission=.002)
 stats = bt.run()
 
 # 🌙 Print Full Statistics
 print("\n" + "="*50)
-print("🌕 MOON DEV BACKTEST RESULTS 🌕")
+# print("🌕 MOON DEV BACKTEST RESULTS 🌕")
 print("="*50 + "\n")
 print(stats)
 print("\n" + "="*50)

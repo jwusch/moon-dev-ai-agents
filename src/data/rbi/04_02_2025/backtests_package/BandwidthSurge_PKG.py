@@ -1,7 +1,3 @@
-Here's the fixed code with all indicator packages properly implemented and backtesting.lib references removed:
-
-```python
-# 🌙 Moon Dev's BandwidthSurge Backtest Implementation 🚀
 import pandas as pd
 from backtesting import Strategy, Backtest
 import talib
@@ -46,7 +42,7 @@ class BandwidthSurge(Strategy):
 
     def next(self):
         # 🌙 Moon Dev Debug Prints
-        print(f"\n🌕 New Candle: {self.data.index[-1]} | Equity: {self.equity:,.2f} 🌕")
+        print(f"\n New Candle: {self.data.index[-1]} | Equity: {self.equity:,.2f} ")
         
         if not self.position:
             # ========================
@@ -64,7 +60,7 @@ class BandwidthSurge(Strategy):
                         self.buy(size=position_size, 
                                 tag={'entry_price': self.data.Close[-1],
                                      'atr_entry': self.atr[-1]})
-                        print(f"🚀🌙 LONG ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
+                        print(f" LONG ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
                 
                 # 🌑 Short Entry Condition
                 elif self.data.Close[-1] < self.lower_band[-1]:
@@ -74,7 +70,7 @@ class BandwidthSurge(Strategy):
                         self.sell(size=position_size,
                                  tag={'entry_price': self.data.Close[-1],
                                       'atr_entry': self.atr[-1]})
-                        print(f"🌑🚀 SHORT ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
+                        print(f" SHORT ENTRY! Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
         
         else:
             # ========================

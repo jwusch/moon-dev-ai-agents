@@ -1,6 +1,3 @@
-Below is the implementation of the **MomentumRejection** strategy in Python using the `backtesting.py` framework. The implementation includes all the necessary components: trendline analysis, Stochastic Oscillator confirmation, entry/exit logic, risk management, and parameter optimization.
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -60,25 +57,25 @@ class MomentumRejection(Strategy):
         if price > uptrend_line and stoch_k < self.stoch_oversold and stoch_d < self.stoch_oversold:
             if crossover(stoch_k, stoch_d):  # Stochastic crossover confirmation
                 self.buy(size=position_size)
-                print(f"🌙 Moon Dev Buy Signal: Continuation Uptrend | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
+#                 print(f"🌙 Moon Dev Buy Signal: Continuation Uptrend | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
 
         # Entry logic for continuation pattern (downtrend)
         elif price < downtrend_line and stoch_k > self.stoch_overbought and stoch_d > self.stoch_overbought:
             if crossover(stoch_d, stoch_k):  # Stochastic crossover confirmation
                 self.sell(size=position_size)
-                print(f"🌙 Moon Dev Sell Signal: Continuation Downtrend | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
+#                 print(f"🌙 Moon Dev Sell Signal: Continuation Downtrend | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
 
         # Entry logic for breakout pattern (uptrend reversal)
         if price < uptrend_line and stoch_k > self.stoch_overbought and stoch_d > self.stoch_overbought:
             if crossover(stoch_d, stoch_k):  # Stochastic crossover confirmation
                 self.sell(size=position_size)
-                print(f"🌙 Moon Dev Sell Signal: Breakout Uptrend Reversal | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
+#                 print(f"🌙 Moon Dev Sell Signal: Breakout Uptrend Reversal | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
 
         # Entry logic for breakout pattern (downtrend reversal)
         elif price > downtrend_line and stoch_k < self.stoch_oversold and stoch_d < self.stoch_oversold:
             if crossover(stoch_k, stoch_d):  # Stochastic crossover confirmation
                 self.buy(size=position_size)
-                print(f"🌙 Moon Dev Buy Signal: Breakout Downtrend Reversal | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
+#                 print(f"🌙 Moon Dev Buy Signal: Breakout Downtrend Reversal | Price: {price} | Stochastic: {stoch_k}, {stoch_d}")
 
         # Exit logic
         for trade in self.trades:
@@ -124,41 +121,3 @@ print(optimization_results)
 
 # Plot optimized performance
 bt.plot()
-```
-
----
-
-### Key Features:
-1. **Trendline Analysis**:
-   - Uses rolling highs/lows as proxies for trendlines.
-   - Uptrend: Higher lows (using `talib.MIN`).
-   - Downtrend: Lower highs (using `talib.MAX`).
-
-2. **Stochastic Oscillator**:
-   - Confirms continuation and breakout patterns.
-   - Overbought/oversold levels are optimized.
-
-3. **Entry/Exit Logic**:
-   - Continuation patterns: Stochastic crossover confirmation.
-   - Breakout patterns: Momentum loss and double rejection patterns.
-
-4. **Risk Management**:
-   - Position sizing based on 1-2% risk per trade.
-   - Stop loss and take profit levels based on swing highs/lows.
-
-5. **Parameter Optimization**:
-   - Optimizes Stochastic parameters, risk per trade, and risk-reward ratio.
-
-6. **Moon Dev Debugging**:
-   - Prints entry/exit signals with Moon Dev-themed messages.
-
----
-
-### Execution Order:
-1. Run the initial backtest with default parameters.
-2. Print full stats and strategy details.
-3. Show the initial performance plot.
-4. Run parameter optimization.
-5. Show optimized results and final plot.
-
-Let me know if you need further adjustments! 🌙✨🚀

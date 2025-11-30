@@ -1,16 +1,12 @@
-Here's the complete backtesting implementation for the AngleConfirm strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 
 class AngleConfirm(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
-    stop_loss_pct = 0.005  # 0.5% stop loss ✨
-    rr_ratio = 2  # Risk-reward ratio 🚀
+    risk_percent = 0.01  # 1% risk per trade 
+    stop_loss_pct = 0.005  # 0.5% stop loss 
+    rr_ratio = 2  # Risk-reward ratio 
 
     def init(self):
         # 🌟 Gann Angle Indicators 🌟
@@ -20,7 +16,7 @@ class AngleConfirm(Strategy):
         # 🎯 5-period SMA for trend confirmation 🎯
         self.sma5 = self.I(talib.SMA, self.data.Close, 5, name='5 SMA')
         
-        print("🌙✨ MOON DEV INDICATORS INITIALIZED ✨🌙")
+#         print("🌙✨ MOON DEV INDICATORS INITIALIZED ✨🌙")
 
     def next(self):
         # Wait for enough historical data 🌈
@@ -54,27 +50,27 @@ class AngleConfirm(Strategy):
             risk_distance = sl_price - entry_price
 
         if risk_distance <= 0:
-            print("🌙⚠️ MOON DEV RISK CALCULATION ERROR ⚠️🌙")
+#             print("🌙⚠️ MOON DEV RISK CALCULATION ERROR ⚠️🌙")
             return
 
         # 🎯 Position sizing calculation 🎯
         position_size = int(round(risk_amount / risk_distance))
         
         if position_size <= 0:
-            print(f"🌙⚠️ INVALID POSITION SIZE: {position_size} ⚠️🌙")
+            print(f" INVALID POSITION SIZE: {position_size} ")
             return
 
         if direction == 'long':
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌙🚀 BULLISH ANGLE CONFIRMATION 🚀🌙 | Entry: {entry_price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(f" BULLISH ANGLE CONFIRMATION  | Entry: {entry_price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
         else:
             self.sell(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌙🌧️ BEARISH ANGLE CONFIRMATION 🌧️🌙 | Entry: {entry_price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(f" BEARISH ANGLE CONFIRMATION  | Entry: {entry_price:.2f} | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
 
     def notify_trade(self, trade):
         if trade.is_closed:
             profit = trade.pl_pct
-            emoji = "🚀🌙 PROFIT MOONSHOT 🌙🚀" if profit > 0 else "🌧️🌙 RAIN CHECK 🌙🌧️"
+            emoji = " PROFIT MOONSHOT " if profit > 0 else " RAIN CHECK "
             print(f"{emoji} | PnL: ${trade.pl:.2f} | Return: {profit:.2%}")
 
 # 🌟 DATA PREPARATION 🌟

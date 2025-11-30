@@ -1,14 +1,10 @@
-Here's the fully debugged and fixed backtest code with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VolumetricBreakout Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
 import numpy as np
 
 class VolumetricBreakout(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌌 Calculate Bollinger Bands with Width using TA-Lib
@@ -24,7 +20,7 @@ class VolumetricBreakout(Strategy):
         # 📈 Volume MA indicator
         self.volume_ma = self.I(talib.SMA, self.data.Volume, timeperiod=50, name='Volume MA')
         
-        print("🌙 Moon Dev Indicators Initialized! 🚀")
+#         print("🌙 Moon Dev Indicators Initialized! 🚀")
 
     def next(self):
         # 🛑 Skip early bars without indicator data
@@ -56,7 +52,7 @@ class VolumetricBreakout(Strategy):
                         position_size = int(round((self.equity * self.risk_percent) / risk_per_share))
                         if position_size > 0:
                             self.buy(size=position_size, sl=stop_price)
-                            print(f"🌙 MOON DEV LONG SIGNAL! 🚀 Size: {position_size} | Price: {current_close:.2f} | Stop: {stop_price:.2f} ✨")
+#                             print(f"🌙 MOON DEV LONG SIGNAL! 🚀 Size: {position_size} | Price: {current_close:.2f} | Stop: {stop_price:.2f} ✨")
                 
                 # Short Entry    
                 elif current_close < self.lower[-1]:
@@ -66,17 +62,17 @@ class VolumetricBreakout(Strategy):
                         position_size = int(round((self.equity * self.risk_percent) / risk_per_share))
                         if position_size > 0:
                             self.sell(size=position_size, sl=stop_price)
-                            print(f"🌙 MOON DEV SHORT SIGNAL! 🌑 Size: {position_size} | Price: {current_close:.2f} | Stop: {stop_price:.2f} ✨")
+#                             print(f"🌙 MOON DEV SHORT SIGNAL! 🌑 Size: {position_size} | Price: {current_close:.2f} | Stop: {stop_price:.2f} ✨")
         
         # 💰 Exit Logic
         else:
             if self.position.is_long and current_close <= self.middle[-1]:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT LONG! ✅ Price: {current_close:.2f} | PnL: {self.position.pl:.2f} 🏁")
+#                 print(f"🌙 MOON DEV EXIT LONG! ✅ Price: {current_close:.2f} | PnL: {self.position.pl:.2f} 🏁")
             
             elif self.position.is_short and current_close >= self.middle[-1]:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT SHORT! ✅ Price: {current_close:.2f} | PnL: {self.position.pl:.2f} 🏁")
+#                 print(f"🌙 MOON DEV EXIT SHORT! ✅ Price: {current_close:.2f} | PnL: {self.position.pl:.2f} 🏁")
 
 # 🧹 Data Cleaning
 data = pd.read_csv('BTC-USD-15m.csv')

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -21,7 +20,7 @@ data = data.rename(columns={
 })
 
 class SqueezeSurge(Strategy):
-    risk_percent = 0.01  # 1% of equity per trade 🌙
+    risk_percent = 0.01  # 1% of equity per trade 
     
     def init(self):
         # Bollinger Bands components ✨
@@ -58,13 +57,13 @@ class SqueezeSurge(Strategy):
                 self.trailing_stop = self.highest_high - 3 * atr_value
                 if self.data.Close[-1] <= self.trailing_stop:
                     self.position.close()
-                    print(f"🌙 Moon Dev Exit: Long closed at {self.data.Close[-1]:.2f} | Trail Stop {self.trailing_stop:.2f} ✨")
+#                     print(f"🌙 Moon Dev Exit: Long closed at {self.data.Close[-1]:.2f} | Trail Stop {self.trailing_stop:.2f} ✨")
             else:
                 self.lowest_low = min(self.lowest_low, self.data.Low[-1])
                 self.trailing_stop = self.lowest_low + 3 * atr_value
                 if self.data.Close[-1] >= self.trailing_stop:
                     self.position.close()
-                    print(f"🌑 Moon Dev Exit: Short closed at {self.data.Close[-1]:.2f} | Trail Stop {self.trailing_stop:.2f} ✨")
+#                     print(f"🌑 Moon Dev Exit: Short closed at {self.data.Close[-1]:.2f} | Trail Stop {self.trailing_stop:.2f} ✨")
             return
 
         # Entry logic requires 200 periods 📆
@@ -81,4 +80,4 @@ class SqueezeSurge(Strategy):
         if all([squeeze, volume_surge, price_below_ma]):
             atr_value = self.atr[-1]
             if atr_value <= 0:
-                return  # Safety check ⚠️
+                return  # Safety check 

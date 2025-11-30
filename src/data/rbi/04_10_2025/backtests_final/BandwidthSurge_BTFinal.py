@@ -1,6 +1,3 @@
-I'll fix the technical issues in the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -67,10 +64,10 @@ class BandwidthSurge(Strategy):
         if self.position:
             # Moon Dev Rule: Check trend exit conditions
             if self.position.is_long and self.data.Close[-1] < self.sma20[-1]:
-                print("🌙✨ Lunar Exit Signal | Closing Long Position")
+                print(" Lunar Exit Signal | Closing Long Position")
                 self.position.close()
             elif self.position.is_short and self.data.Close[-1] > self.sma20[-1]:
-                print("🌙✨ Lunar Exit Signal | Closing Short Position")
+                print(" Lunar Exit Signal | Closing Short Position")
                 self.position.close()
             return
 
@@ -81,7 +78,7 @@ class BandwidthSurge(Strategy):
         vol_ma = self.volume_ma[-1]
 
         # Moon Dev Debug Prints 🌙✨
-        print(f"🌙✨ Lunar Scan Complete | BBW: {bbw:.4f} | 6M Low: {bbw_min:.4f} | Volume: {volume/1e6:.2f}M vs MA: {vol_ma/1e6:.2f}M")
+        print(f" Lunar Scan Complete | BBW: {bbw:.4f} | 6M Low: {bbw_min:.4f} | Volume: {volume/1e6:.2f}M vs MA: {vol_ma/1e6:.2f}M")
 
         long_signal = bbw <= bbw_min and volume > vol_ma and close > self.upper_band[-1]
         short_signal = bbw <= bbw_min and volume > vol_ma and close < self.lower_band[-1]

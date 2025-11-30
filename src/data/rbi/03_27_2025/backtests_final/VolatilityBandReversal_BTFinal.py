@@ -1,14 +1,10 @@
-Here's the fully debugged and Moon Dev themed backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev's Volatility Band Reversal Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
 from backtesting import Backtest, Strategy
 
 # ========== DATA PREPROCESSING ==========
-print("🌌 Initializing Moon Dev's Cosmic Data Processor...")
+# print("🌌 Initializing Moon Dev's Cosmic Data Processor...")'
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 # Clean columns like a Moon Dev wizard 🧙
@@ -29,7 +25,7 @@ data.rename(columns=column_mapping, inplace=True)
 required_cols = ['vix', 'vvix', 'spx_volume']
 for col in required_cols:
     if col not in data.columns:
-        raise ValueError(f"🚨 Cosmic Alert! Missing required column: {col}")
+        raise ValueError(f" Cosmic Alert! Missing required column: {col}")
 
 # ========== STRATEGY IMPLEMENTATION ==========
 class VolatilityBandReversal(Strategy):
@@ -52,7 +48,7 @@ class VolatilityBandReversal(Strategy):
         self.spx_volume_ma10 = self.I(talib.SMA, self.data.df['spx_volume'], timeperiod=10, name='SPX Vol MA10')
         self.ratio_sma30 = self.I(talib.SMA, self.vix_vvix_ratio, timeperiod=30, name='Ratio SMA30')
         
-        print("🌠 Moon Dev Strategy Activated! Cosmic indicators aligned and ready 🌙")
+#         print("🌠 Moon Dev Strategy Activated! Cosmic indicators aligned and ready 🌙")
 
     def next(self):
         # 🛑 Ensure enough data for calculations
@@ -79,7 +75,7 @@ class VolatilityBandReversal(Strategy):
                 position_size = int(round(risk_amount / (entry_price - stop_price)))
                 if position_size > 0:  # Moon Dev safety check
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🌕 LONG ENTRY! Size: {position_size} @ {entry_price:.2f} | Cosmic Bullish Alignment Detected 🌙")
+                    print(f" LONG ENTRY! Size: {position_size} @ {entry_price:.2f} | Cosmic Bullish Alignment Detected ")
 
         # 🌑 Short Entry: Volatility Collapse
         elif (current_ratio < current_lower and 

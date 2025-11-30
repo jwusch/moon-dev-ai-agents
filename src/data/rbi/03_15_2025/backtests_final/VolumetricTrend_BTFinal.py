@@ -1,7 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and all necessary corrections applied. I've focused on fixing technical issues while preserving the original strategy logic. 🌙✨
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +35,7 @@ class VolumetricTrend(Strategy):
     def next(self):
         # Moon Dev Safety Checks 🌙
         if len(self.sma10) < 2 or len(self.sma50) < 2:
-            print("🌙✨ Not enough data for crossover detection. Skipping...")
+            print(" Not enough data for crossover detection. Skipping...")
             return
 
         # Current indicator values
@@ -59,13 +55,13 @@ class VolumetricTrend(Strategy):
                 risk_per_unit = self.atr_multiple * atr_now
                 
                 if risk_per_unit <= 0:
-                    print("🌙✨ ATR Value Too Low - Trade Aborted!")
+                    print(" ATR Value Too Low - Trade Aborted!")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🌙✨ BULLISH CROSSOVER DETECTED! Entered Long at {self.data.Close[-1]} 🚀")
+                    print(f" BULLISH CROSSOVER DETECTED! Entered Long at {self.data.Close[-1]} ")
                     print(f"    Size: {position_size} BTC | Risk: {self.risk_percent*100}% | ATR Stop: {risk_per_unit:.2f}")
 
             # Short entry (bearish crossover)
@@ -74,13 +70,13 @@ class VolumetricTrend(Strategy):
                 risk_per_unit = self.atr_multiple * atr_now
                 
                 if risk_per_unit <= 0:
-                    print("🌙✨ ATR Value Too Low - Trade Aborted!")
+                    print(" ATR Value Too Low - Trade Aborted!")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.sell(size=position_size)
-                    print(f"🌙✨ BEARISH CROSSOVER DETECTED! Entered Short at {self.data.Close[-1]} 📉")
+                    print(f" BEARISH CROSSOVER DETECTED! Entered Short at {self.data.Close[-1]} ")
                     print(f"    Size: {position_size} BTC | Risk: {self.risk_percent*100}% | ATR Stop: {risk_per_unit:.2f}")
 
         # Exit Logic 🛑

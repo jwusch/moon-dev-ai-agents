@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -43,9 +40,9 @@ class BandwidthBreakout(Strategy):
     def next(self):
         # Moon Dev debug prints
         if len(self.data) % 100 == 0:
-            print(f"🌙 Current BB Width: {self.bb_width[-1]:.2f} vs SMA10: {self.bb_width_sma10[-1]:.2f}")
-            print(f"📈 Volume: {self.data.Volume[-1]:.2f} vs Median: {self.volume_median[-1]:.2f}")
-            print(f"✨ KC Range: {self.ema20[-1]:.2f} ± {1.5*self.atr20[-1]:.2f}\n")
+            print(f" Current BB Width: {self.bb_width[-1]:.2f} vs SMA10: {self.bb_width_sma10[-1]:.2f}")
+            print(f" Volume: {self.data.Volume[-1]:.2f} vs Median: {self.volume_median[-1]:.2f}")
+            print(f" KC Range: {self.ema20[-1]:.2f} ± {1.5*self.atr20[-1]:.2f}\n")
         
         if not self.position:
             contraction = self.bb_width[-1] < self.bb_width_sma10[-1]
@@ -63,8 +60,8 @@ class BandwidthBreakout(Strategy):
                     if size > 0:
                         tp_price = entry_price + 2*risk_per_unit
                         self.buy(size=size, sl=kc_lower, tp=tp_price)
-                        print(f"🚀🌙 LONG ENTRY @ {entry_price:.2f}")
-                        print(f"   ░SL: {kc_lower:.2f} | TP: {tp_price:.2f} | Size: {size}\n")
+                        print(f" LONG ENTRY @ {entry_price:.2f}")
+                        print(f"   SL: {kc_lower:.2f} | TP: {tp_price:.2f} | Size: {size}\n")
             
             # Short entry logic        
             elif contraction and volume_ok and self.data.Close[-1] < self.bb_lower[-1]:

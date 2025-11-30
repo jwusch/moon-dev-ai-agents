@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VoltaicBreakout Backtest Implementation 🚀
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -30,7 +26,7 @@ class VoltaicBreakout(Strategy):
     bb_dev = 2
     adx_period = 14
     atr_period = 14
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
 
     def init(self):
         # TA-Lib Indicators with self.I() ✨
@@ -41,8 +37,8 @@ class VoltaicBreakout(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, self.adx_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period)
         
-        print("🌙 VoltaicBreakout Strategy Activated! ✨")
-        print(f"BB({self.bb_period}/{self.bb_dev}) | ADX({self.adx_period}) | ATR({self.atr_period}) 🚀")
+#         print("🌙 VoltaicBreakout Strategy Activated! ✨")
+        print(f"BB({self.bb_period}/{self.bb_dev}) | ADX({self.adx_period}) | ATR({self.atr_period}) ")
 
     def next(self):
         # Wait for indicators to warm up 🌙
@@ -88,7 +84,7 @@ class VoltaicBreakout(Strategy):
                             'peak': price
                         }
                     )
-                    print(f"🚀 LONG LAUNCHED! 🌙 Size: {size} | Stop: {price - stop_dist:.2f} ✨")
+                    print(f" LONG LAUNCHED!  Size: {size} | Stop: {price - stop_dist:.2f} ")
 
             # Short entry constellation 🌑
             elif (price < bb_lower and 

@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the VoltaicSqueeze strategy with Moon Dev enhancements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta

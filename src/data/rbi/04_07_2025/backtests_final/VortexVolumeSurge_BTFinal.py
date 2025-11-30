@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -72,10 +69,10 @@ class VortexVolumeSurge(Strategy):
             if position_size > 0:
                 self.buy(size=position_size)
                 self.trailing_stop = self.data.Close[-1] - 3 * atr_value
-                print(f"🌙 MOON DEV ALERT! 🚀 Long entry {position_size} units at {self.data.Close[-1]} ✨")
+#                 print(f"🌙 MOON DEV ALERT! 🚀 Long entry {position_size} units at {self.data.Close[-1]} ✨")
                 print(f"   Initial stop: {self.trailing_stop:.2f} | ATR: {atr_value:.2f}")
-                print(f"   VI+ {self.vi_plus[-1]:.4f} crossed above VI- {self.vi_minus[-1]:.4f} 🌙")
-                print(f"   Volume {self.data.Volume[-1]:.0f} vs SMA {self.volume_sma[-1]:.0f} 🌊")
+                print(f"   VI+ {self.vi_plus[-1]:.4f} crossed above VI- {self.vi_minus[-1]:.4f} ")
+                print(f"   Volume {self.data.Volume[-1]:.0f} vs SMA {self.volume_sma[-1]:.0f} ")
 
         # Manage open positions
         if self.position:

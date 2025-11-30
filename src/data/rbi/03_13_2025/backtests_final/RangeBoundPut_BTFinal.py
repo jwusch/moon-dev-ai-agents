@@ -41,8 +41,8 @@ class RangeBoundPut(Strategy):
                     # 🚀 Execute entry with Moon Dev flair
                     if position_size > 0:  # Ensure valid position size
                         self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                        print(f"🌙✨🚀 MOON DEV ENTRY: Long {position_size} units at {entry_price:.2f}")
-                        print(f"   🌕 SL: {sl_price:.2f} | 🌟 TP: {tp_price:.2f}")
+                        print(f"🌙✨🚀 MOON DEV ENTRY: Long {position_size} units at {entry_price:0.2f}")
+                        print(f"   🌕 SL: {sl_price:0.2f} | 🌟 TP: {tp_price:0.2f}")
                     else:
                         print("🌙⚠️ Warning: Position size too small - skipping trade")
 
@@ -75,7 +75,7 @@ except Exception as e:
 
 # 🌙 Launch Backtest Sequence
 try:
-    bt = Backtest(data, RangeBoundPut, cash=1_000_000, commission=.002)
+    bt = Backtest(data, RangeBoundPut, cash=1_000_000, commission=0.002)
     stats = bt.run()
 
     # 🌟 Print Cosmic Performance Report

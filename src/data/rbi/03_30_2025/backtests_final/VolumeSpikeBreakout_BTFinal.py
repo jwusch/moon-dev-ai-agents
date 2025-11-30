@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -24,7 +21,7 @@ class VolumeSpikeBreakout(Strategy):
         
         # Calculate brick size once
         self.brick_size = self.brick_size_multiplier * np.nanmean(self.atr)
-        print(f"🌙 Moon Dev Initialization Complete | Renko Brick Size: {self.brick_size:.2f} ✨")
+#         print(f"🌙 Moon Dev Initialization Complete | Renko Brick Size: {self.brick_size:.2f} ✨")
 
         # Renko tracking variables
         self.renko_direction = 1  # 1=up, -1=down
@@ -46,7 +43,7 @@ class VolumeSpikeBreakout(Strategy):
                 self.renko_high = self.renko_low
                 self.renko_low -= self.brick_size
                 self.renko_direction = -1
-                print(f"🌘 Moon Phase Shift | Renko Reversal DOWN at {self.last_reversal_level:.2f}")
+                print(f" Moon Phase Shift | Renko Reversal DOWN at {self.last_reversal_level:.2f}")
         else:
             if current_low <= self.renko_low - self.brick_size:
                 self.renko_low -= self.brick_size
@@ -56,7 +53,7 @@ class VolumeSpikeBreakout(Strategy):
                 self.renko_low = self.renko_high
                 self.renko_high += self.brick_size
                 self.renko_direction = 1
-                print(f"🌖 Moon Phase Shift | Renko Reversal UP at {self.last_reversal_level:.2f}")
+                print(f" Moon Phase Shift | Renko Reversal UP at {self.last_reversal_level:.2f}")
 
         # Entry logic
         if not self.position:
@@ -71,7 +68,7 @@ class VolumeSpikeBreakout(Strategy):
 
             if vwma_cross and cmf_ok:
                 if self.last_reversal_level is None:
-                    print("⚠️ Lunar Warning | No Reversal Level Detected - Skipping Trade")
+                    print(" Lunar Warning | No Reversal Level Detected - Skipping Trade")
                     return
 
                 entry_price = self.data.Open[-1]
@@ -79,7 +76,7 @@ class VolumeSpikeBreakout(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("⚠️ Cosmic Anomaly | Negative Risk Detected - Aborting Trade")
+                    print(" Cosmic Anomaly | Negative Risk Detected - Aborting Trade")
                     return
 
                 # Calculate

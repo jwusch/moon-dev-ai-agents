@@ -1,15 +1,3 @@
-To address this problem, we need to create a backtesting script for the SqueezeDivergence strategy using the backtesting.py framework. The strategy involves identifying Bollinger Band squeezes combined with volume divergence to enter counter-trend trades and exit based on volatility expansion or time-based conditions. Here's the step-by-step solution:
-
-### Approach
-1. **Data Handling**: Clean and preprocess the data to ensure proper column names and structure.
-2. **Indicators Calculation**: Use TA-Lib to compute Bollinger Bands, ATR, and other necessary indicators.
-3. **Entry Conditions**: Identify Bollinger Band squeeze conditions and volume divergence to trigger trades.
-4. **Exit Conditions**: Exit trades based on volatility expansion or after a fixed number of bars.
-5. **Risk Management**: Calculate position sizes based on a 1% risk per trade and set stop losses using ATR.
-6. **Moon Dev Themed Logging**: Include themed print statements for debugging and tracking trades.
-
-### Solution Code
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -59,7 +47,7 @@ class SqueezeDivergence(Strategy):
         # Calculate 50-period SMA of BB Width for exit condition
         self.bb_width_ma50 = self.I(talib.SMA, self.bb_width, timeperiod=50, name='BB_Width_MA50')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
 
     def next(self):
         # Check if we have enough data to compute all indicators
@@ -71,7 +59,7 @@ class SqueezeDivergence(Strategy):
         squeeze_threshold = self.bb_squeeze_threshold[-1]
         squeeze_condition = current_bb_width < squeeze_threshold if not np.isnan(squeeze_threshold) else False
         
-        # Check if we're in a squeeze
+        # Check if we're in a squeeze'
         if squeeze_condition:
             # Calculate divergence conditions
             current_price_high = self.data.High[-1]

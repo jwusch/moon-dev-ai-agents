@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's Vortex Accumulation Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -74,7 +70,7 @@ class VortexAccumulation(Strategy):
                         risk_per_share = price_c - sl
                         size = int(round(risk_amount / risk_per_share))
                         if size > 0:
-                            print(f"🌙✨ LONG! VI+↑VI- | CMF↑ @ {price_c:.2f} | Size: {size} 🚀")
+                            print(f" LONG! VI+↑VI- | CMF↑ @ {price_c:.2f} | Size: {size} ")
                             self.buy(size=size, sl=sl)
 
             # Short Entry: VI- crosses VI+ & CMF Bear Divergence 💥
@@ -86,7 +82,7 @@ class VortexAccumulation(Strategy):
                         risk_per_share = sl - price_c
                         size = int(round(risk_amount / risk_per_share))
                         if size > 0:
-                            print(f"🌙✨ SHORT! VI-↑VI+ | CMF↓ @ {price_c:.2f} | Size: {size} 💥")
+                            print(f" SHORT! VI-↑VI+ | CMF↓ @ {price_c:.2f} | Size: {size} ")
                             self.sell(size=size, sl=sl)
 
         # Exit Conditions

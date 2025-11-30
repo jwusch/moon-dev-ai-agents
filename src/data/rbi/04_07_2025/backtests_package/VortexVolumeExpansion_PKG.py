@@ -1,9 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
-# 🌙✨ Moon Dev's VortexVolumeExpansion Backtest Script 🚀
-
-# Required imports
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -25,7 +19,7 @@ class VortexVolumeExpansion(Strategy):
         # ATR MA for exit condition (10-period)
         self.atr_ma = self.I(talib.SMA, self.atr, timeperiod=10, name='ATR MA')
         
-        print("🌙✨ Strategy Initialized with Vortex, Volume MA, and ATR Indicators!")
+#         print("🌙✨ Strategy Initialized with Vortex, Volume MA, and ATR Indicators!")
 
     def _calculate_vi_plus(self):
         # Calculate VI+ using pandas_ta
@@ -78,9 +72,9 @@ class VortexVolumeExpansion(Strategy):
                 self.buy(
                     size=position_size, 
                     sl=stop_loss,
-                    tag="🌙✨ VortexVolumeExpansion Long"
+                    tag=" VortexVolumeExpansion Long"
                 )
-                print(f"🌙✨🚀 MOON DEV ENTRY: Long {position_size} units at {entry_price:.2f} | SL {stop_loss:.2f}")
+#                 print(f"🌙✨🚀 MOON DEV ENTRY: Long {position_size} units at {entry_price:.2f} | SL {stop_loss:.2f}")
 
         # Exit Conditions
         if self.position:
@@ -92,7 +86,7 @@ class VortexVolumeExpansion(Strategy):
             if exit_signal or atr_fail:
                 self.position.close()
                 reason = "VI Reversal" if exit_signal else "ATR Contraction"
-                print(f"🌙✨🌑 MOON DEV EXIT: Closing at {current_close:.2f} | Reason: {reason}")
+#                 print(f"🌙✨🌑 MOON DEV EXIT: Closing at {current_close:.2f} | Reason: {reason}")
 
 # Data Handling 🌙
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15"

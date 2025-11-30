@@ -61,7 +61,7 @@ class VolatilityContraction(Strategy):
                                  tag="🌙 MOON DEV SHORT ENTRY")
                         self.peak_atr_since_entry = self.atr[-1]
                         print(f"🌙✨ MOON DEV ALERT: Short initiated {position_size} units "
-                              f"at {self.data.Close[-1]:.2f} with SL {stop_loss:.2f} 🚀")
+                              f"at {self.data.Close[-1]:0.2f} with SL {stop_loss:0.2f} 🚀")
 
         # 🌓 Exit Logic
         else:
@@ -73,15 +73,15 @@ class VolatilityContraction(Strategy):
             current_low = self.data.Low[-1]
             if current_high >= upper_band or current_low <= lower_band:
                 self.position.close()
-                print(f"✨🌑 MOON DEV EXIT: Price breakout at {self.data.Close[-1]:.2f}")
+                print(f"✨🌑 MOON DEV EXIT: Price breakout at {self.data.Close[-1]:0.2f}")
 
             # Volatility collapse exit
             if self.atr[-1] < 0.8 * self.peak_atr_since_entry:
                 self.position.close()
-                print(f"🌗🚀 MOON DEV EXIT: Volatility collapse at {self.data.Close[-1]:.2f}")
+                print(f"🌗🚀 MOON DEV EXIT: Volatility collapse at {self.data.Close[-1]:0.2f}")
 
 # 🌕 Launch Moon Dev Backtest
-bt = Backtest(data, VolatilityContraction, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolatilityContraction, cash=1_000_000, commission=0.002)
 stats = bt.run()
 print(stats)
 print(stats._strategy)

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -69,7 +66,7 @@ class VoltrendFlip(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=stop_price)
-            print(f"🌙✨🚀 BULLISH Moon Alignment! Long {position_size} @ {price:.2f} | SL: {stop_price:.2f}")
+            print(f" BULLISH Moon Alignment! Long {position_size} @ {price:.2f} | SL: {stop_price:.2f}")
             
     def short_entry(self, price):
         atr_val = self.atr[-1]
@@ -79,7 +76,7 @@ class VoltrendFlip(Strategy):
         
         if position_size > 0:
             self.sell(size=position_size, sl=stop_price)
-            print(f"🌙✨🚀 BEARISH Moon Flip! Short {position_size} @ {price:.2f} | SL: {stop_price:.2f}")
+            print(f" BEARISH Moon Flip! Short {position_size} @ {price:.2f} | SL: {stop_price:.2f}")
             
     def check_exits(self, price):
         current_dir = self.super_dir[-1]
@@ -88,7 +85,7 @@ class VoltrendFlip(Strategy):
             # SuperTrend flip exit
             if current_dir == -1:
                 self.position.close()
-                print(f"🌙🌗 Moon Phase Shift! Closing long @ {price:.2f}")
+                print(f" Moon Phase Shift! Closing long @ {price:.2f}")
             # Trailing stop check
             else:
                 trail_stop = self.data.Close[-1] - self.atr_multiplier * self.atr[-1]

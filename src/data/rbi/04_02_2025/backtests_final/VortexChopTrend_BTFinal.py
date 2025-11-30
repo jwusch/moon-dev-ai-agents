@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev enhancements:
-
-```python
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -8,7 +5,7 @@ from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 
 class VortexChopTrend(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     
     def init(self):
         # ====== INDICATOR CALCULATIONS ======
@@ -19,8 +16,8 @@ class VortexChopTrend(Strategy):
             close=self.data.Close,
             length=14
         )
-        self.vi_plus = self.I(lambda: vi_plus, name='VI+ ✨')
-        self.vi_minus = self.I(lambda: vi_minus, name='VI- ✨')
+        self.vi_plus = self.I(lambda: vi_plus, name='VI+ ')
+        self.vi_minus = self.I(lambda: vi_minus, name='VI- ')
 
         # Choppiness Index (14-period)
         ci = ta.ci(
@@ -29,7 +26,7 @@ class VortexChopTrend(Strategy):
             close=self.data.Close,
             length=14
         )
-        self.ci = self.I(lambda: ci, name='ChopIdx 🌊')
+        self.ci = self.I(lambda: ci, name='ChopIdx ')
 
         # ADX (14-period)
         self.adx = self.I(talib.ADX,
@@ -37,22 +34,22 @@ class VortexChopTrend(Strategy):
                           self.data.Low,
                           self.data.Close,
                           timeperiod=14,
-                          name='ADX 📈')
+                          name='ADX ')
 
         # Swing Highs/Lows (20-period)
         self.swing_high = self.I(talib.MAX, 
                                self.data.High, 
                                timeperiod=20,
-                               name='SwingHigh ⛰️')
+                               name='SwingHigh ')
         self.swing_low = self.I(talib.MIN,
                               self.data.Low,
                               timeperiod=20,
-                              name='SwingLow 🏞️')
+                              name='SwingLow ')
 
     def next(self):
         # ====== MOON DEV DEBUG PRINT ======
         if len(self.data) % 100 == 0:
-            print(f"\n🌙 CURRENT STATE 🌙\nVI+={self.vi_plus[-1]:.2f} | VI-={self.vi_minus[-1]:.2f}")
+            print(f"\n CURRENT STATE \nVI+={self.vi_plus[-1]:.2f} | VI-={self.vi_minus[-1]:.2f}")
             print(f"CI={self.ci[-1]:.1f} | ADX={self.adx[-1]:.1f} | Price={self.data.Close[-1]:.2f}\n")
 
         # ====== ENTRY LOGIC ======
@@ -71,8 +68,8 @@ class VortexChopTrend(Strategy):
                     ))
                     self.buy(size=position_size, 
                             sl=sl_price,
-                            tag="Moon Bullish Entry 🌕🚀")
-                    print(f"\n🚀🌙 BULLISH SIGNAL! Entry: {self.data.Close[-1]:.2f}")
+                            tag="Moon Bullish Entry ")
+                    print(f"\n BULLISH SIGNAL! Entry: {self.data.Close[-1]:.2f}")
                     print(f"Size: {position_size} | SL: {sl_price:.2f} | Risk: {risk_per_share:.2f}")
 
             # Short Entry 🌙📉
@@ -89,8 +86,8 @@ class VortexChopTrend(Strategy):
                     ))
                     self.sell(size=position_size,
                              sl=sl_price,
-                             tag="Moon Bearish Entry 🌕📉")
-                    print(f"\n📉🌙 BEARISH SIGNAL! Entry: {self.data.Close[-1]:.2f}")
+                             tag="Moon Bearish Entry ")
+                    print(f"\n BEARISH SIGNAL! Entry: {self.data.Close[-1]:.2f}")
                     print(f"Size: {position_size} | SL: {sl_price:.2f} | Risk: {risk_per_share:.2f}")
 
         # ====== EXIT LOGIC ======

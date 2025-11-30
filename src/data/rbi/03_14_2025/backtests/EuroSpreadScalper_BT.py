@@ -35,7 +35,7 @@ class EuroSpreadScalper(Strategy):
             
         # 🌙 VOLATILITY FILTER
         if self.atr[-1] < 50:
-            print(f"🌙✨ VOLATILITY TOO LOW: ATR={self.atr[-1]:.1f}")
+            print(f"🌙✨ VOLATILITY TOO LOW: ATR={self.atr[-1]:0.1f}")
             return
             
         # 🌙 ENTRY LOGIC
@@ -51,8 +51,8 @@ class EuroSpreadScalper(Strategy):
                          sl=sl_price,
                          tp=price * (1 - self.tp_factor))
                 self.entry_bar = len(self.data)
-                print(f"🌙🚀 EURO SHORT! Size: {position_size} | Entry: {price:.2f}")
-                print(f"    SL: {sl_price:.2f} | TP: {price*(1-self.tp_factor):.2f}")
+                print(f"🌙🚀 EURO SHORT! Size: {position_size} | Entry: {price:0.2f}")
+                print(f"    SL: {sl_price:0.2f} | TP: {price*(1-self.tp_factor):0.2f}")
 
         # ⏰ TIME-BASED EXIT LOGIC
         if self.position and (len(self.data) - self.entry_bar) >= 2:
@@ -82,7 +82,7 @@ data = data.rename(columns={
 
 # ======== BACKTEST EXECUTION ========
 print("🌕🌖🌗🌘🌑🌒🌓🌔🌕 MOON DEV BACKTEST INITIATED 🚀")
-bt = Backtest(data, EuroSpreadScalper, cash=1_000_000, commission=.002)
+bt = Backtest(data, EuroSpreadScalper, cash=1_000_000, commission=0.002)
 stats = bt.run()
 print("\n🌙✨ FINAL BACKTEST STATS:")
 print(stats)

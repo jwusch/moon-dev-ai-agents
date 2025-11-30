@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -47,7 +46,7 @@ class VolSqueezeExpansion(Strategy):
 
     def next(self):
         # Moon Dev debug prints 🌙
-        print(f"🌙 Moon Dev Debug - Bar: {len(self.data)-1} Close: {self.data.Close[-1]} ✨")
+#         print(f"🌙 Moon Dev Debug - Bar: {len(self.data)-1} Close: {self.data.Close[-1]} ✨")
         
         if not self.position:
             self._check_entry()
@@ -71,7 +70,7 @@ class VolSqueezeExpansion(Strategy):
         risk_per_share = entry_price - stop_loss
         
         if risk_per_share <= 0:
-            print("🌙 MOON DEV WARNING: Invalid risk calculation ⚠️")
+#             print("🌙 MOON DEV WARNING: Invalid risk calculation ⚠️")
             return
         
         # Calculate position size with moon-sized risk management 🌝
@@ -83,8 +82,8 @@ class VolSqueezeExpansion(Strategy):
             self.buy(size=position_size, sl=stop_loss)
             self.trailing_high = entry_price
             self.trailing_stop = entry_price - 1.5 * self.data.ATR[-1]
-            print(f"🌙 MOON DEV ALERT: Long entry at {entry_price}, Size: {position_size} 🚀")
-            print(f"✨ Initial Stop: {stop_loss}, Trailing Stop: {self.trailing_stop} ✨")
+#             print(f"🌙 MOON DEV ALERT: Long entry at {entry_price}, Size: {position_size} 🚀")
+            print(f" Initial Stop: {stop_loss}, Trailing Stop: {self.trailing_stop} ")
 
     def _manage_trade(self):
         self.bars_in_trade += 1
@@ -94,4 +93,4 @@ class VolSqueezeExpansion(Strategy):
         if current_high > self.trailing_high:
             self.trailing_high = current_high
             self.trailing_stop = self.trailing_high - 1.5 * self.data.ATR[-1]
-            print(f"🌙 Trailing Stop Updated: {self.trailing_stop} 🔼")
+            print(f" Trailing Stop Updated: {self.trailing_stop} ")

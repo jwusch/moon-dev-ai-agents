@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debugging:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -60,9 +56,9 @@ class BandwidthReversal(Strategy):
         stoch_k_prev = self.data.StochRSI_K[-2] if len(self.data) > 1 else 0
         atr = self.data.ATR[-1]
         
-        print(f"🌙 MOON DEV DEBUG 🌙")
-        print(f"📊 BB Width: {current_bb_width:.2f} | BB Low: {current_bb_low:.2f}")
-        print(f"✨ Stoch K: {stoch_k:.2f} (prev: {stoch_k_prev:.2f}) | ATR: {atr:.2f}")
+#         print(f"🌙 MOON DEV DEBUG 🌙")
+        print(f" BB Width: {current_bb_width:.2f} | BB Low: {current_bb_low:.2f}")
+        print(f" Stoch K: {stoch_k:.2f} (prev: {stoch_k_prev:.2f}) | ATR: {atr:.2f}")
 
         # Entry Logic
         if not self.position:
@@ -76,7 +72,7 @@ class BandwidthReversal(Strategy):
                 atr_value = self.data.ATR[-1]
                 
                 if atr_value == 0:
-                    print("🚨 MOON WARNING: Zero ATR value detected!")
+                    print(" MOON WARNING: Zero ATR value detected!")
                     return
                 
                 position_size = risk_amount / (1.5 * atr_value)
@@ -84,9 +80,9 @@ class BandwidthReversal(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"\n🌙✨ MOON DEV ALERT: LONG ENTERED! ✨🌙")
-                    print(f"📈 Size: {position_size} | 💰 Equity: {self.equity:,.2f}")
-                    print(f"🔒 Risk: ${risk_amount:,.2f} | 📉 ATR Stop: {1.5*atr_value:.2f}")
+#                     print(f"\n🌙✨ MOON DEV ALERT: LONG ENTERED! ✨🌙")
+                    print(f" Size: {position_size} |  Equity: {self.equity:,.2f}")
+                    print(f" Risk: ${risk_amount:,.2f} |  ATR Stop: {1.5*atr_value:.2f}")
                     
                     # Initialize trailing stop
                     self.highest_high = self.data.High[-1]

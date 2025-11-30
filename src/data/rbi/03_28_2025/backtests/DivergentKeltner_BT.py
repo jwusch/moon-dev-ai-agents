@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -31,7 +29,7 @@ class DivergentKeltner(Strategy):
         # Netflow indicators
         self.netflow_ma = self.I(talib.SMA, self.data.df['netflow'], timeperiod=self.netflow_ma_period, name='Netflow MA')
         
-        print("🌙 Moon Dev Indicators Activated! ✨")
+#         print("🌙 Moon Dev Indicators Activated! ✨")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -53,7 +51,7 @@ class DivergentKeltner(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl_price)
-                    print(f"🌙 LONG Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} 🚀")
+                    print(f" LONG Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} ")
 
             # Short Entry Conditions        
             elif (current_close > self.upper_keltner[-1] and
@@ -66,7 +64,7 @@ class DivergentKeltner(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl_price)
-                    print(f"🌙 SHORT Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} 💥")
+                    print(f" SHORT Signal! Size: {position_size:,} @ {current_close:.2f} | SL: {sl_price:.2f} ")
 
         else:
             # Exit Conditions
@@ -74,18 +72,18 @@ class DivergentKeltner(Strategy):
                 # SAR Reversal Exit
                 if current_sar > current_close:
                     self.position.close()
-                    print(f"🌙 Closing LONG (SAR Reversal) @ {current_close:.2f} 🛑")
+                    print(f" Closing LONG (SAR Reversal) @ {current_close:.2f} ")
                 
                 # Emergency Exits
                 else:
                     upper_trigger = self.upper_keltner[-1] + 1.5 * atr_value
                     if self.data.High[-1] >= upper_trigger:
                         self.position.close()
-                        print(f"🌙 Emergency LONG Exit (Price Breakout) @ {current_close:.2f} 🚨")
+                        print(f" Emergency LONG Exit (Price Breakout) @ {current_close:.2f} ")
                     
                     if len(self.netflow_ma) >= 3 and all(x <= 0 for x in self.netflow_ma[-3:]):
                         self.position.close()
-                        print(f"🌙 Emergency LONG Exit (Netflow Divergence Lost) @ {current_close:.2f} 💔")
+                        print(f" Emergency LONG Exit (Netflow Divergence Lost) @ {current_close:.2f} ")
 
             elif self.position.is_short:
                 # SAR Reversal Exit

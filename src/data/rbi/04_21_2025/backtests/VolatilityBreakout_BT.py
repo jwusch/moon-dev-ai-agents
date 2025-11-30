@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -65,7 +64,7 @@ class VolatilityBreakout(Strategy):
                     if position_size > 0:
                         tp_price = entry_price + 1.5 * self.atr[-1]
                         self.buy(size=position_size, tp=tp_price)
-                        print(f"🚀🌙 Moon Dev LONG Entry! | Price: {entry_price:.2f} | Size: {position_size} | TP: {tp_price:.2f}")
+#                         print(f"🚀🌙 Moon Dev LONG Entry! | Price: {entry_price:.2f} | Size: {position_size} | TP: {tp_price:.2f}")
             
             # Short entry logic
             elif self.data.Close[-1] < self.donchian_lower[-1] and self.bb_width[-1] <= self.bb_width_min[-1]:
@@ -79,4 +78,4 @@ class VolatilityBreakout(Strategy):
                     if position_size > 0:
                         tp_price = entry_price - 1.5 * self.atr[-1]
                         self.sell(size=position_size, tp=tp_price)
-                        print(f"🚀🌙 Moon Dev SHORT Entry! |
+#                         print(f"🚀🌙 Moon Dev SHORT Entry! |"

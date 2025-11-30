@@ -1,6 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the crossover/crossunder functions with proper array indexing comparisons. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -74,7 +71,7 @@ class DivergentBands(Strategy):
                         tp = entry_price - 1.5 * atr_value
                         
                         self.sell(size=position_size, sl=sl, tp=tp)
-                        print(f"🌙🚀 SHORT ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                        print(f" SHORT ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
         # Exit logic
         if self.position.is_short:

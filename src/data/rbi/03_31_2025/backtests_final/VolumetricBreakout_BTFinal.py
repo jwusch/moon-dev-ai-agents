@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib as ta
 from backtesting import Backtest, Strategy
@@ -53,7 +50,7 @@ class VolumetricBreakout(Strategy):
                 risk_capital = self.equity * 0.01  # 1% risk
                 atr_value = self.atr14[-1]
                 if atr_value == 0:
-                    print("🚨 Zero ATR - Cosmic Anomaly Detected!")
+                    print(" Zero ATR - Cosmic Anomaly Detected!")
                     return
                 
                 # Meteor Position Sizing ☄️ (Fixed to whole units)
@@ -67,8 +64,8 @@ class VolumetricBreakout(Strategy):
                     stop_price = entry_price - 2 * atr_value
                     self.position.sl = stop_price
                     self.position.peak = entry_price  # Track cosmic highs
-                    print(f"🌕 MOON DEV ALERT: Entry at {entry_price:.2f}")
-                    print(f"🛡️ Initial Stop: {stop_price:.2f} | Size: {position_size} units")
+#                     print(f"🌕 MOON DEV ALERT: Entry at {entry_price:.2f}")
+                    print(f" Initial Stop: {stop_price:.2f} | Size: {position_size} units")
 
         # Galactic Exit Protocol 🚀
         elif self.position:
@@ -80,12 +77,12 @@ class VolumetricBreakout(Strategy):
                 new_sl = self.position.peak - 1.5 * self.atr14[-1]
                 if new_sl > self.position.sl:
                     self.position.sl = new_sl
-                    print(f"✨ Trailing Stop Updated: {new_sl:.2f}")
+                    print(f" Trailing Stop Updated: {new_sl:.2f}")
 
             # Check for Supernova Collapse (Stop Loss) 💥
             if self.data.Low[-1] <= self.position.sl:
                 self.position.close()
-                print(f"🌑 STOP LOSS TRIGGERED: {self.position.sl:.2f}")
+                print(f" STOP LOSS TRIGGERED: {self.position.sl:.2f}")
 
             # Death Cross Abort Sequence ☠️ (Manual detection)
             death_cross = (prev_ema50 >= prev_ema200) and (ema50 < ema200)

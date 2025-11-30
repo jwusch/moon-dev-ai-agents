@@ -1,13 +1,9 @@
-I'll help fix the code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper technical implementation:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
 
 # Moon Dev debug print
-print("🌙 Initializing Moon Dev Trading Strategy... ✨")
+# print("🌙 Initializing Moon Dev Trading Strategy... ✨")
 
 # Data preprocessing
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
@@ -31,7 +27,7 @@ class OscillatorDivergence(Strategy):
     
     def init(self):
         # Moon Dev debug print
-        print("🌙 Initializing indicators... ✨")
+        print(" Initializing indicators... ")
         
         # Ichimoku components
         self.chikou_span = self.I(lambda h,l,c: talib.ICHIMOKU(h,l,c,9,26,52)[4],

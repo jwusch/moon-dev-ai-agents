@@ -51,7 +51,7 @@ class MomentumCrossADX(Strategy):
                     sl_price = self.swing_low[-1]
                     
                     # Calculate lunar position size 🌘
-                    risk_amount = self.broker.equity * self.risk_percent
+                    risk_amount = self.equity * self.risk_percent
                     risk_per_share = entry_price - sl_price
                     
                     if risk_per_share > 0:

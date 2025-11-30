@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILITYSQUEEZEPRO STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -12,8 +9,8 @@ class VolatilitySqueezePro(Strategy):
     keltner_period = 20
     atr_multiplier = 1.5
     atr_period = 14
-    risk_pct = 0.01  # 1% risk per trade 🌕
-    rr_ratio = 2  # Risk:Reward 1:2 ✨
+    risk_pct = 0.01  # 1% risk per trade 
+    rr_ratio = 2  # Risk:Reward 1:2 
 
     def init(self):
         # Clean data columns 🌙
@@ -80,7 +77,7 @@ class VolatilitySqueezePro(Strategy):
                 tp_price = entry_price + (risk_per_share * self.rr_ratio)
                 
                 self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🚀 MOON DEV LONG ENTRY 🚀 Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f} 🌕")
+#                 print(f"🚀 MOON DEV LONG ENTRY 🚀 Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f} 🌕")
 
         elif squeeze_active and short_trigger:
             # Short Entry Setup 🌑
@@ -93,4 +90,4 @@ class VolatilitySqueezePro(Strategy):
                 tp_price = entry_price - (risk_per_share * self.rr_ratio)
                 
                 self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🌑 MOON DEV
+#                 print(f"🌑 MOON DEV"

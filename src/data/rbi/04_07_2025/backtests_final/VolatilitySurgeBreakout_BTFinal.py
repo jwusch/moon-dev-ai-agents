@@ -1,6 +1,3 @@
-I'll fix the backtest code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -26,7 +23,7 @@ data = data.set_index('datetime')
 class VolatilitySurgeBreakout(Strategy):
     def init(self):
         # Moon Dev Indicator Initialization 🌙
-        print("🌙 Initializing Moon Dev Trading Strategy ✨")
+#         print("🌙 Initializing Moon Dev Trading Strategy ✨")
         
         # Bollinger Bands (20,2)
         close = self.data.Close
@@ -48,12 +45,12 @@ class VolatilitySurgeBreakout(Strategy):
         self.volume_avg = self.I(talib.SMA, volume, timeperiod=20, name='VOLUME_SMA_20')
         
         self.consecutive_losses = 0
-        print("🌙 Strategy Indicators Initialized Successfully! ✨")
+#         print("🌙 Strategy Indicators Initialized Successfully! ✨")
 
     def next(self):
         # Skip trades if 3 consecutive losses
         if self.consecutive_losses >= 3:
-            print("🌙 Skipping trade - 3 consecutive losses! ✨")
+            print(" Skipping trade - 3 consecutive losses! ")
             return
         
         if not self.position:
@@ -68,7 +65,7 @@ class VolatilitySurgeBreakout(Strategy):
                 if risk > 0:
                     size = int(round((self.equity * 0.01) / risk))
                     self.buy(size=size, sl=sl)
-                    print(f"🚀 MOON BOUND! LONG ENTRY: Size {size} @ {self.data.Close[-1]:.2f} | SL: {sl:.2f} ✨")
+                    print(f" MOON BOUND! LONG ENTRY: Size {size} @ {self.data.Close[-1]:.2f} | SL: {sl:.2f} ")
             
             # Short Entry Conditions
             short_break = (self.data.Close[-1] < self.bb_lower[-1]) and (self.data.Close[-1] < self.kc_lower[-1])
@@ -79,4 +76,4 @@ class VolatilitySurgeBreakout(Strategy):
                 if risk > 0:
                     size = int(round((self.equity * 0.01) / risk))
                     self.sell(size=size, sl=sl)
-                    print(f"🌑 SHORTING THE MOON! Size {size} @ {self.data.Close[-1]:.2f} | SL: {sl:.2f} ✨")
+                    print(f" SHORTING THE MOON! Size {size} @ {self.data.Close[-1]:.2f} | SL: {sl:.2f} ")

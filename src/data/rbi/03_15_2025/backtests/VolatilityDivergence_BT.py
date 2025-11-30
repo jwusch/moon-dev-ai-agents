@@ -47,14 +47,14 @@ class VolatilityDivergence(Strategy):
         if self.position:
             if current_spread < self.exit_threshold:
                 self.position.close()
-                print(f"🌕 Moon Dev Alert: Cosmic spread normalized! ({current_spread:.2f}%) Closing position 🛸")
+                print(f"🌕 Moon Dev Alert: Cosmic spread normalized! ({current_spread:0.2f}%) Closing position 🛸")
                 
             # Stellar stop loss enforcement 🌠
             for trade in self.trades:
                 if trade.is_short and trade.sl:
                     lunar_sl = trade.sl
                     if self.data.High[-1] >= lunar_sl:
-                        print(f"🚨 Moon Dev Warning: Stellar stop loss triggered! ({self.data.High[-1]:.2f}) 🌪️")
+                        print(f"🚨 Moon Dev Warning: Stellar stop loss triggered! ({self.data.High[-1]:0.2f}) 🌪️")
         
         # Lunar entry signal 🌙
         else:
@@ -71,13 +71,13 @@ class VolatilityDivergence(Strategy):
                         # Initiate moon mission 🚀
                         self.sell(size=position_size, sl=sl_price, 
                                  tp=entry_price - atr,
-                                 tag=f"LunarSpread_{current_spread:.1f}%")
+                                 tag=f"LunarSpread_{current_spread:0.1f}%")
                         print(f"🌘 Moon Dev Signal: Volatility divergence detected! 🌗")
-                        print(f"   Entry: {entry_price:.2f} | Size: {position_size}")
-                        print(f"   SL: {sl_price:.2f} | Risk: {self.risk_pct*100:.0f}% of equity 🌌")
+                        print(f"   Entry: {entry_price:0.2f} | Size: {position_size}")
+                        print(f"   SL: {sl_price:0.2f} | Risk: {self.risk_pct*100:0.0f}% of equity 🌌")
 
 # Launch moon mission 🌕
-bt = Backtest(data, VolatilityDivergence, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolatilityDivergence, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # Print cosmic performance report 🌟

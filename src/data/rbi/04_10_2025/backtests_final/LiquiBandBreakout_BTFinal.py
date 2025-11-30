@@ -1,8 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code for the LiquiBand Breakout Strategy:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation: LiquiBand Breakout Strategy ✨
-
 import pandas as pd
 import talib
 import numpy as np
@@ -29,7 +24,7 @@ class LiquiBandStrategy(Strategy):
         # 💧 Liquidation Cluster Proxy (Volume MA)
         self.volume_ma = self.I(talib.SMA, volume, timeperiod=20, name='Volume MA')
         
-        print("🌙✨ Moon Dev Indicators Initialized! BBANDS, Width MA & Volume MA Ready 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! BBANDS, Width MA & Volume MA Ready 🚀")
 
     def next(self):
         # ⏳ Skip first 20 periods for indicator warmup
@@ -54,7 +49,7 @@ class LiquiBandStrategy(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:  # Ensure valid position size
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀🌙 MOON DEV LONG SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
+#                         print(f"🚀🌙 MOON DEV LONG SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
             
             # 🌑 Short Entry: Close < Lower BB + Contraction + Liquidation Cluster
             elif bb_contraction and liquidation_zone and current_close < self.lower_band[-1]:
@@ -66,14 +61,14 @@ class LiquiBandStrategy(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:  # Ensure valid position size
                         self.sell(size=position_size, sl=stop_loss)
-                        print(f"🌑🌙 MOON DEV SHORT SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
+#                         print(f"🌑🌙 MOON DEV SHORT SIGNAL! Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_loss:.2f}")
 
         # 💸 Exit Conditions
         else:
             # ✨ Long Exit: Price touches Lower BB
             if self.position.is_long and self.data.Low[-1] <= self.lower_band[-1]:
                 self.position.close()
-                print(f"✅🌙 MOON DEV LONG EXIT: Price {self.data.Close[-1]:.2f} touched Lower BB!")
+#                 print(f"✅🌙 MOON DEV LONG EXIT: Price {self.data.Close[-1]:.2f} touched Lower BB!")
             
             # ✨ Short Exit: Price touches Upper BB
             elif self.position.is_short and self.data.High[-1] >= self.upper_band[-1]:

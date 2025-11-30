@@ -1,6 +1,3 @@
-Here's the debugged code with proper formatting, imports, and position sizing while maintaining the original strategy logic:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -55,7 +52,7 @@ class VolatilityLiquidation(Strategy):
         # Liquidation clusters 🌌
         self.liquidation_cluster = self.I(lambda: self.data.df['liquidation_cluster'])
         
-        print("🌙 Moon Dev Strategy Initialized! Ready for Launch! 🚀")
+#         print("🌙 Moon Dev Strategy Initialized! Ready for Launch! 🚀")
 
     def next(self):
         if len(self.data) < 100*24*4:  # Ensure enough data

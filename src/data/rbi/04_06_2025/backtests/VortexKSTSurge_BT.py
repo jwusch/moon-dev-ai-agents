@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev Backtest AI Implementation for VortexKST Surge Strategy 🚀
-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -9,7 +6,7 @@ import talib
 import pandas_ta as ta
 
 class VortexKSTSurge(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 Clean data and prepare indicators using self.I()
@@ -82,4 +79,4 @@ class VortexKSTSurge(Strategy):
         
         size = int(round((self.broker.get_value() * self.risk_percent) / risk))
         self.buy(size=size, sl=stop_price)
-        print(f"🌙✨ LONG! 🚀 Size: {size}, Entry: {self.data.Close[-1]:.2f}, Stop: {stop_price:.2f}")
+        print(f" LONG!  Size: {size}, Entry: {self.data.Close[-1]:.2f}, Stop: {stop_price:.2f}")

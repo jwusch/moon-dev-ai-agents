@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -18,7 +15,7 @@ data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
 required_columns = ['open', 'high', 'low', 'close', 'volume', 'tick']
 for col in required_columns:
     if col not in data.columns:
-        raise ValueError(f"🌙 CRITICAL ERROR: Missing required column '{col}' in data")
+        raise ValueError(f" CRITICAL ERROR: Missing required column '{col}' in data")
 
 # Proper column mapping
 data.rename(columns={
@@ -35,8 +32,8 @@ class HeikinBreakoutDivergence(Strategy):
     risk_per_trade = 0.02  # 2% risk per trade
     
     def init(self):
-        print("🌙 Initializing Moon Dev's Cosmic Trader...")
-        print("✨ Preparing celestial indicators for cosmic alignment...")
+#         print("🌙 Initializing Moon Dev's Cosmic Trader...")'
+        print(" Preparing celestial indicators for cosmic alignment...")
         
         # Calculate Heikin-Ashi candles
         ha = ta.heikin_ashi(self.data.Open, self.data.High, self.data.Low, self.data.Close)
@@ -54,11 +51,11 @@ class HeikinBreakoutDivergence(Strategy):
         self.fractal_high = self.I(talib.MAX, self.data.High, 5, name='Fractal_High')
         self.fractal_low = self.I(talib.MIN, self.data.Low, 5, name='Fractal_Low')
         
-        print("✨ Cosmic indicators initialized:")
-        print("   🌕 Heikin-Ashi Candle")
-        print("   🌗 Bollinger Bands (20, 2.5σ)")
-        print("   🌓 Fractal Levels (5-period)")
-        print("   🌔 TICK Analysis")
+        print(" Cosmic indicators initialized:")
+        print("    Heikin-Ashi Candle")
+        print("    Bollinger Bands (20, 2.5σ)")
+        print("    Fractal Levels (5-period)")
+        print("    TICK Analysis")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -66,14 +63,14 @@ class HeikinBreakoutDivergence(Strategy):
         bb_upper = self.bb_upper[-1]
         bb_lower = self.bb_lower[-1]
         
-        # Moon Dev's Cosmic Position Management
+        # Moon Dev's Cosmic Position Management'
         if not self.position:
             # Long entry logic
             if ha_close > bb_upper:
                 tick_increase = self.data.Tick[-1] > self.data.Tick[-2]
                 price_increase = self.data.Low[-1] > self.data.Low[-2]
                 if tick_increase and price_increase:
-                    print("🌙✨ Cosmic Alignment Detected: Entering LONG Position")
+                    print(" Cosmic Alignment Detected: Entering LONG Position")
                     stop_price = self.fractal_low[-1]
                     risk_amount = self.initial_equity * self.risk_per_trade
                     position_size = round(risk_amount / (current_close - stop_price))
@@ -84,6 +81,6 @@ class HeikinBreakoutDivergence(Strategy):
                 tick_decrease = self.data.Tick[-1] < self.data.Tick[-2]
                 price_decrease = self.data.High[-1] < self.data.High[-2]
                 if tick_decrease and price_decrease:
-                    print("🌙✨ Cosmic Alignment Detected: Entering SHORT Position")
+                    print(" Cosmic Alignment Detected: Entering SHORT Position")
                     stop_price = self.fractal_high[-1]
                     risk_amount = self.initial_equ

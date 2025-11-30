@@ -1,9 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your VolSurgeBreakout strategy:
-
-```python
-# 🌙 Moon Dev's VolSurgeBreakout Backtest Implementation ✨
-# 🚀 Certified backtesting.lib FREE by Moon Dev Package AI 🌙
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -42,7 +36,7 @@ class VolSurgeBreakout(Strategy):
         # 📈 VOLUME INDICATOR (TA-Lib SMA)
         self.volume_avg = self.I(talib.SMA, self.data.Volume, timeperiod=self.volume_avg_period, name='Vol Avg')
         
-        print("🌕✨ Moon Dev Indicators Initialized Successfully! Ready for lunar trading cycles...")
+#         print("🌕✨ Moon Dev Indicators Initialized Successfully! Ready for lunar trading cycles...")
 
     def next(self):
         # 🌑 MOON TRADE LOGIC
@@ -80,8 +74,8 @@ class VolSurgeBreakout(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌕✨ MOONSHOT LONG! Entry: {entry_price:.2f} | Size: {position_size} units | 🛑 SL: {sl_price:.2f} | 🎯 TP: {tp_price:.2f}")
-            print(f"🌙 Current Lunar Phase: Bullish Breakout | ATR: {atr_val:.2f} | Equity: ${equity:,.2f}")
+            print(f" MOONSHOT LONG! Entry: {entry_price:.2f} | Size: {position_size} units |  SL: {sl_price:.2f} |  TP: {tp_price:.2f}")
+            print(f" Current Lunar Phase: Bullish Breakout | ATR: {atr_val:.2f} | Equity: ${equity:,.2f}")
 
     def enter_short(self):
         equity = self.broker.get

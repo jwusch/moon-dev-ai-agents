@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the VoltaicSqueeze strategy:
-
-```python
-# 🌙 Moon Dev's Voltaic Squeeze Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +26,7 @@ DATA_PATH = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/dat
 data = prepare_data(DATA_PATH)
 
 class VoltaicSqueeze(Strategy):
-    risk_percentage = 0.01  # 1% cosmic energy per trade 🌠
+    risk_percentage = 0.01  # 1% cosmic energy per trade 
     
     def init(self):
         # Stellar indicator configuration 🌟
@@ -62,15 +58,15 @@ class VoltaicSqueeze(Strategy):
     def next(self):
         # Cosmic debug output 🌐
         current_close = self.data.Close[-1]
-        print(f"🌙 Lunar Pulse Check >> Close: {current_close:.2f} | "
+        print(f" Lunar Pulse Check >> Close: {current_close:.2f} | "
               f"BB Width: {self.bb_width[-1]:.5f} | "
-              f"ATR: {self.atr[-1]:.2f} ✨")
+              f"ATR: {self.atr[-1]:.2f} ")
         
         if self.position:
             # Active constellation monitoring 🌠
-            print(f"🚀 Warp Drive Engaged >> {self.position.type} "
+            print(f" Warp Drive Engaged >> {self.position.type} "
                   f"Size: {self.position.size} "
-                  f"Entry: {self.position.entry_price:.2f} 🌌")
+                  f"Entry: {self.position.entry_price:.2f} ")
             
             # Exit protocol activation sequence 🔚
             if self.position.is_long:
@@ -96,10 +92,10 @@ class VoltaicSqueeze(Strategy):
             sl = self.data.Close[-1] - stop_distance
             self.buy(size=position_size, sl=sl)
             self.entry_bar = len(self.data)
-            print(f"🚀🌖 LONG TRANSMISSION INITIATED >> "
+            print(f" LONG TRANSMISSION INITIATED >> "
                   f"Size: {position_size} "
                   f"Entry: {self.data.Close[-1]:.2f} "
-                  f"SL: {sl:.2f} ✅")
+                  f"SL: {sl:.2f} ")
 
     def _enter_short(self):
         # Anti-matter position calculation 🌑

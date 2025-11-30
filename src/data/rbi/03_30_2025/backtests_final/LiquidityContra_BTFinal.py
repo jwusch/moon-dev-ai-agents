@@ -1,7 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -39,7 +35,7 @@ class LiquidityContra(Strategy):
             # Check time-based exit
             if len(self) - self.trigger_index >= self.max_bars_held:
                 self.position.close()
-                print(f"🌙 MOON DEV TIMEOUT EXIT: Closing position after {self.max_bars_held} bars")
+#                 print(f"🌙 MOON DEV TIMEOUT EXIT: Closing position after {self.max_bars_held} bars")
             return
         
         # Check for liquidity zone breach
@@ -50,19 +46,19 @@ class LiquidityContra(Strategy):
         
         # Long trigger (price breaks below swing low)
         if self.data.Low[-2] > self.swing_low[-2] and self.data.Low[-1] < self.swing_low[-1]:
-            print(f"🚀 LIQUIDITY BREACH DETECTED! Swing Low Broken at {prev_swing_low}")
+            print(f" LIQUIDITY BREACH DETECTED! Swing Low Broken at {prev_swing_low}")
             if self._check_contraction():
                 self.contraction_min = self.bandwidth[-self.swing_period:-1].min()
                 self.trigger_index = len(self)
-                print(f"✨ CONTRACTION CONFIRMED! Min Bandwidth: {self.contraction_min:.4f}")
+                print(f" CONTRACTION CONFIRMED! Min Bandwidth: {self.contraction_min:.4f}")
         
         # Short trigger (price breaks above swing high)
         elif self.data.High[-2] < self.swing_high[-2] and self.data.High[-1] > self.swing_high[-1]:
-            print(f"🚀 LIQUIDITY BREACH DETECTED! Swing High Broken at {prev_swing_high}")
+            print(f" LIQUIDITY BREACH DETECTED! Swing High Broken at {prev_swing_high}")
             if self._check_contraction():
                 self.contraction_min = self.bandwidth[-self.swing_period:-1].min()
                 self.trigger_index = len(self)
-                print(f"✨ CONTRACTION CONFIRMED! Min Bandwidth: {self.contraction_min:.4f}")
+                print(f" CONTRACTION CONFIRMED! Min Bandwidth: {self.contraction_min:.4f}")
         
         # Check volatility expansion after trigger
         if len(self) - self.trigger_index == 3:  # Allow 3 bars for expansion

@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VortexDivergence Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -8,8 +6,8 @@ import talib
 import pandas_ta as ta
 
 class VortexDivergence(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    atr_multiplier = 2  # 2x ATR for trailing stop 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    atr_multiplier = 2  # 2x ATR for trailing stop 
     vi_period = 14
     swing_period = 5  # Swing high/low lookback
     
@@ -27,7 +25,7 @@ class VortexDivergence(Strategy):
         self.obv_high = self.I(talib.MAX, self.obv, self.swing_period)
         self.obv_low = self.I(talib.MIN, self.obv, self.swing_period)
         
-        self.trailing_stop = None  # Dynamic trailing stop 🌊
+        self.trailing_stop = None  # Dynamic trailing stop 
 
     def calculate_vortex(self):
         # TA-LIB Vortex implementation 🌪️
@@ -60,14 +58,14 @@ class VortexDivergence(Strategy):
 
     def next(self):
         if len(self.data) < self.swing_period + 2:
-            return  # Wait for enough data 🌙
+            return  # Wait for enough data 
             
         current_close = self.data.Close[-1]
         current_atr = self.atr[-1]
         
         # 🌙 Avoid low volatility periods
         if current_atr < (np.nanmean(self.atr)*0.5):
-            return  # Skip trades when ATR < 50% of average ATR 🌊
+            return  # Skip trades when ATR < 50% of average ATR 
             
         # ===== ENTRY LOGIC =====
         if not self.position:

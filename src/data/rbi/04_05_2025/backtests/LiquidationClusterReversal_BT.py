@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -24,8 +23,20 @@ class LiquidationClusterReversal(Strategy):
         self.liquidation_std = self.I(talib.STDDEV, self.data.df['liquidation'], self.liquidation_std_period, name='LIQ_STD')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name='ATR')
         self.atr_ma = self.I(talib.SMA, self.atr, self.atr_ma_period, name='ATR_MA')
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, 
-                          volume=self.data.Volume, name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Track trade history
         self.last_long_entry = None

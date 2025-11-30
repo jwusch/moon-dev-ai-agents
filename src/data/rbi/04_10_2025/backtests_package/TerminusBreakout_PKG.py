@@ -1,9 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR TERMINUSBREAKOUT STRATEGY 🚀
-
-# ===== REQUIRED IMPORTS =====
 import pandas as pd
 import talib
 import numpy as np
@@ -32,7 +26,7 @@ data.rename(columns={
 
 # ===== STRATEGY IMPLEMENTATION =====
 class TerminusBreakout(Strategy):
-    risk_pct = 0.02  # 2% risk per trade 🌗
+    risk_pct = 0.02  # 2% risk per trade 
     band_period = 20
     
     def init(self):
@@ -55,7 +49,7 @@ class TerminusBreakout(Strategy):
     def next(self):
         # 🌓 MOON DEV SIGNAL VALIDATION CHECK
         if len(self.data.Close) < 2:
-            print("🌑 Moon Dev Warning: Not enough data points for analysis")
+#             print("🌑 Moon Dev Warning: Not enough data points for analysis")
             return
 
         current_close = self.data.Close[-1]
@@ -75,12 +69,12 @@ class TerminusBreakout(Strategy):
         if not self.position:
             # Long entry: Lower band breakout + VIX backwardation
             if long_break and term_bullish:
-                print("🌕 Moon Dev Signal: LONG entry triggered!")
+#                 print("🌕 Moon Dev Signal: LONG entry triggered!")
                 self.enter_long()
             
             # Short entry: Upper band breakout + VIX contango
             elif short_break and term_bearish:
-                print("🌑 Moon Dev Signal: SHORT entry triggered!")
+#                 print("🌑 Moon Dev Signal: SHORT entry triggered!")
                 self.enter_short()
 
         # 🌑 POSITION MANAGEMENT

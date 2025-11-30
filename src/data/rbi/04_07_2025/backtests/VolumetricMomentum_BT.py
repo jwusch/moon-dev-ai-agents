@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's VolumetricMomentum Backtest Script 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -58,14 +55,14 @@ class VolumetricMomentum(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, tp=self.upper_keltner[-1])
-                        print(f"🚀🌕 MOON LAUNCH! Long {position_size} @ {entry_price:.2f}")
-                        print(f"    🛡️ SL: {stop_loss:.2f} | 🎯 TP: {self.upper_keltner[-1]:.2f}")
+                        print(f" MOON LAUNCH! Long {position_size} @ {entry_price:.2f}")
+                        print(f"     SL: {stop_loss:.2f} |  TP: {self.upper_keltner[-1]:.2f}")
 
         # Exit Conditions Check 🚪
         else:
             if self.adx[-1] < 20:
                 self.position.close()
-                print(f"🌑 EMERGENCY LANDING! ADX collapsed @ {price:.2f}")
+                print(f" EMERGENCY LANDING! ADX collapsed @ {price:.2f}")
 
 # Run Backtest ⚡
 bt = Backtest(data, VolumetricMomentum, cash=1_000_000, commission=.002)
@@ -73,4 +70,4 @@ stats = bt.run()
 
 # Print Full Results 📊
 print("\n" + "="*50)
-print("🌙✨ MOON DEV BACKTEST REPORT ✨🌙")
+# print("🌙✨ MOON DEV BACKTEST REPORT ✨🌙")

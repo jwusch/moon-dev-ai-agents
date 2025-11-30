@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -44,7 +43,7 @@ class VolumetricSqueeze(Strategy):
                         self.buy(size=position_size, sl=stop_loss)
                         self.entry_price = entry_price
                         self.entry_bandwidth = self.bandwidth[-1]
-                        print(f"🚀 Moon Dev Long Signal: Entry {entry_price:.2f}, Size {position_size} ✨")
+#                         print(f"🚀 Moon Dev Long Signal: Entry {entry_price:.2f}, Size {position_size} ✨")
                 
                 # Short condition
                 elif self.data.Close[-1] < self.bb_lower[-1]:
@@ -60,21 +59,21 @@ class VolumetricSqueeze(Strategy):
                         self.sell(size=position_size, sl=stop_loss)
                         self.entry_price = entry_price
                         self.entry_bandwidth = self.bandwidth[-1]
-                        print(f"🌑 Moon Dev Short Signal: Entry {entry_price:.2f}, Size {position_size} ✨")
+#                         print(f"🌑 Moon Dev Short Signal: Entry {entry_price:.2f}, Size {position_size} ✨")
         else:
             # Check 2x bandwidth exit
             if self.position.is_long:
                 exit_price = self.entry_price - 2 * self.entry_bandwidth
                 if self.data.Close[-1] < exit_price:
                     self.position.close()
-                    print(f"🌙 Moon Dev Exit: Long closed at {self.data.Close[-1]:.2f} (2x bandwidth) 🛑")
+#                     print(f"🌙 Moon Dev Exit: Long closed at {self.data.Close[-1]:.2f} (2x bandwidth) 🛑")
                     self.entry_price = None
                     self.entry_bandwidth = None
             elif self.position.is_short:
                 exit_price = self.entry_price + 2 * self.entry_bandwidth
                 if self.data.Close[-1] > exit_price:
                     self.position.close()
-                    print(f"🌙 Moon Dev Exit: Short closed at {self.data.Close[-1]:.2f} (2x bandwidth) 🛑")
+#                     print(f"🌙 Moon Dev Exit: Short closed at {self.data.Close[-1]:.2f} (2x bandwidth) 🛑")
                     self.entry_price = None
                     self.entry_bandwidth = None
 

@@ -66,7 +66,7 @@ class DivergentMomentum(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share > 0:
-                    position_size = (self.broker.equity * self.risk_percent) / risk_per_share
+                    position_size = (self.equity * self.risk_percent) / risk_per_share
                     position_size = int(round(position_size))  # Ensure whole number of units
                     
                     # Moon-themed debug print 🌙✨

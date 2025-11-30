@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's VoltaicPulse Backtest Implementation
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -28,9 +24,9 @@ class VoltaicPulse(Strategy):
         current_price = self.data.Close[-1]
         
         # 🌠 Moon Dev Debug Prints
-        print(f"\n🌙 Moon Dev Pulse Check [{self.data.index[-1]}]")
-        print(f"✨ ATR({self.atr_period}): {self.atr[-1]:.2f} | ATR SMA: {self.atr_sma[-1]:.2f}")
-        print(f"🌪️ VIX: {self.data['vix'][-1]:.2f} | 10D Low: {self.vix_low[-1]:.2f}")
+#         print(f"\n🌙 Moon Dev Pulse Check [{self.data.index[-1]}]")
+        print(f" ATR({self.atr_period}): {self.atr[-1]:.2f} | ATR SMA: {self.atr_sma[-1]:.2f}")
+        print(f" VIX: {self.data['vix'][-1]:.2f} | 10D Low: {self.vix_low[-1]:.2f}")
 
         # 🚀 Entry Logic
         if not self.position:
@@ -44,10 +40,10 @@ class VoltaicPulse(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.max_high = self.data.High[-1]
-                    print(f"\n🚀⚡ VOLTAIC SURGE ACTIVATED! ⚡🚀")
-                    print(f"📈 Entry Price: {current_price:.2f}")
-                    print(f"🔢 Size: {position_size} units | Risk: {self.risk_percent*100}%")
-                    print(f"🛡️ Initial ATR Stop: {atr_value*2:.2f}")
+                    print(f"\n VOLTAIC SURGE ACTIVATED! ")
+                    print(f" Entry Price: {current_price:.2f}")
+                    print(f" Size: {position_size} units | Risk: {self.risk_percent*100}%")
+                    print(f" Initial ATR Stop: {atr_value*2:.2f}")
 
         # 🔥 Exit Logic
         else:
@@ -55,13 +51,13 @@ class VoltaicPulse(Strategy):
             current_atr = self.atr[-1]
             stop_price = self.max_high - (current_atr * self.trailing_multiplier)
             
-            print(f"🌕 Trail Stop Update | High Since Entry: {self.max_high:.2f}")
-            print(f"🔻 Current Stop: {stop_price:.2f} ({current_atr*2:.2f} below peak)")
+            print(f" Trail Stop Update | High Since Entry: {self.max_high:.2f}")
+            print(f" Current Stop: {stop_price:.2f} ({current_atr*2:.2f} below peak)")
             
             if self.data.Low[-1] < stop_price:
                 self.position.close()
-                print(f"\n🌑 VOLTAIC DRAIN TRIGGERED! Closing position")
-                print(f"🏁 Exit Price: {current_price:.2f} | PnL: {self.position.pl:.2f}")
+                print(f"\n VOLTAIC DRAIN TRIGGERED! Closing position")
+                print(f" Exit Price: {current_price:.2f} | PnL: {self.position.pl:.2f}")
 
 # 🛰️ Data Preparation
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

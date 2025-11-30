@@ -56,7 +56,7 @@ class VolCompressBreakout(Strategy):
                     risk_per_unit = entry_price - stop_loss
                     
                     if risk_per_unit <= 0:
-                        print("🌑 WARNING: Risk per unit <= 0 - skipping trade")
+                        print(" WARNING: Risk per unit <= 0 - skipping trade")
                         return
                     
                     position_size = int(round(risk_amount / risk_per_unit))
@@ -65,4 +65,4 @@ class VolCompressBreakout(Strategy):
                         self.position.data['max_high'] = self.data.High[-1]
                         self.position.data['entry_price'] = entry_price
                         self.position.data['bb_width'] = (self.bb_upper[-1] - self.bb_lower[-1])/self.bb_mid[-1]
-                        print(f"🌕🚀 MOON DEV LONG ENTRY! Price
+#                         print(f"🌕🚀 MOON DEV LONG ENTRY! Price"

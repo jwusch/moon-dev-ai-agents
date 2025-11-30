@@ -1,8 +1,3 @@
-Here's the complete fixed implementation of the VoltaicBreakout strategy with all necessary corrections and Moon Dev themed debug prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION ✨
-
 import pandas as pd
 import talib
 import numpy as np
@@ -37,7 +32,7 @@ class VoltaicBreakout(Strategy):
     atr_period = 14
     atr_sma_period = 50
     atr_multiplier = 1.5
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     
     def init(self):
         # VOLATILITY INDICATORS 🌋
@@ -68,18 +63,18 @@ class VoltaicBreakout(Strategy):
         if (self.data.Close[-2] < prev_high and self.data.Close[-1] > prev_high) and atr > atr_sma * self.atr_multiplier:
             self.calculate_position(long=True, entry=self.data.Open[-1], 
                                  sl=prev_low, atr=atr)
-            print(f"🌙✨ Moon Dev Long Signal! Entry: {self.data.Open[-1]}")
+#             print(f"🌙✨ Moon Dev Long Signal! Entry: {self.data.Open[-1]}")
 
         # SHORT ENTRY CONDITIONS 🌑
         elif (self.data.Close[-2] > prev_low and self.data.Close[-1] < prev_low) and atr > atr_sma * self.atr_multiplier:
             self.calculate_position(long=False, entry=self.data.Open[-1],
                                  sl=prev_high, atr=atr)
-            print(f"🌙✨ Moon Dev Short Signal! Entry: {self.data.Open[-1]}")
+#             print(f"🌙✨ Moon Dev Short Signal! Entry: {self.data.Open[-1]}")
 
         # END-OF-DAY EXIT 🌅
         if self.is_last[-1] and self.position:
             self.position.close()
-            print(f"🌙✨ Moon Dev Time Exit! Closing at {self.data.Close[-1]}")
+#             print(f"🌙✨ Moon Dev Time Exit! Closing at {self.data.Close[-1]}")
 
     def calculate_position(self, long, entry, sl, atr):
         # RISK CALCULATION ⚖️

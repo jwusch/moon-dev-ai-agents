@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import os
 import numpy as np
 import pandas as pd
@@ -33,7 +31,7 @@ class DeltaBreakout(Strategy):
         # ATR moving average for consolidation detection
         self.atr_ma = self.I(talib.SMA, self.atr, timeperiod=20)
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready for Launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready for Launch! 🚀")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -62,7 +60,7 @@ class DeltaBreakout(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=lower_kc)
-                        print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Buying {position_size} units at {current_close:.2f}")
+#                         print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Buying {position_size} units at {current_close:.2f}")
             
             # Short entry conditions
             elif (current_close < lower_kc and 
@@ -75,20 +73,20 @@ class DeltaBreakout(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=upper_kc)
-                        print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Selling {position_size} units at {current_close:.2f}")
+#                         print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Selling {position_size} units at {current_close:.2f}")
         
         else:
             # Exit conditions for long
             if self.position.is_long:
                 if vol_delta < 0 or current_close < lower_kc:
                     self.position.close()
-                    print(f"🌙✨ MOON DEV LONG EXIT! Closed at {current_close:.2f} 🌌")
+#                     print(f"🌙✨ MOON DEV LONG EXIT! Closed at {current_close:.2f} 🌌")
             
             # Exit conditions for short
             elif self.position.is_short:
                 if vol_delta > 0 or current_close > upper_kc:
                     self.position.close()
-                    print(f"🌙✨ MOON DEV SHORT EXIT! Closed at {current_close:.2f} 🌌")
+#                     print(f"🌙✨ MOON DEV SHORT EXIT! Closed at {current_close:.2f} 🌌")
 
 # Data preparation
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

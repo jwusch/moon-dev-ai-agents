@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -29,8 +26,8 @@ class ContangoFade(Strategy):
         self.bb_width_sma = self.I(talib.SMA, self.bb_width, timeperiod=20)
         
         # Print Moon Dev initialization message
-        print("🌙 Moon Dev Backtest Initialized! Lunar indicators calibrated ✨")
-        print("🚀 ADX | BBANDS | SMA systems online - Ready to fade contango! 🌕")
+#         print("🌙 Moon Dev Backtest Initialized! Lunar indicators calibrated ✨")
+        print(" ADX | BBANDS | SMA systems online - Ready to fade contango! ")
 
     def next(self):
         current_price = self.data.Close[-1]
@@ -58,8 +55,8 @@ class ContangoFade(Strategy):
                                 'entry_vix': current_vix,
                                 'entry_price': current_price
                             })
-                    print(f"🚀 MOON SHORT ENTRY 🚀 Contango: {current_contango:.2f}% | ADX: {current_adx:.2f}")
-                    print(f"Size: {position_size} | Entry VIX: {current_vix:.2f} | Moon Power: 100% 🌕")
+                    print(f" MOON SHORT ENTRY  Contango: {current_contango:.2f}% | ADX: {current_adx:.2f}")
+                    print(f"Size: {position_size} | Entry VIX: {current_vix:.2f} | Moon Power: 100% ")
         else:
             # Get current values for exit checks
             current_vix_front = self.data.vix_front[-1]
@@ -75,12 +72,12 @@ class ContangoFade(Strategy):
             
             # Bollinger Band expansion exit
             if bb_width > bb_width_sma:
-                print(f"✨ BB Width Alert! {bb_width:.2f} > {bb_width_sma:.2f} - Preparing lunar escape 🚀")
+                print(f" BB Width Alert! {bb_width:.2f} > {bb_width_sma:.2f} - Preparing lunar escape ")
                 exit_signal = True
             
             # Contango flip exit
             if current_contango <= 0:
-                print(f"🌌 Contango Flip Detected! Current: {current_contango:.2f}% - Initiating dark matter protocol 🌑")
+                print(f" Contango Flip Detected! Current: {current_contango:.2f}% - Initiating dark matter protocol ")
                 exit_signal = True
                 
             # VIX spike stop loss

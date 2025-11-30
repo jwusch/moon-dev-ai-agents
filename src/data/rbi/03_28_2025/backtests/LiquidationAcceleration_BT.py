@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -56,7 +55,7 @@ class LiquidationAcceleration(Strategy):
                     self.buy(size=position_size)
                     self.entry_bar = len(self.data) - 1
                     self.max_high = self.data.High[-1]
-                    print(f"🌙🚀 LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]-stop_distance:.2f}")
+                    print(f" LONG ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]-stop_distance:.2f}")
 
             # Short entry logic        
             elif self.data.Close[-1] < self.swing_low[-2] and self.data.Volume[-1] > self.volume_sma[-1]:
@@ -72,7 +71,7 @@ class LiquidationAcceleration(Strategy):
                     self.sell(size=position_size)
                     self.entry_bar = len(self.data) - 1
                     self.min_low = self.data.Low[-1]
-                    print(f"🌙📉 SHORT ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]+stop_distance:.2f}")
+                    print(f" SHORT ENTRY | Price: {self.data.Close[-1]:.2f} | Size: {position_size} | SL: {self.data.Close[-1]+stop_distance:.2f}")
 
         else:
             # Update trailing levels
@@ -83,11 +82,11 @@ class LiquidationAcceleration(Strategy):
                 
                 if self.data.Low[-1] <= stop_level:
                     self.sell()
-                    print(f"🌙🛑 LONG EXIT | Price: {self.data.Close[-1]:.2f} | Profit: {self.position.pl:.2f} ✨")
+                    print(f" LONG EXIT | Price: {self.data.Close[-1]:.2f} | Profit: {self.position.pl:.2f} ")
                 
                 elif (len(self.data) - 1 - self.entry_bar) >= self.exit_period:
                     self.sell()
-                    print(f"🌙⏳ LONG TIMEOUT | Bars: {self.exit_period} | Profit: {self.position.pl:.2f}")
+                    print(f"⏳ LONG TIMEOUT | Bars: {self.exit_period} | Profit: {self.position.pl:.2f}")
 
             elif self.position.is_short:
                 self.min_low = min(self.min_low, self.data.Low[-1])

@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's VolumetricCross Backtest Script 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -43,7 +40,7 @@ class VolumetricCross(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print(f"🌙✨ Aborting entry - Negative risk detected! Entry: {entry_price} | SL: {stop_loss}")
+                    print(f" Aborting entry - Negative risk detected! Entry: {entry_price} | SL: {stop_loss}")
                     return
                 
                 risk_amount = self.risk_percent * self.equity
@@ -56,13 +53,13 @@ class VolumetricCross(Strategy):
                         sl=TrailingStop(atr_trailing),
                         tag="MoonDev_VolCross"
                     )
-                    print(f"🚀🌕 MOON ENTRY! Size: {position_size} @ {entry_price} | SL: {stop_loss} | Trailing ATR: {atr_trailing:.2f} 🌊")
+                    print(f" MOON ENTRY! Size: {position_size} @ {entry_price} | SL: {stop_loss} | Trailing ATR: {atr_trailing:.2f} ")
 
         else:
             # 🌙 Check RSI exit condition
             if self.rsi[-1] < 70 and self.rsi[-2] >= 70:
                 self.position.close()
-                print(f"🌙✨ RSI EXIT! Closing @ {price} | Profit: {self.position.pl_pct:.2%} 🌗")
+                print(f" RSI EXIT! Closing @ {price} | Profit: {self.position.pl_pct:.2%} ")
 
 # 🌙 Data Preparation Ritual
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

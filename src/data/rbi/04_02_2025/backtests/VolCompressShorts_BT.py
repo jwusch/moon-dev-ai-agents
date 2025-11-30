@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -37,7 +35,7 @@ class VolCompressShorts(Strategy):
         # Liquidation move indicators
         self.liquidation_20d = self.I(talib.SMA, self.data.liquidation_move, timeperiod=20*96)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         current_price = self.data.close[-1]
@@ -58,7 +56,7 @@ class VolCompressShorts(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size, sl=current_price + stop_loss, 
                              tp=current_price - 1.5*liquidation_move)
-                    print(f"🚀 MOON DEV SHORT ENTRY 🚀 Size: {position_size} | SL: {stop_loss:.2f} | Entry: {current_price:.2f}")
+#                     print(f"🚀 MOON DEV SHORT ENTRY 🚀 Size: {position_size} | SL: {stop_loss:.2f} | Entry: {current_price:.2f}")
 
         # Exit conditions
         for trade in self.trades:
@@ -66,7 +64,7 @@ class VolCompressShorts(Strategy):
                 # Funding rate normalization
                 if self.data.funding_rate[-1] < self.funding_75th[-1]:
                     trade.close()
-                    print("🌑 Funding Normalization Exit! Funding < 75th percentile")
+                    print(" Funding Normalization Exit! Funding < 75th percentile")
                     
                 # Trailing stop logic
                 current_profit = trade.entry_price - current_price
@@ -74,7 +72,7 @@ class VolCompressShorts(Strategy):
                     new_sl = trade.entry_price - self.liquidation_20d[-1]
                     if new_sl < trade.sl:
                         trade.sl = new_sl
-                        print(f"✨ Trailing SL Updated: {new_sl:.2f}")
+                        print(f" Trailing SL Updated: {new_sl:.2f}")
 
 if __name__ == "__main__":
     # Load and prepare data

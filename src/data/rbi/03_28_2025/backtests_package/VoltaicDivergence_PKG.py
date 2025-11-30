@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev implementations 🌙✨:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -42,7 +39,7 @@ class VoltaicDivergence(Strategy):
     def next(self):
         # Moon Dev safety check 🌙
         if len(self.data) < 20:
-            print("🌙⚠️ Not enough data yet - waiting for 20 periods")
+            print(" Not enough data yet - waiting for 20 periods")
             return
             
         i = len(self.data)-1
@@ -65,7 +62,7 @@ class VoltaicDivergence(Strategy):
                         risk_per_share = self.data.Close[i] - sl_price
                         if risk_per_share > 0:
                             size = int(round(risk_amount / risk_per_share))
-                            print(f"🌙🚀 BULLISH DIVERGENCE DETECTED! Buying {size} shares @ {current_close:.2f}")
+                            print(f" BULLISH DIVERGENCE DETECTED! Buying {size} shares @ {current_close:.2f}")
                             self.buy(size=size, sl=sl_price)
                             
                 # Bearish divergence detection        
@@ -77,16 +74,16 @@ class VoltaicDivergence(Strategy):
                         risk_per_share = sl_price - self.data.Close[i]
                         if risk_per_share > 0:
                             size = int(round(risk_amount / risk_per_share))
-                            print(f"🌙🚀 BEARISH DIVERGENCE DETECTED! Shorting {size} shares @ {current_close:.2f}")
+                            print(f" BEARISH DIVERGENCE DETECTED! Shorting {size} shares @ {current_close:.2f}")
                             self.sell(size=size, sl=sl_price)
         
         # ======== EXIT LOGIC ========
         if self.position.is_long and current_close > upper_band:
-            print(f"🌙💎 LONG EXIT SIGNAL @ {current_close:.2f} (Upper Band Touch)")
+            print(f" LONG EXIT SIGNAL @ {current_close:.2f} (Upper Band Touch)")
             self.position.close()
             
         elif self.position.is_short and current_close < lower_band:
-            print(f"🌙💎 SHORT EXIT SIGNAL @ {current_close:.2f} (Lower Band Touch)")
+            print(f" SHORT EXIT SIGNAL @ {current_close:.2f} (Lower Band Touch)")
             self.position.close()
 
 # Moon Dev Backtest Launch Sequence 🌙

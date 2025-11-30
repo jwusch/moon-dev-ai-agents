@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic and adding Moon Dev themed debug prints. Here's the complete fixed version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -64,7 +61,7 @@ class VolSurgeBand(Strategy):
         # Moon-themed debug logging
         if len(self.data) > 1:
             debug_str = (
-                f"🌙 MOON DEV DEBUG 🌙\n"
+#                 f"🌙 MOON DEV DEBUG 🌙\n"
                 f"| Close: {self.data.Close[-1]:.2f} | BBW%: {self.bbw_percentile[-1]:.1f} |\n"
                 f"| Volume: {self.data.Volume[-1]:.0f} vs {self.volume_sma20[-1]:.0f} |"
             )
@@ -72,11 +69,11 @@ class VolSurgeBand(Strategy):
         
         # Exit conditions
         if self.position.is_long and self.data.High[-1] >= self.bb_upper[-1]:
-            print(f"🚀🌕 PROFIT TAKEN! Price touched Upper Band @ {self.bb_upper[-1]:.2f}")
+            print(f" PROFIT TAKEN! Price touched Upper Band @ {self.bb_upper[-1]:.2f}")
             self.position.close()
             
         if self.position.is_short and self.data.Low[-1] <= self.bb_lower[-1]:
-            print(f"🌑🚀 COVER SHORT! Price touched Lower Band @ {self.bb_lower[-1]:.2f}")
+            print(f" COVER SHORT! Price touched Lower Band @ {self.bb_lower[-1]:.2f}")
             self.position.close()
             
         # Entry conditions

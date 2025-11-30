@@ -1,10 +1,3 @@
-Here's the fully debugged and completed SqueezeMomentum strategy with Moon Dev enhancements:
-
-```python
-# 🌙 Moon Dev Backtest AI Certified Code 🚀
-# 🚀 Squeeze Momentum Strategy v1.1 - Moon Dev Optimized 🌙
-
-# 1. Necessary imports - Strictly TA-Lib compliant ✨
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -13,7 +6,7 @@ import numpy as np
 # 2. Data handling - Moon Dev Data Preprocessing System ✨
 def prepare_data(filepath):
     # Load and clean data with lunar precision
-    print("🌙 Moon Dev Data Loading System Initialized...")
+#     print("🌙 Moon Dev Data Loading System Initialized...")
     data = pd.read_csv(filepath)
     data.columns = data.columns.str.strip().str.lower()
     
@@ -33,7 +26,7 @@ def prepare_data(filepath):
     # Convert and set index with lunar precision
     data['Date'] = pd.to_datetime(data['Date'])
     data.set_index('Date', inplace=True)
-    print("✨ Moon Dev Data Preparation Complete! Ready for launch sequence! 🚀")
+#     print("✨ Moon Dev Data Preparation Complete! Ready for launch sequence! 🚀")
     return data
 
 # 3. Strategy class - Moon Dev Trading Algorithm 🌙
@@ -55,12 +48,12 @@ class SqueezeMomentum(Strategy):
         
         # Track trading state with Moon Dev risk management
         self.consecutive_losses = 0
-        print("✨ Moon Dev Indicators Initialized! Trading systems nominal! 🚀")
+#         print("✨ Moon Dev Indicators Initialized! Trading systems nominal! 🚀")
 
     def next(self):
-        # 🌑 Check if we're in cooldown from losses
+        # 🌑 Check if we're in cooldown from losses'
         if self.consecutive_losses >= self.max_consecutive_losses:
-            print("🌪️ Moon Dev Alert: Trading paused - 3 consecutive losses detected! ✋")
+#             print("🌪️ Moon Dev Alert: Trading paused - 3 consecutive losses detected! ✋")
             return
 
         # 🚀 Entry Logic - Moon Dev Signal Detection System
@@ -100,4 +93,4 @@ class SqueezeMomentum(Strategy):
                 trail_price = self.position.entry_price * (1 - self.trailing_stop_pct)
                 if current_price <= trail_price:
                     self.position.close()
-                    print("🌙 Moon Dev Exit: Long position
+#                     print("🌙 Moon Dev Exit: Long position"

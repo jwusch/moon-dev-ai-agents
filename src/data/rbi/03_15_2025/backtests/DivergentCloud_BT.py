@@ -46,7 +46,7 @@ class DivergentCloud(Strategy):
         
         # Risk management calculations
         if bearish_entry and not self.position:
-            equity = self.broker.equity
+            equity = self.equity
             risk_amount = equity * self.risk_per_trade
             stop_loss = price * 1.01  # 1% stop loss
             risk_per_unit = abs(price - stop_loss)
@@ -54,12 +54,12 @@ class DivergentCloud(Strategy):
             
             if position_size > 0:
                 self.sell(size=position_size, sl=stop_loss)
-                print(f"🚨 BEARISH CLOUD BREAK! Shorting {position_size} units at {price:.2f} 🌧️")
+                print(f"🚨 BEARISH CLOUD BREAK! Shorting {position_size} units at {price:0.2f} 🌧️")
                 
         # Close position conditions
         elif self.position.is_short and bullish_exit:
             self.position.close()
-            print(f"🌈 BULLISH RECOVERY! Closing short at {price:.2f} ☀️")
+            print(f"🌈 BULLISH RECOVERY! Closing short at {price:0.2f} ☀️")
 
 if __name__ == '__main__':
     # Load and prepare data

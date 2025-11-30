@@ -1,9 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR ClusterVolatility STRATEGY 🌙
-# 🚀 PACKAGE AI CERTIFIED - PROPER POSITION SIZING IMPLEMENTED 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -31,7 +25,7 @@ data = data.rename(columns={
 # CORE STRATEGY CLASS 🚀
 # =====================
 class ClusterVolatility(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # =====================
@@ -55,9 +49,9 @@ class ClusterVolatility(Strategy):
         # Volume Filter ✨
         self.vol_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='Volume SMA')
         
-        print("🌙✨ MOON DEV INDICATORS LOADED ✨🚀")
-        print("   ✅ All indicators using pure TA-Lib and pandas-ta")
-        print("   ✅ Zero backtesting.lib dependencies detected")
+#         print("🌙✨ MOON DEV INDICATORS LOADED ✨🚀")
+        print("    All indicators using pure TA-Lib and pandas-ta")
+        print("    Zero backtesting.lib dependencies detected")
 
     def next(self):
         # =====================

@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -71,10 +70,10 @@ class DynamicBreakout(Strategy):
         if position_size > 0:
             if direction == 'long':
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🌕 BUY Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" BUY Signal! Size: {position_size} | Entry: {entry_price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
             else:
                 self.sell(size=position_size, sl=sl, tp=tp)
-                print(f"🌑 SELL Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" SELL Signal! Size: {position_size} | Entry: {entry_price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
             
             self.entry_bar = len(self.data) - 1
 

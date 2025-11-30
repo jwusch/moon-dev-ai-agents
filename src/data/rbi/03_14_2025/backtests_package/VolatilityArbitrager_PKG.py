@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation for VolatilityArbitrager Strategy 🚀
-
 import pandas as pd
 import talib
 import numpy as np
@@ -91,6 +86,6 @@ class VolatilityArbitrager(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🌕 MOON DEV LONG SIGNAL! Buying {position_size} units at {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} 🚀")
+#                     print(f"🌕 MOON DEV LONG SIGNAL! Buying {position_size} units at {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} 🚀")
 
             # Short Entry: IV > HV with confirmation 🌑

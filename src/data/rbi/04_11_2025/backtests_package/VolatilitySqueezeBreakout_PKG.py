@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 Moon Dev's Volatility Squeeze Breakout Backtest 🌙
 import numpy as np
 import pandas as pd
 import talib
@@ -22,7 +18,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolatilitySqueezeBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 Calculate indicators with TA-Lib
@@ -42,7 +38,7 @@ class VolatilitySqueezeBreakout(Strategy):
         # 🌙 Volume indicators
         self.vol_median = self.I(talib.MEDIAN, self.data.Volume, timeperiod=20, name='Vol_Median')
         
-        print("🌙✨ Strategy Initialized with Moon Power! ✨🌙")
+#         print("🌙✨ Strategy Initialized with Moon Power! ✨🌙")
 
     def next(self):
         price = self.data.Close[-1]
@@ -66,7 +62,7 @@ class VolatilitySqueezeBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🚀🌙 MOON BLASTOFF! LONG {position_size} @ {price:.2f} | SL: {stop_loss:.2f}")
+                    print(f" MOON BLASTOFF! LONG {position_size} @ {price:.2f} | SL: {stop_loss:.2f}")
             
             elif short_cond:
                 stop_loss = self.data.High[-1]
@@ -76,7 +72,7 @@ class VolatilitySqueezeBreakout(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_loss)
-                    print(f"🌧️🌙 SHORT SURGE! {position_size} @ {price:.2f} | SL: {stop_loss:.2f}")
+                    print(f" SHORT SURGE! {position_size} @ {price:.2f} | SL: {stop_loss:.2f}")
         
         # 🌙 Trailing Stop Logic
         else:

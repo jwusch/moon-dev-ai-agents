@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -66,14 +62,14 @@ class SqueezeMomentumBreakout(Strategy):
             self.current_date = current_date
             self.daily_equity = self.equity
             self.trading_enabled = True
-            print(f"🌕 NEW DAY {current_date} | Starting Equity: ${self.daily_equity:,.2f}")
+            print(f" NEW DAY {current_date} | Starting Equity: ${self.daily_equity:,.2f}")
             
         if not self.trading_enabled:
             return
             
         # Check 5% daily loss limit
         if (self.equity - self.daily_equity) / self.daily_equity <= -0.05:
-            print(f"🌧️ DAILY LOSS LIMIT TRIGGERED! Closing all positions.")
+            print(f" DAILY LOSS LIMIT TRIGGERED! Closing all positions.")
             self.position.close()
             self.trading_enabled = False
             return

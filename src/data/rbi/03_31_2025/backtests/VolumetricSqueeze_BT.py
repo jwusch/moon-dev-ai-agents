@@ -1,6 +1,3 @@
-Here's the complete implementation of the VolumetricSqueeze strategy for backtesting.py:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -74,7 +71,7 @@ class VolumetricSqueeze(Strategy):
                     position_size = int(round(position_size))
                     
                     if position_size > 0:
-                        print(f"🌙✨ MOON DEV ENTRY SIGNAL ✨🌙 | Price: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f}")
+#                         print(f"🌙✨ MOON DEV ENTRY SIGNAL ✨🌙 | Price: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f}")
                         self.buy(size=position_size, sl=stop_loss, 
                                 tag='Volumetric Squeeze Entry')
         else:
@@ -83,5 +80,5 @@ class VolumetricSqueeze(Strategy):
             prev_div_above = self.volume_div_ema[-2] >= self.threshold[-2]
             
             if div_below_threshold and prev_div_above:
-                print(f"🌙🚀 MOON DEV EXIT SIGNAL 🚀🌙 | Price: {price:.2f}")
+#                 print(f"🌙🚀 MOON DEV EXIT SIGNAL 🚀🌙 | Price: {price:.2f}")
                 self.position.close()

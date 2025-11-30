@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import talib
@@ -46,7 +44,7 @@ class BandwidthDivergence(Strategy):
         self.price_high = self.I(talib.MAX, self.data.High, self.swing_period, name='SWING_HIGH')
         self.ck_high = self.I(talib.MAX, self.chaikin, self.swing_period, name='CK_HIGH')
 
-        print("🌙 Moon Dev System Activated - Prepare for Lunar Launch! 🚀")
+#         print("🌙 Moon Dev System Activated - Prepare for Lunar Launch! 🚀")
 
     def next(self):
         if len(self.data) < max(self.bw_lookback, self.swing_period*2):
@@ -75,7 +73,7 @@ class BandwidthDivergence(Strategy):
                 if risk > 0:
                     size = int(round((self.equity * self.risk_per_trade) / risk))
                     self.buy(size=size, sl=sl, tag='LONG')
-                    print(f"🌕 BULLISH BREAKOUT! Size: {size} | SL: {sl:.2f} 🚀")
+                    print(f" BULLISH BREAKOUT! Size: {size} | SL: {sl:.2f} ")
 
             elif contraction and bear_div and price < self.bb_lower[-1] and vol_ok:
                 sl = max

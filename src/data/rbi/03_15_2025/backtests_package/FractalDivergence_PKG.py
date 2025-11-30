@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib as ta
@@ -33,7 +30,7 @@ class FractalDivergence(Strategy):
             return
         
         # Check for fractals two bars ago 🌙
-        current_max_high = self.max_high[-1]  # Current bar's max_high (includes 2 future bars)
+        current_max_high = self.max_high[-1]  # Current bar's max_high (includes 2 future bars)'
         current_min_low = self.min_low[-1]
         
         # Bearish fractal check (two bars ago)
@@ -79,7 +76,7 @@ class FractalDivergence(Strategy):
                 size = int(round(risk / risk_per_unit))
                 if size > 0:
                     self.buy(size=size, sl=sl, tp=self.data.Close[-1] + 2*risk_per_unit)
-                    print(f"🌙✨🚀 BULLISH BREAKOUT! Long {size} units at {self.data.Close[-1]} | SL: {sl} | TP: {self.data.Close[-1] + 2*risk_per_unit}")
+                    print(f" BULLISH BREAKOUT! Long {size} units at {self.data.Close[-1]} | SL: {sl} | TP: {self.data.Close[-1] + 2*risk_per_unit}")
             
             # Short entry
             elif bearish_div and self.data.Close[-1] < self.data.Low[-3] and ema_slope_down and rsi_valid:

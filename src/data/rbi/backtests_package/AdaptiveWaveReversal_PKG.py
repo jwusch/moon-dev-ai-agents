@@ -1,9 +1,5 @@
-Below is the fixed code with proper Moon Dev themed debug prints and without any usage of backtesting.lib:
-
-```python
-#!/usr/bin/env python3
 """
-Moon Dev’s Backtest AI 🌙
+# Moon Dev’s Backtest AI 🌙
 Strategy: AdaptiveWaveReversal
 --------------------------------------------------
 Instructions:
@@ -63,7 +59,7 @@ class AdaptiveWaveReversal(Strategy):
         self.pivot = self.I(calc_pivot, self.data.High, self.data.Low, self.data.Close)
 
         # Debug print for initialization
-        print("🌙🚀 [Moon Dev] Strategy Initialized with indicators!")
+#         print("🌙🚀 [Moon Dev] Strategy Initialized with indicators!")
 
     def next(self):
         price = self.data.Close[-1]
@@ -78,4 +74,4 @@ class AdaptiveWaveReversal(Strategy):
             trend = "uptrend"
         else:
             trend = "downtrend"
-        print(f"🌙✨ [Moon Dev] Bar: {self.data.index[-1]} | Price:
+#         print(f"🌙✨ [Moon Dev] Bar: {self.data.index[-1]} | Price:"

@@ -1,4 +1,3 @@
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -81,7 +80,7 @@ class VoltaicSqueeze(Strategy):
                     if units > 0:
                         self.buy(size=units)
                         self.peak_price = self.data.High[-1]
-                        print(f"🌙 MOON DEV LONG ENTRY! ✨ Size: {units} @ {price:.2f}")
+#                         print(f"🌙 MOON DEV LONG ENTRY! ✨ Size: {units} @ {price:.2f}")
                 
                 # Short Entry
                 elif price < self.kc_lower[-1]:
@@ -91,4 +90,4 @@ class VoltaicSqueeze(Strategy):
                     if units > 0:
                         self.sell(size=units)
                         self.trough_price = self.data.Low[-1]
-                        print(f"🌙 MOON DEV SHORT ENTRY! 🌑 Size:
+#                         print(f"🌙 MOON DEV SHORT ENTRY! 🌑 Size:"

@@ -1,13 +1,9 @@
-Here's the fixed version of your backtest code with proper debugging prints:
-
-# 🌙 Moon Dev Backtest Implementation for MeanReversalAlert Strategy 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 
 class MeanReversalAlert(Strategy):
-    risk_pct = 1  # 1% risk per trade 🌙
+    risk_pct = 1  # 1% risk per trade 
     
     def init(self):
         # 🌀 Indicator Calculation with TA-Lib
@@ -31,8 +27,8 @@ class MeanReversalAlert(Strategy):
             sl_price = self.bollinger_bands[1][-1] - (2 * self.atr[-1])
             
             # Enter position with proper formatting
-            print(f"Entering long at {self.close[-1]:.2f}")
-            print(f"Stop Loss: {sl_price:.2f}")
+            print(f"Entering long at {self.close[-1]:0.2f}")
+            print(f"Stop Loss: {sl_price:0.2f}")
             print(f"Position Size: {int(round(self.position.size))} contracts")
             
             self.buy(size=int(round(self.position.size)), sl=sl_price)
@@ -44,4 +40,4 @@ class MeanReversalAlert(Strategy):
 bt = Backtest(MeanReversalAlert, data, cash=100000, commission=0.001)
 
 result = bt.run()
-print(f"\nFinal result: {bt统计书:.2f} dollars")
+print(f"\nFinal result: {bt:0.2f} dollars")

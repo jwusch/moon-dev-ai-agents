@@ -1,7 +1,3 @@
-Here's the fixed and improved version of your code with all necessary replacements and Moon Dev enhancements: 🌙✨
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation 🚀
 import pandas as pd
 import talib
 import numpy as np
@@ -66,12 +62,12 @@ class LiquidationDivergence(Strategy):
         if current_day != pd.Timestamp(self.daily_equity[-1][0]).date():
             daily_return = (self.equity - self.daily_equity[-1][1]) / self.daily_equity[-1][1]
             if daily_return < -self.daily_loss_limit:
-                print(f"🌚 Emergency! Daily loss limit breached: {daily_return:.2%}")
+                print(f" Emergency! Daily loss limit breached: {daily_return:.2%}")
                 return
             self.daily_equity.append((current_day, self.equity))
 
         if self.consecutive_losses >= self.max_consecutive_losses:
-            print(f"🌘 Cooling period active ({self.consecutive_losses} consecutive losses)")
+            print(f" Cooling period active ({self.consecutive_losses} consecutive losses)")
             return
 
         # Planetary alignment conditions 🌐

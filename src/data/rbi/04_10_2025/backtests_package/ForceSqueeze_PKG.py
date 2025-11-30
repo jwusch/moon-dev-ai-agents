@@ -1,6 +1,3 @@
-I've fixed the code by removing all `backtesting.lib` imports and replacing the `crossover` function with manual crossover detection. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +24,7 @@ class ForceSqueeze(Strategy):
     
     def init(self):
         # Calculate indicators with TA-Lib
-        self.efi = self.I(talib.FORCEINDEX, self.data.Close, self.data.Volume, 13, name='EFI 🌊')
+        self.efi = self.I(talib.FORCEINDEX, self.data.Close, self.data.Volume, 13, name='EFI ')
         
         # Bollinger Bands components
         self.bb_upper = self.I(talib.BBANDS, self.data.Close, 20, 2, 2, 0, 
@@ -40,9 +37,9 @@ class ForceSqueeze(Strategy):
         # Calculate BB width and SMA
         self.bb_width = self.I(lambda u, l, m: (u-l)/m, 
                               self.bb_upper, self.bb_lower, self.bb_mid,
-                              name='BB_WIDTH 📏')
+                              name='BB_WIDTH ')
         self.bb_width_sma10 = self.I(talib.SMA, self.bb_width, 10,
-                                    name='BB_WIDTH_SMA10 📈')
+                                    name='BB_WIDTH_SMA10 ')
         
         self.stop_loss_level = None  # Trailing stop tracker
 
@@ -73,10 +70,10 @@ class ForceSqueeze(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price)
                         self.stop_loss_level = sl_price
-                        print(f"🌕 MOON DEV ALERT: LONG ENTRY SIGNAL ACTIVATED 🚀")
-                        print(f"📊 Position Size: {position_size} units")
-                        print(f"💰 Entry Price: {entry_price:.2f}")
-                        print(f"🛡️ Stop Loss: {sl_price:.2f}")
+#                         print(f"🌕 MOON DEV ALERT: LONG ENTRY SIGNAL ACTIVATED 🚀")
+                        print(f" Position Size: {position_size} units")
+                        print(f" Entry Price: {entry_price:.2f}")
+                        print(f" Stop Loss: {sl_price:.2f}")
                         print("="*40)
 
         # Moon Dev Exit Logic 🌙
@@ -88,7 +85,7 @@ class ForceSqueeze(Strategy):
             # Check volatility expansion exit
             if current_width > width_sma:
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT SIGNAL: VOLATILITY EXPANSION DETECTED")
-                print(f"📈 Current Width: {current_width:.4f}")
-                print(f"📉 Width SMA: {width_sma:.4f}")
+#                 print(f"🌙 MOON DEV EXIT SIGNAL: VOLATILITY EXPANSION DETECTED")
+                print(f" Current Width: {current_width:.4f}")
+                print(f" Width SMA: {width_sma:.4f}")
                 print("="*40)

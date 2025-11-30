@@ -1,9 +1,3 @@
-I'll help you fix the code by removing all `backtesting.lib` imports and replacing crossover/crossunder functions with proper implementations. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's WaveletBreakout Backtest Implementation 🚀
-
-# Required imports
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -35,7 +29,7 @@ class WaveletBreakout(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period)
         
-        print("🌙 WaveletBreakout Strategy Activated! ✨")
+#         print("🌙 WaveletBreakout Strategy Activated! ✨")
 
     def next(self):
         price = self.data.Close[-1]
@@ -43,7 +37,7 @@ class WaveletBreakout(Strategy):
         prev_low = self.swing_low[-1]
         current_atr = self.atr[-1]
 
-        # Moon Dev's Risk Management System 🌙
+        # Moon Dev's Risk Management System 🌙'
         equity = self.equity
         position_size = 0
 
@@ -55,7 +49,7 @@ class WaveletBreakout(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     tp = price - 2 * (prev_high - price)
-                    print(f"🚨 SHORT SIGNAL 🌑 | Price: {price:.2f} | SL: {prev_high:.2f} | TP: {tp:.2f}")
+                    print(f" SHORT SIGNAL  | Price: {price:.2f} | SL: {prev_high:.2f} | TP: {tp:.2f}")
                     self.sell(size=position_size, sl=prev_high, tp=tp)
 
             # Long Entry: False breakout below support 🌠
@@ -65,18 +59,18 @@ class WaveletBreakout(Strategy):
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
                     tp = price + 2 * (price - prev_low)
-                    print(f"🚀 LONG SIGNAL 🌕 | Price: {price:.2f} | SL: {prev_low:.2f} | TP: {tp:.2f}")
+                    print(f" LONG SIGNAL  | Price: {price:.2f} | SL: {prev_low:.2f} | TP: {tp:.2f}")
                     self.buy(size=position_size, sl=prev_low, tp=tp)
 
         else:
-            # Moon Dev's Exit Check 🌙
+            # Moon Dev's Exit Check 🌙'
             # Bullish crossover replacement
             if self.position.is_short and (self.data.Close[-2] < self.swing_high[-2] and self.data.Close[-1] > self.swing_high[-1]):
-                print(f"🌑 Closing SHORT Position at {price:.2f} | Moon Cycle Complete 🌗")
+                print(f" Closing SHORT Position at {price:.2f} | Moon Cycle Complete ")
                 self.position.close()
             # Bearish crossover replacement
             elif self.position.is_long and (self.data.Close[-2] > self.swing_low[-2] and self.data.Close[-1] < self.swing_low[-1]):
-                print(f"🌕 Closing LONG Position at {price:.2f} | Lunar Profit Achieved 🌓")
+                print(f" Closing LONG Position at {price:.2f} | Lunar Profit Achieved ")
                 self.position.close()
 
 # Launch Backtest 🚀
@@ -85,4 +79,4 @@ stats = bt.run()
 
 # Print Full Moon Report 🌕
 print("\n" + "="*50)
-print("🌙 FINAL MOON DEV STRATEG
+# print("🌙 FINAL MOON DEV STRATEG"

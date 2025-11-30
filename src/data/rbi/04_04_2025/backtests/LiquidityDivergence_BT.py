@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Liquidity Divergence Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -63,13 +61,13 @@ class LiquidityDivergence(Strategy):
         if current_swing_high != self.swing_high[-2]:
             self.last_swing_high_val = current_swing_high
             self.last_macd_peak = self.macd_hist[-1]
-            print(f"🌕 NEW LIQUIDITY ZONE! Swing High {current_swing_high:.2f} | MACD Peak {self.last_macd_peak:.2f}")
+            print(f" NEW LIQUIDITY ZONE! Swing High {current_swing_high:.2f} | MACD Peak {self.last_macd_peak:.2f}")
 
         # 🌑 Swing Low Detection
         if current_swing_low != self.swing_low[-2]:
             self.last_swing_low_val = current_swing_low
             self.last_macd_trough = self.macd_hist[-1]
-            print(f"🌑 NEW LIQUIDITY VOID! Swing Low {current_swing_low:.2f} | MACD Trough {self.last_macd_trough:.2f}")
+            print(f" NEW LIQUIDITY VOID! Swing Low {current_swing_low:.2f} | MACD Trough {self.last_macd_trough:.2f}")
 
         # 🚀 SHORT Entry: Price breaches swing high + MACD divergence
         if (current_close > current_swing_high and 
@@ -78,7 +76,7 @@ class LiquidityDivergence(Strategy):
             
             stop_loss = current_swing_high + current_atr
             self.calculate_position('short', current_close, stop_loss)
-            print(f"🚀🌙 SHORT FIRED! Entry: {current_close:.2f} | SL: {stop_loss:.2f}")
+            print(f" SHORT FIRED! Entry: {current_close:.2f} | SL: {stop_loss:.2f}")
 
         # 🌕 LONG Entry: Price breaches swing low + MACD divergence
         elif (current_close < current_swing_low and 

@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -40,7 +37,7 @@ class VolSqueezeSurge(Strategy):
         # Volume MA
         self.vol_ma = self.I(talib.SMA, volume, timeperiod=self.vol_ma_period, name='VOL_MA')
         
-        print("🌙 Moon Dev Indicators Initialized! BBANDS, Volume MA, Percentile Ready 🚀")
+#         print("🌙 Moon Dev Indicators Initialized! BBANDS, Volume MA, Percentile Ready 🚀")
 
     def next(self):
         current_idx = len(self.data)-1
@@ -67,7 +64,7 @@ class VolSqueezeSurge(Strategy):
             bars_in_trade = current_idx - self.position.entry_bar
             if bars_in_trade >= self.max_bars_held:
                 self.position.close()
-                print(f"🌙 Moon Dev Time Exit: Held {bars_in_trade+1} bars ✨")
+#                 print(f"🌙 Moon Dev Time Exit: Held {bars_in_trade+1} bars ✨")
 
     def enter_long(self):
         entry_price = self.data.Open[-1]
@@ -90,7 +87,7 @@ class VolSqueezeSurge(Strategy):
             self.buy(size=position_size, 
                     sl=stop_price,
                     tp=take_profit_price)
-            print(f"🌙🚀 LONG Entry! {position_size} shares at {entry_price:.2f} | SL: {stop_price:.2f} | TP: {take_profit_price:.2f}")
+            print(f" LONG Entry! {position_size} shares at {entry_price:.2f} | SL: {stop_price:.2f} | TP: {take_profit_price:.2f}")
 
     def enter_short(self):
         entry_price = self.data.Open[-1]

@@ -1,6 +1,3 @@
-I'll help debug the code while maintaining the strategy logic and adding Moon Dev themed debug prints. Here's the fixed version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -37,7 +34,7 @@ class GammaSurgeMomentum(Strategy):
         self.macd_line = self.I(self._calc_macd_line)
         self.macd_signal = self.I(self._calc_macd_signal)
         
-        print("🌙✨ MOON DEV INIT: Strategy initialized with cosmic indicators!")
+#         print("🌙✨ MOON DEV INIT: Strategy initialized with cosmic indicators!")
         
     def _calc_macd_line(self):
         macd, _, _ = talib.MACD(self.data.Close, 12, 26, 9)
@@ -56,7 +53,7 @@ class GammaSurgeMomentum(Strategy):
                 freq='WOM-3FRI'
             )[0].to_pydatetime().replace(hour=21, minute=0)
             expirations.append(date)
-        print(f"🌕📅 MOON DEV EXPIRATIONS: {len(expirations)} expiration dates calculated")
+#         print(f"🌕📅 MOON DEV EXPIRATIONS: {len(expirations)} expiration dates calculated")
         return expirations
     
     def _in_trading_window(self):
@@ -91,10 +88,10 @@ class GammaSurgeMomentum(Strategy):
                     size=position_size,
                     sl=sl_price,
                     tp=tp_price,
-                    tag=f"🌙 ENTRY: {entry_price:.2f} 🚀"
+                    tag=f" ENTRY: {entry_price:.2f} "
                 )
-                print(f"🌕✨ MOON DEV TRADE: {position_size} units @ {entry_price:.2f}")
-                print(f"🌙🛡️ MOON DEV RISK: SL={sl_price:.2f}, TP={tp_price:.2f}")
+#                 print(f"🌕✨ MOON DEV TRADE: {position_size} units @ {entry_price:.2f}")
+#                 print(f"🌙🛡️ MOON DEV RISK: SL={sl_price:.2f}, TP={tp_price:.2f}")
                 
         # Time-based exits
         for trade in self.trades:

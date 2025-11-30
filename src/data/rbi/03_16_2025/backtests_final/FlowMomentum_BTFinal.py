@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's FlowMomentum Backtest Implementation 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -27,7 +24,7 @@ class FlowMomentum(Strategy):
         # 🌙 Check for new OBV crossover (bullish)
         if self.obv[-2] < self.obv_ma[-2] and self.obv[-1] > self.obv_ma[-1]:
             self.signal_bar = len(self.data) - 1
-            print(f"✨ Potential Moon Signal Detected at {self.data.index[-1]}")
+            print(f" Potential Moon Signal Detected at {self.data.index[-1]}")
 
         # Check active signal status
         if self.signal_bar == -1:
@@ -38,7 +35,7 @@ class FlowMomentum(Strategy):
         # Expire signal if beyond 5 days
         if bars_since_signal > self.max_entry_window:
             self.signal_bar = -1
-            print("🌑 Signal expired - too much time has passed")
+            print(" Signal expired - too much time has passed")
             return
 
         # Entry check after 3 days
@@ -60,7 +57,7 @@ class FlowMomentum(Strategy):
                 risk_per_share = current_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌘 Invalid risk calculation - skipping trade")
+                    print(" Invalid risk calculation - skipping trade")
                     return
                 
                 # Calculate position size
@@ -76,7 +73,7 @@ class FlowMomentum(Strategy):
                         tp=take_profit,
                         tag="Moon Momentum Entry"
                     )
-                    print(f"🚀🌙 LONG ENTRY | Size: {position_size} | Price: {current_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f" LONG ENTRY | Size: {position_size} | Price: {current_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
                     self.signal_bar = -1
 
         # Exit conditions for open positions
@@ -84,7 +81,7 @@ class FlowMomentum(Strategy):
             # 🌘 Momentum reversal exit (bearish crossover)
             if self.obv_ma[-2] < self.obv[-2] and self.obv_ma[-1] > self.obv[-1]:
                 self.position.close()
-                print(f"🌒🌊 Momentum Reversal Exit at {self.data.Close[-1]:.2f}")
+                print(f" Momentum Reversal Exit at {self.data.Close[-1]:.2f}")
 
 # Data preparation 🌍
 data = pd.read_csv("/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv")

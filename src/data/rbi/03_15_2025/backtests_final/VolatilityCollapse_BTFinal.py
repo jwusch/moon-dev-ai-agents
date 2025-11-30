@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITYCOLLAPSE STRATEGY
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -67,7 +64,7 @@ class VolatilityCollapse(Strategy):
                     self.buy(size=position_size, 
                             sl=stop_loss,
                             tp=take_profit)
-                    print(f"🌕✨ MOON DEV LONG SIGNAL! Entry: {price:.2f}, Size: {position_size} BTC, Risk: {risk_per_share:.2f} USD")
+#                     print(f"🌕✨ MOON DEV LONG SIGNAL! Entry: {price:.2f}, Size: {position_size} BTC, Risk: {risk_per_share:.2f} USD")
 
             # 🌑 SHORT ENTRY SIGNAL
             elif volatility_cond and volume_cond and short_break:
@@ -79,7 +76,7 @@ class VolatilityCollapse(Strategy):
                     self.sell(size=position_size,
                              sl=stop_loss,
                              tp=take_profit)
-                    print(f"🌑✨ MOON DEV SHORT SIGNAL! Entry: {price:.2f}, Size: {position_size} BTC, Risk: {risk_per_share:.2f} USD")
+#                     print(f"🌑✨ MOON DEV SHORT SIGNAL! Entry: {price:.2f}, Size: {position_size} BTC, Risk: {risk_per_share:.2f} USD")
 
 # 🚀 BACKTEST EXECUTION WITH MOON DEV SETTINGS
 bt = Backtest(data, VolatilityCollapse)

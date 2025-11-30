@@ -1,12 +1,9 @@
-I'll help debug and fix the code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
 
 # Load and preprocess data 🌙
-print("🌌 Initializing Moon Dev Data Systems...")
+# print("🌌 Initializing Moon Dev Data Systems...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
@@ -19,12 +16,12 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("🌕 Data successfully loaded and preprocessed!")
+print(" Data successfully loaded and preprocessed!")
 
 class BandwidthBreakout(Strategy):
     def init(self):
         # Moon-powered indicators ✨
-        print("🌙 Initializing Moon Dev Indicators...")
+#         print("🌙 Initializing Moon Dev Indicators...")
         self.upper_band, self.middle_band, self.lower_band = self.I(talib.BBANDS, 
             self.data.Close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
         
@@ -39,7 +36,7 @@ class BandwidthBreakout(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
         self.trailing_stop = None
-        print("✨ Indicators successfully initialized!")
+        print(" Indicators successfully initialized!")
 
     def notify_trade(self, trade):
         if trade.is_open:
@@ -47,10 +44,10 @@ class BandwidthBreakout(Strategy):
             atr_value = self.atr[-1]
             if trade.is_long:
                 self.trailing_stop = trade.entry_price - 2 * atr_value
-                print(f"🚀🌙 LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" LONG LAUNCH! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
             else:
                 self.trailing_stop = trade.entry_price + 2 * atr_value
-                print(f"🌙🚀 SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
+                print(f" SHORT BLAST! Entry: {trade.entry_price:.2f} | Initial Stop: {self.trailing_stop:.2f}")
 
     def next(self):
         # Wait for indicators to stabilize 🌙
@@ -70,7 +67,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))  # Round to whole units
                     if size > 0:
                         self.buy(size=size)
-                        print(f"🌕🚀 MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
+                        print(f" MOON SHOT! LONG {size} units | ATR: {stop_dist:.2f}")
                 
                 # Short signal 🌑
                 elif self.data.Close[-1] < self.lower_band[-1]:
@@ -79,7 +76,7 @@ class BandwidthBreakout(Strategy):
                     size = int(round(risk / stop_dist))  # Round to whole units
                     if size > 0:
                         self.sell(size=size)
-                        print(f"🚀🌑 DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
+                        print(f" DARK SIDE! SHORT {size} units | ATR: {stop_dist:.2f}")
 
         # Trailing stop management 🌙
         else:

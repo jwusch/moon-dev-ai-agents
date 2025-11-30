@@ -1,7 +1,3 @@
-I'll help fix the code while maintaining the strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Volatility Cluster Breakout Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -22,7 +18,7 @@ class VolatilityClusterBreakout(Strategy):
         self.bw_percentile = self.I(self._calculate_percentile, self.bw, 100)
         
     def _calculate_percentile(self, series, window):
-        """✨ Calculate rolling percentile rank for bandwidth"""
+        """ Calculate rolling percentile rank for bandwidth"""
         return np.array([np.sum(series[i-window:i] < series[i])/window*100 
                         if i >= window else np.nan for i in range(len(series))])
 
@@ -36,7 +32,7 @@ class VolatilityClusterBreakout(Strategy):
             if (self.position.is_long and self.data.Close[-2] > self.middle_bb[-2] and price < mid_bb) or \
                (self.position.is_short and self.data.Close[-2] < self.middle_bb[-2] and price > mid_bb):
                 self.position.close()
-                print(f"🌙 Mean Reversion Exit at {price:.2f} ✨")
+                print(f" Mean Reversion Exit at {price:.2f} ")
 
         # 📈 Entry conditions
         elif self.bw_percentile[-1] < 10:
@@ -46,10 +42,10 @@ class VolatilityClusterBreakout(Strategy):
                 self._enter_trade('short', price, self.upper_bb[-1])
 
     def _enter_trade(self, direction, entry_price, sl_price):
-        """🚀 Execute trade with proper risk management"""
+        """ Execute trade with proper risk management"""
         risk = abs(entry_price - sl_price)
         if risk == 0:
-            print("🌑 Zero risk detected - skipping trade")
+            print(" Zero risk detected - skipping trade")
             return
             
         # 🔒 Calculate position size
@@ -57,7 +53,7 @@ class VolatilityClusterBreakout(Strategy):
         position_size = int(round(risk_amount / risk))
         
         if position_size == 0:
-            print(f"🌑 Position size too small - skipping trade | Risk: {risk_amount:.2f}")
+            print(f" Position size too small - skipping trade | Risk: {risk_amount:.2f}")
             return
             
         # 🎯 Set TP at 2:1 risk-reward
@@ -66,10 +62,10 @@ class VolatilityClusterBreakout(Strategy):
         
         if direction == 'long':
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🚀 LONG: {position_size} units | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(f" LONG: {position_size} units | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
         else:
             self.sell(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🚨 SHORT: {position_size} units | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(f" SHORT: {position_size} units | Entry: {entry_price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
 
 # 🌍 Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

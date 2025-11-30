@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 from backtesting import Strategy, Backtest
@@ -37,7 +36,7 @@ class VolSqueezeSurge(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl_price, tp=entry_price + 2 * risk_per_share)
-                        print(f"🌙✨ LONG ENTRY! Price: {entry_price:.2f}, Size: {position_size}, SL: {sl_price:.2f}, TP: {entry_price + 2*risk_per_share:.2f} 🚀")
+                        print(f" LONG ENTRY! Price: {entry_price:.2f}, Size: {position_size}, SL: {sl_price:.2f}, TP: {entry_price + 2*risk_per_share:.2f} ")
 
                 elif self.data.Close[-1] < self.lower_band[-1]:
                     self.breakout_high = self.data.High[-1]
@@ -51,18 +50,18 @@ class VolSqueezeSurge(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl_price, tp=entry_price - 2 * risk_per_share)
-                        print(f"🌙✨ SHORT ENTRY! Price: {entry_price:.2f}, Size: {position_size}, SL: {sl_price:.2f}, TP: {entry_price - 2*risk_per_share:.2f} 🚀")
+                        print(f" SHORT ENTRY! Price: {entry_price:.2f}, Size: {position_size}, SL: {sl_price:.2f}, TP: {entry_price - 2*risk_per_share:.2f} ")
         else:
             if self.position.is_long:
                 trailing_stop = (self.breakout_high + self.breakout_low) / 2
                 if self.data.Low[0] < trailing_stop:
                     self.position.close()
-                    print(f"🌙 EXIT LONG: 50% Retracement at {trailing_stop:.2f} ✨🛑")
+                    print(f" EXIT LONG: 50% Retracement at {trailing_stop:.2f} ")
             elif self.position.is_short:
                 trailing_stop = (self.breakout_high + self.breakout_low) / 2
                 if self.data.High[0] > trailing_stop:
                     self.position.close()
-                    print(f"🌙 EXIT SHORT: 50% Retracement at {trailing_stop:.2f} ✨🛑")
+                    print(f" EXIT SHORT: 50% Retracement at {trailing_stop:.2f} ")
 
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()

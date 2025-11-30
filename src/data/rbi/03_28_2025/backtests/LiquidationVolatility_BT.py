@@ -1,5 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATION VOLATILITY STRATEGY 🚀✨
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -24,7 +22,7 @@ class LiquidationVolatility(Strategy):
         # 🌙 VOLUME ANALYSIS ✨
         self.volume_ma = self.I(talib.SMA, self.data.Volume, 20)
         
-        print("🌙✨ Strategy initialized with Moon Dev magic! Ready to launch! 🚀")
+#         print("🌙✨ Strategy initialized with Moon Dev magic! Ready to launch! 🚀")
 
     def next(self):
         if self.position:
@@ -47,8 +45,8 @@ class LiquidationVolatility(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🌙🚀 BULLISH BREAKOUT! Entry: {self.data.Close[-1]:.2f}, "
-                      f"SL: {sl_price:.2f}, TP: {tp_price:.2f} ✨")
+                print(f" BULLISH BREAKOUT! Entry: {self.data.Close[-1]:.2f}, "
+                      f"SL: {sl_price:.2f}, TP: {tp_price:.2f} ")
 
         # 🌑 SHORT SIGNAL: Breakdown below liquidation zone ✨
         elif (bandwidth_cond and volume_cond and
@@ -63,8 +61,8 @@ class LiquidationVolatility(Strategy):
             
             if position_size > 0:
                 self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🌑🚀 BEARISH BREAKDOWN! Entry: {self.data.Close[-1]:.2f}, "
-                      f"SL: {sl_price:.2f}, TP: {tp_price:.2f} ✨")
+                print(f" BEARISH BREAKDOWN! Entry: {self.data.Close[-1]:.2f}, "
+                      f"SL: {sl_price:.2f}, TP: {tp_price:.2f} ")
 
 # 🌙 DATA PREPROCESSING MAGIC ✨
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

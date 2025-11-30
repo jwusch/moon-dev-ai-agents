@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -34,7 +30,7 @@ class VolCompressBreakout(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 
                          timeperiod=self.atr_period, name='ATR')
         
-        print("🌙 MOON DEV INIT COMPLETE 🌙 | Indicators Ready for Launch! 🚀")
+#         print("🌙 MOON DEV INIT COMPLETE 🌙 | Indicators Ready for Launch! 🚀")
 
     def next(self):
         # Skip initial warmup period
@@ -71,9 +67,9 @@ class VolCompressBreakout(Strategy):
                         self.buy(size=position_size, 
                                sl=stop_loss,
                                tag={'entry_bb_width': current_bb_width})
-                        print(f"\n🚀 MOON DEV LAUNCH 🚀 | LONG {position_size} units @ {entry_price:.2f}")
-                        print(f"   ░ SL: {stop_loss:.2f} | ATR: {current_atr:.2f}")
-                        print(f"   ░ RSI: {current_rsi:.1f} | BB Width: {current_bb_width:.4f}")
+#                         print(f"\n🚀 MOON DEV LAUNCH 🚀 | LONG {position_size} units @ {entry_price:.2f}")
+                        print(f"    SL: {stop_loss:.2f} | ATR: {current_atr:.2f}")
+                        print(f"    RSI: {current_rsi:.1f} | BB Width: {current_bb_width:.4f}")
 
         # Exit Logic ✨🌙
         for trade in self.trades:
@@ -83,8 +79,8 @@ class VolCompressBreakout(Strategy):
                 
                 if volatility_expansion:
                     self.sell(trade)
-                    print(f"\n🎯 MOON DEV TARGET REACHED 🎯 | Profit: {trade.pl:.2f}")
-                    print(f"   ░ Exit BB Width: {current_bb_width:.4f} vs Entry: {entry_width:.4f}")
+#                     print(f"\n🎯 MOON DEV TARGET REACHED 🎯 | Profit: {trade.pl:.2f}")
+                    print(f"    Exit BB Width: {current_bb_width:.4f} vs Entry: {entry_width:.4f}")
 
 # Data preparation moon magic 🌙
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

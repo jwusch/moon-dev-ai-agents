@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev optimized backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev's VolDivergenceExit Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -21,8 +17,8 @@ data.rename(columns={
 data.set_index('datetime', inplace=True)
 
 class VolDivergenceExit(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌕
-    obv_lookback = 5  # Divergence detection period 🌗
+    risk_per_trade = 0.01  # 1% risk per trade 
+    obv_lookback = 5  # Divergence detection period 
     
     def init(self):
         # 🌌 Cosmic Indicators
@@ -59,14 +55,14 @@ class VolDivergenceExit(Strategy):
                 if price_div and obv_div:
                     # Check volatility contraction
                     if (2.5*atr) < (0.5 * self.atr20[-20:].mean()):
-                        print("🌌 Moon Alert: Volatility contraction - skipping trade!")
+                        print(" Moon Alert: Volatility contraction - skipping trade!")
                         return
                     
                     # Calculate lunar position size 🌝
                     risk_amount = self.equity * self.risk_per_trade
                     risk_per_share = price - lower
                     if risk_per_share <= 0: 
-                        print("🌑 Warning: Invalid risk per share calculation")
+                        print(" Warning: Invalid risk per share calculation")
                         return
                         
                     size = int(round(risk_amount / risk_per_share))
@@ -75,7 +71,7 @@ class VolDivergenceExit(Strategy):
                         self.buy(size=size, sl=lower)
                         self.trailing_stop = lower
                         self.max_obv = self.obv[-1]
-                        print(f"🚀 LUNAR LIFTOFF! Entry: {price:.2f}, Size: {size}, Stop: {lower:.2f}")
+                        print(f" LUNAR LIFTOFF! Entry: {price:.2f}, Size: {size}, Stop: {lower:.2f}")
 
         # 🌕 Managing open positions
         elif self.position.is_long:
@@ -85,7 +81,7 @@ class VolDivergenceExit(Strategy):
             # Primary Exit: OBV confirmation 🌊
             if self.obv[-1] > self.max_obv:
                 self.position.close()
-                print(f"✨ STARGAZER EXIT! OBV Confirmation at {price:.2f}")
+                print(f" STARGAZER EXIT! OBV Confirmation at {price:.2f}")
                 return
                 
             # Secondary Exit: Trailing stop

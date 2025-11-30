@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's Volumetric EMA Surge Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -25,7 +21,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolumetricEMASurge(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # ✨ Indicator Constellation Setup ✨
@@ -34,7 +30,7 @@ class VolumetricEMASurge(Strategy):
         self.rsi14 = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI14')
         
         # 🌠 Moon Dev Debug Initialization 🌠
-        print("🌙 Lunar Strategy Activated - 200 EMA | 2x Volume Surge | RSI14 Guard")
+#         print("🌙 Lunar Strategy Activated - 200 EMA | 2x Volume Surge | RSI14 Guard")
 
     def next(self):
         # 🌔 Orbital Position Tracking 🌔
@@ -43,12 +39,12 @@ class VolumetricEMASurge(Strategy):
         
         # 🌓 Cosmic Debug Prints (Every 100 Bars) 🌓
         if len(self.data) % 100 == 0:
-            print(f"\n🌕 Moon Phase Update 🌕\n"
+            print(f"\n Moon Phase Update \n"
                   f"| Close: {current_close:.2f}\n"
                   f"| EMA200: {self.ema200[-1]:.2f}\n"
                   f"| Volume: {current_volume:.2f} vs {self.volume_avg20[-1]:.2f}\n"
                   f"| RSI14: {self.rsi14[-1]:.2f}\n"
-                  "✨"*30)
+                  ""*30)
 
         # 🚀 Launch Entry Sequence 🚀
         if not self.position:
@@ -64,29 +60,29 @@ class VolumetricEMASurge(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"\n🚀🌙 BLASTOFF! Long {position_size} @ {entry_price:.2f}\n"
+                    print(f"\n BLASTOFF! Long {position_size} @ {entry_price:.2f}\n"
                           f"| Stop Loss: {stop_loss:.2f}\n"
                           f"| Portfolio Risk: {self.risk_percent*100}%\n"
-                          "✨"*30)
+                          ""*30)
 
         # 🌑 Exit Protocol Activation 🌑
         else:
             exit_signal = False
             # RSI Reversal Detection
             if len(self.rsi14) > 1 and self.rsi14[-1] < 70 and self.rsi14[-2] >= 70:
-                print(f"🌑 RSI Fading Star Signal @ {self.rsi14[-1]:.2f}")
+                print(f" RSI Fading Star Signal @ {self.rsi14[-1]:.2f}")
                 exit_signal = True
                 
             # EMA Shield Breach
             if current_close < self.ema200[-1]:
-                print(f"🌑 EMA200 Cosmic Barrier Broken @ {current_close:.2f}")
+                print(f" EMA200 Cosmic Barrier Broken @ {current_close:.2f}")
                 exit_signal = True
                 
             if exit_signal:
                 self.position.close()
-                print(f"\n🌑🌙 RETURN TO BASE!\n"
+                print(f"\n RETURN TO BASE!\n"
                       f"| Exit Price: {current_close:.2f}\n"
                       f"| Profit: {self.position.pl_pct:.2%}\n"
-                      "✨"*30)
+                      ""*30)
 
 # 🌕 Backtest Launch Sequence

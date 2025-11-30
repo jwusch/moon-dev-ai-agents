@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -17,7 +16,7 @@ class BandDivergenceReversal(Strategy):
         obv_values = talib.OBV(self.data.Close, self.data.Volume)
         self.obv = self.I(lambda: pd.Series(obv_values, index=self.data.index), name='OBV')
         
-        print("🌙✨ Moon Dev's BandDivergenceReversal strategy initialized! Ready to launch! 🚀")
+#         print("🌙✨ Moon Dev's BandDivergenceReversal strategy initialized! Ready to launch! 🚀")'
 
     def next(self):
         if len(self.data) < 25:  # Ensure enough data for calculations
@@ -54,10 +53,10 @@ class BandDivergenceReversal(Strategy):
         for trade in self.trades:
             if trade.is_long and current_close >= middle_band:
                 trade.close()
-                print(f"🌙💰 Long exit at {current_close:.2f}! Riding middle band to profits! ✨")
+                print(f" Long exit at {current_close:.2f}! Riding middle band to profits! ")
             elif trade.is_short and current_close <= middle_band:
                 trade.close()
-                print(f"🌙🌟 Short exit at {current_close:.2f}! Surfing middle band waves! 🌊")
+                print(f" Short exit at {current_close:.2f}! Surfing middle band waves! ")
 
     def calculate_risk(self, trade_type):
         risk_pct = 0.01
@@ -73,7 +72,7 @@ class BandDivergenceReversal(Strategy):
             risk_per_share = stop_loss - entry_price
 
         if risk_per_share <= 0:
-            print(f"🌙⚠️ Risk too low for {trade_type} entry at {entry_price:.2f}")
+            print(f" Risk too low for {trade_type} entry at {entry_price:.2f}")
             return
 
         position_size = int(round((self.equity * risk_pct) / risk_per_share))
@@ -82,10 +81,10 @@ class BandDivergenceReversal(Strategy):
 
         if trade_type == 'long':
             self.buy(size=position_size, sl=stop_loss)
-            print(f"🌙🚀 LONG signal! Buying {position_size} units at {entry_price:.2f} ✨")
+            print(f" LONG signal! Buying {position_size} units at {entry_price:.2f} ")
         else:
             self.sell(size=position_size, sl=stop_loss)
-            print(f"🌙🌊 SHORT signal! Selling {position_size} units at {entry_price:.2f} 🌊")
+            print(f" SHORT signal! Selling {position_size} units at {entry_price:.2f} ")
 
 # Data preprocessing
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

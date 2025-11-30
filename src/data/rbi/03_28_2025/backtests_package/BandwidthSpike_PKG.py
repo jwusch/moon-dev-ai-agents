@@ -1,14 +1,3 @@
-I've analyzed the code and it's already clean from any `backtesting.lib` imports or functions! 🌙✨ The code follows Moon Dev's package guidelines perfectly. Here's the verification:
-
-✅ No `backtesting.lib` imports found
-✅ All indicators properly use TA-Lib wrapped in `self.I()`
-✅ No crossover functions used (not needed in this strategy)
-✅ Proper Moon Dev themed debug prints present
-
-The code is ready for lunar launch! 🚀 Here's the complete verified version with some minor stylistic enhancements:
-
-```python
-# 🌙 Moon Dev Backtest Implementation for BandwidthSpike Strategy 🚀
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -35,7 +24,7 @@ data = data[['Open', 'High', 'Low', 'Close', 'Volume']]
 # STRATEGY CLASS 🚀🌙
 # =====================
 class BandwidthSpike(Strategy):
-    risk_per_trade = 0.02  # 2% equity risk per trade 🌙
+    risk_per_trade = 0.02  # 2% equity risk per trade 
     
     def init(self):
         # 🌈 Indicator Calculation using TA-Lib
@@ -63,7 +52,7 @@ class BandwidthSpike(Strategy):
         if len(self.data) % 500 == 0:
             current_atr = self.atr[-1]
             current_bbw = self.bbw[-1]
-            print(f"🌙 Moon Pulse | Bar {len(self.data)} | BBW: {current_bbw:.4f} | ATR: {current_atr:.2f} | Equity: {self.equity:,.2f} ✨")
+            print(f" Moon Pulse | Bar {len(self.data)} | BBW: {current_bbw:.4f} | ATR: {current_atr:.2f} | Equity: {self.equity:,.2f} ")
         
         # 🚀 Entry Logic
         if not self.position:
@@ -79,7 +68,7 @@ class BandwidthSpike(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size)
                         self.highest_high = self.data.High[-1]
-                        print(f"🚀 Lunar Launch! Entry @ {self.data.Close[-1]} | Size: {position_size} ✨")
+                        print(f" Lunar Launch! Entry @ {self.data.Close[-1]} | Size: {position_size} ")
         
         # 🌙 Exit Logic
         else:
@@ -90,7 +79,7 @@ class BandwidthSpike(Strategy):
                 
                 if self.data.Low[-1] < stop_price:
                     self.sell(size=self.position.size)
-                    print(f"🌑 Moon Retreat! Exit @ {self.data.Close[-1]} | Trailing Stop: {stop_price:.2f} ✨")
+                    print(f" Moon Retreat! Exit @ {self.data.Close[-1]} | Trailing Stop: {stop_price:.2f} ")
 
 # =====================
 # BACKTEST EXECUTION 🚀

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -43,7 +40,7 @@ class LiquidityGapBreach(Strategy):
         self.keltner_atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close,
                                  timeperiod=20, name='KC_ATR')
         
-        print("🌙✨ Lunar indicators activated! Ready to breach gaps! 🚀")
+        print(" Lunar indicators activated! Ready to breach gaps! ")
 
     def next(self):
         # 🌙 Trade management
@@ -79,8 +76,8 @@ class LiquidityGapBreach(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=sl, 
-                    tag=f"🌕 LONG | SL:{sl:.1f}",)
-            print(f"🚀🌕 BLAST OFF! Long {position_size} units at {self.data.Open[0]}!")
+                    tag=f" LONG | SL:{sl:.1f}",)
+            print(f" BLAST OFF! Long {position_size} units at {self.data.Open[0]}!")
 
     def moon_short(self):
         risk_amount = self.risk_per_trade * self.equity
@@ -90,8 +87,8 @@ class LiquidityGapBreach(Strategy):
         
         if position_size > 0:
             self.sell(size=position_size, sl=sl,
-                     tag=f"🌑 SHORT | SL:{sl:.1f}")
-            print(f"🌌🌑 BLACK HOLE ENGAGED! Short {position_size} units at {self.data.Open[0]}!")
+                     tag=f" SHORT | SL:{sl:.1f}")
+            print(f" BLACK HOLE ENGAGED! Short {position_size} units at {self.data.Open[0]}!")
 
     def long_exits(self, trade):
         current_low = self.data.Low[0]

@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -49,14 +45,14 @@ class VolClusterSqueeze(Strategy):
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.sell(size=position_size, stop=stop_price)
-                    print(f"🌙 MOON DEV ENTRY 🌟 | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_price:.2f}")
+#                     print(f"🌙 MOON DEV ENTRY 🌟 | Size: {position_size} | Entry: {entry_price:.2f} | SL: {stop_price:.2f}")
         
         # Exit conditions ✨
         if self.position:
             # Time-based exit
             if len(self.data) - self.position.entry_bar >= 3:
                 self.position.close()
-                print(f"🌙 MOON DEV TIME EXIT ⏳ | Bar: {len(self.data)}")
+#                 print(f"🌙 MOON DEV TIME EXIT ⏳ | Bar: {len(self.data)}")
                 return
             
             # RSI flip exit (using array indexing instead of crossover)
@@ -71,7 +67,7 @@ class VolClusterSqueeze(Strategy):
             if rsi_exit or emergency_exit or vol_exit:
                 self.position.close()
                 reason = "RSI Flip" if rsi_exit else "Emergency" if emergency_exit else "Vol Expansion"
-                print(f"🌙 MOON DEV EXIT 🏁 | Reason: {reason}")
+#                 print(f"🌙 MOON DEV EXIT 🏁 | Reason: {reason}")
 
 # Data handling 🌌
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

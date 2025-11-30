@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import talib
@@ -64,9 +63,9 @@ class FractalVolatility(Strategy):
                     if position_size > 0:
                         tp_price = entry_price + 2 * risk_per_share
                         self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                        print(f"🌙 MOON DEV LONG SIGNAL 🌕")
-                        print(f"Entry: {entry_price:.2f} | Size: {position_size} BTC")
-                        print(f"RSI: {current_rsi:.2f} | ATR Strength: {current_atr:.2f} ✨")
+#                         print(f"🌙 MOON DEV LONG SIGNAL 🌕")
+                        print(f"Entry: {entry_price:0.2f} | Size: {position_size} BTC")
+                        print(f"RSI: {current_rsi:0.2f} | ATR Strength: {current_atr:0.2f} ")
 
             # Short entry constellation 🌑
             elif current_rsi > 70 and volatility_rising and bearish_fractal:
@@ -81,8 +80,8 @@ class FractalVolatility(Strategy):
                     if position_size > 0:
                         tp_price = entry_price - 2 * risk_per_share
                         self.sell(size=position_size, sl=sl_price, tp=tp_price)
-                        print(f"🌙 MOON DEV SHORT SIGNAL 🌑")
-                        print(f"Entry: {entry_price:.2f} | Size: {position_size} BTC")
-                        print(f"RSI: {current_rsi:.2f} | ATR Strength: {current_atr:.2f} ✨")
+#                         print(f"🌙 MOON DEV SHORT SIGNAL 🌑")
+                        print(f"Entry: {entry_price:0.2f} | Size: {position_size} BTC")
+                        print(f"RSI: {current_rsi:0.2f} | ATR Strength: {current_atr:0.2f} ")
 
 # Launch

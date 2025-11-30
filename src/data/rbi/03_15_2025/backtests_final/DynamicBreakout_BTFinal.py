@@ -1,6 +1,3 @@
-I'll help fix the code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints and proper position sizing:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -65,7 +62,7 @@ class DynamicBreakout(Strategy):
         risk_per_share = abs(entry_price - sl)
         
         if risk_per_share == 0:
-            print("🌑 Zero Risk Per Share Detected! Aborting Trade...")
+            print(" Zero Risk Per Share Detected! Aborting Trade...")
             return
 
         position_size = int(round(risk_amount / risk_per_share))
@@ -73,14 +70,14 @@ class DynamicBreakout(Strategy):
         if position_size > 0:
             if direction == 'long':
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🌕 BUY Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" BUY Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             else:
                 self.sell(size=position_size, sl=sl, tp=tp)
-                print(f"🌑 SELL Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" SELL Signal! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             
             self.entry_bar = len(self.data) - 1
         else:
-            print("🌑 Position Size Too Small! Minimum size requirement not met")
+            print(" Position Size Too Small! Minimum size requirement not met")
 
 # Prepare cosmic data 🌍
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

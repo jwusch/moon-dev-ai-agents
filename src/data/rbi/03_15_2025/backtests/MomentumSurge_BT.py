@@ -36,12 +36,12 @@ class MomentumSurge(Strategy):
                 risk_per_share = price - stop_loss
                 
                 if risk_per_share > 0:
-                    position_size = (self.broker.equity * self.risk_per_trade) / risk_per_share
+                    position_size = (self.equity * self.risk_per_trade) / risk_per_share
                     position_size = int(round(position_size))
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀🌙 MOON DEV ENTRY 🚀 | Price: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f}")
+                        print(f"🚀🌙 MOON DEV ENTRY 🚀 | Price: {price:0.2f} | Size: {position_size} | SL: {stop_loss:0.2f}")
 
         # ✨ Exit Conditions
         else:
@@ -53,7 +53,7 @@ class MomentumSurge(Strategy):
             if death_cross or rsi_exit:
                 self.position.close()
                 reason = "DEATH CROSS" if death_cross else "RSI OVERBOUGHT"
-                print(f"🌙✨ MOON DEV EXIT ✨ | Price: {price:.2f} | Reason: {reason}")
+                print(f"🌙✨ MOON DEV EXIT ✨ | Price: {price:0.2f} | Reason: {reason}")
 
 # 🌙 Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

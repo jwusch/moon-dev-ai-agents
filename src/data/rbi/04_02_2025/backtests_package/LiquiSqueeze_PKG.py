@@ -1,9 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any crossover/crossunder functions with manual implementations. Here's the corrected version:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR LIQUISQUEEZE STRATEGY 🚀
-
-# Required imports
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy

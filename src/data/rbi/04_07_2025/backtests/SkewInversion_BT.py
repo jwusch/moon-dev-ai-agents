@@ -1,8 +1,3 @@
-Here's the implementation of the SkewInversion strategy for backtesting.py:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR SKEWINVERSION STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -31,7 +26,7 @@ data = data.rename(columns={
 # STRATEGY IMPLEMENTATION 🚀
 # =====================
 class SkewInversion(Strategy):
-    risk_per_trade = 0.02  # 2% risk per trade 🌙
+    risk_per_trade = 0.02  # 2% risk per trade 
     
     def init(self):
         # 🌙 VIX Term Structure Indicators
@@ -53,9 +48,9 @@ class SkewInversion(Strategy):
         price = self.data.Close[-1]
         
         # 🌙✨ Moon Dev Debug Prints
-        print(f"\n🌙 DATE: {self.data.index[-1]} | PRICE: {price:.2f}")
-        print(f"📈 VIX Structure: {self.term_structure[-1]:.2f} (SMA: {self.term_sma[-1]:.2f})")
-        print(f"🌌 SPX Skew: {self.spx_skew[-1]:.2f} vs Bands: {self.upper_band[-1]:.2f}/{self.three_sigma[-1]:.2f}")
+        print(f"\n DATE: {self.data.index[-1]} | PRICE: {price:.2f}")
+        print(f" VIX Structure: {self.term_structure[-1]:.2f} (SMA: {self.term_sma[-1]:.2f})")
+        print(f" SPX Skew: {self.spx_skew[-1]:.2f} vs Bands: {self.upper_band[-1]:.2f}/{self.three_sigma[-1]:.2f}")
 
         # Entry Logic 🌙
         if not self.position:
@@ -71,8 +66,8 @@ class SkewInversion(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🚀🌕 MOON DEV ENTRY! Buying {position_size} shares")
-                    print(f"🎯 REASON: VIX inversion + Skew > 2σ ({self.spx_skew[-1]:.2f} > {self.upper_band[-1]:.2f})")
+#                     print(f"🚀🌕 MOON DEV ENTRY! Buying {position_size} shares")
+                    print(f" REASON: VIX inversion + Skew > 2σ ({self.spx_skew[-1]:.2f} > {self.upper_band[-1]:.2f})")
 
         # Exit Logic 🌙
         else:

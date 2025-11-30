@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -47,7 +45,7 @@ class DeltaFlowMomentum(Strategy):
         # Momentum confirmation
         self.sma20 = self.I(talib.SMA, self.data.Close, self.sma_period)
         
-        print("🌙 DeltaFlow Momentum Strategy Activated! 🚀✨")
+#         print("🌙 DeltaFlow Momentum Strategy Activated! 🚀✨")
 
     def next(self):
         # 📊 CHECK INDICATOR READINESS
@@ -86,7 +84,7 @@ class DeltaFlowMomentum(Strategy):
                 size = int(round(risk_amount / risk_per_share))
                 if size > 0:
                     self.buy(size=size, sl=sl_price)
-                    print(f"🌙 LONG ENTRY! Size: {size} ✨ Price: {price:.2f} 🚀")
+                    print(f" LONG ENTRY! Size: {size}  Price: {price:0.2f} ")
             
             elif short_signal:
                 sl_price = price * (1 + self.stop_pct)
@@ -95,7 +93,7 @@ class DeltaFlowMomentum(Strategy):
                 size = int(round(risk_amount / risk_per_share))
                 if size > 0:
                     self.sell(size=size, sl=sl_price)
-                    print(f"🌙 SHORT ENTRY! Size: {size} ✨ Price: {price:.2f} 🚀")
+                    print(f" SHORT ENTRY! Size: {size}  Price: {price:0.2f} ")
 
         else:
             # 🛑 EXIT CONDITIONS

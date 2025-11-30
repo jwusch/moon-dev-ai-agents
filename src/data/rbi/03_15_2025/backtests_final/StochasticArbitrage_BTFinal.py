@@ -1,7 +1,3 @@
-Here's the debugged and fixed version of your StochasticArbitrage strategy code with Moon Dev themed implementations:
-
-```python
-# 🌙 Moon Dev's StochasticArbitrage Backtest Implementation ✨
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,12 +18,12 @@ data = data.rename(columns={
 })
 
 class StochasticArbitrage(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # Calculate all indicators using TA-Lib wrapped in self.I() ✨
         self._init_indicators()
-        print("🌙 Moon Dev Strategy Activated! Ready for cosmic gains! 🚀")
+#         print("🌙 Moon Dev Strategy Activated! Ready for cosmic gains! 🚀")
 
     def _init_indicators(self):
         # Stochastic Oscillator (14,3,3)
@@ -55,10 +51,10 @@ class StochasticArbitrage(Strategy):
         # Calculate position size based on 1% risk per trade
         risk_amount = self.equity * self.risk_per_trade
         position_size = risk_amount / (2 * atr)
-        return round(position_size)  # Round to whole units 🌙
+        return round(position_size)  # Round to whole units 
 
     def next(self):
-        # Moon Dev's Cosmic Entry Logic ✨
+        # Moon Dev's Cosmic Entry Logic ✨'
         if self.position:
             self._manage_exits()
             return
@@ -74,7 +70,7 @@ class StochasticArbitrage(Strategy):
             position_size = self._calculate_size(current_close, atr)
             if position_size > 0:
                 self.buy(size=position_size, sl=current_close - 2*atr)
-                print(f"🌙✨ BUY SIGNAL! Size: {position_size} @ {current_close} 🚀")
+                print(f" BUY SIGNAL! Size: {position_size} @ {current_close} ")
 
         # Short Entry Constellation 🌠
         elif (self.stoch_k[-1] > 80 and 
@@ -84,8 +80,8 @@ class StochasticArbitrage(Strategy):
             position_size = self._calculate_size(current_close, atr)
             if position_size > 0:
                 self.sell(size=position_size, sl=current_close + 2*atr)
-                print(f"🌙✨ SELL SIGNAL! Size: {position_size} @ {current_close} 💫")
+                print(f" SELL SIGNAL! Size: {position_size} @ {current_close} ")
 
     def _manage_exits(self):
-        # Moon Dev's Exit Protocol 🛑
+        # Moon Dev's Exit Protocol 🛑'
         current_close = self.data.Close[-1]

@@ -1,8 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLCOMPRESSSURGE STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -95,11 +90,11 @@ class VolCompressSurge(Strategy):
             if self.position.is_long:
                 if price >= self.kc_upper[-1]:
                     self.position.close()
-                    print(f"🌕 MOON EXIT LONG | Price {price:.2f} | Equity {equity:.2f}")
+                    print(f" MOON EXIT LONG | Price {price:.2f} | Equity {equity:.2f}")
             elif self.position.is_short:
                 if price <= self.kc_lower[-1]:
                     self.position.close()
-                    print(f"🌑 DARK EXIT SHORT | Price {price:.2f} | Equity {equity:.2f}")
+                    print(f" DARK EXIT SHORT | Price {price:.2f} | Equity {equity:.2f}")
             return
         
         # =====================

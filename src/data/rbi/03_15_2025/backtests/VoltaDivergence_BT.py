@@ -1,7 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLTA DIVERGENCE STRATEGY 🌙
-
-# Import cosmic libraries
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossabove, crossbelow
 import pandas as pd
@@ -38,9 +34,9 @@ def prepare_data(path):
 data = prepare_data('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 class VoltaDivergence(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌕
+    risk_pct = 0.01  # 1% risk per trade 
     atr_period = 14
-    swing_window = 20  # For swing high/low detection 🌗
+    swing_window = 20  # For swing high/low detection 
     rsi_period = 14
     ema_short = 50
     ema_long = 200
@@ -95,6 +91,6 @@ class VoltaDivergence(Strategy):
                 tp_price = price + risk_distance  # 1:1 reward
                 
                 self.buy(size=position_size, sl=sl_price, tp=tp_price)
-                print(f"🌙🚀 MOON SHOT! Long {position_size} units at {price:.2f} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+                print(f" MOON SHOT! Long {position_size} units at {price:0.2f} | SL: {sl_price:0.2f} | TP: {tp_price:0.2f}")
 
             # 🌒 Short

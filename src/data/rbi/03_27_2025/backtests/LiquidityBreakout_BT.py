@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -25,7 +24,7 @@ def load_data(data_path):
     return data
 
 class LiquidityBreakout(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # Moon Dev Indicators ✨
@@ -67,7 +66,7 @@ class LiquidityBreakout(Strategy):
             self.breakout_level = self.swing_high[-1]
             self.initial_sl = stop_loss_price
             self.trailing_stop_peak = self.data.High[-1]
-            print(f"🌙✨ MOON DEV LONG ENTRY: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss_price:.2f} 🚀")
+#             print(f"🌙✨ MOON DEV LONG ENTRY: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss_price:.2f} 🚀")
 
     def enter_short(self):
         risk_amount = self.risk_percent * self.equity
@@ -84,17 +83,17 @@ class LiquidityBreakout(Strategy):
             self.breakout_level = self.swing_low[-1]
             self.initial_sl = stop_loss_price
             self.trailing_stop_peak = self.data.Low[-1]
-            print(f"🌙✨ MOON DEV SHORT ENTRY: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss_price:.2f} 🚀")
+#             print(f"🌙✨ MOON DEV SHORT ENTRY: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss_price:.2f} 🚀")
 
     def manage_exits(self):
         # ATR expansion exit
         if self.atr[-1] > self.atr_sma[-1]:
             self.position.close()
-            print(f"🌙💫 MOON DEV EXIT: ATR Expansion ({self.atr[-1]:.2f} > {self.atr_sma[-1]:.2f}) 🛑")
+#             print(f"🌙💫 MOON DEV EXIT: ATR Expansion ({self.atr[-1]:.2f} > {self.atr_sma[-1]:.2f}) 🛑")
             return
             
         # Liquidity zone retest exit
         if (self.position.is_long and self.data.Close[-1] < self.breakout_level) or \
            (self.position.is_short and self.data.Close[-1] > self.breakout_level):
             self.position.close()
-            print(f"🌙💫 MOON DEV EXIT: Breakout
+#             print(f"🌙💫 MOON DEV EXIT: Breakout"

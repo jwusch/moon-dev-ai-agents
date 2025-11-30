@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -44,7 +41,7 @@ class DivergencePulse(Strategy):
 
     def next(self):
         # Moon-themed debug prints
-        print(f"🌙 Current Close: {self.data.Close[-1]:.2f} | EMA5: {self.ema5[-1]:.2f} | EMA20: {self.ema20[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+        print(f" Current Close: {self.data.Close[-1]:.2f} | EMA5: {self.ema5[-1]:.2f} | EMA20: {self.ema20[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
         
         # Manage existing positions
         if self.position.is_long:
@@ -54,7 +51,7 @@ class DivergencePulse(Strategy):
             
             if self.data.Low[-1] <= self.trailing_stop:
                 self.position.close()
-                print(f"🌙✨ Trailing Stop Hit! Closing Long at {self.data.Close[-1]:.2f}")
+                print(f" Trailing Stop Hit! Closing Long at {self.data.Close[-1]:.2f}")
                 
         elif self.position.is_short:
             # Update trailing stop for shorts
@@ -63,7 +60,7 @@ class DivergencePulse(Strategy):
             
             if self.data.High[-1] >= self.trailing_stop:
                 self.position.close()
-                print(f"🌙✨ Trailing Stop Hit! Closing Short at {self.data.Close[-1]:.2f}")
+                print(f" Trailing Stop Hit! Closing Short at {self.data.Close[-1]:.2f}")
         
         # Entry logic when no position exists
         if not self.position:
@@ -84,4 +81,4 @@ class DivergencePulse(Strategy):
                     initial_stop = entry_price - stop_distance
                     self.trailing_stop = max(initial_stop, self.swing_low[-1])
                     self.buy(size=position_size, sl=self.trailing_stop)
-                    print(f"🚀🌕 BULLISH DIVERGENCE DETECTED! Long {position_size} units at {entry_price:.2f}")
+                    print(f" BULLISH DIVERGENCE DETECTED! Long {position_size} units at {entry_price:.2f}")

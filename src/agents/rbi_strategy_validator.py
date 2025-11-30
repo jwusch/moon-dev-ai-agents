@@ -247,7 +247,7 @@ class BacktestRunner:
                 "win_rate": results.get('Win Rate [%]', 50) / 100,
                 "profit_factor": results.get('Profit Factor', 1.0),
                 "trades_count": results.get('# Trades', 0),
-                "avg_trade_duration": results.get('Avg. Trade Duration', '0 days'),
+                "avg_trade_duration": results.get('Avg. Trade Duration', results.get('Avg Trade Duration', '0 days')),
                 "volatility": results.get('Volatility (Ann.) [%]', 20) / 100,
                 "sortino_ratio": results.get('Sortino Ratio', 0),
                 "calmar_ratio": results.get('Calmar Ratio', 0),
@@ -438,7 +438,10 @@ class RBIStrategyValidator(BaseAgent):
             win_rate=weighted_avg("win_rate"),
             profit_factor=weighted_avg("profit_factor"),
             avg_trade_duration=np.mean([
-                float(r.get("avg_trade_duration", "0").split()[0]) 
+                float(str(r.get("avg_trade_duration", "0")).split()[0]) 
+                if isinstance(r.get("avg_trade_duration"), str) and ' ' in str(r.get("avg_trade_duration"))
+                else float(r.get("avg_trade_duration", 0)) if r.get("avg_trade_duration") is not None 
+                else 0
                 for r in results
             ]),
             volatility=weighted_avg("volatility"),
@@ -555,8 +558,13 @@ def main():
     """Demo RBI strategy validation"""
     validator = RBIStrategyValidator()
     
-    # Run validation pipeline
-    validated_strategies = validator.run_validation_pipeline()
+    try:
+        # Run validation pipeline
+        validated_strategies = validator.run_validation_pipeline()
+    except Exception as e:
+        cprint(f"❌ Error in validation pipeline: {e}", "red")
+        import traceback
+        traceback.print_exc()
     
     # If we have validated strategies, suggest next steps
     if validated_strategies:

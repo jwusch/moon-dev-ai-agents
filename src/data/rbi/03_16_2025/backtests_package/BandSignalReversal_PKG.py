@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR BANDSIGNALREVERSAL STRATEGY
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -43,19 +38,19 @@ class BandSignalReversal(Strategy):
             if self.position.is_long:
                 # Long exit conditions
                 if (current_close >= self.active_trade['tp1']) or (current_close >= self.active_trade['tp2']):
-                    print(f"🚀✨ MOON DEV TP HIT! Closing long at {current_close:.2f}")
+#                     print(f"🚀✨ MOON DEV TP HIT! Closing long at {current_close:.2f}")
                     self.position.close()
                 elif (self.data.Close[-2] > self.bb_lower[-2]) and (self.data.Close[-1] < self.bb_lower[-1]):  # Bearish crossover
-                    print(f"🌙❌ STOP! Long closed at {current_close:.2f}")
+                    print(f" STOP! Long closed at {current_close:.2f}")
                     self.position.close()
             
             elif self.position.is_short:
                 # Short exit conditions
                 if (current_close <= self.active_trade['tp1']) or (current_close <= self.active_trade['tp2']):
-                    print(f"🚀✨ MOON DEV TP HIT! Closing short at {current_close:.2f}")
+#                     print(f"🚀✨ MOON DEV TP HIT! Closing short at {current_close:.2f}")
                     self.position.close()
                 elif (self.data.Close[-2] < self.bb_upper[-2]) and (self.data.Close[-1] > self.bb_upper[-1]):  # Bullish crossover
-                    print(f"🌙❌ STOP! Short closed at {current_close:.2f}")
+                    print(f" STOP! Short closed at {current_close:.2f}")
                     self.position.close()
             self.active_trade = None
 

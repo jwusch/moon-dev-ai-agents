@@ -1,19 +1,15 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
 from backtesting import Backtest, Strategy
 
 class VolClusterLiquidity(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     atr_period = 14
     bb_period = 20
     bb_dev = 2
     swing_period = 20
-    liquidity_lookback = 100  # For liquidity zone detection ✨
+    liquidity_lookback = 100  # For liquidity zone detection 
     
     def init(self):
         # Clean data and handle columns
@@ -36,7 +32,7 @@ class VolClusterLiquidity(Strategy):
         # Volume analysis 📊
         self.volume_ma = self.I(talib.SMA, self.data.Volume, 20)
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         current_idx = len(self.data.Close) - 1
@@ -86,7 +82,7 @@ class VolClusterLiquidity(Strategy):
                     self.buy(size=position_size, 
                             sl=sl_price,
                             tp=max(tp1, tp2))
-                    print(f"🚀 LONG LAUNCH! Size: {position_size} | Entry: {price:.2f} | SL: {sl_price:.2f} | TP: {max(tp1, tp2):.2f}")
+                    print(f" LONG LAUNCH! Size: {position_size} | Entry: {price:.2f} | SL: {sl_price:.2f} | TP: {max(tp1, tp2):.2f}")
             
             elif short_trigger:
                 # Calculate stop loss and position size

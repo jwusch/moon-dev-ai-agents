@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing any usage of its functions with appropriate alternatives. Here's the corrected version:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -49,7 +46,7 @@ class SqueezeDivergence(Strategy):
         # Calculate 50-period SMA of BB Width for exit condition
         self.bb_width_ma50 = self.I(talib.SMA, self.bb_width, timeperiod=50, name='BB_Width_MA50')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
 
     def next(self):
         # Check if we have enough data to compute all indicators
@@ -61,7 +58,7 @@ class SqueezeDivergence(Strategy):
         squeeze_threshold = self.bb_squeeze_threshold[-1]
         squeeze_condition = current_bb_width < squeeze_threshold if not np.isnan(squeeze_threshold) else False
         
-        # Check if we're in a squeeze
+        # Check if we're in a squeeze'
         if squeeze_condition:
             # Calculate divergence conditions
             current_price_high = self.data.High[-1]
@@ -79,6 +76,6 @@ class SqueezeDivergence(Strategy):
                 
                 # Enter short position
                 self.sell(size=position_size, sl=current_price_high + stop_loss_distance)
-                print(f"🌙✨ Moon Dev Short Signal Activated! Selling at {current_price_high:.2f} with SL at {current_price_high + stop_loss_distance:.2f}")
+#                 print(f"🌙✨ Moon Dev Short Signal Activated! Selling at {current_price_high:.2f} with SL at {current_price_high + stop_loss_distance:.2f}")
             
             # Check for bullish divergence (

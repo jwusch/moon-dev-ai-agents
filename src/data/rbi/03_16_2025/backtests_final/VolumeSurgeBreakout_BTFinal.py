@@ -1,6 +1,3 @@
-The code looks well-structured and follows the strategy logic correctly. I'll make a few technical improvements while maintaining the strategy's integrity. Here's the debugged version with Moon Dev themed enhancements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -35,7 +32,7 @@ class VolumeSurgeBreakout(Strategy):
         self.support = self.I(talib.MIN, self.data.Low, timeperiod=self.swing_period)
         self.vol_ma = self.I(talib.SMA, self.data.Volume, timeperiod=self.volume_window)
         
-        print("🌙✨ Moon Dev Indicators Activated! EMA50 | ATR14 | Swing Levels | Volume MA")
+#         print("🌙✨ Moon Dev Indicators Activated! EMA50 | ATR14 | Swing Levels | Volume MA")
 
     def next(self):
         price = self.data.Close[-1]
@@ -43,7 +40,7 @@ class VolumeSurgeBreakout(Strategy):
         
         # Moon Dev status pulse 🌙💓
         if len(self.data) % 100 == 0:
-            print(f"🌙 Pulse Check | Price: {price:.2f} | EMA50: {self.ema50[-1]:.2f} | ATR: {atr:.2f}")
+            print(f" Pulse Check | Price: {price:.2f} | EMA50: {self.ema50[-1]:.2f} | ATR: {atr:.2f}")
 
         if not self.position:
             # Long entry constellation 🌌🚀
@@ -57,7 +54,7 @@ class VolumeSurgeBreakout(Strategy):
                     sl = price - atr
                     tp = price + 1.5*atr
                     self.buy(size=size, sl=sl, tp=tp, tag='LONG')
-                    print(f"🚀🌕 BLASTOFF LONG! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" BLASTOFF LONG! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
             # Short entry nebula 🌑📉    
             elif (price < self.support[-1] and
@@ -70,7 +67,7 @@ class VolumeSurgeBreakout(Strategy):
                     sl = price + atr
                     tp = price - 1.5*atr
                     self.sell(size=size, sl=sl, tp=tp, tag='SHORT')
-                    print(f"🌑💫 BLACK HOLE SHORT! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" BLACK HOLE SHORT! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
 
         else:
             # Trailing stardust for longs ✨🚀

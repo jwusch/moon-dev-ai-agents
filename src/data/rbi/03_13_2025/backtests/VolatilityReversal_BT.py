@@ -1,6 +1,3 @@
-Here's the complete implementation of the VolatilityReversal strategy for backtesting.py:
-
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import talib
@@ -62,7 +59,7 @@ class VolatilityReversal(Strategy):
             # Time-based exit check ⏳
             if (len(self.data) - self.entry_bar) >= self.exit_bars:
                 self.position.close()
-                print(f"🌙✨ Moon Dev Time Exit: Closed position after {self.exit_bars} bars")
+#                 print(f"🌙✨ Moon Dev Time Exit: Closed position after {self.exit_bars} bars")
             return
 
         # Current indicator values 📊
@@ -87,12 +84,12 @@ class VolatilityReversal(Strategy):
             risk_per_share = current_close - stop_price
             
             if risk_per_share <= 0:
-                print("🚨 Moon Dev Alert: Invalid stop price, trade skipped")
+#                 print("🚨 Moon Dev Alert: Invalid stop price, trade skipped")
                 return
 
             position_size = int(round(risk_amount / risk_per_share))
             if position_size == 0:
-                print("🚨 Moon Dev Alert: Position size too small, trade skipped")
+#                 print("🚨 Moon Dev Alert: Position size too small, trade skipped")
                 return
 
             # Execute trade with Moon Dev flair 🌙

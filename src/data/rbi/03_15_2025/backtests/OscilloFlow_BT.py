@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -41,7 +40,7 @@ class OscilloFlow(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='Swing Low')
         self.swing_high = self.I(talib.MAX, self.data.High, 20, name='Swing High')
         
-        print("🌙✨ OscilloFlow Strategy Initialized! Ready for launch! 🚀")
+#         print("🌙✨ OscilloFlow Strategy Initialized! Ready for launch! 🚀")
 
     def next(self):
         price = self.data.Close[-1]
@@ -54,7 +53,7 @@ class OscilloFlow(Strategy):
         cross_down = k < d and prev_k >= prev_d
         
         # Moon Dev debug prints
-        print(f"🌙 Current K/D: {k:.1f}/{d:.1f} | CMF: {cmf:.2f} | Price: {price:.2f}")
+        print(f" Current K/D: {k:0.1f}/{d:0.1f} | CMF: {cmf:0.2f} | Price: {price:0.2f}")
         
         if not self.position:
             # Long entry logic
@@ -65,7 +64,7 @@ class OscilloFlow(Strategy):
                     size = int(round((self.equity * self.risk_percent) / risk_per_unit))
                     tp = price + 2 * risk_per_unit
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🚀🌕 LONG SIGNAL! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" LONG SIGNAL! Size: {size} | Entry: {price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
             
             # Short entry logic
             elif cross_down and k > 80 and d > 80 and cmf < 0:
@@ -75,14 +74,14 @@ class OscilloFlow(Strategy):
                     size = int(round((self.equity * self.risk_percent) / risk_per_unit))
                     tp = price - 2 * risk_per_unit
                     self.sell(size=size, sl=sl, tp=tp)
-                    print(f"🌑🚀 SHORT SIGNAL! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                    print(f" SHORT SIGNAL! Size: {size} | Entry: {price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
         
         else:
             # Long exit logic
             if self.position.is_long:
                 if (cross_down and (k > 80 or d > 80)) or cmf < 0:
                     self.position.close()
-                    print(f"✨🌙 Closing LONG at {price:.2f}! {'Stochastic Exit' if cross_down else 'CMF Exit'}")
+                    print(f" Closing LONG at {price:0.2f}! {'Stochastic Exit' if cross_down else 'CMF Exit'}")
             
             # Short exit logic
             elif self.position.is_short:

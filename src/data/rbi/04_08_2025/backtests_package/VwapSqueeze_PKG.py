@@ -1,23 +1,28 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
-import numpy as np  # Added for array operations 🌙
+import numpy as np  # Added for array operations 
 
 class VwapSqueeze(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # Add indicators using proper self.I() wrapper
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low, 
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Bollinger Bands (20,2)
         self.bb_upper = self.I(lambda c: talib.BBANDS(c, 20, 2, 2)[0], self.data.Close)
@@ -68,7 +73,7 @@ class VwapSqueeze(Strategy):
                     size = calculate_size(current_close, sl)
                     if size > 0:
                         self.buy(size=size, sl=sl)
-                        print(f"🌙🚀 MOON DEV LONG SIGNAL! Size: {size} | Entry: {current_close} | SL: {sl}")
+#                         print(f"🌙🚀 MOON DEV LONG SIGNAL! Size: {size} | Entry: {current_close} | SL: {sl}")
                 
                 # Short Entry (replaced crossunder with direct comparison)
                 elif (self.data.Close[-2] >= self.vwap[-2]) and (current_close < current_vwap):
@@ -76,19 +81,19 @@ class VwapSqueeze(Strategy):
                     size = calculate_size(current_close, sl)
                     if size > 0:
                         self.sell(size=size, sl=sl)
-                        print(f"🌙🚀 MOON DEV SHORT SIGNAL! Size: {size} | Entry: {current_close} | SL: {sl}")
+#                         print(f"🌙🚀 MOON DEV SHORT SIGNAL! Size: {size} | Entry: {current_close} | SL: {sl}")
 
         # Exit Logic 💫
         else:
             if self.position.is_long:
                 if (vwap_slope < 0) and (current_close < current_vwap):
                     self.position.close()
-                    print(f"🌙💫 LONG EXIT | Price: {current_close} | VWAP Slope Turning Bearish")
+                    print(f" LONG EXIT | Price: {current_close} | VWAP Slope Turning Bearish")
                     
             elif self.position.is_short:
                 if (vwap_slope > 0) and (current_close > current_vwap):
                     self.position.close()
-                    print(f"🌙💫 SHORT EXIT | Price: {current_close} | VWAP Slope Turning Bullish")
+                    print(f" SHORT EXIT | Price: {current_close} | VWAP Slope Turning Bullish")
 
 # Data preprocessing 🌙
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

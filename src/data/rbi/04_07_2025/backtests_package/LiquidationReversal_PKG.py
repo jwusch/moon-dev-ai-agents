@@ -1,10 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper alternatives, and Moon Dev themed debug prints added:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR LIQUIDATION REVERSAL STRATEGY 🚀
-# 🚀 MOON DEV PACKAGE AI CERTIFIED - NO BACKTESTING.LIB USAGE DETECTED 🌙
-
-# ======== REQUIRED IMPORTS ========
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -32,7 +25,7 @@ data.rename(columns={
 
 # ======== STRATEGY IMPLEMENTATION ========
 class LiquidationReversal(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     ema_period = 20
     rsi_period = 56  # 14*4 for 1H TF
     cluster_lookback = 320  # 20*16 for 4H TF
@@ -56,13 +49,13 @@ class LiquidationReversal(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, self.swing_period, name='SWING_HIGH')
         
     def _expanding_percentile(self, series):
-        # Moon Dev's expanding window 90th percentile calculator 🌙
+        # Moon Dev's expanding window 90th percentile calculator 🌙'
         return [np.percentile(series[:i], 90) if i > 1 else np.nan for i in range(len(series))]
     
     def next(self):
         # ======== RISK MANAGEMENT CHECK ========
         if self.consecutive_losses >= 3:
-            print("🌙 MOON DEV ALERT: Trading paused after 3 consecutive losses! 🚫")
+#             print("🌙 MOON DEV ALERT: Trading paused after 3 consecutive losses! 🚫")
             return
             
         # ======== ENTRY LOGIC ========

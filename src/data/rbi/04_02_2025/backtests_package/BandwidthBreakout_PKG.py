@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper indicator implementations:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -55,7 +51,7 @@ class BandwidthBreakout(Strategy):
         current_bandwidth = (current_upper - current_lower) / current_middle
         self.bandwidth_history.append(current_bandwidth)
 
-        # Calculate bandwidth's moving average using talib
+        # Calculate bandwidth's moving average using talib'
         bb_width_ma = np.nan
         if len(self.bandwidth_history) >= 20:
             bb_width_ma = talib.SMA(np.array(self.bandwidth_history), timeperiod=20)[-1]
@@ -89,7 +85,7 @@ class BandwidthBreakout(Strategy):
                         self.trailing_high = current_high
                         atr_sl = self.trailing_high - 2 * self.atr[-1]
                         self.buy(size=position_size, sl=atr_sl)
-                        print(f"🌙🚀 LONG Entry: {position_size} units @ {current_close}, SL: {atr_sl:.2f}")
+                        print(f" LONG Entry: {position_size} units @ {current_close}, SL: {atr_sl:.2f}")
 
                 # Short entry        
                 elif current_close < current_lower:

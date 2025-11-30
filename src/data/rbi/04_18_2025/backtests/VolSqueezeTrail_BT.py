@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -25,7 +23,7 @@ def load_data(path):
     return data
 
 class VolSqueezeTrail(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     atr_period = 14
     bb_period = 20
     bb_dev = 2
@@ -86,8 +84,8 @@ class VolSqueezeTrail(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, 
                             sl=stop_loss,
-                            tag="🌙 LONG ENTRY: Vol Squeeze Breakout!")
-                    print(f"🚀 MOON DEV ALERT: Long entry at {price:.2f} | Size: {position_size} | Vol Surge: {current_vol/vol_ma:.1f}x MA")
+                            tag=" LONG ENTRY: Vol Squeeze Breakout!")
+#                     print(f"🚀 MOON DEV ALERT: Long entry at {price:.2f} | Size: {position_size} | Vol Surge: {current_vol/vol_ma:.1f}x MA")
             
             elif short_cond:
                 risk_amount = self.equity * self.risk_per_trade
@@ -97,5 +95,5 @@ class VolSqueezeTrail(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size,
                              sl=stop_loss,
-                             tag="🌙 SHORT ENTRY: Bearish Vol Crush!")
-                    print(f"🌑 MOON DEV ALERT: Short entry at {price:.2f} | Size: {position_size} | Vol Drop: {current_vol/vol_ma:.1f
+                             tag=" SHORT ENTRY: Bearish Vol Crush!")
+#                     print(f"🌑 MOON DEV ALERT: Short entry at {price:.2f} | Size: {position_size} | Vol Drop: {current_vol/vol_ma:.1f"

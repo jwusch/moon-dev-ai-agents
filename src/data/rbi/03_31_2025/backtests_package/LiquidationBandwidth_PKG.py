@@ -1,10 +1,7 @@
-Here's the fixed code with all Moon Dev package improvements and proper indicator handling:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
-import numpy as np  # 🌙 Added for array operations
+import numpy as np  #  Added for array operations
 
 # 🌙 Moon Dev Data Preparation Magic ✨
 def prepare_data(path):
@@ -49,16 +46,16 @@ class LiquidationBandwidth(Strategy):
         if self.last_date != current_date:
             self.last_date = current_date
             self.daily_start_equity = self.equity
-            print(f"🌙 New Trading Day: {current_date} | Starting Equity: ${self.daily_start_equity:,.2f}")
+            print(f" New Trading Day: {current_date} | Starting Equity: ${self.daily_start_equity:,.2f}")
 
         if (self.equity/self.daily_start_equity - 1) <= -0.03:
-            print(f"🌑💥 EMERGENCY STOP! Daily Loss Limit Hit at {self.equity:,.2f}")
+            print(f" EMERGENCY STOP! Daily Loss Limit Hit at {self.equity:,.2f}")
             self.position.close()
             return
 
         # 📉 Exit Conditions (Pure Array Indexing)
         if self.position and self.hv[-1] > self.hv_90[-1]:
-            print(f"🌙✨ HV Exit Signal ({self.hv[-1]:.2f} > {self.hv_90[-1]:.2f})")
+            print(f" HV Exit Signal ({self.hv[-1]:.2f} > {self.hv_90[-1]:.2f})")
             self.position.close()
             return
 
@@ -85,5 +82,5 @@ class LiquidationBandwidth(Strategy):
                     size = int(round(risk_amount / risk_per_unit))
                     take_profit = self.data.Close[-1] + 2*risk_per_unit
                     
-                    print(f"🚀🌙 LONG Signal | Size: {size} | Entry: {self.data.Close[-1]:.2f}")
+                    print(f" LONG Signal | Size: {size} | Entry: {self.data.Close[-1]:.2f}")
                     print

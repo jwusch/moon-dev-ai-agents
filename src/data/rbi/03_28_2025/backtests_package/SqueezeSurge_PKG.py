@@ -1,7 +1,3 @@
-I've analyzed the code and found one instance of `backtesting.lib` usage that needs to be removed. Here's the fixed code with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -26,7 +22,7 @@ def prepare_data(path):
     return data
 
 class SqueezeSurge(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     squeeze_period = 20
     volume_lookback = 20
     
@@ -56,7 +52,7 @@ class SqueezeSurge(Strategy):
         
         # No position management until indicators are ready ⏳
         if len(self.data) < self.squeeze_period + 5:
-            print("🌙 Moon Dev Warning: Indicators still warming up... Patience young padawan!")
+#             print("🌙 Moon Dev Warning: Indicators still warming up... Patience young padawan!")
             return
             
         current_squeeze = (self.bandwidth[-1] == self.min_bandwidth[-1])
@@ -79,7 +75,7 @@ class SqueezeSurge(Strategy):
                 risk_per_share = price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌑 Dark Side Warning: Invalid risk calculation detected! Skipping trade.")
+                    print(" Dark Side Warning: Invalid risk calculation detected! Skipping trade.")
                     return  # Avoid division by zero
                 
                 position_size = int(round(risk_amount / risk_per_share))
@@ -90,9 +86,9 @@ class SqueezeSurge(Strategy):
                     self.buy(size=position_size, 
                             sl=stop_loss,
                             tp=take_profit)
-                    print(f"🌙 MOON SHOT LONG! 🚀 | Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                    print(f" MOON SHOT LONG!  | Entry: {price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
                 else:
-                    print("🌗 Warning: Position size too small for this trade")
+                    print(" Warning: Position size too small for this trade")
             
             elif short_trigger:
                 # Calculate stop and target 🌑
@@ -100,7 +96,7 @@ class SqueezeSurge(Strategy):
                 risk_per_share = stop_loss - price
                 
                 if risk_per_share <= 0:
-                    print("🌑 Dark Side Warning: Invalid risk calculation detected! Skipping trade.")
+                    print(" Dark Side Warning: Invalid risk calculation detected! Skipping trade.")
                     return  # Avoid division by zero
                 
                 position_size = int(round(risk_amount / risk_per_share))

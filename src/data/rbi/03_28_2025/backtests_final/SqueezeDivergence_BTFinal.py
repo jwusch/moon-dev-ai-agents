@@ -1,14 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here are the fixes needed:
-
-1. Fixed incomplete bullish divergence condition
-2. Added proper position sizing (percentage-based)
-3. Added missing exit conditions
-4. Fixed print statement formatting
-5. Ensured proper indicator calculations
-
-Here's the corrected code:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -83,7 +72,7 @@ class SqueezeDivergence(Strategy):
                                    timeperiod=50, 
                                    name='BB_Width_MA50')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
 
     def next(self):
         # Check if we have enough data to compute all indicators
@@ -100,10 +89,10 @@ class SqueezeDivergence(Strategy):
             # Volatility expansion exit
             if current_bb_width > self.bb_width_ma50[-1]:
                 self.position.close()
-                print(f"🌙✨ Moon Dev Exit Signal! Volatility expanded at {self.data.Close[-1]:.2f}")
+#                 print(f"🌙✨ Moon Dev Exit Signal! Volatility expanded at {self.data.Close[-1]:.2f}")
                 return
         
-        # Check if we're in a squeeze
+        # Check if we're in a squeeze'
         if squeeze_condition:
             # Calculate divergence conditions
             current_price_high = self.data.High[-1]

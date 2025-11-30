@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed backtest code for the VoltaicBand strategy:
-
-```python
-# 🌙 Moon Dev's VoltaicBand Backtest Implementation ✨
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -28,11 +24,11 @@ class VoltaicBand(Strategy):
                                 self.vwap, self.atr)
         
         # 🌙 Moon Dev Debug Prints
-        print("✨ Voltaic Band Strategy Initialized!")
-        print(f"🌙 Parameters: ATR({self.atr_period}) | VWAP({self.vwap_period}) | Multiplier({self.atr_multiplier}x)")
+#         print("✨ Voltaic Band Strategy Initialized!")
+        print(f" Parameters: ATR({self.atr_period}) | VWAP({self.vwap_period}) | Multiplier({self.atr_multiplier}x)")
         
     def _calculate_vwap(self, high, low, close, volume, period):
-        """✨ Moon Dev's Special VWAP Calculation"""
+#         """✨ Moon Dev's Special VWAP Calculation"""'
         return pta.vwap(high=high, low=low, close=close, volume=volume, length=period)
         
     def next(self):
@@ -41,7 +37,7 @@ class VoltaicBand(Strategy):
         current_atr = self.atr[-1]
         
         if current_atr < (current_vwap * self.volatility_threshold):
-            print(f"🌙 Volatility Too Low! ATR({current_atr:.2f}) < 10% VWAP({current_vwap*0.1:.2f})")
+            print(f" Volatility Too Low! ATR({current_atr:.2f}) < 10% VWAP({current_vwap*0.1:.2f})")
             return
             
         # 🚀 Entry Logic
@@ -54,7 +50,7 @@ class VoltaicBand(Strategy):
                     self.buy(size=position_size, 
                             sl=self.data.Close[-1] - current_atr,
                             tag='LONG')
-                    print(f"🚀 MOON BOUND! LONG | Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
+                    print(f" MOON BOUND! LONG | Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
             
             # Short Entry
             elif self.data.Close[-1] < self.lower_band[-1]:
@@ -64,7 +60,7 @@ class VoltaicBand(Strategy):
                     self.sell(size=position_size, 
                              sl=self.data.Close[-1] + current_atr,
                              tag='SHORT')
-                    print(f"🌑 DARK SIDE! SHORT | Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
+                    print(f" DARK SIDE! SHORT | Size: {position_size} | Entry: {self.data.Close[-1]:.2f}")
         
         # ✨ Exit Logic
         else:
@@ -78,7 +74,7 @@ class VoltaicBand(Strategy):
                 
                 if self.data.Low[-1] <= retrace_level:
                     self.position.close()
-                    print(f"✨ LUNAR LANDING! LONG EXIT | Profit: {self.data.Close[-1]-entry_price:.2f}")
+                    print(f" LUNAR LANDING! LONG EXIT | Profit: {self.data.Close[-1]-entry_price:.2f}")
                 elif bars_held >= 5:
                     self.position.close()
                     print(f"⏳ MOON CYCLE COMPLETE | Bars Held: {bars_held}")

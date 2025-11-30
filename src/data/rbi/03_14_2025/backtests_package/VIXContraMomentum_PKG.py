@@ -1,7 +1,3 @@
-I've fixed the code by removing the `backtesting.lib` import and replacing the crossover function with the proper implementation. Here's the corrected version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -24,10 +20,10 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VIXContraMomentum(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     atr_period = 14
     swing_period = 20
-    vix_threshold = 0.02  # 2% threshold for pattern confirmation ✨
+    vix_threshold = 0.02  # 2% threshold for pattern confirmation 
 
     def init(self):
         # 🌙 MOON DEV INDICATORS 🌙
@@ -52,7 +48,7 @@ class VIXContraMomentum(Strategy):
                     sl = current_price - atr_value * 1.5
                     tp = current_price + atr_value * 3
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+#                     print(f"🌙✨🚀 MOON DEV LONG SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
 
             # 🌙 INVERTED V SHORT ENTRY 🌙
             elif current_price >= self.swing_low[-1] * (1 + self.vix_threshold):
@@ -61,20 +57,20 @@ class VIXContraMomentum(Strategy):
                     sl = current_price + atr_value * 1.5
                     tp = current_price - atr_value * 3
                     self.sell(size=position_size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
+#                     print(f"🌙✨🚀 MOON DEV SHORT SIGNAL! Entry: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f} | TP: {tp:.2f}")
 
         else:
             # 🌙 MOON DEV TRAILING LOGIC ✨
             if self.position.is_long and (self.data.Close[-2] < self.swing_high[-2] and self.data.Close[-1] > self.swing_high[-1]):
                 self.position.close()
-                print(f"🌙✨ MOON DEV LONG EXIT | Price: {current_price:.2f}")
+#                 print(f"🌙✨ MOON DEV LONG EXIT | Price: {current_price:.2f}")
             elif self.position.is_short and (self.swing_low[-2] > self.data.Close[-2] and self.swing_low[-1] < self.data.Close[-1]):
                 self.position.close()
-                print(f"🌙✨ MOON DEV SHORT EXIT | Price: {current_price:.2f}")
+#                 print(f"🌙✨ MOON DEV SHORT EXIT | Price: {current_price:.2f}")
 
 # 🌙✨ BACKTEST EXECUTION 🚀
 bt = Backtest(data, VIXContraMomentum, cash=1_000_000, commission=.002)
 stats = bt.run()
-print("\n🌙✨ MOON DEV FINAL STATS 🌙✨")
+# print("\n🌙✨ MOON DEV FINAL STATS 🌙✨")
 print(stats)
-print("\n🌙✨ STRATEGY DETAILS 🌙✨")
+# print("\n🌙✨ STRATEGY DETAILS 🌙✨")

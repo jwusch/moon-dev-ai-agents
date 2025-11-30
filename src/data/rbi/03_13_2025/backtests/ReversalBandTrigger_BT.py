@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -28,8 +26,8 @@ def prepare_data(filepath):
     return data
 
 class ReversalBandTrigger(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
-    trailing_stop_multiplier = 3  # 3x ATR for trailing stop 🚀
+    risk_per_trade = 0.01  # 1% risk per trade 
+    trailing_stop_multiplier = 3  # 3x ATR for trailing stop 
     
     def init(self):
         # Moon Dev Indicator Setup 🌙✨
@@ -50,7 +48,7 @@ class ReversalBandTrigger(Strategy):
         # Swing low detection
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
         
-        print("🌙 Lunar indicators initialized! Ready for launch! 🚀")
+        print(" Lunar indicators initialized! Ready for launch! ")
 
     def next(self):
         price = self.data.Close[-1]
@@ -63,10 +61,10 @@ class ReversalBandTrigger(Strategy):
             
             # Exit conditions
             if self.rsi[-1] < 40:
-                print(f"🌙 Bearish RSI reset! Closing position at {price:.2f} ✨")
+                print(f" Bearish RSI reset! Closing position at {price:.2f} ")
                 self.position.close()
             elif self.data.Close[-1] < self.sma50[-1]:
-                print(f"🌙 Price closed below SMA50! Exiting at {price:.2f} 💎")
+                print(f" Price closed below SMA50! Exiting at {price:.2f} ")
                 self.position.close()
         
         # Entry conditions
@@ -88,9 +86,9 @@ class ReversalBandTrigger(Strategy):
                 position_size = min(position_size, int(self.available_margin // price))
                 
                 if position_size > 0:
-                    print(f"🚀 BULLISH REVERSAL CONFIRMED! 🌙")
-                    print(f"Entry: {price:.2f} | Size: {position_size} ✨")
-                    print(f"Stop Loss: {sl_level:.2f} | RSI: {self.rsi[-1]:.2f} 💎")
+                    print(f" BULLISH REVERSAL CONFIRMED! ")
+                    print(f"Entry: {price:.2f} | Size: {position_size} ")
+                    print(f"Stop Loss: {sl_level:.2f} | RSI: {self.rsi[-1]:.2f} ")
                     self.buy(size=position_size, sl=sl_level)
 
 # Moon Dev

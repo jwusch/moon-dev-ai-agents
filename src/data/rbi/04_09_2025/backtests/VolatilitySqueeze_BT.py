@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -29,7 +27,7 @@ def prepare_data(path):
     return data
 
 class VolatilitySqueeze(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # Bollinger Bands Components 🎯
@@ -50,8 +48,8 @@ class VolatilitySqueeze(Strategy):
         
     def next(self):
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌙 Current BBW: {self.bbw[-1]:.4f} | 10th: {self.bbw_low[-1]:.4f} | 50th: {self.bbw_high[-1]:.4f}")
-        print(f"✨ RSI: {self.rsi[-1]:.2f} | Close: {self.data.Close[-1]:.2f} | BB Mid: {self.bb_middle[-1]:.2f}")
+        print(f"\n Current BBW: {self.bbw[-1]:.4f} | 10th: {self.bbw_low[-1]:.4f} | 50th: {self.bbw_high[-1]:.4f}")
+        print(f" RSI: {self.rsi[-1]:.2f} | Close: {self.data.Close[-1]:.2f} | BB Mid: {self.bb_middle[-1]:.2f}")
         
         # Entry Logic 🚀
         if not self.position:
@@ -69,14 +67,14 @@ class VolatilitySqueeze(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, 
-                                tag=f"🌙 Volatility Squeeze Entry! SL: {stop_loss:.2f}")
-                        print(f"🚀 MOON DEV ALERT: LONG {position_size} @ {entry_price:.2f}")
+                                tag=f" Volatility Squeeze Entry! SL: {stop_loss:.2f}")
+#                         print(f"🚀 MOON DEV ALERT: LONG {position_size} @ {entry_price:.2f}")
         
         # Exit Logic 🌑
         else:
             if self.bbw[-1] > self.bbw_high[-1]:
                 self.position.close()
-                print(f"🌑 MOON DEV EXIT: Closing @ {self.data.Close[-1]:.2f}")
+#                 print(f"🌑 MOON DEV EXIT: Closing @ {self.data.Close[-1]:.2f}")
 
 # Moon Dev Backtest Execution 🌙
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

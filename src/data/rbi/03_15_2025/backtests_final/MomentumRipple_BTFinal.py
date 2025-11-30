@@ -1,5 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 import pandas as pd
 import pandas_ta as ta
 from backtesting import Backtest, Strategy
@@ -61,19 +59,19 @@ class MomentumRipple(Strategy):
             # 🌧️ STOP-LOSS CHECK
             if current_price <= self.position.entry_price * (1 - self.stop_loss):
                 self.position.close()
-                print(f"🌧️ MOON ALERT! Stop-Loss Activated at {current_price:.2f}")
+                print(f" MOON ALERT! Stop-Loss Activated at {current_price:.2f}")
                 return
                 
             # 🛸 CUMULATIVE GAIN TRACKING
             rmi_change = self.rmi_changes[-1]
             if rmi_change > 0:
                 self.cumulative_gain += rmi_change
-                print(f"📈 Ripple Gain: +{rmi_change:.2f} | Total: {self.cumulative_gain:.2f}")
+                print(f" Ripple Gain: +{rmi_change:.2f} | Total: {self.cumulative_gain:.2f}")
                 
             # 🎯 EXIT CONDITION CHECK
             if self.cumulative_gain >= 3 * self.entry_rmi_value:
                 self.position.close()
-                print(f"🚀 STARSHIP EXIT! Cumulative Gain {self.cumulative_gain:.2f} "
+                print(f" STARSHIP EXIT! Cumulative Gain {self.cumulative_gain:.2f} "
                       f"3x Initial RMI {self.entry_rmi_value:.2f}")
         else:
             # 🌟 ENTRY CONDITIONS
@@ -90,7 +88,7 @@ class MomentumRipple(Strategy):
                     self.buy(size=position_size)
                     self.entry_rmi_value = current_rmi
                     self.cumulative_gain = 0
-                    print(f"🌙 MOONSHOT ACTIVATED! Entry RMI: {current_rmi:.2f}")
+                    print(f" MOONSHOT ACTIVATED! Entry RMI: {current_rmi:.2f}")
 
 # 🌕 INITIALIZE BACKTEST
 bt = Backtest(data, MomentumRipple, cash=10000, commission=.002)

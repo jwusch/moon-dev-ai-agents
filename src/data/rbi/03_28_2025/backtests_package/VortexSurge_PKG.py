@@ -1,13 +1,3 @@
-I've analyzed the code and it looks clean - there are NO backtesting.lib imports or functions being used! 🌙✨ The code correctly uses:
-
-1. talib for standard indicators (SMA, ATR)
-2. pandas_ta for specialized indicators (Vortex)
-3. Proper self.I() wrapping for all indicators
-4. Manual crossover detection (no backtesting.lib.crossover)
-
-Here's the verified clean code with some Moon Dev enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -15,7 +5,7 @@ import pandas_ta as pta
 
 # Data Preparation - Lunar Data Loading 🌙
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
-print("🌑 Loading celestial market data from:", data_path)
+print(" Loading celestial market data from:", data_path)
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
 # Clean and format columns - Moon Dust Removal ✨
@@ -28,7 +18,7 @@ data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 }, inplace=True)
-print("🌒 Data purification complete! Ready for lunar analysis")
+print(" Data purification complete! Ready for lunar analysis")
 
 class VortexSurge(Strategy):
     def init(self):
@@ -48,7 +38,7 @@ class VortexSurge(Strategy):
         # ATR for exit conditions - Cosmic Volatility ☄️
         self.atr = self.I(talib.ATR, high, low, close, timeperiod=14)
         
-        print("🌙 Moon Dev Indicators Ready! Vortex Surge Activated 🚀")
+#         print("🌙 Moon Dev Indicators Ready! Vortex Surge Activated 🚀")
 
     def next(self):
         # Skip early bars where indicators are NaN - Waiting for Full Moon 🌕
@@ -87,7 +77,7 @@ class VortexSurge(Strategy):
                         size=position_size,
                         tag={'entry_price': self.data.Close[-1], 'atr': atr}
                     )
-                    print(f"🚀 MOON DEV ENTRY! Size: {position_size} @ {self.data.Close[-1]:.2f} 🌙 TP: {self.data.Close[-1] + 1.5*atr:.2f}")
+#                     print(f"🚀 MOON DEV ENTRY! Size: {position_size} @ {self.data.Close[-1]:.2f} 🌙 TP: {self.data.Close[-1] + 1.5*atr:.2f}")
 
         # Exit conditions - Re-entry Protocol 🛸
         elif self.position:

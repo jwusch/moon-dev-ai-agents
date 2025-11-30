@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLTAIC SQUEEZE STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -23,7 +20,7 @@ data = data.rename(columns={
 })
 
 class VoltaicSqueeze(Strategy):
-    risk_pct = 0.01  # 🌑 1% RISK PER TRADE
+    risk_pct = 0.01  #  1% RISK PER TRADE
     bb_period = 20
     bb_dev = 2
     atr_period = 14
@@ -76,7 +73,7 @@ class VoltaicSqueeze(Strategy):
                     )
                     self.entry_price = self.data.Open[0]
                     self.entry_atr = atr_value
-                    print(f"🌙✨🚀 VOLTAIC IGNITION! Entry @ {self.entry_price:.2f} | Size: {position_size}")
+                    print(f" VOLTAIC IGNITION! Entry @ {self.entry_price:.2f} | Size: {position_size}")
         
         # 🌕 EXIT LOGIC
         if self.position:
@@ -85,12 +82,12 @@ class VoltaicSqueeze(Strategy):
             # PROFIT TARGET
             if self.data.High[0] >= target_price:
                 self.position.close()
-                print(f"🌕🚀 COSMIC PROFIT! Exited @ {target_price:.2f}")
+                print(f" COSMIC PROFIT! Exited @ {target_price:.2f}")
             
             # BB REVERSION EXIT
             elif self.data.Close[0] < self.bb_upper[0]:
                 self.position.close()
-                print(f"🌙💫 SQUEEZE RELEASED! Exited @ {self.data.Close[0]:.2f}")
+                print(f" SQUEEZE RELEASED! Exited @ {self.data.Close[0]:.2f}")
     
     def notify_trade(self, trade):
         if trade.is_closed:
@@ -107,4 +104,4 @@ bt = Backtest(
 )
 
 stats = bt.run()
-print("\n🌌🌌🌌 MOON DEV BACKTEST RESULTS
+# print("\n🌌🌌🌌 MOON DEV BACKTEST RESULTS"

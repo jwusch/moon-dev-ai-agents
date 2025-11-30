@@ -45,16 +45,16 @@ class CrossVolatilityStrategy(Strategy):
                         # Moon Dev Entry Signal 🌙
                         self.buy(size=position_size, sl=stop_loss, tp=take_profit)
                         print(f"🚀🌙 MOON DEV LONG SIGNAL 🚀\n"
-                              f"Entry: {entry_price:.2f} | "
+                              f"Entry: {entry_price:0.2f} | "
                               f"Size: {position_size} | "
-                              f"SL: {stop_loss:.2f} | "
-                              f"TP: {take_profit:.2f} ✨")
+                              f"SL: {stop_loss:0.2f} | "
+                              f"TP: {take_profit:0.2f} ✨")
         else:
             # Moon Dev Exit Checks 🌙
             if self.position.pl > 0:
-                print(f"🌈 MOON DEV PROFIT TAKEN 🌈 +{self.position.pl:.2f}")
+                print(f"🌈 MOON DEV PROFIT TAKEN 🌈 +{self.position.pl:0.2f}")
             elif self.position.pl < 0:
-                print(f"🌑 MOON DEV STOP HIT 🌑 {self.position.pl:.2f}")
+                print(f"🌑 MOON DEV STOP HIT 🌑 {self.position.pl:0.2f}")
 
 # Moon Dev Data Preparation 🌙
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

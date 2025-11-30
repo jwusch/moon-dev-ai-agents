@@ -1,7 +1,3 @@
-I'll analyze the code and ensure there are no `backtesting.lib` imports or functions being used. Here's the fixed version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy

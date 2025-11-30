@@ -1,6 +1,3 @@
-I'll complete and debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,12 +49,12 @@ class LiquidationVolatility(Strategy):
             name='LIQUIDATION_LOW'
         )
         
-        print("🌕 Moon Dev Indicators Initialized! Lunar trading cycles activated.")
+#         print("🌕 Moon Dev Indicators Initialized! Lunar trading cycles activated.")
         
     def next(self):
         # Moon Dev progress tracker
         if len(self.data) % 500 == 0:
-            print(f"🌙 Lunar Cycle Update: Processing candle {len(self.data)} - Current Phase: {np.round(self.equity/10000, 2)} moons")
+            print(f" Lunar Cycle Update: Processing candle {len(self.data)} - Current Phase: {np.round(self.equity/10000, 2)} moons")
             
         if len(self.data) < self.atr_ma_period or self.position:
             return
@@ -84,14 +81,14 @@ class LiquidationVolatility(Strategy):
                 if (current_close > resistance and
                     abs(current_close - resistance) <= proximity):
                     self.enter_trade('long', resistance, current_atr)
-                    print(f"🚀 Moon Launch Detected! Long signal at {current_close}")
+                    print(f" Moon Launch Detected! Long signal at {current_close}")
                     
             if support_levels:
                 support = min(support_levels)
                 if (current_close < support and
                     abs(current_close - support) <= proximity):
                     self.enter_trade('short', support, current_atr)
-                    print(f"🌑 Black Moon Alert! Short signal at {current_close}")
+                    print(f" Black Moon Alert! Short signal at {current_close}")
                     
         # Manage existing positions
         for trade in self.trades:

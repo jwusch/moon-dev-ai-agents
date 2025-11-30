@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR EXPIRYVOLATILITY STRATEGY 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +36,7 @@ class ExpiryVolatility(Strategy):
         
         # 🔍 Range must exceed ATR by 25% of ATR
         if (current_range - current_atr) >= 0.25 * current_atr:
-            print(f"🌙✨ VOLATILITY SPIKE DETECTED! ATR: {current_atr:.2f}, Range: {current_range:.2f}")
+            print(f" VOLATILITY SPIKE DETECTED! ATR: {current_atr:0.2f}, Range: {current_range:0.2f}")
             return True
         return False
         
@@ -50,7 +47,7 @@ class ExpiryVolatility(Strategy):
         size = int(round(size))
         
         if size == 0:
-            print("🌙⚠️  Zero position size calculated, skipping trade")
+            print("  Zero position size calculated, skipping trade")
             return
             
         # 🛡️ Risk management calculations
@@ -59,13 +56,13 @@ class ExpiryVolatility(Strategy):
         stop_loss = price - risk_per_unit
         take_profit = price + (self.rr_ratio * risk_per_unit)
         
-        # 🚀 Enter trade with OCO orders
+        # 🚀 Enter trade with OCO or ders
         self.buy(size=size,
                 sl=stop_loss,
                 tp=take_profit,
                 tag="ExpiryVolatility Trade")
         
-        print(f"🌙🚀 MOON DEV TRADE ENTERED! Size: {size} | Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+#         print(f"🌙🚀 MOON DEV TRADE ENTERED! Size: {size} | Entry: {price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f}")
         
     def check_time_based_exits(self):
         # ⏳ Close positions older than 5 days
@@ -73,7 +70,7 @@ class ExpiryVolatility(Strategy):
             days_in_trade = (self.data.index[-1] - trade.entry_time).days
             if days_in_trade >= 5:
                 trade.close()
-                print(f"🌙⏳ TIME EXIT | Position closed after 5 days at {self.data.Close[-1]:.2f}")
+                print(f"⏳ TIME EXIT | Position closed after 5 days at {self.data.Close[-1]:0.2f}")
 
 # DATA PREPROCESSING 🌙
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'

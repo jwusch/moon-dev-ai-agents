@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
@@ -43,12 +42,12 @@ class VolSqueezeBreakout(Strategy):
         self.remaining_size = 0
         self.initial_stop = None
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         current_vix = self.data.df['vix'].iloc[-1]
         if current_vix < 15 or current_vix > 40:
-            print(f"🚫 VIX {current_vix:.1f} out of range - skipping trade")
+            print(f" VIX {current_vix:.1f} out of range - skipping trade")
             return
 
         # Check for existing trades
@@ -70,7 +69,7 @@ class VolSqueezeBreakout(Strategy):
         if not all(self.data.Volume[-3:] < self.volume_ma[-3:]):
             return False
             
-        print("🌌 Moon Alert: Volatility Squeeze Detected!")
+        print(" Moon Alert: Volatility Squeeze Detected!")
         return True
 
     def check_trigger(self):
@@ -92,7 +91,7 @@ class VolSqueezeBreakout(Strategy):
         else:
             return False
             
-        print(f"🚀 Moon Rocket: Breakout {self.breakout_direction.upper()} at {self.breakout_level:.2f}")
+        print(f" Moon Rocket: Breakout {self.breakout_direction.upper()} at {self.breakout_level:.2f}")
         return True
 
     def calculate_entry(self):

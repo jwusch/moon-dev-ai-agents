@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -60,18 +58,18 @@ class VortexVolumePullback(Strategy):
             # Exit on VI crossover or OBV divergence
             if crossunder(self.vi_plus, self.vi_minus):
                 self.position.close()
-                print(f"🌙✨ LONG Exit: VI crossover at {price:.2f}")
+                print(f" LONG Exit: VI crossover at {price:.2f}")
             elif self.obv[-1] < self.obv[-4]:
                 self.position.close()
-                print(f"🌙📉 LONG Exit: OBV bearish divergence at {price:.2f}")
+                print(f" LONG Exit: OBV bearish divergence at {price:.2f}")
                 
         elif self.position.is_short:
             if crossover(self.vi_minus, self.vi_plus):
                 self.position.close()
-                print(f"🌙✨ SHORT Exit: VI crossunder at {price:.2f}")
+                print(f" SHORT Exit: VI crossunder at {price:.2f}")
             elif self.obv[-1] > self.obv[-4]:
                 self.position.close()
-                print(f"🌙📈 SHORT Exit: OBV bullish divergence at {price:.2f}")
+                print(f" SHORT Exit: OBV bullish divergence at {price:.2f}")
     
     def check_entries(self):
         price = self.data.Close[-1]
@@ -92,7 +90,7 @@ class VortexVolumePullback(Strategy):
             if size > 0:
                 self.buy(size=size)
                 tp = price + 2 * risk_share
-                print(f"🚀🌙 LONG Entry at {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                print(f" LONG Entry at {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
         
         # Short Entry Criteria
         elif (self.vi_minus[-1] > self.vi_plus[-1] and 

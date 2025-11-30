@@ -1,6 +1,3 @@
-The code looks great and is already following Moon Dev's package guidelines! No backtesting.lib imports or functions were found. However, I'll add some cosmic-themed improvements and ensure all indicators are properly wrapped in self.I(). Here's the enhanced version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -64,7 +61,7 @@ class StochasticBreakout(Strategy):
                 risk_per_share = current_close - sl_price
                 if risk_per_share > 0:
                     position_size = int(round(base_size / risk_per_share))
-                    print(f"🌙🚀 LUNAR LIFT-OFF! Buying {position_size} shares at {current_close:.2f}")
+                    print(f" LUNAR LIFT-OFF! Buying {position_size} shares at {current_close:.2f}")
                     self.buy(size=position_size, sl=sl_price, tp=current_close + 3*risk_per_share)
             
             # Short entry during meteor showers ☄️
@@ -73,7 +70,7 @@ class StochasticBreakout(Strategy):
                 risk_per_share = sl_price - current_close
                 if risk_per_share > 0:
                     position_size = int(round(base_size / risk_per_share))
-                    print(f"🌑💫 COMET DIVE! Shorting {position_size} shares at {current_close:.2f}")
+                    print(f" COMET DIVE! Shorting {position_size} shares at {current_close:.2f}")
                     self.sell(size=position_size, sl=sl_price, tp=current_close - 3*risk_per_share)
 
 # Launch backtest sequence 🛸
@@ -82,7 +79,7 @@ stats = bt.run()
 
 # Print cosmic performance report 🌠
 print("\n=== MOON DEV INTERSTELLAR REPORT ===")
-print("🌕 Lunar Treasury Growth:", stats['Return [%]'], "%")
-print("🚀 Best Trade:", stats['Best Trade [%]'], "%")
-print("☄️ Worst Trade:", stats['Worst Trade [%]'], "%")
+print(" Lunar Treasury Growth:", stats['Return [%]'], "%")
+print(" Best Trade:", stats['Best Trade [%]'], "%")
+print(" Worst Trade:", stats['Worst Trade [%]'], "%")
 print

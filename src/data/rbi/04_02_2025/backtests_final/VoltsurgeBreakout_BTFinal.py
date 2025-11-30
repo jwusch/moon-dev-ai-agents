@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -68,7 +65,7 @@ class VoltsurgeBreakout(Strategy):
                 'entry_index': len(self.data) - 1,
                 'entry_time': self.data.index[-1]
             })
-            print(f"🌙✨ MOONSHOT LONG at {entry_price:.2f} | Size: {position_size} | ATR: {self.pending_atr:.2f}")
+            print(f" MOONSHOT LONG at {entry_price:.2f} | Size: {position_size} | ATR: {self.pending_atr:.2f}")
         
         self.long_entry_pending = False
         self.pending_atr = None
@@ -84,7 +81,7 @@ class VoltsurgeBreakout(Strategy):
                 'entry_index': len(self.data) - 1,
                 'entry_time': self.data.index[-1]
             })
-            print(f"🌙💫 BLACK HOLE SHORT at {entry_price:.2f} | Size: {position_size} | ATR: {self.pending_atr:.2f}")
+            print(f" BLACK HOLE SHORT at {entry_price:.2f} | Size: {position_size} | ATR: {self.pending_atr:.2f}")
         
         self.short_entry_pending = False
         self.pending_atr = None

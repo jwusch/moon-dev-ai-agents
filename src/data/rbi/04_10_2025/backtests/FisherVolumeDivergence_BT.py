@@ -1,7 +1,3 @@
-Here's the implementation of the FisherVolume Divergence strategy for backtesting.py:
-
-```python
-# 🌙 Moon Dev's FisherVolume Divergence Backtest 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -48,13 +44,13 @@ class FisherVolumeDivergence(Strategy):
         self.last_breakout = -np.inf
 
     def next(self):
-        # Moon Dev's Cosmic Checks 🌑
+        # Moon Dev's Cosmic Checks 🌑'
         if len(self.data) < 40:  # Ensure enough data
             return
             
         current_time = self.data.index[-1].time()
         if (current_time <= time(0, 30)) or (current_time >= time(23, 30)):
-            print(f"🌙 Moon Dev Warning: Skipping cosmic dead zone at {current_time}")
+#             print(f"🌙 Moon Dev Warning: Skipping cosmic dead zone at {current_time}")
             return
             
         if self.position:

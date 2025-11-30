@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed indicators:
-
-```python
-# 🌙 Moon Dev's BandwidthBreakout Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np

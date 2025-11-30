@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VolCompress Surge Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -31,7 +27,7 @@ class VolCompressSurge(Strategy):
         self.trade_count = 0
 
     def calculate_bbw(self, close):
-        """✨ Calculate Bollinger Band Width with TA-Lib"""
+        """ Calculate Bollinger Band Width with TA-Lib"""
         upper, middle, lower = talib.BBANDS(
             close, 
             timeperiod=self.bb_period,
@@ -48,7 +44,7 @@ class VolCompressSurge(Strategy):
         
         if drawdown > 0.10:
             self.allow_trading = False
-            print(f"🌑🔥 PORTFOLIO DRAWDOWN 10%! Trading halted. Current DD: {drawdown*100:.1f}%")
+            print(f" PORTFOLIO DRAWDOWN 10%! Trading halted. Current DD: {drawdown*100:.1f}%")
 
         # Entry Logic 🌠
         if not self.position and self.allow_trading:
@@ -64,7 +60,7 @@ class VolCompressSurge(Strategy):
                 # Enforce 5% maximum position size
                 max_size = (self.max_position_pct * current_equity) / self.data.Close[-1]
                 position_size = min(position_size, max_size)
-                position_size = int(round(position_size))  # 🌕 Ensure whole number of units
+                position_size = int(round(position_size))  #  Ensure whole number of units
                 
                 if position_size > 0:
                     self.buy(size=position_size)
@@ -72,7 +68,7 @@ class VolCompressSurge(Strategy):
                     self.entry_price = self.data.Close[-1]
                     self.stop_loss = self.entry_price - atr_value
                     self.trailing_level = self.entry_price + 2*atr_value
-                    print(f"🌕🚀 ENTRY #{self.trade_count} @ {self.entry_price:.2f}")
+                    print(f" ENTRY #{self.trade_count} @ {self.entry_price:.2f}")
                     print(f"    Size: {position_size} units | SL: {self.stop_loss:.2f} | Trail: {self.trailing_level:.2f}")
 
         # Exit Logic 🌈
@@ -87,6 +83,6 @@ class VolCompressSurge(Strategy):
                 
                 self.position.close()
                 pnl_pct = (self.data.Close[-1]/self.entry_price - 1)*100
-                print(f"🌑📉 EXIT #{self.trade_count} @ {self.data.Close[-1]:.2f} ({pnl_pct:+.1f}%)")
+                print(f" EXIT #{self.trade_count} @ {self.data.Close[-1]:.2f} ({pnl_pct:+.1f}%)")
 
 # 🌍

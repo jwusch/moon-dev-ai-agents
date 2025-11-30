@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -45,14 +44,14 @@ class VoltaicReversion(Strategy):
         if current_date != self.current_day:
             self.current_day = current_date
             self.daily_start_equity = self.equity
-            print(f"🌞 MOON DEV: New day {current_date}, equity: {self.equity:.2f}")
+#             print(f"🌞 MOON DEV: New day {current_date}, equity: {self.equity:.2f}")
             
         if self.daily_start_equity and self.equity < self.daily_start_equity * 0.95:
-            print(f"🌧️ MOON DEV: Daily loss limit hit! No trades.")
+#             print(f"🌧️ MOON DEV: Daily loss limit hit! No trades.")
             return
             
         if self.consecutive_losses >= 3:
-            print(f"🌑 MOON DEV: 3 consecutive losses - trading paused")
+#             print(f"🌑 MOON DEV: 3 consecutive losses - trading paused")
             return
             
         if not self.position:
@@ -67,7 +66,7 @@ class VoltaicReversion(Strategy):
                 size = int(round((self.equity * 0.01) / risk))
                 if size > 0:
                     self.sell(size=size, sl=stop, tp=self.upper_1[-1])
-                    print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {size} SL: {stop:.2f}")
+#                     print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {size} SL: {stop:.2f}")
                     
             elif price < self.lower_2_5[-1] and bb_width < bb_width_prev and vol > self.vol_ma[-1]:
                 stop = self.lower_3[-1]

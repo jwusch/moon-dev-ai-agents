@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -26,18 +23,18 @@ data.set_index('datetime', inplace=True)
 class VolatilityBand(Strategy):
     def init(self):
         # Volatility indicators
-        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14, name='🌙 ATR')
-        self.atr_sma = self.I(talib.SMA, self.atr, 50, name='🌙 ATR_SMA')
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14, name=' ATR')
+        self.atr_sma = self.I(talib.SMA, self.atr, 50, name=' ATR_SMA')
         
         # Dynamic EMA components
-        self.ema_short = self.I(talib.EMA, self.data.Close, 10, name='✨ EMA_10')
-        self.ema_long = self.I(talib.EMA, self.data.Close, 30, name='✨ EMA_30')
+        self.ema_short = self.I(talib.EMA, self.data.Close, 10, name=' EMA_10')
+        self.ema_long = self.I(talib.EMA, self.data.Close, 30, name=' EMA_30')
         
         # Bollinger Bands components
-        self.bb_middle = self.I(talib.SMA, self.data.Close, 20, name='🌀 BB_MID')
-        self.bb_std = self.I(talib.STDDEV, self.data.Close, 20, 1, name='🌀 BB_STD')
-        self.bb_upper = self.I(lambda mid, std: mid + 2*std, self.bb_middle, self.bb_std, name='🎢 BB_UPPER')
-        self.bb_lower = self.I(lambda mid, std: mid - 2*std, self.bb_middle, self.bb_std, name='🎢 BB_LOWER')
+        self.bb_middle = self.I(talib.SMA, self.data.Close, 20, name=' BB_MID')
+        self.bb_std = self.I(talib.STDDEV, self.data.Close, 20, 1, name=' BB_STD')
+        self.bb_upper = self.I(lambda mid, std: mid + 2*std, self.bb_middle, self.bb_std, name=' BB_UPPER')
+        self.bb_lower = self.I(lambda mid, std: mid - 2*std, self.bb_middle, self.bb_std, name=' BB_LOWER')
 
     def next(self):
         # Wait for sufficient data
@@ -68,7 +65,7 @@ class VolatilityBand(Strategy):
                 size = int(round(risk / (price - sl)))
                 if size > 0:
                     self.buy(size=size, sl=sl, tp=bb_upper)
-                    print(f"🌙🚀 BULLISH ENTRY! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {bb_upper:.2f}")
+                    print(f" BULLISH ENTRY! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {bb_upper:.2f}")
             
             # Bearish entry
             elif dynamic_ema < bb_mid and prev_dynamic_ema >= prev_bb_mid and price < bb_upper:
@@ -77,6 +74,6 @@ class VolatilityBand(Strategy):
                 size = int(round(risk / (sl - price)))
                 if size > 0:
                     self.sell(size=size, sl=sl, tp=bb_lower)
-                    print(f"🌙🚨 BEARISH ENTRY! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {bb_lower:.2f}")
+                    print(f" BEARISH ENTRY! Size: {size} | Entry: {price:.2f} | SL: {sl:.2f} | TP: {bb_lower:.2f}")
 
         # Trend reversal

@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -85,7 +84,7 @@ class MomentumSqueeze(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     self.highest_close = entry_price
                     self.buy(size=position_size)
-                    print(f"🌙✨ BULLISH momentum confirmed! LONG {position_size} units @ {entry_price} 🚀")
+                    print(f" BULLISH momentum confirmed! LONG {position_size} units @ {entry_price} ")
             
             # Short entry logic
             elif (crossunder(self.cmo, 50) and 

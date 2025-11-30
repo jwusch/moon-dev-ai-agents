@@ -18,7 +18,7 @@ class BandVwapSync(Strategy):
               length=20, name='VWAP_20')
         
         # 📈 5-period MA of VWAP
-        self.I(talib.SMA, self.data.VWAP_20, timeperiod=5, name='VWAP_MA_5')
+        self.I(talib.SMA, self.vwap_20, timeperiod=5, name='VWAP_MA_5')
         
     def next(self):
         # Wait for sufficient data 🌊
@@ -28,8 +28,8 @@ class BandVwapSync(Strategy):
         # 🛑 Current indicator values
         price_low = self.data.Low[-1]
         bb_lower = self.data.BB_lower[-1]
-        vwap = self.data.VWAP_20[-1]
-        prev_vwap = self.data.VWAP_20[-2] if len(self.data.VWAP_20) > 1 else vwap
+        vwap = self.vwap_20[-1]
+        prev_vwap = self.vwap_20[-2] if len(self.vwap_20) > 1 else vwap
         
         # 🌙 Entry Logic: Band touch + VWAP momentum
         if not self.position:
@@ -52,7 +52,7 @@ class BandVwapSync(Strategy):
         # 💼 Exit Logic
         else:
             # 📉 VWAP trend reversal exit
-            if crossover(self.data.VWAP_MA_5, self.data.VWAP_20):
+            if crossover(self.vwap_MA_5, self.vwap_20):
                 self.position.close()
                 print("🌙 VWAP Trend Reversal - Closing Position! 🏁")
                 

@@ -1,7 +1,3 @@
-I'll fix the code by removing all backtesting.lib imports and replacing any crossover/crossunder functions with proper manual checks. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +23,7 @@ data.rename(columns={
 }, inplace=True)
 
 class DivergentFade(Strategy):
-    risk_pct = 0.01  # 1% risk per trade (Moon Dev Standard Risk Protocol) 🌙
+#     risk_pct = 0.01  # 1% risk per trade (Moon Dev Standard Risk Protocol) 🌙
     consecutive_losses = 0
     
     def init(self):
@@ -48,7 +44,7 @@ class DivergentFade(Strategy):
     def next(self):
         # Moon Dev Risk Force Field (Safety Protocol) 🌙🛡️
         if self.consecutive_losses >= 3:
-            print("🌙⚡ Moon Dev Circuit Breaker: 3 Consecutive Losses! Trading Halted.")
+#             print("🌙⚡ Moon Dev Circuit Breaker: 3 Consecutive Losses! Trading Halted.")
             return
             
         if not self.position:
@@ -65,7 +61,7 @@ class DivergentFade(Strategy):
                         size = int(round(risk_amount / (stop_loss - self.data.Close[-1])))
                         
                         if size > 0:
-                            print(f"🌙🚀 Moon Dev Short Signal Activated! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
+#                             print(f"🌙🚀 Moon Dev Short Signal Activated! Size: {size} | Entry: {self.data.Close[-1]:.2f}")
                             self.sell(size=size, sl=stop_loss, tag='short_entry')
             
             # Long Entry Constellation (Bullish Celestial Alignment) 🌙💫

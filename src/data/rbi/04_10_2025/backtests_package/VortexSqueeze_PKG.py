@@ -1,7 +1,3 @@
-I've analyzed the code and it's already clean from any `backtesting.lib` imports or functions! 🌙 The code correctly uses TA-Lib for all indicators and proper array indexing for comparisons. Here's the complete verified code with some Moon Dev enhancements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -62,7 +58,7 @@ class VortexSqueeze(Strategy):
         # Swing low for stop loss
         self.swing_low = self.I(talib.MIN, self.data.Low, 20)
         
-        print("✨ Moon Dev Indicators Activated! 🌙")
+#         print("✨ Moon Dev Indicators Activated! 🌙")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -86,7 +82,7 @@ class VortexSqueeze(Strategy):
                 risk_per_share = current_close - stop_loss_level
                 
                 if risk_per_share <= 0:
-                    print("🌑 Risk calculation invalid - trade skipped")
+                    print(" Risk calculation invalid - trade skipped")
                     return
                 
                 # Position sizing
@@ -97,13 +93,13 @@ class VortexSqueeze(Strategy):
                     self.buy(size=position_size, 
                             sl=stop_loss_level,
                             tag="VortexSqueeze Entry")
-                    print(f"🚀 LONG ENTRY | Size: {position_size} | Price: {current_close:.2f} | SL: {stop_loss_level:.2f}")
+                    print(f" LONG ENTRY | Size: {position_size} | Price: {current_close:.2f} | SL: {stop_loss_level:.2f}")
         
         # 💰 Exit Conditions
         elif self.position.is_long:
             # RSI-based exit
             if current_rsi > 70:
                 self.position.close()
-                print(f"🏆 RSI EXIT | RSI: {current_rsi:.2f}")
+                print(f" RSI EXIT | RSI: {current_rsi:.2f}")
             
             # Update trailing stop (lower of swing low or Keltner

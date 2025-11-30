@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -21,10 +18,10 @@ data.rename(columns={
     'volume': 'Volume'
 }, inplace=True)
 data.set_index('datetime', inplace=True)
-assert 'funding_rate' in data.columns, "🌑 CRITICAL: Missing funding_rate column!"
+assert 'funding_rate' in data.columns, " CRITICAL: Missing funding_rate column!"
 
 class ExtremeFundingReversal(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     
     def init(self):
         # Funding Rate Indicators 📈
@@ -54,15 +51,15 @@ class ExtremeFundingReversal(Strategy):
             if (self.position.is_short and fr <= current_upper_1std) or \
                (self.position.is_long and fr >= current_lower_1std):
                 self.position.close()
-                print(f"🌙✨ Funding normalized! Exiting at {price:.2f}")
+                print(f" Funding normalized! Exiting at {price:.2f}")
             
             # Secondary exit: ATR stop 🛑
             elif self.position.is_short and price > self.entry_price + 1.5*self.entry_atr:
                 self.position.close()
-                print(f"🚨🌑 SHORT Stop triggered! {price:.2f} > {self.entry_price + 1.5*self.entry_atr:.2f}")
+                print(f" SHORT Stop triggered! {price:.2f} > {self.entry_price + 1.5*self.entry_atr:.2f}")
             elif self.position.is_long and price < self.entry_price - 1.5*self.entry_atr:
                 self.position.close()
-                print(f"🚨🌑 LONG Stop triggered! {price:.2f} < {self.entry_price - 1.5*self.entry_atr:.2f}")
+                print(f" LONG Stop triggered! {price:.2f} < {self.entry_price - 1.5*self.entry_atr:.2f}")
                 
         else:
             # Entry Conditions 🚀
@@ -76,7 +73,7 @@ class ExtremeFundingReversal(Strategy):
                 self.entry_price = price
                 self.entry_atr = atr_val
                 self.sell(size=size)
-                print(f"🌙🚀 SHORT! Funding {fr:.6f} > {self.upper_band[-1]:.6f}")
+                print(f" SHORT! Funding {fr:.6f} > {self.upper_band[-1]:.6f}")
                 print(f"   Size: {size}, Risk: {1.5*atr_val:.2f} ATR")
                 
             elif fr < self.lower_band[-1] and vol_spike:

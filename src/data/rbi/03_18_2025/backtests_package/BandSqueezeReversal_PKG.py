@@ -1,6 +1,3 @@
-Here's the fixed code with proper indicator packages and Moon Dev themed debug prints. I've ensured there are no backtesting.lib imports or functions, and all indicators are properly wrapped in self.I():
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -99,4 +96,4 @@ class BandSqueezeReversal(Strategy):
             position_size = int(round(risk_amount / (2 * atr_val)))
             if position_size > 0:
                 self.buy(size=position_size)
-                print(f"🚀 MOON DEV ENTRY: LONG {position_size} units at {self.data.Close[-1]}
+#                 print(f"🚀 MOON DEV ENTRY: LONG {position_size} units at {self.data.Close[-1]}"

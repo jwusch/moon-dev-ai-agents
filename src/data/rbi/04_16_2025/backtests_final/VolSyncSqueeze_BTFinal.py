@@ -1,13 +1,9 @@
-Here's the fixed and completed backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 Moon Dev's VolSync Squeeze Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
 import numpy as np
 
-print("🌙 Initializing Moon Dev's VolSync Squeeze Backtest... ✨")
+# print("🌙 Initializing Moon Dev's VolSync Squeeze Backtest... ✨")'
 
 # =====================
 # DATA PREPARATION 🌙📊
@@ -16,7 +12,7 @@ data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/dat
 data = pd.read_csv(data_path)
 
 # Clean and prepare data ✨
-print("🌙 Cleaning cosmic data dust...")
+print(" Cleaning cosmic data dust...")
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col.lower()])
 data = data.rename(columns={
@@ -31,13 +27,13 @@ data['Date'] = pd.to_datetime(data['Date'])
 data.set_index('Date', inplace=True)
 
 class VolSyncSqueeze(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # =====================
         # INDICATORS 🌙📈
         # =====================
-        print("🌙 Initializing celestial indicators...")
+        print(" Initializing celestial indicators...")
         # Bollinger Bands Components
         self.bb_middle = self.I(talib.SMA, self.data.Close, timeperiod=20, name='BB Middle')
         self.bb_stddev = self.I(talib.STDDEV, self.data.Close, timeperiod=20, name='BB StdDev')
@@ -53,7 +49,7 @@ class VolSyncSqueeze(Strategy):
         self.price_low = self.I(talib.MIN, self.data.Low, timeperiod=5, name='Price Swing Low')
         self.obv_low = self.I(talib.MIN, self.obv, timeperiod=5, name='OBV Swing Low')
         
-        self.pending_entry = False  # Entry flag 🌙🚩
+        self.pending_entry = False  # Entry flag 
 
     def next(self):
         # =====================
@@ -73,7 +69,7 @@ class VolSyncSqueeze(Strategy):
                 price_above_middle = self.data.Close[-1] > self.bb_middle[-1]
                 
                 if divergence and bandwidth_contraction and price_above_middle:
-                    print(f"🌙✨ CONFLUENCE DETECTED! {self.data.index[-1]} ✨🌙")
+                    print(f" CONFLUENCE DETECTED! {self.data.index[-1]} ")
                     self.pending_entry = True
             
             # Trigger entry on next green candle 🌙🕯️

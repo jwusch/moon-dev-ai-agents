@@ -1,6 +1,3 @@
-I've analyzed the code and it's already clean from any `backtesting.lib` imports or functions! 🌙 The code properly uses talib for indicators and implements its own crossover logic. Here's the verified code with some Moon Dev enhancements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -59,12 +56,12 @@ class VolSpikeBreakout(Strategy):
         # Moon Dev debug check 🌙✨
         current_close = self.data.Close[-1]
         current_upper = self.upper_band[-1]
-        print(f"🌙 Moon Scan: Close {current_close:.2f} vs Upper BB {current_upper:.2f}")
+        print(f" Moon Scan: Close {current_close:.2f} vs Upper BB {current_upper:.2f}")
 
         # Exit if price touches SMA20
         if self.position and self.data.Low[-1] <= self.sma_20[-1]:
             self.position.close()
-            print(f"✨ Cosmic Exit! Price {current_close:.2f} reached SMA20 ✨")
+            print(f" Cosmic Exit! Price {current_close:.2f} reached SMA20 ")
 
         # Entry conditions with stellar precision 🌠
         if not self.position:
@@ -87,8 +84,8 @@ class VolSpikeBreakout(Strategy):
 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🚀 LIFTOFF! Long {position_size} @ {entry_price:.2f}")
-                    print(f"   Starlink SL: {stop_loss:.2f} | ATR: {atr_value:.2f} 🌌")
+                    print(f" LIFTOFF! Long {position_size} @ {entry_price:.2f}")
+                    print(f"   Starlink SL: {stop_loss:.2f} | ATR: {atr_value:.2f} ")
 
 # Launch backtest with 1M lunar credits 🌕
 bt = Backtest(data, VolSpikeBreakout, cash=1_000_000, commission=.002)

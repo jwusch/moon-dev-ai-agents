@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed replacements:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITYSYNC STRATEGY
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -14,7 +10,7 @@ class VolatilitySync(Strategy):
     
     def init(self):
         # 🌙 CORE INDICATORS
-        # Elder's Force Index (13-period)
+        # Elder's Force Index (13-period)'
         self.efi = self.I(ta.efi, self.data.Close, self.data.Volume, length=13, name='EFI')
         
         # EFI volatility threshold (20-period std)
@@ -43,7 +39,7 @@ class VolatilitySync(Strategy):
 
     def next(self):
         current_close = self.data.Close[-1]
-        moon_equity = self.equity  # 🌙 Total available capital
+        moon_equity = self.equity  #  Total available capital
         
         # 🚀 LONG ENTRY CONDITIONS
         if (not self.position and
@@ -61,7 +57,7 @@ class VolatilitySync(Strategy):
                 position_size = int(round(risk_amount / risk_per_unit))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🌕🚀 MOON BULL SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f}")
+                    print(f" MOON BULL SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {stop_price:.2f}")
 
         # 🌑 SHORT ENTRY CONDITIONS
         elif (not self.position and

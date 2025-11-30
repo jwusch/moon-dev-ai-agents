@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VoltaicReversal Backtest Implementation
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -83,7 +81,7 @@ class VoltaicReversal(Strategy):
                 if position_size > 0:
                     take_profit = entry_price + 2 * (entry_price - stop_loss)
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                    print(f"🌙✨🚀 MOON DEV LONG SIGNAL | Entry: {entry_price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} | Size: {position_size}")
+#                     print(f"🌙✨🚀 MOON DEV LONG SIGNAL | Entry: {entry_price:0.2f} | SL: {stop_loss:0.2f} | TP: {take_profit:0.2f} | Size: {position_size}")
 
         # 🌑 Short Entry: Stochastic crossover from overbought + swing high confirmation
         if not self.position.is_short:

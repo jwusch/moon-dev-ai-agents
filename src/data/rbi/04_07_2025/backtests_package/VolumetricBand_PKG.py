@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's VolumetricBand Backtest 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -44,7 +40,20 @@ class VolumetricBand(Strategy):
         self.bb_upper, self.bb_lower = self.I(bb_calculation, self.data.Close)
         
         # VWAP (using pandas_ta)
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Volume SMA
         self.volume_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
@@ -54,7 +63,7 @@ class VolumetricBand(Strategy):
         self.daily_high_equity = self._broker.cash
 
     def next(self):
-        # 🌙 Moon Dev's Daily Risk Check
+        # 🌙 Moon Dev's Daily Risk Check'
         current_date = self.data.index[-1].date()
         if current_date != self.current_day:
             self.current_day = current_date
@@ -95,7 +104,7 @@ class VolumetricBand(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
                         self.buy(size=size, sl=sl_price)
-                        print(f"🌕 MOON DEV LONG ENTRY: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
+#                         print(f"🌕 MOON DEV LONG ENTRY: {entry_price:.2f} | Size: {size} | SL: {sl_price:.2f}")
             
             if short_trigger and not self.position.is_short:
                 entry_price = self.data.Open[-1]

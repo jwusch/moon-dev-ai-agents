@@ -1,6 +1,3 @@
-I'll fix the incomplete backtest code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -47,11 +44,11 @@ class VolatilitySynchron(Strategy):
         self.atr14 = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
         self.entry_bar = 0
-        print("🌌 MOON DEV INIT COMPLETE ✨ | Indicators loaded successfully")
+#         print("🌌 MOON DEV INIT COMPLETE ✨ | Indicators loaded successfully")
 
     def next(self):
         if len(self.data) < 20:
-            print("🌑 MOON DEV WARNING | Waiting for sufficient data...")
+#             print("🌑 MOON DEV WARNING | Waiting for sufficient data...")
             return
             
         # Current values
@@ -79,4 +76,4 @@ class VolatilitySynchron(Strategy):
             if position_size > 0:
                 self.buy(size=position_size, sl=lower_kc, tp=close + 2*atr)
                 self.entry_bar = len(self.data)
-                print(f"🌙 MOON DEV LONG ENTRY 🚀 | Price: {close:.2f} | Size: {position_size} | SL: {lower_kc:.2f} | TP: {close+2*at
+#                 print(f"🌙 MOON DEV LONG ENTRY 🚀 | Price: {close:.2f} | Size: {position_size} | SL: {lower_kc:.2f} | TP: {close+2*at"

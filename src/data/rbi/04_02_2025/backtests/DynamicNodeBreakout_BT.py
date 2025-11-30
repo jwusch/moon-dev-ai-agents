@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -61,7 +59,7 @@ class DynamicNodeBreakout(Strategy):
         # Volume SMA
         self.volume_sma = self.I(talib.SMA, volume, self.volume_sma_period, name='Volume_SMA')
         
-        print("🌙 Moon Dev Indicators Activated! Dynamic VWAP Anchored 🚀")
+#         print("🌙 Moon Dev Indicators Activated! Dynamic VWAP Anchored 🚀")
 
     def next(self):
         # Skip calculation for initial bars

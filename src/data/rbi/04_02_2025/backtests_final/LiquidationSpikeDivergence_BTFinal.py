@@ -1,8 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# 🌙 Moon Dev's Backtest AI Implementation �
-
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -15,7 +10,7 @@ def load_data(path):
     
     # Clean column names
     data.columns = data.columns.str.strip().str.lower()
-    print("🌌 Cosmic data columns aligned:", data.columns.tolist())
+    print(" Cosmic data columns aligned:", data.columns.tolist())
     
     # Drop unnamed columns
     data = data.drop(columns=[col for col in data.columns if 'unnamed' in col], errors='ignore')
@@ -34,13 +29,13 @@ def load_data(path):
     data['datetime'] = pd.to_datetime(data['datetime'])
     data.set_index('datetime', inplace=True)
     
-    print("🔭 First 3 cosmic readings:")
+    print(" First 3 cosmic readings:")
     print(data.head(3))
     return data
 
 # ========== STRATEGY IMPLEMENTATION ==========
 class LiquidationSpikeDivergence(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌓
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # ===== LIQUIDATION SPIKE DETECTION =====
@@ -56,7 +51,7 @@ class LiquidationSpikeDivergence(Strategy):
         self.max_high = self.I(talib.MAX, self.data.High, timeperiod=10, name='Max High')
         self.upper_band = self.I(lambda h, a: h - 3*a, self.max_high, self.atr, name='CK Upper')
         
-        print("🌠 Moon Dev Indicators Initialized!")
+#         print("🌠 Moon Dev Indicators Initialized!")
     
     def next(self):
         current_close = self.data.Close[-1]
@@ -90,10 +85,10 @@ class LiquidationSpikeDivergence(Strategy):
             risk_per_share = entry_price - stop_loss_price
             
             if risk_per_share <= 0:
-                print("🚨 Invalid risk calculation - skipping trade")
+                print(" Invalid risk calculation - skipping trade")
                 return
             
             position_size = int(round(risk_amount / risk_per_share))
             
             if position_size > 0:
-                print(f"🚀🌕 MOON SHOT! Long {position_size} units @ {entry_price:.2f}")
+                print(f" MOON SHOT! Long {position_size} units @ {entry_price:.2f}")

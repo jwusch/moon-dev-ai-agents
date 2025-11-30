@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` dependencies and ensuring proper indicator usage. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -83,6 +79,6 @@ class LiquidationPulse(Strategy):
                     self.sell(size=position_size, sl=stop_price)
                     self.entry_4h_high = self.prev_4h_high[-1]
                     
-                    print(f"🌙✨ MOON DEV SHORT ACTIVATED ✨🌙")
-                    print(f"📊 Entry: {current_close:.2f} | 📦 Size: {position_size}")
+#                     print(f"🌙✨ MOON DEV SHORT ACTIVATED ✨🌙")
+                    print(f" Entry: {current_close:.2f} |  Size: {position_size}")
                     print

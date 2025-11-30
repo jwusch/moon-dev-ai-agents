@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the VolumetricRetrace strategy with Moon Dev enhancements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -31,16 +28,16 @@ class VolumetricRetrace(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name="SWING_LOW")
         self.swing_high = self.I(talib.MAX, self.data.High, 20, name="SWING_HIGH")
         
-        print("🌙 VolumetricRetrace Strategy Initialized! ✨")
+#         print("🌙 VolumetricRetrace Strategy Initialized! ✨")
 
     def next(self):
         price = self.data.Close[-1]
         current_volume = self.data.Volume[-1]
         
         # Moon Dev Debug Dashboard 🌙
-        print(f"\n🌙 DATE: {self.data.index[-1]} | PRICE: {price:.2f}")
-        print(f"✨ CHOP: {self.chop[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
-        print(f"📈 VOL: {current_volume:.2f} vs MA: {self.volume_ma[-1]:.2f}")
+        print(f"\n DATE: {self.data.index[-1]} | PRICE: {price:.2f}")
+        print(f" CHOP: {self.chop[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+        print(f" VOL: {current_volume:.2f} vs MA: {self.volume_ma[-1]:.2f}")
 
         if not self.position:
             # Trend confirmation 🌙
@@ -51,15 +48,15 @@ class VolumetricRetrace(Strategy):
                     current_volume > self.volume_ma[-1]):
                     
                     stop_loss = self.swing_low[-1]
-                    risk_amount = self.risk_pct * self.broker.equity
+                    risk_amount = self.risk_pct * self.equity
                     risk_per_unit = price - stop_loss
                     
                     if risk_per_unit > 0:
                         position_size = int(round(risk_amount / risk_per_unit))
                         if position_size > 0:
                             self.buy(size=position_size, sl=stop_loss, 
-                                   tag="MoonLong🌙")
-                            print(f"\n🚀🌙 BULLISH ENTRY!")
+                                   tag="MoonLong")
+                            print(f"\n BULLISH ENTRY!")
                             print(f"ENTRY: {price:.2f} | SIZE: {position_size}")
                             print(f"SL: {stop_loss:.2f} | RR: 1:2")
 
@@ -69,15 +66,15 @@ class VolumetricRetrace(Strategy):
                       current_volume > self.volume_ma[-1]):
                     
                     stop_loss = self.swing_high[-1]
-                    risk_amount = self.risk_pct * self.broker.equity
+                    risk_amount = self.risk_pct * self.equity
                     risk_per_unit = stop_loss - price
                     
                     if risk_per_unit > 0:
                         position_size = int(round(risk_amount / risk_per_unit))
                         if position_size > 0:
                             self.sell(size=position_size, sl=stop_loss, 
-                                    tag="MoonShort🌙")
-                            print(f"\n🌧️🌙 BEARISH ENTRY!")
+                                    tag="MoonShort")
+                            print(f"\n BEARISH ENTRY!")
                             print(f"ENTRY: {price:.2f} | SIZE: {position_size}")
                             print(f"SL: {stop_loss:.2f} | RR: 1:2")
         else:

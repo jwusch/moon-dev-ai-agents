@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -60,7 +58,7 @@ class VolterraInversion(Strategy):
     def next(self):
         # Moon Dev progress tracking
         if len(self.data) % 1000 == 0:
-            print(f"🌙 PROGRESS: Processing bar {len(self.data)} - Price: {self.data.Close[-1]:.2f} ✨")
+            print(f" PROGRESS: Processing bar {len(self.data)} - Price: {self.data.Close[-1]:.2f} ")
         
         if len(self.data) < 20:
             return
@@ -79,8 +77,8 @@ class VolterraInversion(Strategy):
                 self.sell(size=position_size, 
                          sl=self.data.Close[-1] + 1.5*atr_value,
                          tag="MOON_DEV_ENTRY")
-                print(f"🚀 VOLTERRA ACTIVATED: Short {position_size} units at {self.data.Close[-1]:.2f}")
-                print(f"   🌑 STOP LUNAR ORBIT: {self.data.Close[-1] + 1.5*atr_value:.2f}")
+                print(f" VOLTERRA ACTIVATED: Short {position_size} units at {self.data.Close[-1]:.2f}")
+                print(f"    STOP LUNAR ORBIT: {self.data.Close[-1] + 1.5*atr_value:.2f}")
 
         # Exit conditions
         if self.position:

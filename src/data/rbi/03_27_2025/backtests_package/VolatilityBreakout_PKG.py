@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the crossover function with manual comparisons. Here's the corrected version with Moon Dev themed improvements:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -68,7 +65,7 @@ class VolatilityBreakout(Strategy):
                 sl = price - 2*self.atr[-1]
                 tp = price + 1.5*self.atr[-1]
                 self.buy(size=size, sl=sl, tp=tp)
-                print(f"🌙✨ MOON DEV LONG SIGNAL 🌟 Size: {size} | Entry: {price:.2f} | Cosmic SL: {sl:.2f} | Stellar TP: {tp:.2f}")
+#                 print(f"🌙✨ MOON DEV LONG SIGNAL 🌟 Size: {size} | Entry: {price:.2f} | Cosmic SL: {sl:.2f} | Stellar TP: {tp:.2f}")
 
         # Short Entry: Black Hole Downtrend Detected 🕳️
         elif death_cross and atr_low_vol and not self.position:
@@ -78,6 +75,6 @@ class VolatilityBreakout(Strategy):
                 sl = price + 2*self.atr[-1]
                 tp = price - 1.5*self.atr[-1]
                 self.sell(size=size, sl=sl, tp=tp)
-                print(f"🌙✨ MOON DEV SHORT SIGNAL 🌌 Size: {size} | Entry: {price:.2f} | Event Horizon SL: {sl:.2f} | Singularity TP: {tp:.2f}")
+#                 print(f"🌙✨ MOON DEV SHORT SIGNAL 🌌 Size: {size} | Entry: {price:.2f} | Event Horizon SL: {sl:.2f} | Singularity TP: {tp:.2f}")
 
 # Launch Backtest Rocket

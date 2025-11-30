@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's MomentumReversion Backtest Implementation
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -29,7 +27,7 @@ def prepare_data(filepath):
 
 # Lunar Strategy Core 🌙
 class MomentumReversion(Strategy):
-    init_size = 1000000  # 🚀 Moon-sized capital
+    init_size = 1000000  #  Moon-sized capital
     risk_per_trade = 0.02  # 2% risk per trade
     
     def init(self):
@@ -67,7 +65,7 @@ class MomentumReversion(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                print(f"🌙 LONG COMMAND INITIATED! 🚀 Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
+                print(f" LONG COMMAND INITIATED!  Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f} | TP: {take_profit:.2f}")
         
         # Short Entry Meteor Shower ☄️
         short_conditions = (
@@ -87,17 +85,17 @@ class MomentumReversion(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_loss)
-                    print(f"🌑 SHORT POSITION ACTIVATED! 💫 Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
+                    print(f" SHORT POSITION ACTIVATED!  Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss:.2f}")
         
         # Exit Conditions 🌗
         if self.position:
             if self.position.is_long:
                 if price < self.sma50[-1]:
                     self.position.close()
-                    print(f"🌒 LONG POSITION CLOSED! SMA50 BREACH 🌧️ | Price: {price:.2f}")
+                    print(f" LONG POSITION CLOSED! SMA50 BREACH  | Price: {price:.2f}")
             else:
                 if self.rsi[-1] < 40:
                     self.position.close()
-                    print(f"🌓 SHORT COVERED! RSI BELOW 40 🌥️ | Price: {price:.2f}")
+                    print(f" SHORT COVERED! RSI BELOW 40  | Price: {price:.2f}")
 
 # 🌙 Moon

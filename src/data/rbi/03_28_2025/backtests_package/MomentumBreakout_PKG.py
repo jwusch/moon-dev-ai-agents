@@ -1,12 +1,8 @@
-Here's the fixed and improved code with proper Moon Dev package implementations and all backtesting.lib references removed:
-
-```python
-# 🌙 Moon Dev Backtest Implementation for MomentumBreakout Strategy
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
 import talib
-import pandas_ta as ta  # 🌌 Added pandas-ta for additional indicators
+import pandas_ta as ta  #  Added pandas-ta for additional indicators
 
 # 🚀 Data Preparation Moon-Style
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -44,7 +40,7 @@ class MomentumBreakout(Strategy):
         # 🌕 Moon Phase Indicator (example of pandas-ta usage)
         self.moon_phase = self.I(ta.sinwave, length=28)  # Lunar cycle approximation
         
-        self.trailing_high = None  # 🌕 For tracking moon shots
+        self.trailing_high = None  #  For tracking moon shots
 
     def next(self):
         # 🌑 Check for active positions
@@ -59,14 +55,14 @@ class MomentumBreakout(Strategy):
             # Trailing Stop Check
             if self.data.Close[-1] < stop_loss_price:
                 self.position.close()
-                print(f"🌑 Moon Dev Exit! Trail Stop at {stop_loss_price:.2f} | Equity: {self.equity:,.0f} 🌌")
+#                 print(f"🌑 Moon Dev Exit! Trail Stop at {stop_loss_price:.2f} | Equity: {self.equity:,.0f} 🌌")
                 self.trailing_high = None
                 return
                 
             # RSI Exit Check
             if current_rsi > 70 or current_rsi < 30:
                 self.position.close()
-                print(f"🌗 Moon Dev RSI Exit at {current_rsi:.2f} | P/L: {self.position.pl_pct:.2f}% 🚀")
+#                 print(f"🌗 Moon Dev RSI Exit at {current_rsi:.2f} | P/L: {self.position.pl_pct:.2f}% 🚀")
                 self.trailing_high = None
                 return
         else:

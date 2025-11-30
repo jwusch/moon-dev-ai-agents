@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints:
-
-```python
-# backtesting_fibrodivergence.py
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -19,8 +15,8 @@ class FibroDivergence(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, self.swing_window)
         self.swing_low = self.I(talib.MIN, self.data.Low, self.swing_window)
         
-        print("🌙✨ Moon Dev FibroDivergence Strategy Activated! ✨🌙")
-        print("🚀 All systems nominal - Ready for lunar trading! 🌕")
+#         print("🌙✨ Moon Dev FibroDivergence Strategy Activated! ✨🌙")
+        print(" All systems nominal - Ready for lunar trading! ")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -33,8 +29,8 @@ class FibroDivergence(Strategy):
         
         # Moon Dev Fib Cluster Check 🌙
         if abs(current_close - fib_retracement)/fib_retracement < 0.01:
-            print(f"🌙 Price at 61.8% Fib Level! {current_close:.2f}")
-            print(f"🌌 Fib Retracement: {fib_retracement:.2f} | Fib Extension: {fib_extension:.2f}")
+            print(f" Price at 61.8% Fib Level! {current_close:.2f}")
+            print(f" Fib Retracement: {fib_retracement:.2f} | Fib Extension: {fib_extension:.2f}")
             
             # OBV Divergence Check (using array indexing instead of crossover)
             obv_bull_div = (current_low < self.swing_low[-2] and 
@@ -62,13 +58,13 @@ class FibroDivergence(Strategy):
         if is_long:
             tp_price = entry_price + (entry_price - sl_price) * 2  # 1:2 RR
             self.buy(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🚀🌕 BULLISH ENTRY | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
-            print("🌖 Moon Phase: Waxing - Bullish energy increasing!")
+            print(f" BULLISH ENTRY | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(" Moon Phase: Waxing - Bullish energy increasing!")
         else:
             tp_price = entry_price - (sl_price - entry_price) * 2
             self.sell(size=position_size, sl=sl_price, tp=tp_price)
-            print(f"🌑🌒 BEARISH ENTRY | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
-            print("🌘 Moon Phase: Waning - Bearish energy dominant!")
+            print(f" BEARISH ENTRY | Size: {position_size} | SL: {sl_price:.2f} | TP: {tp_price:.2f}")
+            print(" Moon Phase: Waning - Bearish energy dominant!")
 
     def is_bullish_confirmation(self):
         # Using direct array comparisons instead of crossover

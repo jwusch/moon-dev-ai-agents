@@ -1,6 +1,3 @@
-Here's the complete implementation of the VolumetricBandwidth strategy for backtesting.py:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -29,13 +26,20 @@ class VolumetricBandwidth(Strategy):
     
     def init(self):
         # Core indicators
-        self.vwap = self.I(ta.vwap, 
-                          high=self.data.High, 
-                          low=self.data.Low,
-                          close=self.data.Close,
-                          volume=self.data.Volume,
-                          anchor='D',
-                          name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Bollinger Bands
         self.bb_upper, self.bb_middle, self.bb_lower = self.I(
@@ -70,7 +74,7 @@ class VolumetricBandwidth(Strategy):
         # Volatility filter 🌊
         current_tr = self.data.High[-1] - self.data.Low[-1]
         if current_tr > 3 * self.atr[-1]:
-            print("🌪️ Moon Dev Warning: Volatility too high, skipping trade")
+#             print("🌪️ Moon Dev Warning: Volatility too high, skipping trade")
             return
             
         # Historical percentile calculations
@@ -104,7 +108,7 @@ class VolumetricBandwidth(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     self.buy(size=size, sl=stop_price)
                     self.entry_bar = len(self.data)
-                    print(f"🚀🌙 MOON LAUNCH: LONG {size} @ {self.data.Close[-1]:.2f}")
+                    print(f" MOON LAUNCH: LONG {size} @ {self.data.Close[-1]:.2f}")
             
             # Short entry conditions
             elif all([vwap_cross_below,

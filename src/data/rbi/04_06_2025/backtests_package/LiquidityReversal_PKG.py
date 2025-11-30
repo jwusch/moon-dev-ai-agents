@@ -1,7 +1,3 @@
-The code you've provided is already clean and doesn't contain any `backtesting.lib` imports or functions! 🌙✨ Here's the verified version with some minor improvements and Moon Dev themed enhancements:
-
-```python
-# backtesting.py implementation for LiquidityReversal strategy
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -13,7 +9,7 @@ class LiquidityReversal(Strategy):
     
     def init(self):
         # 🌙 Moon Dev Indicators Setup ✨
-        print("🌙 Initializing Moon Dev Liquidity Reversal Strategy...")
+#         print("🌙 Initializing Moon Dev Liquidity Reversal Strategy...")
         self.high_24 = self.I(MAX, self.data.High, 96)
         self.low_24 = self.I(MIN, self.data.Low, 96)
         self.volume_sma = self.I(SMA, self.data.Volume, 20)
@@ -21,7 +17,7 @@ class LiquidityReversal(Strategy):
         self.engulfing = self.I(CDLENGULFING, self.data.Open, self.data.High, self.data.Low, self.data.Close)
         self.hammer = self.I(CDLHAMMER, self.data.Open, self.data.High, self.data.Low, self.data.Close)
         self.shooting_star = self.I(CDLSHOOTINGSTAR, self.data.Open, self.data.High, self.data.Low, self.data.Close)
-        print("🌙✨ Indicators successfully initialized!")
+        print(" Indicators successfully initialized!")
 
     def next(self):
         # 🌙✨ Moon Dev Debug Prints
@@ -47,7 +43,7 @@ class LiquidityReversal(Strategy):
                 self.rsi[-1] > self.rsi[-2] and 
                 (self.engulfing[-1] == 100 or self.hammer[-1] == 100)):
                 
-                risk_amount = self.broker.equity() * self.risk_percent
+                risk_amount = self.equity() * self.risk_percent
                 entry_price = self.data.Close[-1]
                 stop_loss = previous_24h_low
                 risk_per_share = entry_price - stop_loss
@@ -56,7 +52,7 @@ class LiquidityReversal(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     take_profit = entry_price + 2*risk_per_share
                     
-                    print(f"🌙🚀 BULLISH REVERSAL SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} ✨")
+                    print(f" BULLISH REVERSAL SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} ")
                     self.buy(size=position_size, sl=stop_loss, tp=take_profit)
 
             # Short Entry Logic 🌙🎯
@@ -65,7 +61,7 @@ class LiquidityReversal(Strategy):
                   self.rsi[-1] < self.rsi[-2] and 
                   (self.engulfing[-1] == -100 or self.shooting_star[-1] == 100)):
                   
-                risk_amount = self.broker.equity() * self.risk_percent
+                risk_amount = self.equity() * self.risk_percent
                 entry_price = self.data.Close[-1]
                 stop_loss = previous_24h_high
                 risk_per_share = stop_loss - entry_price
@@ -74,7 +70,7 @@ class LiquidityReversal(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     take_profit = entry_price - 2*risk_per_share
                     
-                    print(f"🌙🎯 BEARISH REVERSAL SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} ✨")
+                    print(f" BEARISH REVERSAL SIGNAL! Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | TP: {take_profit:.2f} ")
                     self.sell(size=position_size, sl=stop_loss, tp=take_profit)
 
 # Data preprocessing 🌙

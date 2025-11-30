@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -33,7 +29,7 @@ class VolatilitySqueezeADX(Strategy):
         # Volatility measurement - Moon Dev Risk Radar 🌑
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙 Moon Dev Indicators Initialized! BBW/ADX/ATR Ready for Action! �")
+#         print("🌙 Moon Dev Indicators Initialized! BBW/ADX/ATR Ready for Action! �")
 
     def next(self):
         current_price = self.data.Close[-1]
@@ -53,7 +49,7 @@ class VolatilitySqueezeADX(Strategy):
         strong_trend = adx_val > 25
         trend_direction = "LONG" if di_diff > 0 else "SHORT"
         
-        print(f"🌙 Moon Dev Scanning: {current_time} | ADX: {adx_val:.1f} | BBW: {bbw_val:.4f} | Trend: {trend_direction}")
+#         print(f"🌙 Moon Dev Scanning: {current_time} | ADX: {adx_val:.1f} | BBW: {bbw_val:.4f} | Trend: {trend_direction}")
         
         # Entry logic - Moon Dev Trade Execution Protocol 🚀
         if not self.position:
@@ -64,10 +60,10 @@ class VolatilitySqueezeADX(Strategy):
                 
                 if di_diff > 0:
                     self.buy(size=position_size, sl=current_price - 2*atr_val)
-                    print(f"🚀 MOON LAUNCH! LONG {position_size} @ {current_price:.2f} | SL: {current_price-2*atr_val:.2f}")
+                    print(f" MOON LAUNCH! LONG {position_size} @ {current_price:.2f} | SL: {current_price-2*atr_val:.2f}")
                 else:
                     self.sell(size=position_size, sl=current_price + 2*atr_val)
-                    print(f"🌑 BLACK HOLE! SHORT {position_size} @ {current_price:.2f} | SL: {current_price+2*atr_val:.2f}")
+                    print(f" BLACK HOLE! SHORT {position_size} @ {current_price:.2f} | SL: {current_price+2*atr_val:.2f}")
         
         # Exit logic - Moon Dev Exit Strategy 🌘
         else:

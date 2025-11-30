@@ -1,6 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing crossover/crossunder functions with manual implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -66,7 +63,7 @@ class VortexChopFlip(Strategy):
                         sl=self.data.Close[-1] - 1.5*atr_val,
                         meta={'peak': self.data.High[-1]}
                     )
-                    print(f"🌙🚀 MOON DEV LONG SIGNAL DETECTED! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]-1.5*atr_val:.2f}")
+#                     print(f"🌙🚀 MOON DEV LONG SIGNAL DETECTED! Entry: {self.data.Close[-1]:.2f}, Size: {position_size}, SL: {self.data.Close[-1]-1.5*atr_val:.2f}")
             
             # Short entry logic 🌙📉
             if ((self.vi_minus[-2] < self.vi_plus[-2] and self.vi_minus[-1] > self.vi_plus[-1]) and  # Bearish crossover
@@ -84,4 +81,4 @@ class VortexChopFlip(Strategy):
                         sl=self.data.Close[-1] + 1.5*atr_val,
                         meta={'trough': self.data.Low[-1]}
                     )
-                    print(f"🌙📉 MOON DEV SHORT SIGNAL DETECTED! Entry:
+#                     print(f"🌙📉 MOON DEV SHORT SIGNAL DETECTED! Entry:"

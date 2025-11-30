@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -24,7 +22,7 @@ class LiquidationDivergence(Strategy):
         self.I(lambda: stoch_d, name='StochRSI_D')
         
         # Debug prints for indicator confirmation
-        print("🌙✨ Moon Dev Indicators Activated! ✨🌙")
+#         print("🌙✨ Moon Dev Indicators Activated! ✨🌙")
         print(f"Stochastic RSI K/D Length: {len(stoch_k)}/{len(stoch_d)}")
         
     def next(self):
@@ -33,8 +31,8 @@ class LiquidationDivergence(Strategy):
             return
         
         # Moon Dev debug information
-        moon_dev_debug = f"🌙 Bar {len(self.data)} | Price: {self.data.Close[-1]} | "
-        moon_dev_debug += f"Funding: {self.data.funding_rate[-1]:.6f} | Flow: {self.data.net_flow[-1]:.2f} 🌙"
+        moon_dev_debug = f" Bar {len(self.data)} | Price: {self.data.Close[-1]} | "
+        moon_dev_debug += f"Funding: {self.data.funding_rate[-1]:.6f} | Flow: {self.data.net_flow[-1]:.2f} "
         print(moon_dev_debug)
         
         if not self.position:
@@ -50,7 +48,7 @@ class LiquidationDivergence(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🚀🌕 LONG ENTRY! Size: {position_size} | SL: {stop_price:.2f} 🚀")
+                    print(f" LONG ENTRY! Size: {position_size} | SL: {stop_price:.2f} ")
             
             # Short entry conditions
             elif (self.data.funding_rate[-1] > self.positive_funding_threshold and
@@ -64,7 +62,7 @@ class LiquidationDivergence(Strategy):
                 
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price)
-                    print(f"🌑🛸 SHORT ENTRY! Size: {position_size} | SL: {stop_price:.2f} 🌌")
+                    print(f" SHORT ENTRY! Size: {position_size} | SL: {stop_price:.2f} ")
         else:
             # Exit conditions
             current_k = self.data.StochRSI_K[-1]
@@ -72,11 +70,11 @@ class LiquidationDivergence(Strategy):
             
             if self.position.is_long and crossunder([current_k], [80]):
                 self.position.close()
-                print(f"🌙💎 LONG EXIT: StochRSI_K {prev_k:.1f}->{current_k:.1f} 💎")
+                print(f" LONG EXIT: StochRSI_K {prev_k:.1f}->{current_k:.1f} ")
                 
             elif self.position.is_short and crossover([current_k], [20]):
                 self.position.close()
-                print(f"🌙🔥 SHORT EXIT: StochRSI_K {prev_k:.1f}->{current_k:.1f} 🔥")
+                print(f" SHORT EXIT: StochRSI_K {prev_k:.1f}->{current_k:.1f} ")
 
 # Data preprocessing
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src"

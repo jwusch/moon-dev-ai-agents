@@ -1,6 +1,3 @@
-Here's the complete fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints: 🌙✨
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -52,21 +49,21 @@ class VoltaicFisher(Strategy):
                 # SAR exit condition 🛑
                 if self.sar[-1] > self.data.Close[-1]:
                     self.position.close()
-                    print(f"🌙✨ EXIT LONG | SAR flipped above at {self.sar[-1]:.2f}")
+                    print(f" EXIT LONG | SAR flipped above at {self.sar[-1]:.2f}")
                 # Fisher reversal exit 🎣
                 elif (self.signal[-2] < self.fisher[-2] and self.signal[-1] > self.fisher[-1]):
                     self.position.close()
-                    print("🌙 EXIT LONG | Fisher momentum lost")
+                    print(" EXIT LONG | Fisher momentum lost")
             
             elif self.position.is_short:
                 # SAR exit condition 🛑
                 if self.sar[-1] < self.data.Close[-1]:
                     self.position.close()
-                    print(f"🌙✨ EXIT SHORT | SAR flipped below at {self.sar[-1]:.2f}")
+                    print(f" EXIT SHORT | SAR flipped below at {self.sar[-1]:.2f}")
                 # Fisher reversal exit 🎣
                 elif (self.fisher[-2] < self.signal[-2] and self.fisher[-1] > self.signal[-1]):
                     self.position.close()
-                    print("🌙 EXIT SHORT | Fisher momentum lost")
+                    print(" EXIT SHORT | Fisher momentum lost")
         
         else:
             # Long entry constellation 🌌
@@ -82,7 +79,7 @@ class VoltaicFisher(Strategy):
                     position_size = int(round((self.equity * 0.01) / risk_per_share))
                     if position_size:
                         self.buy(size=position_size, sl=risk_price)
-                        print(f"🚀🌙 LONG ENTRY | Size: {position_size} @ {entry_price:.2f} | SL: {risk_price:.2f}")
+                        print(f" LONG ENTRY | Size: {position_size} @ {entry_price:.2f} | SL: {risk_price:.2f}")
             
             # Short entry constellation 🌌
             if (self.data.Close[-2] < self.lower_band[-2] and

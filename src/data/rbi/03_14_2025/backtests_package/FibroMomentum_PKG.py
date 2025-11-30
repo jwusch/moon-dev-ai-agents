@@ -1,6 +1,3 @@
-I'll help you fix the code by removing the `backtesting.lib` import and replacing the crossover logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -67,9 +64,9 @@ class FibroMomentum(Strategy):
             self.buy(
                 size=int(round(position_size)),
                 sl=stop_loss,
-                tag=f"🌙 FIBRO ENTRY | SL: {stop_loss:.1f}"
+                tag=f" FIBRO ENTRY | SL: {stop_loss:.1f}"
             )
-            print(f"🚀 MOON SHOT! Entry: {price:.1f} | Size: {int(position_size)} | ATR: {atr_value:.1f}")
+            print(f" MOON SHOT! Entry: {price:.1f} | Size: {int(position_size)} | ATR: {atr_value:.1f}")
 
         # Exit management 🌘
         if self.position:

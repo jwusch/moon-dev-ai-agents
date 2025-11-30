@@ -48,17 +48,17 @@ class DeltaHedgedReversal(Strategy):
                     if position_size > 0:
                         tp = price - (2 * risk_per_unit)
                         self.sell(size=position_size, sl=sl, tp=tp)
-                        print(f"🌙✨ SHORT SIGNAL! Selling {position_size} units at {price:.2f}")
-                        print(f"   🛡️ SL: {sl:.2f} | 🎯 TP: {tp:.2f} | 📈 RSI: {self.rsi[-1]:.2f}")
+                        print(f"🌙✨ SHORT SIGNAL! Selling {position_size} units at {price:0.2f}")
+                        print(f"   🛡️ SL: {sl:0.2f} | 🎯 TP: {tp:0.2f} | 📈 RSI: {self.rsi[-1]:0.2f}")
         
         else:
             if self.rsi[-1] < self.exit_level:
                 self.position.close()
-                print(f"🌙💫 EXIT SIGNAL! Closing position at {price:.2f}")
-                print(f"   📉 RSI dropped to {self.rsi[-1]:.2f} | 💰 Equity: {equity:,.2f}")
+                print(f"🌙💫 EXIT SIGNAL! Closing position at {price:0.2f}")
+                print(f"   📉 RSI dropped to {self.rsi[-1]:0.2f} | 💰 Equity: {equity:,0.2f}")
 
 # 🌙 Launch Moon Dev Backtest 🚀
-bt = Backtest(data, DeltaHedgedReversal, cash=1_000_000, commission=.002)
+bt = Backtest(data, DeltaHedgedReversal, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌟 Print Moon-charged Results 💫

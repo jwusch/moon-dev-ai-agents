@@ -63,7 +63,7 @@ class BandShiftTrail(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=current_lower)
-                        print(f"🌙 MOON DEV LONG SIGNAL 🚀 | Size: {position_size} | Entry: {current_close:.2f} | SL: {current_lower:.2f}")
+                        print(f"🌙 MOON DEV LONG SIGNAL 🚀 | Size: {position_size} | Entry: {current_close:0.2f} | SL: {current_lower:0.2f}")
 
         # Exit Logic ✨
         else:
@@ -74,7 +74,7 @@ class BandShiftTrail(Strategy):
             # Bearish crossover detection (SMA crossing above BBMP)
             if (self.sma[-2] < self.bbmp[-2] and self.sma[-1] > self.bbmp[-1]):
                 self.position.close()
-                print(f"🌙 MOON DEV EXIT SIGNAL ✨ | SMA Crossunder at {current_close:.2f}")
+                print(f"🌙 MOON DEV EXIT SIGNAL ✨ | SMA Crossunder at {current_close:0.2f}")
 
 # Moon Dev Backtest Execution 🌙🚀
 bt = Backtest(data, BandShiftTrail, cash=1_000_000, exclusive_orders=True)

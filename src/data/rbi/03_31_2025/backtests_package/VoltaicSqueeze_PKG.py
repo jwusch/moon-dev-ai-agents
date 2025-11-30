@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints: 🌙✨
-
-```python
-# 🌙 Moon Dev's VoltaicSqueeze Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -45,7 +41,7 @@ class VoltaicSqueeze(Strategy):
         
         # Moon Dev Safety Check 🌙
         if not all([self.bb_width_min[-1], self.upper[-1], self.lower[-1], self.volume_ma[-1]]):
-            print("🌙 Safety Check Failed - Missing Indicator Data!")
+            print(" Safety Check Failed - Missing Indicator Data!")
             return
             
         # Calculate current conditions
@@ -54,9 +50,9 @@ class VoltaicSqueeze(Strategy):
         volume_ok = current_volume > self.volume_ma[-1]
         
         # Moon Dev Debug Prints ✨
-        print(f"🌙 Close: {current_close:.2f} | BB Width: {bb_width[-1]:.4f} (Min: {self.bb_width_min[-1]:.4f})")
-        print(f"📈 Volume: {current_volume:.2f} vs MA: {self.volume_ma[-1]:.2f}")
-        print(f"✨ Squeeze: {'ON' if bb_squeeze else 'OFF'} | Volume OK: {'YES' if volume_ok else 'NO'}")
+        print(f" Close: {current_close:.2f} | BB Width: {bb_width[-1]:.4f} (Min: {self.bb_width_min[-1]:.4f})")
+        print(f" Volume: {current_volume:.2f} vs MA: {self.volume_ma[-1]:.2f}")
+        print(f" Squeeze: {'ON' if bb_squeeze else 'OFF'} | Volume OK: {'YES' if volume_ok else 'NO'}")
         
         # Entry Logic 🚀
         if not self.position:
@@ -68,7 +64,7 @@ class VoltaicSqueeze(Strategy):
                 position_size = risk_amount / (current_close - sl_price)
                 position_size = int(round(position_size))
                 
-                print(f"🚀 LONG SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
+                print(f" LONG SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
                 self.buy(size=position_size, sl=sl_price)
                 self.entry_price = current_close
                 self.trailing_stop = sl_price
@@ -81,7 +77,7 @@ class VoltaicSqueeze(Strategy):
                 position_size = risk_amount / (sl_price - current_close)
                 position_size = int(round(position_size))
                 
-                print(f"📉 SHORT SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
+                print(f" SHORT SIGNAL! Size: {position_size} | Entry: {current_close:.2f} | SL: {sl_price:.2f}")
                 self.sell(size=position_size, sl=sl_price)
                 self.entry_price = current_close
                 self.trailing_stop = sl_price

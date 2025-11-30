@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports removed and replaced with proper Moon Dev themed implementations:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -36,7 +33,7 @@ def bb_lower(close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0):
     return lower
 
 class VolatilityBreakout(Strategy):
-    risk_pct = 0.02  # 2% risk per trade 🌕
+    risk_pct = 0.02  # 2% risk per trade 
 
     def init(self):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, 14)
@@ -46,7 +43,7 @@ class VolatilityBreakout(Strategy):
 
     def next(self):
         if len(self.data) < 20:
-            return  # Not enough data 🌑
+            return  # Not enough data 
 
         current_close = self.data.Close[-1]
         current_adx = self.adx[-1]
@@ -79,8 +76,8 @@ class VolatilityBreakout(Strategy):
         
         if size:
             self.buy(size=size, sl=sl_level, tp=fib_target)
-            print(f"🌙 MOON SHOT! Long {size}BTC @ {price:.2f}")
-            print(f"🎯 Target: {fib_target:.2f} | 🛑 Stop: {sl_level:.2f}")
+            print(f" MOON SHOT! Long {size}BTC @ {price:.2f}")
+            print(f" Target: {fib_target:.2f} |  Stop: {sl_level:.2f}")
 
     def handle_short_entry(self, price, sl_level):
         # Find contraction range 🌌

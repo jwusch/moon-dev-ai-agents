@@ -52,7 +52,7 @@ class QuantumReversal(Strategy):
                 sl = self.data.Close[current_idx] - 2*atr_value
                 tp = self.data.Close[current_idx] + 3*atr_value
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🚀 Moon Dev LONG Entry: {self.data.Close[current_idx]:.2f} | Size: {position_size} 🌙")
+                print(f"🚀 Moon Dev LONG Entry: {self.data.Close[current_idx]:0.2f} | Size: {position_size} 🌙")
 
         # Short entry conditions
         elif (self.rsi[current_idx-1] >= 70 and self.rsi[current_idx] < 70) and \
@@ -68,10 +68,10 @@ class QuantumReversal(Strategy):
                 sl = self.data.Close[current_idx] + 2*atr_value
                 tp = self.data.Close[current_idx] - 3*atr_value
                 self.sell(size=position_size, sl=sl, tp=tp)
-                print(f"🌑 Moon Dev SHORT Entry: {self.data.Close[current_idx]:.2f} | Size: {position_size} 🌙")
+                print(f"🌑 Moon Dev SHORT Entry: {self.data.Close[current_idx]:0.2f} | Size: {position_size} 🌙")
 
         # Auto-exit conditions handled by SL/TP
-        print(f"✨ Moon Dev Scanning: RSI {self.rsi[current_idx]:.1f} | BB Width: {self.bb_upper[current_idx]-self.bb_lower[current_idx]:.1f} 🌙")
+        print(f"✨ Moon Dev Scanning: RSI {self.rsi[current_idx]:0.1f} | BB Width: {self.bb_upper[current_idx]-self.bb_lower[current_idx]:0.1f} 🌙")
 
 bt = Backtest(data, QuantumReversal, cash=1_000_000)
 stats = bt.run()

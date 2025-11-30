@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed backtest code for the Volatility Squeeze strategy:
-
-```python
-# -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
 import talib
@@ -10,7 +6,7 @@ from backtesting import Backtest, Strategy
 
 # Moon Dev Data Preparation 🌙✨
 def prepare_data(path):
-    print("🌙 Initializing Moon Dev Data Preparation...")
+#     print("🌙 Initializing Moon Dev Data Preparation...")
     try:
         data = pd.read_csv(path)
         # Clean column names
@@ -29,17 +25,17 @@ def prepare_data(path):
         # Convert index to datetime with lunar accuracy
         data['datetime'] = pd.to_datetime(data['datetime'])
         data.set_index('datetime', inplace=True)
-        print("✨ Data successfully prepared for lunar analysis!")
+        print(" Data successfully prepared for lunar analysis!")
         return data
     except Exception as e:
-        print(f"🌑 MOON DEV ERROR: Data preparation failed - {str(e)}")
+#         print(f"🌑 MOON DEV ERROR: Data preparation failed - {str(e)}")
         raise
 
 class VolatilitySqueeze(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
-        print("🌙 Initializing Moon Dev Volatility Squeeze Strategy...")
+#         print("🌙 Initializing Moon Dev Volatility Squeeze Strategy...")
         # Bollinger Bands Components 🎯
         self.bb_middle = self.I(talib.SMA, self.data.Close, timeperiod=20, name='BB_MIDDLE')
         self.bb_std = self.I(talib.STDDEV, self.data.Close, timeperiod=20, name='BB_STD')
@@ -55,12 +51,12 @@ class VolatilitySqueeze(Strategy):
         # BBW Percentile Calculations 🚀
         self.bbw_low = self.I(lambda x: pandas_ta.percentile(x, length=100, q=10), self.bbw, name='BBW_10th')
         self.bbw_high = self.I(lambda x: pandas_ta.percentile(x, length=100, q=50), self.bbw, name='BBW_50th')
-        print("✨ Strategy indicators initialized for lunar trading!")
+#         print("✨ Strategy indicators initialized for lunar trading!")
         
     def next(self):
         # Moon Dev Debug Prints 🌙
-        print(f"\n🌙 Current BBW: {self.bbw[-1]:.4f} | 10th: {self.bbw_low[-1]:.4f} | 50th: {self.bbw_high[-1]:.4f}")
-        print(f"✨ RSI: {self.rsi[-1]:.2f} | Close: {self.data.Close[-1]:.2f} | BB Mid: {self.bb_middle[-1]:.2f}")
+        print(f"\n Current BBW: {self.bbw[-1]:.4f} | 10th: {self.bbw_low[-1]:.4f} | 50th: {self.bbw_high[-1]:.4f}")
+        print(f" RSI: {self.rsi[-1]:.2f} | Close: {self.data.Close[-1]:.2f} | BB Mid: {self.bb_middle[-1]:.2f}")
         
         # Entry Logic 🚀
         if not self.position:
@@ -78,7 +74,7 @@ class VolatilitySqueeze(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, 
-                                tag=f"🌙 Volatility Squeeze Entry! SL: {stop_loss:.2f}")
-                        print(f"🚀 MOON DEV ALERT: LONG {position_size} units @ {entry_price:.2f}")
+                                tag=f" Volatility Squeeze Entry! SL: {stop_loss:.2f}")
+#                         print(f"🚀 MOON DEV ALERT: LONG {position_size} units @ {entry_price:.2f}")
         
         #

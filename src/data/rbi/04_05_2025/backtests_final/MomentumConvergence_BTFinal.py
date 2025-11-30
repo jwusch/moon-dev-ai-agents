@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -37,7 +34,7 @@ class MomentumConvergence(Strategy):
 
     def next(self):
         # Moon Dev Debug Prints
-        print(f"🌙 MOON DEV DEBUG | Bar: {len(self.data)} | Close: {self.data.Close[-1]:.2f} | Fisher: {self.fisher[-1]:.2f} | CMF: {self.cmf[-1]:.2f}")
+#         print(f"🌙 MOON DEV DEBUG | Bar: {len(self.data)} | Close: {self.data.Close[-1]:.2f} | Fisher: {self.fisher[-1]:.2f} | CMF: {self.cmf[-1]:.2f}")
         
         # Entry Conditions
         if not self.position:
@@ -56,12 +53,12 @@ class MomentumConvergence(Strategy):
             if self.position.is_long:
                 if (self.fisher_signal[-2] < self.fisher[-2] and self.fisher_signal[-1] > self.fisher[-1]) or \
                    len(self.data) - self.entry_bar >= 10:
-                    print(f"🌙✨ MOON DEV EXIT | Closing long position at {self.data.Close[-1]:.2f}")
+#                     print(f"🌙✨ MOON DEV EXIT | Closing long position at {self.data.Close[-1]:.2f}")
                     self.position.close()
             else:
                 if (self.fisher[-2] < self.fisher_signal[-2] and self.fisher[-1] > self.fisher_signal[-1]) or \
                    len(self.data) - self.entry_bar >= 10:
-                    print(f"🌙✨ MOON DEV EXIT | Closing short position at {self.data.Close[-1]:.2f}")
+#                     print(f"🌙✨ MOON DEV EXIT | Closing short position at {self.data.Close[-1]:.2f}")
                     self.position.close()
             
             # Trailing Stop (2x ATR)

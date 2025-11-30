@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -37,7 +34,7 @@ class VolatilitySqueezeDivergence(Strategy):
 
     def init(self):
         # Moon Dev initialization message
-        print("🌙 Initializing VolatilitySqueezeDivergence Strategy...")
+#         print("🌙 Initializing VolatilitySqueezeDivergence Strategy...")
         
         # Keltner Channel indicators
         self.ema = self.I(talib.EMA, self.data.Close, self.ema_period)
@@ -59,7 +56,7 @@ class VolatilitySqueezeDivergence(Strategy):
         self.daily_equity = self._broker.starting_cash
         self.daily_trading_halted = False
 
-        print("✨ Indicators initialized: Keltner Channels, Volume MA, Funding Baseline")
+        print(" Indicators initialized: Keltner Channels, Volume MA, Funding Baseline")
 
     def next(self):
         # Check daily reset
@@ -68,7 +65,7 @@ class VolatilitySqueezeDivergence(Strategy):
             self.daily_equity = self.equity
             self.prev_day = current_day
             self.daily_trading_halted = False
-            print(f"🌙 New day {current_day} | Starting equity: ${self.daily_equity:,.2f}")
+            print(f" New day {current_day} | Starting equity: ${self.daily_equity:,.2f}")
 
         # Check daily loss limit
         if self.daily_trading_halted:
@@ -76,7 +73,7 @@ class VolatilitySqueezeDivergence(Strategy):
             
         daily_loss = (self.daily_equity - self.equity) / self.daily_equity
         if daily_loss >= self.daily_loss_limit:
-            print(f"🚨 Daily loss {daily_loss:.2%}! Closing all trades!")
+            print(f" Daily loss {daily_loss:.2%}! Closing all trades!")
             for trade in self.trades:
                 trade.close()
             self.daily_trading_halted = True

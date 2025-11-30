@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 Moon Dev's FibroVolumeReversal Backtest Implementation 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -67,8 +62,8 @@ class FibroVolumeReversal(Strategy):
                         
                         if position_size > 0:
                             self.buy(size=position_size, sl=sl, tp=tp)
-                            print(f"🌙✨🚀 BULLISH REVERSAL! Entered LONG at {current_close:.2f}")
-                            print(f"   Size: {position_size}, SL: {sl:.2f}, TP: {tp:.2f} 🌟")
+                            print(f" BULLISH REVERSAL! Entered LONG at {current_close:.2f}")
+                            print(f"   Size: {position_size}, SL: {sl:.2f}, TP: {tp:.2f} ")
                         break
 
             # Short entry conditions
@@ -84,9 +79,9 @@ class FibroVolumeReversal(Strategy):
                         
                         if position_size > 0:
                             self.sell(size=position_size, sl=sl, tp=tp)
-                            print(f"🌙✨🚀 BEARISH REVERSAL! Entered SHORT at {current_close:.2f}")
-                            print(f"   Size: {position_size}, SL: {sl:.2f}, TP: {tp:.2f} 🌟")
+                            print(f" BEARISH REVERSAL! Entered SHORT at {current_close:.2f}")
+                            print(f"   Size: {position_size}, SL: {sl:.2f}, TP: {tp:.2f} ")
                         break
 
 # Data preparation 🌙
-data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai
+data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai'

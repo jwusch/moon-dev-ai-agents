@@ -1,6 +1,3 @@
-I'll help fix the code by removing the `backtesting.lib` import and ensuring proper indicator usage. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -62,9 +59,9 @@ class VolatilitySqueezeBreakout(Strategy):
     def next(self):
         # Moon Dev debug prints 🌙
         if len(self.data) % 500 == 0:
-            print(f"\n🌙 MOON DEV DEBUG [{self.data.index[-1]}]")
-            print(f"✨ BB Width %: {self.bb_width_pct[-1]:.1f} | ADX: {self.adx[-1]:.1f}")
-            print(f"🚀 Volume: {self.data.Volume[-1]:.0f} vs {self.vol_ma[-1]:.0f}")
+#             print(f"\n🌙 MOON DEV DEBUG [{self.data.index[-1]}]")
+            print(f" BB Width %: {self.bb_width_pct[-1]:.1f} | ADX: {self.adx[-1]:.1f}")
+            print(f" Volume: {self.data.Volume[-1]:.0f} vs {self.vol_ma[-1]:.0f}")
         
         # Entry logic
         if not self.position:
@@ -86,7 +83,7 @@ class VolatilitySqueezeBreakout(Strategy):
                     self.buy(size=position_size, 
                             sl=sl_price,
                             tp=self.data.Close[-1] + 2*risk)
-                    print(f"\n🌕🌕🌕 MOON DEV LONG SIGNAL 🌕🌕🌕")
+#                     print(f"\n🌕🌕🌕 MOON DEV LONG SIGNAL 🌕🌕🌕")
                     print(f"Entry: {self.data.Close[-1]:.2f}")
                     print(f"Size: {position_size} contracts")
                     print(f"Risk: {risk:.2f} | R/R: 1:2")

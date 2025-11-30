@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Liquidation Squeeze Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -89,7 +87,7 @@ class LiquidationSqueeze(Strategy):
                 tp = price + 3*risk  # 3:1 reward ratio
                 
                 if position_size > 0:
-                    print(f"🌙✨ BLACK HOLE BREACH! Buying {position_size} units at {price} 🚀")
+                    print(f" BLACK HOLE BREACH! Buying {position_size} units at {price} ")
                     self.buy(size=position_size, sl=sl, tp=tp)
 
             # Short Entry: Supernova Reversal 🌕➡️🌑

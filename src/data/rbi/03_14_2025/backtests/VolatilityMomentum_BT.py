@@ -47,18 +47,18 @@ class VolatilityMomentum(Strategy):
                 sl_price = current_close - stop_loss_distance
                 self.buy(size=position_size, sl=sl_price)
                 print(f"\n🌕 MOON DEV LONG SIGNAL 🌕 | "
-                      f"Price: {current_close:.2f} | "
+                      f"Price: {current_close:0.2f} | "
                       f"Size: {position_size} | "
-                      f"SL: {sl_price:.2f} | "
-                      f"ATR: {atr_value:.2f} | "
-                      f"Vol Spread: {volatility_spread:.2f}")
+                      f"SL: {sl_price:0.2f} | "
+                      f"ATR: {atr_value:0.2f} | "
+                      f"Vol Spread: {volatility_spread:0.2f}")
 
         # ✨ EXIT: RSI Momentum Loss ✨
         if self.position and (rsi_value < 50 and prev_rsi >= 50):
             self.position.close()
             print(f"\n🌑 MOON DEV EXIT SIGNAL 🌑 | "
-                  f"Price: {current_close:.2f} | "
-                  f"RSI: {rsi_value:.2f}")
+                  f"Price: {current_close:0.2f} | "
+                  f"RSI: {rsi_value:0.2f}")
 
 # 🪐 DATA PREPARATION 🪐
 data = pd.read_csv(

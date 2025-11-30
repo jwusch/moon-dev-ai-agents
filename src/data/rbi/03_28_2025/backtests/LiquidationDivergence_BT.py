@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the LiquidationDivergence strategy:
-
-```python
-# 🌙 Moon Dev's Liquidation Cascade Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -42,7 +38,7 @@ class LiquidationDivergence(Strategy):
         self.funding_ma = self.I(talib.SMA, self.data.FundingRate, 5)
         self.price_ma = self.I(talib.SMA, self.data.Close, 5)
         
-        self.entry_bar = 0  # 📆 Track entry timing
+        self.entry_bar = 0  #  Track entry timing
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -57,7 +53,7 @@ class LiquidationDivergence(Strategy):
             )
             if exit_conditions:
                 self.position.close()
-                print(f"🌑 Moon Exit: Closed at {current_close:.2f} | RSI {self.rsi[-1]:.1f} 🌗")
+                print(f" Moon Exit: Closed at {current_close:.2f} | RSI {self.rsi[-1]:.1f} ")
 
         # 🚀 Moon Dev Entry Conditions
         else:
@@ -76,8 +72,8 @@ class LiquidationDivergence(Strategy):
                 if position_size > 0 and self.data.Volume[-1] > self.volume_ma[-1]:
                     self.sell(size=position_size, sl=stop_loss)
                     self.entry_bar = len(self.data)
-                    print(f"🌕 Moon Entry: Short {position_size} units | SL {stop_loss:.2f} 🌙")
-                    print(f"   Price: {current_close:.2f} | RSI: {self.rsi[-1]:.1f} | Funding: {self.data.FundingRate[-1]:.4f} 📉")
+                    print(f" Moon Entry: Short {position_size} units | SL {stop_loss:.2f} ")
+                    print(f"   Price: {current_close:.2f} | RSI: {self.rsi[-1]:.1f} | Funding: {self.data.FundingRate[-1]:.4f} ")
 
 # 🚀 Launch Backtest
 bt = Backtest(data, LiquidationDivergence, cash=1_000_000)

@@ -1,5 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLATILITY BANDIT STRATEGY
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -58,7 +56,7 @@ class VolatilityBandit(Strategy):
                 self.entry_price = self.data.Close[-1]
                 self.extreme_price = self.data.High[-1]
                 self.position_type = 'LONG'
-                print(f"🚀🌙 MOON DEV LONG ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
+#                 print(f"🚀🌙 MOON DEV LONG ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
 
             # 🌑 SHORT ENTRY LOGIC    
             elif (self.data.Close[-1] < self.lower_band[-1] and 
@@ -77,7 +75,7 @@ class VolatilityBandit(Strategy):
                 self.entry_price = self.data.Close[-1]
                 self.extreme_price = self.data.Low[-1]
                 self.position_type = 'SHORT'
-                print(f"🌑📉 MOON DEV SHORT ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
+#                 print(f"🌑📉 MOON DEV SHORT ENTRY: {self.data.index[-1]} | Size: {size} | Entry: {self.entry_price:.2f} | ATR: {atr_value:.2f}")
 
         else:
             # 🌗 POSITION MONITORING
@@ -85,6 +83,6 @@ class VolatilityBandit(Strategy):
                 # 🌕 UPDATE SWING HIGH
                 if self.data.High[-1] > self.extreme_price:
                     self.extreme_price = self.data.High[-1]
-                    print(f"🌕 NEW SWING HIGH: {self.extreme_price:.2f}")
+                    print(f" NEW SWING HIGH: {self.extreme_price:.2f}")
 
                 # 💎 EXIT LOGIC (50% RETRACEMENT)

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper Moon Dev themed debug prints added:
-
-```python
 import pandas as pd
 import talib as ta
 from backtesting import Backtest, Strategy
@@ -35,21 +32,21 @@ class VortexDivergence(Strategy):
         adx = self.adx[-1]
         
         # Moon Dev debug prints 🌙✨
-        print(f"🌙 Price: {price:.2f} | VI+:{self.vi_plus[-1]:.2f} VI-:{self.vi_minus[-1]:.2f} | ADX: {adx:.2f}")
+        print(f" Price: {price:.2f} | VI+:{self.vi_plus[-1]:.2f} VI-:{self.vi_minus[-1]:.2f} | ADX: {adx:.2f}")
         
         # Exit conditions
         if self.position:
             if adx < 20:
-                print(f"🌘 ADX dropped below 20! Closing position!")
+                print(f" ADX dropped below 20! Closing position!")
                 self.position.close()
             elif self.position.is_long and price >= self.take_profit:
-                print(f"🚀✨ Take profit reached! Long closed at {price:.2f}")
+                print(f" Take profit reached! Long closed at {price:.2f}")
                 self.position.close()
             elif self.position.is_short and price <= self.take_profit:
-                print(f"🚀✨ Take profit reached! Short closed at {price:.2f}")
+                print(f" Take profit reached! Short closed at {price:.2f}")
                 self.position.close()
             elif self.position.is_long and price >= self.trailing_trigger:
-                print(f"🛡️ Moving stop to breakeven @ {self.entry_price:.2f}")
+                print(f" Moving stop to breakeven @ {self.entry_price:.2f}")
                 self.stop_loss = self.entry_price
                 self.trailing_trigger = None  # Disable further trailing
             return
@@ -80,7 +77,7 @@ class VortexDivergence(Strategy):
 
     def _enter_trade(self, direction):
         price = self.data.Close[-1]
-        risk_amount = self.broker.equity * self.risk_per_trade
+        risk_amount = self.equity * self.risk_per_trade
         
         if direction == 'long':
             sl = self.swing_low[-1]

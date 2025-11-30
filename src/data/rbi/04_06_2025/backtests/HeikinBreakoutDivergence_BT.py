@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -17,7 +16,7 @@ data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
 required_columns = ['open', 'high', 'low', 'close', 'volume', 'tick']
 for col in required_columns:
     if col not in data.columns:
-        raise ValueError(f"🌙 CRITICAL ERROR: Missing required column '{col}' in data")
+        raise ValueError(f" CRITICAL ERROR: Missing required column '{col}' in data")
 
 # Proper column mapping
 data.rename(columns={
@@ -34,7 +33,7 @@ class HeikinBreakoutDivergence(Strategy):
     risk_per_trade = 0.02  # 2% risk per trade
     
     def init(self):
-        print("🌙 Initializing Moon Dev's Cosmic Trader...")
+#         print("🌙 Initializing Moon Dev's Cosmic Trader...")'
         
         # Calculate Heikin-Ashi candles
         ha = ta.heikin_ashi(self.data.Open, self.data.High, self.data.Low, self.data.Close)
@@ -51,7 +50,7 @@ class HeikinBreakoutDivergence(Strategy):
         self.fractal_high = self.I(talib.MAX, self.data.High, 5, name='Fractal_High')
         self.fractal_low = self.I(talib.MIN, self.data.Low, 5, name='Fractal_Low')
         
-        print("✨ Indicators initialized: HA Candle | BBands | Fractal Levels | TICK Analysis")
+        print(" Indicators initialized: HA Candle | BBands | Fractal Levels | TICK Analysis")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -59,7 +58,7 @@ class HeikinBreakoutDivergence(Strategy):
         bb_upper = self.bb_upper[-1]
         bb_lower = self.bb_lower[-1]
         
-        # Moon Dev's Cosmic Position Management
+        # Moon Dev's Cosmic Position Management'
         if not self.position:
             # Long entry logic
             if ha_close > bb_upper:
@@ -80,13 +79,13 @@ class HeikinBreakoutDivergence(Strategy):
                 (self.data.Tick[-1] < self.data.Tick[-2] and 
                  self.data.High[-1] > self.data.High[-2])):
                 self.position.close()
-                print("🌙✨ Closing LONG: Signal Reversal Detected")
+                print(" Closing LONG: Signal Reversal Detected")
                 
             elif self.position.is_short and (ha_close > bb_lower or 
                   (self.data.Tick[-1] > self.data.Tick[-2] and 
                    self.data.Low[-1] < self.data.Low[-2])):
                 self.position.close()
-                print("🌙✨ Closing SHORT: Signal Reversal Detected")
+                print(" Closing SHORT: Signal Reversal Detected")
 
     def enter_long(self):
         account_

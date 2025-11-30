@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -66,7 +65,7 @@ class VortexSurgeBreakout(Strategy):
         # Moon Dev risk management first!
         if self._broker.equity < self.initial_equity * 0.95:
             self.position.close()
-            print("🌙🚨 EMERGENCY SHUTDOWN! 5% Drawdown Limit Hit!")
+            print(" EMERGENCY SHUTDOWN! 5% Drawdown Limit Hit!")
             return
 
         if not self.position:
@@ -87,7 +86,7 @@ class VortexSurgeBreakout(Strategy):
                 
                 self.buy(size=int(round(position_size)), 
                         sl=stop_loss,
-                        tag="🌙✨ VORTEX SURGE ACTIVATED!")
+                        tag=" VORTEX SURGE ACTIVATED!")
                 self.trailing_high = self.data.High[-1]
                 self.entry_bar = len(self.data)
-                print(f"🚀🌙 LIFTOFF! Entry@{self.data.Close[-1]}, Size: {int(round(position_size))}")
+                print(f" LIFTOFF! Entry@{self.data.Close[-1]}, Size: {int(round(position_size))}")

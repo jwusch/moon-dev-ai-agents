@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 import talib
 import pandas as pd
@@ -47,7 +43,7 @@ class BandwidthDivergence(Strategy):
         self.price_high = self.I(talib.MAX, self.data.High, timeperiod=self.swing_period, name='SWING_HIGH')
         self.ck_high = self.I(talib.MAX, self.chaikin, timeperiod=self.swing_period, name='CK_HIGH')
 
-        print("🌙 Moon Dev System Activated - Prepare for Lunar Launch! 🚀")
+#         print("🌙 Moon Dev System Activated - Prepare for Lunar Launch! 🚀")
 
     def next(self):
         if len(self.data) < max(self.bw_lookback, self.swing_period*2):

@@ -1,6 +1,3 @@
-Here's the fixed and completed code with all necessary adjustments and Moon Dev enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -33,11 +30,11 @@ def calculate_ivr(high, low, close, atr_period=14, lookback=100):
     return ivr
 
 class VolClusterConvergence(Strategy):
-    risk_pct = 0.01  # 1% cosmic risk allowance 🌙
+    risk_pct = 0.01  # 1% cosmic risk allowance 
     ivr_entry = 70
     ivr_exit = 40
     ivr_panic = 90
-    reward_ratio = 2  # Moon-shot reward ratio 🚀
+    reward_ratio = 2  # Moon-shot reward ratio 
     
     def init(self):
         # Cosmic Indicators 🌠
@@ -46,7 +43,7 @@ class VolClusterConvergence(Strategy):
         self.swing_low = self.I(talib.MIN, self.data.Low, 20)
         self.volume_sma = self.I(talib.SMA, self.data.Volume, 20)
         
-        print("🌙 Moon Dev Backtest Engine Primed! Ready to surf volatility clusters! 🏄♂️")
+#         print("🌙 Moon Dev Backtest Engine Primed! Ready to surf volatility clusters! 🏄♂️")
 
     def next(self):
         # Wait for cosmic alignment (enough data)
@@ -63,18 +60,18 @@ class VolClusterConvergence(Strategy):
 
         # Moon Dev Debug Console 🌙💻
         if len(self.data) % 100 == 0:
-            print((f"🌙 Moon Pulse: Bar {len(self.data)} | "
+            print((f" Moon Pulse: Bar {len(self.data)} | "
                    f"IVR: {ivr:.1f} | Price: {price:.2f} | "
-                   f"ΔVol: {vol-vol_sma:.2f} 🌪️"))
+                   f"ΔVol: {vol-vol_sma:.2f} "))
 
         # Exit Cosmic Positions 🌠
         if self.position:
             if ivr <= self.ivr_exit:
                 self.position.close()
-                print(f"🌗 Moon Phase Shift: IVR fell to {ivr:.1f}! Returning to stasis...")
+                print(f" Moon Phase Shift: IVR fell to {ivr:.1f}! Returning to stasis...")
             elif ivr >= self.ivr_panic:
                 self.position.close()
-                print(f"🌑 Black Moon Warning! IVR spike {ivr:.1f}! Emergency exit! 🚨")
+                print(f" Black Moon Warning! IVR spike {ivr:.1f}! Emergency exit! ")
 
         # Star Gate Entry Conditions 🌟🚪
         if not self.position and ivr > self.ivr_entry:
@@ -90,7 +87,7 @@ class VolClusterConvergence(Strategy):
                 risk_per_share = price - stop_price
                 
                 if risk_per_share <= 0:
-                    return  # Avoid singularity collapse 🕳️
+                    return  # Avoid singularity collapse 
                 
                 risk_capital = self.equity * self.risk_pct
                 position_size = int(round(risk_capital / risk_per_share))

@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -8,7 +5,7 @@ import numpy as np
 
 # Data preparation - Moon Dev Cosmic Data Loader 🌌
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
-print("🌙 Loading celestial market data from:", data_path)
+print(" Loading celestial market data from:", data_path)
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
 # Clean and prepare data - Lunar Data Purification Protocol ✨
@@ -21,7 +18,7 @@ data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 }, inplace=True)
-print("🛰️ Data purification complete! Columns aligned with cosmic standards")
+print(" Data purification complete! Columns aligned with cosmic standards")
 
 class LiquidationSpike(Strategy):
     risk_pct = 0.01  # 1% risk per trade
@@ -38,8 +35,8 @@ class LiquidationSpike(Strategy):
         self.atr_sma = self.I(talib.SMA, self.atr, 5)
         self.oi_roc = self.I(talib.ROC, self.data.openinterest, 1)
         
-        print("🌙 Lunar Indicators Activated! ✨ SMA20 | ATR14 | OI Momentum")
-        print("🚀 Moon Dev Package AI initialized with pure TA-Lib indicators")
+        print(" Lunar Indicators Activated!  SMA20 | ATR14 | OI Momentum")
+#         print("🚀 Moon Dev Package AI initialized with pure TA-Lib indicators")
 
     def next(self):
         price = self.data.Close[-1]
@@ -58,11 +55,11 @@ class LiquidationSpike(Strategy):
                 # Ensure position size is valid
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, 
-                            tag=f"🚀 MOON SHOT | SL: {sl:.2f}")
-                    print(f"🌕🌕 BUY SIGNAL! Size: {position_size} | Risk: {self.risk_pct*100}%")
-                    print("✨ Bullish crossover detected: Price breaking recent high with volume confirmation")
+                            tag=f" MOON SHOT | SL: {sl:.2f}")
+                    print(f" BUY SIGNAL! Size: {position_size} | Risk: {self.risk_pct*100}%")
+                    print(" Bullish crossover detected: Price breaking recent high with volume confirmation")
                 else:
-                    print("⚠️ Invalid position size calculated - Cosmic alignment disrupted!")
+                    print(" Invalid position size calculated - Cosmic alignment disrupted!")
 
             # Short entry constellation 🌑
             elif (price < self.recent_low[-1] and
@@ -76,15 +73,15 @@ class LiquidationSpike(Strategy):
                 # Ensure position size is valid
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl,
-                             tag=f"💎 DIAMOND HAND | SL: {sl:.2f}")
-                    print(f"🌑🌑 SELL SIGNAL! Size: {position_size} | Risk: {self.risk_pct*100}%")
-                    print("🌘 Bearish crossover detected: Price breaking recent low with volume confirmation")
+                             tag=f" DIAMOND HAND | SL: {sl:.2f}")
+                    print(f" SELL SIGNAL! Size: {position_size} | Risk: {self.risk_pct*100}%")
+                    print(" Bearish crossover detected: Price breaking recent low with volume confirmation")
                 else:
-                    print("⚠️ Invalid position size calculated - Cosmic alignment disrupted!")
+                    print(" Invalid position size calculated - Cosmic alignment disrupted!")
 
         else:
             # Exit conditions for long positions
             if self.position.is_long:
                 if price < self.recent_high[-1]:
-                    self.position.close(tag="🌌 Liquidation Zone Breach")
+                    self.position.close(tag=" Liquidation Zone Breach")
                     print

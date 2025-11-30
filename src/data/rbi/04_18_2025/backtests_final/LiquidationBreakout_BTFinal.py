@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints: 🌙✨
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -44,7 +41,7 @@ class LiquidationBreakout(Strategy):
         self.bb_width = self.I(lambda: (self.upper_bb - self.lower_bb) / self.middle_bb)
         self.bb_width_ma = self.I(talib.SMA, self.bb_width, 20)
         
-        print("🌌 MOON DEV INDICATORS INITIALIZED 🌌 | BBANDS | ATR | Swing Levels | Volume MA")
+#         print("🌌 MOON DEV INDICATORS INITIALIZED 🌌 | BBANDS | ATR | Swing Levels | Volume MA")
         
     def next(self):
         if len(self.data) < 50:  # Warmup period
@@ -85,7 +82,7 @@ class LiquidationBreakout(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, 
                             tp=current_close + 3*atr_value)
-                    print(f"🚀 MOON DEV LONG LAUNCH 🚀 | Size: {position_size} | Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {current_close + 3*atr_value:.2f}")
+#                     print(f"🚀 MOON DEV LONG LAUNCH 🚀 | Size: {position_size} | Entry: {current_close:.2f} | SL: {sl:.2f} | TP: {current_close + 3*atr_value:.2f}")
             
             elif short_trigger:
                 sl = current_close + 1.5 * atr_value

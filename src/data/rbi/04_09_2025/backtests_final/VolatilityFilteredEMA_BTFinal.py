@@ -1,7 +1,3 @@
-Here's the fully debugged and fixed backtest code with Moon Dev themed improvements 🌙✨:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -46,15 +42,15 @@ class VolatilityFilteredEMA(Strategy):
             
             if golden_cross and self.hv[-1] < self.hv_low[-1]:
                 # ATR-based position sizing 📈
-                risk_amount = self.broker.equity * self.risk_pct
+                risk_amount = self.equity * self.risk_pct
                 atr_value = self.atr[-1] or 0.0001  # Avoid zero division
                 stop_loss = current_close - (self.atr_multiplier * atr_value)
                 trade_size = risk_amount / (self.atr_multiplier * atr_value)
-                trade_size = int(round(trade_size))  # Ensure whole units 🌙
+                trade_size = int(round(trade_size))  # Ensure whole units 
 
                 if trade_size > 0:
                     self.buy(size=trade_size, sl=stop_loss)
-                    print(f"🌙✨🚀 MOON DEV ALERT: Long Entry @ {current_close:.2f} | Size: {trade_size} units | SL: {stop_loss:.2f}")
+#                     print(f"🌙✨🚀 MOON DEV ALERT: Long Entry @ {current_close:.2f} | Size: {trade_size} units | SL: {stop_loss:.2f}")
 
         # Exit logic: Death Cross or High Volatility 🌙💥
         else:
@@ -67,7 +63,7 @@ class VolatilityFilteredEMA(Strategy):
             if exit_condition:
                 self.position.close()
                 reason = "Death Cross" if death_cross else "Volatility Spike"
-                print(f"🌙🌑 MOON DEV EXIT: {reason} @ {current_close:.2f} | P&L: {self.position.pl:.2f}")
+#                 print(f"🌙🌑 MOON DEV EXIT: {reason} @ {current_close:.2f} | P&L: {self.position.pl:.2f}")
 
 # Data preparation 🌙📊
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"

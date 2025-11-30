@@ -1,7 +1,3 @@
-Here's the fixed and completed backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# 🌙 Moon Dev's Chaikin Divergence Breakout Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -23,7 +19,7 @@ data = data.rename(columns={
 })
 
 class ChaikinDivergenceBreakout(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # ✨ Indicator Calculations
@@ -74,7 +70,7 @@ class ChaikinDivergenceBreakout(Strategy):
                 if size > 0:
                     tp = current_close + 2*(current_close - stop_price)
                     self.buy(size=size, sl=stop_price, tp=tp)
-                    print(f"🌙✨🚀 LONG ENTRY @ {current_close:.2f} | Size: {size} units | SL: {stop_price:.2f} | TP: {tp:.2f}")
+                    print(f" LONG ENTRY @ {current_close:.2f} | Size: {size} units | SL: {stop_price:.2f} | TP: {tp:.2f}")
         
         # 🌑 Short Entry Logic
         if not self.position:

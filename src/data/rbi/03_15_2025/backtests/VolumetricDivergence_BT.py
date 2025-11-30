@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the VolumetricDivergence strategy:
-
-```python
-# 🌙 Moon Dev's Volumetric Divergence Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -57,7 +53,7 @@ class VolumetricDivergence(Strategy):
         self.obv_lows = self.I(talib.MIN, self.obv, self.swing_window)
         
         self.trade_active = False
-        print("🌙✨ Moon Dev Indicators Initialized! ✨🌙")
+#         print("🌙✨ Moon Dev Indicators Initialized! ✨🌙")
 
     def next(self):
         if len(self.data) < self.swing_window * 2:

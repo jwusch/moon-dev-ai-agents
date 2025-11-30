@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +18,7 @@ class MomentumCrossfire(Strategy):
         self.swing_high = self.I(talib.MAX, self.data.High, timeperiod=20, name='Swing High')
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=20, name='Swing Low')
         
-        print("🌙✨ Momentum Crossfire Strategy Initialized! Ready to launch rockets! 🚀")
+#         print("🌙✨ Momentum Crossfire Strategy Initialized! Ready to launch rockets! 🚀")
 
     def next(self):
         current_idx = len(self.data.Close) - 1
@@ -40,7 +36,7 @@ class MomentumCrossfire(Strategy):
         swing_low = self.swing_low[-1]
 
         # Moon Dev debug prints
-        print(f"🌙 EMA50: {ema50:.2f} | EMA200: {ema200:.2f} | ADX: {adx:.2f}")
+        print(f" EMA50: {ema50:.2f} | EMA200: {ema200:.2f} | ADX: {adx:.2f}")
 
         # Entry logic - using manual crossover detection
         if not self.position:
@@ -63,7 +59,7 @@ class MomentumCrossfire(Strategy):
             # Emergency exit if ADX drops below 20
             if self.adx[-1] < 20:
                 self.position.close()
-                print(f"🌪️🌙 EMERGENCY EXIT! ADX collapsed to {self.adx[-1]:.2f}")
+                print(f" EMERGENCY EXIT! ADX collapsed to {self.adx[-1]:.2f}")
 
     def enter_long(self):
         entry_price = self.data.Close[-1]
@@ -71,7 +67,7 @@ class MomentumCrossfire(Strategy):
         risk_per_share = entry_price - stop_loss
         
         if risk_per_share <= 0:
-            print("🌙💥 Aborted Long: Risk per share <= 0")
+            print(" Aborted Long: Risk per share <= 0")
             return
         
         # Position sizing calculations
@@ -85,8 +81,8 @@ class MomentumCrossfire(Strategy):
         if position_size > 0:
             tp_price = entry_price + 2 * risk_per_share
             self.buy(size=position_size, sl=stop_loss, tp=tp_price)
-            print(f"🚀🌙 BLASTOFF LONG! Size: {position_size} | Entry: {entry_price:.2f}")
-            print(f"   🛡️ SL: {stop_loss:.2f} | 🎯 TP: {tp_price:.2f}")
+            print(f" BLASTOFF LONG! Size: {position_size} | Entry: {entry_price:.2f}")
+            print(f"    SL: {stop_loss:.2f} |  TP: {tp_price:.2f}")
 
     def enter_short(self):
         entry_price = self.data.Close[-1]

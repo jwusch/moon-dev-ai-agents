@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's LiquidationCluster Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -26,7 +24,7 @@ def load_data(path):
     required_cols = {'open', 'high', 'low', 'close', 'volume', 'funding_rate'}
     missing = required_cols - set(data.columns)
     if missing:
-        raise ValueError(f"🚨 Missing columns: {missing}")
+        raise ValueError(f" Missing columns: {missing}")
     
     # Proper case mapping for backtesting.py 🌗
     data = data.rename(columns={
@@ -40,8 +38,8 @@ def load_data(path):
     return data
 
 class LiquidationCluster(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌓
-    tp_multiplier = 2  # 2:1 reward:risk ratio 🌛
+    risk_pct = 0.01  # 1% risk per trade 
+    tp_multiplier = 2  # 2:1 reward:risk ratio 
     
     def init(self):
         # Weekly VWAP Calculation 🌗
@@ -67,7 +65,7 @@ class LiquidationCluster(Strategy):
             name='20Period_Swing_High'
         )
         
-        print("🌙✨ Strategy initialized with Moon Power! ✨")
+#         print("🌙✨ Strategy initialized with Moon Power! ✨")
 
     def next(self):
         current_dt = self.data.index[-1]
@@ -75,17 +73,17 @@ class LiquidationCluster(Strategy):
         
         # Skip weekend candles 🌈
         if current_dt.weekday() >= 5:
-            print(f"🌙🌴 Weekend detected: {current_dt.date()} - Skipping trade")
+            print(f" Weekend detected: {current_dt.date()} - Skipping trade")
             return
         
         # Moon Dev Debug Prints 🌕
-        print(f"🌙 Processing {current_dt} | Price: {current_price:.2f}")
+        print(f" Processing {current_dt} | Price: {current_price:.2f}")
         
         # Manage existing position 🌘
         if self.position:
             # Check funding rate normalization exit
             if self.data.Funding_Rate[-1] < self.funding_7d_avg[-1]:
-                print(f"🚨🌙 Funding rate normalized! Closing position")
+                print(f" Funding rate normalized! Closing position")
                 self.position.close()
             return
         
@@ -104,7 +102,7 @@ class LiquidationCluster(Strategy):
         )
         
         if entry_condition:
-            print(f"🚀🌙 ENTRY SIGNAL DETECTED! 🌙🚀")
+            print(f" ENTRY SIGNAL DETECTED! ")
             
             # Calculate risk parameters 🌑
             entry_price = self.data.Open[-1]
@@ -114,7 +112,7 @@ class LiquidationCluster(Strategy):
             
             risk_per_share = stop_loss - entry_price
             if risk_per_share <= 0:
-                print(f"⚠️🌙 Invalid risk calculation - Skipping trade")
+                print(f" Invalid risk calculation - Skipping trade")
                 return
                 
             risk_amount = self.equity() * self.risk_pct

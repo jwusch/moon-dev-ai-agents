@@ -1,0 +1,128 @@
+{
+  "timestamp": "2025-11-30T13:47:42.108175",
+  "total_strategy_leads": 10,
+  "status_breakdown": {
+    "researched": 10
+  },
+  "source_breakdown": {
+    "Expert Research": 7,
+    "Market Phenomena Research": 3
+  },
+  "confidence_breakdown": {
+    "high": 3,
+    "medium": 7,
+    "low": 0
+  },
+  "top_strategies": [
+    {
+      "title": "RSI-2 Mean Reversion with Volume Filter",
+      "source": "Expert Research",
+      "confidence": 0.85,
+      "status": "researched",
+      "indicators": [
+        "RSI",
+        "Volume SMA"
+      ]
+    },
+    {
+      "title": "Bollinger Band Squeeze Breakout",
+      "source": "Expert Research",
+      "confidence": 0.82,
+      "status": "researched",
+      "indicators": [
+        "Bollinger Bands",
+        "ATR",
+        "Volume"
+      ]
+    },
+    {
+      "title": "Support/Resistance with Volume Profile",
+      "source": "Expert Research",
+      "confidence": 0.8,
+      "status": "researched",
+      "indicators": [
+        "Volume Profile",
+        "Support/Resistance"
+      ]
+    },
+    {
+      "title": "Triple EMA Crossover with MACD Confirmation",
+      "source": "Expert Research",
+      "confidence": 0.78,
+      "status": "researched",
+      "indicators": [
+        "EMA",
+        "MACD"
+      ]
+    },
+    {
+      "title": "VWAP Reversion with Momentum Filter",
+      "source": "Expert Research",
+      "confidence": 0.77,
+      "status": "researched",
+      "indicators": [
+        "VWAP",
+        "RSI",
+        "CCI"
+      ]
+    },
+    {
+      "title": "Ichimoku Cloud Momentum",
+      "source": "Expert Research",
+      "confidence": 0.75,
+      "status": "researched",
+      "indicators": [
+        "Ichimoku",
+        "RSI"
+      ]
+    },
+    {
+      "title": "Stochastic RSI Divergence",
+      "source": "Expert Research",
+      "confidence": 0.73,
+      "status": "researched",
+      "indicators": [
+        "Stochastic RSI",
+        "RSI"
+      ]
+    },
+    {
+      "title": "Earnings Announcement Volatility",
+      "source": "Market Phenomena Research",
+      "confidence": 0.7,
+      "status": "researched",
+      "indicators": [
+        "ATR",
+        "Volume",
+        "Implied Volatility"
+      ]
+    },
+    {
+      "title": "Federal Reserve Meeting Patterns",
+      "source": "Market Phenomena Research",
+      "confidence": 0.68,
+      "status": "researched",
+      "indicators": [
+        "Economic Calendar",
+        "VIX"
+      ]
+    },
+    {
+      "title": "Monday Effect Mean Reversion",
+      "source": "Market Phenomena Research",
+      "confidence": 0.65,
+      "status": "researched",
+      "indicators": [
+        "Gap Detection",
+        "RSI"
+      ]
+    }
+  ],
+  "discovery_config": {
+    "max_strategies_per_cycle": 15,
+    "research_depth": "comprehensive",
+    "min_confidence_threshold": 0.6,
+    "prioritize_untested": true,
+    "cycle_frequency_hours": 24
+  }
+}

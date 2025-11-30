@@ -1,7 +1,3 @@
-Here's the fully debugged and completed code with Moon Dev's cosmic touch ✨🌙:
-
-```python
-# 🌙 Moon Dev's LiquidationBandwidth Backtest 🌙
 from backtesting import Strategy, Backtest
 import pandas as pd
 import talib
@@ -66,7 +62,7 @@ class LiquidationBandwidthStrategy(Strategy):
         self.entry_bandwidth = None
 
     def next(self):
-        # Moon Dev's cosmic risk management 🌌
+        # Moon Dev's cosmic risk management 🌌'
         equity = self.equity
         position_size = 0
         
@@ -76,21 +72,21 @@ class LiquidationBandwidthStrategy(Strategy):
                 # Volatility expansion exit
                 if self.bandwidth[-1] > 2 * self.entry_bandwidth:
                     self.position.close()
-                    print(f"🌕✨ Volatility explosion! Closing LONG at {self.data.Close[-1]:.2f}")
+                    print(f" Volatility explosion! Closing LONG at {self.data.Close[-1]:.2f}")
                 # Cluster flip exit
                 elif self.data.Close[-1] < self.swing_low[-1]:
                     self.position.close()
-                    print(f"🌑🔥 Cluster flip detected! Closing LONG at {self.data.Close[-1]:.2f}")
+                    print(f" Cluster flip detected! Closing LONG at {self.data.Close[-1]:.2f}")
             
             elif self.position.is_short:
                 # Volatility expansion exit
                 if self.bandwidth[-1] > 2 * self.entry_bandwidth:
                     self.position.close()
-                    print(f"🌕✨ Volatility explosion! Closing SHORT at {self.data.Close[-1]:.2f}")
+                    print(f" Volatility explosion! Closing SHORT at {self.data.Close[-1]:.2f}")
                 # Cluster flip exit
                 elif self.data.Close[-1] > self.swing_high[-1]:
                     self.position.close()
-                    print(f"🌑🔥 Cluster flip detected! Closing SHORT at {self.data.Close[-1]:.2f}")
+                    print(f" Cluster flip detected! Closing SHORT at {self.data.Close[-1]:.2f}")
                     
             return
 
@@ -103,7 +99,7 @@ class LiquidationBandwidthStrategy(Strategy):
                 stop_loss = self.swing_low[-1]
                 
                 if entry_price <= stop_loss:
-                    print("🚨 Invalid risk parameters! Cosmic alignment failed 🌌")
+                    print(" Invalid risk parameters! Cosmic alignment failed ")
                     return
                 
                 risk_per_unit = entry_price - stop_loss

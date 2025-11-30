@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -48,8 +46,8 @@ class LiquidationBandit(Strategy):
             price = self.data.Close[-1]
             trend_dir = 'BEARISH' if price < self.sma_200[-1] else 'BULLISH'
             
-            print(f"🌙 MOON DEV ALERT! Liquidation Cluster Detected")
-            print(f"📉 OI Drop: {self.oi_pct[-1]:.2f}% | 📈 Volume Surge: {self.data.Volume[-1]:.2f}")
+#             print(f"🌙 MOON DEV ALERT! Liquidation Cluster Detected")
+            print(f" OI Drop: {self.oi_pct[-1]:.2f}% |  Volume Surge: {self.data.Volume[-1]:.2f}")
             
             # Long setup (Short squeeze) 🌕
             if self.data.High[-1] > self.vwvb_upper[-1] and trend_dir == 'BEARISH':
@@ -76,8 +74,8 @@ class LiquidationBandit(Strategy):
         targets = [entry + swing_range * lvl for lvl in self.fib_levels]
         
         self.buy(size=position_size, sl=sl, tp=targets[0])
-        print(f"🚀 LONG ENTRY! Size: {position_size}")
-        print(f"🎯 Targets: {targets}")
+        print(f" LONG ENTRY! Size: {position_size}")
+        print(f" Targets: {targets}")
 
     def enter_short(self):
         entry = self.vwvb_lower[-1]

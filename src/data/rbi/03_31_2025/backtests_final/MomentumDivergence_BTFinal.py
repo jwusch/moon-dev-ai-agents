@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic and adding Moon Dev themed debug prints. Here's the complete fixed version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -39,7 +35,7 @@ class MomentumDivergence(Strategy):
     def next(self):
         # Skip trades during low volume periods
         if self.data.Volume[-1] < self.volume_ma[-1] * 0.8:
-            print("🌙 Low volume detected - Standing by for better conditions...")
+            print(" Low volume detected - Standing by for better conditions...")
             return
 
         # Get indicator values
@@ -68,15 +64,15 @@ class MomentumDivergence(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌙 Invalid SL for LONG. Aborting launch!")
+                    print(" Invalid SL for LONG. Aborting launch!")
                     return
                 
                 position_size = int(round((self.equity * risk_percent) / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size, stop=stop_loss)
-                    print(f"🚀🌙 MOONSHOT LONG! Size: {position_size}, Entry: {entry_price}, SL: {stop_loss}")
+                    print(f" MOONSHOT LONG! Size: {position_size}, Entry: {entry_price}, SL: {stop_loss}")
                 else:
-                    print("🌙 Position size too small for LONG - Need more fuel!")
+                    print(" Position size too small for LONG - Need more fuel!")
 
             # Short entry
             elif (prev_stoch_k >= 80 and stoch_k < 80) and bearish_divergence:

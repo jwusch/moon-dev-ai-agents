@@ -58,10 +58,10 @@ class VolumetricBreakout(Strategy):
         if position_size > 0:
             if direction == 'LONG':
                 self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                print(f"🚀🌙 MOON DEV LONG! Entry: {entry_price:.2f}, Size: {position_size}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
+                print(f"🚀🌙 MOON DEV LONG! Entry: {entry_price:0.2f}, Size: {position_size}, SL: {stop_loss:0.2f}, TP: {take_profit:0.2f}")
             else:
                 self.sell(size=position_size, sl=stop_loss, tp=take_profit)
-                print(f"🌙🚀 MOON DEV SHORT! Entry: {entry_price:.2f}, Size: {position_size}, SL: {stop_loss:.2f}, TP: {take_profit:.2f}")
+                print(f"🌙🚀 MOON DEV SHORT! Entry: {entry_price:0.2f}, Size: {position_size}, SL: {stop_loss:0.2f}, TP: {take_profit:0.2f}")
 
 # 🌙 Data Preparation
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

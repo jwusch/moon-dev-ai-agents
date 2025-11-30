@@ -1,8 +1,3 @@
-Here's the fixed code with all backtesting.lib imports and functions removed, replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙✨ Moon Dev's ChaikinBandSqueeze Backtest 🌙🚀
-
 import pandas as pd
 import talib
 import numpy as np
@@ -28,7 +23,7 @@ def load_data(path):
     return data
 
 class ChaikinBandSqueeze(Strategy):
-    risk_percent = 1  # 1% risk per trade 🌙
+    risk_percent = 1  # 1% risk per trade 
     atr_period = 14
     swing_period = 20
     bb_period = 20
@@ -65,7 +60,7 @@ class ChaikinBandSqueeze(Strategy):
         # ATR for trailing stop
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=self.atr_period, name='ATR')
         
-        print("🌙✨ Strategy Initialized with Moon Power! 🌙🚀")
+#         print("🌙✨ Strategy Initialized with Moon Power! 🌙🚀")
 
     def next(self):
         # Skip bars with incomplete data

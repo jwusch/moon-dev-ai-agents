@@ -1,4 +1,3 @@
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
@@ -68,7 +67,7 @@ class VolatilitySqueezeBreakout(Strategy):
                         if position_size > 0:
                             self.buy(size=position_size)
                             self.entry_bar = len(self.data)
-                            print(f"🚀🌙 Moon Dev LONG Signal! Entry: {self.data.Close[-1]:.2f}, Size: {position_size} units")
+#                             print(f"🚀🌙 Moon Dev LONG Signal! Entry: {self.data.Close[-1]:.2f}, Size: {position_size} units")
                 
                 # Short entry
                 elif self.data.Close[-1] < self.lower_bb[-1] and volume_condition and adx_rising:
@@ -81,7 +80,7 @@ class VolatilitySqueezeBreakout(Strategy):
                         if position_size > 0:
                             self.sell(size=position_size)
                             self.entry_bar = len(self.data)
-                            print(f"🌑🌙 Moon Dev SHORT Signal! Entry: {self.data.Close[-1]:.2f}, Size: {position_size} units")
+#                             print(f"🌑🌙 Moon Dev SHORT Signal! Entry: {self.data.Close[-1]:.2f}, Size: {position_size} units")
 
         # Exit logic
         else:

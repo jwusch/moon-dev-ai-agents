@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -39,12 +36,12 @@ class VolumetricDivergence(Strategy):
         # Volatility measure
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙 Lunar Indicators Activated! Ready for launch 🚀")
+        print(" Lunar Indicators Activated! Ready for launch ")
 
     def next(self):
         # Moon Dev debug pulse
         if len(self.data) % 100 == 0:
-            print(f"🌙 Processing Bar {len(self.data)}: Close={self.data.Close[-1]:.2f} ✨")
+            print(f" Processing Bar {len(self.data)}: Close={self.data.Close[-1]:.2f} ")
         
         if len(self.data) < 50:
             return
@@ -79,7 +76,7 @@ class VolumetricDivergence(Strategy):
                                        (self.bandwidth[-2] < self.bandwidth[-3])
                 if bandwidth_contraction:
                     self.position.close()
-                    print(f"🌙 Bandwidth Contraction! Closing {round(self.position.size)} shares ✨")
+                    print(f" Bandwidth Contraction! Closing {round(self.position.size)} shares ")
 
     def enter_long(self):
         entry_price = self.data.Close[-1]

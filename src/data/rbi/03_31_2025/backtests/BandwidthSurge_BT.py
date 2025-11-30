@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import talib
@@ -58,7 +56,7 @@ class BandwidthSurge(Strategy):
 
     def next(self):
         # Moon Dev debug prints 🌙
-        print(f"🌙 Current Close: {self.data.Close[-1]:.2f} | "
+        print(f" Current Close: {self.data.Close[-1]:.2f} | "
               f"Bandwidth: {self.bandwidth[-1]:.4f} | "
               f"Volume Ratio: {self.data.Volume[-1]/self.volume_ma[-1]:.2f}x")
         
@@ -77,7 +75,7 @@ class BandwidthSurge(Strategy):
                     self.entry_price = self.data.Close[-1]
                     self.entry_atr = self.atr[-1]
                     self.entry_bandwidth = self.bandwidth[-1]
-                    print(f"🚀🌙 LONG ENTRY! Size: {position_size} | "
+                    print(f" LONG ENTRY! Size: {position_size} | "
                           f"Entry: {self.entry_price:.2f} | "
                           f"ATR: {self.entry_atr:.2f}")
             

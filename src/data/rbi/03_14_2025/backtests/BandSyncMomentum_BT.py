@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the BandSync Momentum strategy:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -67,8 +64,8 @@ class BandSyncMomentum(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss, tp=bb_upper)
-                        print(f"🌙🚀 LUNAR LIFT-OFF! Long {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️SL: {stop_loss:.2f} | 🎯TP: {bb_upper:.2f}")
+                        print(f" LUNAR LIFT-OFF! Long {position_size} @ {current_close:0.2f}")
+                        print(f"   SL: {stop_loss:0.2f} | TP: {bb_upper:0.2f}")
 
         # Short entry constellation 🌠
         elif not self.position and current_high >= bb_upper and mid_trend_down:
@@ -81,7 +78,7 @@ class BandSyncMomentum(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tp=bb_lower)
-                        print(f"🌙📉 COSMIC CORRECTION! Short {position_size} @ {current_close:.2f}")
-                        print(f"   🛡️SL: {stop_loss:.2f} | 🎯TP: {bb_lower:.2f}")
+                        print(f" COSMIC CORRECTION! Short {position_size} @ {current_close:0.2f}")
+                        print(f"   SL: {stop_loss:0.2f} | TP: {bb_lower:0.2f}")
 
         # Exit conditions

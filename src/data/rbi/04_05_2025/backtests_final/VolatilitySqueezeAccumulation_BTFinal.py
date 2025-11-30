@@ -1,6 +1,3 @@
-Here's the fully debugged code with Moon Dev themed improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -8,7 +5,7 @@ import pandas_ta as ta
 import numpy as np
 
 # Load and preprocess data
-print("🌙 Moon Dev Data Loading Initiated...")
+# print("🌙 Moon Dev Data Loading Initiated...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 
 # Clean column names
@@ -27,7 +24,7 @@ data = data.rename(columns={
 # Convert datetime and set index
 data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
-print("✨ Data Preprocessing Complete - Ready for Lunar Analysis!")
+print(" Data Preprocessing Complete - Ready for Lunar Analysis!")
 
 class VolatilitySqueezeAccumulation(Strategy):
     bb_period = 20
@@ -41,7 +38,7 @@ class VolatilitySqueezeAccumulation(Strategy):
     bars_per_day = 96  # 15m intervals
     
     def init(self):
-        print("🌌 Initializing Moon Dev Strategy Indicators...")
+#         print("🌌 Initializing Moon Dev Strategy Indicators...")
         # Bollinger Bands
         self.bb_upper, self.bb_middle, self.bb_lower = self.I(talib.BBANDS, self.data.Close, 
                                                               timeperiod=self.bb_period, nbdevup=self.bb_std,
@@ -70,7 +67,7 @@ class VolatilitySqueezeAccumulation(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
         self.exit_bars = self.exit_days * self.bars_per_day
-        print("🚀 Indicators Initialized - Ready for Launch!")
+        print(" Indicators Initialized - Ready for Launch!")
 
     def next(self):
         # Moon Dev Risk Management 🌙

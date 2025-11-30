@@ -1,6 +1,3 @@
-Here's the debugged and optimized version of your backtest code with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import numpy as np
 import pandas as pd
 import talib
@@ -41,13 +38,13 @@ class VolumeDivergenceReversal(Strategy):
             return
         
         # Moon Dev Debug Prints 🌙✨
-        print(f"\n🌙 MOON DEV DEBUG 🌙")
-        print(f"📊 Current Close: {self.data.Close[-1]:.2f}")
-        print(f"📈 RSI: {self.rsi[-1]:.2f}")
-        print(f"📉 SMA50: {self.sma50[-1]:.2f} | SMA200: {self.sma200[-1]:.2f}")
-        print(f"📊 Volume: Up {self.sum_up_vol[-1]:.2f} vs Down {self.sum_down_vol[-1]:.2f}")
+#         print(f"\n🌙 MOON DEV DEBUG 🌙")
+        print(f" Current Close: {self.data.Close[-1]:0.2f}")
+        print(f" RSI: {self.rsi[-1]:0.2f}")
+        print(f" SMA50: {self.sma50[-1]:0.2f} | SMA200: {self.sma200[-1]:0.2f}")
+        print(f" Volume: Up {self.sum_up_vol[-1]:0.2f} vs Down {self.sum_down_vol[-1]:0.2f}")
         
-        # Check if we're NOT in position and conditions are met
+        # Check if we're NOT in position and conditions are met'
         if not self.position:
             # Entry Conditions
             uptrend = self.sma50[-1] > self.sma200[-1]
@@ -65,10 +62,10 @@ class VolumeDivergenceReversal(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     
                     # Moon Dev Position Sizing 🌙💸
-                    print(f"\n🚀 MOON DEV POSITION SIZING 🚀")
-                    print(f"💰 Equity: {self.equity:.2f}")
-                    print(f"🎯 Risk per Trade: {risk_amount:.2f}")
-                    print(f"📏 Position Size: {position_size} units")
+#                     print(f"\n🚀 MOON DEV POSITION SIZING 🚀")
+                    print(f" Equity: {self.equity:0.2f}")
+                    print(f" Risk per Trade: {risk_amount:0.2f}")
+                    print(f" Position Size: {position_size} units")
                     
                     # Execute short position
                     self.sell(size=position_size, 
@@ -76,7 +73,7 @@ class VolumeDivergenceReversal(Strategy):
                             tp=entry_price - 2*risk_per_share)
                     
                     # Debug Print
-                    print(f"\n🌙 SHORT ENTRY SIGNAL 🌙")
-                    print(f"🎯 Entry Price: {entry_price:.2f}")
-                    print(f"🛑 Stop Loss: {stop_loss:.2f}")
-                    print(f"📈 RSI: {self.rsi[-1]:.2f}")
+                    print(f"\n SHORT ENTRY SIGNAL ")
+                    print(f" Entry Price: {entry_price:0.2f}")
+                    print(f" Stop Loss: {stop_loss:0.2f}")
+                    print(f" RSI: {self.rsi[-1]:0.2f}")

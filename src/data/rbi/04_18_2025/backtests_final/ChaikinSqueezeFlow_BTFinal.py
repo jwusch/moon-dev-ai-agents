@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation 🌙
 import pandas as pd
 import talib
 import pandas_ta
@@ -13,7 +9,7 @@ class ChaikinSqueezeFlow(Strategy):
     risk_percent = 0.01  # 1% risk per trade
     
     def init(self):
-        print("🌙 Initializing Moon Dev Strategy with Celestial Indicators...")
+#         print("🌙 Initializing Moon Dev Strategy with Celestial Indicators...")
         
         # Chaikin Money Flow (21-day period)
         self.cmf = self.I(pandas_ta.cmf,
@@ -55,16 +51,16 @@ class ChaikinSqueezeFlow(Strategy):
                                timeperiod=20, name='SWING_LOW_20')
         
         self.consecutive_below = 0
-        print("✨ Celestial Indicators Activated! Ready for Launch 🚀")
+        print(" Celestial Indicators Activated! Ready for Launch ")
 
     def next(self):
         price = self.data.Close[-1]
-        print(f"🌙 Processing Bar {len(self.data)} | Price: {price:.2f}")
+        print(f" Processing Bar {len(self.data)} | Price: {price:.2f}")
         
         if not self.position:
             # Check volatility filter
             if self.atr[-1] <= self.atr_sma[-1]:
-                print("🌊 Volatility Too Low - Cosmic Winds Calm ⛵")
+                print(" Volatility Too Low - Cosmic Winds Calm ")
                 return
 
             # Entry conditions - replaced crossover with manual check
@@ -72,7 +68,7 @@ class ChaikinSqueezeFlow(Strategy):
             squeeze_on = (self.bb_width[-1] <= self.bb_width_min[-1])
 
             if cmf_bullish and squeeze_on:
-                print("🌟 Bullish CMF Cross Detected in Squeeze Zone!")
+                print(" Bullish CMF Cross Detected in Squeeze Zone!")
                 entry_price = price
                 atr_value = self.atr[-1]
                 
@@ -84,7 +80,7 @@ class ChaikinSqueezeFlow(Strategy):
                 # Calculate position size
                 risk_per_share = entry_price - stop_price
                 if risk_per_share <= 0:
-                    print("🚨 Risk Calculation Error - Black Hole Avoided 🌌")
+                    print(" Risk Calculation Error - Black Hole Avoided ")
                     return
                 
                 risk_amount = self.equity * self.risk_percent

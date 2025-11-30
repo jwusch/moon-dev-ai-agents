@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +19,7 @@ data = data.rename(columns={
 })
 
 class VolumetricStochastic(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌙💰
+    risk_per_trade = 0.01  # 1% risk per trade 
     max_open_positions = 3
     atr_multiplier_tp = 1.5
     atr_multiplier_sl = 0.75
@@ -78,7 +75,7 @@ class VolumetricStochastic(Strategy):
                 self.buy(size=position_size, 
                         sl=sl,
                         tp=current_close + (self.atr_multiplier_tp * atr))
-                print(f"🌙✨🚀 BULLISH CONFLUENCE! LONG {position_size} units @ {current_close:.2f} | SL: {sl:.2f} | TP: {current_close + (self.atr_multiplier_tp * atr):.2f}")
+                print(f" BULLISH CONFLUENCE! LONG {position_size} units @ {current_close:.2f} | SL: {sl:.2f} | TP: {current_close + (self.atr_multiplier_tp * atr):.2f}")
 
         # Moon Dev Short Entry Logic 🌙📉
         elif ((self.slowk[-2] >= 80 and self.slowk[-1] < 80) and  # Stochastic cross below 80

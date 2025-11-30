@@ -1,9 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT - CONFLUENCE BREAKOUT STRATEGY ✨
-# FULLY COMPLIANT WITH MOON DEV PACKAGE STANDARDS 🚀
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -19,7 +13,7 @@ class ConfluenceBreakout(Strategy):
     
     def init(self):
         # 🌙 INDICATOR SETUP PHASE ✨
-        print("🌙 Initializing Moon Dev indicators...")
+#         print("🌙 Initializing Moon Dev indicators...")
         
         # Bollinger Bands
         def bb_upper(close, timeperiod, nbdevup, nbdevdn, matype):
@@ -55,7 +49,7 @@ class ConfluenceBreakout(Strategy):
         self.max_high = 0
         self.min_low = float('inf')
         
-        print("🌙✨ Indicator setup complete! Ready for lunar trading cycles...")
+        print(" Indicator setup complete! Ready for lunar trading cycles...")
 
     def next(self):
         # 🌙 CALCULATE CURRENT VALUES
@@ -83,8 +77,8 @@ class ConfluenceBreakout(Strategy):
                     sl_price = current_close - (1.5 * self.entry_atr)
                     self.buy(size=position_size, sl=sl_price)
                     self.max_high = current_close  # Reset high tracker
-                    print(f"🌙✨ LONG ENTRY at {current_close:.2f} | Size: {position_size} 🚀")
-                    print(f"🌙 Stop Loss set at {sl_price:.2f} | ATR: {self.entry_atr:.2f}")
+                    print(f" LONG ENTRY at {current_close:.2f} | Size: {position_size} ")
+                    print(f" Stop Loss set at {sl_price:.2f} | ATR: {self.entry_atr:.2f}")
 
             # Short entry conditions    
             elif (current_close < kc_lower and 

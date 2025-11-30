@@ -1,6 +1,3 @@
-Let me help you fix and complete the code. I'll add the missing parts and ensure proper position sizing and risk management while keeping the strategy logic intact. Here's the complete fixed code with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +24,7 @@ class VolatileBreakout(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         self.volume_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         
-        print("🌙✨ Moon Dev Indicators Activated! Lunar Markets Ready! 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! Lunar Markets Ready! 🚀")
 
     def next(self):
         # Skip initial warmup period
@@ -39,7 +36,7 @@ class VolatileBreakout(Strategy):
         current_volume = self.data.Volume[-1]
         
         # Moon Dev Debug Console
-        print(f"🌙 Lunar Pulse Check 🌙 | Close: {current_close:.2f} | BB Width: {self.bb_width[-1]:.4f} | ADX: {self.adx[-1]:.2f} | Volume: {current_volume:.2f} (MA: {self.volume_ma[-1]:.2f})")
+        print(f" Lunar Pulse Check  | Close: {current_close:.2f} | BB Width: {self.bb_width[-1]:.4f} | ADX: {self.adx[-1]:.2f} | Volume: {current_volume:.2f} (MA: {self.volume_ma[-1]:.2f})")
         
         # Entry Strategy: Cosmic Breakout Formation
         if not self.position:
@@ -67,14 +64,14 @@ class VolatileBreakout(Strategy):
                     
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🚀🌕 MOON SHOT INITIATED! 🛰️ | Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | R/R Ratio: {(self.middle_band[-1] - entry_price)/risk_per_share:.2f}")
+                        print(f" MOON SHOT INITIATED!  | Entry: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | R/R Ratio: {(self.middle_band[-1] - entry_price)/risk_per_share:.2f}")
         
         # Exit Strategy: Galactic Position Management
         else:
             # Take Profit Condition
             if current_close < self.middle_band[-1]:
                 self.position.close()
-                print(f"💰 COSMIC PROFIT HARVESTED! | Price: {current_close:.2f} | P/L: {self.position.pl:.2f}")
+                print(f" COSMIC PROFIT HARVESTED! | Price: {current_close:.2f} | P/L: {self.position.pl:.2f}")
             
             # Stop Loss Condition
             elif current_close <= self.position.sl:

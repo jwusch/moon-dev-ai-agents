@@ -1,14 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here are the key issues I found and fixed:
-
-1. Completed the missing `next()` method (was cut off)
-2. Fixed position sizing to use whole numbers
-3. Added proper exit conditions
-4. Ensured all print statements have Moon Dev theme
-5. Fixed indentation and syntax issues
-
-Here's the complete fixed code:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -82,7 +71,7 @@ class VolCompressSpike(Strategy):
                     if size > 0:
                         tp = self.middle[-1] + 1.5 * (self.upper[-1] - self.middle[-1])/self.bb_dev
                         self.buy(size=size, sl=sl, tp=tp)
-                        print(f"🌕 MOON ROCKET LAUNCH! LONG {size} @ {close} | 🚀 TP: {tp:.2f} | 🛡️ SL: {sl:.2f}")
+                        print(f" MOON ROCKET LAUNCH! LONG {size} @ {close} |  TP: {tp:.2f} |  SL: {sl:.2f}")
                 
                 elif close < self.lower[-1]:  # Short setup
                     sl = (self.data.High[-1] + self.data.Low[-1]) / 2

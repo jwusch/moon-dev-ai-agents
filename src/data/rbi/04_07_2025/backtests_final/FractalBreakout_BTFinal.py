@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -52,7 +49,7 @@ class FractalBreakout(Strategy):
         self.fractal_high = self.I(talib.MAX, self.data.High, 5, name='Fractal High')
         self.fractal_low = self.I(talib.MIN, self.data.Low, 5, name='Fractal Low')
         
-        print("🌙✨ Moon Dev Indicators Initialized! HA, BB, StochRSI, Fractals ready! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! HA, BB, StochRSI, Fractals ready! 🚀")
 
     def next(self):
         if not self.position:
@@ -71,7 +68,7 @@ class FractalBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🌙 BUY SIGNAL! Size: {position_size}, SL: {stop_loss:.4f}")
+                    print(f" BUY SIGNAL! Size: {position_size}, SL: {stop_loss:.4f}")
             
             # Short Entry Conditions
             ha_close_b

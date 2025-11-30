@@ -1,6 +1,3 @@
-I notice the code was cut off at the end. Here's the complete fixed version with all technical issues resolved while preserving the original strategy logic:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -61,7 +58,7 @@ class BandwidthImpulse(Strategy):
         current_bb_width_low = self.bb_width_low[-1]
         bb_contraction = current_bb_width == current_bb_width_low
         
-        print(f"🌙 Moon Dev Alert: ADX={current_adx:.1f}, BB%={current_bb_width*100:.2f}%")
+#         print(f"🌙 Moon Dev Alert: ADX={current_adx:.1f}, BB%={current_bb_width*100:.2f}%")
         
         # Entry logic
         if not self.position and bb_contraction and adx_cross_above:
@@ -80,7 +77,7 @@ class BandwidthImpulse(Strategy):
                 risk_per_share = abs(current_close - sl_price)
                 
                 if risk_per_share <= 0:
-                    print("🚨 Moon Dev Warning: Zero risk detected!")
+#                     print("🚨 Moon Dev Warning: Zero risk detected!")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
@@ -88,22 +85,22 @@ class BandwidthImpulse(Strategy):
                 if direction == 'LONG':
                     self.buy(size=position_size)
                     self.take_profit = current_close * (1 + 1.5 * current_bb_width)
-                    print(f"🚀 Moon Dev LONG Entry! Size: {position_size}")
+#                     print(f"🚀 Moon Dev LONG Entry! Size: {position_size}")
                 else:
                     self.sell(size=position_size)
                     self.take_profit = current_close * (1 - 1.5 * current_bb_width)
-                    print(f"🌪️ Moon Dev SHORT Entry! Size: {position_size}")
+#                     print(f"🌪️ Moon Dev SHORT Entry! Size: {position_size}")
 
         # Exit logic
         if self.position:
             if self.position.is_long:
                 if self.data.High[-1] >= self.take_profit:
                     self.position.close()
-                    print(f"🎯 Moon Dev Profit Reached! +{self.take_profit/self.position.entry_price-1:.2%}")
+#                     print(f"🎯 Moon Dev Profit Reached! +{self.take_profit/self.position.entry_price-1:.2%}")
                 elif self.data.Low[-1] <= self.bb_lower[-1]:
                     self.position.close()
-                    print(f"💥 Moon Dev Stop Loss! -{1 - self.bb_lower[-1]/self.position.entry_price:.2%}")
+#                     print(f"💥 Moon Dev Stop Loss! -{1 - self.bb_lower[-1]/self.position.entry_price:.2%}")
             else:
                 if self.data.Low[-1] <= self.take_profit:
                     self.position.close()
-                    print(f"🎯 Moon Dev Profit Reached! +{1 - self.take_profit/self.position.entry_price:.
+#                     print(f"🎯 Moon Dev Profit Reached! +{1 - self.take_profit/self.position.entry_price:."

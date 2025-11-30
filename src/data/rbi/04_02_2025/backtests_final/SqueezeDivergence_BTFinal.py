@@ -1,6 +1,3 @@
-Here's the fixed and completed backtest code with all Moon Dev debug improvements:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -26,12 +23,20 @@ class SqueezeDivergence(Strategy):
                                                           name=['BB_Upper', 'BB_Mid', 'BB_Lower'])
         
         # VWAP and its MA
-        self.vwap = self.I(ta.vwap, 
-                         high=self.data.High, 
-                         low=self.data.Low, 
-                         close=self.data.Close, 
-                         volume=self.data.Volume, 
-                         name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.vwap_ma = self.I(talib.SMA, self.vwap, timeperiod=20, name='VWAP_MA')
         
         # Volume MA
@@ -55,7 +60,7 @@ class SqueezeDivergence(Strategy):
                                   timeperiod=20, 
                                   name='SMA_BB_Width')
         
-        print("🌙 Moon Dev Indicators Initialized! ✨")
+#         print("🌙 Moon Dev Indicators Initialized! ✨")
 
     def next(self):
         # Check for existing positions
@@ -78,8 +83,8 @@ class SqueezeDivergence(Strategy):
         volume_ok = volume > volume_ma
         
         # Moon Dev Debug Prints
-        print(f"🌙 Price: {price:.2f} | VWAP: {vwap:.2f} vs MA: {vwap_ma:.2f} | Volume: {volume:.2f} vs MA: {volume_ma:.2f}")
-        print(f"🔍 BB Width: {bandwidth:.2f} vs SMA: {sma_bandwidth:.2f} | Squeeze: {'✅' if is_squeeze else '❌'}")
+        print(f" Price: {price:.2f} | VWAP: {vwap:.2f} vs MA: {vwap_ma:.2f} | Volume: {volume:.2f} vs MA: {volume_ma:.2f}")
+        print(f" BB Width: {bandwidth:.2f} vs SMA: {sma_bandwidth:.2f} | Squeeze: {'' if is_squeeze else ''}")
         
         # Long Entry Logic
         if (is_squeeze and
@@ -96,4 +101,4 @@ class SqueezeDivergence(Strategy):
                 self.buy(size=position_size,
                         sl=price - 2*atr_value,
                         tp=price + 2*atr_value)
-                print(f"🚀 MOON DEV LONG ENTRY! Size: {position_size} | TP:
+#                 print(f"🚀 MOON DEV LONG ENTRY! Size: {position_size} | TP:"

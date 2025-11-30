@@ -1,7 +1,3 @@
-I'll fix the backtesting.lib imports and ensure all indicators are properly implemented without using any forbidden imports. Here's the corrected code with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VolSqueezeReversal Backtest 🌙
 import pandas as pd
 import numpy as np
 from backtesting import Backtest, Strategy
@@ -44,7 +40,7 @@ data['Liquidation_Cluster'] = data['Low'].rolling(20).min()
 
 # ========== STRATEGY CLASS ==========
 class VolSqueezeReversal(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # 🌙 Heikin-Ashi Calculations
@@ -80,7 +76,7 @@ class VolSqueezeReversal(Strategy):
 
     def next(self):
         if len(self.data) < 20:  # Warmup period
-            print("🌙 Moon Dev Alert: Warming up strategy (20 bars needed)")
+#             print("🌙 Moon Dev Alert: Warming up strategy (20 bars needed)")
             return
 
         # 🌙 Current Conditions

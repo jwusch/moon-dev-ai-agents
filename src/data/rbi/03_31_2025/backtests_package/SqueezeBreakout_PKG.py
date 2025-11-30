@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed implementations:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -22,7 +19,7 @@ def load_data(path):
     return data
 
 class SqueezeBreakout(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌕
+    risk_percent = 0.01  # 1% risk per trade 
     
     def init(self):
         # Moon Dev Indicator Magic 🌙📈
@@ -43,10 +40,10 @@ class SqueezeBreakout(Strategy):
         self.volume_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='VOLUME_SMA')
         self.ema50 = self.I(talib.EMA, self.data.Close, timeperiod=50, name='EMA50')
         
-        print("🌙 MOON DEV: Indicators charged with lunar energy! 🚀✨")
+#         print("🌙 MOON DEV: Indicators charged with lunar energy! 🚀✨")
 
     def next(self):
-        if len(self.data) < 50:  # Wait for full cosmic alignment 🌌
+        if len(self.data) < 50:  # Wait for full cosmic alignment 
             return
 
         # Lunar Signal Detection 🌙🔭
@@ -69,7 +66,7 @@ class SqueezeBreakout(Strategy):
                 self.buy(size=position_size, sl=stop_loss)
                 self.trailing_atr = atr_value * 3  # 3x ATR trailing
                 self.highest_high = self.data.High[-1]
-                print(f"🌙🚀 MOON BLASTOFF! Long {position_size} @ {self.data.Close[-1]:.2f}")
-                print(f"   🌑 Initial Stop: {stop_loss:.2f}, Trailing ATR: {self.trailing_atr:.2f}")
+                print(f" MOON BLASTOFF! Long {position_size} @ {self.data.Close[-1]:.2f}")
+                print(f"    Initial Stop: {stop_loss:.2f}, Trailing ATR: {self.trailing_atr:.2f}")
 
         # Galactic Position Management 🌌🛸

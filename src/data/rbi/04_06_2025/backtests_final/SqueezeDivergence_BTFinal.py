@@ -1,7 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's SqueezeDivergence Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -48,7 +44,7 @@ class SqueezeDivergence(Strategy):
         self.volume_ema = self.I(talib.EMA, self.data.Volume, 20)
         
         # 🌙 Moon Dev Debug: Indicators initialized successfully!
-        print("🌙✨ Moon Dev Indicators Activated! All systems go! ✨🌙")
+#         print("🌙✨ Moon Dev Indicators Activated! All systems go! ✨🌙")
         
     def next(self):
         # 🌙 Skip if not enough data

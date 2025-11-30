@@ -1,7 +1,3 @@
-Here's the fixed code with all Moon Dev package requirements implemented and debug prints added:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -76,14 +72,14 @@ class MomentumBreakoutADX(Strategy):
                 
                 if position_size > 0:
                     # Moon Dev entry signal 🌕
-                    print(f"🚀 MOON DEV ENTRY SIGNAL 🚀")
-                    print(f"📈 EMA Cross: {ema50_current:.2f} > {ema200_current:.2f}")
-                    print(f"💪 ADX Strength: {adx_current:.2f}")
-                    print(f"🎯 Breakout: {self.data.Close[-1]:.2f} > {recent_high:.2f}")
-                    print(f"💰 Entry Price: {entry_price:.2f}")
-                    print(f"🛑 Position Size: {position_size} units")
-                    print(f"🔻 Stop Loss: {stop_loss:.2f} (ATR: {atr_current:.2f})")
-                    print("🌕"*20)
+#                     print(f"🚀 MOON DEV ENTRY SIGNAL 🚀")
+                    print(f" EMA Cross: {ema50_current:.2f} > {ema200_current:.2f}")
+                    print(f" ADX Strength: {adx_current:.2f}")
+                    print(f" Breakout: {self.data.Close[-1]:.2f} > {recent_high:.2f}")
+                    print(f" Entry Price: {entry_price:.2f}")
+                    print(f" Position Size: {position_size} units")
+                    print(f" Stop Loss: {stop_loss:.2f} (ATR: {atr_current:.2f})")
+                    print(""*20)
                     
                     self.buy(size=position_size, sl=stop_loss)
                     self.trailing_stop = None

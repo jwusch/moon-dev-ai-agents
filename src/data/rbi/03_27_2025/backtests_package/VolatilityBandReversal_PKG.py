@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 Moon Dev's Volatility Band Reversal Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -45,7 +41,7 @@ class VolatilityBandReversal(Strategy):
         self.spx_volume_ma10 = self.I(talib.SMA, self.data['spx_volume'], timeperiod=10, name='SPX Vol MA10')
         self.ratio_sma30 = self.I(talib.SMA, self.vix_vvix_ratio, timeperiod=30, name='Ratio SMA30')
         
-        print("🌌 Moon Dev Strategy Activated! Ready for cosmic market patterns 🌠")
+#         print("🌌 Moon Dev Strategy Activated! Ready for cosmic market patterns 🌠")
 
     def next(self):
         # 🛑 Ensure enough data for calculations
@@ -70,7 +66,7 @@ class VolatilityBandReversal(Strategy):
             if entry_price > stop_price > 0:
                 position_size = int(round(risk_amount / (entry_price - stop_price)))
                 self.buy(size=position_size, sl=stop_price)
-                print(f"🌕 LONG ENTRY! Size: {position_size} @ {entry_price:.2f} | Cosmic Bullish Alignment Detected 🌙")
+                print(f" LONG ENTRY! Size: {position_size} @ {entry_price:.2f} | Cosmic Bullish Alignment Detected ")
 
         # 🌑 Short Entry: Volatility Collapse
         elif (current_ratio < current_lower and 
@@ -84,7 +80,7 @@ class VolatilityBandReversal(Strategy):
             if stop_price > entry_price > 0:
                 position_size = int(round(risk_amount / (stop_price - entry_price)))
                 self.sell(size=position_size, sl=stop_price)
-                print(f"🌑 SHORT ENTRY! Size: {position_size} @ {entry_price:.2f} | Bearish Quantum Shift Detected 🌙")
+                print(f" SHORT ENTRY! Size: {position_size} @ {entry_price:.2f} | Bearish Quantum Shift Detected ")
 
         # 💫 Exit Conditions
         current_sma

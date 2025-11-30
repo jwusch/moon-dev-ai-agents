@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -53,7 +52,7 @@ class VolatilityDiscrepancy(Strategy):
         current_close = self.data.Close[-1]
         
         # Moon Dev debug monitoring 🌙
-        print(f"🌙 Current RSI: {current_rsi:.1f} | ATR: {current_atr:.1f} | BB Width: {self.upper_band[-1]-self.lower_band[-1]:.1f}")
+        print(f" Current RSI: {current_rsi:0.1f} | ATR: {current_atr:0.1f} | BB Width: {self.upper_band[-1]-self.lower_band[-1]:0.1f}")
         
         if not self.position:
             # Long entry: Oversold with volatility expansion
@@ -75,12 +74,12 @@ class VolatilityDiscrepancy(Strategy):
             if self.position.is_long:
                 if (current_rsi > 30 and previous_rsi <= 30) or (current_atr < current_atr_ma):
                     self.position.close()
-                    print(f"🌙✨ LONG EXIT: RSI {current_rsi:.1f} | ATR MA Ratio {current_atr/current_atr_ma:.2f} ✨")
+                    print(f" LONG EXIT: RSI {current_rsi:0.1f} | ATR MA Ratio {current_atr/current_atr_ma:0.2f} ")
             
             elif self.position.is_short:
                 if (current_rsi < 70 and previous_rsi >= 70) or (current_atr < current_atr_ma):
                     self.position.close()
-                    print(f"🌙✨ SHORT EXIT: RSI {current_rsi:.1f} | ATR MA Ratio {current_atr/current_atr_ma:.2f} ✨")
+                    print(f" SHORT EXIT: RSI {current_rsi:0.1f} | ATR MA Ratio {current_atr/current_atr_ma:0.2f} ")
 
     def enter_long(self):
         current_close = self.data.Close[-1]
@@ -93,7 +92,7 @@ class VolatilityDiscrepancy(Strategy):
             sl = current_close - current_atr
             tp = current_close + 1.5 * current_atr
             self.buy(size=position_size, sl=sl, tp=tp)
-            print(f"🚀🌙 LONG ENTRY! Size: {position_size} | SL: {sl:.1f} | TP: {tp:.1f} 🚀")
+            print(f" LONG ENTRY! Size: {position_size} | SL: {sl:0.1f} | TP: {tp:0.1f} ")
             
     def enter_short(self):
         current_close = self.data.Close[-1]

@@ -1,7 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
-# 🌙 Moon Dev's KeltnerDivergence Backtest 🌙
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -9,7 +5,7 @@ import pandas_ta as ta
 import numpy as np
 
 # 🚀 Data Loading & Cleaning
-print("🌌 Loading cosmic market data...")
+print(" Loading cosmic market data...")
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 data.columns = data.columns.str.strip().str.lower()
@@ -30,7 +26,7 @@ class KeltnerDivergence(Strategy):
     risk_pct = 0.01  # 1% risk per trade
 
     def init(self):
-        print("✨ Initializing lunar indicators...")
+        print(" Initializing lunar indicators...")
         # 🌗 Core Indicators
         self.ema = self.I(talib.EMA, self.data.Close, self.ema_period, name='EMA')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.ema_period)
@@ -54,10 +50,10 @@ class KeltnerDivergence(Strategy):
         self.last_swing_lows = []
 
     def calculate_size(self, risk_per_unit):
-        """✨ Calculate position size based on risk percentage"""
+        """ Calculate position size based on risk percentage"""
         risk_amount = self.equity * self.risk_pct
         size = risk_amount / risk_per_unit if risk_per_unit > 0 else 0
-        print(f"🌕 Calculating position size: {size:.4f} units")
+        print(f" Calculating position size: {size:.4f} units")
         return size
 
     def next(self):

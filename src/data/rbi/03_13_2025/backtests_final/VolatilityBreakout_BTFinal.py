@@ -49,13 +49,13 @@ class VolatilityBreakout(Strategy):
                 
                 # 🌙 Enter short position with stop loss at upper band
                 self.sell(size=position_size, sl=entry_bb_upper)
-                print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {position_size} @ {entry_price:.2f} | SL: {entry_bb_upper:.2f} 🚀")
+                print(f"🌙🚀 MOON DEV SHORT ENTRY! Size: {position_size} @ {entry_price:0.2f} | SL: {entry_bb_upper:0.2f} 🚀")
         
         # 🌙 Check for exit conditions on existing short position
         elif self.position.is_short:  # 🌙 Added explicit short position check
             if self.data.High[-1] >= self.bb_upper[-1]:
                 self.position.close()
-                print(f"🌙🎯 MOON DEV EXIT! Price Touched Upper Band @ {self.data.Close[-1]:.2f} 🎯")
+                print(f"🌙🎯 MOON DEV EXIT! Price Touched Upper Band @ {self.data.Close[-1]:0.2f} 🎯")
 
 # 🌙✨ Data Preparation Magic ✨
 data = pd.read_csv(
@@ -75,7 +75,7 @@ results = bt.run()
 print("🌙✨ MOON DEV BACKTEST RESULTS ✨")
 print(results)
 print("🌙📊 Strategy Stats:")
-print(f"Return: {results['Return [%]']:.2f}%")
-print(f"Max Drawdown: {results['Max. Drawdown [%]']:.2f}%")
-print(f"Win Rate: {results['Win Rate [%]']:.2f}%")
+print(f"Return: {results['Return [%]']:0.2f}%")
+print(f"Max Drawdown: {results['Max. Drawdown [%]']:0.2f}%")
+print(f"Win Rate: {results['Win Rate [%]']:0.2f}%")
 print("🌙✨ Moon Dev Backtest Complete! ✨")

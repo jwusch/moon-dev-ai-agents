@@ -50,22 +50,22 @@ class VolatilityArbitrage(Strategy):
                 stop_price = price + stop_loss_distance
                 if position_size > 0:
                     self.sell(size=position_size, sl=stop_price)
-                    print(f"🌘 MOONSHOT SHORT! {position_size} units @ {price:.2f} | SL: {stop_price:.2f} 🌗")
+                    print(f"🌘 MOONSHOT SHORT! {position_size} units @ {price:0.2f} | SL: {stop_price:0.2f} 🌗")
                     
             elif current_ratio < (1/self.entry_ratio):
                 stop_price = price - stop_loss_distance
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price)
-                    print(f"🌖 LUNAR LONG! {position_size} units @ {price:.2f} | SL: {stop_price:.2f} 🌔")
+                    print(f"🌖 LUNAR LONG! {position_size} units @ {price:0.2f} | SL: {stop_price:0.2f} 🌔")
         else:
             # 🌕 EXIT LOGIC: MEAN REVERSION ACHIEVED
             if (self.position.is_short and current_ratio < 1) or \
                (self.position.is_long and current_ratio > 1):
                 self.position.close()
-                print(f"🌑 MOON CYCLE COMPLETE! Closing position @ {price:.2f} 🌓")
+                print(f"🌑 MOON CYCLE COMPLETE! Closing position @ {price:0.2f} 🌓")
 
 # 🚀 BACKTEST EXECUTION
-bt = Backtest(data, VolatilityArbitrage, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolatilityArbitrage, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌕 PRINT FULL STATS

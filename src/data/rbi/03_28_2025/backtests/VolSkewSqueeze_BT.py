@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover, crossunder
 import pandas as pd
@@ -78,7 +77,7 @@ class VolSkewSqueeze(Strategy):
             position_size = int(round(risk_amount/(price - sl)))
             
             self.buy(size=position_size, sl=sl,
-                    tag="🌙🚀 LONG! VolSkew Confirmed | BB Breakout")
+                    tag=" LONG! VolSkew Confirmed | BB Breakout")
             self.trade_count += 1
 
         # Short entry    
@@ -91,7 +90,7 @@ class VolSkewSqueeze(Strategy):
             position_size = int(round(risk_amount/(sl - price)))
             
             self.sell(size=position_size, sl=sl,
-                     tag="🌙🌪️ SHORT! Bearish Skew | BB Breakdown")
+                     tag=" SHORT! Bearish Skew | BB Breakdown")
             self.trade_count += 1
 
         # Exit conditions

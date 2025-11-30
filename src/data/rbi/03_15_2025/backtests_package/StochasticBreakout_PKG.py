@@ -1,6 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -77,7 +74,7 @@ class StochasticBreakout(Strategy):
         
         if position_size > 0:
             self.buy(size=position_size, sl=stop_level, tp=take_profit)
-            print(f"🌙✨ Moon Dev LONG Signal! 🚀 Entry: {entry_price:.2f}")
+#             print(f"🌙✨ Moon Dev LONG Signal! 🚀 Entry: {entry_price:.2f}")
             print(f"   Size: {position_size}, SL: {stop_level:.2f}, TP: {take_profit:.2f}")
 
     def enter_short(self, entry_price, stop_level):
@@ -89,7 +86,7 @@ class StochasticBreakout(Strategy):
         
         if position_size > 0:
             self.sell(size=position_size, sl=stop_level, tp=take_profit)
-            print(f"🌙✨ Moon Dev SHORT Signal! 🌧️ Entry: {entry_price:.2f}")
+#             print(f"🌙✨ Moon Dev SHORT Signal! 🌧️ Entry: {entry_price:.2f}")
             print(f"   Size: {position_size}, SL: {stop_level:.2f}, TP: {take_profit:.2f}")
 
     def calculate_position_size(self, risk_per_share):

@@ -1,7 +1,3 @@
-I'll fix the code by removing the `backtesting.lib` import and replacing any usage of its functions with native Python/numpy/pandas alternatives. Here's the corrected version:
-
-```python
-# 🌙 Moon Dev's VortexBreakout Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -101,6 +97,6 @@ class VortexBreakout(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
                         self.buy(size=size, sl=stop_price)
-                        print(f"🌙✨🚀 LONG ENTRY | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
+                        print(f" LONG ENTRY | Price: {current_close:.2f} | Size: {size} | SL: {stop_price:.2f}")
             
             # Short Entry Conditions

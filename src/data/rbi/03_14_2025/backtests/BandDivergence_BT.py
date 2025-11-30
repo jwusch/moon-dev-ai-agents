@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -41,7 +40,7 @@ class BandDivergence(Strategy):
         # Volatility Measure
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, 14)
         
-        print("🌙✨ Moon Dev Indicators Activated! BB|MACD|SWING|ATR Ready 🚀")
+#         print("🌙✨ Moon Dev Indicators Activated! BB|MACD|SWING|ATR Ready 🚀")
 
     def next(self):
         # Wait for sufficient data
@@ -73,7 +72,7 @@ class BandDivergence(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss)
-                    print(f"🚀🌙 MOON DEV LONG: {self.data.index[-1]} | Size: {position_size} | SL: {stop_loss:.2f}")
+#                     print(f"🚀🌙 MOON DEV LONG: {self.data.index[-1]} | Size: {position_size} | SL: {stop_loss:0.2f}")
 
         # 🌑 Short Entry Logic
         if not self.position:

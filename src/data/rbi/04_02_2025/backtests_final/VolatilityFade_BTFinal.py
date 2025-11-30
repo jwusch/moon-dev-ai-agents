@@ -1,8 +1,3 @@
-I'll complete and fix the backtest code while maintaining the original strategy logic. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's VolatilityFade Backtest Script 🚀✨
-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -36,20 +31,33 @@ class VolatilityFade(Strategy):
     
     def init(self):
         # 🌗 Indicator Calculations (Moon Dev Certified Indicators)
-        print("🌙 Initializing Moon Dev's Volatility Fade Indicators...")
+#         print("🌙 Initializing Moon Dev's Volatility Fade Indicators...")'
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=96, name='ATR_1D')
         self.volume_sma = self.I(talib.SMA, self.data.Volume, timeperiod=1920, name='Volume_SMA_20D')
-        self.vwap = self.I(ta.vwap, self.data.High, self.data.Low, self.data.Close, self.data.Volume, anchor='D', name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # 🌑 Trade tracking
         self.stop_loss = None
         self.take_profit = None
-        print("✨ Moon Dev Indicators Successfully Initialized! 🚀")
+#         print("✨ Moon Dev Indicators Successfully Initialized! 🚀")
 
     def next(self):
         # 🌓 Skip if not enough data
         if len(self.data) < 1920:
-            print("🌑 Waiting for sufficient data (1920 candles required)...")
+            print(" Waiting for sufficient data (1920 candles required)...")
             return
 
         current_idx = len(self.data) - 1
@@ -61,12 +69,12 @@ class VolatilityFade(Strategy):
         if not self.position and prev_close:
             # Long entry condition: 3x ATR drop + volume surge
             if (self.data.Low[-1] <= (prev_close - 3*current_atr)) and (self.data.Volume[-1] > 1.5*volume_avg):
-                print("🌖 Moon Dev Long Signal Detected! (3x ATR Drop + Volume Surge)")
+#                 print("🌖 Moon Dev Long Signal Detected! (3x ATR Drop + Volume Surge)")
                 self.calculate_position_size('long', current_atr)
             
             # Short entry condition: 3x ATR spike + volume surge
             elif (self.data.High[-1] >= (prev_close + 3*current_atr)) and (self.data.Volume[-1] > 1.5*volume_avg):
-                print("🌒 Moon Dev Short Signal Detected! (3x ATR Spike + Volume Surge)")
+#                 print("🌒 Moon Dev Short Signal Detected! (3x ATR Spike + Volume Surge)")
                 self.calculate_position_size('short', current_atr)
 
         # 🌑 Exit Logic
@@ -75,15 +83,15 @@ class VolatilityFade(Strategy):
             if (self.position.is_long and self.data.Low[-1] <= self.stop_loss) or \
                (self.position.is_short and self.data.High[-1] >= self.stop_loss):
                 self.position.close()
-                print(f"🚨 Moon Dev Stop Loss Activated! ({'Long' if self.position.is_long else 'Short'}) 🌧️")
+#                 print(f"🚨 Moon Dev Stop Loss Activated! ({'Long' if self.position.is_long else 'Short'}) 🌧️")
 
             # Take profit check
             elif (self.position.is_long and self.data.High[-1] >= self.take_profit) or \
                  (self.position.is_short and self.data.Low[-1] <= self.take_profit):
                 self.position.close()
-                print(f"🎯 Moon Dev Profit Target Reached! ({'Long' if self.position.is_long else 'Short'}) 🚀")
+#                 print(f"🎯 Moon Dev Profit Target Reached! ({'Long' if self.position.is_long else 'Short'}) 🚀")
 
             # EOD close check
             elif self.data.index[-1].time().hour == 23 and self.data.index[-1].minute == 45:
                 self.position.close()
-                print(f"🌙 Moon Dev End-of-Day Close! 🕒")
+#                 print(f"🌙 Moon Dev End-of-Day Close! 🕒")

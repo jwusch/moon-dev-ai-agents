@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -82,7 +80,7 @@ class LiquidationPulse(Strategy):
                     self.sell(size=position_size, sl=stop_price)
                     self.entry_4h_high = self.prev_4h_high[-1]
                     
-                    print(f"🌙 MOON DEV SHORT ACTIVATED 🌙")
+#                     print(f"🌙 MOON DEV SHORT ACTIVATED 🌙")
                     print(f"Entry: {current_close:.2f} | Size: {position_size}")
                     print(f"SL: {stop_price:.2f} | Risk: {risk_per_share:.2f}")
 

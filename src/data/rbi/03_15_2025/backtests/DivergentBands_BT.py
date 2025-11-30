@@ -71,13 +71,13 @@ class DivergentBands(Strategy):
                         tp = entry_price - 1.5 * atr_value
                         
                         self.sell(size=position_size, sl=sl, tp=tp)
-                        print(f"🌙🚀 SHORT ENTRY! Size: {position_size} | Entry: {entry_price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
+                        print(f"🌙🚀 SHORT ENTRY! Size: {position_size} | Entry: {entry_price:0.2f} | SL: {sl:0.2f} | TP: {tp:0.2f}")
 
         # Exit logic
         if self.position.is_short:
             if crossover(self.data.High, self.p80):
                 self.position.close()
-                print(f"🌙✨ EXIT! Price crossed 80th percentile ({self.p80[-1]:.2f})")
+                print(f"🌙✨ EXIT! Price crossed 80th percentile ({self.p80[-1]:0.2f})")
 
 # Run backtest
 bt = Backtest(data, DivergentBands, cash=1_000_000, margin=1.0)

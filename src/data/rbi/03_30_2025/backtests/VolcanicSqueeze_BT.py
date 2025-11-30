@@ -1,6 +1,3 @@
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION FOR VOLCANICSQUEEZE STRATEGY
-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -79,7 +76,7 @@ class VolcanicSqueeze(Strategy):
         stop_loss = self.bb_middle[-1]
         
         if stop_loss >= entry_price:
-            print("🌑⚠️ MOON DEV REJECTED: Invalid long stop loss")
+#             print("🌑⚠️ MOON DEV REJECTED: Invalid long stop loss")
             return
             
         risk_amount = self.equity * self

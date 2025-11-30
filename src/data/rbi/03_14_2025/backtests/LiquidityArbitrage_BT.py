@@ -66,23 +66,23 @@ class LiquidityArbitrage(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_price)
                         self.entry_bar = len(self.data)-1
-                        print(f"🌙✨ MOON DEV LONG ENTRY: {position_size} units at {current_close:.2f} | SL: {stop_price:.2f} 🚀")
+                        print(f"🌙✨ MOON DEV LONG ENTRY: {position_size} units at {current_close:0.2f} | SL: {stop_price:0.2f} 🚀")
 
         # 🛑 EXIT LOGIC        
         else:
             # Spread narrowing exit
             if current_spread < avg_spread:
                 self.position.close()
-                print(f"🌙📉 SPREAD NARROWING EXIT at {current_close:.2f} ✨")
+                print(f"🌙📉 SPREAD NARROWING EXIT at {current_close:0.2f} ✨")
             
             # Time-based exit
             elif (len(self.data)-1 - self.entry_bar) >= self.max_hold_bars:
                 self.position.close()
-                print(f"🌙⏰ TIME EXIT at {current_close:.2f} | Held {self.max_hold_bars} bars ⏳")
+                print(f"🌙⏰ TIME EXIT at {current_close:0.2f} | Held {self.max_hold_bars} bars ⏳")
 
 # 🌙 LOAD AND RUN BACKTEST
 data = load_data('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
-bt = Backtest(data, LiquidityArbitrage, cash=1_000_000, commission=.002)
+bt = Backtest(data, LiquidityArbitrage, cash=1_000_000, commission=0.002)
 
 # 🚀 EXECUTE AND PRINT FULL STATS
 stats = bt.run()

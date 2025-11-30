@@ -1,7 +1,3 @@
-Here's the complete fixed code with Moon Dev themed debug prints and proper position sizing:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -17,8 +13,8 @@ class VoltaicBreakout(Strategy):
         self.atr20 = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=20, name='ATR_20')
         self.volume_slope = self.I(talib.LINEARREG_SLOPE, self.data.Volume, timeperiod=5, name='Volume_Slope')
         
-        print("🌙 VoltaicBreakout Strategy Initialized! ✨")
-        print("✨ All indicators powered by TA-Lib with Moon Dev precision! 🌙")
+#         print("🌙 VoltaicBreakout Strategy Initialized! ✨")
+#         print("✨ All indicators powered by TA-Lib with Moon Dev precision! 🌙")
         
     def next(self):
         current_close = self.data.Close[-1]
@@ -32,8 +28,8 @@ class VoltaicBreakout(Strategy):
         exit_lower = current_ma - current_atr
         
         # Moon Dev debug prints
-        print(f"🌙 Bar {len(self.data)-1}: Close={current_close:.2f}, MA={current_ma:.2f}, ATR={current_atr:.2f}")
-        print(f"🌙 Bands: Upper={upper_band:.2f}, Lower={lower_band:.2f}")
+        print(f" Bar {len(self.data)-1}: Close={current_close:.2f}, MA={current_ma:.2f}, ATR={current_atr:.2f}")
+        print(f" Bands: Upper={upper_band:.2f}, Lower={lower_band:.2f}")
         
         # Check for entry signals
         if not self.position:
@@ -52,7 +48,7 @@ class VoltaicBreakout(Strategy):
             if self.position.is_long:
                 if self.data.Close[-1] <= exit_upper:
                     self.position.close()
-                    print(f"✨ Closing LONG at {self.data.Close[-1]:.2f} (Hit Exit Band)")
+                    print(f" Closing LONG at {self.data.Close[-1]:.2f} (Hit Exit Band)")
                 
                 # Update trailing stop
                 elif self.data.High[-1] > self.position.entry_price + current_atr:
@@ -62,7 +58,7 @@ class VoltaicBreakout(Strategy):
             elif self.position.is_short:
                 if self.data.Close[-1] >= exit_lower:
                     self.position.close()
-                    print(f"✨ Closing SHORT at {self.data.Close[-1]:.2f} (Hit Exit Band)")
+                    print(f" Closing SHORT at {self.data.Close[-1]:.2f} (Hit Exit Band)")
                 
                 # Update trailing stop
                 elif self.data.Low[-1] < self.position.entry_price - current_atr:

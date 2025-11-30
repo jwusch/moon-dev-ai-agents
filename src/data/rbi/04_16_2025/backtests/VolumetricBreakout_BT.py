@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -51,7 +49,7 @@ class VolumetricBreakout(Strategy):
                     self.entry_atr = atr_value
                     self.highest_high = self.data.High[-1]
                     self.entry_bar = current_bar
-                    print(f"🚀 LONG ENTRY! Price: {self.data.Close[-1]:.2f}, Size: {position_size} | Moon Dev launching rockets! 🌕")
+#                     print(f"🚀 LONG ENTRY! Price: {self.data.Close[-1]:.2f}, Size: {position_size} | Moon Dev launching rockets! 🌕")
 
             # Short Entry 🌑
             elif self.data.Close[-1] < self.lower[-1] and self.data.Volume[-1] > self.volume_ma[-1]:
@@ -65,7 +63,7 @@ class VolumetricBreakout(Strategy):
                     self.entry_atr = atr_value
                     self.lowest_low = self.data.Low[-1]
                     self.entry_bar = current_bar
-                    print(f"🌑 SHORT ENTRY! Price: {self.data.Close[-1]:.2f}, Size: {position_size} | Moon Dev shadow trading! 🌘")
+#                     print(f"🌑 SHORT ENTRY! Price: {self.data.Close[-1]:.2f}, Size: {position_size} | Moon Dev shadow trading! 🌘")
 
         # Exit Logic
         else:
@@ -78,12 +76,12 @@ class VolumetricBreakout(Strategy):
                 # RSI Exit
                 if crossunder(self.rsi.array[-2:], 70):
                     self.position.close()
-                    print(f"✨ LONG EXIT! RSI<70 | Moon Dev taking lunar profits! 🌓")
+#                     print(f"✨ LONG EXIT! RSI<70 | Moon Dev taking lunar profits! 🌓")
                 
                 # Time Exit
                 elif current_bar - self.entry_bar >= 480:  # 5 days in 15m bars
                     self.position.close()
-                    print(f"⏳ TIME EXIT! 5 days passed | Moon Dev cycle complete! 🌗")
+#                     print(f"⏳ TIME EXIT! 5 days passed | Moon Dev cycle complete! 🌗")
                 
                 # Stop Exit
                 elif self.data.Low[-1] <= stop_price:

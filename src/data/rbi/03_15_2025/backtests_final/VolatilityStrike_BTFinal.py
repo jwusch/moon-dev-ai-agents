@@ -1,7 +1,3 @@
-I've analyzed the code and made the necessary technical fixes while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's VolatilityStrike Backtest 🌙
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -22,7 +18,7 @@ data = data.rename(columns={
 })
 
 class VolatilityStrike(Strategy):
-    risk_per_trade = 0.02  # 2% risk per trade 🌙
+    risk_per_trade = 0.02  # 2% risk per trade 
     
     def init(self):
         # ✨ INDICATORS (using talib)
@@ -57,9 +53,9 @@ class VolatilityStrike(Strategy):
                     self.entry_price = self.data.Close[-1]
                     self.entry_risk = risk_amount
                     
-                    print(f"🌙✨ ENTRY: Short {position_size} units at {self.data.Close[-1]:.2f}")
-                    print(f"   ATR%: {(self.atr[-1] / self.data.Close[-1]) * 100:.2f}% 🚀")
-                    print(f"   Stop: {stop_loss:.2f} | Target: {take_profit:.2f} 🌙")
+                    print(f" ENTRY: Short {position_size} units at {self.data.Close[-1]:.2f}")
+                    print(f"   ATR%: {(self.atr[-1] / self.data.Close[-1]) * 100:.2f}% ")
+                    print(f"   Stop: {stop_loss:.2f} | Target: {take_profit:.2f} ")
         else:
             # 🌙 EXIT CONDITIONS
             days_in_trade = (current_idx - self.entry_bar) / 96  # 96=15m bars/day
@@ -67,20 +63,20 @@ class VolatilityStrike(Strategy):
             # IV Drop Condition
             if (self.entry_atr - self.atr[-1]) / self.entry_atr >= 0.25:
                 self.position.close()
-                print(f"🌙📉 EXIT: IV dropped 25%! Closed at {self.data.Close[-1]:.2f}")
-                print(f"   P/L: {self.position.pl:.2f} | Days held: {days_in_trade:.2f} 🌙")
+                print(f" EXIT: IV dropped 25%! Closed at {self.data.Close[-1]:.2f}")
+                print(f"   P/L: {self.position.pl:.2f} | Days held: {days_in_trade:.2f} ")
                 
             # Time Exit (1 day before 7-day expiration)
             elif days_in_trade >= 6:
                 self.position.close()
-                print(f"🌙⏳ EXIT: 6 days held! Closed at {self.data.Close[-1]:.2f}")
-                print(f"   P/L: {self.position.pl:.2f} 🌙")
+                print(f"⏳ EXIT: 6 days held! Closed at {self.data.Close[-1]:.2f}")
+                print(f"   P/L: {self.position.pl:.2f} ")
                 
             # Stop Loss (50% of risk)
             elif self.position.pl <= -0.5 * self.entry_risk:
                 self.position.close()
-                print(f"🌙💥 EXIT: 50% loss hit! Closed at {self.data.Close[-1]:.2f}")
-                print(f"   P/L: {self.position.pl:.2f} 🌙")
+                print(f" EXIT: 50% loss hit! Closed at {self.data.Close[-1]:.2f}")
+                print(f"   P/L: {self.position.pl:.2f} ")
 
 # 🚀 BACKTEST EXECUTION
 bt

@@ -1,7 +1,3 @@
-I'll fix the code by removing the `backtesting.lib` import and replacing any potential usage of its functions. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# moon_dev_deltaband_backtest.py 🌙🚀
 import numpy as np
 import pandas as pd
 import talib
@@ -70,11 +66,11 @@ class DeltaBandConvergence(Strategy):
             
         # Celestial Risk Shields 🛡️
         if self._broker._equity < 0.95 * self.daily_high_equity:
-            print("🌘 DAILY LOSS LIMIT BREACHED! Trading halted.")
+            print(" DAILY LOSS LIMIT BREACHED! Trading halted.")
             return
             
         if self.consecutive_losses >= 3:
-            print("💥 3 CONSECUTIVE LOSSES! Moon Dev protection activated.")
+#             print("💥 3 CONSECUTIVE LOSSES! Moon Dev protection activated.")
             return
             
         # Cosmic Timing Filter 🕒

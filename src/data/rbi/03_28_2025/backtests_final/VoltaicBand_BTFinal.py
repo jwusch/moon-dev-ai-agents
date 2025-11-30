@@ -1,6 +1,3 @@
-I'll fix the code while maintaining the original strategy logic. Here's the debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -57,14 +54,14 @@ class VoltaicBand(Strategy):
         current_close = self.data.Close[-1]
         prev_close = self.data.Close[-2]
         
-        # Get previous bar's indicator values
+        # Get previous bar's indicator values'
         prev_vwap = self.vwap[-2]
         prev_atr = self.atr[-2]
         upper_band_prev = prev_vwap + 2 * prev_atr
         lower_band_prev = prev_vwap - 2 * prev_atr
         
         # Moon Dev debug logging
-        print(f"🌙 Bar: {len(self.data)} | Close: {current_close:.2f} | VWAP: {self.vwap[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
+        print(f" Bar: {len(self.data)} | Close: {current_close:.2f} | VWAP: {self.vwap[-1]:.2f} | ATR: {self.atr[-1]:.2f}")
         
         # Entry logic
         if not self.position:
@@ -72,7 +69,7 @@ class VoltaicBand(Strategy):
             if prev_close <= upper_band_prev and current_close > upper_band_prev:
                 risk_amount = self.equity * self.risk_percent
                 entry_price = current_close
-                stop_loss = self.vwap[-1]  # Current bar's VWAP
+                stop_loss = self.vwap[-1]  # Current bar's VWAP'
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share > 0:
@@ -81,13 +78,13 @@ class VoltaicBand(Strategy):
                         self.buy(size=position_size)
                         self.entry_vwap = stop_loss
                         self.tracking_high = entry_price
-                        print(f"🚀🌕 MOON SHOT! Long {position_size} units at {entry_price:.2f}")
+                        print(f" MOON SHOT! Long {position_size} units at {entry_price:.2f}")
             
             # Short entry - bearish crossover check
             elif prev_close >= lower_band_prev and current_close < lower_band_prev:
                 risk_amount = self.equity * self.risk_percent
                 entry_price = current_close
-                stop_loss = self.vwap[-1]  # Current bar's VWAP
+                stop_loss = self.vwap[-1]  # Current bar's VWAP'
                 risk_per_share = stop_loss - entry_price
                 
                 if risk_per_share > 0:
@@ -96,7 +93,7 @@ class VoltaicBand(Strategy):
                         self.sell(size=position_size)
                         self.entry_vwap = stop_loss
                         self.tracking_low = entry_price
-                        print(f"🔻🌑 BLACK HOLE! Short {position_size} units at {entry_price:.2f}")
+                        print(f" BLACK HOLE! Short {position_size} units at {entry_price:.2f}")
         
         # Exit logic
         else:

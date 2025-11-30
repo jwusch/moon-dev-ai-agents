@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -82,16 +78,16 @@ class DivergentPowerSurge(Strategy):
             position_size = min(position_size, int(self.equity // close))
             
             if position_size > 0:
-                print(f"🌙✨🚀 MOON DEV ALERT: Long Entry @ {close:.2f}")
+#                 print(f"🌙✨🚀 MOON DEV ALERT: Long Entry @ {close:.2f}")
                 self.buy(size=position_size, sl=stop_loss, tag='divergent_surge')
         
         # Exit Conditions
         if self.position:
             if close > keltner_upper:
-                print(f"🌙💎✨ PROFIT TAKEN: Price closed above Keltner @ {close:.2f}")
+                print(f" PROFIT TAKEN: Price closed above Keltner @ {close:.2f}")
                 self.position.close()
             elif self.data.Low[current_idx] < self.position.sl:
-                print(f"🌙🛑🔻 STOP LOSS HIT: {self.data.Low[current_idx]:.2f}")
+                print(f" STOP LOSS HIT: {self.data.Low[current_idx]:.2f}")
                 self.position.close()
 
 # Data preparation

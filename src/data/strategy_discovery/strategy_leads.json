@@ -125,7 +125,7 @@
     "confidence_score": 0.75,
     "research_priority": 5,
     "discovered_date": "2025-11-30T03:01:48.239036",
-    "status": "discovered"
+    "status": "researched"
   },
   {
     "source": "Expert Research",
@@ -146,7 +146,7 @@
     "confidence_score": 0.73,
     "research_priority": 5,
     "discovered_date": "2025-11-30T03:01:48.239041",
-    "status": "discovered"
+    "status": "researched"
   },
   {
     "source": "Market Phenomena Research",
@@ -168,7 +168,7 @@
     "confidence_score": 0.7,
     "research_priority": 3,
     "discovered_date": "2025-11-30T03:01:48.239052",
-    "status": "discovered"
+    "status": "researched"
   },
   {
     "source": "Market Phenomena Research",
@@ -189,7 +189,7 @@
     "confidence_score": 0.68,
     "research_priority": 3,
     "discovered_date": "2025-11-30T03:01:48.239054",
-    "status": "discovered"
+    "status": "researched"
   },
   {
     "source": "Market Phenomena Research",
@@ -209,6 +209,6 @@
     "confidence_score": 0.65,
     "research_priority": 3,
     "discovered_date": "2025-11-30T03:01:48.239049",
-    "status": "discovered"
+    "status": "researched"
   }
 ]

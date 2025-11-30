@@ -1,7 +1,3 @@
-To address the problem, here's a comprehensive implementation of the LiquidationClusterBreakout strategy using backtesting.py with detailed explanations:
-
-```python
-# 🌙 Moon Dev's Liquidation Cluster Breakout Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -64,11 +60,11 @@ class LiquidationClusterBreakout(Strategy):
         # Update lunar swing levels 🌗
         if self.data.High[-1] == self.swing_high[-1]:
             self.last_swing_high = self.data.High[-1]
-            print(f"🌕 NEW SWING HIGH @ {self.last_swing_high}")
+            print(f" NEW SWING HIGH @ {self.last_swing_high}")
             
         if self.data.Low[-1] == self.swing_low[-1]:
             self.last_swing_low = self.data.Low[-1]
-            print(f"🌑 NEW SWING LOW @ {self.last_swing_low}")
+            print(f" NEW SWING LOW @ {self.last_swing_low}")
 
         # Only trade when volatility is sleeping 😴
         if atr_value > price * 0.01:  # 1% threshold
@@ -91,5 +87,5 @@ class LiquidationClusterBreakout(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=sl, tp=tp)
-                    print(f"🚀🌕 LIFTOFF LONG @ {price:.2f}")
-                    print(f"   📦 Size: {position_size}, 🛑 SL: {sl:.2f}, 🎯 TP: {tp:.2f}")
+                    print(f" LIFTOFF LONG @ {price:.2f}")
+                    print(f"    Size: {position_size},  SL: {sl:.2f},  TP: {tp:.2f}")

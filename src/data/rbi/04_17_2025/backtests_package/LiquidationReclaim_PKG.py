@@ -1,10 +1,3 @@
-I'll analyze and fix the code to ensure no backtesting.lib imports or functions are used. Here's the corrected version with Moon Dev themed improvements:
-
-```python
-# 🌙✨ Moon Dev Backtest AI Generated Code 🚀
-# 🚫 NO backtesting.lib imports detected - Package AI Validation PASSED ✅
-
-# 1. Imports
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -28,7 +21,7 @@ def prepare_data(path):
     }
     data.rename(columns=column_map, inplace=True)
     data.set_index('datetime', inplace=True)
-    print("🌙✨ Data Preparation Complete - Moon Dev Ready!")
+#     print("🌙✨ Data Preparation Complete - Moon Dev Ready!")
     return data
 
 # 3. Strategy Implementation
@@ -64,7 +57,7 @@ class LiquidationReclaim(Strategy):
         # Swing Low detection
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='Swing_Low')
         
-        print("🌙✨ Strategy Indicators Initialized - Moon Dev Ready for Launch! 🚀")
+#         print("🌙✨ Strategy Indicators Initialized - Moon Dev Ready for Launch! 🚀")
     
     def next(self):
         # 🌙✨ Entry Logic

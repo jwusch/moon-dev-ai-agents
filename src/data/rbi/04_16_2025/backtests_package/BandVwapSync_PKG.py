@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
-# 🌙 Moon Dev's BandVwapSync Backtest Implementation 🚀
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -9,7 +5,7 @@ from backtesting import Backtest, Strategy
 import numpy as np  # Added for array operations
 
 class BandVwapSync(Strategy):
-    risk_per_trade = 0.02  # 2% risk per trade 🌙
+    risk_per_trade = 0.02  # 2% risk per trade 
     
     def init(self):
         # 🌗 Bollinger Bands (20,2) with TA-Lib
@@ -21,7 +17,7 @@ class BandVwapSync(Strategy):
               length=20, name='VWAP_20')
         
         # 📈 5-period MA of VWAP
-        self.I(talib.SMA, self.data.VWAP_20, timeperiod=5, name='VWAP_MA_5')
+        self.I(talib.SMA, self.vwap_20, timeperiod=5, name='VWAP_MA_5')
         
     def next(self):
         # Wait for sufficient data 🌊
@@ -31,8 +27,8 @@ class BandVwapSync(Strategy):
         # 🛸 Current indicator values
         price_low = self.data.Low[-1]
         bb_lower = self.data.BB_lower[-1]
-        vwap = self.data.VWAP_20[-1]
-        prev_vwap = self.data.VWAP_20[-2] if len(self.data.VWAP_20) > 1 else vwap
+        vwap = self.vwap_20[-1]
+        prev_vwap = self.vwap_20[-2] if len(self.vwap_20) > 1 else vwap
         
         # 🌙 Entry Logic: Band touch + VWAP momentum
         if not self.position:
@@ -50,27 +46,27 @@ class BandVwapSync(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=stop_loss)
-                        print(f"🌙 MOON DEV ALERT: LONG @ {entry_price:.2f} ✨ | Size: {position_size} | SL: {stop_loss:.2f} 🚀")
+#                         print(f"🌙 MOON DEV ALERT: LONG @ {entry_price:.2f} ✨ | Size: {position_size} | SL: {stop_loss:.2f} 🚀")
         
         # 💼 Exit Logic
         else:
             # 📉 VWAP trend reversal exit (replaced crossover)
-            vwap_ma = self.data.VWAP_MA_5
-            vwap_line = self.data.VWAP_20
+            vwap_ma = self.vwap_MA_5
+            vwap_line = self.vwap_20
             if len(vwap_ma) > 1 and len(vwap_line) > 1:
                 if vwap_ma[-2] < vwap_line[-2] and vwap_ma[-1] > vwap_line[-1]:
                     self.position.close()
-                    print("🌙 VWAP Trend Reversal - Closing Position! 🏁")
+                    print(" VWAP Trend Reversal - Closing Position! ")
                 
             # 🎯 Upper band profit taking
             if self.data.High[-1] >= self.data.BB_upper[-1]:
                 self.position.close()
-                print("🚀 Upper Band Reached - Profit Harvest! 🌕")
+                print(" Upper Band Reached - Profit Harvest! ")
                 
             # 🛡️ Trailing stop to breakeven
             if self.data.High[-1] >= self.data.BB_middle[-1] and self.position.sl < self.position.entry_price:
                 self.position.sl = self.position.entry_price
-                print("🌙 Trail Stop Activated - Breakeven Secured! 🛡️")
+                print(" Trail Stop Activated - Breakeven Secured! ")
 
 # 🧹 Data Cleaning Ritual
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

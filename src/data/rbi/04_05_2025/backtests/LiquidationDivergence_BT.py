@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's Liquidation Divergence Backtest 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -28,18 +26,18 @@ class LiquidationDivergence(Strategy):
 
     def init(self):
         # 🌟 Core Indicators
-        self.lq_high = self.I(talib.MAX, self.data.High, timeperiod=self.liquidation_window, name='LIQUIDATION HIGH 🌊')
-        self.lq_low = self.I(talib.MIN, self.data.Low, timeperiod=self.liquidation_window, name='LIQUIDATION LOW 🌊')
-        self.rsi = self.I(talib.RSI, self.data.Close, self.rsi_period, name='RSI 📉')
-        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name='ATR ⚡')
+        self.lq_high = self.I(talib.MAX, self.data.High, timeperiod=self.liquidation_window, name='LIQUIDATION HIGH ')
+        self.lq_low = self.I(talib.MIN, self.data.Low, timeperiod=self.liquidation_window, name='LIQUIDATION LOW ')
+        self.rsi = self.I(talib.RSI, self.data.Close, self.rsi_period, name='RSI ')
+        self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, self.atr_period, name='ATR ')
         
         # 🌐 Exchange Flow Simulation
-        self.flow_short = self.I(talib.SMA, self.data.Volume, 5, name='FLOW SHORT 🌌')
-        self.flow_long = self.I(talib.SMA, self.data.Volume, 20, name='FLOW LONG 🌠')
+        self.flow_short = self.I(talib.SMA, self.data.Volume, 5, name='FLOW SHORT ')
+        self.flow_long = self.I(talib.SMA, self.data.Volume, 20, name='FLOW LONG ')
         self.net_flow = self.flow_short - self.flow_long
         
         # 📊 Volume Profile
-        self.vol_profile = self.I(talib.SMA, self.data.Close * self.data.Volume, 50, name='VOL PROFILE 🔊')
+        self.vol_profile = self.I(talib.SMA, self.data.Close * self.data.Volume, 50, name='VOL PROFILE ')
 
     def next(self):
         # 🌙 Avoid Early Calculations
@@ -82,8 +80,8 @@ class LiquidationDivergence(Strategy):
                 if risk_per_unit > 0:
                     size = int(round(risk_amount / risk_per_unit))
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🌕 MOON DEV LONG! 🌙 | Size: {size} | Entry: {price:.2f}")
-                    print(f"🔮 SL: {sl:.2f} | 🌠 TP: {tp:.2f}")
+#                     print(f"🌕 MOON DEV LONG! 🌙 | Size: {size} | Entry: {price:.2f}")
+                    print(f" SL: {sl:.2f} |  TP: {tp:.2f}")
 
             elif short_signal:
                 sl = lq_high + 1.7 * atr

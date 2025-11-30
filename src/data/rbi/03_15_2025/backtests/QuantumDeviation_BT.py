@@ -36,14 +36,14 @@ class QuantumDeviation(Strategy):
                     'entry_spread': current_spread,
                     'std_spread': current_std
                 })
-                print(f"🚀 MOON DEV SHORT: Price={self.data.Close[-1]:.2f} | Spread={current_spread:.2f}σ | Size={position_size}")
+                print(f"🚀 MOON DEV SHORT: Price={self.data.Close[-1]:0.2f} | Spread={current_spread:0.2f}σ | Size={position_size}")
 
             elif current_spread < lower_band and position_size > 0:
                 self.buy(size=position_size, tag={
                     'entry_spread': current_spread,
                     'std_spread': current_std
                 })
-                print(f"🌙 MOON DEV LONG: Price={self.data.Close[-1]:.2f} | Spread={current_spread:.2f}σ | Size={position_size}")
+                print(f"🌙 MOON DEV LONG: Price={self.data.Close[-1]:0.2f} | Spread={current_spread:0.2f}σ | Size={position_size}")
 
         # Exit logic with quantum precision ⚛️
         else:
@@ -56,14 +56,14 @@ class QuantumDeviation(Strategy):
                 sl = entry_spread - 3 * entry_std
                 if current_spread >= tp or current_spread <= sl:
                     pos.close()
-                    print(f"✨ LONG CLOSE: Profit={pos.pl:.2f} | Exit Spread={current_spread:.2f}σ")
+                    print(f"✨ LONG CLOSE: Profit={pos.pl:0.2f} | Exit Spread={current_spread:0.2f}σ")
 
             elif pos.is_short:
                 tp = entry_spread - 1.5 * entry_std
                 sl = entry_spread + 3 * entry_std
                 if current_spread <= tp or current_spread >= sl:
                     pos.close()
-                    print(f"✨ SHORT CLOSE: Profit={pos.pl:.2f} | Exit Spread={current_spread:.2f}σ")
+                    print(f"✨ SHORT CLOSE: Profit={pos.pl:0.2f} | Exit Spread={current_spread:0.2f}σ")
 
 # Data preparation with cosmic cleaning 🌠
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
@@ -80,7 +80,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 # Launch backtest 🚀
-bt = Backtest(data, QuantumDeviation, cash=1_000_000, commission=.002)
+bt = Backtest(data, QuantumDeviation, cash=1_000_000, commission=0.002)
 stats = bt.run()
 print(stats)
 print(stats._strategy)

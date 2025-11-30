@@ -1,6 +1,3 @@
-I'll fix the incomplete backtest code while maintaining the original strategy logic. Here's the complete, debugged version with Moon Dev themed prints:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -22,7 +19,7 @@ data.rename(columns={
     'volume': 'Volume'
 }, inplace=True)
 
-print("🌙✨ MOON DEV DATA PREP: Data loaded and preprocessed successfully ✨🚀")
+# print("🌙✨ MOON DEV DATA PREP: Data loaded and preprocessed successfully ✨🚀")
 
 class QuantileCompression(Strategy):
     bb_period = 20
@@ -58,8 +55,8 @@ class QuantileCompression(Strategy):
         self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=self.rsi_period)
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         
-        print("🌙✨ MOON DEV INIT: Strategy initialized with stellar indicators ✨🚀")
-        print("🌙📊 Indicators deployed:")
+#         print("🌙✨ MOON DEV INIT: Strategy initialized with stellar indicators ✨🚀")
+        print(" Indicators deployed:")
         print(f"   - Bollinger Bands ({self.bb_period} period)")
         print(f"   - RSI ({self.rsi_period} period)")
         print(f"   - ATR (14 period)")
@@ -84,7 +81,7 @@ class QuantileCompression(Strategy):
                 sl = self.lower[-1]
                 risk = self.data.Close[-1] - sl
                 if risk <= 0: 
-                    print("🌙⚠️ MOON DEV WARNING: Invalid risk calculation, skipping trade")
+#                     print("🌙⚠️ MOON DEV WARNING: Invalid risk calculation, skipping trade")
                     return
                 
                 position_size = int(round((self.equity * self.risk_pct) / risk))

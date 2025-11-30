@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -59,20 +58,20 @@ class VolatilityQuotient(Strategy):
                 self.trail_peak = max(self.trail_peak, self.data.High[-1])
                 if price < self.trail_peak * (1 - self.trailing_stop_pct):
                     self.position.close()
-                    print(f"🌙✨ Trailing stop hit at {price:.2f}!")
+                    print(f" Trailing stop hit at {price:.2f}!")
                     self.trail_active = False
                     return
                 
             # RSI exit
             if crossover(self.rsi[-2:], 70):
                 self.position.close()
-                print(f"🌙🚨 RSI Exit at {price:.2f}")
+                print(f" RSI Exit at {price:.2f}")
                 self.trail_active = False
             
             # Volatility expansion exit
             if crossover(self.hv_10[-2:], self.hv_ma[-2:]):
                 self.position.close()
-                print(f"🌙⚡ HV Exit at {price:.2f}")
+                print(f" HV Exit at {price:.2f}")
                 self.trail_active = False
         
         # Entry conditions
@@ -86,7 +85,7 @@ class VolatilityQuotient(Strategy):
                 risk_per_share = price - sl_price
                 
                 if risk_per_share <= 0:
-                    print("🌙⚠️ Invalid SL, skip entry")
+                    print(" Invalid SL, skip entry")
                     return
                 
                 # Position sizing
@@ -97,6 +96,6 @@ class VolatilityQuotient(Strategy):
                 
                 if size > 0:
                     self.buy(size=size, sl=sl_price)
-                    print(f"🚀🌙 LONG Entry: {size} units @ {price:.2f}")
+                    print(f" LONG Entry: {size} units @ {price:.2f}")
                     self.trail_peak = price
                     # Activate

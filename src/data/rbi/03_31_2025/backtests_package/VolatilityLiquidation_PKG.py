@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and proper indicator implementations:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np
@@ -55,7 +52,7 @@ class VolatilityLiquidation(Strategy):
         # Liquidation clusters 🌌
         self.liquidation_cluster = self.I(lambda: self.data.df['liquidation_cluster'])
         
-        print("🌙 Moon Dev Strategy Initialized! Ready for Launch! 🚀")
+#         print("🌙 Moon Dev Strategy Initialized! Ready for Launch! 🚀")
 
     def next(self):
         if len(self.data) < 100*24*4:  # Ensure enough data
@@ -83,4 +80,4 @@ class VolatilityLiquidation(Strategy):
             self.sell(size=position_size, 
                       sl=current_close*1.02, 
                       tp=current_close*0.98)
-            print(f"🚀 MOON DEV SHORT SIGNAL 🌙 | Size: {position_size} | Entry: {current
+#             print(f"🚀 MOON DEV SHORT SIGNAL 🌙 | Size: {position_size} | Entry: {current"

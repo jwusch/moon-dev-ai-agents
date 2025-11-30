@@ -1,6 +1,3 @@
-I'll analyze the code and ensure it meets all backtesting requirements while maintaining the original strategy logic. Here's the debugged version with Moon Dev enhancements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -8,7 +5,7 @@ import pandas_ta as pta
 
 # Data Preparation - Lunar Data Loading 🌙
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
-print("🌑 Loading celestial market data from:", data_path)
+print(" Loading celestial market data from:", data_path)
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
 # Clean and format columns - Moon Dust Removal ✨
@@ -21,7 +18,7 @@ data.rename(columns={
     'close': 'Close',
     'volume': 'Volume'
 }, inplace=True)
-print("🌒 Data purification complete! Ready for lunar analysis")
+print(" Data purification complete! Ready for lunar analysis")
 
 class VortexSurge(Strategy):
     def init(self):
@@ -41,7 +38,7 @@ class VortexSurge(Strategy):
         # ATR for exit conditions - Cosmic Volatility ☄️
         self.atr = self.I(talib.ATR, high, low, close, timeperiod=14)
         
-        print("🌙 Moon Dev Indicators Ready! Vortex Surge Activated 🚀")
+#         print("🌙 Moon Dev Indicators Ready! Vortex Surge Activated 🚀")
 
     def next(self):
         # Skip early bars where indicators are NaN - Waiting for Full Moon 🌕
@@ -87,7 +84,7 @@ class VortexSurge(Strategy):
                             'tp_price': tp_price
                         }
                     )
-                    print(f"🚀 MOON DEV ENTRY! Size: {position_size} units @ {self.data.Close[-1]:.2f} 🌙 TP: {tp_price:.2f}")
+#                     print(f"🚀 MOON DEV ENTRY! Size: {position_size} units @ {self.data.Close[-1]:.2f} 🌙 TP: {tp_price:.2f}")
 
         # Exit conditions - Re-entry Protocol 🛸
         elif self.position:
@@ -96,6 +93,6 @@ class VortexSurge(Strategy):
             
             if bearish_crossover:
                 self.position.close()
-                print(f"🌘 MOON DEV EXIT! VI Reversal Signal @ {self.data.Close[-1]:.2f}")
+#                 print(f"🌘 MOON DEV EXIT! VI Reversal Signal @ {self.data.Close[-1]:.2f}")
 
 # Run back

@@ -1,7 +1,3 @@
-Here's the debugged backtest code with Moon Dev themed improvements while maintaining the original strategy logic:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -30,7 +26,7 @@ data.rename(columns=column_mapping, inplace=True)
 
 # Validate cosmic data integrity
 required_columns = ['Open', 'High', 'Low', 'Close', 'Volume']
-assert all(col in data.columns for col in required_columns), "🚨 Missing celestial columns!"
+assert all(col in data.columns for col in required_columns), " Missing celestial columns!"
 
 class DeviantBounce(Strategy):
     def init(self):
@@ -41,9 +37,9 @@ class DeviantBounce(Strategy):
         if 'funding_rate' in self.data.df.columns:
             self.funding_avg, self.funding_std, self.funding_lower = self.I(self._compute_funding_bands, self.data.df['funding_rate'])
         else:
-            raise ValueError("🌌 Cosmic anomaly detected! 'funding_rate' column missing from data")
+            raise ValueError(" Cosmic anomaly detected! 'funding_rate' column missing from data")
 
-        print("🌙✨ Lunar indicators initialized! Ready for cosmic alignment...")
+        print(" Lunar indicators initialized! Ready for cosmic alignment...")
 
     def _compute_bbands(self, close):
         upper, middle, lower = talib.BBANDS(close, 
@@ -75,11 +71,11 @@ class DeviantBounce(Strategy):
                 
                 if risk_per_share > 0:
                     position_size = int(round(risk_amount / risk_per_share))
-                    if position_size > 0:  # Ensure we don't trade zero size
+                    if position_size > 0:  # Ensure we don't trade zero size'
                         self.buy(size=position_size, sl=sl_price)
-                        print(f"🌕🚀 MOONSHOT! Long {position_size} units @ {price:.2f}")
-                        print(f"   🌙 Funding Rate: {self.data.df['funding_rate'][-1]:.6f}")
-                        print(f"   📉 Lower Band: {self.lower_bb[-1]:.2f}")
+                        print(f" MOONSHOT! Long {position_size} units @ {price:.2f}")
+                        print(f"    Funding Rate: {self.data.df['funding_rate'][-1]:.6f}")
+                        print(f"    Lower Band: {self.lower_bb[-1]:.2f}")
 
         # 🌕 Full Moon Exit Strategy
         elif self.position:
@@ -90,8 +86,8 @@ class DeviantBounce(Strategy):
             # Check both exit conditions
             if self.data.High[-1] >= middle_bb or self.data.High[-1] >= take_profit:
                 self.position.close()
-                print(f"🌗🌠 Cosmic Exit @ {self.data.Close[-1]:.2f}")
-                print(f"   🌕 Profit: {(self.data.Close[-1]/entry_price-1)*100:.2f}%")
+                print(f" Cosmic Exit @ {self.data.Close[-1]:.2f}")
+                print(f"    Profit: {(self.data.Close[-1]/entry_price-1)*100:.2f}%")
 
 # 🌟 Launch Lunar Backtest
 bt = Backtest(data, DeviantBounce, cash=1_000_000, commission=.002)

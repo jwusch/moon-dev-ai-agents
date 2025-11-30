@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -16,7 +14,7 @@ class LiquidationCluster(Strategy):
     def init(self):
         # Data preprocessing checks
         if 'funding_rate' not in self.data.df.columns or 'open_interest' not in self.data.df.columns:
-            raise ValueError("❌ Missing required columns: funding_rate and open_interest")
+            raise ValueError(" Missing required columns: funding_rate and open_interest")
             
         # Indicator calculations
         self.oi_max = self.I(talib.MAX, self.data.df['open_interest'], timeperiod=4)
@@ -42,7 +40,7 @@ class LiquidationCluster(Strategy):
         # Entry logic
         if not self.position and not self.entry_triggered:
             if current_funding < self.funding_rate_threshold and oi_pct_drop < self.oi_drop_threshold:
-                print(f"🌙 MOON ALERT! Liquidation cluster detected 🌑")
+                print(f" MOON ALERT! Liquidation cluster detected ")
                 print(f"   Funding Rate: {current_funding*100:.4f}% | OI Drop: {oi_pct_drop:.2f}%")
                 self.entry_triggered = True
                 self.lowest_oi = current_oi
@@ -56,7 +54,7 @@ class LiquidationCluster(Strategy):
             else:
                 self.stabilization_count += 1
 
-            print(f"✨ Stabilization progress: {self.stabilization_count}/{self.stabilization_period} candles")
+            print(f" Stabilization progress: {self.stabilization_count}/{self.stabilization_period} candles")
 
             if self.stabilization_count >= self.stabilization_period:
                 # Calculate position size with risk management
@@ -69,12 +67,12 @@ class LiquidationCluster(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("⚠️ Abort: Invalid stop loss")
+                    print(" Abort: Invalid stop loss")
                     self.entry_triggered = False
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
-                print(f"🚀 LAUNCHING POSITION: Size {position_size} @ {entry_price:.2f}")
+                print(f" LAUNCHING POSITION: Size {position_size} @ {entry_price:.2f}")
                 
                 self.buy(size=position_size, sl=stop_loss)
                 self.entry_bar = len(self.data)
@@ -84,7 +82,7 @@ class LiquidationCluster(Strategy):
         if self.position:
             # Funding rate normalization
             if current_funding >= self.exit_funding_rate:
-                print(f"🎯 TARGET HIT: Funding rate normalized to {current_funding*100:.4f}%")
+                print(f" TARGET HIT: Funding rate normalized to {current_funding*100:.4f}%")
                 self.position.close()
             
             # Time-based exit
@@ -93,4 +91,4 @@ class LiquidationCluster(Strategy):
                 self.position.close()
 
 # Data preprocessing
-data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m
+data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m"

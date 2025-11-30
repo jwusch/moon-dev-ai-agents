@@ -1,6 +1,3 @@
-Here's the complete backtesting implementation for the MomentumSynergy strategy:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -57,13 +54,13 @@ class MomentumSynergy(Strategy):
                 sl = current_price - 2 * atr_value
                 tp = current_price + 4 * atr_value  # 2:1 RR
                 self.buy(size=position_size, sl=sl, tp=tp)
-                print(f"🌕 Moon Dev LONG Entry 🚀 | Size: {position_size} | Price: {current_price:.2f}")
-                print(f"   SL: {sl:.2f} | TP: {tp:.2f} 🌙")
+#                 print(f"🌕 Moon Dev LONG Entry 🚀 | Size: {position_size} | Price: {current_price:0.2f}")
+                print(f"   SL: {sl:0.2f} | TP: {tp:0.2f} ")
 
         # 🌑 Exit Logic: Correlation crosses below 0.7
         elif self.position.is_long and current_corr < 0.7 and prev_corr >= 0.7:
             self.position.close()
-            print(f"🌑 Moon Dev EXIT Signal ✨ | Price: {current_price:.2f}")
+#             print(f"🌑 Moon Dev EXIT Signal ✨ | Price: {current_price:0.2f}")
 
             # Update position sizing based on trade outcome
             if self.trades:
@@ -71,21 +68,21 @@ class MomentumSynergy(Strategy):
                 if last_trade.pnl > 0:
                     self.current_size = min(self.current_size * 1.2, self.max_size)
                     self.consecutive_wins += 1
-                    print(f"✨ WINNER! Size ↑ {self.current_size*100:.2f}% 🚀")
+                    print(f" WINNER! Size ↑ {self.current_size*100:0.2f}% ")
                 else:
                     self.current_size = self.base_size
                     self.consecutive_wins = 0
-                    print(f"🌙 LOSS... Reset to {self.base_size*100}% ✨")
+                    print(f" LOSS... Reset to {self.base_size*100}% ")
 
             # Reset if maximum consecutive wins reached
             if self.consecutive_wins >= self.max_consecutive:
                 self.current_size = self.base_size
                 self.consecutive_wins = 0
-                print(f"🌓 MAX WINS REACHED! Size reset 🌙")
+                print(f" MAX WINS REACHED! Size reset ")
 
         # 🚨 Risk Management: Max 20% Drawdown
         if self.equity < self.initial_equity * 0.8:
-            print(f"⚠️ CRITICAL DRAWDOWN! Stopping trading 🌑")
+            print(f" CRITICAL DRAWDOWN! Stopping trading ")
             self.stop()
 
 # 🌕✨ Run Moon Dev Backtest

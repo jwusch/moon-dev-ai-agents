@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed backtest code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -36,7 +32,7 @@ class VortexConfirmation(Strategy):
 
     def next(self):
         if self.position:
-            return  # 🌌 Only one position at a time
+            return  #  Only one position at a time
 
         # 🌠 Current Indicator Values
         vi_cross = (self.vi_plus[-2] < self.vi_minus[-2] and self.vi_plus[-1] > self.vi_minus[-1])
@@ -59,8 +55,8 @@ class VortexConfirmation(Strategy):
             if position_size > 0:
                 self.buy(size=position_size,
                         sl=current_close - stop_distance,
-                        tag="🌙 LONG: Vortex+Cross & OBV Rising")
-                print(f"🌙🚀 BUY Signal @ {current_close:.2f} | Size: {position_size} | SL: {current_close - stop_distance:.2f}")
+                        tag=" LONG: Vortex+Cross & OBV Rising")
+                print(f" BUY Signal @ {current_close:.2f} | Size: {position_size} | SL: {current_close - stop_distance:.2f}")
 
         # 🌪️ Short Entry Logic
         elif vi_reverse and obv_trend_down:
@@ -71,17 +67,17 @@ class VortexConfirmation(Strategy):
             if position_size > 0:
                 self.sell(size=position_size,
                          sl=current_close + stop_distance,
-                         tag="🌙 SHORT: Vortex-Cross & OBV Falling")
-                print(f"🌙🌪️ SELL Signal @ {current_close:.2f} | Size: {position_size} | SL: {current_close + stop_distance:.2f}")
+                         tag=" SHORT: Vortex-Cross & OBV Falling")
+                print(f" SELL Signal @ {current_close:.2f} | Size: {position_size} | SL: {current_close + stop_distance:.2f}")
 
         # 💫 Exit Logic
         if self.position.is_long and (current_close < kc_lower) and (atr_val < self.atr_threshold):
             self.position.close()
-            print(f"🌙🔻 EXIT LONG @ {current_close:.2f} | Below KC & Low Volatility")
+            print(f" EXIT LONG @ {current_close:.2f} | Below KC & Low Volatility")
             
         elif self.position.is_short and (current_close > kc_upper) and (atr_val < self.atr_threshold):
             self.position.close()
-            print(f"🌙🔼 EXIT SHORT @ {current_close:.2f} | Above KC & Low Volatility")
+            print(f" EXIT SHORT @ {current_close:.2f} | Above KC & Low Volatility")
 
 # 🌙 Data Preparation Ritual
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

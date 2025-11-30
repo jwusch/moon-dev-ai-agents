@@ -1,6 +1,3 @@
-The code you provided is already well-structured and doesn't contain any `backtesting.lib` imports or functions. However, I'll ensure that all indicators are properly wrapped in `self.I()` and that the code follows Moon Dev's best practices. Here's the cleaned-up and verified version of your code:
-
-```python
 import numpy as np
 import pandas as pd
 from backtesting import Strategy, Backtest
@@ -60,7 +57,7 @@ class VolatilityPulse(Strategy):
             self.consecutive_losses = 0
             self.daily_high = self.equity
             self.trading_halted = False
-            print(f"🌙 New Moon Day: {current_date} - Fresh trading day started!")
+            print(f" New Moon Day: {current_date} - Fresh trading day started!")
         
         if self.trading_halted:
             return
@@ -70,14 +67,14 @@ class VolatilityPulse(Strategy):
         
         # Check daily drawdown
         if (self.daily_high - self.equity)/self.daily_high >= 0.03:
-            print(f"🌧️ Moon Dev Alert: 3% Daily Drawdown Reached! Trading halted.")
+#             print(f"🌧️ Moon Dev Alert: 3% Daily Drawdown Reached! Trading halted.")
             self.trading_halted = True
             return
         
         # Skip entries if low volatility
         current_atr = self.atr[-1]
         if not self.position and current_atr < self.atr_20_avg[-1]:
-            print(f"🌫️ Moon Dev: Low volatility filter active (ATR {current_atr:.2f} < 20MA)")
+#             print(f"🌫️ Moon Dev: Low volatility filter active (ATR {current_atr:.2f} < 20MA)")
             return
             
         # Entry logic

@@ -1,7 +1,3 @@
-Here's the complete fixed backtest code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 Moon Dev Squeeze Momentum Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as pta
@@ -47,13 +43,13 @@ class SqueezeMomentum(Strategy):
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, 
                          self.data.Close, 14, name='ATR 14')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready for launch! ✨")
-        print("🔭 Tracking HMA | 📊 BB Width | 📈 Volume Spikes")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready for launch! ✨")
+        print(" Tracking HMA |  BB Width |  Volume Spikes")
 
     def next(self):
         # Wait for enough data 🌙
         if len(self.data) < 100:
-            print("🌙⏳ Gathering cosmic data... Need more bars for accurate readings")
+            print("⏳ Gathering cosmic data... Need more bars for accurate readings")
             return
 
         # ======================
@@ -77,10 +73,10 @@ class SqueezeMomentum(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.highest_high = self.data.High[-1]
-                    print(f"🌙🚀 MOON BLASTOFF! Long {position_size} units @ {self.data.Close[-1]:.2f}")
-                    print(f"💎 HMA Rising: {self.hma[-1]:.2f} > {self.hma[-2]:.2f}")
-                    print(f"📉 BB Squeeze: {self.bbw[-1]:.4f} < {0.5 * self.bbw_avg[-1]:.4f}")
-                    print(f"📈 Volume Spike: {self.data.Volume[-1]:.0f} > {1.5 * self.vol_median[-1]:.0f}")
+                    print(f" MOON BLASTOFF! Long {position_size} units @ {self.data.Close[-1]:.2f}")
+                    print(f" HMA Rising: {self.hma[-1]:.2f} > {self.hma[-2]:.2f}")
+                    print(f" BB Squeeze: {self.bbw[-1]:.4f} < {0.5 * self.bbw_avg[-1]:.4f}")
+                    print(f" Volume Spike: {self.data.Volume[-1]:.0f} > {1.5 * self.vol_median[-1]:.0f}")
 
         # ======================
         # EXIT LOGIC

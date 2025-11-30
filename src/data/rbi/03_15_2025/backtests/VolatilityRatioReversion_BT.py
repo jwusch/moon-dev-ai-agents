@@ -42,12 +42,12 @@ class VolatilityRatioReversion(Strategy):
             
             if position_size > 0:
                 self.buy(size=position_size, sl=stop_loss, tp=take_profit)
-                print(f"🌙✨ MOON DEV LONG SIGNAL! Ratio: {current_ratio:.2f} | Size: {position_size} ✨🚀")
+                print(f"🌙✨ MOON DEV LONG SIGNAL! Ratio: {current_ratio:0.2f} | Size: {position_size} ✨🚀")
 
         # 🌑🛑 Exit logic
         elif self.position and current_ratio < self.lower_threshold:
             self.position.close()
-            print(f"🌙🛑 MOON DEV EXIT SIGNAL! Ratio: {current_ratio:.2f} 🛑🔻")
+            print(f"🌙🛑 MOON DEV EXIT SIGNAL! Ratio: {current_ratio:0.2f} 🛑🔻")
 
 # 🌙 DATA PREPARATION
 data_path = '/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv'
@@ -65,7 +65,7 @@ data = data.rename(columns={
 })
 
 # 🌙✨ RUN BACKTEST
-bt = Backtest(data, VolatilityRatioReversion, cash=1_000_000, commission=.002)
+bt = Backtest(data, VolatilityRatioReversion, cash=1_000_000, commission=0.002)
 stats = bt.run()
 
 # 🌟 PRINT FULL RESULTS

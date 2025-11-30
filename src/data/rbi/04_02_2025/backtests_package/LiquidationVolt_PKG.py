@@ -1,14 +1,10 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed debug prints added:
-
-```python
-# moon_dev_liquidation_volt_backtest.py
 from backtesting import Backtest, Strategy
 import talib
 import pandas as pd
 import numpy as np
 
 class LiquidationVolt(Strategy):
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     atr_period = 14
     atr_ma_period = 20
     cluster_lookback = 20
@@ -50,24 +46,24 @@ class LiquidationVolt(Strategy):
         
         if not self.position and near_swing_low and low_volatility:
             # 🎯 Calculate risk parameters
-            entry_price = self.data.Open[-1]  # Next candle's open
+            entry_price = self.data.Open[-1]  # Next candle's open'
             stop_loss = self.swing_low[-1] - 2 * current_atr
             risk_per_share = entry_price - stop_loss
             
             if risk_per_share > 0:  # Avoid zero division
                 position_size = (self.risk_pct * self.equity) / risk_per_share
-                position_size = int(round(position_size))  # ⚖️ Critical sizing rule
+                position_size = int(round(position_size))  #  Critical sizing rule
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, 
-                            tag="🌙 MOON VOLTAGE ENTRY")
-                    print(f"🌙✨ ENTERED LONG: {position_size} units at {entry_price:.2f}")
-                    print(f"   SL: {stop_loss:.2f} | ATR: {current_atr:.2f} 📉")
+                            tag=" MOON VOLTAGE ENTRY")
+                    print(f" ENTERED LONG: {position_size} units at {entry_price:.2f}")
+                    print(f"   SL: {stop_loss:.2f} | ATR: {current_atr:.2f} ")
 
         # 🚀 VOLTAGE EXPANSION EXIT (replaced crossover with manual check)
         elif self.position and (self.atr[-2] < self.atr_ma[-2] and self.atr[-1] > self.atr_ma[-1]):
             self.position.close()
-            print(f"🚀🌕 EXIT: ATR({current_atr:.2f}) > MA({self.atr_ma[-1]:.2f}) | Profit: {self.position.pl:.2f} 💰")
+            print(f" EXIT: ATR({current_atr:.2f}) > MA({self.atr_ma[-1]:.2f}) | Profit: {self.position.pl:.2f} ")
 
 # MOON DEV DATA PREPARATION 🌙
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')

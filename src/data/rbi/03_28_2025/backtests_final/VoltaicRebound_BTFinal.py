@@ -1,7 +1,3 @@
-Here's the fixed and complete backtest code with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev Backtest Implementation for VoltaicRebound Strategy
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -53,7 +49,7 @@ class VoltaicRebound(Strategy):
         self.width_min = self.I(talib.MIN, self.donchian_width, 100)
         self.width_max = self.I(talib.MAX, self.donchian_width, 100)
         
-        print("🌙✨ Moon Dev Trading Engines Activated! 🚀")
+#         print("🌙✨ Moon Dev Trading Engines Activated! 🚀")
 
     def next(self):
         # 🌑 Skip early bars without indicator data
@@ -66,7 +62,7 @@ class VoltaicRebound(Strategy):
         current_width = self.donchian_width[-1]
         p20_level = self.width_min[-1] + 0.2*(self.width_max[-1] - self.width_min[-1])
         if current_width <= p20_level:
-            print(f"🌑 Moon Dev Alert: Volatility Contraction ({current_width:.2f} ≤ {p20_level:.2f})")
+#             print(f"🌑 Moon Dev Alert: Volatility Contraction ({current_width:.2f} ≤ {p20_level:.2f})")
             return
 
         # 🚀 Long Entry Logic
@@ -83,11 +79,11 @@ class VoltaicRebound(Strategy):
                 risk_per_share = entry_price - stop_price
                 
                 if risk_per_share <= 0:
-                    print("🌑 Moon Dev Warning: Negative Risk Detected!")
+#                     print("🌑 Moon Dev Warning: Negative Risk Detected!")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_price,
-                            tag="🌙 VoltaicRebound Entry")
-                    print(f"🚀 Moon Dev
+                            tag=" VoltaicRebound Entry")
+#                     print(f"🚀 Moon Dev"

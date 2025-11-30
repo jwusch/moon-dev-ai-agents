@@ -1,6 +1,3 @@
-Here's the fixed and completed code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
 import pandas as pd
 import pandas_ta
 import talib
@@ -89,11 +86,11 @@ class FundingCloudBreak(Strategy):
             if self.data['4h_close_flag'][-1]:
                 if self.data.Close[-1] > self.kijun[-1]:
                     self.position.close()
-                    print(f"🌙✨ Moon Exit Signal: 4H Close Above Kijun ({self.kijun[-1]:.2f})! Lunar cycle complete!")
+                    print(f" Moon Exit Signal: 4H Close Above Kijun ({self.kijun[-1]:.2f})! Lunar cycle complete!")
         else:
             # Validate we have enough data
             if len(self.data) < 26 or pd.isna(self.senkou_a[-1]) or pd.isna(self.senkou_b[-1]):
-                print("🌑 Waiting for more data to align with lunar phases...")
+                print(" Waiting for more data to align with lunar phases...")
                 return
             
             # Entry conditions
@@ -104,7 +101,7 @@ class FundingCloudBreak(Strategy):
             if funding_condition and price_condition:
                 atr_val = self.atr[-1]
                 if atr_val == 0:
-                    print("⚠️ Warning: ATR value zero - skipping trade to avoid black hole scenario")
+                    print(" Warning: ATR value zero - skipping trade to avoid black hole scenario")
                     return
                 
                 # Risk management

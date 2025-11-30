@@ -1,7 +1,3 @@
-I'll debug the code while maintaining the original strategy logic and adding Moon Dev themed improvements. Here's the fixed version:
-
-```python
-# 🌙 MOON DEV BACKTESTING IMPLEMENTATION 🌙
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -71,11 +67,11 @@ class VortexVolumeSynergy(Strategy):
                 risk_per_share = price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌑 MOON DEV WARNING: Invalid risk calculation - skipping trade")
+#                     print("🌑 MOON DEV WARNING: Invalid risk calculation - skipping trade")
                     return
                 
                 position_size = int(round(risk_amount / risk_per_share))
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tag='MoonDev_Entry')
-                    print(f"🌕 MOON DEV ENTRY 🌕 | Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss
+#                     print(f"🌕 MOON DEV ENTRY 🌕 | Size: {position_size} | Entry: {price:.2f} | SL: {stop_loss"

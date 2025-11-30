@@ -1,8 +1,3 @@
-Here's the fixed and completed backtest code with proper position sizing and all technical issues resolved:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILITY SQUEEZE TRIGGER STRATEGY 🚀
-
 from backtesting import Backtest, Strategy
 import pandas as pd
 import numpy as np

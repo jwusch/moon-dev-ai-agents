@@ -1,7 +1,3 @@
-Here's the fully debugged and Moon Dev themed version of your TerminusVoltron strategy: 🌙✨
-
-```python
-# 🌙 Moon Dev Backtest AI - TerminusVoltron Strategy 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -10,7 +6,7 @@ from backtesting import Backtest, Strategy
 # ========================
 # DATA PREPARATION
 # ========================
-print("🌙 Initializing Moon Dev Data Systems...")
+# print("🌙 Initializing Moon Dev Data Systems...")
 data_path = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv"
 data = pd.read_csv(data_path, parse_dates=['datetime'], index_col='datetime')
 
@@ -27,7 +23,7 @@ data = data.rename(columns={
 
 # Add mock VIX data if not present (for testing)
 if 'vix_front' not in data.columns:
-    print("✨ Synthesizing VIX term structure data for backtest...")
+    print(" Synthesizing VIX term structure data for backtest...")
     data['vix_front'] = np.random.uniform(15, 30, len(data))
     data['vix_second'] = data['vix_front'] * np.random.uniform(0.9, 1.1, len(data))
 
@@ -50,7 +46,7 @@ class TerminusVoltron(Strategy):
         # 🌙 VIX TERM STRUCTURE TRACKING
         self.peak_adx = 0
         self.entry_vix = 0
-        print("🚀 TerminusVoltron Strategy Activated - Moon Dev Systems Online")
+#         print("🚀 TerminusVoltron Strategy Activated - Moon Dev Systems Online")
 
     def next(self):
         if len(self.adx) < 2:
@@ -68,20 +64,20 @@ class TerminusVoltron(Strategy):
         contango = front_month < second_month
         
         # 🌙 DEBUG PRINTING
-        print(f"\n🌙 MOON DEV DATA: Close={current_close:.2f} | ADX={current_adx:.2f}")
-        print(f"✨ VIX Term Structure: Front={front_month:.2f} vs Second={second_month:.2f}")
+#         print(f"\n🌙 MOON DEV DATA: Close={current_close:.2f} | ADX={current_adx:.2f}")
+        print(f" VIX Term Structure: Front={front_month:.2f} vs Second={second_month:.2f}")
 
         if not self.position:
             # 🌙 ENTRY LOGIC
             if backwardation and current_adx > 25 and adx_rising:
                 size = (self.equity * self.risk_pct) / current_close
-                size = int(round(size))  # 🌙 Ensure whole units
+                size = int(round(size))  #  Ensure whole units
                 if size > 0:
                     stop_price = current_close * (1 - self.trailing_stop)
                     self.buy(size=size, sl=stop_price)
                     self.peak_adx = current_adx
                     self.entry_vix = front_month
-                    print(f"🚀 MOON DEV ENTRY: Long {size} units @ {current_close:.2f} with {self.trailing_stop*100:.0f}% stop!")
+#                     print(f"🚀 MOON DEV ENTRY: Long {size} units @ {current_close:.2f} with {self.trailing_stop*100:.0f}% stop!")
         else:
             # 🌙 UPDATE PEAK ADX
             if current_adx > self.peak_adx:

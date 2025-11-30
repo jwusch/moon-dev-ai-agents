@@ -1,7 +1,3 @@
-Here's the complete backtesting implementation for the LiquiditySurgeBreakout strategy:
-
-```python
-# 🌙 MOON DEV BACKTESTING ENGINE 🌙
 import pandas as pd
 import numpy as np
 import talib
@@ -78,8 +74,8 @@ class LiquiditySurgeBreakout(Strategy):
                     self.buy(size=position_size, 
                             sl=sl_price,
                             tp=tp_price)
-                    print(f"🌕 MOONSHOT ALERT! 🌕 | Entry: {price:.2f} | Size: {position_size}")
-                    print(f"   🛡️ Shield at {sl_price:.2f} | 🌠 Target {tp_price:.2f}")
+                    print(f" MOONSHOT ALERT!  | Entry: {price:.2f} | Size: {position_size}")
+                    print(f"    Shield at {sl_price:.2f} |  Target {tp_price:.2f}")
         
         # 🪐 SHORT LOGIC (MIRRORED FOR COMPLETENESS)
         # ... Similar bearish condition checks ...
@@ -88,6 +84,6 @@ class LiquiditySurgeBreakout(Strategy):
         if trade.is_closed:
             profit = trade.pl_pct * 100
             if profit > 0:
-                print(f"🎯 PROPHECY FULFILLED! +{profit:.2f}% 🌙✨")
+                print(f" PROPHECY FULFILLED! +{profit:.2f}% ")
             else:
-                print(f"💥 COSMIC DISRUPTION! {profit:.2f}% 🌑⛈️")
+                print(f" COSMIC DISRUPTION! {profit:.2f}% ")

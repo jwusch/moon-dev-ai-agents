@@ -1,7 +1,3 @@
-I'll debug the backtest code while maintaining the original strategy logic and adding Moon Dev themed improvements. Here's the complete fixed version:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta
@@ -12,7 +8,7 @@ class VortexSqueeze(Strategy):
     
     def init(self):
         # 🌙 Moon Dev Indicator Calculation Phase ✨
-        print("🌙 Initializing VortexSqueeze strategy with Moon Dev power...")
+#         print("🌙 Initializing VortexSqueeze strategy with Moon Dev power...")
         
         # 1. Vortex Indicator
         vortex = pandas_ta.vortex(
@@ -60,10 +56,10 @@ class VortexSqueeze(Strategy):
             position_size = risk_amount / risk_per_share
             position_size = int(round(position_size))  # Ensure whole number of units
             
-            print(f"🌙 VortexSqueeze BUY TRIGGERED! ✨\n"
+            print(f" VortexSqueeze BUY TRIGGERED! \n"
                   f"Entry: {current_close:.2f} | "
                   f"SL: {stop_loss:.2f} | "
-                  f"Size: {position_size} contracts 🚀")
+                  f"Size: {position_size} contracts ")
             
             self.buy(size=position_size, sl=stop_loss)
 
@@ -72,7 +68,7 @@ class VortexSqueeze(Strategy):
             # VI- crosses above VI+ (replaced crossover with manual check)
             if (self.vi_minus[-2] < self.vi_plus[-2] and 
                 self.vi_minus[-1] > self.vi_plus[-1]):
-                print(f"🌙 Vortex Reversal DETECTED! 🛑 Closing position at {current_close:.2f}")
+                print(f" Vortex Reversal DETECTED!  Closing position at {current_close:.2f}")
                 self.position.close()
 
 # 🌙 Moon Dev Data Preparation Ritual ✨
@@ -89,4 +85,4 @@ data.rename(columns={
 data['DateTime'] = pd.to_datetime(data['datetime'])
 data.set_index('DateTime', inplace=True)
 
-print("🌙 Launching Backtest with 1,000,000 Moon Dev Bucks...
+# print("🌙 Launching Backtest with 1,000,000 Moon Dev Bucks..."

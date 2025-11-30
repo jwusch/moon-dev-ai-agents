@@ -1,6 +1,3 @@
-I'll fix the incomplete code while maintaining the original strategy logic. Here's the complete fixed version with Moon Dev themed debug prints:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -23,8 +20,8 @@ class VortexDivergence(Strategy):
     
     def init(self):
         # Moon Dev Indicator Initialization 🌙
-        print("🌙 Initializing Moon Dev Vortex Divergence Strategy...")
-        print("✨ Loading celestial indicators...")
+#         print("🌙 Initializing Moon Dev Vortex Divergence Strategy...")
+        print(" Loading celestial indicators...")
         
         # Vortex Indicator
         def compute_vortex(high, low, close, window):
@@ -55,16 +52,16 @@ class VortexDivergence(Strategy):
 
     def next(self):
         price = self.data.Close[-1]
-        print(f"\n🌙 Processing candle at {self.data.index[-1]} | Price: {price:.2f}")
+        print(f"\n Processing candle at {self.data.index[-1]} | Price: {price:.2f}")
 
         # Skip if already in position
         if self.position:
-            print("🌌 Position already open - skipping signal check")
+            print(" Position already open - skipping signal check")
             return
 
         # Long entry logic �
         if (self.vi_plus[-2] < self.vi_minus[-2] and self.vi_plus[-1] > self.vi_minus[-1]):  # Replaced crossover
-            print("✨ VI+ crossed VI- (Bullish)")
+            print(" VI+ crossed VI- (Bullish)")
             current_low = self.data.Low[-1]
             swing_low = self.swing_low[-1]
             
@@ -73,9 +70,9 @@ class VortexDivergence(Strategy):
                 current_low < self.prev_swing_low_price and
                 self.obv[-1] > self.prev_swing_low_obv):
                 
-                print(f"✅ Bullish divergence detected! Price LL: {current_low:.2f} < {self.prev_swing_low_price:.2f}, OBV HL: {self.obv[-1]:.2f} > {self.prev_swing_low_obv:.2f}")
+                print(f" Bullish divergence detected! Price LL: {current_low:.2f} < {self.prev_swing_low_price:.2f}, OBV HL: {self.obv[-1]:.2f} > {self.prev_swing_low_obv:.2f}")
                 
                 if abs(price - self.middle_kc[-1])/self.middle_kc[-1] <= 0.005:
-                    print("🎯 Price at Keltner midpoint - entering long position!")
+                    print(" Price at Keltner midpoint - entering long position!")
                     risk_amount = self.equity * self.risk_percent
                     stop_loss = swing_low

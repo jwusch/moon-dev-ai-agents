@@ -1,7 +1,3 @@
-I've analyzed the code and found a few technical issues that need fixing while preserving the strategy logic. Here's the debugged version with Moon Dev themed improvements:
-
-```python
-# 🌙 Moon Dev's Liquidation Retrace Backtest 🌙
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -34,7 +30,7 @@ class LiquidationRetrace(Strategy):
         current_atr = self.atr[-1]
 
         # 🚀 Moon-themed debug prints
-        print(f"\n🌙 Bar: {self.data.index[-1]} | Close: {current_close:.2f}")
+        print(f"\n Bar: {self.data.index[-1]} | Close: {current_close:.2f}")
         print(f"   VWAP: {current_vwap:.2f} | ATR: {current_atr:.2f}")
 
         if not self.position:
@@ -48,7 +44,7 @@ class LiquidationRetrace(Strategy):
         else:
             # ⏳ Check hourly timeout (4 bars = 1 hour)
             if (len(self.data) - self.position.entry_bar) >= 4:
-                print(f"⏰🌙 Timeout exit at {current_close:.2f}")
+                print(f"⏰ Timeout exit at {current_close:.2f}")
                 self.position.close()
 
     def calculate_position_size(self, direction, price, atr):
@@ -56,19 +52,19 @@ class LiquidationRetrace(Strategy):
         risk_amount = self.equity * self.risk_percent
         stop_distance = 0.5 * atr
         size = risk_amount / (stop_distance * price)
-        size = int(round(size))  # 🌙 Ensuring whole number position size
+        size = int(round(size))  #  Ensuring whole number position size
 
         # 🎯 Set order parameters
         if direction == 'long':
             sl = price - stop_distance
             tp = price + 1.5*atr
-            print(f"🚀🌙 LONG SIGNAL | Size: {size}")
+            print(f" LONG SIGNAL | Size: {size}")
             print(f"   Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             self.buy(size=size, sl=sl, tp=tp)
         else:
             sl = price + stop_distance
             tp = price - 1.5*atr
-            print(f"🚀🌙 SHORT SIGNAL | Size: {size}")
+            print(f" SHORT SIGNAL | Size: {size}")
             print(f"   Entry: {price:.2f} | SL: {sl:.2f} | TP: {tp:.2f}")
             self.sell(size=size, sl=sl, tp=tp)
 

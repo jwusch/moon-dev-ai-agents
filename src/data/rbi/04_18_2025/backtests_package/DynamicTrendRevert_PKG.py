@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed improvements:
-
-```python
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -16,7 +13,7 @@ class DynamicTrendRevert(Strategy):
         self.adx = self.I(talib.ADX, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ADX 14')
         self.rsi = self.I(talib.RSI, self.data.Close, timeperiod=14, name='RSI 14')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14, name='ATR 14')
-        print("🌕 Moon Dev Indicators Activated! ✨")
+#         print("🌕 Moon Dev Indicators Activated! ✨")
         
     def next(self):
         # Check if we have enough historical data
@@ -35,7 +32,7 @@ class DynamicTrendRevert(Strategy):
 
         # Check for NaN values in indicators
         if np.isnan([current_ema50, current_ema200, prev_ema50, prev_ema200, current_adx, current_atr]).any():
-            print("🌑 Warning: Lunar Data Anomaly Detected (NaN values)!")
+            print(" Warning: Lunar Data Anomaly Detected (NaN values)!")
             return
 
         # 🌙✨ Moon Dev Entry Logic ✨🌙
@@ -52,15 +49,15 @@ class DynamicTrendRevert(Strategy):
                 position_size = int(round(risk_amount / risk_per_share))
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tag='MoonDevEntry')
-                    print(f"🌙✨ MOON DEV LONG SIGNAL! ✨🌙 | Price: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | RSI: {current_rsi:.2f}")
+#                     print(f"🌙✨ MOON DEV LONG SIGNAL! ✨🌙 | Price: {entry_price:.2f} | Size: {position_size} | SL: {stop_loss:.2f} | RSI: {current_rsi:.2f}")
 
         # 🚀🌑 Moon Dev Exit Logic 🌑🚀
         if self.position and (prev_rsi >= 70 and current_rsi < 70):  # Replaced crossover with direct comparison
             self.position.close()
-            print(f"🚀🌑 MOON DEV EXIT SIGNAL! 🌑🚀 | Price: {self.data.Close[-1]:.2f} | RSI: {current_rsi:.2f}")
+#             print(f"🚀🌑 MOON DEV EXIT SIGNAL! 🌑🚀 | Price: {self.data.Close[-1]:.2f} | RSI: {current_rsi:.2f}")
 
 # 🌕 Moon Dev Data Preparation 🚀
-print("🌙 Preparing Lunar Market Data...")
+print(" Preparing Lunar Market Data...")
 data = pd.read_csv('/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data/rbi/BTC-USD-15m.csv')
 data.columns = data.columns.str.strip().str.lower()
 data = data.drop(columns=[col for col in data.columns if 'unnamed' in col])
@@ -73,7 +70,7 @@ data.rename(columns={
 }, inplace=True)
 data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
-print("✨ Data Cleansed and Aligned with Moon Phases! 🌕")
+print(" Data Cleansed and Aligned with Moon Phases! ")
 
 # 🚀 Launch Moon Dev Backtest 🌕
-print("🌙✨ INITIATING MOON DEV BACKTEST SEQU
+# print("🌙✨ INITIATING MOON DEV BACKTEST SEQU"

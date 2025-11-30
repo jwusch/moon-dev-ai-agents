@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -45,7 +44,7 @@ class VolatileFractal(Strategy):
         current_atr = self.atr[-1]
         
         # Moon Dev debug prints 🌙
-        print(f"🌙 Current Price: {price:.2f} | ATR: {current_atr:.2f} | EMA50: {self.ema_short[-1]:.2f} | EMA200: {self.ema_long[-1]:.2f}")
+        print(f" Current Price: {price:0.2f} | ATR: {current_atr:0.2f} | EMA50: {self.ema_short[-1]:0.2f} | EMA200: {self.ema_long[-1]:0.2f}")
 
         if not self.position:
             # Long entry condition
@@ -59,7 +58,7 @@ class VolatileFractal(Strategy):
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl, tp=price + (risk_per_share * self.rr_ratio))
                         self.entry_atr = current_atr
-                        print(f"🚀 BULLISH BREAKOUT! Long {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price + (risk_per_share * self.rr_ratio):.2f}")
+                        print(f" BULLISH BREAKOUT! Long {position_size} shares | Entry: {price:0.2f} | SL: {sl:0.2f} | TP: {price + (risk_per_share * self.rr_ratio):0.2f}")
 
             # Short entry condition
             elif self.fractal_high[-1] and (price < self.ema_long[-1]):
@@ -72,12 +71,12 @@ class VolatileFractal(Strategy):
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl, tp=price - (risk_per_share * self.rr_ratio))
                         self.entry_atr = current_atr
-                        print(f"🔻 BEARISH BREAKDOWN! Short {position_size} shares | Entry: {price:.2f} | SL: {sl:.2f} | TP: {price - (risk_per_share * self.rr_ratio):.2f}")
+                        print(f" BEARISH BREAKDOWN! Short {position_size} shares | Entry: {price:0.2f} | SL: {sl:0.2f} | TP: {price - (risk_per_share * self.rr_ratio):0.2f}")
 
         else:
             # Volatility-based exit
             if current_atr < self.entry_atr * 0.7:
                 self.position.close()
-                print(f"🌪️ VOLATILITY DROP! Closing position at {price:.2f}")
+                print(f" VOLATILITY DROP! Closing position at {price:0.2f}")
 
 # Run

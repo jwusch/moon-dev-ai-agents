@@ -1,14 +1,9 @@
-Here's the complete fixed code with Moon Dev themed debug prints and proper position sizing implementation:
-
-```python
-# 🌙 Moon Dev's SqueezeSurge Backtest Implementation 🚀✨
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
 
 class SqueezeSurge(Strategy):
-    risk_per_trade = 0.02  # 2% risk per trade 🌙
+    risk_per_trade = 0.02  # 2% risk per trade 
     
     def init(self):
         # 🌟 TTM Squeeze Components
@@ -36,7 +31,7 @@ class SqueezeSurge(Strategy):
         self.highest_high = None
 
     def next(self):
-        if len(self.data) < 20:  # Warmup period - Moon Orbit Stabilization 🌙
+        if len(self.data) < 20:  # Warmup period - Moon Orbit Stabilization 
             return
         
         # 🌀 Current Indicator Values - Moon Phase Analysis 🌓
@@ -52,7 +47,7 @@ class SqueezeSurge(Strategy):
                     risk_amount = self.risk_per_trade * self.equity
                     atr_value = self.atr14[-1]
                     if atr_value == 0:
-                        print("🌙⚠️ Zero ATR detected - aborting launch sequence")
+                        print(" Zero ATR detected - aborting launch sequence")
                         return
                     
                     # Moon Dev Position Sizing Protocol 🌕
@@ -61,9 +56,9 @@ class SqueezeSurge(Strategy):
                         self.buy(size=position_size)
                         self.highest_high = self.data.High[-1]
                         self.trailing_stop = self.highest_high - 2*self.atr14[-1]
-                        print(f"🌙✨ MOON DEV LONG ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} units")
+#                         print(f"🌙✨ MOON DEV LONG ENTRY 🚀 | Price: {current_close:.2f} | Size: {position_size} units")
                     else:
-                        print("🌙⚠️ Position size too small - insufficient lunar fuel")
+                        print(" Position size too small - insufficient lunar fuel")
 
         # 🛑 Exit Logic - Moon Landing Protocol 🌑
         if self.position.is_long:

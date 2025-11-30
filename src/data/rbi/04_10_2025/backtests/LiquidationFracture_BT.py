@@ -1,5 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -33,7 +31,7 @@ class LiquidationFracture(Strategy):
         # Volume analysis
         self.volume_ma = self.I(talib.SMA, self.data.Volume, timeperiod=20, name='VOLUME_MA20')
         
-        print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
+#         print("🌙✨ Moon Dev Indicators Initialized! Ready to launch! 🚀")
 
     def next(self):
         # Skip initial bars without indicator data
@@ -48,7 +46,7 @@ class LiquidationFracture(Strategy):
         squeeze_on = bb_width_pct < 1.5
         
         # Moon Dev themed debug prints 🌙
-        print(f"🌙 Close: {current_close:.2f} | RSI: {self.rsi[-1]:.2f} | BB%: {bb_width_pct:.2f}% | Volume: {current_volume:.2f}/{self.volume_ma[-1]:.2f}")
+        print(f" Close: {current_close:.2f} | RSI: {self.rsi[-1]:.2f} | BB%: {bb_width_pct:.2f}% | Volume: {current_volume:.2f}/{self.volume_ma[-1]:.2f}")
 
         if not self.position:
             # Long entry conditions
@@ -71,11 +69,11 @@ class LiquidationFracture(Strategy):
             # Check exit conditions
             if self.position.is_long:
                 if current_close >= self.position.tp:
-                    print(f"🌙✨ PROFIT TAKEN! Riding moon dust back home! 🌕💫 (Price: {current_close:.2f})")
+                    print(f" PROFIT TAKEN! Riding moon dust back home!  (Price: {current_close:.2f})")
                     self.position.close()
             elif self.position.is_short:
                 if current_close <= self.position.tp:
-                    print(f"🌙✨ SHORT COVERED! Gravity works in space! 🌌⬇️ (Price: {current_close:.2f})")
+                    print(f" SHORT COVERED! Gravity works in space!  (Price: {current_close:.2f})")
                     self.position.close()
 
     def enter_long(self):

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -23,7 +20,7 @@ data = data.rename(columns={
 
 class VortexVolume(Strategy):
     atr_multiplier = 3
-    risk_pct = 0.01  # 1% risk per trade 🌙
+    risk_pct = 0.01  # 1% risk per trade 
     vi_period = 14
     vol_ma_period = 20
 
@@ -56,7 +53,7 @@ class VortexVolume(Strategy):
                 size = int(round(risk_amount / (atr * self.atr_multiplier)))
                 if size:
                     self.buy(size=size)
-                    print(f"🚀 MOON DEV LONG: {size} units @ {self.data.Close[-1]:.2f} | VI+ {self.vi_plus[-1]:.2f} > VI- {self.vi_minus[-1]:.2f} 🌕")
+#                     print(f"🚀 MOON DEV LONG: {size} units @ {self.data.Close[-1]:.2f} | VI+ {self.vi_plus[-1]:.2f} > VI- {self.vi_minus[-1]:.2f} 🌕")
             
             # Bearish Entry
             elif (self.vi_minus[-2] > self.vi_plus[-2] and self.vi_minus[-1] < self.vi_plus[-1]) and self.data.Volume[-1] < self.vol_ma[-1]:
@@ -65,7 +62,7 @@ class VortexVolume(Strategy):
                 size = int(round(risk_amount / (atr * self.atr_multiplier)))
                 if size:
                     self.sell(size=size)
-                    print(f"🌑 MOON DEV SHORT: {size} units @ {self.data.Close[-1]:.2f} | VI- {self.vi_minus[-1]:.2f} > VI+ {self.vi_plus[-1]:.2f} 🌘")
+#                     print(f"🌑 MOON DEV SHORT: {size} units @ {self.data.Close[-1]:.2f} | VI- {self.vi_minus[-1]:.2f} > VI+ {self.vi_plus[-1]:.2f} 🌘")
 
         # 🛑 Chandelier Exit Logic
         for trade in self.trades:
@@ -75,4 +72,4 @@ class VortexVolume(Strategy):
                 stop = high_since - self.atr[-1] * self.atr_multiplier
                 if self.data.Low[-1] < stop:
                     trade.close()
-                    print(f"🛑 MOON DEV LONG EXIT: Trailing stop @ {stop:.2f} | P
+#                     print(f"🛑 MOON DEV LONG EXIT: Trailing stop @ {stop:.2f} | P"

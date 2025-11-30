@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -59,7 +58,7 @@ class VolatilityTriad(Strategy):
                             self.data.Volume[-1] > self.volume_ma[-1]
             
             # Position sizing calculation ✨
-            risk_amount = self.broker.equity * self.risk_pct
+            risk_amount = self.equity * self.risk_pct
             stop_distance = 1.5 * atr
             
             if long_trigger and not self.position:
@@ -68,7 +67,7 @@ class VolatilityTriad(Strategy):
                     self.buy(size=size, sl=price-stop_distance,
                             tp=price+3*stop_distance)
                     self.trailing_stop = price - stop_distance
-                    print(f"🌙✨🚀 MOON DEV LONG ENTRY: {price:.2f} | Size: {size} | SL: {self.trailing_stop:.2f}")
+#                     print(f"🌙✨🚀 MOON DEV LONG ENTRY: {price:.2f} | Size: {size} | SL: {self.trailing_stop:.2f}")
             
             if short_trigger and not self.position:
                 size = int(round(risk_amount / stop_distance))
@@ -76,4 +75,4 @@ class VolatilityTriad(Strategy):
                     self.sell(size=size, sl=price+stop_distance,
                              tp=price-3*stop_distance)
                     self.trailing_stop = price + stop_distance
-                    print(f"🌙✨🚀 MOON DEV SHORT ENTRY: {price:.2f} | Size: {size} | SL: {self.t
+#                     print(f"🌙✨🚀 MOON DEV SHORT ENTRY: {price:.2f} | Size: {size} | SL: {self.t"

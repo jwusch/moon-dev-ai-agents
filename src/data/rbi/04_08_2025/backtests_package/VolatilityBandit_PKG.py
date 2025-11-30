@@ -1,9 +1,3 @@
-Here's the fixed code with all Moon Dev package requirements implemented and backtesting.lib references removed:
-
-```python
-# 🌙 Moon Dev's VolatilityBandit Backtest Implementation ✨
-
-# Required imports
 import pandas as pd
 import talib
 from backtesting import Strategy, Backtest
@@ -65,7 +59,7 @@ class VolatilityBandit(Strategy):
                 if position_size > 0:
                     self.buy(size=position_size)
                     self.trade_high = self.data.High[-1]
-                    print(f"🌙✨ MOON DEV LONG ENTRY! Size: {position_size} @ {current_close} 🚀")
+#                     print(f"🌙✨ MOON DEV LONG ENTRY! Size: {position_size} @ {current_close} 🚀")
             
             # Moon Dev Short Entry Signal 🌑
             elif (current_close < self.lower_band[-1] and current_atr >= self.min_atr):
@@ -76,7 +70,7 @@ class VolatilityBandit(Strategy):
                 if position_size > 0:
                     self.sell(size=position_size)
                     self.trade_low = self.data.Low[-1]
-                    print(f"🌙✨ MOON DEV SHORT ENTRY! Size: {position_size} @ {current_close} 🌑")
+#                     print(f"🌙✨ MOON DEV SHORT ENTRY! Size: {position_size} @ {current_close} 🌑")
         
         # Trade management logic ✨
         else:
@@ -88,10 +82,10 @@ class VolatilityBandit(Strategy):
                 # Exit conditions 🛑
                 if current_close < self.ema[-1]:
                     self.position.close()
-                    print(f"🌙🛑 MOON DEV LONG EXIT (EMA Cross) @ {current_close}")
+#                     print(f"🌙🛑 MOON DEV LONG EXIT (EMA Cross) @ {current_close}")
                 elif current_close < trail_stop:
                     self.position.close()
-                    print(f"🌙🛑 MOON DEV LONG EXIT (Trailing SL) @ {current_close}")
+#                     print(f"🌙🛑 MOON DEV LONG EXIT (Trailing SL) @ {current_close}")
             
             elif self.position.is_short:
                 # Update trailing low 🌑

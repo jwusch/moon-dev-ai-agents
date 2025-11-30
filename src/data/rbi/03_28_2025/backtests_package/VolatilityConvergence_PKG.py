@@ -1,7 +1,3 @@
-I'll fix the code by removing all `backtesting.lib` imports and replacing the crossover functions with proper implementations. Here's the corrected version with Moon Dev themed debug prints:
-
-```python
-# 🌙 Moon Dev's Volatility Convergence Backtest 🌙
 import pandas as pd
 import talib
 import numpy as np
@@ -36,8 +32,8 @@ class VolatilityConvergence(Strategy):
     bb_period = 20
     bb_std_dev = 2
     rsi_period = 14
-    risk_per_trade = 0.01  # 1% stardust risk per trade 🌌
-    max_daily_loss = 0.05  # 5% supernova protection 💥
+    risk_per_trade = 0.01  # 1% stardust risk per trade 
+    max_daily_loss = 0.05  # 5% supernova protection 
 
     def init(self):
         # 🌗 Core Orbital Indicators
@@ -75,7 +71,7 @@ class VolatilityConvergence(Strategy):
             self.daily_equity.append(self.equity)
         daily_pnl = (self.equity - self.daily_equity[-1]) / self.daily_equity[-1]
         if daily_pnl <= -self.max_daily_loss:
-            print(f"🌑💥 COSMIC MELTDOWN: Daily limit reached! Aborting at {self.data.index[-1]}")
+            print(f" COSMIC MELTDOWN: Daily limit reached! Aborting at {self.data.index[-1]}")
             return
 
         if not self.position:
@@ -83,7 +79,7 @@ class VolatilityConvergence(Strategy):
             spread = self.spread[-1]
             vol_ratio = self.volume_ratio[-1]
             
-            # 🌙 Moon Dev's Bullish Crossover Detection ✨
+            # 🌙 Moon Dev's Bullish Crossover Detection ✨'
             long_signal = spread < self.lower_band[-1] and vol_ratio > 1
             short_signal = spread > self.upper_band[-1] and vol_ratio > 1
 

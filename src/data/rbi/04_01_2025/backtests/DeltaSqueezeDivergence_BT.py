@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's DeltaSqueezeDivergence Backtest 🌙
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -67,7 +65,7 @@ class DeltaSqueezeDivergence(Strategy):
                     
                     if position_size > 0:
                         self.sell(size=position_size, sl=stop_loss, tag="Short Entry")
-                        print(f"🌙🚀 MOON DEV SHORT ENTRY | Size: {position_size} | Entry: {current_close} | SL: {stop_loss}")
+#                         print(f"🌙🚀 MOON DEV SHORT ENTRY | Size: {position_size} | Entry: {current_close} | SL: {stop_loss}")
 
         else:
             # 💫 EXIT CONDITIONS
@@ -75,7 +73,7 @@ class DeltaSqueezeDivergence(Strategy):
                 # ✨ Primary exit: Price closes back inside KC
                 if lower_kc < current_close < upper_kc:
                     self.position.close()
-                    print(f"🌙✨ PRIMARY EXIT | Price: {current_close}")
+                    print(f" PRIMARY EXIT | Price: {current_close}")
 
                 # 🌟 Secondary exit: Positive delta divergence
                 delta_swing_low = self.I(talib.MIN, self.cum_delta, 3)
@@ -83,4 +81,4 @@ class DeltaSqueezeDivergence(Strategy):
                 if (price_swing_low[-1] < price_swing_low[-2] and
                     delta_swing_low[-1] > delta_swing_low[-2]):
                     self.position.close()
-                    print(f"🌙💫 DIVERGENCE EXIT | Price: {current_close}")
+                    print(f" DIVERGENCE EXIT | Price: {current_close}")

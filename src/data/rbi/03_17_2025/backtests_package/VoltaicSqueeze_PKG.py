@@ -1,6 +1,3 @@
-I've fixed the code by removing the `backtesting.lib` import and ensuring all indicators are properly wrapped in `self.I()`. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -40,12 +37,12 @@ class VoltaicSqueeze(Strategy):
         min_band = self.min_band_width[-1]
         
         # Moon Dev debug prints ✨
-        print(f"🌙 Current Close: {price:.2f} | Upper Band: {upper:.2f} | BW: {band_width:.4f} | Min BW: {min_band:.4f}")
+        print(f" Current Close: {price:.2f} | Upper Band: {upper:.2f} | BW: {band_width:.4f} | Min BW: {min_band:.4f}")
         
         if not self.position:
             # Entry condition check
             if price > upper and abs(band_width - min_band) < 1e-5:
-                equity = self.broker.equity()
+                equity = self.equity()
                 atr_value = self.atr[-1]
                 
                 if atr_value == 0:
@@ -63,7 +60,7 @@ class VoltaicSqueeze(Strategy):
                     self.highest_high = self.data.High[-1]
                     
                     # Moon Dev entry signal 🌙🚀
-                    print(f"\n🌙✨🚀 VOLTAIC SQUEEZE ACTIVATED! 🌙✨🚀"
+                    print(f"\n VOLTAIC SQUEEZE ACTIVATED! "
                           f"\nEntry Price: {self.entry_price:.2f}"
                           f"\nPosition Size: {position_size} units"
                           f"\nInitial Stop: {self.stop_loss:.2f}\n")
@@ -79,7 +76,7 @@ class VoltaicSqueeze(Strategy):
                 pl_pct = self.position.pl_pct * 100
                 
                 # Moon Dev exit signal 🌙💸
-                print(f"\n🌙✨💸 SQUEEZE RELEASED! 💸✨🌙"
+                print(f"\n SQUEEZE RELEASED! "
                       f"\nExit Price: {self.stop_loss:.2f}"
                       f"\nProfit: {self.position.pl:.2f} ({pl_pct:.1f}%)\n")
 

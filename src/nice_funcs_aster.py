@@ -25,18 +25,60 @@ from termcolor import cprint
 from dotenv import load_dotenv
 
 # Add Aster Dex Trading Bots to path
-aster_bots_path = '/Users/md/Dropbox/dev/github/Aster-Dex-Trading-Bots'
-if aster_bots_path not in sys.path:
-    sys.path.insert(0, aster_bots_path)
+# First check environment variable, then try multiple possible locations
+aster_bots_path = os.getenv('ASTER_BOTS_PATH', '')
+
+# If no env var set, try common locations
+if not aster_bots_path or not os.path.exists(aster_bots_path):
+    possible_paths = [
+        # Original location (for compatibility)
+        '/Users/md/Dropbox/dev/github/Aster-Dex-Trading-Bots',
+        # Common relative paths
+        '../Aster-Dex-Trading-Bots',
+        '../../Aster-Dex-Trading-Bots',
+        # Absolute paths for different users
+        os.path.expanduser('~/Aster-Dex-Trading-Bots'),
+        os.path.expanduser('~/github/Aster-Dex-Trading-Bots'),
+        os.path.expanduser('~/dev/Aster-Dex-Trading-Bots'),
+        # Current directory
+        './Aster-Dex-Trading-Bots',
+    ]
+    
+    for path in possible_paths:
+        if os.path.exists(path):
+            aster_bots_path = path
+            cprint(f"✅ Found Aster-Dex-Trading-Bots at: {path}", "green")
+            break
+
+# Add to Python path if found
+if aster_bots_path and os.path.exists(aster_bots_path):
+    if aster_bots_path not in sys.path:
+        sys.path.insert(0, aster_bots_path)
 
 # Try importing Aster modules
+ASTER_AVAILABLE = False
 try:
     from aster_api import AsterAPI  # type: ignore
     from aster_funcs import AsterFuncs  # type: ignore
+    ASTER_AVAILABLE = True
+    cprint("✅ Aster modules imported successfully!", "green")
 except ImportError as e:
-    cprint(f"❌ Failed to import Aster modules: {e}", "red")
-    cprint(f"Make sure Aster-Dex-Trading-Bots exists at: {aster_bots_path}", "yellow")
-    sys.exit(1)
+    cprint(f"⚠️  Aster modules not found: {e}", "yellow")
+    cprint(f"To use Aster exchange, either:", "yellow")
+    cprint(f"  1. Set ASTER_BOTS_PATH environment variable to the location of Aster-Dex-Trading-Bots", "yellow")
+    cprint(f"  2. Clone Aster-Dex-Trading-Bots to one of these locations:", "yellow")
+    for path in ['~/Aster-Dex-Trading-Bots', '../Aster-Dex-Trading-Bots', '~/github/Aster-Dex-Trading-Bots']:
+        cprint(f"     - {path}", "yellow")
+    cprint(f"⚠️  Continuing without Aster support...", "yellow")
+    
+    # Create dummy classes to prevent errors
+    class AsterAPI:
+        def __init__(self, *args, **kwargs):
+            raise NotImplementedError("Aster modules not available. Please install Aster-Dex-Trading-Bots.")
+    
+    class AsterFuncs:
+        def __init__(self, *args, **kwargs):
+            raise NotImplementedError("Aster modules not available. Please install Aster-Dex-Trading-Bots.")
 
 # Load environment variables
 load_dotenv()
@@ -45,15 +87,22 @@ load_dotenv()
 ASTER_API_KEY = os.getenv('ASTER_API_KEY')
 ASTER_API_SECRET = os.getenv('ASTER_API_SECRET')
 
-# Verify API keys
-if not ASTER_API_KEY or not ASTER_API_SECRET:
-    cprint("❌ ASTER API keys not found in .env file!", "red")
-    cprint("Please add ASTER_API_KEY and ASTER_API_SECRET to your .env file", "yellow")
-    sys.exit(1)
+# Initialize API (global instance) only if Aster modules are available
+api = None
+funcs = None
 
-# Initialize API (global instance)
-api = AsterAPI(ASTER_API_KEY, ASTER_API_SECRET)
-funcs = AsterFuncs(api)
+if ASTER_AVAILABLE:
+    # Verify API keys
+    if not ASTER_API_KEY or not ASTER_API_SECRET:
+        cprint("⚠️  ASTER API keys not found in .env file!", "yellow")
+        cprint("To use Aster exchange, add ASTER_API_KEY and ASTER_API_SECRET to your .env file", "yellow")
+    else:
+        # Initialize API
+        api = AsterAPI(ASTER_API_KEY, ASTER_API_SECRET)
+        funcs = AsterFuncs(api)
+        cprint("✅ Aster API initialized successfully!", "green")
+else:
+    cprint("⚠️  Aster exchange functionality disabled (modules not available)", "yellow")
 
 # ============================================================================
 # CONFIGURATION
@@ -834,4 +883,7 @@ def get_account_balance():
 
 
 # Initialize on import
-cprint("✨ Aster DEX functions loaded successfully!", "green")
+if ASTER_AVAILABLE:
+    cprint("✨ Aster DEX functions loaded successfully!", "green")
+else:
+    cprint("⚠️  Aster DEX functions loaded (without Aster module support)", "yellow")

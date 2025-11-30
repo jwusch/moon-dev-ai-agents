@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 import numpy as np
@@ -61,11 +60,11 @@ class LiquidationReversal(Strategy):
         # Simplified divergence check (practical implementation needs more sophistication)
         if self.rsi[-1] < np.nanmax(self.rsi[-50:-25]) and price > np.nanmax(self.data.High[-50:-25]):
             bearish_div = True
-            print(f"🌙 Bearish divergence detected! RSI weakening at moon high {price:.2f}")
+            print(f" Bearish divergence detected! RSI weakening at moon high {price:.2f}")
             
         if self.rsi[-1] > np.nanmin(self.rsi[-50:-25]) and price < np.nanmin(self.data.Low[-50:-25]):
             bullish_div = True
-            print(f"🌙 Bullish divergence detected! RSI strength at moon low {price:.2f}")
+            print(f" Bullish divergence detected! RSI strength at moon low {price:.2f}")
 
         # Entry logic 🚀
         if not self.position:
@@ -79,7 +78,7 @@ class LiquidationReversal(Strategy):
                 position_size = int(round((self.equity * self.risk_pct) / risk))
                 if position_size > 0:
                     self.sell(size=position_size, sl=sl, tp=price - 2*risk)
-                    print(f"🚀🌑 MOON SHORT! Entry: {price:.2f} | Size: {position_size}")
+                    print(f" MOON SHORT! Entry: {price:.2f} | Size: {position_size}")
 
             # Long entry        
             elif (bullish_div and squeeze_on and

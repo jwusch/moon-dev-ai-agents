@@ -1,7 +1,3 @@
-Here's the debugged code with all technical issues fixed while preserving the original strategy logic:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -27,7 +23,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data = data.set_index('datetime')
 
 class LiquidationConvergence(Strategy):
-    risk_percent = 0.01  # 1% risk per trade 🌙
+    risk_percent = 0.01  # 1% risk per trade 
     efi_period = 13
     sar_step = 0.02
     sar_max = 0.2
@@ -50,7 +46,7 @@ class LiquidationConvergence(Strategy):
         
     def next(self):
         current_price = self.data.Close[-1]
-        equity = self.broker.equity
+        equity = self.equity
         
         # Entry Logic 🌙✨
         if not self.position:
@@ -65,7 +61,7 @@ class LiquidationConvergence(Strategy):
                     position_size = int(round((equity * self.risk_percent) / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size, sl=sl)
-                        print(f"🌙 MOON ENTRY LONG ✨ | Price: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f}")
+                        print(f" MOON ENTRY LONG  | Price: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f}")
             
             # Short Entry: Price breaks swing low + EFI bearish crossover
             elif ((self.data.Close[-2] > self.swing_low[-2] and self.data.Close[-1] < self.swing_low[-1]) and 
@@ -78,16 +74,16 @@ class LiquidationConvergence(Strategy):
                     position_size = int(round((equity * self.risk_percent) / risk_per_share))
                     if position_size > 0:
                         self.sell(size=position_size, sl=sl)
-                        print(f"🌙 MOON ENTRY SHORT ✨ | Price: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f}")
+                        print(f" MOON ENTRY SHORT  | Price: {current_price:.2f} | Size: {position_size} | SL: {sl:.2f}")
         
         # Exit Logic with Parabolic SAR 🚀
         else:
             if self.position.is_long and current_price < self.sar[-1]:
                 self.position.close()
-                print(f"🌙 SAR MOON EXIT 🌝 | Closed LONG at {current_price:.2f}")
+                print(f" SAR MOON EXIT  | Closed LONG at {current_price:.2f}")
             elif self.position.is_short and current_price > self.sar[-1]:
                 self.position.close()
-                print(f"🌙 SAR MOON EXIT 🌚 | Closed SHORT at {current_price:.2f}")
+                print(f" SAR MOON EXIT  | Closed SHORT at {current_price:.2f}")
 
 # Run backtest
 bt = Backtest

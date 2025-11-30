@@ -1,8 +1,3 @@
-Here's the fully debugged backtest code with Moon Dev improvements while preserving the original strategy logic:
-
-```python
-# 🌙 Moon Dev Backtest AI Implementation 🚀
-# 🚨 STRICTLY NO backtesting.lib USAGE - PURE LUNAR POWER ONLY 🌕
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -32,7 +27,7 @@ def load_data():
         'volume': 'Volume'
     })
     
-    print("🌑🌒🌓🌔🌕 Data Successfully Aligned with Lunar Phases!")
+    print(" Data Successfully Aligned with Lunar Phases!")
     return data
 
 # ======================
@@ -69,7 +64,7 @@ class VolumetricSurge(Strategy):
         # Swing Low Detection for Stops 🌊
         self.swing_low = self.I(talib.MIN, self.data.Low, timeperiod=10)
         
-        print("✨ Lunar Indicators Activated! Ready for Cosmic Analysis 🌌")
+        print(" Lunar Indicators Activated! Ready for Cosmic Analysis ")
 
     def next(self):
         # ======================

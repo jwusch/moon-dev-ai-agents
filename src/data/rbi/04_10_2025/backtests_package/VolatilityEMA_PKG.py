@@ -1,11 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and proper Moon Dev themed debug prints added:
-
-```python
-# 🌙 MOON DEV BACKTESTING SCRIPT FOR VOLATILITYEMA STRATEGY 🚀
-
-# ================
-# IMPORTS
-# ================
 from backtesting import Backtest, Strategy
 import pandas as pd
 import talib
@@ -33,9 +25,9 @@ def prepare_data(data_path):
     data.rename(columns=required_mapping, inplace=True)
     
     if 'vix' not in data.columns:
-        raise ValueError("VIX column not found - moon magic requires volatility data! 🌑")
+        raise ValueError("VIX column not found - moon magic requires volatility data! ")
     
-    print("🌈 Data successfully moonified! Columns:", data.columns)
+    print(" Data successfully moonified! Columns:", data.columns)
     return data
 
 # ================
@@ -54,14 +46,14 @@ class VolatilityEMA(Strategy):
         self.ema50 = self.I(talib.EMA, self.data.Close, timeperiod=self.ema50_period, name="EMA50")
         self.ema200 = self.I(talib.EMA, self.data.Close, timeperiod=self.ema200_period, name="EMA200")
         
-        print("✨ EMA indicators charged with moon energy!")
+        print(" EMA indicators charged with moon energy!")
         
     def next(self):
         current_close = self.data.Close[-1]
         current_vix = self.data.vix[-1]
         
         # Moon Dev debug console 🌙🖥️
-        print(f"🌙 Price: {current_close:.2f} | EMA50: {self.ema50[-1]:.2f} | EMA200: {self.ema200[-1]:.2f} | VIX: {current_vix:.2f}")
+        print(f" Price: {current_close:.2f} | EMA50: {self.ema50[-1]:.2f} | EMA200: {self.ema200[-1]:.2f} | VIX: {current_vix:.2f}")
 
         if not self.position:
             # Golden Cross + Low Volatility Entry
@@ -72,7 +64,7 @@ class VolatilityEMA(Strategy):
                 risk_per_share = entry_price - stop_loss
                 
                 if risk_per_share <= 0:
-                    print("🌑 Black hole detected! Risk <=0, aborting launch 🚫")
+                    print(" Black hole detected! Risk <=0, aborting launch ")
                     return
                 
                 position_size = (self.risk_pct * self.equity) / risk_per_share
@@ -80,8 +72,8 @@ class VolatilityEMA(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size, sl=stop_loss, tag="MoonLaunch")
-                    print(f"🚀 LIFTOFF! Buying {position_size} units at {entry_price:.2f}")
-                    print(f"🛡️ Cosmic protection activated: Stop Loss {stop_loss:.2f}")
+                    print(f" LIFTOFF! Buying {position_size} units at {entry_price:.2f}")
+                    print(f" Cosmic protection activated: Stop Loss {stop_loss:.2f}")
         else:
             # Exit conditions
             exit_vix = current_vix > self.vix_exit_threshold
@@ -90,11 +82,11 @@ class VolatilityEMA(Strategy):
             if exit_vix or exit_death_cross:
                 self.position.close()
                 reason = "VIX Storm" if exit_vix else "Death Cross"
-                print(f"🌑 EMERGENCY LANDING! Reason: {reason} at {current_close:.2f}")
+                print(f" EMERGENCY LANDING! Reason: {reason} at {current_close:.2f}")
 
 # ================
 # BACKTEST EXECUTION
 # ================
 if __name__ == "__main__":
     # Moon base data path 🌙🛰️
-    DATA_PATH = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data
+    DATA_PATH = "/Users/md/Dropbox/dev/github/moon-dev-ai-agents-for-trading/src/data"

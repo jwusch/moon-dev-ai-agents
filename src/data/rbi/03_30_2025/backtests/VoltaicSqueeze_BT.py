@@ -1,5 +1,3 @@
-```python
-# 🌙 Moon Dev's VoltaicSqueeze Backtest 🌙
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -26,7 +24,7 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VoltaicSqueeze(Strategy):
-    risk_percent = 0.02  # 🌙 2% risk per trade
+    risk_percent = 0.02  #  2% risk per trade
     
     def init(self):
         # 🌗 INDICATOR CALCULATION 🌗
@@ -82,9 +80,9 @@ class VoltaicSqueeze(Strategy):
                 
                 if position_size > 0:
                     self.buy(size=position_size)
-                    print(f"🚀🌙 MOON ALERT: Long Entry @ {self.data.Open[-1]} "
+                    print(f" MOON ALERT: Long Entry @ {self.data.Open[-1]} "
                           f"| Size: {position_size} units | "
-                          f"Equity: {self.equity:,.2f} ✨")
+                          f"Equity: {self.equity:,.2f} ")
 
         else:
             # 🌗 DYNAMIC EXIT LOGIC 🌗
@@ -97,8 +95,8 @@ class VoltaicSqueeze(Strategy):
             # Exit Logic: Trailing Stop Trigger 🛑
             if self.data.Low[-1] <= trailing_stop:
                 self.sell()
-                print(f"🌙✨ MOON EXIT: Closing Position @ {self.data.Close[-1]} "
+                print(f" MOON EXIT: Closing Position @ {self.data.Close[-1]} "
                       f"| Trailing Stop: {trailing_stop:.2f} "
-                      f"| Profit: {self.position.pl_pct:.2%} 🛑")
+                      f"| Profit: {self.position.pl_pct:.2%} ")
 
 # 🌙 BACKTEST EX

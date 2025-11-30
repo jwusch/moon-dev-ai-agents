@@ -1,6 +1,3 @@
-I'll debug the code while maintaining the original strategy logic. Here's the fixed version with Moon Dev-themed improvements:
-
-```python
 import pandas as pd
 from backtesting import Backtest, Strategy
 import talib
@@ -22,10 +19,10 @@ data = data.rename(columns={
 })
 
 # Validate required columns
-assert 'netflow' in data.columns, "🌑 Moon Dev Alert! Netflow data missing - cosmic disturbance detected"
+# assert 'netflow' in data.columns, "🌑 Moon Dev Alert! Netflow data missing - cosmic disturbance detected"
 
 class FlowVolatilitySqueeze(Strategy):
-    risk_pct = 0.01  # 1% capital risk per trade 🚀
+    risk_pct = 0.01  # 1% capital risk per trade 
     bb_period = 20
     atr_period = 14
     max_hold_bars = 288  # 72 hours in 15m timeframe
@@ -45,14 +42,14 @@ class FlowVolatilitySqueeze(Strategy):
         self.nf_std = self.I(talib.STDDEV, self.data.netflow, 20)  # Fixed lowercase netflow
         self.nf_z = self.I(lambda n,s,d: (n-s)/d, self.data.netflow, self.nf_mean, self.nf_std)  # Fixed lowercase netflow
         
-        self.entry_bar = 0  # 🌑 Track entry timing
+        self.entry_bar = 0  #  Track entry timing
 
     def next(self):
         price = self.data.Close[-1]
         
         # 🌙 Volatility Filter
         if self.atr[-1] < 0.02 * price:
-            print("🌑 Moon Dev Alert: Market too calm - skipping trade")
+#             print("🌑 Moon Dev Alert: Market too calm - skipping trade")
             return  # Skip trades in calm markets
             
         if not self.position:
@@ -71,7 +68,7 @@ class FlowVolatilitySqueeze(Strategy):
                              sl=price + stop_distance,
                              tag="MoonDev_Short")
                     self.entry_bar = len(self.data)
-                    print(f"🚀🌙 MOON DEV SHORT ACTIVATED! Size: {position_size} @ {price:.2f}")
+#                     print(f"🚀🌙 MOON DEV SHORT ACTIVATED! Size: {position_size} @ {price:.2f}")
         
         else:
             # ✨ Exit Conditions
@@ -82,7 +79,7 @@ class FlowVolatilitySqueeze(Strategy):
             if vol_exit or flow_exit or hold_time >= self.max_hold_bars:
                 self.position.close()
                 reason = []
-                if vol_exit: reason.append("Vol Squeeze 🌪")
-                if flow_exit: reason.append("Flow Reversal 🌊")
+                if vol_exit: reason.append("Vol Squeeze ")
+                if flow_exit: reason.append("Flow Reversal ")
                 if hold_time >= self.max_hold_bars: reason.append("Time Expired ⏳")
-                print(f"🌑✨ MOON DEV EXIT: {',
+#                 print(f"🌑✨ MOON DEV EXIT: {','

@@ -1,8 +1,3 @@
-Here's the fixed code with all `backtesting.lib` imports and functions removed, and replaced with proper Moon Dev themed implementations:
-
-```python
-# 🌙✨ Moon Dev's VolumetricFibMACD Backtest Script 🚀📈
-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -60,7 +55,7 @@ class VolumetricFibMACD(Strategy):
                 position_size = int(round(risk_amount / risk_distance))
                 take_profit = current_close + 2 * risk_distance
                 self.buy(size=position_size, sl=stop_price, tp=take_profit)
-                print(f"🌙🚀 LONG ENTRY @ {current_close:.2f} | Size: {position_size} | Risk: {risk_distance:.2f} | Moon Power Activated! 🌕")
+                print(f" LONG ENTRY @ {current_close:.2f} | Size: {position_size} | Risk: {risk_distance:.2f} | Moon Power Activated! ")
         
         # 📉 Short entry conditions
         elif (not self.position and
@@ -77,6 +72,6 @@ class VolumetricFibMACD(Strategy):
                 position_size = int(round(risk_amount / risk_distance))
                 take_profit = current_close - 2 * risk_distance
                 self.sell(size=position_size, sl=stop_price, tp=take_profit)
-                print(f"🌙🌑 SHORT ENTRY @ {current_close:.2f} | Size: {position_size} | Risk: {risk_distance:.2f} | Dark Side Energy Engaged! 🌘")
+                print(f" SHORT ENTRY @ {current_close:.2f} | Size: {position_size} | Risk: {risk_distance:.2f} | Dark Side Energy Engaged! ")
         
         # 💎 Exit conditions for open positions

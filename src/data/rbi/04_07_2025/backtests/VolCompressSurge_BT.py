@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -87,7 +86,7 @@ class VolCompressSurge(Strategy):
                 if size > 0:
                     tp = current_close + 2 * risk_per_share
                     self.buy(size=size, sl=sl, tp=tp)
-                    print(f"🌙✨🚀 LONG! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
+                    print(f" LONG! Price: {current_close:.2f}, Size: {size}, SL: {sl:.2f}, TP: {tp:.2f}")
 
             # Short Entry
             elif (current_close < bb_lower and 

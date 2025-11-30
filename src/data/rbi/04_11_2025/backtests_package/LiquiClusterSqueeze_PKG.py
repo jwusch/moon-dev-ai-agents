@@ -1,7 +1,3 @@
-Here's the fixed code with all backtesting.lib imports removed and replaced with proper implementations, along with Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -52,7 +48,7 @@ class LiquiClusterSqueeze(Strategy):
 
     def next(self):
         current_close = self.data.Close[-1]
-        print(f"🌙 Moon Dev Debug: Processing {self.data.index[-1]} | Close: {current_close:.2f} ✨")
+#         print(f"🌙 Moon Dev Debug: Processing {self.data.index[-1]} | Close: {current_close:.2f} ✨")
         
         # Manage existing positions
         if self.position:
@@ -60,9 +56,9 @@ class LiquiClusterSqueeze(Strategy):
             current_volume = self.data.Volume[-1]
             if current_volume < 0.5 * self.entry_volume:
                 self.consecutive_low_volume += 1
-                print(f"🚨 Volume Alert: {self.consecutive_low_volume}/3 low volume bars 🌧️")
+                print(f" Volume Alert: {self.consecutive_low_volume}/3 low volume bars ")
                 if self.consecutive_low_volume >= 3:
-                    print(f"💥 EMERGENCY EXIT: Volume collapse detected! 🚫")
+                    print(f" EMERGENCY EXIT: Volume collapse detected! ")
                     self.position.close()
             else:
                 self.consecutive_low_volume = 0
@@ -80,7 +76,7 @@ class LiquiClusterSqueeze(Strategy):
         # Squeeze detection
         min_bandwidth = min(self.bandwidth_history[-20:])
         squeeze_active = bandwidth <= 1.2 * min_bandwidth
-        print(f"🔍 Squeeze Status: {squeeze_active} | Current BW: {bandwidth:.4f} vs Min BW: {min_bandwidth:.4f} 🌀")
+        print(f" Squeeze Status: {squeeze_active} | Current BW: {bandwidth:.4f} vs Min BW: {min_bandwidth:.4f} ")
 
         # Get cluster levels
         cluster_high = self.swing_high[-1]
@@ -93,6 +89,6 @@ class LiquiClusterSqueeze(Strategy):
                 self.data.Volume[-1] > self.volume_ma[-1] and
                 squeeze_active):
                 
-                print(f"🚀 LONG Signal: Breaking cluster high at {cluster_high:.2f} 📈")
+                print(f" LONG Signal: Breaking cluster high at {cluster_high:.2f} ")
                 sl_price = cluster_low * 0.995
                 risk_per_share

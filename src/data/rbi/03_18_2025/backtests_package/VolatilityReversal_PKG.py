@@ -1,6 +1,3 @@
-I'll help fix the code by removing all `backtesting.lib` imports and replacing any crossover-related logic. Here's the corrected version:
-
-```python
 import pandas as pd
 import talib
 import pandas_ta as ta
@@ -62,7 +59,7 @@ class VolatilityReversal(Strategy):
     def next(self):
         # Moon Dev debugging
         if len(self.data) % 500 == 0:
-            print(f"🌙 Processing bar {len(self.data)} - Equity: ${self.equity:,.0f} ✨")
+            print(f" Processing bar {len(self.data)} - Equity: ${self.equity:,.0f} ")
             
         if len(self.data) < self.bb_lookback:
             return
@@ -84,7 +81,7 @@ class VolatilityReversal(Strategy):
                 if size > 0:
                     self.buy(size=size, sl=price-2*atr)
                     self.trail_stop = price - 2*atr
-                    print(f"🚀 MOON DEV LONG ENTRY 🌕 Size: {size} @ ${price:.2f} | ATR: {atr:.2f}")
+#                     print(f"🚀 MOON DEV LONG ENTRY 🌕 Size: {size} @ ${price:.2f} | ATR: {atr:.2f}")
             
             # Short entry
             elif (bb_width < bb_perc and 
@@ -94,4 +91,4 @@ class VolatilityReversal(Strategy):
                 if size > 0:
                     self.sell(size=size, sl=price+2*atr)
                     self.trail_stop = price + 2*atr
-                    print(f"🌑 MOON DEV
+#                     print(f"🌑 MOON DEV"

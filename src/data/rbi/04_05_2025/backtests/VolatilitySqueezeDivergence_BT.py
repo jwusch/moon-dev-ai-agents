@@ -1,7 +1,3 @@
-To address the requirements for the VolatilitySqueezeDivergence strategy, here's the complete implementation:
-
-```python
-# -*- coding: utf-8 -*-
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -29,8 +25,8 @@ data.rename(columns={
 }, inplace=True)
 
 # Verify required columns
-assert 'fundingrate' in data.columns, "🌙 CRITICAL: Funding rate data missing! Add 'funding_rate' column ✨"
-assert all(col in data.columns for col in ['Open', 'High', 'Low', 'Close', 'Volume']), "🌙 Missing OHLCV columns"
+assert 'fundingrate' in data.columns, " CRITICAL: Funding rate data missing! Add 'funding_rate' column "
+assert all(col in data.columns for col in ['Open', 'High', 'Low', 'Close', 'Volume']), " Missing OHLCV columns"
 
 class VolatilitySqueezeDivergence(Strategy):
     risk_percent = 0.01

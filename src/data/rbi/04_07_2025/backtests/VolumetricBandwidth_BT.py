@@ -1,6 +1,3 @@
-```python
-# 🌙 Moon Dev's VolumetricBandwidth Backtest Script 🚀
-
 import pandas as pd
 import pandas_ta as ta
 import talib
@@ -24,11 +21,24 @@ data['datetime'] = pd.to_datetime(data['datetime'])
 data.set_index('datetime', inplace=True)
 
 class VolumetricBandwidth(Strategy):
-    risk_per_trade = 0.01  # 1% risk per trade 🌡️
+    risk_per_trade = 0.01  # 1% risk per trade 
     
     def init(self):
         # Indicator Calculation Suite 📊
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume, name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         
         # Bollinger Bands Calculation 🔔
         bb_upper, bb_middle, bb_lower = talib.BBANDS(self.data.Close, timeperiod=20, nbdevup=2, nbdevdn=2)
@@ -46,7 +56,7 @@ class VolumetricBandwidth(Strategy):
         
     def next(self):
         # Moon Dev Debug Prints 🌙
-        print(f"\n✨ New Bar: {self.data.index[-1]} ✨")
+        print(f"\n New Bar: {self.data.index[-1]} ")
         print(f"Equity: ${self.equity:,.2f} | Price: {self.data.Close[-1]:.2f}")
         
         # Entry Logic 🚪
@@ -69,16 +79,16 @@ class VolumetricBandwidth(Strategy):
         # Exit Logic 🚪
         if self.position.is_long and self.data.Close[-1] < self.lower_band[-1]:
             self.position.close()
-            print("🌙 LONG EXIT: Price pierced Lower Band! 🛑")
+            print(" LONG EXIT: Price pierced Lower Band! ")
             
         if self.position.is_short and self.data.Close[-1] > self.upper_band[-1]:
             self.position.close()
-            print("🌙 SHORT EXIT: Price breached Upper Band! 🛑")
+            print(" SHORT EXIT: Price breached Upper Band! ")
             
         # Time-based Exit ⏳
         if self.position and (len(self.data) - self.position.entry_bar) >= 5:
             self.position.close()
-            print("🌙 TIME EXIT: 5-bar limit reached! ⌛")
+            print(" TIME EXIT: 5-bar limit reached! ⌛")
     
     def calculate_position(self, direction):
         # Risk Management Engine 🛡️

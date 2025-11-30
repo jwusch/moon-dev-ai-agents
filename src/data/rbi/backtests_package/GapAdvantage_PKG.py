@@ -1,13 +1,9 @@
-Here's the fixed code with all the backtesting.lib imports and functions replaced:
-
-```python
-#!/usr/bin/env python3
 """
-Moon Dev's Backtest AI 🌙 - GapAdvantage Strategy Backtesting Implementation
+# Moon Dev's Backtest AI 🌙 - GapAdvantage Strategy Backtesting Implementation'
 This strategy focuses on volatile stocks (or assets) with a gap‐and‐go setup.
 It enters when the price pulls back to key support levels such as VWAP and moving averages,
 and exits if the price shows early signs of weakness.
-Enjoy the Moon Dev debug vibes! 🌙✨🚀
+# Enjoy the Moon Dev debug vibes! 🌙✨🚀
 """
 
 # 1. Imports
@@ -54,7 +50,7 @@ class GapAdvantage(Strategy):
         self.vwap = self.I(custom_vwap, self.data.High, self.data.Low, self.data.Close, self.data.Volume)
         
         # Debug prints at initialization
-        print("🌙✨ [INIT] Indicators loaded: SMA9, SMA50, and VWAP calculated via custom_vwap()!")
+        print(" [INIT] Indicators loaded: SMA9, SMA50, and VWAP calculated via custom_vwap()!")
         
         # To store trade-dependent levels
         self.entry_price = None
@@ -67,13 +63,13 @@ class GapAdvantage(Strategy):
         current_sma9 = self.sma9[-1]
         
         # Debug: Print current price and indicator values
-        print(f"🌙🚀 [NEXT] Price: {price:.2f}, VWAP: {current_vwap:.2f}, SMA9: {current_sma9:.2f}")
+        print(f" [NEXT] Price: {price:.2f}, VWAP: {current_vwap:.2f}, SMA9: {current_sma9:.2f}")
         
         # Check if we have an open position
         if not self.position:
             # Entry logic:
             # Condition: price has just crossed above VWAP (pullback bounce) after being below.
-            # (i.e. yesterday's close was below vwap and today’s close is above vwap)
+            # (i.e. yesterday's close was below vwap and today’s close is above vwap)'
             if len(self.data.Close) >= 2 and self.data.Close[-2] < self.vwap[-2] and price > current_vwap:
                 self.entry_price = price
                 # Set stop loss and take profit levels based on entry price

@@ -1,6 +1,3 @@
-Here's the fixed code with all backtesting.lib references removed and Moon Dev themed debug prints added:
-
-```python
 from backtesting import Backtest, Strategy
 import talib
 import pandas_ta as ta
@@ -26,7 +23,7 @@ class ChaikinSqueeze(Strategy):
     
     def init(self):
         # Calculate indicators with TA-Lib
-        print("🌙 Initializing Moon Dev Indicators...")
+#         print("🌙 Initializing Moon Dev Indicators...")
         self.cmf = self.I(talib.CMF, self.data.High, self.data.Low, self.data.Close, self.data.Volume, 20, name='CMF')
         self.cmf_roc = self.I(talib.ROC, self.cmf, 3, name='CMF_ROC')
         
@@ -37,12 +34,25 @@ class ChaikinSqueeze(Strategy):
         self.min_width = self.I(talib.MIN, self.bb_width, 20, name='MIN_WIDTH')
         
         # VWAP and volume indicators
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume, name='VWAP')
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.vol_sma = self.I(talib.SMA, self.data.Volume, 10, name='VOL_SMA')
         
         # Swing high/low for stops
         self.swing_low = self.I(talib.MIN, self.data.Low, 20, name='SWING_LOW')
-        print("✨ Moon Dev Indicators Ready for Launch!")
+#         print("✨ Moon Dev Indicators Ready for Launch!")
 
     def next(self):
         current_close = self.data.Close[-1]
@@ -68,17 +78,17 @@ class ChaikinSqueeze(Strategy):
                             size=position_size,
                             sl=sl_price,
                             tp=current_close + 2*risk_per_unit,
-                            tag="🌙 BULLISH SQUEEZE BREAKOUT"
+                            tag=" BULLISH SQUEEZE BREAKOUT"
                         )
-                        print(f"🚀 MOON DEV ENTRY: {current_close:.2f} | Size: {position_size} | Risk: {risk_per_unit:.2f}")
+#                         print(f"🚀 MOON DEV ENTRY: {current_close:.2f} | Size: {position_size} | Risk: {risk_per_unit:.2f}")
         else:
             # Exit on CMF momentum reversal
             if self.cmf_roc[-1] < 0:
                 self.position.close()
-                print(f"🌑 MOON DEV EXIT: CMF Reversal at {current_close:.2f}")
+#                 print(f"🌑 MOON DEV EXIT: CMF Reversal at {current_close:.2f}")
 
 # Run backtest with 1M capital
-print("\n🌌 MOON DEV BACKTEST INITIATED 🌌")
+# print("\n🌌 MOON DEV BACKTEST INITIATED 🌌")
 bt = Backtest(data, ChaikinSqueeze, cash=1_000_000, commission=.002)
 stats = bt.run()
 

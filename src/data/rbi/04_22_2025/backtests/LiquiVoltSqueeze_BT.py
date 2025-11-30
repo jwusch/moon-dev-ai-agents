@@ -1,4 +1,3 @@
-```python
 import pandas as pd
 import talib
 from backtesting import Backtest, Strategy
@@ -63,7 +62,7 @@ class LiquiVoltSqueeze(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
                         self.buy(size=size, sl=sl)
-                        print(f"🌙 MOON DEV LONG ENTRY ✨ | Size: {size} | Entry: {self.data.Close[-1]} | SL: {sl}")
+#                         print(f"🌙 MOON DEV LONG ENTRY ✨ | Size: {size} | Entry: {self.data.Close[-1]} | SL: {sl}")
 
             # Short entry conditions
             bbw_cond_short = self.bbw[-1] <= self.bbw_low_threshold[-1]
@@ -79,7 +78,7 @@ class LiquiVoltSqueeze(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
                         self.sell(size=size, sl=sl)
-                        print(f"🌙 MOON DEV SHORT ENTRY ✨ | Size: {size} | Entry: {self.data.Close[-1]} | SL: {sl}")
+#                         print(f"🌙 MOON DEV SHORT ENTRY ✨ | Size: {size} | Entry: {self.data.Close[-1]} | SL: {sl}")
 
         else:
             if self.position.is_long:

@@ -1,6 +1,3 @@
-Here's the fully debugged and fixed version of your LiquidityBandwidth strategy with Moon Dev themed debug prints and proper position sizing:
-
-```python
 import pandas as pd
 import numpy as np
 import talib
@@ -14,7 +11,20 @@ class LiquidityBandwidth(Strategy):
         self.bb_lower = self.I(talib.BBANDS, self.data.Close, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)[2]
         self.bb_mid = self.I(talib.SMA, self.data.Close, timeperiod=20)
         
-        self.vwap = self.I(ta.vwap, high=self.data.High, low=self.data.Low, close=self.data.Close, volume=self.data.Volume, length=20)
+        # Calculate VWAP with fallback
+        vwap_result = ta.vwap(
+            high=self.data.High,
+            low=self.data.Low,
+            close=self.data.Close,
+            volume=self.data.Volume
+        )
+        
+        if vwap_result is None or (hasattr(vwap_result, '__len__') and len(vwap_result) == 0):
+            vwap_values = (self.data.High + self.data.Low + self.data.Close) / 3
+        else:
+            vwap_values = vwap_result.ffill().fillna((self.data.High + self.data.Low + self.data.Close) / 3).values
+            
+        self.vwap = self.I(lambda: vwap_values, name='VWAP')
         self.atr = self.I(talib.ATR, self.data.High, self.data.Low, self.data.Close, timeperiod=14)
         self.vol_sma = self.I(talib.SMA, self.data.Volume, timeperiod=20)
         
@@ -23,7 +33,7 @@ class LiquidityBandwidth(Strategy):
         
     def next(self):
         # Moon Dev debug prints ✨
-        print(f"\n🌙 MOON DEV CYCLE START 🌙 | Bar: {len(self.data)-1} | Price: {self.data.Close[-1]:.2f}")
+#         print(f"\n🌙 MOON DEV CYCLE START 🌙 | Bar: {len(self.data)-1} | Price: {self.data.Close[-1]:.2f}")
         
         # Calculate current BB width
         bb_width = (self.bb_upper[-1] - self.bb_lower[-1]) / self.bb_mid[-1]
@@ -36,7 +46,7 @@ class LiquidityBandwidth(Strategy):
             max_vol_idx = np.argmax(vol_window)
             cluster_high = self.data.High[-lookback:][max_vol_idx]
             cluster_low = self.data.Low[-lookback:][max_vol_idx]
-            print(f"🔍 Liquidity Cluster | High: {cluster_high:.2f} | Low: {cluster_low:.2f}")
+            print(f" Liquidity Cluster | High: {cluster_high:.2f} | Low: {cluster_low:.2f}")
             
             # Entry conditions check 🚦
             current_close = self.data.Close[-1]
@@ -65,9 +75,9 @@ class LiquidityBandwidth(Strategy):
                     # Volatility adjustment 🌪️
                     if bb_width > np.percentile(self.bb_width_history, 50):
                         position_size = position_size // 2  # Integer division
-                        print("⚡ Volatility Reduction Activated!")
+                        print(" Volatility Reduction Activated!")
                     
-                    print(f"🚀 {direction} SIGNAL | Size: {position_size} | SL: {stop_loss:.2f}")
+                    print(f" {direction} SIGNAL | Size: {position_size} | SL: {stop_loss:.2f}")
                     
                     if direction == 'LONG':
                         self.buy(size=position_size, sl=stop_loss)

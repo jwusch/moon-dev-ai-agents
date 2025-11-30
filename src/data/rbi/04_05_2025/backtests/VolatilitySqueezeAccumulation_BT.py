@@ -1,4 +1,3 @@
-```python
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 import pandas as pd
@@ -86,4 +85,4 @@ class VolatilitySqueezeAccumulation(Strategy):
                     size = int(round(risk_amount / risk_per_share))
                     if size > 0:
                         self.buy(size=size, sl=sl, tag='MoonDev_Long')
-                        print(f"🚀 MOON DEV LONG ENTRY 🌙 | Size: {size} | Entry: {self.data.Close[-
+#                         print(f"🚀 MOON DEV LONG ENTRY 🌙 | Size: {size} | Entry: {self.data.Close[-"

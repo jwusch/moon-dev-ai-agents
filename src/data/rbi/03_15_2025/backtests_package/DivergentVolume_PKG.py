@@ -1,7 +1,3 @@
-The code you provided is already free from any `backtesting.lib` imports or functions, which is great! However, I'll ensure that all indicators are properly implemented using TA-Lib and that the code follows best practices for Moon Dev's Package AI. Here's the complete and verified code with some additional Moon Dev themed debug prints:
-
-```python
-# -*- coding: utf-8 -*-
 import pandas as pd
 import talib
 import numpy as np
@@ -35,7 +31,7 @@ class DivergentVolume(Strategy):
 
     def next(self):
         # Moon Dev debug prints 🌙
-        print(f"\n🌙 Moon Dev Debug - Bar {len(self.data)-1} ✨")
+#         print(f"\n🌙 Moon Dev Debug - Bar {len(self.data)-1} ✨")
         print(f"Close: {self.data.Close[-1]:.2f}, EMA50: {self.ema50[-1]:.2f}")
         print(f"MACD Hist: {self.macd_hist[-1]:.4f}, Vol Ratio: {self.volume_ratio[-1]:.2f}")
         
@@ -61,8 +57,8 @@ class DivergentVolume(Strategy):
                     position_size = int(round(risk_amount / risk_per_share))
                     if position_size > 0:
                         self.buy(size=position_size)
-                        print(f"🚀 LONG ENTRY: {position_size} shares @ {self.data.Close[-1]:.2f}")
-                        print(f"🎯 TP: {self.data.Close[-1] + 3*atr_value:.2f}, 🛑 SL: {stop_loss:.2f}")
+                        print(f" LONG ENTRY: {position_size} shares @ {self.data.Close[-1]:.2f}")
+                        print(f" TP: {self.data.Close[-1] + 3*atr_value:.2f},  SL: {stop_loss:.2f}")
         else:
             # Update trailing stop
             current_high = max(self.data.High[-1], self.data.High[-2])
