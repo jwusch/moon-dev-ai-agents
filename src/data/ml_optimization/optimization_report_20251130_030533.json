@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-11-30T03:05:33.713128",
+  "total_strategies": 3,
+  "profitable_strategies": 3,
+  "avg_sharpe_ratio": 1.2833333333333334,
+  "top_strategies": [
+    {
+      "strategy_id": "macd_histogram",
+      "total_return": 0.22,
+      "sharpe_ratio": 1.8,
+      "max_drawdown": -0.05,
+      "win_rate": 0.71,
+      "profit_factor": 2.3,
+      "avg_trade_duration": 3.2,
+      "volatility": 0.1,
+      "sortino_ratio": 2.1,
+      "calmar_ratio": 4.4,
+      "trades_count": 38,
+      "data_period": "3M",
+      "last_updated": "2025-11-30 03:05:30.599015"
+    },
+    {
+      "strategy_id": "rsi_divergence",
+      "total_return": 0.15,
+      "sharpe_ratio": 1.2,
+      "max_drawdown": -0.08,
+      "win_rate": 0.65,
+      "profit_factor": 1.8,
+      "avg_trade_duration": 4.5,
+      "volatility": 0.12,
+      "sortino_ratio": 1.5,
+      "calmar_ratio": 1.9,
+      "trades_count": 45,
+      "data_period": "3M",
+      "last_updated": "2025-11-30 03:05:30.599003"
+    },
+    {
+      "strategy_id": "bollinger_mean_reversion",
+      "total_return": 0.09,
+      "sharpe_ratio": 0.85,
+      "max_drawdown": -0.12,
+      "win_rate": 0.58,
+      "profit_factor": 1.4,
+      "avg_trade_duration": 6.1,
+      "volatility": 0.15,
+      "sortino_ratio": 1.1,
+      "calmar_ratio": 0.75,
+      "trades_count": 52,
+      "data_period": "3M",
+      "last_updated": "2025-11-30 03:05:30.599024"
+    }
+  ],
+  "recent_optimizations": 3,
+  "avg_improvement": 35.360044348621905
+}

@@ -1,0 +1,34 @@
+# Strategy Discovery Agent - Generated Ideas
+# Generated on 2025-11-30 12:52:16
+# 5 strategies recommended for implementation
+
+# Strategy: RSI-2 Mean Reversion with Volume Filter
+# Source: Expert Research
+# Confidence: 0.85
+# Recommendation: implement
+Short-term mean reversion using 2-period RSI with volume confirmation. Enter when RSI-2 < 10 and volume > 1.5x average. Exit when RSI-2 > 70 or after 3 days.
+
+# Strategy: Bollinger Band Squeeze Breakout
+# Source: Expert Research
+# Confidence: 0.82
+# Recommendation: implement
+Volatility breakout strategy. Enter when Bollinger Bands squeeze (narrow) then expand with strong volume. Use ATR for position sizing.
+
+# Strategy: Support/Resistance with Volume Profile
+# Source: Expert Research
+# Confidence: 0.80
+# Recommendation: implement
+Identify key S/R levels using volume profile. Enter on bounces from high-volume nodes with confirmation candles. Risk management at previous S/R levels.
+
+# Strategy: Triple EMA Crossover with MACD Confirmation
+# Source: Expert Research
+# Confidence: 0.78
+# Recommendation: implement
+Trend following using 8, 21, 55 EMA crossover with MACD histogram confirmation. Enter on aligned EMAs with MACD histogram turning positive.
+
+# Strategy: VWAP Reversion with Momentum Filter
+# Source: Expert Research
+# Confidence: 0.77
+# Recommendation: implement
+Trade returns to VWAP when price extends too far. Use momentum oscillators to time entry. Works best in ranging markets.
+

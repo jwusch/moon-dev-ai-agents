@@ -1,0 +1,214 @@
+[
+  {
+    "source": "Expert Research",
+    "title": "RSI-2 Mean Reversion with Volume Filter",
+    "description": "Short-term mean reversion using 2-period RSI with volume confirmation. Enter when RSI-2 < 10 and volume > 1.5x average. Exit when RSI-2 > 70 or after 3 days.",
+    "url": null,
+    "indicators": [
+      "RSI",
+      "Volume SMA"
+    ],
+    "timeframes": [
+      "1D",
+      "4H"
+    ],
+    "market_conditions": [
+      "Trending markets with pullbacks"
+    ],
+    "confidence_score": 0.85,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239013",
+    "status": "researched"
+  },
+  {
+    "source": "Expert Research",
+    "title": "Bollinger Band Squeeze Breakout",
+    "description": "Volatility breakout strategy. Enter when Bollinger Bands squeeze (narrow) then expand with strong volume. Use ATR for position sizing.",
+    "url": null,
+    "indicators": [
+      "Bollinger Bands",
+      "ATR",
+      "Volume"
+    ],
+    "timeframes": [
+      "1H",
+      "4H"
+    ],
+    "market_conditions": [
+      "Low to high volatility transitions"
+    ],
+    "confidence_score": 0.82,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239033",
+    "status": "researched"
+  },
+  {
+    "source": "Expert Research",
+    "title": "Support/Resistance with Volume Profile",
+    "description": "Identify key S/R levels using volume profile. Enter on bounces from high-volume nodes with confirmation candles. Risk management at previous S/R levels.",
+    "url": null,
+    "indicators": [
+      "Volume Profile",
+      "Support/Resistance"
+    ],
+    "timeframes": [
+      "1H",
+      "4H"
+    ],
+    "market_conditions": [
+      "Range-bound and trending markets"
+    ],
+    "confidence_score": 0.8,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239039",
+    "status": "researched"
+  },
+  {
+    "source": "Expert Research",
+    "title": "Triple EMA Crossover with MACD Confirmation",
+    "description": "Trend following using 8, 21, 55 EMA crossover with MACD histogram confirmation. Enter on aligned EMAs with MACD histogram turning positive.",
+    "url": null,
+    "indicators": [
+      "EMA",
+      "MACD"
+    ],
+    "timeframes": [
+      "4H",
+      "1D"
+    ],
+    "market_conditions": [
+      "Strong trending markets"
+    ],
+    "confidence_score": 0.78,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239028",
+    "status": "researched"
+  },
+  {
+    "source": "Expert Research",
+    "title": "VWAP Reversion with Momentum Filter",
+    "description": "Trade returns to VWAP when price extends too far. Use momentum oscillators to time entry. Works best in ranging markets.",
+    "url": null,
+    "indicators": [
+      "VWAP",
+      "RSI",
+      "CCI"
+    ],
+    "timeframes": [
+      "15m",
+      "1H"
+    ],
+    "market_conditions": [
+      "Ranging, high-volume periods"
+    ],
+    "confidence_score": 0.77,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239044",
+    "status": "researched"
+  },
+  {
+    "source": "Expert Research",
+    "title": "Ichimoku Cloud Momentum",
+    "description": "Use Ichimoku components for trend identification. Enter when price above cloud, TK line bullish cross, and strong momentum. Trailing stop at cloud edge.",
+    "url": null,
+    "indicators": [
+      "Ichimoku",
+      "RSI"
+    ],
+    "timeframes": [
+      "4H",
+      "1D"
+    ],
+    "market_conditions": [
+      "Trending markets"
+    ],
+    "confidence_score": 0.75,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239036",
+    "status": "discovered"
+  },
+  {
+    "source": "Expert Research",
+    "title": "Stochastic RSI Divergence",
+    "description": "Look for divergences between price and Stochastic RSI. Enter on bullish divergence with oversold conditions. Combine with higher timeframe trend.",
+    "url": null,
+    "indicators": [
+      "Stochastic RSI",
+      "RSI"
+    ],
+    "timeframes": [
+      "1H",
+      "4H"
+    ],
+    "market_conditions": [
+      "Oversold/overbought extremes"
+    ],
+    "confidence_score": 0.73,
+    "research_priority": 5,
+    "discovered_date": "2025-11-30T03:01:48.239041",
+    "status": "discovered"
+  },
+  {
+    "source": "Market Phenomena Research",
+    "title": "Earnings Announcement Volatility",
+    "description": "Trade volatility around earnings announcements. Use options implied volatility vs realized volatility.",
+    "url": null,
+    "indicators": [
+      "ATR",
+      "Volume",
+      "Implied Volatility"
+    ],
+    "timeframes": [
+      "1H",
+      "4H"
+    ],
+    "market_conditions": [
+      "Earnings seasons"
+    ],
+    "confidence_score": 0.7,
+    "research_priority": 3,
+    "discovered_date": "2025-11-30T03:01:48.239052",
+    "status": "discovered"
+  },
+  {
+    "source": "Market Phenomena Research",
+    "title": "Federal Reserve Meeting Patterns",
+    "description": "Trade patterns around FOMC meeting announcements. Often see pre-meeting positioning and post-meeting reversals.",
+    "url": null,
+    "indicators": [
+      "Economic Calendar",
+      "VIX"
+    ],
+    "timeframes": [
+      "4H",
+      "1D"
+    ],
+    "market_conditions": [
+      "FOMC meeting days"
+    ],
+    "confidence_score": 0.68,
+    "research_priority": 3,
+    "discovered_date": "2025-11-30T03:01:48.239054",
+    "status": "discovered"
+  },
+  {
+    "source": "Market Phenomena Research",
+    "title": "Monday Effect Mean Reversion",
+    "description": "Exploit Monday market opening effects. Look for weekend gap reversal patterns on Monday open.",
+    "url": null,
+    "indicators": [
+      "Gap Detection",
+      "RSI"
+    ],
+    "timeframes": [
+      "1D"
+    ],
+    "market_conditions": [
+      "Monday market opens"
+    ],
+    "confidence_score": 0.65,
+    "research_priority": 3,
+    "discovered_date": "2025-11-30T03:01:48.239049",
+    "status": "discovered"
+  }
+]

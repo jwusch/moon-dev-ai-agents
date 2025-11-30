@@ -19,11 +19,11 @@ class OllamaModel(BaseModel):
         "deepseek-r1",      # DeepSeek R1 through Ollama (7B by default)
         "qwen3:8b",         # Qwen 3 8B model - fast reasoning model
         "gemma:2b",         # Google's Gemma 2B model
-        "llama3.2",         # Meta's Llama 3.2 model - fast and efficient
+        "llama3.2:latest",  # Meta's Llama 3.2 model - fast and efficient
         # implement your own local models through hugging face/ollama here
     ]
     
-    def __init__(self, api_key=None, model_name="llama3.2"):
+    def __init__(self, api_key=None, model_name="llama3.2:latest"):
         """Initialize Ollama model
 
         Args:
@@ -192,7 +192,7 @@ class OllamaModel(BaseModel):
                 "deepseek-r1": "7B",
                 "qwen3:8b": "8B",
                 "gemma:2b": "2B",
-                "llama3.2": "70B"
+                "llama3.2:latest": "70B"
             }
             
             if model_name in known_models:
