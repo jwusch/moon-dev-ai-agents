@@ -14,7 +14,23 @@ import time
 import json
 import numpy as np
 import datetime
-import pandas_ta as ta
+# pandas_ta compatibility layer (uses ta library as fallback)
+try:
+    import pandas_ta as ta
+except ImportError:
+    # Fallback: create pandas_ta-like interface using ta library
+    import ta as _ta
+    class TACompat:
+        @staticmethod
+        def sma(series, length=20):
+            return series.rolling(window=length).mean()
+        @staticmethod
+        def rsi(series, length=14):
+            return _ta.momentum.RSIIndicator(series, window=length).rsi()
+        @staticmethod
+        def ema(series, length=20):
+            return series.ewm(span=length, adjust=False).mean()
+    ta = TACompat()
 from datetime import datetime, timedelta
 from termcolor import colored, cprint
 import solders

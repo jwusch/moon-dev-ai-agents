@@ -6,6 +6,66 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an experimental AI trading system that orchestrates 48+ specialized AI agents to analyze markets, execute strategies, and manage risk across cryptocurrency markets (primarily Solana). The project uses a modular agent architecture with unified LLM provider abstraction supporting Claude, GPT-4, DeepSeek, Groq, Gemini, and local Ollama models.
 
+## MCP (Model Context Protocol) Integration
+
+This project uses Archon as an MCP server to provide access to a curated knowledge base and project management tools for enhanced AI assistance.
+
+### MCP Configuration
+
+Add this to your Claude Code configuration:
+
+```bash
+claude mcp add --transport sse archon http://localhost:8051/sse
+```
+
+Or for other MCP clients (Cursor, Windsurf), add to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "archon": {
+      "uri": "http://localhost:8051/sse"
+    }
+  }
+}
+```
+
+### Available MCP Tools
+
+**Knowledge & RAG (7 tools):**
+- `perform_rag_query` - Search the knowledge base semantically for trading strategies, agent patterns, API documentation
+- `search_code_examples` - Find relevant code snippets and implementation patterns
+- `get_available_sources` - List available knowledge sources (trading docs, AI frameworks, etc.)
+- `smart_crawl_url` - Add new documentation/websites to knowledge base
+- `upload_document` - Add trading PDFs, research papers, strategy documents
+- `crawl_single_page` - Index specific documentation pages
+- `delete_source` - Remove outdated sources
+
+**Project Management (5 tools):**
+- `manage_project` - Create, list, get, delete projects for trading strategies
+- `manage_task` - Track agent development, backtesting tasks, optimization goals
+- `manage_document` - Version-controlled strategy documentation and research notes
+- `manage_versions` - Version control for trading strategies and agent configurations
+- `get_project_features` - Retrieve project capabilities and feature status
+
+**System (2 tools):**
+- `health_check` - Archon system diagnostics
+- `session_info` - MCP session management
+
+### Usage Guidelines for Trading Development
+
+1. **Research trading strategies**: Use `perform_rag_query` to search for algorithmic trading patterns, risk management techniques, and market analysis methods
+2. **Find agent implementation patterns**: Use `search_code_examples` to locate similar agent architectures, trading bot implementations, and backtesting frameworks
+3. **Add trading knowledge**: Use `smart_crawl_url` to add quantitative trading documentation, API references, and research papers
+4. **Track development progress**: Create projects for strategy development, agent optimization, and backtesting campaigns
+5. **Document strategies**: Use document management to maintain strategy documentation, performance analysis, and research notes
+6. **Keep knowledge current**: Regularly add new trading resources, market analysis tools, and algorithmic trading research
+
+### Prerequisites
+
+- Archon must be running locally (http://localhost:8051/sse should be accessible)
+- MCP client properly configured with the SSE transport
+
 ## Key Development Commands
 
 ### Environment Setup

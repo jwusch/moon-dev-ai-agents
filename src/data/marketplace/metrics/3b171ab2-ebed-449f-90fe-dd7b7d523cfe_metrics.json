@@ -1,0 +1,33 @@
+{
+  "strategy_id": "3b171ab2-ebed-449f-90fe-dd7b7d523cfe",
+  "calculated_at": "2025-11-30T00:39:39.806161",
+  "metrics": {
+    "total_return": 226.26,
+    "annual_return": 264.43,
+    "monthly_return": 20.32,
+    "sharpe_ratio": 3.576,
+    "sortino_ratio": 6.648,
+    "max_drawdown": -11.35,
+    "max_drawdown_duration_days": 16,
+    "volatility_annual": 25.36,
+    "total_trades": 25,
+    "winning_trades": 18,
+    "losing_trades": 7,
+    "win_rate": 72.0,
+    "avg_win": 34.95,
+    "avg_loss": -21.62,
+    "avg_trade": 19.11,
+    "best_trade": 171.67,
+    "worst_trade": -50.63,
+    "avg_trade_duration_hours": 134.4,
+    "profit_factor": 4.16,
+    "time_in_market": 42.94,
+    "calmar_ratio": 23.298,
+    "expectancy": 477.75,
+    "market_correlation": 0.0,
+    "backtest_days": 334,
+    "exposure_time": 42.94,
+    "risk_reward_ratio": 1.62
+  },
+  "backtest_config": {}
+}

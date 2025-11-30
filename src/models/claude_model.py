@@ -25,7 +25,7 @@ class ClaudeModel(BaseModel):
         "claude-3-haiku": "Fast, efficient Claude 3 model"
     }
     
-    def __init__(self, api_key: str, model_name: str = "claude-3-haiku", **kwargs):
+    def __init__(self, api_key: str, model_name: str = "claude-3-5-haiku-latest", **kwargs):
         self.model_name = model_name
         super().__init__(api_key, **kwargs)
     

@@ -1,0 +1,3 @@
+date,time,action,coin,side,size_usd,price,balance_before,balance_after,strategy,notes
+2025-11-27,02:00,ENTRY,DASH,LONG,10.00,67.75,10.00,10.00,funding_arb,Initial entry - collecting funding from shorts
+2025-11-27,07:17,SNAPSHOT,DASH,LONG,9.48,64.30,10.00,9.48,funding_arb,Price dropped 5% but funding coming in

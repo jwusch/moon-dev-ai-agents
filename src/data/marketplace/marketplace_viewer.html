@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 Moon Dev Strategy Marketplace - Offline Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .strategy-card {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        .strategy-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .perf-item {
+            background: #0a0a0a;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .perf-label {
+            font-size: 0.8em;
+            color: #888;
+        }
+        
+        .perf-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #333;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 5px;
+        }
+        
+        .tag.risk-low {
+            background: #48bb78;
+            color: black;
+        }
+        
+        .notice {
+            background: #764ba2;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .rating {
+            color: #ffd700;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌙 Moon Dev Strategy Marketplace</h1>
+            <p>Offline Strategy Viewer - Sample Data Display</p>
+        </div>
+        
+        <div class="notice">
+            ⚠️ This is a static preview. To access the full interactive dashboard with real data, please run the Flask server.
+        </div>
+        
+        <div class="strategy-card">
+            <h2 class="strategy-title">RSI Mean Reversion</h2>
+            <p style="color: #888; margin: 5px 0;">by moon_dev</p>
+            <div class="rating">
+                ⭐⭐⭐⭐☆ 4.3/5.0 (5 reviews)
+            </div>
+            
+            <p style="margin: 15px 0;">A classic mean reversion strategy using RSI to identify oversold/overbought conditions. Buys when RSI < 30 and sells when RSI > 70 with configurable stop loss and take profit levels.</p>
+            
+            <div style="margin: 10px 0;">
+                <span class="tag">mean_reversion</span>
+                <span class="tag">technical</span>
+                <span class="tag risk-low">LOW RISK</span>
+            </div>
+            
+            <h3 style="margin-top: 20px; color: #667eea;">Performance Metrics</h3>
+            <div class="performance-grid">
+                <div class="perf-item">
+                    <div class="perf-label">Total Return</div>
+                    <div class="perf-value">226.26%</div>
+                </div>
+                <div class="perf-item">
+                    <div class="perf-label">Sharpe Ratio</div>
+                    <div class="perf-value">3.576</div>
+                </div>
+                <div class="perf-item">
+                    <div class="perf-label">Win Rate</div>
+                    <div class="perf-value">72.00%</div>
+                </div>
+                <div class="perf-item">
+                    <div class="perf-label">Max Drawdown</div>
+                    <div class="perf-value">-11.35%</div>
+                </div>
+                <div class="perf-item">
+                    <div class="perf-label">Total Trades</div>
+                    <div class="perf-value">25</div>
+                </div>
+                <div class="perf-item">
+                    <div class="perf-label">Profit Factor</div>
+                    <div class="perf-value">4.16</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 20px; color: #667eea;">Requirements</h3>
+            <ul style="margin: 10px 0; padding-left: 20px;">
+                <li>Minimum Capital: $100</li>
+                <li>Timeframes: 15m, 1H, 4H</li>
+                <li>Instruments: BTC, ETH, SOL</li>
+                <li>Dependencies: pandas_ta</li>
+            </ul>
+            
+            <div style="margin-top: 20px;">
+                <button style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">View Details</button>
+                <button style="padding: 10px 20px; background: #764ba2; color: white; border: none; border-radius: 5px; cursor: pointer;">Download Strategy</button>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; color: #666;">
+            <p>To access the full interactive marketplace with live data:</p>
+            <code style="background: #1a1a2e; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px;">
+                python src/scripts/marketplace_dashboard.py
+            </code>
+        </div>
+    </div>
+    
+    <script>
+        // Show alert when buttons are clicked
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('This is a static preview. Please run the Flask server for full functionality:\n\npython src/scripts/marketplace_dashboard.py');
+            });
+        });
+    </script>
+</body>
+</html>

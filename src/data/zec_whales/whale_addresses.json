@@ -1,0 +1,93 @@
+{
+  "t1Kef6MquYAGMDQTKKsWRwLfNLf4xREqVv1": {
+    "label": "Binance Hot Wallet",
+    "total_volume": 0,
+    "tx_count": 0,
+    "first_seen": null,
+    "last_seen": null
+  },
+  "t1eXiVKk9VwLw57FZYaxS58h6N8qGEZwPK3": {
+    "label": "Kraken",
+    "total_volume": 0,
+    "tx_count": 0,
+    "first_seen": null,
+    "last_seen": null
+  },
+  "t1Rj4Mb1E3kSu4nkjqLJz4p1CJuRr9v6jkv": {
+    "label": "Bittrex",
+    "total_volume": 0,
+    "tx_count": 0,
+    "first_seen": null,
+    "last_seen": null
+  },
+  "t1RyCw14wRXrh3mp21uxgr9ynjem7cNUkMH": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.317602",
+    "last_seen": "2025-11-26T22:22:19.369544"
+  },
+  "t3hdTwzcVVGEqDdNKJTBfWvWyaFYNJv7KkA": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.320520",
+    "last_seen": "2025-11-26T22:22:19.372113"
+  },
+  "t3aPMe94jMKyrgkbH5SSukimvdMFJ59EFhP": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.330750",
+    "last_seen": "2025-11-26T22:22:19.382153"
+  },
+  "t1PKBiv7mtzD9bNafYaqyxaENeiNDbpKxxQ": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.336419",
+    "last_seen": "2025-11-26T22:22:19.389813"
+  },
+  "t1Lyq3AcqVcXkBTPHgNsDYoSyRDpugdSkE7": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.341699",
+    "last_seen": "2025-11-26T22:22:19.397440"
+  },
+  "t1dse1BGYFWjrpxgW13NHi6ApZiyrEGqGnv": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.346514",
+    "last_seen": "2025-11-26T22:22:19.404085"
+  },
+  "t1gePjJEmRzBPk9jxk1j425Gz1CkbBLoGAg": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.351988",
+    "last_seen": "2025-11-26T22:22:19.410760"
+  },
+  "t1am2oFofYswreeeKTN2G2NLiuW9DQvR5DV": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.358244",
+    "last_seen": "2025-11-26T22:22:19.417429"
+  },
+  "t1ewXTvioNXo9fRZfjhnwnayQRYBJ5P4ebX": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.363549",
+    "last_seen": "2025-11-26T22:22:19.423897"
+  },
+  "t1Ku2KLyndDPsR32jwnrTMd3yvi9tfFP8ML": {
+    "label": "Unknown Whale",
+    "total_volume": 0,
+    "tx_count": 2,
+    "first_seen": "2025-11-26T22:20:52.368737",
+    "last_seen": "2025-11-26T22:22:19.430468"
+  }
+}

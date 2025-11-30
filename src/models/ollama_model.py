@@ -5,6 +5,7 @@ Built with love by Moon Dev 🚀
 This module provides integration with locally running Ollama models.
 """
 
+import os
 import requests
 import json
 from termcolor import cprint
@@ -24,12 +25,29 @@ class OllamaModel(BaseModel):
     
     def __init__(self, api_key=None, model_name="llama3.2"):
         """Initialize Ollama model
-        
+
         Args:
             api_key: Not used for Ollama but kept for compatibility
             model_name: Name of the Ollama model to use
         """
-        self.base_url = "http://localhost:11434/api"  # Default Ollama API endpoint
+        # Support custom host via env var, or auto-detect WSL gateway for Windows Ollama
+        ollama_host = os.getenv("OLLAMA_HOST", None)
+        if ollama_host:
+            self.base_url = f"http://{ollama_host}/api"
+        else:
+            # Try to detect WSL gateway for Windows Ollama
+            try:
+                with open("/proc/net/route") as f:
+                    for line in f:
+                        fields = line.strip().split()
+                        if fields[1] == "00000000":  # Default route
+                            gateway = ".".join([str(int(fields[2][i:i+2], 16)) for i in (6,4,2,0)])
+                            self.base_url = f"http://{gateway}:11434/api"
+                            break
+                    else:
+                        self.base_url = "http://localhost:11434/api"
+            except:
+                self.base_url = "http://localhost:11434/api"
         self.model_name = model_name
         # Pass a dummy API key to satisfy BaseModel
         super().__init__(api_key="LOCAL_OLLAMA")
