@@ -20,6 +20,10 @@ from .ollama_model import OllamaModel
 from .xai_model import XAIModel
 from .openrouter_model import OpenRouterModel  # 🌙 Moon Dev: OpenRouter - access to 200+ models!
 import random
+from src.observability import LangFuseTracker
+
+# Initialize LangFuse tracker on module load
+_langfuse_tracker = LangFuseTracker()
 
 class ModelFactory:
     """Factory for creating and managing AI models"""

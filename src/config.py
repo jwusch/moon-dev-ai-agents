@@ -3,8 +3,10 @@
 Built with love by Moon Dev 🚀
 """
 
+import os
+
 # 🔄 Exchange Selection
-EXCHANGE = 'solana'  # Options: 'solana', 'hyperliquid'
+EXCHANGE = 'solana'  # Options: 'solana', 'hyperliquid', 'aster'
 
 # 💰 Trading Configuration
 USDC_ADDRESS = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"  # Never trade or close
@@ -102,6 +104,12 @@ AI_MODEL = "claude-3-haiku-20240307"  # Model Options:
                                      # - claude-3-opus-20240229 (Most powerful Claude model)
 AI_MAX_TOKENS = 1024  # Max tokens for response
 AI_TEMPERATURE = 0.7  # Creativity vs precision (0-1)
+
+# LangFuse Observability Settings 🔍
+ENABLE_LANGFUSE = os.getenv('ENABLE_LANGFUSE', 'true').lower() == 'true'
+LANGFUSE_FLUSH_INTERVAL = 30  # Seconds between batch flushes
+LANGFUSE_CAPTURE_INPUT = True  # Capture prompts
+LANGFUSE_CAPTURE_OUTPUT = True  # Capture responses
 
 # Trading Strategy Agent Settings - MAY NOT BE USED YET 1/5/25
 ENABLE_STRATEGIES = True  # Set this to True to use strategies

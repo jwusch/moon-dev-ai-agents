@@ -9,6 +9,7 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from termcolor import cprint
+from src.observability import ObservabilityContext
 
 class BaseAgent:
     def __init__(self, agent_type, use_exchange_manager=False):
@@ -52,6 +53,18 @@ class BaseAgent:
         except:
             from src.config import MONITORED_TOKENS
             return MONITORED_TOKENS
+
+    def _set_observability_context(self):
+        """Set observability context for this agent"""
+        try:
+            ObservabilityContext.add_agent_metadata(
+                agent_type=self.type,
+                agent_name=self.__class__.__name__,
+                exchange=getattr(self, 'exchange', 'unknown')
+            )
+        except Exception:
+            # Silently fail if observability not available
+            pass
 
     def run(self):
         """Default run method - should be overridden by child classes"""

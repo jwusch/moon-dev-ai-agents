@@ -11,6 +11,7 @@ from dataclasses import dataclass
 import random
 import time
 from termcolor import cprint
+from src.observability import observe_llm, ObservabilityContext
 
 @dataclass
 class ModelResponse:
@@ -33,9 +34,19 @@ class BaseModel(ABC):
         """Initialize the model's client"""
         pass
     
+    @observe_llm(name="llm_generation")
     def generate_response(self, system_prompt, user_content, temperature=0.7, max_tokens=None):
         """Generate a response from the model with no caching"""
         try:
+            # Add model metadata to trace
+            ObservabilityContext.add_agent_metadata(
+                agent_type='model',
+                agent_name=self.model_type,
+                model_name=getattr(self, 'model_name', 'unknown'),
+                temperature=temperature,
+                max_tokens=max_tokens if max_tokens else self.max_tokens
+            )
+            
             # Add random nonce to prevent caching
             nonce = f"_{random.randint(1, 1000000)}"
             current_time = int(time.time())
@@ -57,7 +68,9 @@ class BaseModel(ABC):
             
         except Exception as e:
             if "503" in str(e):
+                ObservabilityContext.add_error(e, {'error_type': 'rate_limit'})
                 raise e  # Let the retry logic handle 503s
+            ObservabilityContext.add_error(e)
             cprint(f"❌ Model error: {str(e)}", "red")
             return None
     

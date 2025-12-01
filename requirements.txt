@@ -165,3 +165,4 @@ wheel==0.45.1
 xyzservices==2025.11.0
 yarl==1.22.0
 zstandard @ file:///home/task_175818846949212/conda-bld/zstandard_1758189073015/work
+langfuse==2.42.0
