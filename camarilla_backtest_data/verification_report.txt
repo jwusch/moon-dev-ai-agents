@@ -1,0 +1,16 @@
+
+VERIFICATION REPORT
+Generated: 2025-12-01 20:21:05.557918
+
+Data Storage Verification:
+- Raw data files: 15
+- Backtest stats files: 15
+- Trade files: 15
+
+This data can be independently verified by checking the CSV files in camarilla_backtest_data/
+
+Results are based on actual backtests using backtesting.py library with:
+- Commission: 0.2%
+- Starting capital: $10,000
+- Position size: 95% of equity
+- Data period: Last 500 trading days (or all available if less)

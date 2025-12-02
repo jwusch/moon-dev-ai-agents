@@ -1,0 +1,2 @@
+Entry_Time,Exit_Time,Type,Entry_Price,Exit_Price,PnL%,Exit_Reason,Duration_Min,Hour
+2025-11-21 10:30:00-05:00,2025-11-21 11:15:00-05:00,Short,39.86000061035156,39.13999938964844,1.8063251622633998,Profit target,45.0,10
