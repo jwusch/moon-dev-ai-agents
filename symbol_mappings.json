@@ -1,0 +1,63 @@
+{
+  "last_updated": "2025-12-02T02:12:47.792691",
+  "ticker_mappings": {
+    "SPRT": "GREE",
+    "RIDE": "RIDEQ",
+    "MULN": "MULN",
+    "FFIE": "FFIEQ",
+    "APRN": "APRNQ",
+    "EXPR": "EXPR",
+    "REV": "REVVQ",
+    "BBBY": "BBBYQ",
+    "GNUS": "GNUS",
+    "PROG": "PRVB",
+    "VIEW": "VIEW",
+    "BODY": "BODY",
+    "RDBX": "RDBX",
+    "DWAC": "DJT",
+    "CFVI": "RUM",
+    "GBTC": "GBTC",
+    "ETHE": "ETHE",
+    "CEI": "CEIW",
+    "XELA": "XELA"
+  },
+  "active_symbols": [
+    "REVG",
+    "AXP",
+    "RIDE-USD",
+    "GNUS-USD",
+    "PGR",
+    "VIEWF",
+    "BBWI",
+    "BBBY",
+    "9N1.F",
+    "DJT",
+    "RUM",
+    "GREE",
+    "OPAD",
+    "TMC",
+    "CEIGALL.BO",
+    "XELA"
+  ],
+  "delisted_symbols": [
+    "MULN",
+    "FFIE",
+    "APRN",
+    "RDBX",
+    "IRNT"
+  ],
+  "discovered_mappings": {
+    "REV": "REVG",
+    "EXPR": "AXP",
+    "RIDE": "RIDE-USD",
+    "GNUS": "GNUS-USD",
+    "PROG": "PGR",
+    "VIEW": "VIEWF",
+    "BODY": "BBWI",
+    "WEBR": "9N1.F",
+    "DWAC": "DJT",
+    "CFVI": "RUM",
+    "SPRT": "GREE",
+    "CEI": "CEIGALL.BO"
+  }
+}

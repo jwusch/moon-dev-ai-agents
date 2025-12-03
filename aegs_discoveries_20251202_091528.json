@@ -1,0 +1,35 @@
+{
+  "discovery_date": "2025-12-02 09:15:28",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 7,
+  "candidates": [
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Commodity exposure through electric vehicle production and high retail interest. TSLA has experienced significant price swings, indicating potential for mean reversion.; ollama_gpt: Tesla\u2019s EV dominance drives frequent volatility spikes and boom/bust behaviour. After a 2024 rally, the shares are ~12% down and trading near the 20\u2011day SMA, creating a mean\u2011reversion opportunity. It aligns with high volatility, sector\u2011rotation (EV), and recent weakness patterns."
+    },
+    {
+      "symbol": "BABA",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Meme stock potential due to its involvement in the Chinese e-commerce market and high retail interest. BABA has shown significant price swings, indicating potential for mean reversion.; ollama_gpt: Alibaba\u2019s stock has experienced sharp volatility due to regulatory scrutiny and market sentiment. The recent 2024 decline (~15% from peak) and a 50\u2011day SMA cross\u2011down suggest a mean\u2011reversion window. It matches high volatility, sector rotation (Chinese tech), and recent weakness patterns."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: Technology stock with high growth expectations and volatile price action.  Often subject to meme stock-like behavior due to strong retail investor interest and social media buzz.  Significant price corrections after periods of hype can provide mean reversion entry points.; ollama_gpt: Palantir\u2019s high beta and retail interest produce frequent volatility spikes. Following a 2023 peak, the shares have slipped ~12% and are trading below a 50\u2011day SMA, signalling a potential reversal. PLTR fits the high\u2011volatility, sector\u2011rotation (data analytics), and recent price weakness patterns."
+    },
+    {
+      "symbol": "XOM",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Major oil company, exposed to commodity price cycles (similar to EQT, but oil instead of natural gas). Geopolitical events and global demand fluctuations cause volatility.  Oversold conditions due to recession fears or short-term demand concerns could create mean reversion opportunities.; ollama_gpt: ExxonMobil\u2019s share price is tied to oil\u2011price cycles, producing moderate\u2011to\u2011high volatility. Following a 2024 oil\u2011price drop, XOM is ~8% below its 200\u2011day SMA, signalling a possible reversal. It fits the commodity exposure and recent weakness patterns."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Crypto mining with high volatility and strong trending behavior similar to SOL-USD. Canadian listing adds currency volatility layer. Follows predictable cycles during crypto bull/bear markets. Mean reversion opportunities around technical support levels.; xai: HUT (Hut 8 Mining) is a crypto mining firm with operations in North America, akin to WULF and MARA in following Bitcoin cycles, high volatility, and energy/commodity exposure. Boom/bust patterns emerge from mining economics and hash rate competition. Recent price decline amid higher energy costs and BTC dip suggests mean reversion potential with improving margins. Goldmine alignment in crypto mining volatility and cycles; retail interest in expansion news could spark reversal. Good for mean reversion as it historically snaps back post-corrections."
+    },
+    {
+      "symbol": "SOFI",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Fintech company with exposure to the student loan market. Regulatory changes and economic conditions can significantly impact its business, leading to volatility. Has meme stock potential due to a vocal online community. Recent price weakness due to macroeconomic concerns could be a setup for a mean reversion trade.; claude_opus: Fintech with strong meme stock characteristics like NOK - massive retail following, high social media sentiment correlation. Recent weakness despite improving fundamentals creates mean reversion opportunity. Rate cut expectations could trigger sector rotation into fintech names."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: Similar to GME, a meme stock with a history of volatile price swings. Company fundamentals continue to be debated, adding to the uncertainty and volatility.  Potential for short squeezes and subsequent mean reversion.; xai: AMC (AMC Entertainment) embodies meme stock potential like NOK, with massive retail-driven volatility, short squeezes, and boom/bust cycles fueled by social media hype. High retail interest leads to sharp trends and reversals, akin to SOL-USD's extreme volatility. Recent price weakness from debt concerns and streaming competition could reverse with any meme revival or box office recovery, enabling sector rotation into entertainment. Matches goldmine patterns in meme dynamics and volatility; ideal for mean reversion as it frequently reverts after panic selling episodes."
+    }
+  ]
+}

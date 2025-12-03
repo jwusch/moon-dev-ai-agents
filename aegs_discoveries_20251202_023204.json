@@ -1,0 +1,31 @@
+{
+  "discovery_date": "2025-12-02 02:32:04",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 6,
+  "candidates": [
+    {
+      "symbol": "EBON",
+      "reason": "Crypto recovery play: -62.8% from peak"
+    },
+    {
+      "symbol": "DASH",
+      "reason": "Volatility explosion: 2.7x increase"
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "CENN",
+      "reason": "EV recovery play: -88.3% from peak"
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "CleanEnergy recovery play: -56.6% from peak"
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    }
+  ]
+}

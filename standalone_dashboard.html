@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VXX Mean Reversion 15 - Quality Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .quality-bar { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-2">
+                VXX Mean Reversion 15
+            </h1>
+            <p class="text-gray-400 text-lg">Real-Time Quality Score Monitor</p>
+            <div class="mt-4 text-sm text-gray-500">
+                <span id="current-time">--:--:-- --</span> | 
+                <span id="market-status" class="font-semibold">Checking...</span>
+            </div>
+        </header>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-gray-800 rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Active Signals</p>
+                <p class="text-3xl font-bold text-green-400" id="active-signals-count">0</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">High Quality (70+)</p>
+                <p class="text-3xl font-bold text-yellow-400" id="high-quality-count">0</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Symbols Tracked</p>
+                <p class="text-3xl font-bold text-blue-400" id="symbols-count">0</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4 text-center">
+                <p class="text-gray-400 text-sm">Last Update</p>
+                <p class="text-xl font-mono text-purple-400" id="last-update">--:--</p>
+            </div>
+        </div>
+
+        <!-- Active Signals Cards -->
+        <section id="signals-section" class="mb-10 hidden">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="text-2xl mr-2">🎯</span>
+                Active Signals
+            </h2>
+            <div id="signals-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Signal cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Market Overview Table -->
+        <section class="bg-gray-800 rounded-xl p-6 shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
+                <span class="text-2xl mr-2">📊</span>
+                Market Overview
+            </h2>
+            
+            <!-- Symbol Filter -->
+            <div class="mb-4">
+                <input type="text" id="symbol-filter" placeholder="Filter symbols..." 
+                       class="bg-gray-700 text-white px-4 py-2 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-left border-b border-gray-700 text-gray-400">
+                            <th class="pb-3 px-3">Symbol</th>
+                            <th class="pb-3 px-3">Price</th>
+                            <th class="pb-3 px-3">Distance</th>
+                            <th class="pb-3 px-3">RSI</th>
+                            <th class="pb-3 px-3">Volume</th>
+                            <th class="pb-3 px-3">Signal</th>
+                            <th class="pb-3 px-3">Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody id="symbols-table">
+                        <!-- Table rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Info Footer -->
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            <p class="mb-2">Entry Conditions: LONG (Distance &lt; -1% AND RSI &lt; 40) | SHORT (Distance &gt; 1% AND RSI &gt; 60)</p>
+            <p>⚠️ Demo Mode - Connect to live data source for real-time updates</p>
+        </footer>
+    </div>
+
+    <script>
+        // Demo data for standalone mode
+        const DEMO_SYMBOLS = ['VXX', 'SQQQ', 'AMD', 'NVDA', 'TSLA', 'VIXY', 'SPY', 'QQQ', 'BTC-USD', 'ETH-USD'];
+        
+        let marketData = {};
+        let updateInterval;
+
+        // Generate realistic demo data
+        function generateDemoData(symbol) {
+            const basePrice = Math.random() * 100 + 20;
+            const distance = (Math.random() - 0.5) * 4; // -2% to +2%
+            const rsi = Math.random() * 60 + 20; // 20 to 80
+            const volumeRatio = Math.random() * 2 + 0.5;
+            
+            // Determine signal
+            let signal = null;
+            let score = 0;
+            
+            if (distance < -1 && rsi < 40) {
+                signal = 'LONG';
+                score = Math.floor(Math.random() * 50 + 30); // 30-80
+            } else if (distance > 1 && rsi > 60) {
+                signal = 'SHORT';
+                score = Math.floor(Math.random() * 50 + 20); // 20-70
+            }
+            
+            return {
+                symbol,
+                price: basePrice.toFixed(2),
+                sma: (basePrice * (1 - distance/100)).toFixed(2),
+                distance: distance.toFixed(2),
+                rsi: rsi.toFixed(1),
+                volumeRatio: volumeRatio.toFixed(2),
+                signal,
+                score,
+                timestamp: new Date()
+            };
+        }
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleTimeString();
+            
+            // Market hours check (simplified)
+            const hour = now.getHours();
+            const day = now.getDay();
+            const isMarketHours = day >= 1 && day <= 5 && hour >= 9 && hour < 16;
+            
+            const marketStatus = document.getElementById('market-status');
+            if (isMarketHours) {
+                marketStatus.textContent = 'US Markets: OPEN';
+                marketStatus.className = 'font-semibold text-green-400';
+            } else {
+                marketStatus.textContent = 'US Markets: CLOSED';
+                marketStatus.className = 'font-semibold text-red-400';
+            }
+        }
+
+        // Create signal card HTML
+        function createSignalCard(data) {
+            const qualityColor = data.score >= 70 ? 'green' : data.score >= 50 ? 'yellow' : 'red';
+            const signalColor = data.signal === 'LONG' ? 'green' : 'red';
+            
+            return `
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-${signalColor}-500 transition-all pulse">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold">${data.symbol}</h3>
+                        <span class="text-${signalColor}-400 font-bold text-lg">
+                            ${data.signal} ${data.signal === 'LONG' ? '↑' : '↓'}
+                        </span>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-3xl font-bold mb-1">$${data.price}</p>
+                        <p class="text-sm text-gray-400">
+                            Dist: ${data.distance}% | RSI: ${data.rsi} | Vol: ${data.volumeRatio}x
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Quality Score</span>
+                            <span class="font-semibold">${data.score}/100</span>
+                        </div>
+                        <div class="bg-gray-700 rounded-full h-3 overflow-hidden">
+                            <div class="quality-bar bg-${qualityColor}-500 h-full" style="width: ${data.score}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Create table row HTML
+        function createTableRow(data) {
+            const distColor = data.distance < -1 ? 'text-green-400' : data.distance > 1 ? 'text-red-400' : 'text-gray-400';
+            const rsiColor = data.rsi < 30 ? 'text-green-400' : data.rsi > 70 ? 'text-red-400' : 'text-gray-400';
+            
+            return `
+                <tr class="border-b border-gray-700 hover:bg-gray-750 transition-colors">
+                    <td class="py-3 px-3 font-semibold">${data.symbol}</td>
+                    <td class="py-3 px-3">$${data.price}</td>
+                    <td class="py-3 px-3 ${distColor}">${data.distance}%</td>
+                    <td class="py-3 px-3 ${rsiColor}">${data.rsi}</td>
+                    <td class="py-3 px-3">${data.volumeRatio}x</td>
+                    <td class="py-3 px-3">
+                        ${data.signal ? `<span class="text-${data.signal === 'LONG' ? 'green' : 'red'}-400 font-semibold">${data.signal}</span>` : '-'}
+                    </td>
+                    <td class="py-3 px-3">
+                        ${data.score ? `
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm">${data.score}</span>
+                                <div class="bg-gray-700 rounded-full h-2 w-16 overflow-hidden">
+                                    <div class="quality-bar bg-${data.score >= 70 ? 'green' : data.score >= 50 ? 'yellow' : 'red'}-500 h-full" 
+                                         style="width: ${data.score}%"></div>
+                                </div>
+                            </div>
+                        ` : '-'}
+                    </td>
+                </tr>
+            `;
+        }
+
+        // Update dashboard
+        function updateDashboard() {
+            // Generate new demo data
+            DEMO_SYMBOLS.forEach(symbol => {
+                marketData[symbol] = generateDemoData(symbol);
+            });
+            
+            // Get signals
+            const signals = Object.values(marketData).filter(d => d.signal).sort((a, b) => b.score - a.score);
+            const highQuality = signals.filter(s => s.score >= 70);
+            
+            // Update stats
+            document.getElementById('active-signals-count').textContent = signals.length;
+            document.getElementById('high-quality-count').textContent = highQuality.length;
+            document.getElementById('symbols-count').textContent = DEMO_SYMBOLS.length;
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+            
+            // Update signals section
+            if (signals.length > 0) {
+                document.getElementById('signals-section').classList.remove('hidden');
+                document.getElementById('signals-container').innerHTML = signals.slice(0, 6).map(createSignalCard).join('');
+            } else {
+                document.getElementById('signals-section').classList.add('hidden');
+            }
+            
+            // Update table
+            const filter = document.getElementById('symbol-filter').value.toUpperCase();
+            const filteredData = Object.values(marketData)
+                .filter(d => d.symbol.includes(filter))
+                .sort((a, b) => (b.score || 0) - (a.score || 0));
+            
+            document.getElementById('symbols-table').innerHTML = filteredData.map(createTableRow).join('');
+        }
+
+        // Symbol filter
+        document.getElementById('symbol-filter').addEventListener('input', updateDashboard);
+
+        // Initialize
+        updateTime();
+        updateDashboard();
+        
+        // Update intervals
+        setInterval(updateTime, 1000);
+        setInterval(updateDashboard, 5000);
+
+        // Add connection indicator
+        const header = document.querySelector('header');
+        const indicator = document.createElement('div');
+        indicator.className = 'mt-4 inline-flex items-center px-3 py-1 rounded-full text-xs bg-yellow-900 text-yellow-200';
+        indicator.innerHTML = '<span class="w-2 h-2 bg-yellow-400 rounded-full mr-2 pulse"></span> Demo Mode - Using Simulated Data';
+        header.appendChild(indicator);
+    </script>
+</body>
+</html>

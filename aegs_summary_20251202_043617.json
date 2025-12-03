@@ -1,0 +1,86 @@
+[
+  {
+    "symbol": "BITF",
+    "excess_return": 366.7,
+    "win_rate": 47.6,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "NIO",
+    "excess_return": 85.6,
+    "win_rate": 53.8,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "AMC",
+    "excess_return": 3.6,
+    "win_rate": 44.4,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "BTU",
+    "excess_return": -1.8,
+    "win_rate": 64.3,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "HUT",
+    "excess_return": -31.8,
+    "win_rate": 44.4,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "HUT",
+    "excess_return": -31.8,
+    "win_rate": 44.4,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "SOUN",
+    "excess_return": -125.2,
+    "win_rate": 53.3,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "PLTR",
+    "excess_return": -406.0,
+    "win_rate": 64.5,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "PLTR",
+    "excess_return": -406.0,
+    "win_rate": 64.5,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "RIOT",
+    "excess_return": -412.1,
+    "win_rate": 51.2,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "CLF",
+    "excess_return": -1228.8,
+    "win_rate": 45.6,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "TSLA",
+    "excess_return": -30680.8,
+    "win_rate": 85.7,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "XOM",
+    "excess_return": -120831.2,
+    "win_rate": 86.1,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "NVDA",
+    "excess_return": -473674.3,
+    "win_rate": 69.2,
+    "category": "High Volatility"
+  }
+]

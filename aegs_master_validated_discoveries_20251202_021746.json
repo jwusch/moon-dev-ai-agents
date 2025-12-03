@@ -1,0 +1,490 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "AEGS Symbol Integration Master",
+  "candidates_found": 48,
+  "candidates": [
+    {
+      "symbol": "ACB",
+      "reason": "$4.53 with 3.2% daily volatility",
+      "metrics": {
+        "price": 4.53000020980835,
+        "volatility": 0.03187277340432187,
+        "volume": 1010840.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "AMC",
+      "reason": "$2.35 with 3.8% daily volatility",
+      "metrics": {
+        "price": 2.3499999046325684,
+        "volatility": 0.03779360454668444,
+        "volume": 19365705.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "$3.84 with 4.0% daily volatility",
+      "metrics": {
+        "price": 3.8399999141693115,
+        "volatility": 0.0402863423985348,
+        "volume": 4780090.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "BBBY",
+      "reason": "$5.82 with 3.6% daily volatility",
+      "metrics": {
+        "price": 5.820000171661377,
+        "volatility": 0.036094029273924626,
+        "volume": 1864235.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "BNGO",
+      "reason": "$1.72 with 4.1% daily volatility",
+      "metrics": {
+        "price": 1.7200000286102295,
+        "volatility": 0.04095093769916032,
+        "volume": 312955.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "$2.25 with 5.3% daily volatility",
+      "metrics": {
+        "price": 2.25,
+        "volatility": 0.05348741624621811,
+        "volume": 38527345.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "BTCM",
+      "reason": "$1.38 with 4.9% daily volatility",
+      "metrics": {
+        "price": 1.3799999952316284,
+        "volatility": 0.049203779597619235,
+        "volume": 130589.85
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "CENN",
+      "reason": "$0.16 with 4.9% daily volatility",
+      "metrics": {
+        "price": 0.15530000627040863,
+        "volatility": 0.04908950737845036,
+        "volume": 3553900.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "CGC",
+      "reason": "$1.13 with 5.0% daily volatility",
+      "metrics": {
+        "price": 1.1299999952316284,
+        "volatility": 0.05005920122211906,
+        "volume": 21735800.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "CLOV",
+      "reason": "$2.50 with 5.3% daily volatility",
+      "metrics": {
+        "price": 2.5,
+        "volatility": 0.052779544779202346,
+        "volume": 7709815.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "CMPS",
+      "reason": "$5.24 with 6.0% daily volatility",
+      "metrics": {
+        "price": 5.239999771118164,
+        "volatility": 0.06006441358312739,
+        "volume": 2108465.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "CYBN",
+      "reason": "$6.00 with 4.0% daily volatility",
+      "metrics": {
+        "price": 6.0,
+        "volatility": 0.04031131515986269,
+        "volume": 728585.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "EBON",
+      "reason": "$3.58 with 4.4% daily volatility",
+      "metrics": {
+        "price": 3.5799999237060547,
+        "volatility": 0.04407403777079977,
+        "volume": 4305.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "$3.10 with 4.0% daily volatility",
+      "metrics": {
+        "price": 3.0999999046325684,
+        "volatility": 0.0397989541246754,
+        "volume": 4174990.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "KOSS",
+      "reason": "$4.85 with 4.0% daily volatility",
+      "metrics": {
+        "price": 4.849999904632568,
+        "volatility": 0.03995583932234344,
+        "volume": 27150.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "LGHL",
+      "reason": "$7.24 with 13.5% daily volatility",
+      "metrics": {
+        "price": 7.239999771118164,
+        "volatility": 0.1353878404840476,
+        "volume": 16009.9
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "MVST",
+      "reason": "$3.40 with 4.7% daily volatility",
+      "metrics": {
+        "price": 3.4000000953674316,
+        "volatility": 0.04663767563168111,
+        "volume": 5902985.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "OGI",
+      "reason": "$1.57 with 3.5% daily volatility",
+      "metrics": {
+        "price": 1.5700000524520874,
+        "volatility": 0.03496253212894134,
+        "volume": 529675.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "OPEN",
+      "reason": "$7.14 with 9.0% daily volatility",
+      "metrics": {
+        "price": 7.139999866485596,
+        "volatility": 0.08979933541283948,
+        "volume": 145978195.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "$7.94 with 7.4% daily volatility",
+      "metrics": {
+        "price": 7.940000057220459,
+        "volatility": 0.07421899302036697,
+        "volume": 778370.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "SNDL",
+      "reason": "$1.68 with 4.9% daily volatility",
+      "metrics": {
+        "price": 1.6799999475479126,
+        "volatility": 0.0487453125416793,
+        "volume": 2414395.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "SOS",
+      "reason": "$1.23 with 7.7% daily volatility",
+      "metrics": {
+        "price": 1.2300000190734863,
+        "volatility": 0.07733324581100787,
+        "volume": 44195.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "TALK",
+      "reason": "$3.13 with 3.2% daily volatility",
+      "metrics": {
+        "price": 3.130000114440918,
+        "volatility": 0.031555132527672246,
+        "volume": 1355260.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "$7.83 with 6.4% daily volatility",
+      "metrics": {
+        "price": 7.831999778747559,
+        "volatility": 0.06393561439928734,
+        "volume": 4397542.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "WKHS",
+      "reason": "$0.84 with 12.7% daily volatility",
+      "metrics": {
+        "price": 0.8420000076293945,
+        "volatility": 0.1273008822284401,
+        "volume": 4085185.0
+      },
+      "strategy": "volatile_pennies"
+    },
+    {
+      "symbol": "RIVN",
+      "reason": "30.1% gain in last month",
+      "metrics": {
+        "momentum": 0.30098562496796083,
+        "price": 17.15999984741211,
+        "volume": 62886040.0
+      },
+      "strategy": "high_momentum"
+    },
+    {
+      "symbol": "ASTS",
+      "reason": "RSI at 23.5 (oversold)",
+      "metrics": {
+        "rsi": 23.475114793075633,
+        "price": 52.61000061035156,
+        "volume": 9388735.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "BB",
+      "reason": "RSI at 22.2 (oversold)",
+      "metrics": {
+        "rsi": 22.222231278954084,
+        "price": 3.9800000190734863,
+        "volume": 8389220.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "LCID",
+      "reason": "RSI at 23.0 (oversold)",
+      "metrics": {
+        "rsi": 23.03634225568443,
+        "price": 12.579999923706055,
+        "volume": 9785225.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "NOK",
+      "reason": "RSI at 24.2 (oversold)",
+      "metrics": {
+        "rsi": 24.242428621093936,
+        "price": 6.119999885559082,
+        "volume": 40645780.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "PL",
+      "reason": "RSI at 30.6 (oversold)",
+      "metrics": {
+        "rsi": 30.57469969114095,
+        "price": 11.699999809265137,
+        "volume": 7615375.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "RSI at 27.1 (oversold)",
+      "metrics": {
+        "rsi": 27.1118031855749,
+        "price": 167.49000549316406,
+        "volume": 61178275.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "QS",
+      "reason": "RSI at 12.6 (oversold)",
+      "metrics": {
+        "rsi": 12.643681400851577,
+        "price": 11.729999542236328,
+        "volume": 27999865.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "RKLB",
+      "reason": "RSI at 21.8 (oversold)",
+      "metrics": {
+        "rsi": 21.809285662987833,
+        "price": 40.369998931884766,
+        "volume": 18236015.0
+      },
+      "strategy": "oversold_bounce"
+    },
+    {
+      "symbol": "BTC-USD",
+      "reason": "Crypto volatility play",
+      "strategy": "crypto_volatility"
+    },
+    {
+      "symbol": "ETH-USD",
+      "reason": "Crypto volatility play",
+      "strategy": "crypto_volatility"
+    },
+    {
+      "symbol": "SOL-USD",
+      "reason": "Crypto volatility play",
+      "strategy": "crypto_volatility"
+    },
+    {
+      "symbol": "DOGE-USD",
+      "reason": "Crypto volatility play",
+      "strategy": "crypto_volatility"
+    },
+    {
+      "symbol": "SHIB-USD",
+      "reason": "Crypto volatility play",
+      "strategy": "crypto_volatility"
+    },
+    {
+      "symbol": "BKSY",
+      "reason": "Validated active symbol, $16.57",
+      "metrics": {
+        "price": 16.56999969482422,
+        "volatility": 0.057896644877302235,
+        "volume": 2022890.0,
+        "momentum": -0.1885406644018225,
+        "rsi": 49.94582757650163
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "CRON",
+      "reason": "Validated active symbol, $2.49",
+      "metrics": {
+        "price": 2.490000009536743,
+        "volatility": 0.020179885494052353,
+        "volume": 1254110.0,
+        "momentum": -0.01968502089260163,
+        "rsi": 43.63636915348826
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "GME",
+      "reason": "Validated active symbol, $22.79",
+      "metrics": {
+        "price": 22.790000915527344,
+        "volatility": 0.018112105138919414,
+        "volume": 5496190.0,
+        "momentum": 0.030755327291009462,
+        "rsi": 64.77274155813924
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "GOEV",
+      "reason": "Validated active symbol, $0.37",
+      "metrics": {
+        "price": 0.3700000047683716,
+        "volatility": 0.0,
+        "volume": 0.0,
+        "momentum": 0.0,
+        "rsi": NaN
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "HOOD",
+      "reason": "Validated active symbol, $123.24",
+      "metrics": {
+        "price": 123.23999786376953,
+        "volatility": 0.05836098278315251,
+        "volume": 31582775.0,
+        "momentum": -0.1620886841888218,
+        "rsi": 40.83526566622364
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "IONQ",
+      "reason": "Validated active symbol, $47.12",
+      "metrics": {
+        "price": 47.119998931884766,
+        "volatility": 0.06374781682689647,
+        "volume": 24540165.0,
+        "momentum": -0.19315072430256036,
+        "rsi": 37.350503257057305
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "MNMD",
+      "reason": "Validated active symbol, $12.26",
+      "metrics": {
+        "price": 12.260000228881836,
+        "volatility": 0.038017780797120815,
+        "volume": 1707845.0,
+        "momentum": -0.002440987230619014,
+        "rsi": 55.0695879328082
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "SOFI",
+      "reason": "Validated active symbol, $29.03",
+      "metrics": {
+        "price": 29.030000686645508,
+        "volatility": 0.054877389191395905,
+        "volume": 74851525.0,
+        "momentum": -0.0522363211870571,
+        "rsi": 45.10693208365488
+      },
+      "strategy": "validated_active"
+    },
+    {
+      "symbol": "STEM",
+      "reason": "Validated active symbol, $16.70",
+      "metrics": {
+        "price": 16.700000762939453,
+        "volatility": 0.06344026485403839,
+        "volume": 226240.0,
+        "momentum": -0.12058973332172251,
+        "rsi": 40.57416493256107
+      },
+      "strategy": "validated_active"
+    }
+  ],
+  "summary": {
+    "total_validated": 48,
+    "by_strategy": {
+      "volatile_pennies": 25,
+      "high_momentum": 1,
+      "oversold_bounce": 17,
+      "crypto_volatility": 5,
+      "validated_active": 43
+    }
+  }
+}

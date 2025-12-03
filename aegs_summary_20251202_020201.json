@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "BARK",
+    "excess_return": 61.9,
+    "win_rate": 50.0,
+    "category": "Unknown"
+  },
+  {
+    "symbol": "CAN",
+    "excess_return": 47.1,
+    "win_rate": 32.1,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "HYLN",
+    "excess_return": 17.5,
+    "win_rate": 51.7,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "CHPT",
+    "excess_return": 2.7,
+    "win_rate": 42.9,
+    "category": "Unknown"
+  },
+  {
+    "symbol": "MNTS",
+    "excess_return": 0.2,
+    "win_rate": 46.4,
+    "category": "Unknown"
+  }
+]

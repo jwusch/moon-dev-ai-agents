@@ -1,0 +1,232 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "Symbol Integration - volatile_pennies",
+  "candidates_found": 25,
+  "candidates": [
+    {
+      "symbol": "ACB",
+      "reason": "$4.53 with 3.2% daily volatility",
+      "metrics": {
+        "price": 4.53000020980835,
+        "volatility": 0.03187277340432187,
+        "volume": 1010840.0
+      }
+    },
+    {
+      "symbol": "AMC",
+      "reason": "$2.35 with 3.8% daily volatility",
+      "metrics": {
+        "price": 2.3499999046325684,
+        "volatility": 0.03779360454668444,
+        "volume": 19365705.0
+      }
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "$3.84 with 4.0% daily volatility",
+      "metrics": {
+        "price": 3.8399999141693115,
+        "volatility": 0.0402863423985348,
+        "volume": 4780090.0
+      }
+    },
+    {
+      "symbol": "BBBY",
+      "reason": "$5.82 with 3.6% daily volatility",
+      "metrics": {
+        "price": 5.820000171661377,
+        "volatility": 0.036094029273924626,
+        "volume": 1864235.0
+      }
+    },
+    {
+      "symbol": "BNGO",
+      "reason": "$1.72 with 4.1% daily volatility",
+      "metrics": {
+        "price": 1.7200000286102295,
+        "volatility": 0.04095093769916032,
+        "volume": 312955.0
+      }
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "$2.25 with 5.3% daily volatility",
+      "metrics": {
+        "price": 2.25,
+        "volatility": 0.05348741624621811,
+        "volume": 38527345.0
+      }
+    },
+    {
+      "symbol": "BTCM",
+      "reason": "$1.38 with 4.9% daily volatility",
+      "metrics": {
+        "price": 1.3799999952316284,
+        "volatility": 0.049203779597619235,
+        "volume": 130589.85
+      }
+    },
+    {
+      "symbol": "CENN",
+      "reason": "$0.16 with 4.9% daily volatility",
+      "metrics": {
+        "price": 0.15530000627040863,
+        "volatility": 0.04908950737845036,
+        "volume": 3553900.0
+      }
+    },
+    {
+      "symbol": "CGC",
+      "reason": "$1.13 with 5.0% daily volatility",
+      "metrics": {
+        "price": 1.1299999952316284,
+        "volatility": 0.05005920122211906,
+        "volume": 21735800.0
+      }
+    },
+    {
+      "symbol": "CLOV",
+      "reason": "$2.50 with 5.3% daily volatility",
+      "metrics": {
+        "price": 2.5,
+        "volatility": 0.052779544779202346,
+        "volume": 7709815.0
+      }
+    },
+    {
+      "symbol": "CMPS",
+      "reason": "$5.24 with 6.0% daily volatility",
+      "metrics": {
+        "price": 5.239999771118164,
+        "volatility": 0.06006441358312739,
+        "volume": 2108465.0
+      }
+    },
+    {
+      "symbol": "CYBN",
+      "reason": "$6.00 with 4.0% daily volatility",
+      "metrics": {
+        "price": 6.0,
+        "volatility": 0.04031131515986269,
+        "volume": 728585.0
+      }
+    },
+    {
+      "symbol": "EBON",
+      "reason": "$3.58 with 4.4% daily volatility",
+      "metrics": {
+        "price": 3.5799999237060547,
+        "volatility": 0.04407403777079977,
+        "volume": 4305.0
+      }
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "$3.10 with 4.0% daily volatility",
+      "metrics": {
+        "price": 3.0999999046325684,
+        "volatility": 0.0397989541246754,
+        "volume": 4174990.0
+      }
+    },
+    {
+      "symbol": "KOSS",
+      "reason": "$4.85 with 4.0% daily volatility",
+      "metrics": {
+        "price": 4.849999904632568,
+        "volatility": 0.03995583932234344,
+        "volume": 27150.0
+      }
+    },
+    {
+      "symbol": "LGHL",
+      "reason": "$7.24 with 13.5% daily volatility",
+      "metrics": {
+        "price": 7.239999771118164,
+        "volatility": 0.1353878404840476,
+        "volume": 16009.9
+      }
+    },
+    {
+      "symbol": "MVST",
+      "reason": "$3.40 with 4.7% daily volatility",
+      "metrics": {
+        "price": 3.4000000953674316,
+        "volatility": 0.04663767563168111,
+        "volume": 5902985.0
+      }
+    },
+    {
+      "symbol": "OGI",
+      "reason": "$1.57 with 3.5% daily volatility",
+      "metrics": {
+        "price": 1.5700000524520874,
+        "volatility": 0.03496253212894134,
+        "volume": 529675.0
+      }
+    },
+    {
+      "symbol": "OPEN",
+      "reason": "$7.14 with 9.0% daily volatility",
+      "metrics": {
+        "price": 7.139999866485596,
+        "volatility": 0.08979933541283948,
+        "volume": 145978195.0
+      }
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "$7.94 with 7.4% daily volatility",
+      "metrics": {
+        "price": 7.940000057220459,
+        "volatility": 0.07421899302036697,
+        "volume": 778370.0
+      }
+    },
+    {
+      "symbol": "SNDL",
+      "reason": "$1.68 with 4.9% daily volatility",
+      "metrics": {
+        "price": 1.6799999475479126,
+        "volatility": 0.0487453125416793,
+        "volume": 2414395.0
+      }
+    },
+    {
+      "symbol": "SOS",
+      "reason": "$1.23 with 7.7% daily volatility",
+      "metrics": {
+        "price": 1.2300000190734863,
+        "volatility": 0.07733324581100787,
+        "volume": 44195.0
+      }
+    },
+    {
+      "symbol": "TALK",
+      "reason": "$3.13 with 3.2% daily volatility",
+      "metrics": {
+        "price": 3.130000114440918,
+        "volatility": 0.031555132527672246,
+        "volume": 1355260.0
+      }
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "$7.83 with 6.4% daily volatility",
+      "metrics": {
+        "price": 7.831999778747559,
+        "volatility": 0.06393561439928734,
+        "volume": 4397542.0
+      }
+    },
+    {
+      "symbol": "WKHS",
+      "reason": "$0.84 with 12.7% daily volatility",
+      "metrics": {
+        "price": 0.8420000076293945,
+        "volatility": 0.1273008822284401,
+        "volume": 4085185.0
+      }
+    }
+  ]
+}

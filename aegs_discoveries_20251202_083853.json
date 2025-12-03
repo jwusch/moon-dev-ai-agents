@@ -1,0 +1,47 @@
+{
+  "discovery_date": "2025-12-02 08:38:53",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 10,
+  "candidates": [
+    {
+      "symbol": "RIOT",
+      "reason": "Swarm Consensus (4 votes): openrouter_llama: As a Bitcoin mining stock, RIOT follows crypto cycles similar to MARA, and its high volatility makes it prone to boom/bust cycles like WULF. Recent price weakness in the crypto sector could reverse, making RIOT a mean reversion candidate.; openrouter_gemini: Similar to MARA, RIOT is a Bitcoin mining stock, closely following crypto cycles. High volatility and susceptibility to boom/bust scenarios make it a good mean reversion candidate. Recent crypto market weakness has depressed its price, increasing the likelihood of a bounce."
+    },
+    {
+      "symbol": "GME",
+      "reason": "Swarm Consensus (5 votes): openrouter_llama: GME is a meme stock with high retail interest and potential for extreme price movements, similar to NOK. Its recent price weakness could reverse due to sector rotation and mean reversion, making it a candidate for trading.; openrouter_gemini: Classic meme stock (like NOK), prone to extreme volatility driven by retail trading. While challenging to predict, significant price declines following meme stock frenzies offer potential for mean reversion plays. High short interest adds fuel to potential rallies."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: HUT is a Bitcoin mining stock with a strong correlation to crypto cycles, similar to MARA. Its high volatility and recent price weakness make it a potential mean reversion candidate, especially if the crypto sector experiences a rebound.; xai: HUT (Hut 8 Mining) shares the crypto mining characteristics of WULF and MARA, with high volatility driven by Bitcoin halvings and energy costs, leading to pronounced boom/bust cycles. It has commodity-like exposure to electricity and hardware inputs, similar to EQT's resource cycles. After recent declines due to profitability squeezes in a bearish crypto environment, HUT exhibits oversold signals on technical indicators, making it ideal for mean reversion trades as it historically snaps back during crypto rallies."
+    },
+    {
+      "symbol": "COIN",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Cryptocurrency exchange, directly exposed to crypto volatility (like SOL-USD & WULF). Experiences boom/bust cycles alongside crypto markets. Recent regulatory scrutiny and market downturn provide potential for mean reversion. High retail interest mirrors MARA and WULF characteristics.; claude_haiku: Cryptocurrency exchange with extreme volatility tied to crypto market cycles (like SOL-USD). Follows sentiment swings and regulatory news with sharp reversals. Bitcoin proxy with leverage to market structure. High retail trading interest."
+    },
+    {
+      "symbol": "XOM",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Major oil company, benefiting from commodity price fluctuations. While not as volatile as the other names, sentiment shifts based on geopolitical events and supply/demand dynamics create opportunities for mean reversion. Energy sector rotation can also influence its price.; ollama_gpt: Major oil producer that is highly cyclical and sensitive to commodity price swings. It recently dipped below its 20\u2011day SMA after a rally, presenting a mean\u2011reversion trade. Matches \"Commodity cycles\" and \"Recent price weakness\"."
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Cannabis sector, which has seen boom/bust cycles and high volatility. Potential for regulatory changes and shifts in market sentiment can trigger significant price movements. The sector has been beaten down, offering mean reversion opportunities. High retail interest similar to meme stocks.; claude_haiku: Cannabis stock with extreme volatility and strong meme potential (Reddit communities). Regulatory cycles create boom/bust patterns. Commodity-like margin compression in industry. Recent weakness from highs creates classic mean reversion setup."
+    },
+    {
+      "symbol": "LCID",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: LCID is an EV stock with high retail interest and potential for extreme price movements, similar to NOK. Its recent price weakness could reverse due to sector rotation and mean reversion, making it a candidate for trading.; claude_haiku: EV manufacturer with meme stock history and extreme volatility. Sector rotation plays (EV cycle sentiment), production cycle boom/bust, and high retail interest. Recent weakness from SPAC highs suggests reversion potential."
+    },
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: Tech\u2011growth stock with meme\u2011stock characteristics and strong volatility. Its recent pullback from a multi\u2011month high presents a mean\u2011reversion opportunity. Aligns with \"High volatility\", \"Meme stock potential\" and \"Sector rotation\".; ollama_llama: Sector rotation opportunities as a high-growth tech stock with extreme volatility (50%+ in 2020) and possible mean reversion due to recent weakness."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Another meme stock (like NOK & GME), sharing the characteristics of high retail interest and extreme volatility. Heavily shorted, making it susceptible to short squeezes and significant price swings. Recent price weakness provides a possible entry point for mean reversion.; ollama_gpt: Another high\u2011profile meme stock that has experienced a sharp sell\u2011off in the last month, creating a potential mean\u2011reversion window. Its price swings mirror those of GME, satisfying the \"Meme stock potential\" and \"High volatility\" criteria."
+    },
+    {
+      "symbol": "BITO",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: Bitcoin futures ETF that tracks crypto price swings. It has recently fallen sharply after a rally, creating a temporary weakness that could revert. Matches \"Crypto exposure\", \"High volatility\", and \"Recent price weakness\".; xai: BITO (ProShares Bitcoin Strategy ETF) acts as a Bitcoin proxy similar to MARA, with high volatility and crypto cycle exposure, including boom/bust patterns from futures roll costs and BTC halvings. It enables easier sector rotation for traditional investors into digital assets. Recent price weakness amid Bitcoin's dip below key support levels suggests oversold conditions, ideal for mean reversion as BITO closely tracks BTC's tendency to revert after sharp sell-offs."
+    }
+  ]
+}

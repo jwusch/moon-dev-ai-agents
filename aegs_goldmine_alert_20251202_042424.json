@@ -1,0 +1,33 @@
+{
+  "alert_time": "2025-12-02 04:24:24",
+  "type": "goldmine_discovery",
+  "count": 2,
+  "goldmines": [
+    {
+      "symbol": "BBIG",
+      "discovery_reason": "Swarm Consensus (2 votes): groq: BBIG has meme stock potential and high retail interest, similar to NOK. Its recent price weakness and sector rotation opportunities make it a potential mean reversion candidate, especially if the stock's popularity rebounds.; openrouter_llama: Vinco Ventures has meme stock potential and high retail interest, similar to NOK. Recent price weakness and its exposure to sector rotation opportunities make it a candidate for mean reversion trading.",
+      "excess_return": 10483132.04453767,
+      "strategy_return": 10483032.047819668,
+      "buy_hold_return": -99.99671800238129,
+      "win_rate": 52.38095238095239,
+      "total_trades": 42,
+      "sharpe": 0.7717711421703617,
+      "years": 7.38672142368241,
+      "data_points": 1906,
+      "status": "success"
+    },
+    {
+      "symbol": "GME",
+      "discovery_reason": "Swarm Consensus (3 votes): openrouter_gemini: The original meme stock. While fundamentals remain questionable, GME retains significant retail investor interest, exhibiting NOK's meme stock potential. Periodic surges in price are followed by sharp corrections, making it a mean reversion play.; xai: GME (GameStop) embodies meme stock potential like NOK, with extreme retail interest, high volatility, and boom/bust cycles fueled by social media hype. It has experienced sharp reversals post-squeeze events, akin to SOL-USD's trends. Recent weakness from post-2021 fade and e-commerce competition creates mean reversion opportunity as retail sentiment could rotate back during market boredom. Matches goldmine in meme potential, high volatility, and retail-driven cycles; ideal for mean reversion given its history of explosive recoveries from lows.",
+      "excess_return": 4296.59025795845,
+      "strategy_return": 5592.392768683619,
+      "buy_hold_return": 1295.8025107251688,
+      "win_rate": 67.40331491712708,
+      "total_trades": 181,
+      "sharpe": 0.4100580364484401,
+      "years": 23.603011635865844,
+      "data_points": 5989,
+      "status": "success"
+    }
+  ]
+}

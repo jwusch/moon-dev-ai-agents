@@ -1,0 +1,35 @@
+{
+  "discovery_date": "2025-12-02 09:03:47",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 7,
+  "candidates": [
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Palantir Technologies.  Data analytics company with exposure to government contracts and rapidly growing AI technology.  PLTR shows high volatility based on contract wins/losses and general market sentiment.  Recent market pullback makes it a potential mean reversion play.; ollama_gpt: Data\u2011analytics/AI company that is highly volatile and follows a boom/bust pattern.  PLTR dipped ~20% from a 2021 high and is positioned for AI\u2011driven sector rotation, creating a potential mean\u2011reversion trade."
+    },
+    {
+      "symbol": "XOM",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Exxon Mobil.  Major integrated oil and gas company, subject to commodity price fluctuations and geopolitical events.  XOM shows volatility based on supply and demand, and is a good candidate for mean reversion when there is an overreaction to news events.; ollama_gpt: Oil commodity exposure with weather\u2011driven volatility.  XOM pulled back ~8% after a 2021 high and sits in a commodity cycle that often reverts to mean levels.  Energy sector rotation adds a structural element."
+    },
+    {
+      "symbol": "ETH",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: USD\",; openrouter_llama: USD exhibits extreme volatility and strong trends with sharp reversals, similar to SOL-USD"
+    },
+    {
+      "symbol": "NIO",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Commodity exposure with electric vehicles, high volatility and boom/bust cycles due to its growth prospects and competition in the EV market. Recent price weakness could lead to a mean reversion opportunity.; ollama_gpt: High\u2011volatility EV retailer with strong retail interest.  It has pulled back ~15% from a 2022 peak and is in the midst of a boom/bust cycle typical of EV stocks.  The broader EV sector rotation provides a potential upside if the mean reverts."
+    },
+    {
+      "symbol": "PLUG",
+      "reason": "Swarm Consensus (2 votes): claude_opus: Hydrogen/clean energy with meme stock characteristics similar to NOK. High retail interest, extreme volatility on news catalysts. Boom/bust cycles tied to government policy and sector rotation. Sharp reversals after overextended moves create mean reversion opportunities.; deepseek: Clean energy stock with boom/bust cycles driven by policy changes and hydrogen hype cycles. Currently depressed after 2021 bubble, with potential for sharp reversal on any positive regulatory news. High short interest adds squeeze potential."
+    },
+    {
+      "symbol": "FCX",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Copper mining with commodity boom/bust cycles and weather volatility. Sector rotation with energy transition trends. Institutional + retail interest. Price weakness from 2022 peaks creates mean reversion opportunity. Less meme-like than others but strong cyclical reversal potential.; xai: FCX (Freeport-McMoRan) is a copper mining stock with commodity cycles, high volatility from global demand (e.g., EVs, infrastructure), and boom/bust patterns similar to EQT's weather-driven swings but tied to economic data. It offers sector rotation in materials amid green energy transitions. Recent price weakness from China slowdowns in 2024 makes it a mean reversion play, as copper shortages could reverse trends sharply. Matches goldmine in commodity exposure, volatility, and cycles; good fit with historical 25-40% bounces post-oversold periods."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (5 votes): openrouter_gemini: Similar to GME, another meme stock with high retail interest and extreme volatility. Heavily shorted, making it susceptible to short squeezes and rapid price reversals. Recent underperformance suggests mean reversion potential.; xai: AMC (AMC Entertainment) shares meme stock traits with NOK, featuring high retail interest, extreme volatility, and boom/bust cycles fueled by social media and dilution events, similar to SOL-USD's sharp reversals. It offers sector rotation in entertainment amid streaming shifts. After a volatile 2023-2024 with debt issues causing recent weakness, mean reversion is likely from oversold levels if box office recoveries or meme hype returns. Ties to goldmine patterns in meme potential, volatility, and price weakness; past patterns include multi-fold rebounds during retail frenzies."
+    }
+  ]
+}

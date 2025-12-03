@@ -1,0 +1,81 @@
+{
+  "processing_date": "2025-12-02 02:02:01",
+  "agent": "AEGS Backtest Orchestrator",
+  "total_processed": 15,
+  "successful": 5,
+  "failed": 10,
+  "results": [
+    {
+      "symbol": "BARK",
+      "discovery_reason": "73% crash, dog products SPAC",
+      "excess_return": 61.932314390426896,
+      "strategy_return": -32.37137675318701,
+      "buy_hold_return": -94.3036911436139,
+      "win_rate": 50.0,
+      "total_trades": 18,
+      "sharpe": -0.3435751734873379,
+      "years": 4.747433264887063,
+      "data_points": 1243
+    },
+    {
+      "symbol": "CAN",
+      "discovery_reason": "9.2% daily volatility crypto stock",
+      "excess_return": 47.08757981284111,
+      "strategy_return": -35.92317239522259,
+      "buy_hold_return": -83.0107522080637,
+      "win_rate": 32.142857142857146,
+      "total_trades": 28,
+      "sharpe": -0.0979235065233538,
+      "years": 5.8261464750171115,
+      "data_points": 1515
+    },
+    {
+      "symbol": "HYLN",
+      "discovery_reason": "5.5% volatility, hydrogen trucks",
+      "excess_return": 17.50839677241946,
+      "strategy_return": -63.81140056647108,
+      "buy_hold_return": -81.31979733889054,
+      "win_rate": 51.724137931034484,
+      "total_trades": 29,
+      "sharpe": -0.21471779023545576,
+      "years": 5.71937029431896,
+      "data_points": 1487
+    },
+    {
+      "symbol": "CHPT",
+      "discovery_reason": "88% crash, EV charging leader",
+      "excess_return": 2.7041637528352425,
+      "strategy_return": -93.39900274587825,
+      "buy_hold_return": -96.10316649871349,
+      "win_rate": 42.857142857142854,
+      "total_trades": 28,
+      "sharpe": -0.5269902317279528,
+      "years": 6.026009582477755,
+      "data_points": 1562
+    },
+    {
+      "symbol": "MNTS",
+      "discovery_reason": "Sub-$1 space SPAC, 75% decline",
+      "excess_return": 0.1805189328480168,
+      "strategy_return": -99.81070785434541,
+      "buy_hold_return": -99.99122678719343,
+      "win_rate": 46.42857142857143,
+      "total_trades": 28,
+      "sharpe": -0.5361932554158244,
+      "years": 5.71937029431896,
+      "data_points": 1487
+    }
+  ],
+  "failed_symbols": [
+    "CENN",
+    "SOS",
+    "GOEV",
+    "COSM",
+    "SPCE",
+    "STEM",
+    "BIRD",
+    "LCID",
+    "PSFE",
+    "BTBT"
+  ]
+}

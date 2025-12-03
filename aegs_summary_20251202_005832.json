@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "MSTR",
+    "excess_return": -275.5,
+    "win_rate": 53.4,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "JPM",
+    "excess_return": -10858.4,
+    "win_rate": 62.0,
+    "category": "Unknown"
+  },
+  {
+    "symbol": "WFC",
+    "excess_return": -48779.0,
+    "win_rate": 44.1,
+    "category": "Unknown"
+  }
+]

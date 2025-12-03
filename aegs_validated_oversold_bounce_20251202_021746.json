@@ -1,0 +1,160 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "Symbol Integration - oversold_bounce",
+  "candidates_found": 17,
+  "candidates": [
+    {
+      "symbol": "ASTS",
+      "reason": "RSI at 23.5 (oversold)",
+      "metrics": {
+        "rsi": 23.475114793075633,
+        "price": 52.61000061035156,
+        "volume": 9388735.0
+      }
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "RSI at 30.5 (oversold)",
+      "metrics": {
+        "rsi": 30.534347116053652,
+        "price": 3.8399999141693115,
+        "volume": 4780090.0
+      }
+    },
+    {
+      "symbol": "BB",
+      "reason": "RSI at 22.2 (oversold)",
+      "metrics": {
+        "rsi": 22.222231278954084,
+        "price": 3.9800000190734863,
+        "volume": 8389220.0
+      }
+    },
+    {
+      "symbol": "BBBY",
+      "reason": "RSI at 23.9 (oversold)",
+      "metrics": {
+        "rsi": 23.90437111702863,
+        "price": 5.820000171661377,
+        "volume": 1864235.0
+      }
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "RSI at 26.3 (oversold)",
+      "metrics": {
+        "rsi": 26.34731436549984,
+        "price": 2.25,
+        "volume": 38527345.0
+      }
+    },
+    {
+      "symbol": "BTCM",
+      "reason": "RSI at 22.4 (oversold)",
+      "metrics": {
+        "rsi": 22.44898207432918,
+        "price": 1.3799999952316284,
+        "volume": 130589.85
+      }
+    },
+    {
+      "symbol": "EBON",
+      "reason": "RSI at 34.7 (oversold)",
+      "metrics": {
+        "rsi": 34.66092340605398,
+        "price": 3.5799999237060547,
+        "volume": 4305.0
+      }
+    },
+    {
+      "symbol": "LCID",
+      "reason": "RSI at 23.0 (oversold)",
+      "metrics": {
+        "rsi": 23.03634225568443,
+        "price": 12.579999923706055,
+        "volume": 9785225.0
+      }
+    },
+    {
+      "symbol": "MVST",
+      "reason": "RSI at 9.3 (oversold)",
+      "metrics": {
+        "rsi": 9.278353682891009,
+        "price": 3.4000000953674316,
+        "volume": 5902985.0
+      }
+    },
+    {
+      "symbol": "NOK",
+      "reason": "RSI at 24.2 (oversold)",
+      "metrics": {
+        "rsi": 24.242428621093936,
+        "price": 6.119999885559082,
+        "volume": 40645780.0
+      }
+    },
+    {
+      "symbol": "PL",
+      "reason": "RSI at 30.6 (oversold)",
+      "metrics": {
+        "rsi": 30.57469969114095,
+        "price": 11.699999809265137,
+        "volume": 7615375.0
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "RSI at 27.1 (oversold)",
+      "metrics": {
+        "rsi": 27.1118031855749,
+        "price": 167.49000549316406,
+        "volume": 61178275.0
+      }
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "RSI at 31.8 (oversold)",
+      "metrics": {
+        "rsi": 31.825526259980748,
+        "price": 7.940000057220459,
+        "volume": 778370.0
+      }
+    },
+    {
+      "symbol": "QS",
+      "reason": "RSI at 12.6 (oversold)",
+      "metrics": {
+        "rsi": 12.643681400851577,
+        "price": 11.729999542236328,
+        "volume": 27999865.0
+      }
+    },
+    {
+      "symbol": "RKLB",
+      "reason": "RSI at 21.8 (oversold)",
+      "metrics": {
+        "rsi": 21.809285662987833,
+        "price": 40.369998931884766,
+        "volume": 18236015.0
+      }
+    },
+    {
+      "symbol": "SNDL",
+      "reason": "RSI at 34.4 (oversold)",
+      "metrics": {
+        "rsi": 34.426222139709395,
+        "price": 1.6799999475479126,
+        "volume": 2414395.0
+      }
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "RSI at 16.6 (oversold)",
+      "metrics": {
+        "rsi": 16.599035127404278,
+        "price": 7.831999778747559,
+        "volume": 4397542.0
+      }
+    }
+  ]
+}

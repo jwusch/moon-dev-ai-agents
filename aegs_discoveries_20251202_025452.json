@@ -1,0 +1,15 @@
+{
+  "discovery_date": "2025-12-02 02:54:52",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 2,
+  "candidates": [
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    }
+  ]
+}

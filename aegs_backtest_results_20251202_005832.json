@@ -1,0 +1,51 @@
+{
+  "processing_date": "2025-12-02 00:58:32",
+  "agent": "AEGS Backtest Orchestrator",
+  "total_processed": 7,
+  "successful": 3,
+  "failed": 4,
+  "results": [
+    {
+      "symbol": "MSTR",
+      "discovery_reason": "Crypto recovery play: -62.5% from peak",
+      "excess_return": -275.5307565392357,
+      "strategy_return": 463.22152807945685,
+      "buy_hold_return": 738.7522846186926,
+      "win_rate": 53.383458646616546,
+      "total_trades": 133,
+      "sharpe": 0.06761439002571422,
+      "years": 27.28268309377139,
+      "data_points": 6912
+    },
+    {
+      "symbol": "JPM",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -10858.389035878161,
+      "strategy_return": 14782.921672516022,
+      "buy_hold_return": 25641.310708394183,
+      "win_rate": 62.03703703703704,
+      "total_trades": 216,
+      "sharpe": 0.2987291039940226,
+      "years": 45.51403148528405,
+      "data_points": 11522
+    },
+    {
+      "symbol": "WFC",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -48779.029809677995,
+      "strategy_return": 24.341445098446425,
+      "buy_hold_return": 48803.371254776444,
+      "win_rate": 44.099378881987576,
+      "total_trades": 161,
+      "sharpe": -0.14255329720675014,
+      "years": 53.308692676249144,
+      "data_points": 13488
+    }
+  ],
+  "failed_symbols": [
+    "INO",
+    "BAC",
+    "C",
+    "CGC"
+  ]
+}

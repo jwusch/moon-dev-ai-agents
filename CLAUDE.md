@@ -141,6 +141,42 @@ model = ModelFactory.create_model('anthropic')  # or 'openai', 'deepseek', 'groq
 response = model.generate_response(system_prompt, user_content, temperature, max_tokens)
 ```
 
+### LangFuse Observability
+
+**Automatic LLM Tracing**: All LLM calls are automatically traced with LangFuse when enabled
+**Zero Code Changes**: Observability works transparently via decorators - no agent modifications needed
+**Rich Metadata**: Captures prompts, responses, latency, tokens, costs, and custom metadata
+
+**Configuration** (in `.env`):
+```bash
+LANGFUSE_SECRET_KEY=your_secret_key
+LANGFUSE_PUBLIC_KEY=your_public_key
+LANGFUSE_HOST=https://cloud.langfuse.com  # or self-hosted URL
+ENABLE_LANGFUSE=true  # Set to false to disable
+```
+
+**Adding Context** (optional):
+```python
+from src.observability import ObservabilityContext
+
+# Add agent metadata
+ObservabilityContext.add_agent_metadata(
+    agent_type="trading",
+    agent_name="MyAgent",
+    exchange="solana"
+)
+
+# Track trading signals
+ObservabilityContext.add_trading_signal(
+    action="BUY",
+    confidence=85.0,
+    reasoning="Bullish pattern detected",
+    symbol="BTC"
+)
+```
+
+**Testing**: Run `python example_langfuse_demo.py` to verify integration
+
 ### Configuration Management
 
 **Primary Config**: `src/config.py`
@@ -289,3 +325,19 @@ This is an **experimental, educational project** demonstrating AI agent patterns
 - No token associated with project (avoid scams)
 
 The goal is to democratize AI agent development and show practical multi-agent orchestration patterns that can be applied beyond trading.
+
+### Fundamental Trading Principles
+
+**Fractal Market Efficiency Principle**: Markets are fractally efficient - different alpha sources exist at different timescales, and the optimal strategy depends on finding the right temporal resolution where signal exceeds noise while maintaining tradeable alpha. Key insights:
+
+- **1-minute data**: Ultra-fast reversions (11-min avg) but extremely noisy - requires nanosecond precision
+- **5-minute data**: Contains real inefficiencies but fragile to filtering - "noise" is often tradeable alpha  
+- **15-minute data**: Sweet spot - captures inefficiencies without overwhelming noise
+- **1-hour+ data**: Clean signals but fewer opportunities
+
+**Strategic Implications**:
+- Never assume shorter timeframes are inherently better
+- Avoid over-filtering signals - you may destroy the very inefficiencies you're trying to exploit
+- Match strategy complexity to timeframe characteristics
+- Test across multiple timeframes to find optimal temporal resolution
+- Remember: Market microstructure creates real, tradeable inefficiencies at sub-minute scales

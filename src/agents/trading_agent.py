@@ -81,7 +81,8 @@ Built with love by Moon Dev 🚀
 # ============================================================================
 
 # 🏦 EXCHANGE SELECTION
-EXCHANGE = "ASTER"  # Options: "ASTER", "HYPERLIQUID", "SOLANA"
+# Import EXCHANGE from config instead of hardcoding it
+from src.config import EXCHANGE  # Options: "ASTER", "HYPERLIQUID", "SOLANA"
                      # - "ASTER" = Aster DEX futures (supports long/short)
                      # - "HYPERLIQUID" = HyperLiquid perpetuals (supports long/short)
                      # - "SOLANA" = Solana on-chain DEX (long only)
@@ -279,13 +280,13 @@ if project_root not in sys.path:
 # No config.py imports needed - all settings are at the top of this file (lines 55-111)
 
 # Dynamic exchange imports based on EXCHANGE selection
-if EXCHANGE == "ASTER":
+if EXCHANGE.upper() == "ASTER":
     from src import nice_funcs_aster as n
     cprint("🏦 Exchange: Aster DEX (Futures)", "cyan", attrs=['bold'])
-elif EXCHANGE == "HYPERLIQUID":
+elif EXCHANGE.upper() == "HYPERLIQUID":
     from src import nice_funcs_hyperliquid as n
     cprint("🏦 Exchange: HyperLiquid (Perpetuals)", "cyan", attrs=['bold'])
-elif EXCHANGE == "SOLANA":
+elif EXCHANGE.upper() == "SOLANA":
     from src import nice_funcs as n
     cprint("🏦 Exchange: Solana (On-chain DEX)", "cyan", attrs=['bold'])
 else:
@@ -320,7 +321,7 @@ def monitor_position_pnl(token, check_interval=PNL_CHECK_INTERVAL):
 
         while True:
             # Get current position
-            if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+            if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                 position = n.get_position(token)
             else:
                 position_usd = n.get_token_balance_usd(token)
@@ -329,12 +330,12 @@ def monitor_position_pnl(token, check_interval=PNL_CHECK_INTERVAL):
                     return True
                 position = {"position_amount": position_usd}  # Simplified for Solana
 
-            if not position or (EXCHANGE in ["ASTER", "HYPERLIQUID"] and position.get('position_amount', 0) == 0):
+            if not position or (EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"] and position.get('position_amount', 0) == 0):
                 cprint(f"✅ No position found for {token}", "green")
                 return True
 
             # For Aster/HyperLiquid, check P&L percentage
-            if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+            if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                 pnl_pct = position.get('pnl_percentage', 0)
                 pnl_usd = position.get('pnl', 0)
                 position_size = abs(position.get('position_amount', 0)) * position.get('mark_price', 0)
@@ -389,7 +390,7 @@ def get_account_balance():
         float: Account balance in USD
     """
     try:
-        if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+        if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
             # Get USD balance from futures exchange
             if EXCHANGE == "ASTER":
                 balance_dict = n.get_account_balance()  # Aster returns dict
@@ -422,7 +423,7 @@ def calculate_position_size(account_balance):
     Returns:
         float: Position size in USD (notional value)
     """
-    if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+    if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
         # For leveraged exchanges: MAX_POSITION_PERCENTAGE is the MARGIN to use
         # Notional position = margin × leverage
         margin_to_use = account_balance * (MAX_POSITION_PERCENTAGE / 100)
@@ -483,7 +484,7 @@ class TradingAgent:
 
         # Show which tokens will be analyzed based on exchange
         cprint("\n🎯 Active Tokens for Trading:", "yellow", attrs=['bold'])
-        if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+        if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
             tokens_to_show = SYMBOLS
             cprint(f"🏦 Exchange: {EXCHANGE} (using symbols)", "cyan")
         else:
@@ -756,7 +757,7 @@ Strategy Signals Available:
 
             # Get allocation from AI via model factory
             # Use appropriate token list based on exchange
-            if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+            if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                 available_tokens = SYMBOLS
             else:
                 available_tokens = MONITORED_TOKENS
@@ -840,7 +841,7 @@ Example format:
                     if current_position < target_allocation:
                         print(f"✨ Executing entry for {token}")
                         # Pass leverage for Aster/HyperLiquid, skip for Solana
-                        if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+                        if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                             n.ai_entry(token, amount, leverage=LEVERAGE)
                         else:
                             n.ai_entry(token, amount)
@@ -937,7 +938,7 @@ Example format:
 
                         cprint(f"💰 Opening position at MAX_POSITION_PERCENTAGE", "white", "on_green")
                         try:
-                            if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+                            if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                                 success = n.ai_entry(token, position_size, leverage=LEVERAGE)
                             else:
                                 success = n.ai_entry(token, position_size)
@@ -947,7 +948,7 @@ Example format:
 
                                 # Verify position was actually opened
                                 time.sleep(2)  # Brief delay for order to settle
-                                if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+                                if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                                     position = n.get_position(token)
                                     if position and position.get('position_amount', 0) != 0:
                                         pnl_pct = position.get('pnl_percentage', 0)
@@ -1061,7 +1062,7 @@ Example format:
             
             # Collect OHLCV data for all tokens using this agent's config
             # Use SYMBOLS for Aster/HyperLiquid, MONITORED_TOKENS for Solana
-            if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+            if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                 tokens_to_trade = SYMBOLS
                 cprint(f"🏦 Using {EXCHANGE} - Trading symbols: {SYMBOLS}", "yellow")
             else:
@@ -1158,8 +1159,8 @@ def main():
             has_position = False
             monitored_token = None
 
-            for token in SYMBOLS if EXCHANGE in ["ASTER", "HYPERLIQUID"] else MONITORED_TOKENS:
-                if EXCHANGE in ["ASTER", "HYPERLIQUID"]:
+            for token in SYMBOLS if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"] else MONITORED_TOKENS:
+                if EXCHANGE.upper() in ["ASTER", "HYPERLIQUID"]:
                     position = n.get_position(token)
                     if position and position.get('position_amount', 0) != 0:
                         has_position = True

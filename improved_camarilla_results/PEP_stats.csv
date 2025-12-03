@@ -1,0 +1,18 @@
+Start,End,Duration,Exposure Time [%],Equity Final [$],Equity Peak [$],Return [%],Buy & Hold Return [%],Return (Ann.) [%],Volatility (Ann.) [%],CAGR [%],Sharpe Ratio,Sortino Ratio,Calmar Ratio,Alpha [%],Beta,Max. Drawdown [%],Avg. Drawdown [%],Max. Drawdown Duration,Avg. Drawdown Duration,# Trades,Win Rate [%],Best Trade [%],Worst Trade [%],Avg. Trade [%],Max. Trade Duration,Avg. Trade Duration,Profit Factor,Expectancy [%],SQN,Kelly Criterion,_strategy,_equity_curve,_trades
+2023-12-04 00:00:00-05:00,2025-12-01 00:00:00-05:00,728 days,0.0,10000.0,10000.0,0.0,-11.090310470655853,0.0,0.0,0.0,,,,0.0,0.0,-0.0,,,,0,,,,,,,,,,,ImprovedCamarillaStrategy,"                            Equity  DrawdownPct  DrawdownDuration
+Date                                                             
+2023-12-04 00:00:00-05:00  10000.0          0.0               NaN
+2023-12-05 00:00:00-05:00  10000.0          0.0               NaN
+2023-12-06 00:00:00-05:00  10000.0          0.0               NaN
+2023-12-07 00:00:00-05:00  10000.0          0.0               NaN
+2023-12-08 00:00:00-05:00  10000.0          0.0               NaN
+...                            ...          ...               ...
+2025-11-24 00:00:00-05:00  10000.0          0.0               NaN
+2025-11-25 00:00:00-05:00  10000.0          0.0               NaN
+2025-11-26 00:00:00-05:00  10000.0          0.0               NaN
+2025-11-28 00:00:00-05:00  10000.0          0.0               NaN
+2025-12-01 00:00:00-05:00  10000.0          0.0               NaN
+
+[500 rows x 3 columns]","Empty DataFrame
+Columns: [Size, EntryBar, ExitBar, EntryPrice, ExitPrice, SL, TP, PnL, Commission, ReturnPct, EntryTime, ExitTime, Duration, Tag]
+Index: []"

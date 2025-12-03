@@ -1,0 +1,48 @@
+{
+  "symbol": "SH",
+  "start_date": "2006-08-30",
+  "end_date": "2025-12-01",
+  "total_years": 19.255304585900067,
+  "strategy_total_return_pct": -58.228844283346085,
+  "strategy_annualized_return_pct": -4.432395981106363,
+  "strategy_cagr": -4.432395981106363,
+  "buy_hold_total_return_pct": -89.98708148475735,
+  "buy_hold_annualized_return_pct": -11.264913422643819,
+  "buy_hold_cagr": -11.264913422643819,
+  "excess_return_pct": 31.75823720141127,
+  "outperformance_ratio": 4.1717263206592365,
+  "strategy_volatility": 10.640430130266449,
+  "strategy_sharpe": -0.6045240561102475,
+  "strategy_sortino": -0.7309960890926682,
+  "strategy_max_drawdown": -73.73769686461914,
+  "strategy_calmar_ratio": -0.06011031222258201,
+  "buy_hold_volatility": 19.60175012283637,
+  "buy_hold_sharpe": -0.6767208713261766,
+  "buy_hold_max_drawdown": -94.23964766845964,
+  "total_trades": 105,
+  "win_rate": 50.476190476190474,
+  "profit_factor": 0.6683995907484277,
+  "avg_trade_return": -0.7427687774088828,
+  "avg_win": 2.9661163758467737,
+  "avg_loss": -4.522978645150226,
+  "max_consecutive_wins": 6,
+  "max_consecutive_losses": 4,
+  "bull_market_performance": {
+    "days": "253",
+    "percentage_of_time": 5.2229562345169285,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "406",
+    "percentage_of_time": 8.38150289017341,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "4125",
+    "percentage_of_time": 85.1568951279934,
+    "regime_type": "sideways"
+  },
+  "information_ratio": 0.3775405288641445,
+  "treynor_ratio": -4.432395981106363,
+  "jensen_alpha": 6.832517441537456
+}

@@ -1,0 +1,108 @@
+{
+  "symbol": "QQQ",
+  "alpha_sources": [
+    {
+      "symbol": "QQQ",
+      "strategy_name": "Vol_Expansion_1d",
+      "timeframe": "1d",
+      "alpha_score": 7.213889134079577,
+      "win_rate": 80.0,
+      "total_return_pct": 315.6076496159815,
+      "total_trades": 35,
+      "avg_hold_minutes": 256896.0,
+      "sharpe_ratio": 0.39526383577415847,
+      "profit_factor": 3.53206346800127,
+      "max_drawdown": -56.79518373722428,
+      "discovery_date": "2025-12-01T23:19:27.436265",
+      "strategy_type": "volatility",
+      "entry_conditions": "Volatility expansion from low vol periods",
+      "exit_conditions": "lambda df: df[\"Vol_Regime\"] == \"High\"",
+      "market_conditions": "General",
+      "confidence_score": 1.0
+    },
+    {
+      "symbol": "QQQ",
+      "strategy_name": "RSI_Reversion_1d",
+      "timeframe": "1d",
+      "alpha_score": 5.059528672133982,
+      "win_rate": 90.9090909090909,
+      "total_return_pct": 61.22029693282118,
+      "total_trades": 11,
+      "avg_hold_minutes": 17803.636363636364,
+      "sharpe_ratio": 0.9350820548902592,
+      "profit_factor": 11.565082028263323,
+      "max_drawdown": -5.79458794253058,
+      "discovery_date": "2025-12-01T23:19:27.436265",
+      "strategy_type": "mean_reversion",
+      "entry_conditions": "RSI oversold + price below SMA",
+      "exit_conditions": "lambda df: (df[\"RSI\"] > 50) | (df[\"Distance_Medium\"] > 0)",
+      "market_conditions": "General",
+      "confidence_score": 0.55
+    },
+    {
+      "symbol": "QQQ",
+      "strategy_name": "Vol_Expansion_1h",
+      "timeframe": "1h",
+      "alpha_score": 1.565334446211042,
+      "win_rate": 72.09302325581395,
+      "total_return_pct": 93.36462551755538,
+      "total_trades": 43,
+      "avg_hold_minutes": 6664.186046511628,
+      "sharpe_ratio": 0.45660735984297435,
+      "profit_factor": 3.6099548501486107,
+      "max_drawdown": -16.03279964972397,
+      "discovery_date": "2025-12-01T23:19:27.436265",
+      "strategy_type": "volatility",
+      "entry_conditions": "Volatility expansion from low vol periods",
+      "exit_conditions": "lambda df: df[\"Vol_Regime\"] == \"High\"",
+      "market_conditions": "General",
+      "confidence_score": 0.782667223105521
+    },
+    {
+      "symbol": "QQQ",
+      "strategy_name": "RSI_Reversion_1h",
+      "timeframe": "1h",
+      "alpha_score": 1.309570474381583,
+      "win_rate": 85.71428571428571,
+      "total_return_pct": 21.389651081565855,
+      "total_trades": 14,
+      "avg_hold_minutes": 938.5714285714286,
+      "sharpe_ratio": 1.0777998891670015,
+      "profit_factor": 9.517241204979047,
+      "max_drawdown": -1.6787192397110822,
+      "discovery_date": "2025-12-01T23:19:27.436265",
+      "strategy_type": "mean_reversion",
+      "entry_conditions": "RSI oversold + price below SMA",
+      "exit_conditions": "lambda df: (df[\"RSI\"] > 50) | (df[\"Distance_Medium\"] > 0)",
+      "market_conditions": "General",
+      "confidence_score": 0.45834966603355404
+    }
+  ],
+  "weights": {
+    "signal_Vol_Expansion": 0.501334514864164,
+    "signal_RSI_Reversion": 0.49866548513583603
+  },
+  "performance": {
+    "total_return_pct": 4.540738786857945,
+    "win_rate": 75.0,
+    "total_trades": 8,
+    "sharpe_ratio": 0.517370254454484,
+    "max_drawdown": -0.7858217265058391,
+    "profit_factor": 3.5868758651473627,
+    "alpha_score": 0.42569426126793236,
+    "avg_hold_minutes": 195.0,
+    "individual_performance": {
+      "signal_Vol_Expansion": {
+        "return": 0.5978070564307174,
+        "win_rate": 33.33333333333333,
+        "trades": 3
+      },
+      "signal_RSI_Reversion": {
+        "return": 5.600939510629781,
+        "win_rate": 100.0,
+        "trades": 2
+      }
+    }
+  },
+  "creation_date": "2025-12-01T23:19:31.705629"
+}

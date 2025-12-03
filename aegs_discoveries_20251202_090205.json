@@ -1,0 +1,27 @@
+{
+  "discovery_date": "2025-12-02 09:02:05",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 5,
+  "candidates": [
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Canadian crypto mining ETF with high retail recognition. Sector rotation plays strongly influence price action. Currently underperforming vs. crypto strength, suggesting mean reversion potential. Volatile commodity-like cycles.; openrouter_llama: HUT is a Bitcoin mining stock with crypto exposure, similar to MARA and WULF. The stock has seen significant volatility and recent price weakness, making it a potential candidate for mean reversion trading."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Polarizing tech stock with meme stock potential. Experiences significant volatility based on investor sentiment and earnings reports. Recent price declines may present a mean reversion setup, especially if positive news emerges.; ollama_llama: Strong trends with sharp reversals, high volatility, and meme stock potential due to its exposure to the cybersecurity industry and strong retail interest."
+    },
+    {
+      "symbol": "FCX",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: Copper mining company. Copper prices are volatile and sensitive to economic cycles. FCX\u2019s performance mirrors these cycles. Recent weakness driven by concerns about global growth makes it a potential mean reversion candidate.; claude_haiku: Copper mining with commodity cycle exposure and boom/bust patterns. Weather/geopolitical events drive sharp volatility. Sector rotation between risk-on/risk-off creates predictable cycles. Current weakness vs. macro backdrop suggests mean reversion potential."
+    },
+    {
+      "symbol": "RBLX",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: Roblox is a meme\u2011stock\u2011style play with high volatility and strong retail interest. The stock dropped ~10% after Q4 results, approaching a support level of $27.00. It fits the *meme stock potential* and *high volatility* patterns of WULF and GME.; ollama_llama: Meme stock potential, high retail interest, and a recent price weakness that could reverse due to its exposure to the gaming industry."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Meme stock with high retail interest, similar to NOK. Prone to volatile swings driven by social media sentiment. Recent price decline creates an opportunity for a bounce based on renewed meme stock enthusiasm. Has shown boom/bust behavior previously.; ollama_gpt: Meme\u2011stock with extreme volatility and boom/bust cycles. The share price has pulled back ~15% in the last 10 days after a sharp rally, hitting a strong support level around $2.50. The high retail interest and frequent short\u2011covering spikes make it a classic mean\u2011reversion candidate. Matches the *meme stock potential* and *high volatility* patterns of WULF and GME."
+    }
+  ]
+}

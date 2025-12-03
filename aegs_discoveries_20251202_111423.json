@@ -1,0 +1,75 @@
+{
+  "discovery_date": "2025-12-02 11:14:23",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 17,
+  "candidates": [
+    {
+      "symbol": "BITF",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Bitcoin mining with Canadian exposure, similar to MARA/RIOT. Crypto proxy with extreme volatility, follows BTC cycles precisely. High retail interest and meme potential during bull runs.; claude_opus: Bitfarms extends the crypto mining goldmine pattern with Canadian operations exposure. Similar boom/bust cycles to WULF/MARA but with additional currency and regulatory catalysts. Often lags or leads the other miners, creating relative value mean reversion opportunities within the crypto mining sector."
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_llama: With its meme stock potential and high retail interest, AMC shares similarities with NOK. Recent price weakness and sector rotation opportunities in the entertainment industry could lead to a reversal.; xai: AMC Entertainment shares NOK's meme stock traits, with intense retail-driven volatility, high short interest, and boom/bust cycles fueled by social media. It exhibits commodity-like exposure through entertainment sector rotations but with crypto-level swings. Following a sharp 40% drop in recent months due to box office slowdowns, its technicals indicate mean reversion potential as it approaches historical support levels, especially if meme rotations revive amid broader risk appetite."
+    },
+    {
+      "symbol": "WFC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "UNG",
+      "reason": "Swarm Consensus (2 votes): xai: United States Natural Gas Fund (UNG) tracks natural gas futures, aligning with EQT's commodity cycles, weather-driven volatility, and boom/bust patterns influenced by seasonal demand. It offers sector rotation in energy commodities with high price swings. After recent weakness from mild weather reducing demand (down 15% in the past month), it sits at multi-month lows, positioning for mean reversion as winter heating season approaches and supply constraints emerge.; claude_opus: United States Natural Gas Fund provides direct commodity exposure matching EQT's underlying driver. ETF structure means no company-specific risk, pure nat gas price exposure. Contango/backwardation dynamics create additional mean reversion patterns beyond spot price movements. High volume ensures liquidity for trading."
+    },
+    {
+      "symbol": "BB",
+      "reason": "Swarm Consensus (3 votes): xai: BlackBerry (BB) has meme stock potential similar to NOK, with high retail interest in its turnaround story, telecom/software sector rotations, and volatility from short squeezes leading to boom/bust cycles. It shares crypto-like sharp reversals in trends. Following a 25% YTD drop due to delayed EV partnerships, it's oversold (RSI <25) and ripe for mean reversion if cybersecurity demand surges, attracting retail rotation.; claude_opus: BlackBerry carries legacy meme stock status from 2021 similar to NOK. High retail interest persists despite fundamental changes. Cybersecurity/IoT pivot creates news-driven volatility. Experiences sharp reversals on earnings and partnership announcements. Mean reversion patterns emerge when retail sentiment overshoots."
+    },
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: High volatility and boom/bust cycles due to electric vehicle demand fluctuations. Meme stock potential with strong retail interest.; ollama_gpt: Tesla is a classic high\u2011volatility, boom/bust play. It cycles with market sentiment, supply\u2011chain news, and regulatory headlines. The stock has a long history of sharp rallies followed by painful pullbacks, making it a prime candidate for mean\u2011reversion after a recent price dip. It matches the *WULF* (crypto\u2011mining style boom/bust) and *SOL\u2011USD* (extreme volatility with sharp reversals) patterns."
+    },
+    {
+      "symbol": "GME",
+      "reason": "Swarm Consensus (3 votes): ollama_llama: Meme stock potential with strong retail interest, sector rotation opportunities between brick-and-mortar and online retailers.; xai: GameStop (GME) embodies meme stock potential like NOK, with high retail interest driving sporadic booms and busts, leading to high volatility and strong trends with reversals akin to SOL-USD. Its history of short squeezes and social media hype creates boom/bust cycles. After recent weakness from post-squeeze fades and a 20% YTD decline, it shows oversold conditions (RSI below 30), making it a prime mean reversion candidate as retail sentiment could rotate back in during bullish market rotations."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: High volatility and boom/bust cycles in the cybersecurity industry, sector rotation opportunities between tech and other sectors.; deepseek: Meme stock with retail interest resurgence, AI narrative exposure, and history of sharp boom/bust cycles. Recent consolidation after parabolic move creates potential for volatility expansion. Combines WULF's volatility with NOK's meme potential in tech sector."
+    },
+    {
+      "symbol": "CLSK",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Cryptocurrency mining with extreme volatility patterns matching WULF. Recently experienced weakness but positioned for mean reversion on BTC rallies. Sector rotation plays during crypto bull markets.; xai: CleanSpark (CLSK) is another Bitcoin proxy mining stock like MARA and WULF, characterized by high volatility, crypto cycle dependency, and boom/bust patterns tied to mining economics. It has shown strong trends with reversals similar to SOL-USD. Recent weakness from a 25% pullback post-BTC halving anticipation creates oversold opportunities for mean reversion, as efficiency improvements in mining could drive a bounce in this high-beta crypto sector rotation play."
+    },
+    {
+      "symbol": "RIG",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Oil drilling services with commodity cycle exposure and boom/bust patterns. Weather-driven volatility, sector rotation opportunities, and recent price weakness. Follows energy commodity trends.; xai: Transocean (RIG) is an offshore drilling stock with commodity exposure to oil prices, featuring high volatility, boom/bust cycles like EQT's energy plays, and sector rotation opportunities in oil services. It experiences weather and geopolitical-driven swings. Recent weakness from a 30% slide on lower rig counts and oil price dips sets up mean reversion, as OPEC cuts and demand recovery could reverse the downtrend in this cyclical sector."
+    },
+    {
+      "symbol": "FCX",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Copper mining with commodity cycle volatility. Macro-sensitive with sharp reversals. Industrial metal exposure provides diversification while maintaining boom/bust characteristics and mean reversion potential.; xai: Freeport-McMoRan (FCX) is a copper mining stock with strong commodity cycles, high volatility from metal prices, and boom/bust patterns tied to global demand (e.g., EV/green energy), similar to EQT's resource exposure. It offers rotation into base metals amid industrial trends. After a 15% recent pullback from China slowdown fears, it's at support levels, making it a mean reversion candidate as copper supply tightness and economic rebounds drive upside."
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "COIN",
+      "reason": "Swarm Consensus (4 votes): claude_haiku: Crypto exchange with extreme volatility tied to SOL-USD patterns. Strong trends with sharp reversals, high retail interest, and meme stock potential. Direct crypto market exposure with leveraged volatility.; xai: Coinbase Global (COIN) provides direct crypto exposure as a trading platform, echoing SOL-USD's extreme volatility and MARA's cycle following, with boom/bust tied to trading volumes and regulatory news. High retail interest adds meme-like potential. Recent 20% decline amid SEC scrutiny and crypto winter creates a mean reversion setup, as stabilizing regulations and BTC recovery could rotate capital back into exchange stocks with oversold indicators."
+    },
+    {
+      "symbol": "MSTR",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: With its Bitcoin proxy status and high volatility, MSTR shares similarities with MARA. Recent price weakness and potential sector rotation opportunities in the technology industry could lead to a reversal.; deepseek: Ultimate Bitcoin proxy with extreme volatility exceeding even SOL-USD patterns. Company's massive BTC holdings create leveraged crypto exposure. Currently trading at discount to Bitcoin holdings, creating potential mean reversion when crypto sentiment improves."
+    },
+    {
+      "symbol": "RIOT",
+      "reason": "Swarm Consensus (5 votes): openrouter_llama: As a Bitcoin mining stock, RIOT exhibits high volatility and boom/bust cycles similar to WULF and MARA. Its recent price weakness could be a reversal opportunity, especially if crypto markets rebound.; claude_haiku: Bitcoin mining company with direct crypto cycle exposure. Exhibits boom/bust volatility similar to WULF and MARA. Highly sensitive to BTC price movements with sharp reversals. Strong retail interest and meme potential during bull runs."
+    },
+    {
+      "symbol": "JPM",
+      "reason": "Multiple signals"
+    }
+  ]
+}

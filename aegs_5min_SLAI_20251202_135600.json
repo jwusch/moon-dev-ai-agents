@@ -1,0 +1,22 @@
+{
+  "symbol": "SLAI",
+  "strategy": "AEGS_5MIN",
+  "timestamp": "20251202_135600",
+  "results": {
+    "total_return": 18.961622946619883,
+    "buy_hold_return": -34.403674139557765,
+    "excess_return": 53.365297086177655,
+    "num_trades": 33,
+    "win_rate": 60.60606060606061,
+    "avg_return": 0.7626604513478139,
+    "avg_win": 2.517641828051327,
+    "avg_loss": -1.9373108974268214,
+    "sharpe_ratio": 40.93415475032306,
+    "avg_hold_minutes": 37.57575757575758,
+    "profit_factor": 1.2995548785666327,
+    "best_trade": 6.009048641307809,
+    "worst_trade": -3.1211658701051843,
+    "final_capital": 11896.162294661988
+  },
+  "num_trades": 33
+}

@@ -1,0 +1,23 @@
+{
+  "discovery_date": "2025-12-02 01:04:27",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 4,
+  "candidates": [
+    {
+      "symbol": "INO",
+      "reason": "Biotech recovery play: -58.4% from peak"
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "CGC",
+      "reason": "Cannabis recovery play: -71.4% from peak"
+    }
+  ]
+}

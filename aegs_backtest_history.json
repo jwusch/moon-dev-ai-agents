@@ -1,0 +1,2794 @@
+{
+  "backtest_history": {
+    "MSTR": {
+      "first_tested": "2025-12-02",
+      "test_count": 285,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "JPM": {
+      "first_tested": "2025-12-02",
+      "test_count": 329,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "WFC": {
+      "first_tested": "2025-12-02",
+      "test_count": 329,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "PSNY": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 24.004111848046207,
+          "win_rate": 66.66666666666666,
+          "trades": 24
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CHPT": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 2.7041637528352425,
+          "win_rate": 42.857142857142854,
+          "trades": 28
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 2.7041637528352425,
+          "win_rate": 42.857142857142854,
+          "trades": 28
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SPCE": {
+      "first_tested": "2025-12-02",
+      "test_count": 5,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 3.4287217311005094,
+          "win_rate": 47.5,
+          "trades": 40
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "WATT": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 64.18851465015183,
+          "win_rate": 48.275862068965516,
+          "trades": 58
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BLNK": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 24.115539010046135,
+          "win_rate": 54.21686746987952,
+          "trades": 83
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NCTY": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 91.9918996279726,
+          "win_rate": 54.08163265306123,
+          "trades": 98
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CAN": {
+      "first_tested": "2025-12-02",
+      "test_count": 11,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "MNTS": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0.1805189328480168,
+          "win_rate": 46.42857142857143,
+          "trades": 28
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "HYLN": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 17.50839677241946,
+          "win_rate": 51.724137931034484,
+          "trades": 29
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BARK": {
+      "first_tested": "2025-12-02",
+      "test_count": 1,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 61.932314390426896,
+          "win_rate": 50.0,
+          "trades": 18
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "C": {
+      "first_tested": "2025-12-02",
+      "test_count": 337,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BAC": {
+      "first_tested": "2025-12-02",
+      "test_count": 337,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "HUT": {
+      "first_tested": "2025-12-02",
+      "test_count": 422,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "PLTR": {
+      "first_tested": "2025-12-02",
+      "test_count": 478,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NIO": {
+      "first_tested": "2025-12-02",
+      "test_count": 244,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BITF": {
+      "first_tested": "2025-12-02",
+      "test_count": 400,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SOUN": {
+      "first_tested": "2025-12-02",
+      "test_count": 77,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "XOM": {
+      "first_tested": "2025-12-02",
+      "test_count": 281,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "AMC": {
+      "first_tested": "2025-12-02",
+      "test_count": 631,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BTU": {
+      "first_tested": "2025-12-02",
+      "test_count": 93,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CLF": {
+      "first_tested": "2025-12-02",
+      "test_count": 37,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BBIG": {
+      "first_tested": "2025-12-02",
+      "test_count": 130,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CLSK": {
+      "first_tested": "2025-12-02",
+      "test_count": 595,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "TSLA": {
+      "first_tested": "2025-12-02",
+      "test_count": 313,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RIOT": {
+      "first_tested": "2025-12-02",
+      "test_count": 596,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CLNE": {
+      "first_tested": "2025-12-02",
+      "test_count": 181,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "GME": {
+      "first_tested": "2025-12-02",
+      "test_count": 598,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "COIN": {
+      "first_tested": "2025-12-02",
+      "test_count": 592,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "FCX": {
+      "first_tested": "2025-12-02",
+      "test_count": 218,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BB": {
+      "first_tested": "2025-12-02",
+      "test_count": 422,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "AR": {
+      "first_tested": "2025-12-02",
+      "test_count": 344,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NVDA": {
+      "first_tested": "2025-12-02",
+      "test_count": 199,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RIG": {
+      "first_tested": "2025-12-02",
+      "test_count": 289,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "UNG": {
+      "first_tested": "2025-12-02",
+      "test_count": 392,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CVE": {
+      "first_tested": "2025-12-02",
+      "test_count": 130,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "PLUG": {
+      "first_tested": "2025-12-02",
+      "test_count": 316,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RIVN": {
+      "first_tested": "2025-12-02",
+      "test_count": 68,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "FCEL": {
+      "first_tested": "2025-12-02",
+      "test_count": 346,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "TLRY": {
+      "first_tested": "2025-12-02",
+      "test_count": 62,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BTCS": {
+      "first_tested": "2025-12-02",
+      "test_count": 156,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BITO": {
+      "first_tested": "2025-12-02",
+      "test_count": 58,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RGLD": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "LCID": {
+      "first_tested": "2025-12-02",
+      "test_count": 140,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "HIVE": {
+      "first_tested": "2025-12-02",
+      "test_count": 38,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "VERI": {
+      "first_tested": "2025-12-02",
+      "test_count": 10,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BBBY": {
+      "first_tested": "2025-12-02",
+      "test_count": 12,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SLB": {
+      "first_tested": "2025-12-02",
+      "test_count": 20,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "ARKK": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "HOOD": {
+      "first_tested": "2025-12-02",
+      "test_count": 64,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "XLE": {
+      "first_tested": "2025-12-02",
+      "test_count": 14,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BTBT": {
+      "first_tested": "2025-12-02",
+      "test_count": 6,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "FSLR": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NKLA": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RRC": {
+      "first_tested": "2025-12-02",
+      "test_count": 6,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SLV": {
+      "first_tested": "2025-12-02",
+      "test_count": 32,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SOS": {
+      "first_tested": "2025-12-02",
+      "test_count": 26,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "LNG": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CVEO": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CORZ": {
+      "first_tested": "2025-12-02",
+      "test_count": 8,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NG": {
+      "first_tested": "2025-12-02",
+      "test_count": 14,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SOFI": {
+      "first_tested": "2025-12-02",
+      "test_count": 18,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "FUBO": {
+      "first_tested": "2025-12-02",
+      "test_count": 16,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CLOV": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BILI": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "ROKU": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "RBLX": {
+      "first_tested": "2025-12-02",
+      "test_count": 14,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "UVXY": {
+      "first_tested": "2025-12-02",
+      "test_count": 12,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "OXY": {
+      "first_tested": "2025-12-02",
+      "test_count": 10,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "AMD": {
+      "first_tested": "2025-12-02",
+      "test_count": 8,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CRWD": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "GLD": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "ETH": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CRSR": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BABA": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BTCM": {
+      "first_tested": "2025-12-02",
+      "test_count": 112,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "NEM": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "USO": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "LIT": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "BHP": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CORN": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "GBTC": {
+      "first_tested": "2025-12-02",
+      "test_count": 4,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "DKNG": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CCJ": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SMCI": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "UUUU": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "SOL": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CDE": {
+      "first_tested": "2025-12-02",
+      "test_count": 2,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    },
+    "CYBN": {
+      "first_tested": "2025-12-02",
+      "test_count": 8,
+      "results": [
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-02",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-02"
+    }
+  },
+  "metadata": {
+    "created": "2025-12-02",
+    "last_updated": "2025-12-02",
+    "total_symbols_tested": 91
+  }
+}

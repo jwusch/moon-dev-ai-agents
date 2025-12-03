@@ -1,0 +1,31 @@
+{
+  "discovery_date": "2025-12-02 09:13:45",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 6,
+  "candidates": [
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: EV leader with a long history of volatility and sharp trend reversals. After a 2023 rally, TSLA slid into a 4\u2011month low, breaking its 50\u2011day MA, signaling a potential mean\u2011reversion. It is also a sector\u2011rotation candidate (tech \u2192 automotive) and exhibits meme\u2011stock characteristics due to retail interest. Matches high volatility, boom/bust cycles, sector rotation, meme stock potential, and recent price weakness.; ollama_llama: High volatility, boom/bust cycles, and commodity exposure (electric vehicles) make TSLA a potential candidate for mean reversion trading. Its recent price weakness could be a sign of an impending reversal."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: High retail following with boom/bust sentiment cycles. Exhibits sharp trend reversals and strong sector rotation sensitivity. Recent weakness from 2024 highs, meme stock characteristics, and volatility make it suitable for mean reversion.; deepseek: Meme stock with strong retail following (NOK pattern), AI hype cycles, and consistent boom/bust price action. Recent weakness after earnings creates mean reversion potential. High short interest combined with volatile options flow creates sharp reversal opportunities."
+    },
+    {
+      "symbol": "NVDA",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: Semiconductor giant with extreme volatility and pronounced boom/bust cycles (e.g., recent 2023 rally followed by a sharp pull\u2011back). NVDA is a classic sector\u2011rotation play\u2014investors move into it during tech rallies and out when macro sentiment shifts. The stock has been under 30\u2011day moving\u2011average for the last 3 weeks, creating a mean\u2011reversion setup. Matches the AEGS patterns of high volatility, boom/bust cycles, sector rotation, and recent price weakness.; ollama_llama: High volatility, boom/bust cycles, and commodity exposure (semiconductors) make NVDA a potential candidate for mean reversion trading. Its recent price weakness could be a sign of an impending reversal."
+    },
+    {
+      "symbol": "XOM",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: ExxonMobil, a major oil and gas company, experiences cyclical price movements influenced by commodity prices and global economic conditions. It shows boom/bust cycles based on energy demand and supply. While more stable than the other stocks, it still experiences volatility that can be traded using mean reversion strategies, particularly if there are unexpected geopolitical or economic events influencing oil prices. Parallels EQT's commodity-driven volatility, but on a larger, more stable scale.; ollama_gpt: Exxon Mobil is a classic commodity play with weather\u2011driven volatility. After a 2023 rally, XOM fell 12% and is trading near its 20\u2011day SMA. The pullback offers a mean\u2011reversion opportunity. Matches commodity exposure, sector rotation, and recent price weakness."
+    },
+    {
+      "symbol": "HOOD",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Retail trading platform with direct meme stock ecosystem exposure. Exhibits extreme volatility correlated with retail sentiment cycles. High volatility, sharp reversals, and boom/bust cycles tied to market participation trends.; deepseek: Fintech meme stock with crypto/retail trading exposure (SOL-USD pattern). Volatility driven by crypto markets and retail trading volumes. Currently undervalued relative to user growth, with potential for sharp reversal when retail trading activity rebounds."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Similar to GME, AMC is a meme stock with a dedicated retail following. It exhibits extreme price volatility and boom/bust cycles driven by social media sentiment and short squeezes. Recent weakness in the movie theater industry could present a mean reversion opportunity if retail interest resurfaces. Parallels NOK's meme stock profile.; xai: AMC (AMC Entertainment) mirrors NOK's meme stock volatility and high retail interest, featuring dramatic boom/bust cycles fueled by online communities. It offers sector rotation in entertainment amid economic recoveries. With recent price weakness from debt concerns and a 40%+ YTD decline as of 2024, it fits mean reversion trading, similar to past instances where dilution fears gave way to squeeze-driven rebounds in volatile meme environments."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "symbol": "SPY",
+  "alpha_sources": [
+    {
+      "symbol": "SPY",
+      "strategy_name": "Vol_Expansion_1d",
+      "timeframe": "1d",
+      "alpha_score": 4.675420446022928,
+      "win_rate": 73.68421052631578,
+      "total_return_pct": 361.6771673602022,
+      "total_trades": 57,
+      "avg_hold_minutes": 199856.84210526315,
+      "sharpe_ratio": 0.4571807421316784,
+      "profit_factor": 4.039478141349621,
+      "max_drawdown": -45.99347158196278,
+      "discovery_date": "2025-12-01T23:19:22.774806",
+      "strategy_type": "volatility",
+      "entry_conditions": "Volatility expansion from low vol periods",
+      "exit_conditions": "lambda df: df[\"Vol_Regime\"] == \"High\"",
+      "market_conditions": "General",
+      "confidence_score": 1.0
+    },
+    {
+      "symbol": "SPY",
+      "strategy_name": "RSI_Reversion_1d",
+      "timeframe": "1d",
+      "alpha_score": 2.4715911772811836,
+      "win_rate": 86.66666666666667,
+      "total_return_pct": 42.777539606789716,
+      "total_trades": 15,
+      "avg_hold_minutes": 19008.0,
+      "sharpe_ratio": 0.6449110933018348,
+      "profit_factor": 4.658757378686474,
+      "max_drawdown": -10.450929474369488,
+      "discovery_date": "2025-12-01T23:19:22.774806",
+      "strategy_type": "mean_reversion",
+      "entry_conditions": "RSI oversold + price below SMA",
+      "exit_conditions": "lambda df: (df[\"RSI\"] > 50) | (df[\"Distance_Medium\"] > 0)",
+      "market_conditions": "General",
+      "confidence_score": 0.75
+    },
+    {
+      "symbol": "SPY",
+      "strategy_name": "Vol_Expansion_1h",
+      "timeframe": "1h",
+      "alpha_score": 1.1760058280469237,
+      "win_rate": 69.23076923076923,
+      "total_return_pct": 66.24832831331004,
+      "total_trades": 39,
+      "avg_hold_minutes": 7326.153846153846,
+      "sharpe_ratio": 0.5008294065015606,
+      "profit_factor": 3.8826824969512757,
+      "max_drawdown": -11.468022785202876,
+      "discovery_date": "2025-12-01T23:19:22.774806",
+      "strategy_type": "volatility",
+      "entry_conditions": "Volatility expansion from low vol periods",
+      "exit_conditions": "lambda df: df[\"Vol_Regime\"] == \"High\"",
+      "market_conditions": "General",
+      "confidence_score": 0.5880029140234618
+    },
+    {
+      "symbol": "SPY",
+      "strategy_name": "RSI_Reversion_1h",
+      "timeframe": "1h",
+      "alpha_score": 1.0018201941381286,
+      "win_rate": 90.0,
+      "total_return_pct": 11.13133549042365,
+      "total_trades": 10,
+      "avg_hold_minutes": 834.0,
+      "sharpe_ratio": 1.0165120885204684,
+      "profit_factor": 8.579936849336068,
+      "max_drawdown": -1.4685261515600427,
+      "discovery_date": "2025-12-01T23:19:22.774806",
+      "strategy_type": "mean_reversion",
+      "entry_conditions": "RSI oversold + price below SMA",
+      "exit_conditions": "lambda df: (df[\"RSI\"] > 50) | (df[\"Distance_Medium\"] > 0)",
+      "market_conditions": "General",
+      "confidence_score": 0.25045504853453215
+    }
+  ],
+  "weights": {
+    "signal_Vol_Expansion": 0.47450737414882055,
+    "signal_RSI_Reversion": 0.5254926258511794
+  },
+  "performance": {
+    "total_return_pct": 5.420033936571134,
+    "win_rate": 77.77777777777779,
+    "total_trades": 9,
+    "sharpe_ratio": 0.871522351806495,
+    "max_drawdown": -0.1938428021500631,
+    "profit_factor": 8.582460075705471,
+    "alpha_score": 0.46839799451849307,
+    "avg_hold_minutes": 244.99999999999997,
+    "individual_performance": {
+      "signal_Vol_Expansion": {
+        "return": 0.2211728817177408,
+        "win_rate": 50.0,
+        "trades": 2
+      },
+      "signal_RSI_Reversion": {
+        "return": 1.426848807284136,
+        "win_rate": 100.0,
+        "trades": 1
+      }
+    }
+  },
+  "creation_date": "2025-12-01T23:19:27.429687"
+}

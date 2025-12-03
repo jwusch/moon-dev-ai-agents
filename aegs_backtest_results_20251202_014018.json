@@ -1,0 +1,89 @@
+{
+  "processing_date": "2025-12-02 01:40:18",
+  "agent": "AEGS Backtest Orchestrator",
+  "total_processed": 12,
+  "successful": 6,
+  "failed": 6,
+  "results": [
+    {
+      "symbol": "NCTY",
+      "discovery_reason": "Crypto recovery play: -67.2% from peak",
+      "excess_return": 91.9918996279726,
+      "strategy_return": -7.880662902323121,
+      "buy_hold_return": -99.87256253029572,
+      "win_rate": 54.08163265306123,
+      "total_trades": 98,
+      "sharpe": -0.09369225525783703,
+      "years": 20.763860369609855,
+      "data_points": 5274
+    },
+    {
+      "symbol": "WATT",
+      "discovery_reason": "CleanEnergy recovery play: -92.4% from peak",
+      "excess_return": 64.18851465015183,
+      "strategy_return": -35.723885807080656,
+      "buy_hold_return": -99.91240045723248,
+      "win_rate": 48.275862068965516,
+      "total_trades": 58,
+      "sharpe": -0.09168504820031875,
+      "years": 11.4798083504449,
+      "data_points": 2938
+    },
+    {
+      "symbol": "BLNK",
+      "discovery_reason": "CleanEnergy recovery play: -52.5% from peak",
+      "excess_return": 24.115539010046135,
+      "strategy_return": -75.83140835877647,
+      "buy_hold_return": -99.9469473688226,
+      "win_rate": 54.21686746987952,
+      "total_trades": 83,
+      "sharpe": -0.1672194394251415,
+      "years": 15.745379876796715,
+      "data_points": 4011
+    },
+    {
+      "symbol": "PSNY",
+      "discovery_reason": "Volatility explosion: 2.2x increase",
+      "excess_return": 24.004111848046207,
+      "strategy_return": -69.95359202504308,
+      "buy_hold_return": -93.95770387308929,
+      "win_rate": 66.66666666666666,
+      "total_trades": 24,
+      "sharpe": -0.48658219149535126,
+      "years": 4.344969199178645,
+      "data_points": 1141
+    },
+    {
+      "symbol": "SPCE",
+      "discovery_reason": "Space recovery play: -50.1% from peak",
+      "excess_return": 3.4287217311005094,
+      "strategy_return": -94.65131875570899,
+      "buy_hold_return": -98.0800404868095,
+      "win_rate": 47.5,
+      "total_trades": 40,
+      "sharpe": -0.41957765602455016,
+      "years": 7.9808350444900755,
+      "data_points": 2054
+    },
+    {
+      "symbol": "CHPT",
+      "discovery_reason": "CleanEnergy recovery play: -74.6% from peak",
+      "excess_return": 2.7041637528352425,
+      "strategy_return": -93.39900274587825,
+      "buy_hold_return": -96.10316649871349,
+      "win_rate": 42.857142857142854,
+      "total_trades": 28,
+      "sharpe": -0.5269902317279528,
+      "years": 6.026009582477755,
+      "data_points": 1562
+    }
+  ],
+  "failed_symbols": [
+    "BAC",
+    "EBON",
+    "EVGO",
+    "C",
+    "CENN",
+    "DASH"
+  ]
+}

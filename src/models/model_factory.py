@@ -164,6 +164,11 @@ class ModelFactory:
                 raise e  # Let the retry logic handle 503s
             cprint(f"❌ Model error: {str(e)}", "red")
             return None
+    
+    @staticmethod
+    def create_model(model_type: str = "claude", model_name: Optional[str] = None) -> Optional[BaseModel]:
+        """Static method to create a model instance - convenience wrapper"""
+        return model_factory.get_model(model_type, model_name)
 
 # Create a singleton instance
 model_factory = ModelFactory() 

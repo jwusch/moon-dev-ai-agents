@@ -1,0 +1,47 @@
+{
+  "discovery_date": "2025-12-02 01:38:14",
+  "agent": "Enhanced Discovery Agent",
+  "candidates_found": 10,
+  "candidates": [
+    {
+      "symbol": "KTTA",
+      "reason": "Ultra-high volatility: 18.1% daily"
+    },
+    {
+      "symbol": "LAC",
+      "reason": "Momentum surge: +88.3% in 3M"
+    },
+    {
+      "symbol": "RGTI",
+      "reason": "Momentum surge: +51.1% in 3M"
+    },
+    {
+      "symbol": "ARQQ",
+      "reason": "High volatility play: 7.8% daily"
+    },
+    {
+      "symbol": "SES",
+      "reason": "Momentum surge: +71.6% in 3M"
+    },
+    {
+      "symbol": "WATT",
+      "reason": "High volatility play: 7.0% daily"
+    },
+    {
+      "symbol": "MVST",
+      "reason": "High volatility play: 6.1% daily"
+    },
+    {
+      "symbol": "HYLN",
+      "reason": "High volatility play: 5.4% daily"
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "High volatility play: 5.1% daily"
+    },
+    {
+      "symbol": "DRUG",
+      "reason": "Momentum surge: +81.1% in 3M"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "symbol": "ARKK",
+  "start_date": "2015-01-13",
+  "end_date": "2025-12-01",
+  "total_years": 10.882956878850102,
+  "strategy_total_return_pct": 1.7030090692571775,
+  "strategy_annualized_return_pct": 0.15528695511908275,
+  "strategy_cagr": 0.15528695511908275,
+  "buy_hold_total_return_pct": 329.7776066338434,
+  "buy_hold_annualized_return_pct": 14.336986086693958,
+  "buy_hold_cagr": 14.336986086693958,
+  "excess_return_pct": -328.0745975645862,
+  "outperformance_ratio": 0.23664101502595233,
+  "strategy_volatility": 15.827713215585076,
+  "strategy_sharpe": -0.1165495621353869,
+  "strategy_sortino": -0.08704384120424058,
+  "strategy_max_drawdown": -43.47515436534775,
+  "strategy_calmar_ratio": 0.003571855175351731,
+  "buy_hold_volatility": 38.66494958634683,
+  "buy_hold_sharpe": 0.31907415420632884,
+  "buy_hold_max_drawdown": -80.9141075842511,
+  "total_trades": 53,
+  "win_rate": 69.81132075471697,
+  "profit_factor": 1.3459611298625254,
+  "avg_trade_return": 0.9762729210804555,
+  "avg_win": 5.440647642557727,
+  "avg_loss": -9.347593622335737,
+  "max_consecutive_wins": 7,
+  "max_consecutive_losses": 2,
+  "bull_market_performance": {
+    "days": "1031",
+    "percentage_of_time": 37.655222790357925,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "526",
+    "percentage_of_time": 19.21110299488678,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "1121",
+    "percentage_of_time": 40.94229364499635,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.6309698774267107,
+  "treynor_ratio": 0.15528695511908275,
+  "jensen_alpha": -14.181699131574875
+}

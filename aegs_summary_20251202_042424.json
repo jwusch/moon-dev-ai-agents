@@ -1,0 +1,74 @@
+[
+  {
+    "symbol": "BBIG",
+    "excess_return": 10483132.0,
+    "win_rate": 52.4,
+    "category": "Sector Rotation"
+  },
+  {
+    "symbol": "GME",
+    "excess_return": 4296.6,
+    "win_rate": 67.4,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "RIG",
+    "excess_return": 425.3,
+    "win_rate": 56.2,
+    "category": "Unknown"
+  },
+  {
+    "symbol": "BTCS",
+    "excess_return": 235.1,
+    "win_rate": 56.2,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "FCEL",
+    "excess_return": 192.6,
+    "win_rate": 71.0,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "SNDL",
+    "excess_return": 75.4,
+    "win_rate": 43.3,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "UNG",
+    "excess_return": 41.9,
+    "win_rate": 58.4,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "CLNE",
+    "excess_return": 38.3,
+    "win_rate": 61.4,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "AR",
+    "excess_return": 31.8,
+    "win_rate": 60.0,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "AMC",
+    "excess_return": 3.6,
+    "win_rate": 44.4,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "HUT",
+    "excess_return": -31.8,
+    "win_rate": 44.4,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "SOUN",
+    "excess_return": -125.2,
+    "win_rate": 53.3,
+    "category": "High Volatility"
+  }
+]

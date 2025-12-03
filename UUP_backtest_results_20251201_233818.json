@@ -1,0 +1,48 @@
+{
+  "symbol": "UUP",
+  "start_date": "2007-05-10",
+  "end_date": "2025-12-01",
+  "total_years": 18.562628336755647,
+  "strategy_total_return_pct": 8.981892193441233,
+  "strategy_annualized_return_pct": 0.464433879548265,
+  "strategy_cagr": 0.464433879548265,
+  "buy_hold_total_return_pct": 33.66305233598324,
+  "buy_hold_annualized_return_pct": 1.5753774027732037,
+  "buy_hold_cagr": 1.5753774027732037,
+  "excess_return_pct": -24.681160142542005,
+  "outperformance_ratio": 0.8153479236692726,
+  "strategy_volatility": 5.42614360844405,
+  "strategy_sharpe": -0.28299400665734675,
+  "strategy_sortino": -0.2904236071490031,
+  "strategy_max_drawdown": -14.428684330174994,
+  "strategy_calmar_ratio": 0.032188234832817374,
+  "buy_hold_volatility": 8.167443211201768,
+  "buy_hold_sharpe": -0.05198966019677005,
+  "buy_hold_max_drawdown": -22.190947950497918,
+  "total_trades": 90,
+  "win_rate": 64.44444444444444,
+  "profit_factor": 1.1664668695104816,
+  "avg_trade_return": 0.12095226708738538,
+  "avg_win": 1.3151434451217572,
+  "avg_loss": -2.0435192430999134,
+  "max_consecutive_wins": 7,
+  "max_consecutive_losses": 4,
+  "bull_market_performance": {
+    "days": "46",
+    "percentage_of_time": 0.9847998287304646,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "6",
+    "percentage_of_time": 0.12845215157353884,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "4559",
+    "percentage_of_time": 97.60222650396061,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.2204802797101157,
+  "treynor_ratio": 0.464433879548265,
+  "jensen_alpha": -1.1109435232249387
+}

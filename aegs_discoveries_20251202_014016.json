@@ -1,0 +1,55 @@
+{
+  "discovery_date": "2025-12-02 01:40:16",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 12,
+  "candidates": [
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "EBON",
+      "reason": "Crypto recovery play: -62.8% from peak"
+    },
+    {
+      "symbol": "WATT",
+      "reason": "CleanEnergy recovery play: -92.4% from peak"
+    },
+    {
+      "symbol": "CHPT",
+      "reason": "CleanEnergy recovery play: -74.6% from peak"
+    },
+    {
+      "symbol": "SPCE",
+      "reason": "Space recovery play: -50.1% from peak"
+    },
+    {
+      "symbol": "PSNY",
+      "reason": "Volatility explosion: 2.2x increase"
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "CleanEnergy recovery play: -56.6% from peak"
+    },
+    {
+      "symbol": "BLNK",
+      "reason": "CleanEnergy recovery play: -52.5% from peak"
+    },
+    {
+      "symbol": "CENN",
+      "reason": "EV recovery play: -88.3% from peak"
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "NCTY",
+      "reason": "Crypto recovery play: -67.2% from peak"
+    },
+    {
+      "symbol": "DASH",
+      "reason": "Volatility explosion: 2.7x increase"
+    }
+  ]
+}

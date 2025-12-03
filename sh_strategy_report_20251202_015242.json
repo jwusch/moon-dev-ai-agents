@@ -1,0 +1,39 @@
+{
+  "analysis_date": "2025-12-02T01:52:42.321721",
+  "symbol": "SH",
+  "data_period": "2015-12-07 to 2025-12-01",
+  "strategies": {
+    "buy_hold_sh": {
+      "total_return": -73.55889863482489,
+      "annual_return": -7.382255060125796,
+      "sharpe": -0.7558192379773493
+    },
+    "vix_strategy": {
+      "total_return": -60.937732258430884,
+      "annual_return": -6.115614706939301,
+      "sharpe": -0.6585221524592983,
+      "days_in_market": 31.30227001194743
+    },
+    "tech_strategy": {
+      "total_return": -48.57136998318568,
+      "annual_return": -4.8745460915025065,
+      "sharpe": -0.5288778229568768,
+      "days_in_market": 25.28872958980486
+    },
+    "combined_strategy": {
+      "total_return": -67.0331330421896,
+      "annual_return": -6.727339516778885,
+      "sharpe": -0.729540670307434,
+      "days_in_market": 40.86021505376344
+    },
+    "crisis_strategy": {
+      "total_return": -34.46470925185896,
+      "annual_return": -3.458823867570075,
+      "sharpe": -0.4871552375044962,
+      "days_in_market": 6.053365193150139
+    }
+  },
+  "best_strategy": "crisis_strategy",
+  "current_vix": 17.239999771118164,
+  "current_signal": "AVOID SH"
+}

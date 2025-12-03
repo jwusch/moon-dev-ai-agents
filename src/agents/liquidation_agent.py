@@ -18,7 +18,7 @@ import anthropic
 from pathlib import Path
 from src import nice_funcs as n
 from src import nice_funcs_hyperliquid as hl
-from src.agents.api import MoonDevAPI
+from src.agents.api_adapter import APIAdapter
 from collections import deque
 from src.agents.base_agent import BaseAgent
 import traceback
@@ -34,7 +34,7 @@ LIQUIDATION_ROWS = 10000   # Number of rows to fetch each time
 LIQUIDATION_THRESHOLD = .5  # Multiplier for average liquidation to detect significant events
 
 # Model override settings - Adding DeepSeek support
-MODEL_OVERRIDE = "deepseek-chat"  # Set to "deepseek-chat" or "deepseek-reasoner" to use DeepSeek, "0" to use default
+MODEL_OVERRIDE = "0"  # Set to "deepseek-chat" or "deepseek-reasoner" to use DeepSeek, "0" to use default
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"  # Base URL for DeepSeek API
 
 # OHLCV Data Settings
@@ -129,7 +129,7 @@ class LiquidationAgent(BaseAgent):
         openai.api_key = openai_key
         self.client = anthropic.Anthropic(api_key=anthropic_key)
         
-        self.api = MoonDevAPI()
+        self.api = APIAdapter()
         
         # Create data directories if they don't exist
         self.audio_dir = PROJECT_ROOT / "src" / "audio"
@@ -188,9 +188,22 @@ class LiquidationAgent(BaseAgent):
                 print(f"📋 Original column names: {list(df.columns)}")
                 print(f"📊 First row sample: {df.iloc[0].tolist()}")
 
+                # Check if this is from public_data_api (aggregated format)
+                if 'long_size' in df.columns and 'short_size' in df.columns:
+                    print("📊 Detected public API aggregated format")
+                    # Get the sum of all records (or latest if you prefer)
+                    current_longs = df['long_size'].sum()
+                    current_shorts = df['short_size'].sum()
+                    
+                    # Save to history
+                    self._save_to_history(current_longs, current_shorts)
+                    
+                    print(f"💰 Total liquidations - Longs: ${current_longs:,.2f}, Shorts: ${current_shorts:,.2f}")
+                    return current_longs, current_shorts
+                
                 # The CSV has no header! First row is being used as column names
                 # We need to assign proper column names based on position
-                if len(df.columns) == 13:
+                elif len(df.columns) == 13:
                     # Assign proper column names
                     df.columns = ['symbol', 'side', 'type', 'time_in_force',
                                 'quantity', 'price', 'price2', 'status',
@@ -201,6 +214,18 @@ class LiquidationAgent(BaseAgent):
                                 'quantity', 'price', 'price2', 'status',
                                 'filled_qty', 'total_qty', 'timestamp', 'usd_value']
                     print(f"✅ Assigned proper column names (12 columns)")
+                elif len(df.columns) == 4:
+                    # This is the public_data_api format but didn't match column names
+                    print("📊 Detected 4-column format (likely public API)")
+                    # Try to handle it as aggregated data
+                    if len(df) > 0:
+                        latest = df.iloc[-1]
+                        current_longs = float(latest[1]) if len(latest) > 1 else 0  # long_size
+                        current_shorts = float(latest[2]) if len(latest) > 2 else 0  # short_size
+                        self._save_to_history(current_longs, current_shorts)
+                        return current_longs, current_shorts
+                    else:
+                        return None
                 else:
                     print(f"⚠️ Unexpected column count: {len(df.columns)}")
                     return None

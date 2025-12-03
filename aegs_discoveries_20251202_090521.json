@@ -1,0 +1,35 @@
+{
+  "discovery_date": "2025-12-02 09:05:21",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 7,
+  "candidates": [
+    {
+      "symbol": "PLUG",
+      "reason": "Swarm Consensus (2 votes): claude_opus: Hydrogen/clean energy with extreme volatility and boom/bust cycles. Heavy retail interest and meme potential. Currently in extended downtrend from highs creating mean reversion setup. High short interest adds squeeze dynamics. Matches NOK retail interest pattern.; deepseek: Hydrogen fuel cell company with history of extreme volatility and retail interest. Similar to FCEL but with larger market cap and more institutional following. Currently near decade lows after growth stock correction, showing potential for green energy policy-driven mean reversion."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Canadian Bitcoin mining company with pronounced boom/bust cycles. Historically volatile with 50%+ annual swings. Recent weakness from peaks suggests mean reversion potential. Lower institutional ownership creates meme stock characteristics.; openrouter_llama: HUT is a mining stock with exposure to crypto cycles, similar to MARA. Its recent price decline due to crypto market downturn presents a potential mean reversion opportunity."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: Technology company with high growth expectations and some meme stock characteristics. Exhibits volatility due to market sentiment and earnings reports. Recent price weakness related to broad tech sell-offs could create a mean reversion opportunity.; ollama_llama: Meme stock potential, recent price weakness, and high volatility. It has the potential to follow crypto cycles as a proxy stock."
+    },
+    {
+      "symbol": "FCX",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Copper mining company tied to commodity cycles and global economic growth. High volatility due to fluctuations in copper prices and supply chain disruptions. Recent price weakness stemming from recession fears could offer a mean reversion opportunity.; xai: Freeport-McMoRan (FCX) is a copper mining stock with commodity exposure, featuring boom/bust cycles tied to global demand (e.g., EVs and infrastructure), similar to EQT's natural gas volatility. It shows high volatility from metal price swings and sector rotation opportunities in materials. Recent price weakness from China slowdowns and oversupply could reverse with economic recovery signals, making it a mean reversion candidate. Matches commodity exposure, high volatility, and boom/bust cycles."
+    },
+    {
+      "symbol": "XOM",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Major oil and gas company heavily influenced by commodity cycles, similar to EQT (natural gas). Volatility tied to global oil prices and geopolitical events. Potential for mean reversion after price dips due to economic concerns or short-term supply/demand imbalances.; ollama_gpt: Exxon Mobil \u2013 a classic oil\u2011commodity play with strong weather\u2011driven swings. The stock has pulled back ~\u202f\u20137% in the last 2 months after a 6\u2011month rally, aligning with EQT\u2019s commodity\u2011cycle pattern and offering a mean\u2011reversion trade."
+    },
+    {
+      "symbol": "LCID",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: EV manufacturer with extreme volatility (50-70% swings). Subject to sector rotation between growth/value. Recent significant weakness from peaks, strong mean reversion candidates. High retail/social media interest creates meme stock dynamics.; claude_opus: Lucid Motors has meme stock characteristics with high retail interest. EV sector creates narrative-driven volatility. Currently trading near lows after extended decline - potential mean reversion candidate. High short interest adds squeeze potential. Matches NOK retail pattern."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (5 votes): openrouter_gemini: Classic meme stock with high retail interest, mirroring NOK. Experiences extreme price swings based on social media sentiment rather than fundamentals. Recent weakness after the meme stock frenzy could present a mean reversion opportunity, though risk remains high.; xai: AMC Entertainment is a classic meme stock with high retail interest like NOK, driven by social media hype and short squeezes, leading to boom/bust cycles and extreme volatility. It has shown strong trends with sharp reversals, particularly during movie theater recovery phases. Recent weakness from streaming competition and post-pandemic normalization could reverse with positive earnings or meme revival, offering sector rotation opportunities in entertainment. Matches meme stock potential, high volatility, and retail-driven reversals."
+    }
+  ]
+}

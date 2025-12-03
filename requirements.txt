@@ -115,7 +115,7 @@ pydantic_core @ file:///home/task_176059738185733/conda-bld/pydantic-core_176059
 Pygments @ file:///home/task_176243137807904/conda-bld/pygments_1762431407645/work
 PyJWT @ file:///io/buildout/croot/pyjwt_1739558969999/work
 pyparsing==3.2.5
-PySocks @ file:///home/task_176175235884818/conda-bld/pysocks_1761753009495/work
+PySocks>=1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv @ file:///croot/python-dotenv_1745610241282/work
 python-telegram-bot==22.5
@@ -124,7 +124,7 @@ pyunormalize==17.0.0
 PyYAML==6.0.3
 readchar @ file:///home/task_176061336965958/conda-bld/readchar_1760613437376/work
 regex==2025.11.3
-requests @ file:///home/task_176235918788486/conda-bld/requests_1762359591632/work
+requests[socks]>=2.31.0
 rich @ file:///home/task_176037557612320/conda-bld/rich_1760375632000/work
 rlp==4.1.0
 rsa==4.9.1

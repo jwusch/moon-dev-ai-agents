@@ -1,0 +1,38 @@
+[
+  {
+    "symbol": "NCTY",
+    "excess_return": 92.0,
+    "win_rate": 54.1,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "WATT",
+    "excess_return": 64.2,
+    "win_rate": 48.3,
+    "category": "Recovery Play"
+  },
+  {
+    "symbol": "BLNK",
+    "excess_return": 24.1,
+    "win_rate": 54.2,
+    "category": "Recovery Play"
+  },
+  {
+    "symbol": "PSNY",
+    "excess_return": 24.0,
+    "win_rate": 66.7,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "SPCE",
+    "excess_return": 3.4,
+    "win_rate": 47.5,
+    "category": "Recovery Play"
+  },
+  {
+    "symbol": "CHPT",
+    "excess_return": 2.7,
+    "win_rate": 42.9,
+    "category": "Recovery Play"
+  }
+]

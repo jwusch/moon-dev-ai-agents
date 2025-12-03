@@ -1,0 +1,19 @@
+Start,End,Duration,Exposure Time [%],Equity Final [$],Equity Peak [$],Commissions [$],Return [%],Buy & Hold Return [%],Return (Ann.) [%],Volatility (Ann.) [%],CAGR [%],Sharpe Ratio,Sortino Ratio,Calmar Ratio,Alpha [%],Beta,Max. Drawdown [%],Avg. Drawdown [%],Max. Drawdown Duration,Avg. Drawdown Duration,# Trades,Win Rate [%],Best Trade [%],Worst Trade [%],Avg. Trade [%],Max. Trade Duration,Avg. Trade Duration,Profit Factor,Expectancy [%],SQN,Kelly Criterion,_strategy,_equity_curve,_trades
+2023-12-04 00:00:00-05:00,2025-12-01 00:00:00-05:00,728 days,2.1999999999999997,10106.380391855115,10106.380391855115,8.470562921988762,1.0638039185511479,4.375512183251563,0.5347501213007977,0.3644938322424368,0.3669666039485042,1.4671033471565518,6.457181528757629,5.133151399220356,1.0741153979687015,-0.0023566336889709826,-0.10417579372040686,-0.07820257261093588,2 days,2 days,1,100.0,4.890903617987808,4.890903617987808,4.890903617987807,14 days,14 days,,4.890903617987808,,,ImprovedCamarillaStrategy,"                                 Equity  DrawdownPct DrawdownDuration
+Date                                                                 
+2023-12-04 00:00:00-05:00  10000.000000          0.0              NaT
+2023-12-05 00:00:00-05:00  10000.000000          0.0              NaT
+2023-12-06 00:00:00-05:00  10000.000000          0.0              NaT
+2023-12-07 00:00:00-05:00  10000.000000          0.0              NaT
+2023-12-08 00:00:00-05:00  10000.000000          0.0              NaT
+...                                 ...          ...              ...
+2025-11-24 00:00:00-05:00  10106.380392          0.0              NaT
+2025-11-25 00:00:00-05:00  10106.380392          0.0              NaT
+2025-11-26 00:00:00-05:00  10106.380392          0.0              NaT
+2025-11-28 00:00:00-05:00  10106.380392          0.0              NaT
+2025-12-01 00:00:00-05:00  10106.380392          0.0              NaT
+
+[500 rows x 3 columns]","   Size  EntryBar  ExitBar  ...  Exit_trend_str…  Entry_market_re…  Exit_market_re…
+0   -22       466      476  ...         0.011416                 2                2
+
+[1 rows x 32 columns]"

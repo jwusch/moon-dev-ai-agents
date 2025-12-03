@@ -152,17 +152,33 @@ class GroqModel(BaseModel):
         except Exception as e:
             error_str = str(e)
 
-            # Handle rate limit errors (413)
-            if "413" in error_str or "rate_limit_exceeded" in error_str:
-                cprint(f"⚠️  Groq rate limit exceeded (request too large)", "yellow")
+            # Handle rate limit errors (413 or 429)
+            if "413" in error_str or "429" in error_str or "rate_limit" in error_str.lower():
+                # Check if it's actually a rate limit (429) or payload size (413)
+                if "429" in error_str:
+                    cprint(f"⚠️  Groq rate limit exceeded (too many requests)", "yellow")
+                elif "413" in error_str:
+                    cprint(f"⚠️  Groq request too large (413 error)", "yellow")
+                else:
+                    cprint(f"⚠️  Groq rate limit exceeded", "yellow")
+                
                 cprint(f"   Model: {self.model_name}", "yellow")
+                
+                # Try to extract token info if available
                 if "Requested" in error_str and "Limit" in error_str:
-                    # Extract token info from error message
                     import re
                     limit_match = re.search(r'Limit (\d+)', error_str)
                     requested_match = re.search(r'Requested (\d+)', error_str)
                     if limit_match and requested_match:
-                        cprint(f"   Limit: {limit_match.group(1)} tokens | Requested: {requested_match.group(1)} tokens", "yellow")
+                        limit_val = int(limit_match.group(1))
+                        requested_val = int(requested_match.group(1))
+                        
+                        # Check if the numbers make sense
+                        if limit_val > 10000:  # Likely a token count
+                            cprint(f"   Token limit: {limit_val:,} | Requested: {requested_val:,}", "yellow")
+                        else:  # Likely requests per minute
+                            cprint(f"   Rate limit: {limit_val} requests | Current: {requested_val}", "yellow")
+                
                 cprint(f"   💡 Skipping this model for this request...", "cyan")
                 return None
 

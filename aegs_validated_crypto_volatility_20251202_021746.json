@@ -1,0 +1,27 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "Symbol Integration - crypto_volatility",
+  "candidates_found": 5,
+  "candidates": [
+    {
+      "symbol": "BTC-USD",
+      "reason": "Crypto volatility play"
+    },
+    {
+      "symbol": "ETH-USD",
+      "reason": "Crypto volatility play"
+    },
+    {
+      "symbol": "SOL-USD",
+      "reason": "Crypto volatility play"
+    },
+    {
+      "symbol": "DOGE-USD",
+      "reason": "Crypto volatility play"
+    },
+    {
+      "symbol": "SHIB-USD",
+      "reason": "Crypto volatility play"
+    }
+  ]
+}

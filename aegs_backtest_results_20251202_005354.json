@@ -1,0 +1,75 @@
+{
+  "processing_date": "2025-12-02 00:53:54",
+  "agent": "AEGS Backtest Orchestrator",
+  "total_processed": 9,
+  "successful": 5,
+  "failed": 4,
+  "results": [
+    {
+      "symbol": "MRNA",
+      "discovery_reason": "Biotech recovery play: -50.6% from peak",
+      "excess_return": 99.85201218297567,
+      "strategy_return": 121.13715151469702,
+      "buy_hold_return": 21.28513933172136,
+      "win_rate": 52.94117647058824,
+      "total_trades": 34,
+      "sharpe": 0.15788367932266023,
+      "years": 6.778918548939083,
+      "data_points": 1755
+    },
+    {
+      "symbol": "RIVN",
+      "discovery_reason": "Volatility explosion: 2.4x increase",
+      "excess_return": 67.8596289846298,
+      "strategy_return": -5.539845082703076,
+      "buy_hold_return": -73.39947406733287,
+      "win_rate": 55.00000000000001,
+      "total_trades": 20,
+      "sharpe": -0.10822169187285441,
+      "years": 3.8603696098562628,
+      "data_points": 1018
+    },
+    {
+      "symbol": "MSTR",
+      "discovery_reason": "Crypto recovery play: -62.5% from peak",
+      "excess_return": -275.5307565392357,
+      "strategy_return": 463.22152807945685,
+      "buy_hold_return": 738.7522846186926,
+      "win_rate": 53.383458646616546,
+      "total_trades": 133,
+      "sharpe": 0.06761439002571422,
+      "years": 27.28268309377139,
+      "data_points": 6912
+    },
+    {
+      "symbol": "JPM",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -10858.297381873383,
+      "strategy_return": 14783.015883489503,
+      "buy_hold_return": 25641.313265362885,
+      "win_rate": 62.03703703703704,
+      "total_trades": 216,
+      "sharpe": 0.29872959604875365,
+      "years": 45.51403148528405,
+      "data_points": 11522
+    },
+    {
+      "symbol": "WFC",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -48787.99107314229,
+      "strategy_return": 15.396873311149628,
+      "buy_hold_return": 48803.38794645344,
+      "win_rate": 43.90243902439025,
+      "total_trades": 164,
+      "sharpe": -0.15380275932608514,
+      "years": 53.308692676249144,
+      "data_points": 13488
+    }
+  ],
+  "failed_symbols": [
+    "CGC",
+    "C",
+    "INO",
+    "BAC"
+  ]
+}

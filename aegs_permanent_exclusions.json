@@ -1,0 +1,325 @@
+{
+  "excluded_symbols": {
+    "BAC": {
+      "reason": "Backtest failed - insufficient data",
+      "fail_count": 90,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_failed"
+    },
+    "C": {
+      "reason": "Backtest failed - insufficient data",
+      "fail_count": 90,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_failed"
+    },
+    "BBIG": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 93,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "CLSK": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 348,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "CLNE": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 120,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "GME": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 351,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "NIO": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 162,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BTU": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 68,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "SOUN": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 52,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "COIN": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 346,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "FCX": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 132,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BB": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 248,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "AR": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 210,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "AMC": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 384,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BITF": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 238,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "RIG": {
+      "reason": "Backtest error: Extra data: line 424 column 2 (char 10613)",
+      "fail_count": 162,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "TSLA": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 172,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "UNG": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 222,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "RIOT": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 349,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "CVE": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 100,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "NVDA": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 122,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "PLTR": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 280,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "PLUG": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 178,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "RIVN": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 34,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "XOM": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 172,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "HUT": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 264,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "FCEL": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 192,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "TLRY": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 38,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BTCS": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 110,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BITO": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 28,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "CLF": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 18,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "LCID": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 84,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "HIVE": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 18,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BBBY": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 12,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "SLB": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 12,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "HOOD": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 40,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "XLE": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 12,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "SLV": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 20,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "SOS": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 12,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "FUBO": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 14,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "RBLX": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 10,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "JPM": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 82,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "WFC": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 82,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "BTCM": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 82,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    },
+    "MSTR": {
+      "reason": "Backtest error: Extra data: line 311 column 2 (char 8972)",
+      "fail_count": 58,
+      "first_failed": "2025-12-02",
+      "excluded_date": "2025-12-02 10:39:39",
+      "error_type": "backtest_error"
+    }
+  },
+  "metadata": {
+    "created": "2025-12-02 10:39:39",
+    "threshold": 10,
+    "last_updated": "2025-12-02 10:39:39",
+    "total_excluded": 45
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "symbol": "IEF",
+  "start_date": "2002-10-08",
+  "end_date": "2025-12-01",
+  "total_years": 23.148528405201915,
+  "strategy_total_return_pct": 111.90166200816236,
+  "strategy_annualized_return_pct": 3.297253150521584,
+  "strategy_cagr": 3.297253150521584,
+  "buy_hold_total_return_pct": 118.26631470844701,
+  "buy_hold_annualized_return_pct": 3.429395293317161,
+  "buy_hold_cagr": 3.429395293317161,
+  "excess_return_pct": -6.364652700284651,
+  "outperformance_ratio": 0.9708399680968347,
+  "strategy_volatility": 6.375780040191324,
+  "strategy_sharpe": 0.20346579435677273,
+  "strategy_sortino": 0.30343275402634307,
+  "strategy_max_drawdown": -22.677736213146027,
+  "strategy_calmar_ratio": 0.14539604480495738,
+  "buy_hold_volatility": 6.835329896964229,
+  "buy_hold_sharpe": 0.20911869871152783,
+  "buy_hold_max_drawdown": -23.924767723065752,
+  "total_trades": 105,
+  "win_rate": 62.857142857142854,
+  "profit_factor": 2.1079285384952158,
+  "avg_trade_return": 0.8003916976411157,
+  "avg_win": 2.4226577920537693,
+  "avg_loss": -1.9449816929033756,
+  "max_consecutive_wins": 7,
+  "max_consecutive_losses": 5,
+  "bull_market_performance": {
+    "days": "29",
+    "percentage_of_time": 0.49785407725321884,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "4",
+    "percentage_of_time": 0.06866952789699571,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "5732",
+    "percentage_of_time": 98.40343347639485,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.11797754651174615,
+  "treynor_ratio": 3.297253150521584,
+  "jensen_alpha": -0.13214214279557712
+}

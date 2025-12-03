@@ -1,0 +1,48 @@
+{
+  "symbol": "DJP",
+  "start_date": "2007-01-11",
+  "end_date": "2025-12-01",
+  "total_years": 18.888432580424368,
+  "strategy_total_return_pct": -28.217745530994076,
+  "strategy_annualized_return_pct": -1.7399023440969996,
+  "strategy_cagr": -1.7399023440969996,
+  "buy_hold_total_return_pct": -17.576941303928685,
+  "buy_hold_annualized_return_pct": -1.0181849096878026,
+  "buy_hold_cagr": -1.0181849096878026,
+  "excess_return_pct": -10.640804227065392,
+  "outperformance_ratio": 0.8709001534837171,
+  "strategy_volatility": 12.50280195673672,
+  "strategy_sharpe": -0.29912513667241425,
+  "strategy_sortino": -0.28368651747538765,
+  "strategy_max_drawdown": -68.44696266191197,
+  "strategy_calmar_ratio": -0.025419715885584306,
+  "buy_hold_volatility": 17.825498955292783,
+  "buy_hold_sharpe": -0.16931839704782217,
+  "buy_hold_max_drawdown": -78.35361613805301,
+  "total_trades": 103,
+  "win_rate": 66.01941747572816,
+  "profit_factor": 0.940246000415785,
+  "avg_trade_return": -0.1274937634424132,
+  "avg_win": 3.0387275832993117,
+  "avg_loss": -6.279009522826339,
+  "max_consecutive_wins": 12,
+  "max_consecutive_losses": 4,
+  "bull_market_performance": {
+    "days": "620",
+    "percentage_of_time": 13.044393014937933,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "480",
+    "percentage_of_time": 10.098884914790657,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "3593",
+    "percentage_of_time": 75.59436145592258,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.12867015318743447,
+  "treynor_ratio": -1.7399023440969996,
+  "jensen_alpha": -0.721717434409197
+}

@@ -1,0 +1,139 @@
+{
+  "discovery_date": "2025-12-02 02:15:44",
+  "agent": "Smart Symbol Validator",
+  "candidates_found": 54,
+  "candidates": [
+    {
+      "symbol": "CHPT",
+      "reason": "Active penny stock $7.63, 4.0% volatility"
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "Active penny stock $3.84, 4.0% volatility"
+    },
+    {
+      "symbol": "EBON",
+      "reason": "Active penny stock $3.58, 4.4% volatility"
+    },
+    {
+      "symbol": "SPCE",
+      "reason": "Active penny stock $3.79, 4.2% volatility"
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "Active penny stock $2.25, 5.3% volatility"
+    },
+    {
+      "symbol": "MVST",
+      "reason": "Active penny stock $3.40, 4.7% volatility"
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Active penny stock $2.35, 3.8% volatility"
+    },
+    {
+      "symbol": "CLOV",
+      "reason": "Active penny stock $2.50, 5.3% volatility"
+    },
+    {
+      "symbol": "BLNK",
+      "reason": "Active penny stock $1.26, 4.4% volatility"
+    },
+    {
+      "symbol": "CENN",
+      "reason": "Active penny stock $0.16, 4.9% volatility"
+    },
+    {
+      "symbol": "MNTS",
+      "reason": "Active penny stock $0.60, 7.0% volatility"
+    },
+    {
+      "symbol": "HYLN",
+      "reason": "Active penny stock $1.84, 5.5% volatility"
+    },
+    {
+      "symbol": "OGI",
+      "reason": "Active penny stock $1.57, 3.5% volatility"
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "Active penny stock $7.94, 7.4% volatility"
+    },
+    {
+      "symbol": "BARK",
+      "reason": "Active penny stock $0.68, 3.8% volatility"
+    },
+    {
+      "symbol": "OPEN",
+      "reason": "Active penny stock $7.14, 9.0% volatility"
+    },
+    {
+      "symbol": "KOSS",
+      "reason": "Active penny stock $4.85, 4.0% volatility"
+    },
+    {
+      "symbol": "NCTY",
+      "reason": "Active penny stock $6.76, 4.7% volatility"
+    },
+    {
+      "symbol": "LGHL",
+      "reason": "Active penny stock $7.24, 13.5% volatility"
+    },
+    {
+      "symbol": "TALK",
+      "reason": "Active penny stock $3.13, 3.2% volatility"
+    },
+    {
+      "symbol": "CAN",
+      "reason": "Active penny stock $0.95, 9.2% volatility"
+    },
+    {
+      "symbol": "BBBY",
+      "reason": "Active penny stock $5.82, 3.6% volatility"
+    },
+    {
+      "symbol": "BNGO",
+      "reason": "Active penny stock $1.72, 4.1% volatility"
+    },
+    {
+      "symbol": "CYBN",
+      "reason": "Active penny stock $6.00, 4.0% volatility"
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "Active penny stock $3.10, 4.0% volatility"
+    },
+    {
+      "symbol": "ACB",
+      "reason": "Active penny stock $4.53, 3.2% volatility"
+    },
+    {
+      "symbol": "SOS",
+      "reason": "Active penny stock $1.23, 7.7% volatility"
+    },
+    {
+      "symbol": "WKHS",
+      "reason": "Active penny stock $0.84, 12.7% volatility"
+    },
+    {
+      "symbol": "BTCM",
+      "reason": "Active penny stock $1.38, 4.9% volatility"
+    },
+    {
+      "symbol": "SNDL",
+      "reason": "Active penny stock $1.68, 4.9% volatility"
+    },
+    {
+      "symbol": "CGC",
+      "reason": "Active penny stock $1.13, 5.0% volatility"
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "Active penny stock $7.83, 6.4% volatility"
+    },
+    {
+      "symbol": "CMPS",
+      "reason": "Active penny stock $5.24, 6.0% volatility"
+    }
+  ]
+}

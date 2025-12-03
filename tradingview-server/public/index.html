@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingView Login</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+            margin: 20px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4a9eff;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #4a9eff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #3a8eef;
+        }
+        
+        button:disabled {
+            background: #333;
+            cursor: not-allowed;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            display: none;
+        }
+        
+        .status.success {
+            background: #1b5e20;
+            border: 1px solid #2e7d32;
+            display: block;
+        }
+        
+        .status.error {
+            background: #b71c1c;
+            border: 1px solid #c62828;
+            display: block;
+        }
+        
+        .status.info {
+            background: #1565c0;
+            border: 1px solid #1976d2;
+            display: block;
+        }
+        
+        #captchaFrame {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #fff;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .server-status {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            background: #0a0a0a;
+            border: 1px solid #333;
+        }
+        
+        .server-status.online {
+            border-color: #4caf50;
+            color: #4caf50;
+        }
+        
+        .server-status.offline {
+            border-color: #f44336;
+            color: #f44336;
+        }
+        
+        .auth-status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .auth-status.authenticated {
+            background: #1b5e20;
+            border: 2px solid #2e7d32;
+            color: #a5d6a7;
+        }
+        
+        .auth-status.not-authenticated {
+            background: #1a237e;
+            border: 2px solid #283593;
+            color: #9fa8da;
+        }
+        
+        .auth-user {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        .logout-button {
+            margin-top: 10px;
+            background: #f44336;
+            font-size: 14px;
+            padding: 8px 16px;
+            width: auto;
+            display: inline-block;
+        }
+        
+        .logout-button:hover {
+            background: #d32f2f;
+        }
+        
+        .manual-login-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+        }
+        
+        .manual-login-section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .manual-login-info {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .code {
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🌙</div>
+        <h1>TradingView Login</h1>
+        
+        <div class="server-status" id="serverStatus">
+            Checking server status...
+        </div>
+        
+        <div class="auth-status" id="authStatus" style="display: none;">
+            <div id="authMessage">Checking authentication...</div>
+            <div id="authUser" class="auth-user"></div>
+            <button type="button" class="logout-button" id="logoutButton" style="display: none;" onclick="logout()">Logout</button>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username (Email)</label>
+                <input type="email" id="username" name="username" required 
+                       placeholder="your@email.com" readonly
+                       style="background: #222; cursor: not-allowed;">
+                <small style="display: block; margin-top: 5px; color: #999; font-size: 12px;">
+                    Username loaded from .env configuration
+                </small>
+            </div>
+            
+            <div style="margin: 20px 0; padding: 15px; background: #222; border-radius: 6px; text-align: center;">
+                <p style="margin: 0; font-size: 14px; color: #ccc;">
+                    Password will be used from .env configuration
+                </p>
+            </div>
+            
+            <button type="submit" id="loginButton">🔐 Login to TradingView</button>
+        </form>
+        
+        <div id="status" class="status"></div>
+        
+        <div id="captchaInfo" style="display: none; margin-top: 20px; padding: 15px; background: #1565c0; border: 1px solid #1976d2; border-radius: 6px;">
+            <p style="margin: 0 0 10px 0;">🔐 Please complete the captcha in the new window</p>
+            <p style="margin: 0 0 10px 0; font-size: 14px;">After successful login, this page will detect it automatically.</p>
+            <button type="button" onclick="window.open('https://www.tradingview.com/accounts/signin/', '_blank')" 
+                    style="background: #2196f3; border: none; padding: 8px 16px; color: white; border-radius: 4px; cursor: pointer; font-size: 14px;">
+                Open TradingView Login Again
+            </button>
+        </div>
+        
+        <div class="manual-login-section">
+            <h2>Manual Login Instructions</h2>
+            <div class="manual-login-info">
+                <p><strong>If you encounter a captcha:</strong></p>
+                <ol>
+                    <li>Complete the captcha in the iframe above</li>
+                    <li>Or open TradingView in your browser and login manually</li>
+                    <li>The server will detect the successful login</li>
+                </ol>
+                <p><strong>Server endpoints:</strong></p>
+                <p>
+                    <span class="code">POST /manual-login</span> - Trigger manual login<br>
+                    <span class="code">GET /login-status</span> - Check login status<br>
+                    <span class="code">POST /login</span> - Standard login
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const serverUrl = 'http://localhost:8888';
+        const statusDiv = document.getElementById('status');
+        const serverStatusDiv = document.getElementById('serverStatus');
+        const loginForm = document.getElementById('loginForm');
+        const loginButton = document.getElementById('loginButton');
+        
+        // Check server and authentication status
+        async function checkServerStatus() {
+            try {
+                // Check health
+                const response = await fetch(`${serverUrl}/health`);
+                if (response.ok) {
+                    serverStatusDiv.className = 'server-status online';
+                    serverStatusDiv.textContent = '✅ Server is online';
+                    
+                    // Also check authentication status
+                    checkAuthStatus();
+                    
+                    return true;
+                } else {
+                    throw new Error('Server not responding');
+                }
+            } catch (error) {
+                serverStatusDiv.className = 'server-status offline';
+                serverStatusDiv.textContent = '❌ Server is offline';
+                document.getElementById('authStatus').style.display = 'none';
+                return false;
+            }
+        }
+        
+        // Check authentication status
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch(`${serverUrl}/login-status`);
+                const data = await response.json();
+                
+                const authStatus = document.getElementById('authStatus');
+                const authMessage = document.getElementById('authMessage');
+                const authUser = document.getElementById('authUser');
+                const logoutButton = document.getElementById('logoutButton');
+                
+                authStatus.style.display = 'block';
+                
+                if (data.authenticated) {
+                    authStatus.className = 'auth-status authenticated';
+                    authMessage.textContent = '🔓 Already Logged In to TradingView';
+                    authUser.textContent = data.user ? `Logged in as: ${data.user}` : '';
+                    logoutButton.style.display = 'inline-block';
+                    
+                    // Disable form since already logged in
+                    document.getElementById('username').disabled = true;
+                    loginButton.textContent = '✅ Already Logged In';
+                    loginButton.disabled = true;
+                    
+                } else {
+                    authStatus.className = 'auth-status not-authenticated';
+                    authMessage.textContent = '🔒 Not Logged In - Please authenticate below';
+                    authUser.textContent = '';
+                    logoutButton.style.display = 'none';
+                    
+                    // Keep username readonly but enable button
+                    loginButton.textContent = '🔐 Login to TradingView';
+                    loginButton.disabled = false;
+                }
+            } catch (error) {
+                console.error('Failed to check auth status:', error);
+            }
+        }
+        
+        // Logout function
+        async function logout() {
+            try {
+                const response = await fetch(`${serverUrl}/logout`, {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    showStatus('✅ Logged out successfully', 'success');
+                    // Refresh the page to reset everything
+                    setTimeout(() => location.reload(), 1000);
+                } else {
+                    showStatus('❌ Logout failed', 'error');
+                }
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        // Show status message
+        function showStatus(message, type = 'info') {
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+        
+        // Handle form submission will be set up after config loads
+        
+        // Trigger manual login
+        async function triggerManualLogin(username, password) {
+            try {
+                const response = await fetch(`${serverUrl}/manual-login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+                
+                const data = await response.json();
+                
+                if (data.loginUrl) {
+                    showStatus('📝 Opening TradingView login in new window...', 'info');
+                    
+                    // Open TradingView login in a new window
+                    const loginWindow = window.open(data.loginUrl, 'tradingview_login', 
+                        'width=800,height=600,toolbar=no,menubar=no,scrollbars=yes,resizable=yes');
+                    
+                    // Show info about captcha
+                    document.getElementById('captchaInfo').style.display = 'block';
+                    
+                    // Start polling for login status
+                    pollLoginStatus(loginWindow);
+                    
+                } else {
+                    showStatus('❌ Failed to get manual login URL', 'error');
+                }
+                
+            } catch (error) {
+                showStatus(`❌ Manual login error: ${error.message}`, 'error');
+            }
+        }
+        
+        // Poll for login status
+        async function pollLoginStatus(loginWindow) {
+            let attempts = 0;
+            const maxAttempts = 60; // 2 minutes
+            
+            const interval = setInterval(async () => {
+                try {
+                    const response = await fetch(`${serverUrl}/login-status`);
+                    const data = await response.json();
+                    
+                    if (data.authenticated) {
+                        clearInterval(interval);
+                        showStatus('✅ Login successful!', 'success');
+                        document.getElementById('captchaInfo').style.display = 'none';
+                        
+                        // Close the login window if it's still open
+                        if (loginWindow && !loginWindow.closed) {
+                            loginWindow.close();
+                        }
+                        
+                        // Refresh auth status
+                        checkAuthStatus();
+                        testAuthentication();
+                    }
+                    
+                    // Check if window was closed manually
+                    if (loginWindow && loginWindow.closed) {
+                        attempts = maxAttempts; // Stop polling
+                    }
+                    
+                    attempts++;
+                    if (attempts >= maxAttempts) {
+                        clearInterval(interval);
+                        showStatus('⏱️ Login timeout. Please try again.', 'error');
+                        document.getElementById('captchaInfo').style.display = 'none';
+                    }
+                    
+                } catch (error) {
+                    console.error('Status check error:', error);
+                }
+            }, 2000); // Check every 2 seconds
+        }
+        
+        // Test authentication by fetching some data
+        async function testAuthentication() {
+            try {
+                const response = await fetch(`${serverUrl}/chart`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        symbol: 'BTCUSDT',
+                        exchange: 'BINANCE',
+                        timeframe: '60'
+                    }),
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    showStatus(`✅ Authenticated! BTC Price: $${data.close?.toFixed(2) || 'N/A'}`, 'success');
+                } else {
+                    showStatus('⚠️ Authentication test failed', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Test error:', error);
+            }
+        }
+        
+        // Load config and prepopulate form
+        async function loadConfig() {
+            try {
+                const response = await fetch(`${serverUrl}/config`);
+                if (response.ok) {
+                    const config = await response.json();
+                    
+                    // Prepopulate username from .env
+                    if (config.username) {
+                        document.getElementById('username').value = config.username;
+                        
+                        if (config.passwordConfigured) {
+                            showStatus('✅ Credentials loaded from .env - Ready to login!', 'success');
+                        } else {
+                            showStatus('⚠️ Username loaded but password not found in .env', 'error');
+                        }
+                    } else {
+                        showStatus('❌ No credentials found in .env configuration', 'error');
+                        document.getElementById('loginButton').disabled = true;
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load config:', error);
+                // Fall back to localStorage for username
+                const savedUsername = localStorage.getItem('tv_username');
+                if (savedUsername) {
+                    document.getElementById('username').value = savedUsername;
+                }
+            }
+        }
+        
+        // Setup form submission handler
+        function setupFormHandler() {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                
+                // Only send username, server will use env password
+                const body = { username };
+                
+                loginButton.disabled = true;
+                showStatus('🔐 Attempting login with .env credentials...', 'info');
+                
+                try {
+                    // First try standard login
+                    const response = await fetch(`${serverUrl}/login`, {
+                        method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(body),
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus('✅ Login successful!', 'success');
+                    
+                    // Store credentials for future use
+                    localStorage.setItem('tv_username', username);
+                    
+                    // Test by getting some data
+                    setTimeout(() => testAuthentication(), 1000);
+                    
+                } else if (data.error && data.error.includes('captcha')) {
+                    showStatus('⚠️ Captcha required. Trying manual login...', 'info');
+                    
+                    // Try manual login (no password needed, server uses env)
+                    await triggerManualLogin(username, null);
+                    
+                } else {
+                    showStatus(`❌ Login failed: ${data.error || 'Unknown error'}`, 'error');
+                }
+                
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+            } finally {
+                loginButton.disabled = false;
+            }
+            });
+        }
+        
+        // Setup form handler
+        setupFormHandler();
+        
+        // Check server status on load
+        checkServerStatus();
+        
+        // Load configuration
+        loadConfig();
+        
+        // Periodically check server status
+        setInterval(checkServerStatus, 10000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🍪 Get Fresh TradingView Session Tokens</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        h1 { color: #4a9eff; text-align: center; }
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: #333;
+            border-radius: 8px;
+            border-left: 4px solid #4a9eff;
+        }
+        .code {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover { background: #3a8eef; }
+        .result {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: #1b5e20;
+            border: 2px solid #4caf50;
+            border-radius: 5px;
+        }
+        .error { background: #b71c1c; border-color: #f44336; }
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #000;
+            color: #0f0;
+            border: 1px solid #666;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        .warning {
+            background: #ff9800;
+            color: #000;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍪 Fresh TradingView Session Tokens</h1>
+        
+        <div class="warning">
+            ⚠️ Your current tokens show "unknown_session_id" error - they're expired/invalid!
+        </div>
+        
+        <div class="step">
+            <h3>Step 1: Login to TradingView</h3>
+            <p>Open TradingView and login with your credentials:</p>
+            <button onclick="window.open('https://www.tradingview.com/accounts/signin/', '_blank')">
+                🔗 Open TradingView Login
+            </button>
+            <p><strong>Important:</strong> Use the same email/password as before: <code>jwusch@gmail.com</code></p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Extract Fresh Tokens</h3>
+            <p>After logging in, <strong>on the TradingView page</strong>, press F12 and run this in console:</p>
+            <div class="code" id="extractCode">(function() {
+    const cookies = document.cookie.split('; ');
+    const sessionid = cookies.find(c => c.startsWith('sessionid='))?.split('=')[1];
+    const sessionid_sign = cookies.find(c => c.startsWith('sessionid_sign='))?.split('=')[1];
+    
+    if (sessionid && sessionid_sign) {
+        console.log('✅ Fresh tokens extracted!');
+        console.log('📋 Copy these to your .env file:');
+        console.log('');
+        console.log(`TV_SESSION_ID=${sessionid}`);
+        console.log(`TV_SESSION_SIGNATURE=${sessionid_sign}`);
+        console.log('');
+        
+        // Try to copy to clipboard
+        const envText = `TV_SESSION_ID=${sessionid}\nTV_SESSION_SIGNATURE=${sessionid_sign}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(envText).then(() => {
+                console.log('📋 Copied to clipboard!');
+            });
+        }
+        
+        // Display in alert too
+        alert(`Fresh tokens ready!\n\nTV_SESSION_ID=${sessionid}\nTV_SESSION_SIGNATURE=${sessionid_sign}\n\nCopied to clipboard!`);
+        
+    } else {
+        console.error('❌ No session tokens found - make sure you are logged in!');
+        alert('❌ No tokens found! Make sure you are logged in to TradingView.');
+    }
+})();</div>
+            <button onclick="copyCode()">📋 Copy Console Code</button>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Update .env File</h3>
+            <p>Replace these lines in your <code>.env</code> file with the fresh tokens:</p>
+            <textarea id="envPreview" placeholder="Fresh tokens will appear here..."></textarea>
+            <button onclick="copyEnv()">📋 Copy .env Lines</button>
+        </div>
+        
+        <div class="step">
+            <h3>Step 4: Restart Session Server</h3>
+            <p>Kill the current server and start fresh:</p>
+            <div class="code">cd tradingview-server
+pkill -f "server-session"
+TV_SESSION_PORT=8891 node server-session.js</div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 5: Close Browser Tab</h3>
+            <p><strong>Important:</strong> After the server starts successfully, close the TradingView browser tab to avoid session conflicts.</p>
+        </div>
+        
+        <div class="step">
+            <h3>Step 6: Test TSLA Data</h3>
+            <div class="code">python get_tsla_data.py</div>
+        </div>
+        
+        <div id="result" class="result">
+            <h3>✅ Success!</h3>
+            <p>Your fresh tokens are ready to use.</p>
+        </div>
+        
+        <div class="warning">
+            💡 <strong>Pro Tips:</strong><br>
+            • Extract tokens immediately after login<br>
+            • Update .env within 30 seconds<br>
+            • Start server immediately after updating .env<br>
+            • Close browser tab once server is running<br>
+            • Session tokens expire every 24-48 hours
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = document.getElementById('extractCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ Console code copied!\n\n1. Go to TradingView\n2. Press F12\n3. Paste in console\n4. Press Enter');
+            });
+        }
+        
+        function copyEnv() {
+            const env = document.getElementById('envPreview').value;
+            if (env) {
+                navigator.clipboard.writeText(env).then(() => {
+                    alert('✅ .env lines copied!');
+                });
+            } else {
+                alert('❌ No tokens to copy - run the console code first!');
+            }
+        }
+        
+        // Auto-update preview if we're on TradingView
+        if (window.location.hostname.includes('tradingview.com')) {
+            const cookies = document.cookie.split('; ');
+            const sessionid = cookies.find(c => c.startsWith('sessionid='))?.split('=')[1];
+            const sessionid_sign = cookies.find(c => c.startsWith('sessionid_sign='))?.split('=')[1];
+            
+            if (sessionid && sessionid_sign) {
+                const envText = `TV_SESSION_ID=${sessionid}\nTV_SESSION_SIGNATURE=${sessionid_sign}`;
+                document.getElementById('envPreview').value = envText;
+                document.getElementById('result').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

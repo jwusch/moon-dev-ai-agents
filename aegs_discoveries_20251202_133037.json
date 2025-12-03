@@ -1,0 +1,75 @@
+{
+  "discovery_date": "2025-12-02 13:30:37",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 17,
+  "candidates": [
+    {
+      "symbol": "UNG",
+      "reason": "Swarm Consensus (2 votes): xai: UNG (United States Natural Gas Fund ETF) tracks natural gas prices with weather-driven volatility and commodity cycles, directly paralleling EQT's patterns. It offers sector rotation in energy commodities during seasonal shifts. Following ~20% weakness in summer 2024 from mild weather and storage builds, it\u2019s poised for mean reversion in winter demand spikes, with historical boom/bust reversals providing high-confidence trading opportunities.; claude_opus: Natural gas ETF providing direct commodity exposure like EQT. Weather-driven volatility with extreme moves during cold snaps or mild forecasts. Contango decay creates additional mean reversion dynamics. Seasonal patterns are tradeable."
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "NIO",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Electric vehicle (EV) sector with high volatility and boom/bust cycles. NIO's recent price weakness might be an opportunity for mean reversion.; ollama_gpt: NIO\u2019s EV exposure gives it sector\u2011rotation appeal (shifting from traditional auto to electric). The stock has been in a sharp decline after a brief rally, with the 20\u2011day SMA below the 50\u2011day SMA and an RSI around 25. The pattern matches the high\u2011volatility, boom/bust cycle of WULF and the strong trend reversals seen in SOL\u2011USD."
+    },
+    {
+      "symbol": "WFC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (3 votes): xai: AMC (AMC Entertainment) is a classic meme stock with high retail interest and volatility, echoing NOK's patterns but in the entertainment sector. It experiences boom/bust cycles from crowd-driven rallies and busts, with some sector rotation appeal in post-pandemic recovery plays. Following a ~50% decline in 2024 from dilution and box office slumps, its recent weakness suggests mean reversion potential if meme fervor reignites or consumer spending rotates back to leisure amid economic softening.; ollama_gpt: AMC has exhibited classic meme\u2011stock dynamics\u2014massive retail participation, extreme volatility, and frequent boom/bust cycles. Its recent 20\u2011day moving\u2011average break below the 50\u2011day MA coupled with a 30\u2011day RSI of 22 suggests a temporary price weakness that could reverse. The pattern mirrors WULF\u2019s high\u2011volatility, boom/bust profile and the meme\u2011stock potential seen in NOK."
+    },
+    {
+      "symbol": "BB",
+      "reason": "Swarm Consensus (2 votes): claude_opus: Classic meme stock matching NOK pattern exactly. High retail interest, frequent social media pumps. Cybersecurity pivot creates news catalysts. History of sharp reversals after both pumps and dumps makes it predictable for mean reversion.; deepseek: Former meme stock with cybersecurity/IoT exposure, maintains high retail interest (NOK pattern). Trading near multi-year lows with periodic 100%+ rallies. Volatility spikes on earnings and sector rotation into tech. Recent weakness in growth stocks creates mean reversion potential."
+    },
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (3 votes): ollama_llama: Electric vehicle (EV) sector with high retail interest, meme stock potential. Tesla's recent price pullback could lead to a strong rebound.; xai: TSLA (Tesla) combines high volatility from EV/tech boom/bust cycles with meme stock potential due to cult-like retail interest, echoing NOK and SOL-USD's trend reversals. It has commodity exposure via battery metals and sector rotation in clean tech. After ~30% weakness in 2024 from competition and margin pressures, it\u2019s a strong mean reversion play, as historical patterns show bounces on innovation news or broader auto/energy rotations."
+    },
+    {
+      "symbol": "GME",
+      "reason": "Swarm Consensus (4 votes): ollama_llama: Meme stock with high volatility and boom/bust cycles in the retail sector. GameStop's recent price weakness might be an opportunity for mean reversion.; ollama_llama: High retail interest and meme stock potential in the gaming sector. GameStop's recent price weakness might be an opportunity for mean reversion."
+    },
+    {
+      "symbol": "SLB",
+      "reason": "Swarm Consensus (2 votes): xai: SLB (Schlumberger) is an oil services stock with commodity cycles and high volatility tied to energy prices, akin to EQT's weather-driven patterns but focused on oil boom/busts. It benefits from sector rotation in energy during inflation hedges. After a ~10% pullback in Q3 2024 amid OPEC cuts and demand worries, recent weakness indicates mean reversion opportunity, especially as global supply disruptions could reverse trends like past commodity rallies.; ollama_gpt: SLB (Schlumberger) is a major oil\u2011field services provider, exposing it to commodity cycles similar to EQT. Its price fell 12% over the last month after a brief rally, and the 20\u2011day SMA is below the 50\u2011day SMA with an RSI of 30. The pattern aligns with commodity\u2011cycle volatility and sector rotation opportunities."
+    },
+    {
+      "symbol": "CLSK",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Bitcoin mining stock with direct crypto cycle exposure. Exhibits extreme volatility matching MARA/WULF patterns. Follows BTC price action with amplified swings. Recent weakness from 2024 highs presents mean reversion setup as mining economics improve.; claude_opus: CleanSpark is another Bitcoin miner matching WULF/MARA patterns. Smaller market cap creates even higher volatility. Mining stocks tend to overshoot both directions, creating excellent mean reversion setups during crypto cycle turns."
+    },
+    {
+      "symbol": "RIG",
+      "reason": "Swarm Consensus (2 votes): ollama_gpt: ConocoPhillips Oilfield Services (RIG) is another commodity\u2011exposed stock with pronounced boom/bust cycles. Its recent price dip of 13% from a 20\u2011day high, a 20\u2011day SMA below the 50\u2011day SMA, and an RSI of 26 suggest a mean\u2011reversion opportunity. The pattern aligns with EQT\u2019s commodity\u2011cycle volatility and the high\u2011volatility, boom/bust behavior of WULF.; claude_opus: Offshore drilling with oil commodity exposure. Extreme leverage to energy prices creates high volatility similar to EQT pattern. Cyclical industry with sharp reversals when oil sentiment shifts. Recent weakness in energy sector creates reversal potential."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): xai: HUT (Hut 8 Mining) is a crypto mining firm with boom/bust volatility identical to WULF and MARA, following Bitcoin cycles and exhibiting sharp reversals like SOL-USD. High retail interest adds meme-like potential. Recent ~35% decline in 2024 from energy costs and crypto dips creates mean reversion setup, particularly with sector rotation into undervalued miners as halving effects play out and efficiency improvements drive rebounds.; openrouter_llama: HUT is a crypto mining stock with high volatility and boom/bust cycles similar to WULF and MARA. Recent price weakness due to crypto market downturn could reverse as crypto trends improve."
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "COIN",
+      "reason": "Swarm Consensus (2 votes): xai: COIN (Coinbase Global) provides crypto exchange exposure with extreme volatility mirroring SOL-USD's sharp trends and reversals, acting as a Bitcoin proxy like MARA. It follows crypto boom/bust cycles and has high retail interest, akin to NOK's meme potential. After a ~20% drop in Q3 2024 amid regulatory fears and market corrections, it shows recent weakness ripe for mean reversion, especially with potential sector rotation into fintech/crypto as interest rates stabilize and adoption grows.; claude_opus: Coinbase provides crypto exposure similar to SOL-USD but as equity. Follows crypto cycles with high beta. Retail favorite with meme stock characteristics. Regulatory news creates sharp reversals ideal for mean reversion strategies."
+    },
+    {
+      "symbol": "MSTR",
+      "reason": "Swarm Consensus (2 votes): xai: MSTR (MicroStrategy) serves as a leveraged Bitcoin proxy with extreme volatility and crypto cycles, directly matching MARA and WULF's mining exposure but through holdings rather than operations. It has meme stock vibes from CEO-driven hype and retail following, similar to NOK. Recent ~25% drop in 2024 crypto corrections highlights weakness for mean reversion, with potential sharp reversals as Bitcoin trends upward in bull cycles and sector rotation favors high-beta assets.; deepseek: Bitcoin proxy with even higher beta than mining stocks (amplified SOL-USD pattern). Company's Bitcoin treasury creates leveraged crypto exposure. Trading at significant discount to Bitcoin holdings during crypto winters, creating mean reversion opportunities when crypto sentiment improves."
+    },
+    {
+      "symbol": "RIOT",
+      "reason": "Swarm Consensus (5 votes): claude_haiku: Core bitcoin mining play with institutional following. Strong correlation to BTC with leveraged volatility. Sector rotation between mining stocks creates sharp reversals. Recent pullbacks from peaks align with mean reversion opportunities.; xai: RIOT (Riot Platforms) is a crypto mining stock directly comparable to WULF and MARA, with high volatility tied to Bitcoin cycles and boom/bust patterns in the cryptocurrency sector. It exhibits strong trends followed by sharp reversals, similar to SOL-USD, and has meme stock potential due to retail trader interest in crypto proxies. Recent price weakness from mid-2024 crypto pullbacks (down ~30% YTD as of late 2024) positions it for mean reversion as Bitcoin halvings and ETF inflows historically trigger bounces, offering sector rotation from tech to crypto during risk-on periods."
+    },
+    {
+      "symbol": "JPM",
+      "reason": "Multiple signals"
+    }
+  ]
+}

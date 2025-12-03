@@ -53,6 +53,8 @@ if project_root not in sys.path:
 
 # Import Moon Dev's model factory
 from src.models.model_factory import model_factory
+# Import observability for LangFuse tracking
+from src.observability import observe_llm, ObservabilityContext
 
 # ============================================
 # 🎯 SWARM CONFIGURATION - EDIT THIS SECTION
@@ -164,6 +166,7 @@ class SwarmAgent:
             except Exception as e:
                 cprint(f"❌ Error initializing {provider}: {e}", "red")
 
+    @observe_llm(name="swarm_model_query", as_type="generation")
     def _query_single_model(self, provider: str, model_info: Dict, prompt: str,
                           system_prompt: Optional[str] = None) -> Tuple[str, Dict]:
         """
@@ -173,6 +176,31 @@ class SwarmAgent:
             Tuple of (provider_name, response_dict)
         """
         start_time = time.time()
+        
+        # Add individual model metadata
+        ObservabilityContext.add_agent_metadata(
+            agent_type='swarm_model',
+            agent_name=f'SwarmModel_{provider}',
+            model_provider=provider,
+            model_name=model_info['name'],
+            is_consensus_member=True
+        )
+        
+        # Check if this is a trading-related query
+        trading_keywords = ['symbol', 'ticker', 'stock', 'trading', 'valid', 'delisted', 'exchange']
+        is_trading_query = any(keyword in prompt.lower() for keyword in trading_keywords)
+        
+        if is_trading_query:
+            # Extract symbol if present
+            import re
+            symbol_match = re.search(r'\b([A-Z]{1,5})\b', prompt)
+            if symbol_match:
+                ObservabilityContext.add_trading_signal(
+                    action='SYMBOL_VALIDATION',
+                    confidence=0.0,  # Will be updated based on response
+                    reasoning='SwarmAgent symbol validation query',
+                    symbol=symbol_match.group(1)
+                )
 
         try:
             # Default system prompt if none provided
@@ -211,6 +239,7 @@ class SwarmAgent:
                 "response_time": round(elapsed, 2)
             }
 
+    @observe_llm(name="swarm_consensus_query", as_type="generation")
     def query(self, prompt: str, system_prompt: Optional[str] = None) -> Dict[str, Any]:
         """
         Query all models in the swarm in parallel
@@ -222,6 +251,15 @@ class SwarmAgent:
         Returns:
             Dict containing individual responses and metadata
         """
+        # Add swarm metadata for observability
+        ObservabilityContext.add_agent_metadata(
+            agent_type='swarm',
+            agent_name='SwarmAgent',
+            models_count=len(self.active_models),
+            models_list=[m['name'] for m in self.active_models.values()],
+            consensus_enabled=True
+        )
+        
         cprint(f"\n🌊 Initiating Swarm Query with {len(self.active_models)} models...", "cyan", attrs=['bold'])
         cprint(f"📝 Prompt: {prompt[:100]}{'...' if len(prompt) > 100 else ''}", "blue")
 
@@ -370,6 +408,7 @@ class SwarmAgent:
         text = re.sub(r'\n{3,}', '\n\n', text)
         return text.strip()
 
+    @observe_llm(name="swarm_consensus_generation", as_type="generation")
     def _generate_consensus_review(self, responses: Dict[str, Dict], original_prompt: str) -> Tuple[str, Dict]:
         """
         Generate a consensus review summary using the consensus reviewer AI
@@ -383,6 +422,15 @@ class SwarmAgent:
             - consensus_summary: Clean 3-sentence consensus summary
             - model_mapping: Dict mapping AI numbers to provider names
         """
+        # Add consensus metadata
+        ObservabilityContext.add_agent_metadata(
+            agent_type='swarm_consensus',
+            agent_name='ConsensusGenerator',
+            successful_models=len([r for r in responses.values() if r.get('success')]),
+            total_models=len(responses),
+            consensus_model=CONSENSUS_REVIEWER_MODEL[1]
+        )
+        
         try:
             # Get successful responses only
             successful_responses = [

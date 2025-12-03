@@ -1,0 +1,192 @@
+{
+  "scan_date": "2025-12-02T01:57:46.051260",
+  "total_found": 8,
+  "categories": {
+    "ipos": 6,
+    "spacs": 2
+  },
+  "top_opportunities": [
+    {
+      "symbol": "SPCE",
+      "name": "Virgin Galactic Holdings, Inc.",
+      "type": "SPAC",
+      "sector": "Industrials",
+      "price": 3.7899999618530273,
+      "ath": 54.599998474121094,
+      "atl": 2.180000066757202,
+      "decline_from_ath": -93.05860793448669,
+      "range_position": 0.030713467073849712,
+      "rsi": 56.09756026645302,
+      "volatility": 0.057731044450395966,
+      "momentum_5d": 12.797621434001227,
+      "momentum_20d": 3.5519090976423806,
+      "volume_trend": 0.7168468694056487,
+      "boom_bust_score": 85,
+      "patterns": [
+        "Crashed 93% from ATH",
+        "Near all-time lows",
+        "High volatility 5.8%",
+        "Bouncing +13% (5d)"
+      ]
+    },
+    {
+      "symbol": "CHPT",
+      "name": "ChargePoint Holdings, Inc.",
+      "type": "SPAC",
+      "sector": "Consumer Cyclical",
+      "price": 7.630000114440918,
+      "ath": 62.599998474121094,
+      "atl": 7.302999973297119,
+      "decline_from_ath": -87.8115011175357,
+      "range_position": 0.005913524241988039,
+      "rsi": 22.564082061033233,
+      "volatility": 0.051130005109458566,
+      "momentum_5d": 0.792601603949139,
+      "momentum_20d": -27.055448502726776,
+      "volume_trend": 0.8321434357617324,
+      "boom_bust_score": 85,
+      "patterns": [
+        "Crashed 88% from ATH",
+        "Near all-time lows",
+        "Oversold RSI 23",
+        "High volatility 5.1%"
+      ]
+    },
+    {
+      "symbol": "STEM",
+      "name": "Stem, Inc.",
+      "type": "IPO",
+      "sector": "Utilities",
+      "price": 16.700000762939453,
+      "ath": 86.0,
+      "atl": 5.820000171661377,
+      "decline_from_ath": -80.58139446169831,
+      "range_position": 0.13569469461925185,
+      "rsi": 40.57416493256107,
+      "volatility": 0.09214281265021249,
+      "momentum_5d": 11.705692147164903,
+      "momentum_20d": -12.05897333217225,
+      "volume_trend": 0.7781117397454032,
+      "boom_bust_score": 85,
+      "patterns": [
+        "Crashed 81% from ATH",
+        "Near all-time lows",
+        "High volatility 9.2%",
+        "Bouncing +12% (5d)"
+      ]
+    },
+    {
+      "symbol": "BIRD",
+      "name": "Allbirds, Inc.",
+      "type": "IPO",
+      "sector": "Consumer Cyclical",
+      "price": 5.090000152587891,
+      "ath": 29.0,
+      "atl": 3.930000066757202,
+      "decline_from_ath": -82.44827533590382,
+      "range_position": 0.046270446307123014,
+      "rsi": 31.092445898018553,
+      "volatility": 0.05936429582755034,
+      "momentum_5d": 5.165289093355252,
+      "momentum_20d": -40.813954339406465,
+      "volume_trend": 0.708121527367301,
+      "boom_bust_score": 80,
+      "patterns": [
+        "Crashed 82% from ATH",
+        "Near all-time lows",
+        "Low RSI 31",
+        "High volatility 5.9%"
+      ]
+    },
+    {
+      "symbol": "LCID",
+      "name": "Lucid Group, Inc.",
+      "type": "IPO",
+      "sector": "Consumer Cyclical",
+      "price": 12.579999923706055,
+      "ath": 53.099998474121094,
+      "atl": 11.460000038146973,
+      "decline_from_ath": -76.30885068699754,
+      "range_position": 0.026897212479035024,
+      "rsi": 23.03634225568443,
+      "volatility": 0.0502020069976334,
+      "momentum_5d": -0.7103405844194444,
+      "momentum_20d": -24.3990361470089,
+      "volume_trend": 0.6334754693939076,
+      "boom_bust_score": 70,
+      "patterns": [
+        "Down 76% from ATH",
+        "Near all-time lows",
+        "Oversold RSI 23",
+        "High volatility 5.0%"
+      ]
+    },
+    {
+      "symbol": "GOEV",
+      "name": "Canoo Inc.",
+      "type": "IPO",
+      "sector": "Consumer Cyclical",
+      "price": 0.3700000047683716,
+      "ath": 141.6800079345703,
+      "atl": 0.3199999928474426,
+      "decline_from_ath": -99.73884811967314,
+      "range_position": 0.000353706912223307,
+      "rsi": NaN,
+      "volatility": 0.08298960321423139,
+      "momentum_5d": 0.0,
+      "momentum_20d": 0.0,
+      "volume_trend": NaN,
+      "boom_bust_score": 70,
+      "patterns": [
+        "Crashed 100% from ATH",
+        "Near all-time lows",
+        "High volatility 8.3%"
+      ]
+    },
+    {
+      "symbol": "PSFE",
+      "name": "Paysafe Limited",
+      "type": "IPO",
+      "sector": "Technology",
+      "price": 7.940000057220459,
+      "ath": 26.25,
+      "atl": 6.429999828338623,
+      "decline_from_ath": -69.75238073439826,
+      "range_position": 0.07618568192753264,
+      "rsi": 31.825526259980748,
+      "volatility": 0.038868324993931475,
+      "momentum_5d": 12.305514348447911,
+      "momentum_20d": -25.724973162854305,
+      "volume_trend": 0.6888497758135591,
+      "boom_bust_score": 70,
+      "patterns": [
+        "Down 70% from ATH",
+        "Near all-time lows",
+        "Low RSI 32",
+        "Bouncing +12% (5d)"
+      ]
+    },
+    {
+      "symbol": "BARK",
+      "name": "BARK, Inc.",
+      "type": "IPO",
+      "sector": "Consumer Cyclical",
+      "price": 0.6790000200271606,
+      "ath": 2.555000066757202,
+      "atl": 0.6549999713897705,
+      "decline_from_ath": -73.42465744476691,
+      "range_position": 0.01263160391197185,
+      "rsi": 33.81923590293164,
+      "volatility": 0.043432374145075746,
+      "momentum_5d": -2.3021543863230076,
+      "momentum_20d": -20.11764694332664,
+      "volume_trend": 0.5839525286767542,
+      "boom_bust_score": 55,
+      "patterns": [
+        "Down 73% from ATH",
+        "Near all-time lows",
+        "Low RSI 34"
+      ]
+    }
+  ]
+}

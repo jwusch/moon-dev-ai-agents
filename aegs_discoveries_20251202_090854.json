@@ -1,0 +1,27 @@
+{
+  "discovery_date": "2025-12-02 09:08:54",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 5,
+  "candidates": [
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: This bitcoin proxy and mining stock follows crypto cycles, similar to MARA. Its high volatility and recent price decline make it a potential mean reversion candidate, especially if crypto prices recover.; xai: HUT (Hut 8 Mining) is another crypto mining play like WULF and MARA, with high volatility from Bitcoin halvings and energy costs driving boom/bust cycles. Recent price decline due to operational challenges offers mean reversion potential on efficiency improvements or crypto recovery; commodity-like exposure to power/electricity adds weather/volatility layers similar to EQT, ideal for energy-crypto rotation."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: High growth AI stock with strong retail interest and meme stock tendencies. Experiences boom/bust cycles based on contract wins and growth prospects. Recent underperformance relative to other AI stocks offers a potential mean reversion trade. High Beta.; ollama_llama: Cryptocurrency exposure through payment processing and strong trends with sharp reversals similar to SOL-USD."
+    },
+    {
+      "symbol": "LCID",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: EV stock with extreme volatility and boom/bust characteristics. Strong meme stock heritage with retail following. Sector rotation plays (EV cycles). Recent price weakness from macro headwinds presents mean reversion setup.; claude_opus: EV stock with meme characteristics - high retail ownership, volatile swings on delivery numbers, and boom/bust sentiment cycles. Currently near 52-week lows after production disappointments, creating mean reversion setup. Any positive catalyst triggers sharp covering rallies."
+    },
+    {
+      "symbol": "NIO",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Sector rotation opportunities due to its involvement in the electric vehicle market, with potential for meme stock status and recent price weakness that could reverse.; ollama_gpt: EV stock with strong sector\u2011rotation appeal. Its recent pullback after a short\u2011term rally aligns with the high\u2011volatility, boom\u2011bust cycle seen in WULF and the meme\u2011stock category."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Another classic meme stock with characteristics similar to GME and NOK. Entertainment sector rotation potential. High volatility and retail participation make it a mean reversion target. Sensitive to news and social media sentiment.; xai: AMC Entertainment exemplifies meme stock potential with extreme retail-driven volatility and boom/bust cycles, akin to NOK's high retail interest in telecom/entertainment sectors. It has experienced sharp reversals and recent price weakness from debt concerns and streaming competition, setting up for mean reversion if retail sentiment rotates back during economic uncertainty; combines meme hype with sector rotation opportunities in consumer discretionary."
+    }
+  ]
+}

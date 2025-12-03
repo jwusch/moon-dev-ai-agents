@@ -1,0 +1,17 @@
+{
+  "symbol": "SLAI",
+  "entry_price": 1.38,
+  "shares": 300,
+  "position_value": 414.0,
+  "entry_date": "2025-12-02",
+  "strategy": "AEGS Discovery",
+  "exit_criteria": {
+    "stop_loss": 1.24,
+    "take_profit_1": 1.52,
+    "take_profit_2": 1.66,
+    "take_profit_3": 1.79,
+    "time_stop": 30,
+    "trailing_stop": 0.1
+  },
+  "notes": "Changed from BTCM ticker. Company is SOLAI Limited (formerly BIT Mining)"
+}

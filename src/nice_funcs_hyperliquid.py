@@ -32,6 +32,28 @@ except ImportError:
         @staticmethod
         def ema(series, length=20):
             return series.ewm(span=length, adjust=False).mean()
+        @staticmethod
+        def macd(series, fast=12, slow=26, signal=9):
+            """Calculate MACD indicator"""
+            macd_indicator = _ta.trend.MACD(series, window_slow=slow, window_fast=fast, window_sign=signal)
+            result = pd.DataFrame({
+                'MACD_12_26_9': macd_indicator.macd(),
+                'MACDh_12_26_9': macd_indicator.macd_diff(),
+                'MACDs_12_26_9': macd_indicator.macd_signal()
+            })
+            return result
+        @staticmethod
+        def bbands(series, length=20, std=2):
+            """Calculate Bollinger Bands"""
+            bb = _ta.volatility.BollingerBands(series, window=length, window_dev=std)
+            result = pd.DataFrame({
+                f'BBL_{length}_{float(std)}': bb.bollinger_lband(),
+                f'BBM_{length}_{float(std)}': bb.bollinger_mavg(),
+                f'BBU_{length}_{float(std)}': bb.bollinger_hband(),
+                f'BBB_{length}_{float(std)}': bb.bollinger_wband(),
+                f'BBP_{length}_{float(std)}': bb.bollinger_pband()
+            })
+            return result
     ta = TACompat()
 import datetime
 from datetime import timedelta

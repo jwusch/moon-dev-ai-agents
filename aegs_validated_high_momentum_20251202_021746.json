@@ -1,0 +1,16 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "Symbol Integration - high_momentum",
+  "candidates_found": 1,
+  "candidates": [
+    {
+      "symbol": "RIVN",
+      "reason": "30.1% gain in last month",
+      "metrics": {
+        "momentum": 0.30098562496796083,
+        "price": 17.15999984741211,
+        "volume": 62886040.0
+      }
+    }
+  ]
+}

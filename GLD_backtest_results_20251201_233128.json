@@ -1,0 +1,48 @@
+{
+  "symbol": "GLD",
+  "start_date": "2005-01-31",
+  "end_date": "2025-12-01",
+  "total_years": 20.83230663928816,
+  "strategy_total_return_pct": 56.146395721267005,
+  "strategy_annualized_return_pct": 2.16214247862232,
+  "strategy_cagr": 2.16214247862232,
+  "buy_hold_total_return_pct": 823.1406649246638,
+  "buy_hold_annualized_return_pct": 11.25899734623015,
+  "buy_hold_cagr": 11.25899734623015,
+  "excess_return_pct": -766.9942692033968,
+  "outperformance_ratio": 0.1691469151497187,
+  "strategy_volatility": 4.437911601448622,
+  "strategy_sharpe": 0.036535761228185186,
+  "strategy_sortino": 0.042636210981592634,
+  "strategy_max_drawdown": -14.679331174676758,
+  "strategy_calmar_ratio": 0.14729162063951667,
+  "buy_hold_volatility": 17.67951420813865,
+  "buy_hold_sharpe": 0.5237133349494315,
+  "buy_hold_max_drawdown": -45.55501273425699,
+  "total_trades": 175,
+  "win_rate": 70.85714285714285,
+  "profit_factor": 1.8889447188762558,
+  "avg_trade_return": 1.032677205942619,
+  "avg_win": 3.0968876388954545,
+  "avg_loss": -3.9861873761387847,
+  "max_consecutive_wins": 15,
+  "max_consecutive_losses": 5,
+  "bull_market_performance": {
+    "days": "903",
+    "percentage_of_time": 17.222963951935917,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "190",
+    "percentage_of_time": 3.623879458325386,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "4090",
+    "percentage_of_time": 78.00877360289911,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.7066631251542853,
+  "treynor_ratio": 2.16214247862232,
+  "jensen_alpha": -9.09685486760783
+}

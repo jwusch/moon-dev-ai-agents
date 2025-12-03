@@ -1,0 +1,22 @@
+{
+  "symbol": "TLRY",
+  "strategy": "AEGS_5MIN",
+  "timestamp": "20251202_135607",
+  "results": {
+    "total_return": -0.5921684208265106,
+    "buy_hold_return": -40.76045914158437,
+    "excess_return": 40.16829072075786,
+    "num_trades": 30,
+    "win_rate": 60.0,
+    "avg_return": 0.20337581717735018,
+    "avg_win": 1.7070275814217593,
+    "avg_loss": -2.052101829189263,
+    "sharpe_ratio": 13.30522794041108,
+    "avg_hold_minutes": 39.833333333333336,
+    "profit_factor": 0.8318435065652495,
+    "best_trade": 4.283014417484368,
+    "worst_trade": -3.3950514815487214,
+    "final_capital": 9940.783157917349
+  },
+  "num_trades": 30
+}

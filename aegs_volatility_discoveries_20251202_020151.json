@@ -1,0 +1,67 @@
+{
+  "discovery_date": "2025-12-02 02:01:51",
+  "agent": "Volatility Discovery Integration",
+  "candidates_found": 15,
+  "candidates": [
+    {
+      "symbol": "CENN",
+      "reason": "Ultra-penny $0.16, 85% decline, high volatility"
+    },
+    {
+      "symbol": "MNTS",
+      "reason": "Sub-$1 space SPAC, 75% decline"
+    },
+    {
+      "symbol": "CAN",
+      "reason": "9.2% daily volatility crypto stock"
+    },
+    {
+      "symbol": "SOS",
+      "reason": "7.7% daily volatility blockchain"
+    },
+    {
+      "symbol": "COSM",
+      "reason": "6% volatility, -18% recent move"
+    },
+    {
+      "symbol": "GOEV",
+      "reason": "100% crash from $141 to $0.37"
+    },
+    {
+      "symbol": "SPCE",
+      "reason": "93% crash, near ATL, space tourism"
+    },
+    {
+      "symbol": "CHPT",
+      "reason": "88% crash, EV charging leader"
+    },
+    {
+      "symbol": "STEM",
+      "reason": "81% crash, energy storage"
+    },
+    {
+      "symbol": "BIRD",
+      "reason": "82% crash, sustainable shoes"
+    },
+    {
+      "symbol": "LCID",
+      "reason": "76% crash, luxury EV maker"
+    },
+    {
+      "symbol": "HYLN",
+      "reason": "5.5% volatility, hydrogen trucks"
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "5.3% volatility, Bitcoin mining"
+    },
+    {
+      "symbol": "BARK",
+      "reason": "73% crash, dog products SPAC"
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "70% crash, fintech payments"
+    }
+  ]
+}

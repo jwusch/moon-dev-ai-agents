@@ -24,61 +24,23 @@ import time
 from termcolor import cprint
 from dotenv import load_dotenv
 
-# Add Aster Dex Trading Bots to path
-# First check environment variable, then try multiple possible locations
-aster_bots_path = os.getenv('ASTER_BOTS_PATH', '')
-
-# If no env var set, try common locations
-if not aster_bots_path or not os.path.exists(aster_bots_path):
-    possible_paths = [
-        # Original location (for compatibility)
-        '/Users/md/Dropbox/dev/github/Aster-Dex-Trading-Bots',
-        # Common relative paths
-        '../Aster-Dex-Trading-Bots',
-        '../../Aster-Dex-Trading-Bots',
-        # Absolute paths for different users
-        os.path.expanduser('~/Aster-Dex-Trading-Bots'),
-        os.path.expanduser('~/github/Aster-Dex-Trading-Bots'),
-        os.path.expanduser('~/dev/Aster-Dex-Trading-Bots'),
-        # Current directory
-        './Aster-Dex-Trading-Bots',
-    ]
-    
-    for path in possible_paths:
-        if os.path.exists(path):
-            aster_bots_path = path
-            cprint(f"✅ Found Aster-Dex-Trading-Bots at: {path}", "green")
-            break
-
-# Add to Python path if found
-if aster_bots_path and os.path.exists(aster_bots_path):
-    if aster_bots_path not in sys.path:
-        sys.path.insert(0, aster_bots_path)
-
-# Try importing Aster modules
+# Try importing our custom Aster implementation
 ASTER_AVAILABLE = False
 try:
-    from aster_api import AsterAPI  # type: ignore
-    from aster_funcs import AsterFuncs  # type: ignore
+    from src.aster_api import AsterAPI, AsterFuncs
     ASTER_AVAILABLE = True
-    cprint("✅ Aster modules imported successfully!", "green")
+    cprint("✅ Custom Aster modules imported successfully!", "green")
 except ImportError as e:
-    cprint(f"⚠️  Aster modules not found: {e}", "yellow")
-    cprint(f"To use Aster exchange, either:", "yellow")
-    cprint(f"  1. Set ASTER_BOTS_PATH environment variable to the location of Aster-Dex-Trading-Bots", "yellow")
-    cprint(f"  2. Clone Aster-Dex-Trading-Bots to one of these locations:", "yellow")
-    for path in ['~/Aster-Dex-Trading-Bots', '../Aster-Dex-Trading-Bots', '~/github/Aster-Dex-Trading-Bots']:
-        cprint(f"     - {path}", "yellow")
-    cprint(f"⚠️  Continuing without Aster support...", "yellow")
+    cprint(f"⚠️  Could not import custom Aster modules: {e}", "yellow")
     
     # Create dummy classes to prevent errors
     class AsterAPI:
         def __init__(self, *args, **kwargs):
-            raise NotImplementedError("Aster modules not available. Please install Aster-Dex-Trading-Bots.")
+            raise NotImplementedError("Aster modules not available.")
     
     class AsterFuncs:
         def __init__(self, *args, **kwargs):
-            raise NotImplementedError("Aster modules not available. Please install Aster-Dex-Trading-Bots.")
+            raise NotImplementedError("Aster modules not available.")
 
 # Load environment variables
 load_dotenv()
@@ -329,6 +291,10 @@ def get_position(token_mint_address):
                 'is_long': bool
             }
     """
+    if not ASTER_AVAILABLE or api is None:
+        cprint(f"⚠️ Aster not available - cannot get position for {token_mint_address}", "yellow")
+        return None
+        
     try:
         symbol = format_symbol(token_mint_address)
         position = api.get_position(symbol)
@@ -376,6 +342,10 @@ def market_buy(token, amount, slippage, leverage=DEFAULT_LEVERAGE):
     Returns:
         dict: Order response or None if failed
     """
+    if not ASTER_AVAILABLE or api is None:
+        cprint(f"⚠️ Aster not available - cannot execute market buy for {token}", "yellow")
+        return None
+        
     try:
         symbol = format_symbol(token)
 
@@ -508,6 +478,10 @@ def market_sell(token, amount, slippage, leverage=DEFAULT_LEVERAGE):
     Returns:
         dict: Order response or None if failed
     """
+    if not ASTER_AVAILABLE or api is None:
+        cprint(f"⚠️ Aster not available - cannot execute market sell for {token}", "yellow")
+        return None
+        
     try:
         symbol = format_symbol(token)
 

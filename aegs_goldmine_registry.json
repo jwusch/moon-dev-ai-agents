@@ -1,0 +1,473 @@
+{
+  "goldmine_symbols": {
+    "extreme_goldmines": {
+      "description": "Symbols with >1000% excess return",
+      "symbols": {
+        "HMNY": {
+          "excess_return": 2745466775,
+          "category": "Historical Legend",
+          "active": false
+        },
+        "WULF": {
+          "excess_return": 13041,
+          "category": "Crypto Mining",
+          "active": true
+        },
+        "SOL-USD": {
+          "excess_return": 39496,
+          "category": "Cryptocurrency",
+          "active": true,
+          "last_updated": "2025-12-02",
+          "win_rate": 58.8,
+          "total_trades": 34
+        },
+        "NOK": {
+          "excess_return": 3355,
+          "category": "Meme Potential",
+          "active": true
+        },
+        "MARA": {
+          "excess_return": 1457,
+          "category": "Crypto Mining",
+          "active": true
+        },
+        "WKHS": {
+          "excess_return": 1133,
+          "category": "SPAC Volatility",
+          "active": true
+        },
+        "EQT": {
+          "excess_return": 1038,
+          "category": "Energy Cycles",
+          "active": true
+        },
+        "GME": {
+          "excess_return": 4296.59025795845,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 5592.392768683619,
+          "win_rate": 67.40331491712708,
+          "total_trades": 181
+        },
+        "BBIG": {
+          "excess_return": 360853149.9952198,
+          "category": "Sector Rotation",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 10483032.047819668,
+          "win_rate": 66.66666666666666,
+          "total_trades": 39,
+          "last_updated": "2025-12-02"
+        }
+      }
+    },
+    "high_potential": {
+      "description": "Symbols with 100-1000% excess return",
+      "symbols": {
+        "BB": {
+          "excess_return": 847.1881283029219,
+          "category": "Meme Potential",
+          "active": true,
+          "last_updated": "2025-12-02",
+          "win_rate": 53.125,
+          "total_trades": 128
+        },
+        "CLSK": {
+          "excess_return": 678.0057711029544,
+          "category": "Crypto Mining",
+          "active": true,
+          "last_updated": "2025-12-02",
+          "win_rate": 51.28205128205128,
+          "total_trades": 39
+        },
+        "RIOT": {
+          "excess_return": 300,
+          "category": "Crypto Mining",
+          "active": true
+        },
+        "DVN": {
+          "excess_return": 231,
+          "category": "Energy Cycles",
+          "active": true
+        },
+        "SAVA": {
+          "excess_return": 170,
+          "category": "Biotech Events",
+          "active": true
+        },
+        "LABU": {
+          "excess_return": 147,
+          "category": "Leveraged ETFs",
+          "active": true
+        },
+        "TQQQ": {
+          "excess_return": 127,
+          "category": "Leveraged ETFs",
+          "active": true
+        },
+        "BTCS": {
+          "excess_return": 235.07696991317212,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 135.08208100888055,
+          "win_rate": 56.25,
+          "total_trades": 16
+        },
+        "FCEL": {
+          "excess_return": 192.6231323036242,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 92.72202632306058,
+          "win_rate": 70.96774193548387,
+          "total_trades": 31
+        },
+        "RIG": {
+          "excess_return": 425.31709898259953,
+          "category": "Unknown",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 374.53616949614633,
+          "win_rate": 56.16438356164384,
+          "total_trades": 146
+        },
+        "BITF": {
+          "excess_return": 366.6529463859782,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 686.090280067488,
+          "win_rate": 47.61904761904761,
+          "total_trades": 21
+        },
+        "BTCM": {
+          "excess_return": 164.64717437974872,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 65.02044999502212,
+          "win_rate": 56.25,
+          "total_trades": 64,
+          "last_updated": "2025-12-02"
+        },
+        "SLAI": {
+          "excess_return": 159.64045448156725,
+          "category": "Unknown",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 60.020925120471745,
+          "win_rate": 56.25,
+          "total_trades": 64
+        }
+      }
+    },
+    "positive": {
+      "description": "Symbols with 10-100% excess return",
+      "symbols": {
+        "TLRY": {
+          "excess_return": 97,
+          "category": "Cannabis Cycles",
+          "active": true
+        },
+        "COIN": {
+          "excess_return": 52,
+          "category": "Crypto Stock",
+          "active": true
+        },
+        "SH": {
+          "excess_return": 31.8,
+          "category": "Inverse/Defensive",
+          "active": true
+        },
+        "TNA": {
+          "excess_return": 28,
+          "category": "Leveraged ETFs",
+          "active": true
+        },
+        "USO": {
+          "excess_return": 22.5,
+          "category": "Energy ETFs",
+          "active": true
+        },
+        "TLT": {
+          "excess_return": 10.1,
+          "category": "Bond ETFs",
+          "active": true
+        },
+        "RIVN": {
+          "excess_return": 67.8596289846298,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -5.539845082703076,
+          "win_rate": 55.00000000000001,
+          "total_trades": 20,
+          "last_updated": "2025-12-02"
+        },
+        "MRNA": {
+          "excess_return": 99.85201218297567,
+          "category": "Recovery Play",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 121.13715151469702,
+          "win_rate": 52.94117647058824,
+          "total_trades": 34,
+          "last_updated": "2025-12-02"
+        },
+        "PSNY": {
+          "excess_return": 24.004111848046207,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -69.95359202504308,
+          "win_rate": 66.66666666666666,
+          "total_trades": 24
+        },
+        "WATT": {
+          "excess_return": 64.18851465015183,
+          "category": "Recovery Play",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -35.723885807080656,
+          "win_rate": 48.275862068965516,
+          "total_trades": 58
+        },
+        "BLNK": {
+          "excess_return": 24.115539010046135,
+          "category": "Recovery Play",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -75.83140835877647,
+          "win_rate": 54.21686746987952,
+          "total_trades": 83
+        },
+        "NCTY": {
+          "excess_return": 91.9918996279726,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -7.880662902323121,
+          "win_rate": 54.08163265306123,
+          "total_trades": 98
+        },
+        "CAN": {
+          "excess_return": 47.08757981284111,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -35.92317239522259,
+          "win_rate": 32.142857142857146,
+          "total_trades": 28
+        },
+        "HYLN": {
+          "excess_return": 17.465328623359476,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -63.81140056647108,
+          "win_rate": 51.724137931034484,
+          "total_trades": 29,
+          "last_updated": "2025-12-02"
+        },
+        "BARK": {
+          "excess_return": 61.932314390426896,
+          "category": "Unknown",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -32.37137675318701,
+          "win_rate": 50.0,
+          "total_trades": 18
+        },
+        "SNDL": {
+          "excess_return": 75.41487517628701,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -20.884684534982433,
+          "win_rate": 43.333333333333336,
+          "total_trades": 30
+        },
+        "AR": {
+          "excess_return": 31.8032242708991,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -7.5866090824344585,
+          "win_rate": 60.0,
+          "total_trades": 55
+        },
+        "CLNE": {
+          "excess_return": 38.292482385676614,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -48.21885961480823,
+          "win_rate": 61.44578313253012,
+          "total_trades": 83
+        },
+        "UNG": {
+          "excess_return": 41.88311038281696,
+          "category": "High Volatility",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -57.8554416011141,
+          "win_rate": 58.44155844155844,
+          "total_trades": 77
+        },
+        "CVE": {
+          "excess_return": 18.266830959997748,
+          "category": "Unknown",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": 28.630417944597042,
+          "win_rate": 64.36781609195403,
+          "total_trades": 87
+        },
+        "LCID": {
+          "excess_return": 23.018095996534377,
+          "category": "Unknown",
+          "active": true,
+          "added_date": "2025-12-02",
+          "strategy_return": -63.81812050534099,
+          "win_rate": 51.515151515151516,
+          "total_trades": 33
+        }
+      }
+    }
+  },
+  "categories": {
+    "Cryptocurrency": [
+      "SOL-USD",
+      "BTC-USD",
+      "ETH-USD",
+      "MATIC-USD",
+      "AVAX-USD",
+      "LINK-USD",
+      "NCTY",
+      "CAN",
+      "BTCS",
+      "FCEL",
+      "BITF",
+      "BTCM"
+    ],
+    "Crypto Mining": [
+      "MARA",
+      "RIOT",
+      "CLSK",
+      "CORZ",
+      "CIFR",
+      "BTDR",
+      "WULF"
+    ],
+    "Crypto Stock": [
+      "COIN",
+      "MSTR",
+      "GBTC"
+    ],
+    "Biotech Events": [
+      "SAVA",
+      "BIIB",
+      "VKTX",
+      "BLUE",
+      "EDIT",
+      "NTLA",
+      "CRSP"
+    ],
+    "Meme Potential": [
+      "BB",
+      "GME",
+      "AMC",
+      "KOSS",
+      "CLOV",
+      "SOFI",
+      "NOK"
+    ],
+    "Energy Cycles": [
+      "FANG",
+      "DVN",
+      "MRO",
+      "OXY",
+      "SWN",
+      "AR",
+      "EQT"
+    ],
+    "SPAC Volatility": [
+      "LCID",
+      "RIVN",
+      "NKLA",
+      "GOEV",
+      "RIDE",
+      "HYLN",
+      "WKHS"
+    ],
+    "Inverse/Defensive": [
+      "SH",
+      "SQQQ",
+      "TZA",
+      "SPXU",
+      "PSQ"
+    ],
+    "Leveraged ETFs": [
+      "TNA",
+      "LABU",
+      "NUGT",
+      "GUSH",
+      "FNGU",
+      "NAIL",
+      "TQQQ"
+    ],
+    "Cannabis Cycles": [
+      "TLRY",
+      "CGC",
+      "CRON",
+      "ACB",
+      "SNDL"
+    ],
+    "Energy ETFs": [
+      "USO",
+      "UNG",
+      "UCO",
+      "SCO"
+    ],
+    "Bond ETFs": [
+      "TLT",
+      "TMF",
+      "TBT"
+    ],
+    "Demo Category": [],
+    "High Volatility": [
+      "RIVN",
+      "PSNY",
+      "HYLN",
+      "SNDL",
+      "GME",
+      "AR",
+      "CLNE",
+      "UNG"
+    ],
+    "Recovery Play": [
+      "MRNA",
+      "WATT",
+      "BLNK"
+    ],
+    "Unknown": [
+      "BARK",
+      "RIG",
+      "CVE",
+      "LCID",
+      "SLAI"
+    ],
+    "Sector Rotation": [
+      "BBIG"
+    ]
+  },
+  "metadata": {
+    "last_updated": "2025-12-02",
+    "total_symbols": 43,
+    "goldmine_count": 9,
+    "high_potential_count": 13,
+    "strategy_name": "Alpha Ensemble Goldmine Strategy (AEGS)"
+  }
+}

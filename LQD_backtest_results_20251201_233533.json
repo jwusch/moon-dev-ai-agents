@@ -1,0 +1,48 @@
+{
+  "symbol": "LQD",
+  "start_date": "2002-10-08",
+  "end_date": "2025-12-01",
+  "total_years": 23.148528405201915,
+  "strategy_total_return_pct": 201.73287273985358,
+  "strategy_annualized_return_pct": 4.886442918788014,
+  "strategy_cagr": 4.886442918788014,
+  "buy_hold_total_return_pct": 181.40635670643724,
+  "buy_hold_annualized_return_pct": 4.570914430790274,
+  "buy_hold_cagr": 4.570914430790274,
+  "excess_return_pct": 20.32651603341634,
+  "outperformance_ratio": 1.0722319007691106,
+  "strategy_volatility": 7.474964626456658,
+  "strategy_sharpe": 0.38614803721904284,
+  "strategy_sortino": 0.48949827861843176,
+  "strategy_max_drawdown": -22.89002915378212,
+  "strategy_calmar_ratio": 0.2134747354823979,
+  "buy_hold_volatility": 8.415310584343171,
+  "buy_hold_sharpe": 0.3055044023655531,
+  "buy_hold_max_drawdown": -24.9548522958538,
+  "total_trades": 102,
+  "win_rate": 61.76470588235294,
+  "profit_factor": 2.480098475987927,
+  "avg_trade_return": 1.2019100643868188,
+  "avg_win": 3.2606929776525715,
+  "avg_loss": -2.123816180119396,
+  "max_consecutive_wins": 6,
+  "max_consecutive_losses": 5,
+  "bull_market_performance": {
+    "days": "91",
+    "percentage_of_time": 1.5622317596566524,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "62",
+    "percentage_of_time": 1.0643776824034334,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "5612",
+    "percentage_of_time": 96.34334763948497,
+    "regime_type": "sideways"
+  },
+  "information_ratio": 0.07570806986162722,
+  "treynor_ratio": 4.886442918788014,
+  "jensen_alpha": 0.31552848799774047
+}

@@ -1,0 +1,22 @@
+{
+  "symbol": "TSLA",
+  "strategy": "AEGS_5MIN",
+  "timestamp": "20251202_150547",
+  "results": {
+    "total_return": -0.8281259493941616,
+    "buy_hold_return": -5.855717878240215,
+    "excess_return": 5.0275919288460535,
+    "num_trades": 16,
+    "win_rate": 50.0,
+    "avg_return": 0.16372525709323255,
+    "avg_win": 1.5118899050946526,
+    "avg_loss": -1.1844393909081874,
+    "sharpe_ratio": 12.976884767649441,
+    "avg_hold_minutes": 44.375,
+    "profit_factor": 1.2764603378610935,
+    "best_trade": 4.545198482779914,
+    "worst_trade": -2.1959720022501674,
+    "final_capital": 9917.187405060584
+  },
+  "num_trades": 16
+}

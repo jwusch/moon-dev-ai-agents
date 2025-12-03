@@ -1,0 +1,31 @@
+{
+  "discovery_date": "2025-12-02 09:12:13",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 6,
+  "candidates": [
+    {
+      "symbol": "CVE",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: CVE is an oil and gas stock with commodity exposure, similar to EQT. Its recent price weakness due to sector rotation and commodity cycle downturn presents a potential mean reversion opportunity.; groq: CVE is an oil and gas stock with commodity exposure, similar to EQT. It has experienced recent price weakness due to sector rotation, but could rebound with changes in weather-driven demand or commodity cycles."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Matches 'Meme stock potential' and 'Sector rotation opportunities'. Palantir is a software company that often experiences high volatility due to its unique business model. Recent price weakness (down ~20% from all-time highs) could lead to mean reversion as investors reassess the company's growth prospects.; openrouter_gemini: Palantir (PLTR) exhibits meme stock characteristics due to strong retail interest and association with speculative growth themes and government contracts. While not directly a commodity or crypto play, it experiences significant price swings based on news and investor sentiment, fitting the high volatility profile for mean reversion. Recent pullbacks offer an opportunity."
+    },
+    {
+      "symbol": "NIO",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Matches 'Commodity exposure' and 'Sector rotation opportunities'. Nio is a Chinese electric vehicle manufacturer that often experiences high volatility due to its commodity-sensitive business model. Recent price weakness (down ~30% from all-time highs) could lead to mean reversion as investors reassess the company's growth prospects.; ollama_gpt: NIO is an electric\u2011vehicle (EV) maker that has experienced extreme volatility due to hype, supply chain news, and macro\u2011economic sentiment. Its recent pullback from a 2023 high aligns with a typical boom/bust cycle in the EV sector, creating a mean\u2011reversion window as sector rotation moves back toward established automakers."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Canadian bitcoin mining company with similar exposure to MARA/RIOT but less followed. High volatility correlated with crypto cycles. Lower liquidity but strong mean reversion patterns during crypto drawdowns.; openrouter_llama: HUT is a crypto mining stock with exposure to Bitcoin cycles, similar to MARA. Its recent price decline presents a potential buying opportunity for mean reversion traders."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (5 votes): openrouter_gemini: Similar to GME, AMC Entertainment (AMC) is a meme stock with high retail interest and dramatic price swings. Its volatile nature and susceptibility to short squeezes provide opportunities for mean reversion trades. Also, like NOK, its movements are often detached from fundamental analysis.; xai: AMC Entertainment captures meme stock dynamics similar to NOK, with telecom-adjacent entertainment sector exposure and intense retail following leading to high volatility and bust cycles post-2021 hype. It offers sector rotation opportunities in media/entertainment. Recent price action shows prolonged weakness, with shares down 90%+ from highs due to debt concerns and streaming competition, but mean reversion potential arises from short interest and community support, potentially reversing on positive earnings or meme revival."
+    },
+    {
+      "symbol": "CRSR",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: CRSR is a meme stock with high retail interest and potential for sharp price movements, similar to NOK. Its recent price weakness could be a buying opportunity for mean reversion traders.; groq: CRSR has meme stock potential and has experienced high retail interest, similar to NOK. Recent price weakness could be an opportunity for mean reversion as retail interest returns or sector rotation favors the stock."
+    }
+  ]
+}

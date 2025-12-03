@@ -24,7 +24,7 @@ import openai
 from pathlib import Path
 from src import nice_funcs as n
 from src import nice_funcs_hyperliquid as hl  # Add import for hyperliquid functions
-from src.agents.api import MoonDevAPI
+from src.agents.api_adapter import APIAdapter
 from collections import deque
 from src.agents.base_agent import BaseAgent
 import traceback
@@ -124,7 +124,7 @@ class WhaleAgent(BaseAgent):
             print(f"🎯 Moon Dev's Whale Agent using Claude model: {self.ai_model}!")
         
         # Initialize Moon Dev API with correct base URL
-        self.api = MoonDevAPI(base_url="http://api.moondev.com:8000")
+        self.api = APIAdapter()
         
         # Create data directories if they don't exist
         self.audio_dir = PROJECT_ROOT / "src" / "audio"

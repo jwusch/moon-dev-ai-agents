@@ -27,7 +27,7 @@ import anthropic
 from pathlib import Path
 from src import nice_funcs as n
 from src import nice_funcs_hyperliquid as hl
-from src.agents.api import MoonDevAPI
+from src.agents.api_adapter import APIAdapter
 from collections import deque
 from src.agents.base_agent import BaseAgent
 import traceback
@@ -131,7 +131,7 @@ class FundingAgent(BaseAgent):
             self.deepseek_client = None
             cprint(f"🎯 Moon Dev's Funding Agent using Claude model: {self.active_model}!", "green")
         
-        self.api = MoonDevAPI()
+        self.api = APIAdapter()
         
         # Create data directories if they don't exist
         self.audio_dir = PROJECT_ROOT / "src" / "audio"

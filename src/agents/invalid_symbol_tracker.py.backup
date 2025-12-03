@@ -1,0 +1,140 @@
+"""
+🚫 Invalid Symbol Tracker
+Tracks symbols that fail during discovery or backtesting
+"""
+
+import json
+import os
+from datetime import datetime
+from termcolor import colored
+
+class InvalidSymbolTracker:
+    """
+    Tracks symbols that are invalid or cause errors
+    """
+    
+    def __init__(self, filename='aegs_invalid_symbols.json'):
+        self.filename = filename
+        self.invalid_symbols = {}
+        self.load()
+        
+    def load(self):
+        """Load invalid symbols from file"""
+        if os.path.exists(self.filename):
+            try:
+                with open(self.filename, 'r') as f:
+                    data = json.load(f)
+                    self.invalid_symbols = data.get('invalid_symbols', {})
+                    print(f"📚 Loaded {len(self.invalid_symbols)} invalid symbols")
+            except Exception as e:
+                print(f"⚠️ Error loading invalid symbols: {e}")
+                self.invalid_symbols = {}
+        else:
+            print("📝 Creating new invalid symbols tracker")
+            self.save()
+    
+    def add_invalid_symbol(self, symbol, reason, error_type='unknown'):
+        """Add a symbol to the invalid list"""
+        if symbol not in self.invalid_symbols:
+            self.invalid_symbols[symbol] = {
+                'reason': reason,
+                'first_failed': datetime.now().strftime('%Y-%m-%d'),
+                'error_type': error_type,
+                'fail_count': 1
+            }
+            print(colored(f"🚫 Added {symbol} to invalid symbols: {reason}", 'yellow'))
+        else:
+            # Increment fail count
+            self.invalid_symbols[symbol]['fail_count'] += 1
+            self.invalid_symbols[symbol]['last_failed'] = datetime.now().strftime('%Y-%m-%d')
+        
+        self.save()
+    
+    def mark_invalid(self, symbol, reason, error_type='unknown'):
+        """Mark a symbol as invalid (alias for add_invalid_symbol)"""
+        self.add_invalid_symbol(symbol, reason, error_type)
+    
+    def is_invalid(self, symbol):
+        """Check if a symbol is invalid"""
+        return symbol in self.invalid_symbols
+    
+    def get_all_invalid(self):
+        """Get all invalid symbols as a set"""
+        return set(self.invalid_symbols.keys())
+    
+    def save(self):
+        """Save invalid symbols to file"""
+        data = {
+            'invalid_symbols': self.invalid_symbols,
+            'metadata': {
+                'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'total_invalid': len(self.invalid_symbols)
+            }
+        }
+        
+        try:
+            with open(self.filename, 'w') as f:
+                json.dump(data, f, indent=2)
+        except Exception as e:
+            print(f"⚠️ Error saving invalid symbols: {e}")
+    
+    def get_summary(self):
+        """Get summary of invalid symbols"""
+        summary = {
+            'total': len(self.invalid_symbols),
+            'by_error_type': {},
+            'recent_failures': []
+        }
+        
+        # Count by error type
+        for symbol, info in self.invalid_symbols.items():
+            error_type = info.get('error_type', 'unknown')
+            if error_type not in summary['by_error_type']:
+                summary['by_error_type'][error_type] = 0
+            summary['by_error_type'][error_type] += 1
+            
+            # Get recent failures
+            if 'last_failed' in info:
+                fail_date = info['last_failed']
+            else:
+                fail_date = info['first_failed']
+            
+            summary['recent_failures'].append({
+                'symbol': symbol,
+                'date': fail_date,
+                'reason': info['reason']
+            })
+        
+        # Sort by date
+        summary['recent_failures'].sort(key=lambda x: x['date'], reverse=True)
+        summary['recent_failures'] = summary['recent_failures'][:10]  # Keep top 10
+        
+        return summary
+    
+    def cleanup_old_entries(self, days=90):
+        """Remove entries older than specified days"""
+        from datetime import timedelta
+        
+        cutoff_date = (datetime.now() - timedelta(days=days)).strftime('%Y-%m-%d')
+        removed = []
+        
+        for symbol, info in list(self.invalid_symbols.items()):
+            fail_date = info.get('last_failed', info['first_failed'])
+            if fail_date < cutoff_date:
+                removed.append(symbol)
+                del self.invalid_symbols[symbol]
+        
+        if removed:
+            print(f"🧹 Removed {len(removed)} old invalid symbols")
+            self.save()
+        
+        return removed
+    
+    def retry_symbol(self, symbol):
+        """Remove a symbol from invalid list to retry it"""
+        if symbol in self.invalid_symbols:
+            del self.invalid_symbols[symbol]
+            self.save()
+            print(f"♻️ Removed {symbol} from invalid list for retry")
+            return True
+        return False

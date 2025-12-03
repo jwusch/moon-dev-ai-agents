@@ -1,0 +1,266 @@
+{
+  "test_date": "2025-12-02T11:05:41.215783",
+  "total_tested": 29,
+  "results": [
+    {
+      "symbol": "RIOT",
+      "status": "SUCCESS",
+      "elapsed_time": 2.5775344371795654,
+      "previous_fails": 362,
+      "metrics": {
+        "win_rate": 68.3
+      }
+    },
+    {
+      "symbol": "AMC",
+      "status": "SUCCESS",
+      "elapsed_time": 2.578529119491577,
+      "previous_fails": 397,
+      "metrics": {
+        "excess_return": 3.6,
+        "win_rate": 44.4
+      }
+    },
+    {
+      "symbol": "GME",
+      "status": "SUCCESS",
+      "elapsed_time": 2.682670831680298,
+      "previous_fails": 364,
+      "metrics": {
+        "win_rate": 58.8
+      }
+    },
+    {
+      "symbol": "COIN",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.7042310237884521,
+      "previous_fails": 359,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "PLTR",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.6277172565460205,
+      "previous_fails": 289,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "CLSK",
+      "status": "SUCCESS",
+      "elapsed_time": 1.7331573963165283,
+      "previous_fails": 361,
+      "metrics": {
+        "excess_return": 678.0,
+        "win_rate": 51.3
+      }
+    },
+    {
+      "symbol": "HUT",
+      "status": "SUCCESS",
+      "elapsed_time": 1.7568819522857666,
+      "previous_fails": 265,
+      "metrics": {
+        "win_rate": 56.2
+      }
+    },
+    {
+      "symbol": "BITF",
+      "status": "SUCCESS",
+      "elapsed_time": 1.8267359733581543,
+      "previous_fails": 247,
+      "metrics": {
+        "win_rate": 42.9
+      }
+    },
+    {
+      "symbol": "BB",
+      "status": "SUCCESS",
+      "elapsed_time": 2.0877764225006104,
+      "previous_fails": 259,
+      "metrics": {
+        "excess_return": 847.2,
+        "win_rate": 53.1
+      }
+    },
+    {
+      "symbol": "UNG",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.770439863204956,
+      "previous_fails": 225,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "AR",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.7576875686645508,
+      "previous_fails": 217,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "FCEL",
+      "status": "SUCCESS",
+      "elapsed_time": 2.086808204650879,
+      "previous_fails": 195,
+      "metrics": {
+        "excess_return": 1.0,
+        "win_rate": 46.8
+      }
+    },
+    {
+      "symbol": "TSLA",
+      "status": "SUCCESS",
+      "elapsed_time": 1.8469154834747314,
+      "previous_fails": 179,
+      "metrics": {
+        "win_rate": 71.7
+      }
+    },
+    {
+      "symbol": "PLUG",
+      "status": "SUCCESS",
+      "elapsed_time": 2.0684523582458496,
+      "previous_fails": 185,
+      "metrics": {
+        "excess_return": 8.2,
+        "win_rate": 48.4
+      }
+    },
+    {
+      "symbol": "XOM",
+      "status": "SUCCESS",
+      "elapsed_time": 2.5838582515716553,
+      "previous_fails": 173,
+      "metrics": {
+        "win_rate": 77.8
+      }
+    },
+    {
+      "symbol": "NIO",
+      "status": "SUCCESS",
+      "elapsed_time": 1.6022841930389404,
+      "previous_fails": 167,
+      "metrics": {
+        "win_rate": 39.4
+      }
+    },
+    {
+      "symbol": "RIG",
+      "status": "SUCCESS",
+      "elapsed_time": 2.2222139835357666,
+      "previous_fails": 169,
+      "metrics": {
+        "win_rate": 66.5
+      }
+    },
+    {
+      "symbol": "FCX",
+      "status": "SUCCESS",
+      "elapsed_time": 2.0325891971588135,
+      "previous_fails": 135,
+      "metrics": {
+        "win_rate": 58.6
+      }
+    },
+    {
+      "symbol": "NVDA",
+      "status": "SUCCESS",
+      "elapsed_time": 2.059791088104248,
+      "previous_fails": 127,
+      "metrics": {
+        "win_rate": 69.2
+      }
+    },
+    {
+      "symbol": "CLNE",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.7223198413848877,
+      "previous_fails": 121,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "BTCS",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 1.6028480529785156,
+      "previous_fails": 113,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "BAC",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 2.020216464996338,
+      "previous_fails": 103,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "CVE",
+      "status": "SUCCESS",
+      "elapsed_time": 1.9537556171417236,
+      "previous_fails": 101,
+      "metrics": {
+        "excess_return": 18.3,
+        "win_rate": 64.4
+      }
+    },
+    {
+      "symbol": "C",
+      "status": "OTHER_ERROR",
+      "elapsed_time": 2.9809443950653076,
+      "previous_fails": 103,
+      "error": "Traceback (most recent call last):\n  File \"/mnt/c/Users/jwusc/moon-dev-ai-agents/run_aegs_backtest.py\", line 38, in run_aegs_backtest\n    results = backtester.comprehensive_backtest(df)\n  File \"/mnt/c"
+    },
+    {
+      "symbol": "JPM",
+      "status": "SUCCESS",
+      "elapsed_time": 2.579084634780884,
+      "previous_fails": 95,
+      "metrics": {
+        "win_rate": 62.0
+      }
+    },
+    {
+      "symbol": "BTCM",
+      "status": "SUCCESS",
+      "elapsed_time": 2.1135752201080322,
+      "previous_fails": 95,
+      "metrics": {
+        "excess_return": 164.6,
+        "win_rate": 56.2
+      }
+    },
+    {
+      "symbol": "WFC",
+      "status": "SUCCESS",
+      "elapsed_time": 2.8520429134368896,
+      "previous_fails": 95,
+      "metrics": {
+        "win_rate": 44.0
+      }
+    },
+    {
+      "symbol": "BBIG",
+      "status": "SUCCESS",
+      "elapsed_time": 2.46833872795105,
+      "previous_fails": 94,
+      "metrics": {
+        "excess_return": 360853150.0,
+        "win_rate": 66.7
+      }
+    },
+    {
+      "symbol": "LCID",
+      "status": "SUCCESS",
+      "elapsed_time": 2.5661771297454834,
+      "previous_fails": 89,
+      "metrics": {
+        "excess_return": 23.0,
+        "win_rate": 51.5
+      }
+    }
+  ],
+  "summary": {
+    "successful": 21,
+    "json_errors": 0,
+    "insufficient_data": 0,
+    "other_errors": 8
+  }
+}

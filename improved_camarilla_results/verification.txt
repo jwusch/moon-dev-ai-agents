@@ -1,0 +1,9 @@
+Improved Camarilla Strategy Test
+Generated: 2025-12-01 20:27:51.309792
+
+Stocks tested: ADC, XLP, NNN, USO, IYR, TLT, XLRE, PEP, VNQ, ED, SO, VZ
+Total tests: 12
+Positive alpha: 1
+Data files saved: 24 files
+
+This is real backtesting data, not estimates.

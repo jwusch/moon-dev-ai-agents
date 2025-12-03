@@ -1,0 +1,48 @@
+{
+  "symbol": "XLU",
+  "start_date": "1999-03-05",
+  "end_date": "2025-12-01",
+  "total_years": 26.743326488706366,
+  "strategy_total_return_pct": 85.08977264020017,
+  "strategy_annualized_return_pct": 2.3288512776412196,
+  "strategy_cagr": 2.3288512776412196,
+  "buy_hold_total_return_pct": 675.5452078366199,
+  "buy_hold_annualized_return_pct": 7.960438449807494,
+  "buy_hold_cagr": 7.960438449807494,
+  "excess_return_pct": -590.4554351964197,
+  "outperformance_ratio": 0.23865761888530945,
+  "strategy_volatility": 3.9732841025209,
+  "strategy_sharpe": 0.08276560879011288,
+  "strategy_sortino": 0.09233043078013058,
+  "strategy_max_drawdown": -14.106389053547543,
+  "strategy_calmar_ratio": 0.16509195009445374,
+  "buy_hold_volatility": 19.282003091711875,
+  "buy_hold_sharpe": 0.3091192559952194,
+  "buy_hold_max_drawdown": -52.27241084551311,
+  "total_trades": 271,
+  "win_rate": 81.18081180811808,
+  "profit_factor": 2.186444340511233,
+  "avg_trade_return": 1.0186431082453045,
+  "avg_win": 2.3123827365606884,
+  "avg_loss": -4.562194504095569,
+  "max_consecutive_wins": 25,
+  "max_consecutive_losses": 5,
+  "bull_market_performance": {
+    "days": "694",
+    "percentage_of_time": 10.315101070154578,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "381",
+    "percentage_of_time": 5.662901307966706,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "5593",
+    "percentage_of_time": 83.13020214030915,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.4521425001172743,
+  "treynor_ratio": 2.3288512776412196,
+  "jensen_alpha": -5.631587172166275
+}

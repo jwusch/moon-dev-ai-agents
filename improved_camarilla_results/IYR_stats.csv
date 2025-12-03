@@ -1,0 +1,20 @@
+Start,End,Duration,Exposure Time [%],Equity Final [$],Equity Peak [$],Commissions [$],Return [%],Buy & Hold Return [%],Return (Ann.) [%],Volatility (Ann.) [%],CAGR [%],Sharpe Ratio,Sortino Ratio,Calmar Ratio,Alpha [%],Beta,Max. Drawdown [%],Avg. Drawdown [%],Max. Drawdown Duration,Avg. Drawdown Duration,# Trades,Win Rate [%],Best Trade [%],Worst Trade [%],Avg. Trade [%],Max. Trade Duration,Avg. Trade Duration,Profit Factor,Expectancy [%],SQN,Kelly Criterion,_strategy,_equity_curve,_trades
+2023-12-04 00:00:00-05:00,2025-12-01 00:00:00-05:00,728 days,0.8,9905.086079433306,10000.0,15.204906985043728,-0.9491392056669429,-3.62078376954939,-0.4794975303522464,0.48090815222887173,-0.32957302498344276,-0.9970667540774938,-0.9913598672119982,-0.5051919965894937,-0.9649806840413157,-0.004375151730296306,-0.9491392056669379,-0.9491392056669379,348 days,348 days,2,0.0,-1.9282383401065288,-3.1170480547840276,-2.5244555179190997,1 days,1 days,0.0,-2.5226431974452783,-6.583757133306232,,ImprovedCamarillaStrategy,"                                 Equity  DrawdownPct DrawdownDuration
+Date                                                                 
+2023-12-04 00:00:00-05:00  10000.000000     0.000000              NaT
+2023-12-05 00:00:00-05:00  10000.000000     0.000000              NaT
+2023-12-06 00:00:00-05:00  10000.000000     0.000000              NaT
+2023-12-07 00:00:00-05:00  10000.000000     0.000000              NaT
+2023-12-08 00:00:00-05:00  10000.000000     0.000000              NaT
+...                                 ...          ...              ...
+2025-11-24 00:00:00-05:00   9905.086079     0.009491              NaT
+2025-11-25 00:00:00-05:00   9905.086079     0.009491              NaT
+2025-11-26 00:00:00-05:00   9905.086079     0.009491              NaT
+2025-11-28 00:00:00-05:00   9905.086079     0.009491              NaT
+2025-12-01 00:00:00-05:00   9905.086079     0.009491         348 days
+
+[500 rows x 3 columns]","   Size  EntryBar  ExitBar  ...  Exit_trend_str…  Entry_market_re…  Exit_market_re…
+0    23       262      263  ...        -0.073987                 2                1
+1    21       336      337  ...        -0.055506                 2                2
+
+[2 rows x 32 columns]"

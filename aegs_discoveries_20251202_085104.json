@@ -1,0 +1,23 @@
+{
+  "discovery_date": "2025-12-02 08:51:04",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 4,
+  "candidates": [
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (3 votes): xai: Hut 8 Mining (HUT) is a crypto mining firm like WULF and MARA, with high volatility tied to Bitcoin cycles, energy costs, and merger activity. It shares boom/bust exposure to commodities (power) and crypto trends, with meme-like retail following. Recent weakness (down ~70% from peaks) due to post-halving pressures makes it a mean reversion play if mining economics improve, offering rotation from traditional commodities like EQT to digital assets.; claude_haiku: Canadian Bitcoin miner with MARA/WULF characteristics. Commodity-like pricing (hash rate economics), extreme volatility, and boom/bust cycles. Weather-dependent (cooling in cold climate), leverage to BTC, recent selloff creates reversal potential."
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Similar characteristics to MARA as a cloud-based software company with exposure to tech trends and potential for mean reversion due to recent price weakness.; deepseek: Meme stock with high retail interest and volatile earnings cycles (similar to NOK's meme potential). Recent price weakness after AI hype cycle peaked, but strong government contracts provide fundamental floor. Technical patterns show historical mean reversion after 30%+ drawdowns."
+    },
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Volatility and boom/bust cycles in electric vehicle stocks. TSLA's price movements often follow strong trends with sharp reversals, making it a candidate for mean reversion trading.; ollama_gpt: Tesla\u2019s EV stock is known for extreme swings and a boom/bust cycle linked to production milestones and macro sentiment. After a 15% decline in the past 10 days, the price sits near its 50\u2011day moving average, suggesting a potential reversal. The upcoming Q4 earnings and the broader EV rotation add to the mean\u2011reversion potential."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (5 votes): xai: AMC Entertainment (AMC) is a classic meme stock with high retail interest similar to NOK, featuring extreme volatility from short squeezes and boom/bust narratives in the entertainment sector. It offers sector rotation potential as consumer discretionary rebounds post-pandemic. With shares down over 80% from 2021 peaks due to debt concerns and streaming competition, recent weakness sets up mean reversion if box office recovers or meme fervor returns, aligning with patterns of sharp reversals seen in SOL-USD.; openrouter_gemini: Similar to GME, AMC is another meme stock susceptible to extreme volatility driven by retail traders and short squeezes. Company-specific news and broader market sentiment can trigger rapid price movements, making it a mean reversion candidate. Matches 'NOK' pattern."
+    }
+  ]
+}

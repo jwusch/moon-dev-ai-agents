@@ -1,0 +1,48 @@
+{
+  "symbol": "FXE",
+  "start_date": "2006-02-23",
+  "end_date": "2025-12-01",
+  "total_years": 19.770020533880903,
+  "strategy_total_return_pct": -2.5037927251425174,
+  "strategy_annualized_return_pct": -0.12817616623270744,
+  "strategy_cagr": -0.12817616623270744,
+  "buy_hold_total_return_pct": 2.9174495788884425,
+  "buy_hold_annualized_return_pct": 0.14556355795927178,
+  "buy_hold_cagr": 0.14556355795927178,
+  "excess_return_pct": -5.42124230403096,
+  "outperformance_ratio": 0.9473243621347666,
+  "strategy_volatility": 8.294228321553446,
+  "strategy_sharpe": -0.2565851919825275,
+  "strategy_sortino": -0.3759240957465417,
+  "strategy_max_drawdown": -46.11473189805805,
+  "strategy_calmar_ratio": -0.0027795058315866544,
+  "buy_hold_volatility": 8.95715890748564,
+  "buy_hold_sharpe": -0.20703400053458315,
+  "buy_hold_max_drawdown": -43.32823557379976,
+  "total_trades": 87,
+  "win_rate": 56.32183908045977,
+  "profit_factor": 1.0135138435194908,
+  "avg_trade_return": 0.018956237049219046,
+  "avg_win": 2.5242136028968716,
+  "avg_loss": -3.2115072083859117,
+  "max_consecutive_wins": 10,
+  "max_consecutive_losses": 6,
+  "bull_market_performance": {
+    "days": "40",
+    "percentage_of_time": 0.8040201005025126,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "84",
+    "percentage_of_time": 1.6884422110552764,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "4791",
+    "percentage_of_time": 96.30150753768845,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.16391943430884537,
+  "treynor_ratio": -0.12817616623270744,
+  "jensen_alpha": -0.27373972419197923
+}

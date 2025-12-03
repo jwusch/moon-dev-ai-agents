@@ -1,0 +1,35 @@
+{
+  "discovery_date": "2025-12-02 00:58:29",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 7,
+  "candidates": [
+    {
+      "symbol": "WFC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "INO",
+      "reason": "Biotech recovery play: -58.4% from peak"
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "JPM",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "MSTR",
+      "reason": "Crypto recovery play: -62.5% from peak"
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "CGC",
+      "reason": "Cannabis recovery play: -71.4% from peak"
+    }
+  ]
+}

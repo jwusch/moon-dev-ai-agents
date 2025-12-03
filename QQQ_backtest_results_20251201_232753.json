@@ -1,0 +1,48 @@
+{
+  "symbol": "QQQ",
+  "start_date": "1999-05-19",
+  "end_date": "2025-12-01",
+  "total_years": 26.537987679671456,
+  "strategy_total_return_pct": 34.05461086238155,
+  "strategy_annualized_return_pct": 1.110488771930429,
+  "strategy_cagr": 1.110488771930429,
+  "buy_hold_total_return_pct": 1229.8646317661,
+  "buy_hold_annualized_return_pct": 10.242010082151399,
+  "buy_hold_cagr": 10.242010082151399,
+  "excess_return_pct": -1195.8100209037184,
+  "outperformance_ratio": 0.10080320031096174,
+  "strategy_volatility": 6.977670411819012,
+  "strategy_sharpe": -0.12747968527760886,
+  "strategy_sortino": -0.07436616130790709,
+  "strategy_max_drawdown": -24.376730701678365,
+  "strategy_calmar_ratio": 0.04555527915209609,
+  "buy_hold_volatility": 26.999002785034765,
+  "buy_hold_sharpe": 0.3052709075136601,
+  "buy_hold_max_drawdown": -82.96390302644538,
+  "total_trades": 274,
+  "win_rate": 68.61313868613139,
+  "profit_factor": 1.4088213091877042,
+  "avg_trade_return": 0.39452089953812575,
+  "avg_win": 1.981459114564875,
+  "avg_loss": -3.0745998495901166,
+  "max_consecutive_wins": 25,
+  "max_consecutive_losses": 5,
+  "bull_market_performance": {
+    "days": "1525",
+    "percentage_of_time": 22.843019772318755,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "747",
+    "percentage_of_time": 11.189334931096464,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "4344",
+    "percentage_of_time": 65.06890353505092,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.5095106787322571,
+  "treynor_ratio": 1.110488771930429,
+  "jensen_alpha": -9.13152131022097
+}

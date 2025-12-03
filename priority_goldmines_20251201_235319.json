@@ -1,0 +1,54 @@
+[
+  {
+    "symbol": "WULF",
+    "category": "Crypto Mining",
+    "excess_return": 13041.305545163037,
+    "strategy_return": 14522.383516720543,
+    "buy_hold_return": 1481.0779715575063,
+    "win_rate": 77.63975155279503,
+    "total_trades": 161,
+    "sharpe": 0.6134599933751552,
+    "volatility_score": 85.55463146429962,
+    "years": 31.463381245722108,
+    "max_drawdown": -54.34685935868091
+  },
+  {
+    "symbol": "NOK",
+    "category": "Meme Potential",
+    "excess_return": 3355.2851493148255,
+    "strategy_return": 4005.615256661372,
+    "buy_hold_return": 650.3301073465466,
+    "win_rate": 56.375838926174495,
+    "total_trades": 149,
+    "sharpe": 0.2563981586381728,
+    "volatility_score": 37.09801263628616,
+    "years": 31.21971252566735,
+    "max_drawdown": -91.2961036845462
+  },
+  {
+    "symbol": "WKHS",
+    "category": "SPAC Volatility",
+    "excess_return": 1132.9883328401838,
+    "strategy_return": 1033.0332395072573,
+    "buy_hold_return": -99.95509333292644,
+    "win_rate": 53.37423312883436,
+    "total_trades": 163,
+    "sharpe": 0.2635519790034478,
+    "volatility_score": 100,
+    "years": 15.307323750855579,
+    "max_drawdown": -93.07860615190748
+  },
+  {
+    "symbol": "EQT",
+    "category": "Energy Volatility",
+    "excess_return": 1038.2962432249333,
+    "strategy_return": 19691.91337936903,
+    "buy_hold_return": 18653.617136144097,
+    "win_rate": 62.67281105990783,
+    "total_trades": 217,
+    "sharpe": 0.3397472781191332,
+    "volatility_score": 33.95532559689805,
+    "years": 45.51403148528405,
+    "max_drawdown": -83.97888873745529
+  }
+]

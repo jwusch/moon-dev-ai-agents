@@ -1,0 +1,34 @@
+{
+  "processing_date": "2025-12-02 03:07:59",
+  "agent": "AEGS Backtest Orchestrator",
+  "total_processed": 2,
+  "successful": 2,
+  "failed": 0,
+  "results": [
+    {
+      "symbol": "C",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -1461.0496486229056,
+      "strategy_return": -40.18924231301993,
+      "buy_hold_return": 1420.8604063098855,
+      "win_rate": 57.14285714285714,
+      "total_trades": 49,
+      "sharpe": -0.2912549116159466,
+      "years": 48.71731690622861,
+      "data_points": 12331
+    },
+    {
+      "symbol": "BAC",
+      "discovery_reason": "Multiple signals",
+      "excess_return": -3469.2649882306764,
+      "strategy_return": 79.41574274154443,
+      "buy_hold_return": 3548.6807309722208,
+      "win_rate": 51.09489051094891,
+      "total_trades": 137,
+      "sharpe": -0.08063214958017483,
+      "years": 52.58316221765914,
+      "data_points": 13308
+    }
+  ],
+  "failed_symbols": []
+}

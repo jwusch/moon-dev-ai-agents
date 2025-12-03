@@ -1,0 +1,48 @@
+{
+  "symbol": "SLV",
+  "start_date": "2006-07-10",
+  "end_date": "2025-12-01",
+  "total_years": 19.394934976043807,
+  "strategy_total_return_pct": 237.3890304288248,
+  "strategy_annualized_return_pct": 6.470760134976383,
+  "strategy_cagr": 6.470760134976383,
+  "buy_hold_total_return_pct": 373.836180016272,
+  "buy_hold_annualized_return_pct": 8.351590753146642,
+  "buy_hold_cagr": 8.351590753146642,
+  "excess_return_pct": -136.4471495874472,
+  "outperformance_ratio": 0.7120372919122354,
+  "strategy_volatility": 28.65919718679386,
+  "strategy_sharpe": 0.15599739608325477,
+  "strategy_sortino": 0.19553968785088618,
+  "strategy_max_drawdown": -78.77118754725025,
+  "strategy_calmar_ratio": 0.08214628135566639,
+  "buy_hold_volatility": 30.91073226707569,
+  "buy_hold_sharpe": 0.20548173036689868,
+  "buy_hold_max_drawdown": -76.28015142556757,
+  "total_trades": 89,
+  "win_rate": 47.19101123595505,
+  "profit_factor": 1.515548360951996,
+  "avg_trade_return": 2.3395632477633828,
+  "avg_win": 14.573903695844646,
+  "avg_loss": -8.593251620734769,
+  "max_consecutive_wins": 5,
+  "max_consecutive_losses": 7,
+  "bull_market_performance": {
+    "days": "1205",
+    "percentage_of_time": 24.68756402376562,
+    "regime_type": "bull"
+  },
+  "bear_market_performance": {
+    "days": "856",
+    "percentage_of_time": 17.53738987912313,
+    "regime_type": "bear"
+  },
+  "sideways_market_performance": {
+    "days": "2760",
+    "percentage_of_time": 56.54578979717271,
+    "regime_type": "sideways"
+  },
+  "information_ratio": -0.3562596058653036,
+  "treynor_ratio": 6.470760134976383,
+  "jensen_alpha": -1.8808306181702585
+}

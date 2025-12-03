@@ -1,0 +1,23 @@
+{
+  "discovery_date": "2025-12-02 08:57:15",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 4,
+  "candidates": [
+    {
+      "symbol": "TSLA",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: High volatility and boom/bust cycles due to electric vehicle demand, sector rotation opportunities as investors rotate out of growth stocks. Recent price weakness after a strong run could be a mean reversion opportunity.; ollama_gpt: TSLA\u2019s price is highly volatile and subject to boom/bust cycles around earnings, regulatory news, and macro\u2011economic sentiment. After a 22% decline from its 52\u2011week high, the stock is trading in a narrow band, creating a mean\u2011reversion trade setup."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Canadian Bitcoin mining company with high volatility and crypto cycle dependency. Recent BTC weakness has depressed valuation. Mean reversion likely on BTC recovery. Strong sector rotation play.; xai: HUT (Hut 8 Mining) aligns with WULF and MARA as a crypto mining firm, featuring high volatility, boom/bust cycles, and ties to bitcoin trends. Like SOL-USD, it shows sharp reversals during crypto hype. Recent operational challenges and market weakness in 2024 provide mean reversion upside if mining efficiency improves or crypto rallies, with retail interest adding meme potential."
+    },
+    {
+      "symbol": "PLUG",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Hydrogen/fuel cell company with high retail interest and meme stock characteristics. Extreme volatility with trend reversals matching SOL-USD patterns. Recent weakness from sector rotation provides reversion opportunity.; claude_opus: Plug Power exhibits boom/bust cycles tied to clean energy sentiment and hydrogen hype cycles. High retail interest and meme potential similar to NOK. Currently beaten down from highs, creating mean reversion setup. Government policy shifts create sharp reversals."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Another meme stock, susceptible to high volatility and retail-driven price swings. Possesses boom/bust cycles related to theatrical releases and overall market sentiment. A decline due to poor box office performance or broader market fears could lead to a mean reversion bounce. Similar to NOK and GME.; xai: AMC (AMC Entertainment) embodies meme stock potential like NOK, with high retail interest driving volatility and boom/bust cycles from social media hype. It has sector rotation opportunities in entertainment/consumer discretionary. After peaking in 2021 and subsequent declines, recent price weakness in 2024 offers mean reversion setup, as short squeezes or renewed meme fervor could trigger sharp reversals similar to NOK's retail-driven rallies."
+    }
+  ]
+}

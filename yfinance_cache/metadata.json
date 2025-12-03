@@ -1,0 +1,2063 @@
+{
+  "eccd6189af4b73fede2cb1a8d67cbb74": {
+    "symbol": "SPY",
+    "period": "1mo",
+    "interval": "1h",
+    "timestamp": "2025-12-01T20:48:13.033845",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "315ad1083a46b60a549534d144c2ddf1": {
+    "symbol": "VXX",
+    "period": "1mo",
+    "interval": "1h",
+    "timestamp": "2025-12-01T20:48:13.139673",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "bcb0bd771364d6575ede27edf9640c20": {
+    "symbol": "GLD",
+    "period": "1mo",
+    "interval": "1h",
+    "timestamp": "2025-12-01T20:48:13.235413",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "ed84333d0b140eee28e6e477ef986581": {
+    "symbol": "TLT",
+    "period": "1mo",
+    "interval": "1h",
+    "timestamp": "2025-12-01T20:48:13.337335",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "c953744a47b036b856f60f67cf8cb648": {
+    "symbol": "TSLA",
+    "period": "1mo",
+    "interval": "1h",
+    "timestamp": "2025-12-01T20:48:13.442086",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "a20b57cbfb1adb0c2fa2009c4c41c420": {
+    "symbol": "VXX",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:46.991431",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "0517b2941614de6c685e40219286ca31": {
+    "symbol": "VXX",
+    "period": "1mo",
+    "interval": "15m",
+    "timestamp": "2025-12-01T20:48:13.717366",
+    "rows": 508,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "9b7693c6dff6f8a2fb6ef1b6df2b3c84": {
+    "symbol": "VXX",
+    "period": "6mo",
+    "interval": "1d",
+    "timestamp": "2025-12-01T20:48:13.811833",
+    "rows": 127,
+    "start_date": "2025-06-02 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "ab9c858ad4a09bc87d1042a7e3302df4": {
+    "symbol": "VXX",
+    "period": "3mo",
+    "interval": "1d",
+    "timestamp": "2025-12-01T20:50:34.927966",
+    "rows": 64,
+    "start_date": "2025-09-02 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "db63e7f2685b0873116914984f959f0a": {
+    "symbol": "VXX",
+    "period": "1mo",
+    "interval": "60m",
+    "timestamp": "2025-12-01T20:50:35.031771",
+    "rows": 136,
+    "start_date": "2025-11-03 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "a524290a9485647871314bfed1eb3c04": {
+    "symbol": "VXX",
+    "period": "3mo",
+    "interval": "60m",
+    "timestamp": "2025-12-01T20:51:31.833429",
+    "rows": 444,
+    "start_date": "2025-09-02 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "f084fa0c49723d2b3b7cb731e19102c9": {
+    "symbol": "VXX",
+    "period": "60d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T20:51:32.027353",
+    "rows": 1548,
+    "start_date": "2025-09-08 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "78e501f7657004a2a7c8d2b73f2e6520": {
+    "symbol": "VXX",
+    "period": "59d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:00:47.327575",
+    "rows": 4564,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "5fad179f0656f60e24625accef02a687": {
+    "symbol": "VXX",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:00:47.523256",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "3b5a2269525acb6ff8d129636aaaacab": {
+    "symbol": "SPY",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:00:47.706837",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "36f0e6a009c63b97925e08d5675405f3": {
+    "symbol": "SVXY",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:00:47.880702",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "13212fb592bdd0b8c5fd0d2da5230bd7": {
+    "symbol": "VIXY",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:01.523808",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "ff7d280d60a42a9265880369f43b1eaa": {
+    "symbol": "UVXY",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:01.850149",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "0c3a71dd291d4b2967b9a8a291c4a973": {
+    "symbol": "TQQQ",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:02.189721",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "6d97acdd9cb4e126828e9093cec281bc": {
+    "symbol": "SQQQ",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:02.501104",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "ccca109eb97e56c12bf57ec10233c0b0": {
+    "symbol": "SPXL",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:02.805775",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "8adca4f0b25882076b372ce944f03d6c": {
+    "symbol": "SPXS",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:03.105406",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "92f40028013bfc85983d0fdadda2b7e0": {
+    "symbol": "TNA",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:03.409795",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "1fb60f055d9ab4426f31aa980396f88d": {
+    "symbol": "TZA",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:03.720769",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "1fa92b809d18d5648513eb86df6918b3": {
+    "symbol": "GLD",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:03.911118",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "4ceb57cff81e421b39c339d827b7c1f1": {
+    "symbol": "SLV",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:04.107721",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "a7216b52a43149fadd7bf3df55309e62": {
+    "symbol": "USO",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:04.321279",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "5c53e68e72589fe2eea72a1be1bf013c": {
+    "symbol": "UNG",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:04.519741",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "a68b2056cb61f6dc6def021c3dbb8bfe": {
+    "symbol": "DBA",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:04.702836",
+    "rows": 1509,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "03ec8ab4caf47edfac2fd9787dec2481": {
+    "symbol": "TLT",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:04.875081",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "3675ac2880b155b346351835e0e17a02": {
+    "symbol": "TBT",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:05.185217",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "385bd621298fa329fd002dcebc1235e9": {
+    "symbol": "IEF",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:05.356622",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "3537be01c975a5e5c95eb73e64fb20ea": {
+    "symbol": "SHY",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:05.539788",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "4b6c99b874cb22dabb00c786946c4ad5": {
+    "symbol": "AGG",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:05.704498",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "50b623690d3dfda3d2527d880eca9f78": {
+    "symbol": "XLF",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:05.913552",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "357dddf0ab2483ba38571aea6ce79437": {
+    "symbol": "XLE",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:06.302626",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "ce2a8af864fb26003a06d5dbdc189889": {
+    "symbol": "XLK",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:06.474998",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "217b88e8d97ff5f45666ece4fb07319d": {
+    "symbol": "XLV",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:06.665130",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "8697164096e4b5bff8ba672a1ba819c7": {
+    "symbol": "XLI",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:06.834701",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "9121dce2c53a4c30ba89743189e2d5ef": {
+    "symbol": "BITO",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:07.156208",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "b46aedacca3c497c75c90baec7f7d4ea": {
+    "symbol": "BITQ",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:07.469624",
+    "rows": 1520,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "af9321bff17c08b49793fd04c4de825a": {
+    "symbol": "TSLA",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:07.706541",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "913aa8f4ce8936068edc4936d229f1fc": {
+    "symbol": "AAPL",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:07.901444",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "b36c08006d5a58d119ea1b11c6360465": {
+    "symbol": "NVDA",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:08.096594",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "9d98ee79a2dcfb839a77db4a33752096": {
+    "symbol": "AMD",
+    "period": "59d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:12:08.661544",
+    "rows": 1522,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "fbfb2be78bc5717907052fa4e971c6fc": {
+    "symbol": "AMD",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.315805",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "689eb0141763881022f123e849ca84ef": {
+    "symbol": "SQQQ",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.419543",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "4e90295d336cc4c51f3db218284bd7a6": {
+    "symbol": "TSLA",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.526485",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "922f581864deb50d5d7e38f024cb01c5": {
+    "symbol": "VIXY",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.616791",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "6a33c9e530c04845bcf58436777270b5": {
+    "symbol": "NVDA",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.112153",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "917efa91cf1272ebc86b9ab981ccadb0": {
+    "symbol": "VXX",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.202733",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "6fe157cb9909ec6e0871a5823517309a": {
+    "symbol": "XLI",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.468932",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "1682913b1f50c6415cad7dab914cc134": {
+    "symbol": "SPY",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.606747",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "ce9daa696e1250e03fd798f49ba6f3cd": {
+    "symbol": "XLE",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.769170",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "3cd9edd301e4583c61a1cf983fd71714": {
+    "symbol": "XLF",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:08.906801",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "ee2a4a7af8d0f053df00f7b7ceb10828": {
+    "symbol": "TLT",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.092900",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "ea047140b8fc8a82bfd1c87e6bf61e41": {
+    "symbol": "UVXY",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.185177",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "73edc3a9fce8cb8a3ad4cae3f1f49e62": {
+    "symbol": "TQQQ",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.299121",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "efaa3ee839df3e04add7b4519488e258": {
+    "symbol": "GLD",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.396589",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "bb53bb681164c342900549b814458576": {
+    "symbol": "SLV",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.492851",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "a732956c4ec2ea3fb3dd81942257ed89": {
+    "symbol": "SPXL",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.605124",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "b3ffb6226f8fad4d4fc445807f2f7270": {
+    "symbol": "SPXS",
+    "period": "59d",
+    "interval": "1d",
+    "timestamp": "2025-12-01T21:19:09.709220",
+    "rows": 59,
+    "start_date": "2025-09-09 00:00:00-04:00",
+    "end_date": "2025-12-01 00:00:00-05:00"
+  },
+  "8423246c5e521df117d24bdf991847c4": {
+    "symbol": "VXX",
+    "period": "59d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:27:09.898768",
+    "rows": 409,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "ed421b2032e0f8d49fdd1d120438d39e": {
+    "symbol": "SQQQ",
+    "period": "59d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:27:12.430384",
+    "rows": 409,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "ac83ea1322fc89c3dc3cf24b88b8215e": {
+    "symbol": "SQQQ",
+    "period": "59d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:27:13.231005",
+    "rows": 4566,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "bcab0fd751adbaf33fe68942d5335ca8": {
+    "symbol": "AMD",
+    "period": "59d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:27:15.692180",
+    "rows": 409,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "54e6083f467d465a63d450ac1461434b": {
+    "symbol": "AMD",
+    "period": "59d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:27:15.982250",
+    "rows": 4566,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "94777cd5b48479ce33f8b6f22cdd92ab": {
+    "symbol": "VIXY",
+    "period": "59d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:27:18.505725",
+    "rows": 409,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "1a633161d4c64eba39967ef80ae2bfdb": {
+    "symbol": "VIXY",
+    "period": "59d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:27:18.837712",
+    "rows": 4564,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "8948331dfb284f322ded0bcd8630a36f": {
+    "symbol": "NVDA",
+    "period": "59d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:27:21.453473",
+    "rows": 409,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "bad7576f48e943aeba498c8b96befd10": {
+    "symbol": "NVDA",
+    "period": "59d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:27:21.752613",
+    "rows": 4566,
+    "start_date": "2025-09-09 09:30:00-04:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "747805f7f067063752885d86c09475ae": {
+    "symbol": "VXX",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:46.887541",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "d4780a0832378e2d1cf595bcab1409fa": {
+    "symbol": "SQQQ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:47.111354",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "0f5bcfc0a8de17062239284905b83841": {
+    "symbol": "AMD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T22:35:02.162960",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "508bba6837564a3771a4392c8048e95a": {
+    "symbol": "VIXY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:47.807675",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "68b0ece85d6e6c1ac0b5a5cc6266a8f6": {
+    "symbol": "NVDA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T22:35:02.292013",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "cb19aefbbdb5c7f193092114af3fe2b3": {
+    "symbol": "BTC",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:28.608457",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "2046b4dee95261a3ffc85f82998437b2": {
+    "symbol": "VXX",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:32.601959",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "c9ccaeba84ebb9cab87bcaee02d773e6": {
+    "symbol": "SQQQ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:32.740459",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "2787971e384748247b1b08b895c6abcd": {
+    "symbol": "SQQQ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:47.224241",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "4d9424b739eac2fb9b680739090d9275": {
+    "symbol": "AMD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:32.972911",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "b6c017078e3b570bc1af70eb7288f93a": {
+    "symbol": "AMD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:33.106646",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "b5ea772100240570bbd4df3d9041a857": {
+    "symbol": "NVDA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:33.225544",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "4d434c6c63572b4ce928b0392815953a": {
+    "symbol": "NVDA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:33.360065",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "f200166994bb7effd83d9001f3333415": {
+    "symbol": "TSLA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:33.479674",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "fb52c8384bde139124fce32230371486": {
+    "symbol": "TSLA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:33.616628",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "a9cf4a698a9f16e645b44015a83871eb": {
+    "symbol": "TSLA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:33.728208",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "6ab725229ea3ad61e185f926b780dafe": {
+    "symbol": "VIXY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:33.856236",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "60c1f154249a6d7d030de3a8eceec37a": {
+    "symbol": "VIXY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:47.913577",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "e6aea3632662ccbf9b5445184c6731ff": {
+    "symbol": "UVXY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:47.578545",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "cc3d8d400598254022004ecc358bd423": {
+    "symbol": "UVXY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:34.423426",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "b56a085dcd7e41061f5c8590626c3c38": {
+    "symbol": "UVXY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:47.685216",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "75c5d85fc55ac276182478e2d1dec34d": {
+    "symbol": "SPXS",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:34.730008",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "b9c33546423cc873b316900598527d75": {
+    "symbol": "SPXS",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:34.823448",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "26f591d7238d15b56442d77c15a86ef8": {
+    "symbol": "SPXS",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:34.936103",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "53c4408908b86f3fe0229c091b7a1440": {
+    "symbol": "SPY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:48.033671",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "db5392209ae3840bdb76219de6b552c8": {
+    "symbol": "SPY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:35.170560",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "0acdf8e478d96ed2e8321fb79cf54d27": {
+    "symbol": "SPY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:48.129884",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "62022f8c00a033b2f016756daa0413bf": {
+    "symbol": "QQQ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:48.247615",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "b13f4afcc58311be5de9bca15e619d93": {
+    "symbol": "QQQ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:35.561607",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "574cdd2b5f160a0219550948cd2362fa": {
+    "symbol": "QQQ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:48.348357",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "0f88a512bddd752484df9c6a83dd2176": {
+    "symbol": "TQQQ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:47.349026",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "1148cfce6a22af09c47ad765d546dab7": {
+    "symbol": "TQQQ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:35.914376",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "80b9cf09fe5e861c197beaf675902f9b": {
+    "symbol": "TQQQ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:47.455994",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "33728f6157c12a2961c77530260c7b4d": {
+    "symbol": "XLF",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:36.182505",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "0c761f3bf7f531a5042c73c65adfb729": {
+    "symbol": "XLF",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:36.279392",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "2329cc17ba2a9e98353bf08e093c2995": {
+    "symbol": "XLF",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:36.419364",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "bceb6fbf90e689ed50414569dcf4a37f": {
+    "symbol": "AAPL",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:36.542280",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "236aee3460001ded8b5673bb5891d466": {
+    "symbol": "AAPL",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:36.647233",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "8f817a2fcde7483a190c84d2aab89986": {
+    "symbol": "AAPL",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:36.821970",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "5e4c82921686661636ff118477482ff4": {
+    "symbol": "MSFT",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:36.955812",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "4d92a67606e162a1ffa70581b1c54765": {
+    "symbol": "MSFT",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:37.102998",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "11678ad4b44d50ec9b4a7d7728def839": {
+    "symbol": "MSFT",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:37.235669",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "1b8680e098d9b3d28c33abe8574e707c": {
+    "symbol": "META",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:42:37.367680",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "5f01b883f6ecb09e6ba5062081dde0b1": {
+    "symbol": "META",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:42:37.478644",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "56f71ce579bd0192169238a4d8005bdf": {
+    "symbol": "META",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:42:37.643112",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "7b0c1c778a6903a1061c884a928364ab": {
+    "symbol": "BTC",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:48:38.961527",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "4d4e9153da4ff9cfd5199eaebfc2b8d4": {
+    "symbol": "BTC",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:48:39.076001",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "7648a3c2b87a97418b6eb5b920e50249": {
+    "symbol": "ETH",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T21:48:41.071437",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "38dc102cb6cb03436b7455836ab9dfe0": {
+    "symbol": "ETH",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:48:41.167275",
+    "rows": 32,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "a96d58aae0d0c446c0ede795e792d622": {
+    "symbol": "ETH",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T21:48:41.315926",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "b9e2e98372901168360c67fdcbc2998f": {
+    "symbol": "BTC-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:43.775136",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "9ab2977943ba2e506cbaea64dc808bec": {
+    "symbol": "BTC-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:24.224441",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "a7f7155d380284f2087ef43b9d0f86c7": {
+    "symbol": "BTC-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:43.903447",
+    "rows": 994,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:50:00+00:00"
+  },
+  "bb8909f9527c0b06efe5c28a98551ab7": {
+    "symbol": "ETH-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:44.070986",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "932d74bd23b98c17588c634b02a7b9ff": {
+    "symbol": "ETH-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:24.572561",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "1e9c22aa09461f186f8ee82b2b4ac3ee": {
+    "symbol": "ETH-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:44.226304",
+    "rows": 994,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:50:00+00:00"
+  },
+  "962e4f5ec25b87ecafcdec2171693df5": {
+    "symbol": "BNB-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:44.378454",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "8be3498014678bdb19ebd10653963656": {
+    "symbol": "BNB-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:24.984174",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "86e2ca0191e6681e5007f0e5dd74e30d": {
+    "symbol": "BNB-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:44.484354",
+    "rows": 995,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:55:00+00:00"
+  },
+  "b1b27e61040ac446d3c7a09570ccb4dc": {
+    "symbol": "SOL-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:44.788934",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "9947be2fdf792c71eea3477add10bd43": {
+    "symbol": "SOL-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:25.430924",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "6fd9ad892d7cf6b76b99183a631ba005": {
+    "symbol": "SOL-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:45.209419",
+    "rows": 994,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:50:00+00:00"
+  },
+  "fa94a32afff00c8e75f9fa66ca270491": {
+    "symbol": "XRP-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:45.363339",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "a842a6b26ef20db0324ae01d63c2c6d7": {
+    "symbol": "XRP-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:25.878114",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "b482caadc3881820941278fc77eb0539": {
+    "symbol": "XRP-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:45.496146",
+    "rows": 995,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:55:00+00:00"
+  },
+  "71219f6aa84febeb4e7fa71721a56c34": {
+    "symbol": "ADA-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:45.643090",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "637cdb0c37e5ad97eed174cd406b0593": {
+    "symbol": "ADA-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:26.331787",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "ea5e71a2213dbedd7d19f27ccd716c4f": {
+    "symbol": "ADA-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:45.782682",
+    "rows": 995,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:55:00+00:00"
+  },
+  "868652ed01f9a66eb47da84d2d726e3e": {
+    "symbol": "DOGE-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:45.943276",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "c6cdf4910b71711829b84e3470ad5bd4": {
+    "symbol": "DOGE-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:26.802196",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "c4c926e44793afa0e1e43c6f569f73e1": {
+    "symbol": "DOGE-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:46.083364",
+    "rows": 995,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:55:00+00:00"
+  },
+  "b11b17e0107a15a0c0753bbcaf25c55f": {
+    "symbol": "AVAX-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:46.250790",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "891930cd36dd2a5d935a1c24929678cf": {
+    "symbol": "AVAX-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:27.258511",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "adb69f982f0fec6172dd6b76ae2fe576": {
+    "symbol": "AVAX-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:46.375586",
+    "rows": 994,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:50:00+00:00"
+  },
+  "68d7f4b040d4d039d675a5083002863a": {
+    "symbol": "DOT-USD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:46.575305",
+    "rows": 332,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:45:00+00:00"
+  },
+  "4b141241dd9f6c2e8db72744bfaed99e": {
+    "symbol": "DOT-USD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:27.682136",
+    "rows": 78,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 02:00:00+00:00"
+  },
+  "e465609f467df15951296208ac06eef9": {
+    "symbol": "DOT-USD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:46.725135",
+    "rows": 995,
+    "start_date": "2025-11-28 00:00:00+00:00",
+    "end_date": "2025-12-02 07:55:00+00:00"
+  },
+  "0f0520643c367c886a8086e1992edad8": {
+    "symbol": "IWM",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:48.463443",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "d3e047d54ef1e549d3ef25593c18246c": {
+    "symbol": "IWM",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:28.534970",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "b5f7553cb47cb9e93040af7fc71023ac": {
+    "symbol": "IWM",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:48.564406",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "067d2a93281ab45c2d9ce3672d7b64e5": {
+    "symbol": "DIA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:48.684801",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "8b8d435be7074054fe722a75eaa117e9": {
+    "symbol": "DIA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:28.919077",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "8f7c180c4f26a0ec74c3e771e1c52c68": {
+    "symbol": "DIA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:48.781633",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "078bc4d33132ac9d691c287e3e340968": {
+    "symbol": "ARKK",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T22:55:44.990543",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "51d4ee849788ad4863fc25b7cf48604e": {
+    "symbol": "ARKK",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:29.328290",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "58bc212dc55ab63590db32639739142a": {
+    "symbol": "ARKK",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T22:55:45.108538",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "0b8045817dbc95bf404f26fe4761eb1a": {
+    "symbol": "GLD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:50.045462",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "4a6235f7bdf187154725e44972be06ab": {
+    "symbol": "GLD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:29.633377",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "23c59dae427932e662030bc9cd58e2c2": {
+    "symbol": "GLD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:50.154996",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "31b697e12e00b8c1ad1a60245ff95e07": {
+    "symbol": "SLV",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:50.283653",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "b9f595057092cee553bb2e98b3c97dbf": {
+    "symbol": "SLV",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:29.973293",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "5f62e4bc881bfe2a58c1a45518d63cfb": {
+    "symbol": "SLV",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:50.384422",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "2552331d9e47d730adabf9788ba65b2d": {
+    "symbol": "USO",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:49.787645",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "2871c14e9d7f40c31cf080ec85189008": {
+    "symbol": "USO",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:30.290685",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "7c6018c29b5c2d85ee01f08008101364": {
+    "symbol": "USO",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:49.915031",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "9d05a7d719b0aa7f3e11f042e72fd5bf": {
+    "symbol": "UNG",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T22:55:45.924297",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "d929ceaac5f5831861c9f27d8e0dc947": {
+    "symbol": "UNG",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:30.626929",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "e776b4d3a0e3ff091f3777abc13070e8": {
+    "symbol": "UNG",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T22:55:46.022904",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "f4200147f8baf729f7ddb16691f1bc0d": {
+    "symbol": "DBA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-01T22:55:46.142410",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "028fc78b937011d049c237725c99fc14": {
+    "symbol": "DBA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:31.015162",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "8285fbcf4e85b62fd518fdbc0f9e5ec0": {
+    "symbol": "DBA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-01T22:55:46.246150",
+    "rows": 322,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "103cab5ae2378cdcf64135b07d634085": {
+    "symbol": "GDX",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:50.538913",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "1cf27f35088160c899a4f2e7ebd4be7e": {
+    "symbol": "GDX",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:31.373072",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "8366d14c32e15afe3ab7175f8a0e1836": {
+    "symbol": "GDX",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:50.639042",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "8cd9a8986e999ef374a1a84b5294643c": {
+    "symbol": "XLE",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:50.753399",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "f14870def2fe56a39afbb9bad3b026bc": {
+    "symbol": "XLE",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:31.734016",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "868136e51340911e5906d3e841842119": {
+    "symbol": "XLE",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:50.870158",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "ed8571873f8c1d2e3b6f35426579d6df": {
+    "symbol": "EWJ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:50.985968",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "860ffc035b256a6913ffd2ca73dbd0ae": {
+    "symbol": "EWJ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:32.042190",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "e661f7e3558e15bcb14ae4b98e5918a4": {
+    "symbol": "EWJ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:51.090583",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "85f821bcd231f7870407f3748b53d494": {
+    "symbol": "EWG",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:51.206481",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "c24561d5dba676cebc6b90d13a748fd1": {
+    "symbol": "EWG",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:32.356342",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "aee94492436930dfce4f2ef217ef8aca": {
+    "symbol": "EWG",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:51.305592",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "e55f269aea9c939650835b9bb5d97e83": {
+    "symbol": "EWU",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:51.429277",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "f1a475fa9854b36c8fb2ee51d9be4a13": {
+    "symbol": "EWU",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:32.842356",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "1e85f53b284cf2e02965d5dad702936b": {
+    "symbol": "EWU",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:51.525844",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "756d035490112fdf700de3ffa7b33f48": {
+    "symbol": "FXI",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:51.643242",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "67b546555b3fc4cf2dde21dd14c6c5cc": {
+    "symbol": "FXI",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:33.161821",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "6bea8081b49219035078a907ae875284": {
+    "symbol": "FXI",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:51.748358",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "ec2143208995a98f24b8f83f847e5bba": {
+    "symbol": "EWZ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:51.866083",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "e2872b598b5064f57c4ac145c57b0652": {
+    "symbol": "EWZ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:33.513149",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "7aedf06efb18f2674045f7ec7817f4d2": {
+    "symbol": "EWZ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:51.966684",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "e008ca0ac5e1b23ed0a1098e406736a4": {
+    "symbol": "EWY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:52.077786",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "bf6359f3c4537b739ef9b90466581270": {
+    "symbol": "EWY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:33.840394",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "bf4ee109d7cbb298c1d356b443a332aa": {
+    "symbol": "EWY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:52.184239",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "b889c8f1a49f000c65a833f7d0fb4be4": {
+    "symbol": "EWT",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:52.312307",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "744f09c48ccd681f9986e3dcac18925e": {
+    "symbol": "EWT",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:34.300283",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "be0e86cc40935a75bf5a7ea43afce9a4": {
+    "symbol": "EWT",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:52.407323",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "e477f4150755114357a73047da51eda8": {
+    "symbol": "INDA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:52.528691",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "4dd3b7dacca50b4d20c9fe0a4567d0f7": {
+    "symbol": "INDA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:35.052293",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "82f7896394e1b27f4e1f0ee4c6bcfa1a": {
+    "symbol": "INDA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:52.627303",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "03f43561e3f13e22c64d1c3b0c54c9fd": {
+    "symbol": "EWA",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:52.754263",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "41ab09ad00d31e85d3f6b262f22c08bc": {
+    "symbol": "EWA",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:35.357656",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "7917164d4c8b286acaac410fba6abad6": {
+    "symbol": "EWA",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:52.854843",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "684a258f0ef008fcfb80cf9d4ff13bbf": {
+    "symbol": "SVXY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:52.970762",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "73daafb29b1cb20a89bcfe9f9604d705": {
+    "symbol": "SVXY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:36.004009",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "9a5f496acfcd7f4279980884df3f2887": {
+    "symbol": "SVXY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:53.076607",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "14c929579d3353f726a6f840f4086a80": {
+    "symbol": "UVIX",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:53.201669",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "42b5adfce7a1cade9a986b2580758488": {
+    "symbol": "UVIX",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:36.436402",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "bf156757d9b40a2f104d622bd12a5c87": {
+    "symbol": "UVIX",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:53.321674",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "79cf8b9f91fdb015b1509058186fb064": {
+    "symbol": "VXZ",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:53.442973",
+    "rows": 49,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "ba6c2b36274efe394a52b0e399835df1": {
+    "symbol": "VXZ",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:36.756642",
+    "rows": 26,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "1afdbfb04e1723290db7ef0415af33b2": {
+    "symbol": "VXZ",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:53.543977",
+    "rows": 65,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "76775411eef77d2ad1318bf9969c10df": {
+    "symbol": "VIXM",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:53.638713",
+    "rows": 115,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "2cc0f473f8b365d62a558d933006e08c": {
+    "symbol": "VIXM",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T21:55:37.130837",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "82af4e2fb26c5c37ddcc2be4770a64d1": {
+    "symbol": "VIXM",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:53.738258",
+    "rows": 285,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "7895014808fd7e767d1145cbb945944f": {
+    "symbol": "SH",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:48.894248",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "1a1b5493084de66b63769a1a50ec7b68": {
+    "symbol": "SH",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T23:44:37.916676",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "fca5152d6eb530ade91b1035deb02c19": {
+    "symbol": "SH",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:48.996898",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "059968cdb43598c9342b32ecf27316e7": {
+    "symbol": "LQD",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:49.116050",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "38917340f2b1ee3e0d277d33357c0771": {
+    "symbol": "LQD",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T23:44:38.326151",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "74a406fa8967e11f08d59de49cdfcfac": {
+    "symbol": "LQD",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:49.224401",
+    "rows": 352,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "fbf4985dfa6368f6662e882c4e0c931e": {
+    "symbol": "FXY",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:49.334611",
+    "rows": 116,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "9c72c63790b0a6cbab8b9c6725806813": {
+    "symbol": "FXY",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T23:44:38.652231",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "535786136c8a7947a4ada6c5a9810225": {
+    "symbol": "FXY",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:49.434905",
+    "rows": 308,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  },
+  "236c8e73b7408a91d1895dc9d04e71e6": {
+    "symbol": "TLT",
+    "period": "5d",
+    "interval": "15m",
+    "timestamp": "2025-12-02T02:56:49.553534",
+    "rows": 118,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:45:00-05:00"
+  },
+  "d056504d0338f73063e1f40dbf1959b1": {
+    "symbol": "TLT",
+    "period": "5d",
+    "interval": "60m",
+    "timestamp": "2025-12-01T23:44:39.023432",
+    "rows": 31,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:30:00-05:00"
+  },
+  "5670de9c5c310d5ea8432478c6468f6f": {
+    "symbol": "TLT",
+    "period": "5d",
+    "interval": "5m",
+    "timestamp": "2025-12-02T02:56:49.669637",
+    "rows": 354,
+    "start_date": "2025-11-24 09:30:00-05:00",
+    "end_date": "2025-12-01 15:55:00-05:00"
+  }
+}

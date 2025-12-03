@@ -1,0 +1,87 @@
+{
+  "discovery_date": "2025-12-02 11:32:20",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 20,
+  "candidates": [
+    {
+      "symbol": "HOOD",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: Retail trading platform with meme stock DNA and extreme volatility. Highly correlated to retail trading sentiment and market volatility spikes. Recent weakness from IPO highs presents mean reversion setup.; deepseek: Retail trading platform with crypto exposure and meme stock characteristics. Directly benefits from volatility spikes in both equities and cryptocurrencies. Currently 70% below IPO price with improving fundamentals. Matches SOL-USD's retail-driven volatility pattern with dual equity/crypto exposure."
+    },
+    {
+      "symbol": "WFC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "CLSK",
+      "reason": "Swarm Consensus (4 votes): openrouter_llama: Clear Sky Inc. has meme stock potential like NOK and has exhibited high volatility. Its recent price weakness could be a mean reversion opportunity as retail interest remains high.; xai: CleanSpark (CLSK) is another pure-play Bitcoin miner with high volatility and boom/bust cycles akin to WULF and MARA, amplified by its focus on sustainable mining which attracts retail interest. It follows crypto cycles closely, with sharp trends and reversals similar to SOL-USD. After peaking in early 2024, it has shown recent weakness (down ~60% YTD as of mid-2024), creating mean reversion potential as efficiency improvements and lower energy costs could spark a reversal amid broader crypto sector rotation. Aligns with commodity/crypto exposure and volatility patterns; ideal for mean reversion trades targeting historical support levels."
+    },
+    {
+      "symbol": "RIG",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Oil services company with commodity cycle exposure similar to EQT. Weather-dependent, cyclical, and highly volatile. Recent energy sector weakness creates mean reversion setup with strong upside potential.; deepseek: Offshore driller with leveraged exposure to oil price cycles. Historically demonstrates 200-300% moves during energy bull markets. Trading at reasonable valuation despite strong oil prices. Matches EQT's commodity cycle pattern with added offshore drilling cyclicality."
+    },
+    {
+      "symbol": "JPM",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "UNG",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: United States Natural Gas Fund, a direct play on natural gas prices, mirroring EQT. Highly sensitive to weather patterns and supply/demand dynamics, leading to significant price volatility and mean reversion opportunities.; xai: United States Natural Gas Fund (UNG) tracks natural gas prices, directly paralleling EQT's commodity cycles and weather-driven volatility, with high sensitivity to seasonal demand and storage reports. Boom/bust patterns from supply gluts or shortages. Recent weakness (down ~30% in summer 2024 doldrums) positions it for mean reversion ahead of winter heating season rotations. Matches commodity exposure and volatility perfectly; strong mean reversion candidate based on historical seasonal bounces from oversold levels."
+    },
+    {
+      "symbol": "LCID",
+      "reason": "Swarm Consensus (2 votes): claude_haiku: EV manufacturer with extreme volatility and meme stock characteristics. Sector rotation plays (EV enthusiasm/skepticism) drive sharp reversals. High short interest and retail trading activity create mean reversion opportunities.; claude_opus: Lucid Motors combines EV speculation with meme characteristics. High retail interest, volatile earnings reactions, and boom/bust delivery cycles. Currently near multi-year lows after significant weakness, potential reversal candidate. Saudi backing provides floor."
+    },
+    {
+      "symbol": "BITF",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Bitcoin proxy through its Bitcoin investment fund and high volatility, making it a good candidate for crypto cycle trading.; claude_opus: Bitfarms is a smaller Bitcoin miner with even higher volatility than MARA/WULF. Canadian operations add currency exposure. Extreme beta to crypto cycles with tendency for overshooting. Lower liquidity creates sharper mean reversion opportunities."
+    },
+    {
+      "symbol": "COIN",
+      "reason": "Swarm Consensus (3 votes): openrouter_gemini: Cryptocurrency exchange, heavily tied to crypto market sentiment and volatility mirroring SOL-USD and MARA. Has boom/bust cycles dependent on crypto adoption and regulatory news. Recent price weakness provides mean reversion opportunity.; xai: Coinbase Global (COIN) provides direct crypto exchange exposure, exhibiting extreme volatility and strong trends with reversals like SOL-USD, while serving as a proxy for overall crypto adoption similar to MARA. High retail interest adds meme-like potential. Recent price pullback (down ~40% from March 2024 highs amid regulatory fears) suggests mean reversion opportunity as trading volumes rebound with Bitcoin's stabilization, fitting boom/bust cycles and sector rotation into fintech/crypto. Matches multiple goldmine traits; confidence boosted by its correlation to crypto indices for predictable reversals."
+    },
+    {
+      "symbol": "RIOT",
+      "reason": "Swarm Consensus (6 votes): openrouter_gemini: Another Bitcoin mining stock, similar to MARA and WULF. Heavily correlated to Bitcoin price movements and experiences boom/bust cycles based on crypto market sentiment. Recent price drops offer a mean reversion entry point.; openrouter_llama: As a crypto mining stock, RIOT follows crypto cycles similar to MARA, and its high volatility makes it prone to boom/bust cycles like WULF. Recent price weakness could reverse as crypto markets recover."
+    },
+    {
+      "symbol": "FCEL",
+      "reason": "Swarm Consensus (2 votes): openrouter_gemini: Fuel cell technology company in the alternative energy sector. Subject to boom/bust cycles based on renewable energy policies and technological advancements. High volatility makes it attractive for mean reversion.; deepseek: Clean energy stock with extreme volatility tied to policy cycles and hydrogen hype. Trading near all-time lows after 95%+ decline from 2021 peaks. Matches EQT's commodity/energy cycle pattern but with green energy thematic exposure. Oversold conditions with potential policy catalyst reversal."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Classic meme stock with high retail interest, similar to NOK. Experiences extreme volatility based on social media sentiment and short squeeze potential. Recent price declines offer a mean reversion play.; xai: AMC Entertainment is a classic meme stock with extreme retail-driven volatility and boom/bust cycles, similar to NOK's high interest profile but in entertainment sector rotation. It has meme potential from online communities, with recent price weakness (down ~70% YTD 2024 amid debt concerns) offering mean reversion setup as summer box office seasons historically trigger short squeezes. Aligns with volatility and retail interest goldmine patterns; mean reversion likely from oversold conditions and sector tailwinds like improving cinema attendance."
+    },
+    {
+      "symbol": "BB",
+      "reason": "Swarm Consensus (2 votes): deepseek: Former meme stock with cybersecurity/IoT exposure that periodically experiences retail-driven surges. Currently trading at multi-year lows with elevated short interest. Matches NOK's pattern of dormant meme potential with occasional explosive moves. Recent patent sale provides fundamental catalyst for revaluation.; claude_opus: BlackBerry retains meme stock DNA from 2021 alongside NOK. High retail interest persists with periodic squeeze attempts. Cybersecurity pivot narrative drives speculation. Low price point attracts retail volume, creating volatile reversals."
+    },
+    {
+      "symbol": "BAC",
+      "reason": "Multiple signals"
+    },
+    {
+      "symbol": "PLUG",
+      "reason": "Swarm Consensus (2 votes): deepseek: Hydrogen fuel cell company with history of massive boom/bust cycles tied to green energy hype. 90%+ below 2021 highs despite growing revenue. Matches FCEL's pattern but with larger market cap and institutional following. Government infrastructure spending provides potential reversal catalyst.; claude_opus: Hydrogen/clean energy with extreme boom/bust cycles. Meme-adjacent with strong retail following. Sector rotation between growth/value creates sharp reversals. Currently beaten down significantly from highs, setting up potential mean reversion."
+    },
+    {
+      "symbol": "GME",
+      "reason": "Swarm Consensus (4 votes): openrouter_gemini: Another prominent meme stock with a dedicated retail following like NOK and AMC. Price action is driven by social media trends and short interest. Subject to extreme volatility and boom/bust cycles.; openrouter_llama: GameStop has meme stock potential like NOK and has exhibited extreme price volatility. Its recent weakness could be a mean reversion opportunity as retail interest remains high."
+    },
+    {
+      "symbol": "BITO",
+      "reason": "Swarm Consensus (2 votes): xai: ProShares Bitcoin Strategy ETF (BITO) offers direct crypto exposure through futures, with extreme volatility and trends/reversals like SOL-USD, acting as a Bitcoin proxy similar to MARA. Boom/bust cycles tied to crypto sentiment. Recent pullback (down ~45% YTD 2024 tracking Bitcoin's dip) sets up mean reversion as ETF inflows accelerate with institutional adoption. Fits crypto and volatility goldmine traits; high confidence for reversion given its liquidity and correlation to spot Bitcoin recoveries.; ollama_gpt: ProShares Bitcoin Strategy ETF tracks Bitcoin futures, giving direct crypto exposure. It has a history of sharp swings tied to crypto cycles and recently dipped 15% after a 20% rally, aligning with the mean\u2011reversion pattern seen in MARA and SOL\u2011USD."
+    },
+    {
+      "symbol": "AR",
+      "reason": "Swarm Consensus (2 votes): openrouter_llama: Antero Resources is a natural gas company, similar to EQT, and is subject to commodity cycles and weather-driven volatility. Its recent price weakness could reverse as energy markets fluctuate.; claude_opus: Antero Resources mirrors EQT as a natural gas pure-play. Weather-driven volatility, commodity cycle exposure, and Appalachian Basin operations. Tends to overshoot on natural gas price swings, creating mean reversion setups. Sector rotation between energy names amplifies moves."
+    },
+    {
+      "symbol": "FCX",
+      "reason": "Swarm Consensus (2 votes): xai: Freeport-McMoRan (FCX) is a major copper producer with commodity cycles and weather/economic-driven volatility, comparable to EQT's natural gas patterns but tied to EV/green energy demand. High volatility from global supply disruptions, with recent weakness (down ~25% from early 2024 highs due to China slowdown) positioning it for mean reversion as copper prices stabilize and rotate into industrial metals. Matches commodity exposure and boom/bust traits; strong candidate given historical rebounds during sector rotations to cyclicals.; claude_haiku: Copper mining with commodity cycle exposure. Exhibits boom/bust patterns tied to economic cycles and China demand. Recent weakness from highs and strong technical support levels suggest mean reversion potential."
+    },
+    {
+      "symbol": "C",
+      "reason": "Multiple signals"
+    }
+  ]
+}

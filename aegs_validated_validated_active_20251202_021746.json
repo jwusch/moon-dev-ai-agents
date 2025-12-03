@@ -1,0 +1,480 @@
+{
+  "discovery_date": "2025-12-02 02:17:46",
+  "agent": "Symbol Integration - validated_active",
+  "candidates_found": 43,
+  "candidates": [
+    {
+      "symbol": "ACB",
+      "reason": "Validated active symbol, $4.53",
+      "metrics": {
+        "price": 4.53000020980835,
+        "volatility": 0.03187277340432187,
+        "volume": 1010840.0,
+        "momentum": -0.07172129025096681,
+        "rsi": 45.13889049858324
+      }
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Validated active symbol, $2.35",
+      "metrics": {
+        "price": 2.3499999046325684,
+        "volatility": 0.03779360454668444,
+        "volume": 19365705.0,
+        "momentum": -0.08914729685073075,
+        "rsi": 44.210521032276844
+      }
+    },
+    {
+      "symbol": "ASTS",
+      "reason": "Validated active symbol, $52.61",
+      "metrics": {
+        "price": 52.61000061035156,
+        "volatility": 0.04846707870065896,
+        "volume": 9388735.0,
+        "momentum": -0.26052423792645174,
+        "rsi": 23.475114793075633
+      }
+    },
+    {
+      "symbol": "ATAI",
+      "reason": "Validated active symbol, $3.84",
+      "metrics": {
+        "price": 3.8399999141693115,
+        "volatility": 0.0402863423985348,
+        "volume": 4780090.0,
+        "momentum": -0.2822429939028124,
+        "rsi": 30.534347116053652
+      }
+    },
+    {
+      "symbol": "BB",
+      "reason": "Validated active symbol, $3.98",
+      "metrics": {
+        "price": 3.9800000190734863,
+        "volatility": 0.020311079773801442,
+        "volume": 8389220.0,
+        "momentum": -0.1708333623078123,
+        "rsi": 22.222231278954084
+      }
+    },
+    {
+      "symbol": "BBBY",
+      "reason": "Validated active symbol, $5.82",
+      "metrics": {
+        "price": 5.820000171661377,
+        "volatility": 0.036094029273924626,
+        "volume": 1864235.0,
+        "momentum": -0.23722148304478333,
+        "rsi": 23.90437111702863
+      }
+    },
+    {
+      "symbol": "BKSY",
+      "reason": "Validated active symbol, $16.57",
+      "metrics": {
+        "price": 16.56999969482422,
+        "volatility": 0.057896644877302235,
+        "volume": 2022890.0,
+        "momentum": -0.1885406644018225,
+        "rsi": 49.94582757650163
+      }
+    },
+    {
+      "symbol": "BNGO",
+      "reason": "Validated active symbol, $1.72",
+      "metrics": {
+        "price": 1.7200000286102295,
+        "volatility": 0.04095093769916032,
+        "volume": 312955.0,
+        "momentum": 0.0,
+        "rsi": 56.09756381223835
+      }
+    },
+    {
+      "symbol": "BTBT",
+      "reason": "Validated active symbol, $2.25",
+      "metrics": {
+        "price": 2.25,
+        "volatility": 0.05348741624621811,
+        "volume": 38527345.0,
+        "momentum": -0.3421052778343228,
+        "rsi": 26.34731436549984
+      }
+    },
+    {
+      "symbol": "BTCM",
+      "reason": "Validated active symbol, $1.38",
+      "metrics": {
+        "price": 1.3799999952316284,
+        "volatility": 0.049203779597619235,
+        "volume": 130589.85,
+        "momentum": -0.3551402207555395,
+        "rsi": 22.44898207432918
+      }
+    },
+    {
+      "symbol": "CENN",
+      "reason": "Validated active symbol, $0.16",
+      "metrics": {
+        "price": 0.15530000627040863,
+        "volatility": 0.04908950737845036,
+        "volume": 3553900.0,
+        "momentum": -0.21565652973778848,
+        "rsi": 42.112129367695495
+      }
+    },
+    {
+      "symbol": "CGC",
+      "reason": "Validated active symbol, $1.13",
+      "metrics": {
+        "price": 1.1299999952316284,
+        "volatility": 0.05005920122211906,
+        "volume": 21735800.0,
+        "momentum": -0.05833337472544611,
+        "rsi": 37.931041570108896
+      }
+    },
+    {
+      "symbol": "CLOV",
+      "reason": "Validated active symbol, $2.50",
+      "metrics": {
+        "price": 2.5,
+        "volatility": 0.052779544779202346,
+        "volume": 7709815.0,
+        "momentum": -0.32065218623678243,
+        "rsi": 43.589747508524994
+      }
+    },
+    {
+      "symbol": "CMPS",
+      "reason": "Validated active symbol, $5.24",
+      "metrics": {
+        "price": 5.239999771118164,
+        "volatility": 0.06006441358312739,
+        "volume": 2108465.0,
+        "momentum": -0.11932774132889631,
+        "rsi": 37.1794921955237
+      }
+    },
+    {
+      "symbol": "CRON",
+      "reason": "Validated active symbol, $2.49",
+      "metrics": {
+        "price": 2.490000009536743,
+        "volatility": 0.020179885494052353,
+        "volume": 1254110.0,
+        "momentum": -0.01968502089260163,
+        "rsi": 43.63636915348826
+      }
+    },
+    {
+      "symbol": "CYBN",
+      "reason": "Validated active symbol, $6.00",
+      "metrics": {
+        "price": 6.0,
+        "volatility": 0.04031131515986269,
+        "volume": 728585.0,
+        "momentum": -0.10846954190261426,
+        "rsi": 42.24137700695504
+      }
+    },
+    {
+      "symbol": "EBON",
+      "reason": "Validated active symbol, $3.58",
+      "metrics": {
+        "price": 3.5799999237060547,
+        "volatility": 0.04407403777079977,
+        "volume": 4305.0,
+        "momentum": -0.16550117586488147,
+        "rsi": 34.66092340605398
+      }
+    },
+    {
+      "symbol": "EVGO",
+      "reason": "Validated active symbol, $3.10",
+      "metrics": {
+        "price": 3.0999999046325684,
+        "volatility": 0.0397989541246754,
+        "volume": 4174990.0,
+        "momentum": -0.2071611671144078,
+        "rsi": 36.06557056680291
+      }
+    },
+    {
+      "symbol": "GME",
+      "reason": "Validated active symbol, $22.79",
+      "metrics": {
+        "price": 22.790000915527344,
+        "volatility": 0.018112105138919414,
+        "volume": 5496190.0,
+        "momentum": 0.030755327291009462,
+        "rsi": 64.77274155813924
+      }
+    },
+    {
+      "symbol": "GOEV",
+      "reason": "Validated active symbol, $0.37",
+      "metrics": {
+        "price": 0.3700000047683716,
+        "volatility": 0.0,
+        "volume": 0.0,
+        "momentum": 0.0,
+        "rsi": NaN
+      }
+    },
+    {
+      "symbol": "HOOD",
+      "reason": "Validated active symbol, $123.24",
+      "metrics": {
+        "price": 123.23999786376953,
+        "volatility": 0.05836098278315251,
+        "volume": 31582775.0,
+        "momentum": -0.1620886841888218,
+        "rsi": 40.83526566622364
+      }
+    },
+    {
+      "symbol": "IONQ",
+      "reason": "Validated active symbol, $47.12",
+      "metrics": {
+        "price": 47.119998931884766,
+        "volatility": 0.06374781682689647,
+        "volume": 24540165.0,
+        "momentum": -0.19315072430256036,
+        "rsi": 37.350503257057305
+      }
+    },
+    {
+      "symbol": "KOSS",
+      "reason": "Validated active symbol, $4.85",
+      "metrics": {
+        "price": 4.849999904632568,
+        "volatility": 0.03995583932234344,
+        "volume": 27150.0,
+        "momentum": 0.01464428697734834,
+        "rsi": 41.04476470037717
+      }
+    },
+    {
+      "symbol": "LCID",
+      "reason": "Validated active symbol, $12.58",
+      "metrics": {
+        "price": 12.579999923706055,
+        "volatility": 0.04693741074448147,
+        "volume": 9785225.0,
+        "momentum": -0.243990361470089,
+        "rsi": 23.03634225568443
+      }
+    },
+    {
+      "symbol": "LGHL",
+      "reason": "Validated active symbol, $7.24",
+      "metrics": {
+        "price": 7.239999771118164,
+        "volatility": 0.1353878404840476,
+        "volume": 16009.9,
+        "momentum": -0.3208255276968139,
+        "rsi": 36.78006362003443
+      }
+    },
+    {
+      "symbol": "MNMD",
+      "reason": "Validated active symbol, $12.26",
+      "metrics": {
+        "price": 12.260000228881836,
+        "volatility": 0.038017780797120815,
+        "volume": 1707845.0,
+        "momentum": -0.002440987230619014,
+        "rsi": 55.0695879328082
+      }
+    },
+    {
+      "symbol": "MVST",
+      "reason": "Validated active symbol, $3.40",
+      "metrics": {
+        "price": 3.4000000953674316,
+        "volatility": 0.04663767563168111,
+        "volume": 5902985.0,
+        "momentum": -0.37037036382939437,
+        "rsi": 9.278353682891009
+      }
+    },
+    {
+      "symbol": "NOK",
+      "reason": "Validated active symbol, $6.12",
+      "metrics": {
+        "price": 6.119999885559082,
+        "volatility": 0.02731528073068587,
+        "volume": 40645780.0,
+        "momentum": -0.14405597147833588,
+        "rsi": 24.242428621093936
+      }
+    },
+    {
+      "symbol": "OGI",
+      "reason": "Validated active symbol, $1.57",
+      "metrics": {
+        "price": 1.5700000524520874,
+        "volatility": 0.03496253212894134,
+        "volume": 529675.0,
+        "momentum": 0.0,
+        "rsi": 42.85714589819777
+      }
+    },
+    {
+      "symbol": "OPEN",
+      "reason": "Validated active symbol, $7.14",
+      "metrics": {
+        "price": 7.139999866485596,
+        "volatility": 0.08979933541283948,
+        "volume": 145978195.0,
+        "momentum": -0.05928857405211811,
+        "rsi": 43.95924437908313
+      }
+    },
+    {
+      "symbol": "PL",
+      "reason": "Validated active symbol, $11.70",
+      "metrics": {
+        "price": 11.699999809265137,
+        "volatility": 0.038372176004037396,
+        "volume": 7615375.0,
+        "momentum": -0.11296435318573868,
+        "rsi": 30.57469969114095
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "reason": "Validated active symbol, $167.49",
+      "metrics": {
+        "price": 167.49000549316406,
+        "volatility": 0.04097797843143384,
+        "volume": 61178275.0,
+        "momentum": -0.19157249051904632,
+        "rsi": 27.1118031855749
+      }
+    },
+    {
+      "symbol": "PSFE",
+      "reason": "Validated active symbol, $7.94",
+      "metrics": {
+        "price": 7.940000057220459,
+        "volatility": 0.07421899302036697,
+        "volume": 778370.0,
+        "momentum": -0.25724973162854303,
+        "rsi": 31.825526259980748
+      }
+    },
+    {
+      "symbol": "QS",
+      "reason": "Validated active symbol, $11.73",
+      "metrics": {
+        "price": 11.729999542236328,
+        "volatility": 0.04594357229503584,
+        "volume": 27999865.0,
+        "momentum": -0.27637259687001836,
+        "rsi": 12.643681400851577
+      }
+    },
+    {
+      "symbol": "RIVN",
+      "reason": "Validated active symbol, $17.16",
+      "metrics": {
+        "price": 17.15999984741211,
+        "volatility": 0.06866694016486866,
+        "volume": 62886040.0,
+        "momentum": 0.30098562496796083,
+        "rsi": 54.86381260388679
+      }
+    },
+    {
+      "symbol": "RKLB",
+      "reason": "Validated active symbol, $40.37",
+      "metrics": {
+        "price": 40.369998931884766,
+        "volatility": 0.04786064922934638,
+        "volume": 18236015.0,
+        "momentum": -0.3418650337225083,
+        "rsi": 21.809285662987833
+      }
+    },
+    {
+      "symbol": "SNDL",
+      "reason": "Validated active symbol, $1.68",
+      "metrics": {
+        "price": 1.6799999475479126,
+        "volatility": 0.0487453125416793,
+        "volume": 2414395.0,
+        "momentum": -0.23287675632293675,
+        "rsi": 34.426222139709395
+      }
+    },
+    {
+      "symbol": "SOFI",
+      "reason": "Validated active symbol, $29.03",
+      "metrics": {
+        "price": 29.030000686645508,
+        "volatility": 0.054877389191395905,
+        "volume": 74851525.0,
+        "momentum": -0.0522363211870571,
+        "rsi": 45.10693208365488
+      }
+    },
+    {
+      "symbol": "SOS",
+      "reason": "Validated active symbol, $1.23",
+      "metrics": {
+        "price": 1.2300000190734863,
+        "volatility": 0.07733324581100787,
+        "volume": 44195.0,
+        "momentum": -0.2558983537795655,
+        "rsi": 38.32179670314032
+      }
+    },
+    {
+      "symbol": "STEM",
+      "reason": "Validated active symbol, $16.70",
+      "metrics": {
+        "price": 16.700000762939453,
+        "volatility": 0.06344026485403839,
+        "volume": 226240.0,
+        "momentum": -0.12058973332172251,
+        "rsi": 40.57416493256107
+      }
+    },
+    {
+      "symbol": "TALK",
+      "reason": "Validated active symbol, $3.13",
+      "metrics": {
+        "price": 3.130000114440918,
+        "volatility": 0.031555132527672246,
+        "volume": 1355260.0,
+        "momentum": -0.045731664102818884,
+        "rsi": 39.669421813289496
+      }
+    },
+    {
+      "symbol": "TLRY",
+      "reason": "Validated active symbol, $7.83",
+      "metrics": {
+        "price": 7.831999778747559,
+        "volatility": 0.06393561439928734,
+        "volume": 4397542.0,
+        "momentum": -0.40213743887930603,
+        "rsi": 16.599035127404278
+      }
+    },
+    {
+      "symbol": "WKHS",
+      "reason": "Validated active symbol, $0.84",
+      "metrics": {
+        "price": 0.8420000076293945,
+        "volatility": 0.1273008822284401,
+        "volume": 4085185.0,
+        "momentum": -0.09169361360333617,
+        "rsi": 52.84474469903856
+      }
+    }
+  ]
+}

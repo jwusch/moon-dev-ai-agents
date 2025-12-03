@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "MRNA",
+    "excess_return": 99.9,
+    "win_rate": 52.9,
+    "category": "Recovery Play"
+  },
+  {
+    "symbol": "RIVN",
+    "excess_return": 67.9,
+    "win_rate": 55.0,
+    "category": "High Volatility"
+  },
+  {
+    "symbol": "MSTR",
+    "excess_return": -275.5,
+    "win_rate": 53.4,
+    "category": "Cryptocurrency"
+  },
+  {
+    "symbol": "JPM",
+    "excess_return": -10858.2,
+    "win_rate": 62.0,
+    "category": "Unknown"
+  },
+  {
+    "symbol": "WFC",
+    "excess_return": -48753.5,
+    "win_rate": 45.1,
+    "category": "Unknown"
+  }
+]

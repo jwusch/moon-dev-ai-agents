@@ -1,0 +1,31 @@
+{
+  "discovery_date": "2025-12-02 09:07:23",
+  "agent": "AEGS Discovery Agent",
+  "candidates_found": 6,
+  "candidates": [
+    {
+      "symbol": "SLV",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Commodity exposure (silver), commodity cycles, volatility; ollama_gpt: Silver ETF that exhibits high commodity\u2011related volatility. After a 10% pullback from a recent rally, the price is near $20, a key support area. This fits the \"Commodity cycles, weather\u2011driven volatility\" pattern and provides a clear mean\u2011reversion opportunity."
+    },
+    {
+      "symbol": "NIO",
+      "reason": "Swarm Consensus (2 votes): ollama_llama: Commodity exposure (electric vehicles), commodity cycles, recent price weakness that could reverse; ollama_gpt: Electric\u2011vehicle maker with a strong retail following and meme\u2011stock flair. It has experienced a ~15% decline after a recent rally and is trading near $25, a level that has historically held as support. The combination of sector rotation into EVs, high volatility, and recent price weakness makes it a solid mean\u2011reversion play, matching the \"Sector rotation\" and \"Meme stock potential\" patterns."
+    },
+    {
+      "symbol": "HUT",
+      "reason": "Swarm Consensus (2 votes): xai: Hut 8 Mining (HUT) is a crypto mining firm with high volatility and boom/bust cycles identical to WULF and MARA, acting as a Bitcoin proxy. It has sharp reversals tied to crypto trends like SOL-USD. Following recent weakness from merger uncertainties and crypto winter, it offers mean reversion opportunity as hash rates recover. Aligns with goldmine patterns in mining/crypto exposure and retail interest; sector rotation into undervalued assets could spark a rally, with confidence boosted by past 50%+ mean reversion plays.; groq: HUT is a Bitcoin mining stock with high volatility and crypto cycle exposure, similar to MARA. Recent price weakness in the crypto market could reverse, making HUT a potential mean reversion candidate."
+    },
+    {
+      "symbol": "BITO",
+      "reason": "Swarm Consensus (2 votes): xai: ProShares Bitcoin Strategy ETF (BITO) offers crypto exposure through Bitcoin futures, mirroring the volatility and cycles of SOL-USD and MARA. It follows crypto boom/bust trends with amplified swings due to futures contango. Recent price weakness post-2024 highs creates an oversold setup for mean reversion as Bitcoin approaches key support. Matches goldmine patterns in cryptocurrency volatility and strong trends/reversals; sector rotation back into risk assets could drive a bounce, supported by ETF inflows and historical 40%+ recoveries.; ollama_gpt: Bitcoin ETF offering direct crypto exposure with the same boom/bust dynamics as the underlying asset. The fund fell ~12% after a Bitcoin rally and is now near $40, a level that historically acts as a support. This aligns with the \"Cryptocurrency, extreme volatility, strong trends with sharp reversals\" pattern, making it a potential mean\u2011reversion candidate."
+    },
+    {
+      "symbol": "PLUG",
+      "reason": "Swarm Consensus (3 votes): claude_haiku: Plug Power - hydrogen fuel cell play with dual commodity (energy) and growth stock volatility. Retail interest, sector rotation potential, sharp reversals on news, recent weakness from rate concerns.; claude_opus: Hydrogen/clean energy play with extreme boom/bust cycles tied to green energy sentiment and policy shifts. High retail ownership, volatile earnings reactions, and sector rotation sensitivity. Matches pattern of high volatility with sharp reversals when sentiment shifts."
+    },
+    {
+      "symbol": "AMC",
+      "reason": "Swarm Consensus (7 votes): openrouter_gemini: Like GME and NOK, AMC is a meme stock with high retail interest and significant volatility. The stock's movements are often detached from fundamentals, creating opportunities for mean reversion trades when sentiment shifts.; xai: AMC Entertainment embodies meme stock potential like NOK, with high retail interest driving explosive volatility and boom/bust cycles. It has experienced sharp reversals post-squeeze events, similar to SOL-USD's trends. Recent price weakness from debt concerns and streaming competition creates oversold conditions ripe for mean reversion, especially if retail sentiment reignites via social media. Matches goldmine patterns in meme-driven volatility and sector rotation opportunities in entertainment/consumer discretionary; historical patterns show 30-50% mean reversion rallies after dips."
+    }
+  ]
+}
