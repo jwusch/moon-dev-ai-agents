@@ -1,0 +1,57 @@
+{
+  "timestamp": "2025-12-03T14:51:48.550558",
+  "summary": {
+    "total_positions": 7,
+    "open_positions": 2,
+    "closed_positions": 5,
+    "total_realized_pnl": 52.0,
+    "total_unrealized_pnl": 61.514000892639096,
+    "total_pnl": 113.5140008926391
+  },
+  "performance_metrics": {
+    "win_rate": 0.2,
+    "profit_factor": Infinity,
+    "expectancy": 10.4,
+    "avg_win": 52.0,
+    "avg_loss": 0,
+    "avg_win_pct": 7.24,
+    "avg_loss_pct": 0,
+    "sharpe_ratio": NaN,
+    "max_drawdown": 0.0,
+    "volatility": NaN
+  },
+  "position_analysis": {
+    "avg_position_size": 609.3333333333334,
+    "max_position_size": 896.0,
+    "min_position_size": 214.0,
+    "avg_holding_period_days": 1.0,
+    "max_holding_period_days": "1",
+    "min_holding_period_days": "1"
+  },
+  "symbol_performance": {
+    "EDIT": {
+      "total_trades": 1,
+      "closed_trades": 0,
+      "total_pnl": 0,
+      "win_rate": 0,
+      "avg_return_pct": 0,
+      "trade_count": 0
+    },
+    "LCID": {
+      "total_trades": 1,
+      "closed_trades": 0,
+      "total_pnl": 0,
+      "win_rate": 0,
+      "avg_return_pct": 0,
+      "trade_count": 0
+    },
+    "TLRY": {
+      "total_trades": 5,
+      "closed_trades": 5,
+      "total_pnl": 52.0,
+      "win_rate": 0.2,
+      "avg_return_pct": 7.24,
+      "trade_count": 5
+    }
+  }
+}

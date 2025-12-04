@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-12-03T10:46:14.636462",
+  "symbol": "TLRY",
+  "metrics": {
+    "current_price": 7.420000076293945,
+    "pnl_pct": 4.013513565063477,
+    "pnl_dollar": 5940.000076293945,
+    "days_held": 372
+  },
+  "hurst_analysis": null,
+  "exit_signals": [
+    {
+      "type": "PROFIT_TARGET",
+      "urgency": "HIGH",
+      "reason": "Reached 401.4% profit target",
+      "action": "SELL_75%"
+    }
+  ],
+  "alert_count": 1,
+  "max_urgency": "HIGH"
+}

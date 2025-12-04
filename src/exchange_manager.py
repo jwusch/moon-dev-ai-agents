@@ -58,8 +58,23 @@ class ExchangeManager:
             except Exception as e:
                 cprint(f"❌ Failed to initialize Solana: {str(e)}", "red")
                 raise
+                
+        elif self.exchange.lower() == 'robinhood':
+            try:
+                from src import nice_funcs_robinhood as rh
+                
+                # Robinhood initialization happens in nice_funcs_robinhood
+                # when functions are called (lazy initialization)
+                self.rh = rh
+                
+                cprint(f"✅ Initialized Robinhood exchange manager", "green")
+                cprint(f"   Note: Authentication happens on first use", "cyan")
+                
+            except Exception as e:
+                cprint(f"❌ Failed to initialize Robinhood: {str(e)}", "red")
+                raise
         else:
-            raise ValueError(f"Unknown exchange: {self.exchange}")
+            raise ValueError(f"Unknown exchange: {self.exchange}. Valid options: solana, hyperliquid, robinhood")
 
     def market_buy(self, symbol_or_token, usd_amount):
         """
@@ -74,6 +89,8 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.market_buy(symbol_or_token, usd_amount, self.account)
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.market_buy(symbol_or_token, usd_amount)
         else:
             return self.solana.market_buy(symbol_or_token, usd_amount)
 
@@ -91,6 +108,9 @@ class ExchangeManager:
         if self.exchange.lower() == 'hyperliquid':
             # HyperLiquid expects USD amount
             return self.hl.market_sell(symbol_or_token, usd_amount_or_percent, self.account)
+        elif self.exchange.lower() == 'robinhood':
+            # Robinhood expects percentage (0-100)
+            return self.rh.market_sell(symbol_or_token, usd_amount_or_percent)
         else:
             # Solana expects percentage (0-100)
             return self.solana.market_sell(symbol_or_token, usd_amount_or_percent)
@@ -127,6 +147,10 @@ class ExchangeManager:
                     'is_long': True,
                     'raw_data': None
                 }
+        elif self.exchange.lower() == 'robinhood':
+            # Get Robinhood position
+            position_data = self.rh.get_position(symbol_or_token)
+            return position_data  # Already in normalized format
         else:
             # Get Solana position
             try:
@@ -178,6 +202,9 @@ class ExchangeManager:
                 price = self.hl.get_current_price(symbol_or_token)
                 return abs(position['size']) * price
             return 0
+        elif self.exchange.lower() == 'robinhood':
+            position = self.get_position(symbol_or_token)
+            return position.get('market_value', 0) if position['has_position'] else 0
         else:
             return self.solana.get_token_balance_usd(symbol_or_token)
 
@@ -193,6 +220,9 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.kill_switch(symbol_or_token, self.account)
+        elif self.exchange.lower() == 'robinhood':
+            # Use 100% market sell for Robinhood
+            return self.rh.market_sell(symbol_or_token, 100)
         else:
             # Use chunk_kill for Solana
             from src.config import max_usd_order_size, slippage
@@ -208,6 +238,9 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             # For HyperLiquid, use market_buy directly
+            return self.market_buy(symbol_or_token, usd_amount)
+        elif self.exchange.lower() == 'robinhood':
+            # For Robinhood, use market_buy directly
             return self.market_buy(symbol_or_token, usd_amount)
         else:
             # For Solana, use the ai_entry function
@@ -225,6 +258,9 @@ class ExchangeManager:
         if self.exchange.lower() == 'hyperliquid':
             # HyperLiquid doesn't need chunking, just close the position
             return self.hl.kill_switch(symbol_or_token, self.account)
+        elif self.exchange.lower() == 'robinhood':
+            # Robinhood doesn't need chunking, just close the position
+            return self.rh.kill_switch(symbol_or_token)
         else:
             from src.config import max_usd_order_size, slippage as default_slippage
             max_order_size = max_order_size or max_usd_order_size
@@ -240,6 +276,9 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.get_current_price(symbol_or_token)
+        elif self.exchange.lower() == 'robinhood':
+            adapter = self.rh._get_adapter()
+            return adapter.get_price(symbol_or_token)
         else:
             return self.solana.token_price(symbol_or_token)
 
@@ -252,6 +291,8 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.get_account_value(self.account)
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.get_account_value()
         else:
             # For Solana, sum up all token values
             from src.config import address
@@ -271,6 +312,8 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.get_balance(self.account)
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.get_balance()
         else:
             from src.config import USDC_ADDRESS
             return self.solana.get_token_balance_usd(USDC_ADDRESS)
@@ -284,6 +327,8 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.get_all_positions(self.account)
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.get_all_positions()
         else:
             from src.config import address, EXCLUDED_TOKENS
             positions = self.solana.fetch_wallet_holdings_og(address)
@@ -313,6 +358,8 @@ class ExchangeManager:
         """
         if self.exchange.lower() == 'hyperliquid':
             return self.hl.set_leverage(symbol, leverage, self.account)
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.set_leverage(symbol, leverage)
         else:
             cprint(f"⚠️ Leverage not applicable for Solana spot trading", "yellow")
             return None
@@ -334,6 +381,8 @@ class ExchangeManager:
             # For now, return empty dataframe
             cprint(f"⚠️ OHLCV data not yet implemented for HyperLiquid", "yellow")
             return pd.DataFrame()
+        elif self.exchange.lower() == 'robinhood':
+            return self.rh.get_ohlcv_data(symbol_or_token, timeframe, days_back)
         else:
             return self.solana.get_data(symbol_or_token, days_back, timeframe)
 
@@ -354,6 +403,10 @@ class ExchangeManager:
                 df = pd.DataFrame(positions)
                 return df
             return pd.DataFrame()
+        elif self.exchange.lower() == 'robinhood':
+            # Get Robinhood positions as DataFrame
+            adapter = self.rh._get_adapter()
+            return adapter.get_positions()
         else:
             from src.config import address
             wallet_address = wallet_address or address
@@ -374,7 +427,7 @@ def create_exchange_manager(exchange=None):
     Create and return an ExchangeManager instance
 
     Args:
-        exchange: Optional exchange override ('solana' or 'hyperliquid')
+        exchange: Optional exchange override ('solana', 'hyperliquid', or 'robinhood')
 
     Returns:
         ExchangeManager instance

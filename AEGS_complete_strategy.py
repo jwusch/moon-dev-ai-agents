@@ -90,6 +90,10 @@ class AlphaEnsembleGoldmineStrategy:
     def calculate_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
         """Calculate all technical indicators needed for ensemble signals"""
         
+        # Fix multi-level column issue if present
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        
         # RSI (14-period)
         delta = df['Close'].diff()
         gain = (delta.where(delta > 0, 0)).rolling(14).mean()

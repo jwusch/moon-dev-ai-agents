@@ -2,114 +2,114 @@
   "backtest_history": {
     "MSTR": {
       "first_tested": "2025-12-02",
-      "test_count": 285,
+      "test_count": 331,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "JPM": {
       "first_tested": "2025-12-02",
-      "test_count": 329,
+      "test_count": 381,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "WFC": {
       "first_tested": "2025-12-02",
-      "test_count": 329,
+      "test_count": 381,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "PSNY": {
       "first_tested": "2025-12-02",
@@ -221,7 +221,7 @@
     },
     "CAN": {
       "first_tested": "2025-12-02",
-      "test_count": 11,
+      "test_count": 13,
       "results": [
         {
           "date": "2025-12-02",
@@ -242,19 +242,19 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "MNTS": {
       "first_tested": "2025-12-02",
@@ -297,225 +297,225 @@
     },
     "C": {
       "first_tested": "2025-12-02",
-      "test_count": 337,
+      "test_count": 389,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "BAC": {
       "first_tested": "2025-12-02",
-      "test_count": 337,
+      "test_count": 389,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "HUT": {
       "first_tested": "2025-12-02",
-      "test_count": 422,
+      "test_count": 464,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "PLTR": {
       "first_tested": "2025-12-02",
-      "test_count": 478,
+      "test_count": 518,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "NIO": {
       "first_tested": "2025-12-02",
-      "test_count": 244,
+      "test_count": 262,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "BITF": {
       "first_tested": "2025-12-02",
-      "test_count": 400,
+      "test_count": 436,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "SOUN": {
       "first_tested": "2025-12-02",
@@ -556,118 +556,118 @@
     },
     "XOM": {
       "first_tested": "2025-12-02",
-      "test_count": 281,
+      "test_count": 309,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "AMC": {
       "first_tested": "2025-12-02",
-      "test_count": 631,
+      "test_count": 683,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "BTU": {
       "first_tested": "2025-12-02",
-      "test_count": 93,
+      "test_count": 105,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "CLF": {
       "first_tested": "2025-12-02",
-      "test_count": 37,
+      "test_count": 41,
       "results": [
         {
           "date": "2025-12-02",
@@ -676,586 +676,586 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "BBIG": {
       "first_tested": "2025-12-02",
-      "test_count": 130,
+      "test_count": 146,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "CLSK": {
       "first_tested": "2025-12-02",
-      "test_count": 595,
+      "test_count": 647,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "TSLA": {
       "first_tested": "2025-12-02",
-      "test_count": 313,
+      "test_count": 337,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "RIOT": {
       "first_tested": "2025-12-02",
-      "test_count": 596,
+      "test_count": 648,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "CLNE": {
       "first_tested": "2025-12-02",
-      "test_count": 181,
+      "test_count": 203,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "GME": {
       "first_tested": "2025-12-02",
-      "test_count": 598,
+      "test_count": 650,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "COIN": {
       "first_tested": "2025-12-02",
-      "test_count": 592,
+      "test_count": 644,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "FCX": {
       "first_tested": "2025-12-02",
-      "test_count": 218,
+      "test_count": 234,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "BB": {
       "first_tested": "2025-12-02",
-      "test_count": 422,
+      "test_count": 456,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "AR": {
       "first_tested": "2025-12-02",
-      "test_count": 344,
+      "test_count": 380,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "NVDA": {
       "first_tested": "2025-12-02",
-      "test_count": 199,
+      "test_count": 211,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "RIG": {
       "first_tested": "2025-12-02",
-      "test_count": 289,
+      "test_count": 327,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "UNG": {
       "first_tested": "2025-12-02",
-      "test_count": 392,
+      "test_count": 426,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "CVE": {
       "first_tested": "2025-12-02",
-      "test_count": 130,
+      "test_count": 144,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "PLUG": {
       "first_tested": "2025-12-02",
-      "test_count": 316,
+      "test_count": 340,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "RIVN": {
       "first_tested": "2025-12-02",
@@ -1296,42 +1296,116 @@
     },
     "FCEL": {
       "first_tested": "2025-12-02",
-      "test_count": 346,
+      "test_count": 374,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "TLRY": {
+      "first_tested": "2025-12-02",
+      "test_count": 68,
+      "results": [
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-03"
+    },
+    "BTCS": {
+      "first_tested": "2025-12-02",
+      "test_count": 182,
+      "results": [
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-03"
+    },
+    "BITO": {
       "first_tested": "2025-12-02",
       "test_count": 62,
       "results": [
@@ -1342,105 +1416,31 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
-    },
-    "BTCS": {
-      "first_tested": "2025-12-02",
-      "test_count": 156,
-      "results": [
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        }
-      ],
-      "last_tested": "2025-12-02"
-    },
-    "BITO": {
-      "first_tested": "2025-12-02",
-      "test_count": 58,
-      "results": [
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        }
-      ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "RGLD": {
       "first_tested": "2025-12-02",
@@ -1475,40 +1475,40 @@
     },
     "LCID": {
       "first_tested": "2025-12-02",
-      "test_count": 140,
+      "test_count": 154,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "HIVE": {
       "first_tested": "2025-12-02",
@@ -1549,43 +1549,6 @@
     },
     "VERI": {
       "first_tested": "2025-12-02",
-      "test_count": 10,
-      "results": [
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        },
-        {
-          "date": "2025-12-02",
-          "excess_return": 0,
-          "win_rate": 0,
-          "trades": 0
-        }
-      ],
-      "last_tested": "2025-12-02"
-    },
-    "BBBY": {
-      "first_tested": "2025-12-02",
       "test_count": 12,
       "results": [
         {
@@ -1607,23 +1570,23 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
-    "SLB": {
+    "BBBY": {
       "first_tested": "2025-12-02",
-      "test_count": 20,
+      "test_count": 14,
       "results": [
         {
           "date": "2025-12-02",
@@ -1644,19 +1607,56 @@
           "trades": 0
         },
         {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-03"
+    },
+    "SLB": {
+      "first_tested": "2025-12-02",
+      "test_count": 24,
+      "results": [
+        {
           "date": "2025-12-02",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "ARKK": {
       "first_tested": "2025-12-02",
@@ -1679,7 +1679,7 @@
     },
     "HOOD": {
       "first_tested": "2025-12-02",
-      "test_count": 64,
+      "test_count": 68,
       "results": [
         {
           "date": "2025-12-02",
@@ -1688,31 +1688,31 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "XLE": {
       "first_tested": "2025-12-02",
@@ -1902,7 +1902,7 @@
     },
     "SOS": {
       "first_tested": "2025-12-02",
-      "test_count": 26,
+      "test_count": 28,
       "results": [
         {
           "date": "2025-12-02",
@@ -1923,19 +1923,19 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "LNG": {
       "first_tested": "2025-12-02",
@@ -2026,44 +2026,44 @@
     },
     "NG": {
       "first_tested": "2025-12-02",
-      "test_count": 14,
+      "test_count": 20,
       "results": [
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "SOFI": {
       "first_tested": "2025-12-02",
-      "test_count": 18,
+      "test_count": 20,
       "results": [
         {
           "date": "2025-12-02",
@@ -2084,23 +2084,23 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "FUBO": {
       "first_tested": "2025-12-02",
-      "test_count": 16,
+      "test_count": 20,
       "results": [
         {
           "date": "2025-12-02",
@@ -2109,31 +2109,31 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "CLOV": {
       "first_tested": "2025-12-02",
@@ -2206,7 +2206,7 @@
     },
     "RBLX": {
       "first_tested": "2025-12-02",
-      "test_count": 14,
+      "test_count": 16,
       "results": [
         {
           "date": "2025-12-02",
@@ -2227,19 +2227,19 @@
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         },
         {
-          "date": "2025-12-02",
+          "date": "2025-12-03",
           "excess_return": 0,
           "win_rate": 0,
           "trades": 0
         }
       ],
-      "last_tested": "2025-12-02"
+      "last_tested": "2025-12-03"
     },
     "UVXY": {
       "first_tested": "2025-12-02",
@@ -2784,11 +2784,48 @@
         }
       ],
       "last_tested": "2025-12-02"
+    },
+    "CAVA": {
+      "first_tested": "2025-12-03",
+      "test_count": 8,
+      "results": [
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        },
+        {
+          "date": "2025-12-03",
+          "excess_return": 0,
+          "win_rate": 0,
+          "trades": 0
+        }
+      ],
+      "last_tested": "2025-12-03"
     }
   },
   "metadata": {
     "created": "2025-12-02",
-    "last_updated": "2025-12-02",
-    "total_symbols_tested": 91
+    "last_updated": "2025-12-03",
+    "total_symbols_tested": 92
   }
 }

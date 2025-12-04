@@ -1,0 +1,15 @@
+{
+  "fetch_date": "2025-12-03T20:11:38.710522",
+  "exchanges": {
+    "NASDAQ": [],
+    "NYSE": [],
+    "AMEX": [],
+    "SP500": []
+  },
+  "summary": {
+    "NASDAQ": 0,
+    "NYSE": 0,
+    "AMEX": 0,
+    "SP500": 0
+  }
+}

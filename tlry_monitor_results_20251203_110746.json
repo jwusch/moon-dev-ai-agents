@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-12-03T11:07:46.957098",
+  "symbol": "TLRY",
+  "metrics": {
+    "current_price": 7.359600067138672,
+    "pnl_pct": 0.025013936927391667,
+    "pnl_dollar": 17.960006713867216,
+    "days_held": 1
+  },
+  "hurst_analysis": null,
+  "exit_signals": [],
+  "alert_count": 0,
+  "max_urgency": "NONE"
+}

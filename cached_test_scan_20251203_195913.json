@@ -1,0 +1,42 @@
+{
+  "scan_date": "2025-12-03T19:59:13.479242",
+  "symbols_tested": [
+    "DASH",
+    "DDOG",
+    "DOCU",
+    "DKNG",
+    "DLTR",
+    "EBAY",
+    "EQIX",
+    "ETSY",
+    "EXPE",
+    "ENPH",
+    "FTNT",
+    "FISV",
+    "FANG",
+    "FAST",
+    "FSLR",
+    "GILD",
+    "GOLD",
+    "GOOGL",
+    "GOOG",
+    "GRUB",
+    "HUBS",
+    "HZNP",
+    "HELE",
+    "HMSY",
+    "HTHT",
+    "INTC",
+    "IDXX",
+    "ILMN",
+    "INCY",
+    "ISRG"
+  ],
+  "cache_stats": {
+    "hits": 0,
+    "misses": 30
+  },
+  "profitable_count": 0,
+  "scan_time_seconds": 9.807494878768921,
+  "profitable_symbols": []
+}

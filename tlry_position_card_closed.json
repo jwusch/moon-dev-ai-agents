@@ -1,0 +1,13 @@
+{
+  "symbol": "TLRY",
+  "entry_price": 7.18,
+  "exit_price": 7.70,
+  "shares": 100,
+  "entry_date": "2025-12-02",
+  "exit_date": "2025-12-03",
+  "profit": 52.00,
+  "profit_pct": 7.24,
+  "days_held": 1,
+  "status": "CLOSED",
+  "strategy": "Overnight swing trade - successful"
+}

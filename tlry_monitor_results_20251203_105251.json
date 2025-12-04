@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-12-03T10:52:51.494990",
+  "symbol": "TLRY",
+  "metrics": {
+    "current_price": 7.394999980926514,
+    "pnl_pct": 0.029944287037118936,
+    "pnl_dollar": 21.499998092651396,
+    "days_held": 366
+  },
+  "hurst_analysis": null,
+  "exit_signals": [
+    {
+      "type": "TIME_EXIT",
+      "urgency": "LOW",
+      "reason": "Position held 366 days with minimal gain (3.0%)",
+      "action": "SELL_50%"
+    }
+  ],
+  "alert_count": 1,
+  "max_urgency": "LOW"
+}

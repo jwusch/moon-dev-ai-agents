@@ -7,6 +7,7 @@ Real-time monitoring of exit conditions for your TLRY position
 import yfinance as yf
 import pandas as pd
 import pandas_ta as ta
+import numpy as np
 from datetime import datetime
 from termcolor import colored
 import warnings
@@ -16,6 +17,71 @@ class TLRYExitTracker:
     def __init__(self):
         self.symbol = "TLRY"
         self.ticker = yf.Ticker(self.symbol)
+    
+    def calculate_hurst_exponent(self, prices, method='variance'):
+        """Calculate Hurst exponent using variance ratio method"""
+        if len(prices) < 50:
+            return 0.5
+        
+        try:
+            # Calculate returns
+            returns = np.diff(np.log(prices))
+            returns = returns[~np.isnan(returns)]
+            
+            if len(returns) < 20:
+                return 0.5
+            
+            # Variance ratio method for quick calculation
+            lags = [2, 4, 8]
+            var_ratios = []
+            
+            var_1 = np.var(returns)
+            if var_1 == 0:
+                return 0.5
+            
+            for lag in lags:
+                if len(returns) < lag * 5:
+                    continue
+                    
+                # Returns over lag periods
+                returns_lag = np.array([np.sum(returns[i:i+lag]) 
+                                       for i in range(0, len(returns)-lag+1, lag)])
+                
+                var_lag = np.var(returns_lag) / lag
+                var_ratios.append(var_lag / var_1)
+            
+            if not var_ratios:
+                return 0.5
+            
+            # Estimate Hurst from variance ratios
+            log_lags = np.log(lags[:len(var_ratios)])
+            log_ratios = np.log(var_ratios)
+            
+            # Remove invalid values
+            mask = np.isfinite(log_lags) & np.isfinite(log_ratios)
+            if np.sum(mask) < 2:
+                return 0.5
+            
+            # Regression
+            h_est = np.polyfit(log_lags[mask], log_ratios[mask], 1)[0] / 2
+            
+            return np.clip(h_est, 0.01, 0.99)
+            
+        except Exception:
+            return 0.5
+    
+    def interpret_hurst(self, hurst):
+        """Interpret Hurst exponent value"""
+        if hurst > 0.65:
+            return "Strong Trending"
+        elif hurst > 0.55:
+            return "Trending"
+        elif hurst < 0.35:
+            return "Strong Mean-Reverting"
+        elif hurst < 0.45:
+            return "Mean-Reverting"
+        else:
+            return "Random Walk"
         
     def get_current_data(self):
         """Get current and recent price data"""
@@ -62,6 +128,12 @@ class TLRYExitTracker:
         
         # Price momentum
         df['ROC'] = ta.roc(df['Close'], length=5)
+        
+        # Hurst Exponent - detect trending vs mean-reverting regime
+        if len(df) >= 50:
+            df['Hurst'] = self.calculate_hurst_exponent(df['Close'].values)
+        else:
+            df['Hurst'] = 0.5  # Neutral if not enough data
         
         return df
     
@@ -125,6 +197,29 @@ class TLRYExitTracker:
         recent_atr = df_1h['ATR_%'].rolling(5).mean().iloc[-1]
         if atr_percent > recent_atr * 1.5:
             exit_signals['monitoring'].append(f"📊 Volatility expanding: {atr_percent:.1f}%")
+        
+        # 7. Hurst Exponent - Market Regime Analysis
+        hurst_1h = df_1h['Hurst'].iloc[-1] if 'Hurst' in df_1h.columns else 0.5
+        hurst_daily = df_daily['Hurst'].iloc[-1] if 'Hurst' in df_daily.columns else 0.5
+        
+        # Check for regime changes
+        if len(df_1h) >= 100 and 'Hurst' in df_1h.columns:
+            hurst_recent = df_1h['Hurst'].iloc[-20:].mean()
+            hurst_earlier = df_1h['Hurst'].iloc[-40:-20].mean()
+            
+            # Trend exhaustion: Moving from trending to mean-reverting
+            if hurst_earlier > 0.55 and hurst_recent < 0.45:
+                exit_signals['immediate'].append(f"🔴 Trend Exhaustion: Hurst {hurst_recent:.2f} < 0.45")
+            elif hurst_recent < 0.4:
+                exit_signals['warning'].append(f"🟡 Mean-Reverting Regime: Hurst {hurst_recent:.2f}")
+            
+            # Strong trend warning
+            if hurst_recent > 0.65 and rsi_1h > 65:
+                exit_signals['warning'].append(f"🟡 Extended Trend: Hurst {hurst_recent:.2f} + High RSI")
+        
+        # Display current regime
+        regime = self.interpret_hurst(hurst_1h)
+        exit_signals['monitoring'].append(f"📊 Market Regime: {regime} (H={hurst_1h:.2f})")
             
         # Calculate exit score
         exit_score = len(exit_signals['immediate']) * 3 + len(exit_signals['warning']) * 2 + len(exit_signals['monitoring'])
@@ -226,6 +321,8 @@ class TLRYExitTracker:
             print("3. At Upper Bollinger Band → Take profits")
             print("4. Volume < 50% average + RSI > 60 → Weakness")
             print("5. 10%+ above SMA20 → Overextended")
+            print("6. Hurst < 0.45 → Mean-reverting (take profits)")
+            print("7. Hurst regime change → Potential trend end")
             
             # Next check time
             print(f"\n⏰ Next update in 1 hour")

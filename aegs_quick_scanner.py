@@ -1,5 +1,6 @@
 """
-🔥💎 AEGS QUICK SCANNER - Find Buy Signals NOW! 💎🔥
+🔥💎 AEGS QUICK MARKET SCANNER 💎🔥
+Simplified scanner with robust data handling
 """
 
 import pandas as pd
@@ -10,129 +11,198 @@ import warnings
 warnings.filterwarnings('ignore')
 from termcolor import colored
 
-class AEGSQuickScanner:
+class QuickAEGSScanner:
     def __init__(self):
-        # Focus on proven winners and high volatility
+        # Top priority goldmine symbols 
         self.symbols = [
             'WULF', 'EQT', 'NOK', 'WKHS',  # Proven goldmines
-            'MARA', 'RIOT', 'CLSK', 'CORZ',  # Crypto mining
-            'SAVA', 'BIIB', 'EDIT', 'NTLA',  # Biotech
-            'BB', 'GME', 'AMC', 'SOFI',  # Meme cycles
-            'SH', 'SQQQ', 'TZA', 'SVXY',  # Inverse/volatility
-            'TNA', 'LABU', 'NUGT', 'FNGU',  # Leveraged
-            'LCID', 'RIVN', 'NKLA', 'GOEV',  # SPACs
-            'FANG', 'DVN', 'OXY', 'AR'  # Energy
+            'MARA', 'RIOT', 'CLSK', 'CIFR',  # Crypto mining
+            'SAVA', 'BIIB', 'VKTX', 'EDIT',  # Biotech
+            'BB', 'GME', 'AMC', 'SOFI',  # Memes
+            'LCID', 'RIVN', 'NKLA',  # SPACs
+            'TNA', 'LABU', 'NUGT', 'SQQQ'  # Leveraged
         ]
         
-    def scan_for_signals(self):
-        print(colored("🔥💎 AEGS QUICK SCANNER - REAL-TIME BUY SIGNALS 💎🔥", 'cyan', attrs=['bold']))
-        print(f"Scanning {len(self.symbols)} symbols at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print("=" * 80)
+        self.buy_signals = []
+    
+    def scan_symbol(self, symbol):
+        """Scan single symbol with robust error handling"""
+        try:
+            # Download data
+            data = yf.download(symbol, period='100d', progress=False, interval='1d')
+            
+            if data.empty:
+                return None
+                
+            # Handle multi-index columns
+            if isinstance(data.columns, pd.MultiIndex):
+                data.columns = [col[0] if col[1] == symbol else col[1] for col in data.columns]
+            
+            # Ensure we have required columns
+            required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
+            if not all(col in data.columns for col in required_cols):
+                # Try alternative column names
+                col_mapping = {
+                    'Adj Close': 'Close',
+                    'open': 'Open',
+                    'high': 'High', 
+                    'low': 'Low',
+                    'close': 'Close',
+                    'volume': 'Volume'
+                }
+                data = data.rename(columns=col_mapping)
+                
+            if len(data) < 20:
+                return None
+                
+            # Calculate simple indicators
+            data = data.copy()
+            
+            # RSI (simple version)
+            delta = data['Close'].diff()
+            gain = delta.where(delta > 0, 0).rolling(14).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(14).mean()
+            rs = gain / (loss + 0.0001)  # Avoid division by zero
+            data['RSI'] = 100 - (100 / (1 + rs))
+            
+            # Simple moving average
+            data['SMA20'] = data['Close'].rolling(20).mean()
+            data['Distance'] = (data['Close'] - data['SMA20']) / data['SMA20'] * 100
+            
+            # Volume ratio
+            data['VolMA'] = data['Volume'].rolling(10).mean()
+            data['VolRatio'] = data['Volume'] / (data['VolMA'] + 1)
+            
+            # Daily change
+            data['Change'] = data['Close'].pct_change() * 100
+            
+            # Get latest values
+            latest = data.iloc[-1]
+            
+            # Calculate signal score
+            score = 0
+            triggers = []
+            
+            # RSI oversold
+            if latest['RSI'] < 30:
+                score += 40
+                triggers.append(f"RSI={latest['RSI']:.1f}")
+            elif latest['RSI'] < 35:
+                score += 20
+                triggers.append(f"RSI={latest['RSI']:.1f}")
+            
+            # Below SMA
+            if latest['Distance'] < -5:
+                score += 30
+                triggers.append(f"Below_SMA={latest['Distance']:.1f}%")
+            elif latest['Distance'] < -2:
+                score += 15
+                triggers.append(f"Near_SMA={latest['Distance']:.1f}%")
+            
+            # Volume spike
+            if latest['VolRatio'] > 2:
+                score += 20
+                triggers.append(f"Vol={latest['VolRatio']:.1f}x")
+            
+            # Big drop
+            if latest['Change'] < -8:
+                score += 30
+                triggers.append(f"Drop={latest['Change']:.1f}%")
+            elif latest['Change'] < -4:
+                score += 15
+                triggers.append(f"Down={latest['Change']:.1f}%")
+            
+            return {
+                'symbol': symbol,
+                'price': latest['Close'],
+                'score': score,
+                'triggers': triggers,
+                'change': latest['Change'],
+                'rsi': latest['RSI'],
+                'distance': latest['Distance'],
+                'volume': latest['VolRatio']
+            }
+            
+        except Exception as e:
+            print(f"   ❌ {symbol}: Error - {str(e)[:30]}")
+            return None
+    
+    def run_scan(self):
+        """Run quick scan on all symbols"""
+        print(colored("🔥💎 AEGS QUICK SCANNER 💎🔥", 'cyan', attrs=['bold']))
+        print("="*60)
+        print(f"Scanning {len(self.symbols)} symbols...")
+        print(f"Time: {datetime.now().strftime('%H:%M:%S')}")
+        print("="*60)
         
-        buy_signals = []
-        near_signals = []
+        results = []
         
         for symbol in self.symbols:
-            try:
-                # Get recent data
-                df = yf.download(symbol, period='50d', progress=False)
-                
-                if len(df) < 20:
-                    continue
-                
-                # Simple indicators
-                df['SMA20'] = df['Close'].rolling(20).mean()
-                df['Distance%'] = (df['Close'] - df['SMA20']) / df['SMA20'] * 100
-                
-                # RSI
-                delta = df['Close'].diff()
-                gain = (delta.where(delta > 0, 0)).rolling(14).mean()
-                loss = (-delta.where(delta < 0, 0)).rolling(14).mean()
-                rs = gain / loss
-                df['RSI'] = 100 - (100 / (1 + rs))
-                
-                # Volume
-                df['Volume_MA'] = df['Volume'].rolling(20).mean()
-                df['Volume_Ratio'] = df['Volume'] / df['Volume_MA']
-                
-                # Daily change
-                df['Daily_Change%'] = df['Close'].pct_change() * 100
-                
-                # Latest values
-                latest = df.iloc[-1]
-                prev_close = df['Close'].iloc[-2]
-                
-                # Signal scoring
-                score = 0
-                triggers = []
-                
-                # Check conditions
-                if latest['RSI'] < 30:
-                    score += 35
-                    triggers.append(f"RSI={latest['RSI']:.0f}")
-                elif latest['RSI'] < 35:
-                    score += 20
-                    triggers.append(f"RSI={latest['RSI']:.0f}")
-                
-                if latest['Distance%'] < -5:
-                    score += 30
-                    triggers.append(f"Oversold={latest['Distance%']:.1f}%")
-                elif latest['Distance%'] < -3:
-                    score += 20
-                    triggers.append(f"Below_SMA={latest['Distance%']:.1f}%")
-                
-                if latest['Volume_Ratio'] > 2.0:
-                    score += 25
-                    triggers.append(f"Volume={latest['Volume_Ratio']:.1f}x")
-                elif latest['Volume_Ratio'] > 1.5:
-                    score += 15
-                    triggers.append(f"Vol={latest['Volume_Ratio']:.1f}x")
-                
-                if latest['Daily_Change%'] < -5:
-                    score += 20
-                    triggers.append(f"Drop={latest['Daily_Change%']:.1f}%")
-                
-                # Display results
-                if score >= 60:
-                    buy_signals.append({
-                        'symbol': symbol,
-                        'price': latest['Close'],
-                        'score': score,
-                        'triggers': triggers
-                    })
-                    print(colored(f"🚀 {symbol}: STRONG BUY @ ${latest['Close']:.2f} | Score: {score}/100", 'green', attrs=['bold']))
-                    print(f"   Signals: {', '.join(triggers)}")
-                    
-                elif score >= 40:
-                    near_signals.append({
-                        'symbol': symbol,
-                        'price': latest['Close'],
-                        'score': score,
-                        'triggers': triggers
-                    })
-                    print(colored(f"⚡ {symbol}: Near buy @ ${latest['Close']:.2f} | Score: {score}/100", 'yellow'))
-                    print(f"   Signals: {', '.join(triggers)}")
-                
-            except Exception as e:
-                pass
+            print(f"📊 {symbol}...", end='')
+            result = self.scan_symbol(symbol)
+            
+            if result:
+                if result['score'] >= 60:
+                    print(colored(f" 🚀 STRONG BUY ({result['score']})", 'green', attrs=['bold']))
+                    self.buy_signals.append(result)
+                elif result['score'] >= 40:
+                    print(colored(f" ✅ BUY ({result['score']})", 'green'))
+                    self.buy_signals.append(result)
+                elif result['score'] >= 25:
+                    print(colored(f" ⚡ Watch ({result['score']})", 'yellow'))
+                    results.append(result)
+                else:
+                    print(" ⏸️ No signal")
+            else:
+                print(" ❌ No data")
         
-        # Summary
-        print("\n" + "=" * 80)
-        print(colored("📊 SCAN SUMMARY", 'yellow', attrs=['bold']))
-        print(f"✅ Buy Signals: {len(buy_signals)}")
-        print(f"⚡ Near Signals: {len(near_signals)}")
+        # Display results
+        print("\n" + "="*60)
+        print(colored("🎯 SCAN RESULTS", 'yellow', attrs=['bold']))
+        print("="*60)
         
-        if buy_signals:
-            print(colored("\n🔥 IMMEDIATE ACTION REQUIRED:", 'red', attrs=['bold', 'blink']))
-            for sig in buy_signals:
-                print(f"   BUY {sig['symbol']} @ ${sig['price']:.2f} (Score: {sig['score']}/100)")
-        elif near_signals:
-            print(colored("\n💡 WATCH LIST:", 'yellow'))
-            for sig in near_signals[:3]:
-                print(f"   {sig['symbol']} @ ${sig['price']:.2f} (Score: {sig['score']}/100)")
+        if self.buy_signals:
+            print(colored(f"\n🚀 BUY SIGNALS ({len(self.buy_signals)}):", 'green', attrs=['bold']))
+            
+            # Sort by score
+            self.buy_signals.sort(key=lambda x: x['score'], reverse=True)
+            
+            for i, signal in enumerate(self.buy_signals, 1):
+                s = signal['symbol']
+                price = signal['price']
+                score = signal['score']
+                triggers = ', '.join(signal['triggers'][:3])
+                change = signal['change']
+                
+                print(f"\n{i}. {s} @ ${price:.2f}")
+                print(f"   Score: {score}/100")
+                print(f"   Daily: {change:+.1f}%")
+                print(f"   Triggers: {triggers}")
+                
+                if score >= 80:
+                    print(colored("   🔥 EXTREME OPPORTUNITY!", 'red', attrs=['bold']))
+                elif score >= 60:
+                    print(colored("   ⚡ STRONG BUY", 'yellow'))
+                else:
+                    print(colored("   ✅ Good entry", 'green'))
+            
+            # Top pick
+            top = self.buy_signals[0]
+            print("\n" + "="*60)
+            print(colored("🎯 TOP PICK:", 'red', attrs=['bold']))
+            print(colored(f"{top['symbol']} @ ${top['price']:.2f}", 'red', attrs=['bold']))
+            print(colored(f"Score: {top['score']}/100", 'red'))
+            
         else:
-            print("\n⏸️  No immediate signals - market is consolidating")
+            print(colored("\n⏸️ NO BUY SIGNALS", 'blue'))
+            print("Market in consolidation - check again later")
+        
+        print(f"\n⏰ Scan completed: {datetime.now().strftime('%H:%M:%S')}")
+        print("🔥 AEGS hunting for goldmine opportunities!")
+
+def main():
+    scanner = QuickAEGSScanner()
+    scanner.run_scan()
 
 if __name__ == "__main__":
-    scanner = AEGSQuickScanner()
-    scanner.scan_for_signals()
+    main()

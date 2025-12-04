@@ -1,0 +1,1390 @@
+{
+  "backtest_date": "2025-12-03T21:41:00.182619",
+  "working_symbols": [
+    "AAPL",
+    "TSLA",
+    "SPY",
+    "QQQ",
+    "MSFT",
+    "NVDA",
+    "GOOGL",
+    "AMZN",
+    "META",
+    "NFLX",
+    "AMD",
+    "CRM",
+    "ADBE",
+    "INTC",
+    "PYPL",
+    "IWM",
+    "DIA",
+    "VTI",
+    "XLF",
+    "XLK",
+    "GME",
+    "AMC",
+    "PLTR",
+    "RIVN",
+    "LCID",
+    "TLRY",
+    "BKKT",
+    "ACHV",
+    "ALDX",
+    "ATRA"
+  ],
+  "strategies": {
+    "1m_aggressive": {
+      "rsi_oversold": 30,
+      "bb_position": 0.15,
+      "volume_surge": 2.0,
+      "min_drop": 1.0,
+      "profit_target": 0.06,
+      "stop_loss": 0.03,
+      "max_hold": 240
+    },
+    "1m_conservative": {
+      "rsi_oversold": 25,
+      "bb_position": 0.1,
+      "volume_surge": 2.5,
+      "min_drop": 1.5,
+      "profit_target": 0.08,
+      "stop_loss": 0.04,
+      "max_hold": 180
+    },
+    "15m_standard": {
+      "rsi_oversold": 35,
+      "bb_position": 0.25,
+      "volume_surge": 1.5,
+      "min_drop": 1.5,
+      "profit_target": 0.12,
+      "stop_loss": 0.06,
+      "max_hold": 64
+    },
+    "15m_aggressive": {
+      "rsi_oversold": 40,
+      "bb_position": 0.3,
+      "volume_surge": 1.8,
+      "min_drop": 2.0,
+      "profit_target": 0.15,
+      "stop_loss": 0.08,
+      "max_hold": 48
+    },
+    "1h_standard": {
+      "rsi_oversold": 40,
+      "bb_position": 0.35,
+      "volume_surge": 1.3,
+      "min_drop": 2.5,
+      "profit_target": 0.2,
+      "stop_loss": 0.1,
+      "max_hold": 72
+    },
+    "1h_aggressive": {
+      "rsi_oversold": 45,
+      "bb_position": 0.4,
+      "volume_surge": 1.5,
+      "min_drop": 3.0,
+      "profit_target": 0.25,
+      "stop_loss": 0.12,
+      "max_hold": 48
+    }
+  },
+  "summary_statistics": {
+    "total_trades": 5977,
+    "total_return": 528.7154266314823,
+    "win_rate": 52.400870001673084,
+    "strategies_tested": 6,
+    "symbols_tested": 30
+  },
+  "symbol_results": {
+    "AAPL": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -0.12497556916714289,
+        "win_rate": 40.0,
+        "avg_return": -0.02499511383342858
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 1,
+        "total_return": 0.061643297518525694,
+        "win_rate": 100.0,
+        "avg_return": 0.061643297518525694
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 20,
+        "total_return": 2.8636803430613824,
+        "win_rate": 60.0,
+        "avg_return": 0.1431840171530691
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 28,
+        "total_return": 8.202936440417378,
+        "win_rate": 57.14285714285714,
+        "avg_return": 0.29296201572919206
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 58,
+        "total_return": 20.26604439614902,
+        "win_rate": 56.896551724137936,
+        "avg_return": 0.34941455855429343
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 85,
+        "total_return": 9.49340963078925,
+        "win_rate": 54.11764705882353,
+        "avg_return": 0.11168717212693235
+      }
+    },
+    "TSLA": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 7,
+        "total_return": 2.312111839081909,
+        "win_rate": 85.71428571428571,
+        "avg_return": 0.3303016912974156
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 3,
+        "total_return": 0.0091569133468003,
+        "win_rate": 66.66666666666666,
+        "avg_return": 0.003052304448933433
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 30,
+        "total_return": 18.479172621673058,
+        "win_rate": 60.0,
+        "avg_return": 0.6159724207224353
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 36,
+        "total_return": 7.056961773631519,
+        "win_rate": 50.0,
+        "avg_return": 0.19602671593420887
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 65,
+        "total_return": 56.52411522042265,
+        "win_rate": 53.84615384615385,
+        "avg_return": 0.869601772621887
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 88,
+        "total_return": -50.327404186828396,
+        "win_rate": 53.40909090909091,
+        "avg_return": -0.5719023203048681
+      }
+    },
+    "SPY": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -4.39065779546361,
+        "win_rate": 50.0,
+        "avg_return": -0.5488322244329512
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 0.3143348185535744,
+        "win_rate": 83.33333333333334,
+        "avg_return": 0.052389136425595735
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 20,
+        "total_return": -1.9582960990849536,
+        "win_rate": 50.0,
+        "avg_return": -0.09791480495424768
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": -0.1387992710619365,
+        "win_rate": 51.515151515151516,
+        "avg_return": -0.004206038517028379
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": 18.94336454283366,
+        "win_rate": 64.40677966101694,
+        "avg_return": 0.3210739753022654
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 84,
+        "total_return": 13.950874933941071,
+        "win_rate": 57.14285714285714,
+        "avg_return": 0.16608184445167942
+      }
+    },
+    "QQQ": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 1.6743316525733534,
+        "win_rate": 83.33333333333334,
+        "avg_return": 0.27905527542889225
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 3,
+        "total_return": 1.0265155964082282,
+        "win_rate": 100.0,
+        "avg_return": 0.3421718654694094
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 27,
+        "total_return": -9.950221047006217,
+        "win_rate": 62.96296296296296,
+        "avg_return": -0.3685267054446747
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 32,
+        "total_return": -13.837546511216898,
+        "win_rate": 46.875,
+        "avg_return": -0.43242332847552806
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": -6.312516982496111,
+        "win_rate": 55.932203389830505,
+        "avg_return": -0.10699181326264594
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 83,
+        "total_return": 7.881333295208745,
+        "win_rate": 55.42168674698795,
+        "avg_return": 0.0949558228338403
+      }
+    },
+    "MSFT": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -2.9918570099156874,
+        "win_rate": 50.0,
+        "avg_return": -0.3739821262394609
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -4.057666491391585,
+        "win_rate": 80.0,
+        "avg_return": -0.8115332982783171
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 29,
+        "total_return": 7.4695128297407605,
+        "win_rate": 65.51724137931035,
+        "avg_return": 0.2575694079220952
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": -3.8483777709905636,
+        "win_rate": 51.515151515151516,
+        "avg_return": -0.11661750821183525
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 61,
+        "total_return": 1.651927640255498,
+        "win_rate": 54.09836065573771,
+        "avg_return": 0.02708078098779505
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 86,
+        "total_return": 3.3993360263204386,
+        "win_rate": 53.48837209302325,
+        "avg_return": 0.039527163096749286
+      }
+    },
+    "NVDA": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": 2.05597663599295,
+        "win_rate": 37.5,
+        "avg_return": 0.25699707949911876
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 4.764220413457072,
+        "win_rate": 66.66666666666666,
+        "avg_return": 0.7940367355761787
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 27,
+        "total_return": 10.232544280269622,
+        "win_rate": 51.85185185185185,
+        "avg_return": 0.37898312149146746
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 34,
+        "total_return": 1.4188357807329728,
+        "win_rate": 47.05882352941176,
+        "avg_return": 0.04173046413920508
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 64,
+        "total_return": -13.74472174054266,
+        "win_rate": 59.375,
+        "avg_return": -0.21476127719597907
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 87,
+        "total_return": -40.12756005751375,
+        "win_rate": 54.02298850574713,
+        "avg_return": -0.461236322500158
+      }
+    },
+    "GOOGL": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": 7.163714566399371,
+        "win_rate": 87.5,
+        "avg_return": 0.8954643207999213
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 5,
+        "total_return": 0.8863614429847131,
+        "win_rate": 60.0,
+        "avg_return": 0.1772722885969426
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 24,
+        "total_return": 7.645270476488173,
+        "win_rate": 62.5,
+        "avg_return": 0.31855293652034056
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": 21.55203548884332,
+        "win_rate": 63.63636363636363,
+        "avg_return": 0.6530919845104036
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": 56.01846653996899,
+        "win_rate": 59.32203389830508,
+        "avg_return": 0.9494655345757456
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 87,
+        "total_return": 58.03453321855646,
+        "win_rate": 56.32183908045977,
+        "avg_return": 0.6670636002132927
+      }
+    },
+    "AMZN": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 9,
+        "total_return": 1.9703319103845773,
+        "win_rate": 88.88888888888889,
+        "avg_return": 0.2189257678205086
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 4,
+        "total_return": 1.1797061108277727,
+        "win_rate": 75.0,
+        "avg_return": 0.29492652770694316
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 31,
+        "total_return": 9.956028275815912,
+        "win_rate": 48.38709677419355,
+        "avg_return": 0.32116220244567456
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 36,
+        "total_return": 9.970955421676154,
+        "win_rate": 58.333333333333336,
+        "avg_return": 0.2769709839354487
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 63,
+        "total_return": 11.19776480215147,
+        "win_rate": 53.96825396825397,
+        "avg_return": 0.17774229844684872
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 90,
+        "total_return": 19.902940418544965,
+        "win_rate": 53.333333333333336,
+        "avg_return": 0.2211437824282774
+      }
+    },
+    "META": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 8.444001379469945,
+        "win_rate": 66.66666666666666,
+        "avg_return": 1.4073335632449908
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 5,
+        "total_return": 4.755600561462627,
+        "win_rate": 80.0,
+        "avg_return": 0.9511201122925254
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 29,
+        "total_return": -13.464959049857109,
+        "win_rate": 55.172413793103445,
+        "avg_return": -0.4643089327536934
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 37,
+        "total_return": -2.3365755514556787,
+        "win_rate": 51.35135135135135,
+        "avg_return": -0.0631506905798832
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 57,
+        "total_return": -5.601856841293352,
+        "win_rate": 45.614035087719294,
+        "avg_return": -0.09827819019812899
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 92,
+        "total_return": 51.10139858519446,
+        "win_rate": 47.82608695652174,
+        "avg_return": 0.5554499846216789
+      }
+    },
+    "NFLX": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 10,
+        "total_return": -1.7883895945894668,
+        "win_rate": 60.0,
+        "avg_return": -0.17883895945894668
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 6,
+        "total_return": -1.942529768064904,
+        "win_rate": 33.33333333333333,
+        "avg_return": -0.32375496134415066
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 26,
+        "total_return": -11.737861034575781,
+        "win_rate": 38.46153846153847,
+        "avg_return": -0.45145619363753003
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 35,
+        "total_return": -5.2519965459880344,
+        "win_rate": 45.714285714285715,
+        "avg_return": -0.1500570441710867
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 58,
+        "total_return": 21.87649341438096,
+        "win_rate": 56.896551724137936,
+        "avg_return": 0.37718092093760275
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 85,
+        "total_return": 27.347325980036285,
+        "win_rate": 50.588235294117645,
+        "avg_return": 0.32173324682395626
+      }
+    },
+    "AMD": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 4,
+        "total_return": 0.192196943611548,
+        "win_rate": 75.0,
+        "avg_return": 0.048049235902887
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 3,
+        "total_return": 1.321582831161505,
+        "win_rate": 66.66666666666666,
+        "avg_return": 0.4405276103871683
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 32,
+        "total_return": 56.2383281282748,
+        "win_rate": 71.875,
+        "avg_return": 1.7574477540085875
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": -9.513734541790818,
+        "win_rate": 48.484848484848484,
+        "avg_return": -0.28829498611487325
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 64,
+        "total_return": -22.124867415025825,
+        "win_rate": 51.5625,
+        "avg_return": -0.3457010533597785
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 88,
+        "total_return": 14.340946847793692,
+        "win_rate": 47.72727272727273,
+        "avg_return": 0.1629653050885647
+      }
+    },
+    "CRM": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 3,
+        "total_return": 6.2744689228474195,
+        "win_rate": 66.66666666666666,
+        "avg_return": 2.0914896409491397
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 1,
+        "total_return": 1.4741591641361231,
+        "win_rate": 100.0,
+        "avg_return": 1.4741591641361231
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 24,
+        "total_return": 6.864881566955047,
+        "win_rate": 54.166666666666664,
+        "avg_return": 0.2860367319564603
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 35,
+        "total_return": 9.040009361886092,
+        "win_rate": 51.42857142857142,
+        "avg_return": 0.2582859817681741
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 60,
+        "total_return": -20.121318987605388,
+        "win_rate": 53.333333333333336,
+        "avg_return": -0.3353553164600898
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 91,
+        "total_return": -35.43230973060344,
+        "win_rate": 49.45054945054945,
+        "avg_return": -0.3893660409956422
+      }
+    },
+    "ADBE": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 2,
+        "total_return": 1.3288172923084596,
+        "win_rate": 100.0,
+        "avg_return": 0.6644086461542298
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 2,
+        "total_return": 0.8597217257473407,
+        "win_rate": 50.0,
+        "avg_return": 0.42986086287367037
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 26,
+        "total_return": -5.563216002948674,
+        "win_rate": 53.84615384615385,
+        "avg_return": -0.21396984626725668
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": -7.834932973605224,
+        "win_rate": 45.45454545454545,
+        "avg_return": -0.23742221132137042
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": -1.8370566369709573,
+        "win_rate": 45.76271186440678,
+        "avg_return": -0.031136553168999277
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 85,
+        "total_return": -31.638210494621006,
+        "win_rate": 45.88235294117647,
+        "avg_return": -0.3722142411131883
+      }
+    },
+    "INTC": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 6.36452226885546,
+        "win_rate": 83.33333333333334,
+        "avg_return": 1.06075371147591
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 4,
+        "total_return": 8.05040920619062,
+        "win_rate": 100.0,
+        "avg_return": 2.012602301547655
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 31,
+        "total_return": 46.65762066697684,
+        "win_rate": 45.16129032258064,
+        "avg_return": 1.5050845376444142
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 35,
+        "total_return": 11.888981844393813,
+        "win_rate": 45.714285714285715,
+        "avg_return": 0.3396851955541089
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 67,
+        "total_return": 29.65692276996597,
+        "win_rate": 47.76119402985074,
+        "avg_return": 0.44264063835770107
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 91,
+        "total_return": 29.265117517724903,
+        "win_rate": 47.25274725274725,
+        "avg_return": 0.32159469799697693
+      }
+    },
+    "PYPL": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -1.528854782369364,
+        "win_rate": 50.0,
+        "avg_return": -0.1911068477961705
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 6,
+        "total_return": -1.2445283375935696,
+        "win_rate": 66.66666666666666,
+        "avg_return": -0.20742138959892828
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 31,
+        "total_return": -30.155170347209424,
+        "win_rate": 35.483870967741936,
+        "avg_return": -0.9727474305551427
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 38,
+        "total_return": 0.020068188121213956,
+        "win_rate": 44.73684210526316,
+        "avg_return": 0.0005281102137161568
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": 0.16674995990031088,
+        "win_rate": 57.6271186440678,
+        "avg_return": 0.00282627050678493
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 80,
+        "total_return": -33.40924286575059,
+        "win_rate": 52.5,
+        "avg_return": -0.4176155358218824
+      }
+    },
+    "IWM": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 7,
+        "total_return": -4.555709128824353,
+        "win_rate": 42.857142857142854,
+        "avg_return": -0.6508155898320505
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -0.1602492091016704,
+        "win_rate": 40.0,
+        "avg_return": -0.03204984182033408
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 28,
+        "total_return": 4.345313170580666,
+        "win_rate": 53.57142857142857,
+        "avg_return": 0.15518975609216665
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 35,
+        "total_return": -0.41156427149404046,
+        "win_rate": 54.285714285714285,
+        "avg_return": -0.011758979185544013
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 64,
+        "total_return": 24.68973703398832,
+        "win_rate": 57.8125,
+        "avg_return": 0.3857771411560675
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 91,
+        "total_return": 7.29436237592376,
+        "win_rate": 51.64835164835166,
+        "avg_return": 0.0801578283068545
+      }
+    },
+    "DIA": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 1.6615617100373736,
+        "win_rate": 83.33333333333334,
+        "avg_return": 0.2769269516728956
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 4,
+        "total_return": 0.4137604595033372,
+        "win_rate": 100.0,
+        "avg_return": 0.1034401148758343
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 24,
+        "total_return": 1.780312684143728,
+        "win_rate": 54.166666666666664,
+        "avg_return": 0.07417969517265534
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 31,
+        "total_return": 0.3964315640138115,
+        "win_rate": 48.38709677419355,
+        "avg_return": 0.01278811496818747
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 62,
+        "total_return": 19.287359463064423,
+        "win_rate": 56.451612903225815,
+        "avg_return": 0.311086442952652
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 92,
+        "total_return": 25.54009227877544,
+        "win_rate": 63.04347826086957,
+        "avg_return": 0.27760969868234175
+      }
+    },
+    "VTI": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 3,
+        "total_return": 1.7472687771676845,
+        "win_rate": 66.66666666666666,
+        "avg_return": 0.5824229257225615
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 1,
+        "total_return": 1.3822596372085245,
+        "win_rate": 100.0,
+        "avg_return": 1.3822596372085245
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 24,
+        "total_return": 3.7117126358985644,
+        "win_rate": 58.333333333333336,
+        "avg_return": 0.15465469316244018
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 35,
+        "total_return": 6.519882160217465,
+        "win_rate": 65.71428571428571,
+        "avg_return": 0.18628234743478472
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 58,
+        "total_return": 21.49727101627827,
+        "win_rate": 58.620689655172406,
+        "avg_return": 0.37064260372893565
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 92,
+        "total_return": 33.07482868169735,
+        "win_rate": 58.69565217391305,
+        "avg_return": 0.3595090074097538
+      }
+    },
+    "XLF": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -5.518281615574002,
+        "win_rate": 50.0,
+        "avg_return": -0.6897852019467503
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 7,
+        "total_return": -6.931215071371935,
+        "win_rate": 28.57142857142857,
+        "avg_return": -0.9901735816245621
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 26,
+        "total_return": -19.99143948011796,
+        "win_rate": 34.61538461538461,
+        "avg_return": -0.7689015184660755
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 40,
+        "total_return": -0.4374380126501215,
+        "win_rate": 52.5,
+        "avg_return": -0.010935950316253037
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 59,
+        "total_return": 8.076558432450646,
+        "win_rate": 54.23728813559322,
+        "avg_return": 0.136890820888994
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 88,
+        "total_return": 11.053797427166975,
+        "win_rate": 53.40909090909091,
+        "avg_return": 0.1256113343996247
+      }
+    },
+    "XLK": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -0.3940474492985409,
+        "win_rate": 40.0,
+        "avg_return": -0.07880948985970818
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 2,
+        "total_return": 0.6497079022820196,
+        "win_rate": 100.0,
+        "avg_return": 0.3248539511410098
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 25,
+        "total_return": 3.5630076271394584,
+        "win_rate": 52.0,
+        "avg_return": 0.14252030508557834
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 33,
+        "total_return": -2.3841327625925315,
+        "win_rate": 48.484848484848484,
+        "avg_return": -0.07224644735128884
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 58,
+        "total_return": 21.376667440983905,
+        "win_rate": 51.724137931034484,
+        "avg_return": 0.3685632317411018
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 83,
+        "total_return": -2.436975712028238,
+        "win_rate": 53.01204819277109,
+        "avg_return": -0.029361153156966722
+      }
+    },
+    "GME": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 5,
+        "total_return": 8.25683564495934,
+        "win_rate": 100.0,
+        "avg_return": 1.6513671289918679
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 5,
+        "total_return": 4.617022111437232,
+        "win_rate": 100.0,
+        "avg_return": 0.9234044222874465
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 28,
+        "total_return": -19.30164524892511,
+        "win_rate": 39.285714285714285,
+        "avg_return": -0.6893444731758968
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 38,
+        "total_return": -7.814861339251555,
+        "win_rate": 39.473684210526315,
+        "avg_return": -0.20565424576977778
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 68,
+        "total_return": -8.152885247295464,
+        "win_rate": 57.35294117647059,
+        "avg_return": -0.11989537128375682
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 91,
+        "total_return": 33.591211218498785,
+        "win_rate": 57.14285714285714,
+        "avg_return": 0.3691341892142724
+      }
+    },
+    "AMC": {
+      "1m_aggressive": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "1m_conservative": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "15m_standard": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "15m_aggressive": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -28.117972808661868,
+        "win_rate": 20.0,
+        "avg_return": -5.623594561732373
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -3.731777699031751,
+        "win_rate": 62.5,
+        "avg_return": -0.46647221237896885
+      }
+    },
+    "PLTR": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 5,
+        "total_return": -0.21822377189571285,
+        "win_rate": 60.0,
+        "avg_return": -0.04364475437914257
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 4,
+        "total_return": 2.113181718869775,
+        "win_rate": 50.0,
+        "avg_return": 0.5282954297174437
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 30,
+        "total_return": -0.565778348459034,
+        "win_rate": 56.666666666666664,
+        "avg_return": -0.0188592782819678
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 36,
+        "total_return": 1.523134357560486,
+        "win_rate": 58.333333333333336,
+        "avg_return": 0.0423092877100135
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 63,
+        "total_return": 175.2708830303731,
+        "win_rate": 66.66666666666666,
+        "avg_return": 2.7820775084186207
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 84,
+        "total_return": 142.39629301092626,
+        "win_rate": 65.47619047619048,
+        "avg_return": 1.6951939644157887
+      }
+    },
+    "RIVN": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 10,
+        "total_return": 8.022440738118688,
+        "win_rate": 70.0,
+        "avg_return": 0.8022440738118688
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 10,
+        "total_return": 11.711973200964072,
+        "win_rate": 70.0,
+        "avg_return": 1.1711973200964072
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 30,
+        "total_return": 12.378186012804537,
+        "win_rate": 46.666666666666664,
+        "avg_return": 0.4126062004268179
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 37,
+        "total_return": 21.9662220177153,
+        "win_rate": 64.86486486486487,
+        "avg_return": 0.5936816761544675
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 73,
+        "total_return": 85.81378551040305,
+        "win_rate": 52.054794520547944,
+        "avg_return": 1.1755313083616856
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 93,
+        "total_return": 51.386864914422844,
+        "win_rate": 52.68817204301075,
+        "avg_return": 0.5525469345636865
+      }
+    },
+    "LCID": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 6,
+        "total_return": 5.146463351715509,
+        "win_rate": 66.66666666666666,
+        "avg_return": 0.8577438919525848
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 4,
+        "total_return": -1.612770861522057,
+        "win_rate": 50.0,
+        "avg_return": -0.40319271538051427
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 36,
+        "total_return": -17.441462253460138,
+        "win_rate": 44.44444444444444,
+        "avg_return": -0.48448506259611496
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 37,
+        "total_return": -13.49622112037003,
+        "win_rate": 43.24324324324324,
+        "avg_return": -0.3647627329829738
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 72,
+        "total_return": -65.18778296432632,
+        "win_rate": 37.5,
+        "avg_return": -0.9053858745045322
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 92,
+        "total_return": -69.26229272557602,
+        "win_rate": 41.30434782608695,
+        "avg_return": -0.7528510078866958
+      }
+    },
+    "TLRY": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 14,
+        "total_return": 8.90847242185556,
+        "win_rate": 57.14285714285714,
+        "avg_return": 0.6363194587039686
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -8.881014984869225,
+        "win_rate": 37.5,
+        "avg_return": -1.110126873108653
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 35,
+        "total_return": -41.95738340519844,
+        "win_rate": 31.428571428571427,
+        "avg_return": -1.1987823830056699
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 38,
+        "total_return": -23.256335266264784,
+        "win_rate": 42.10526315789473,
+        "avg_return": -0.6120088227964416
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 62,
+        "total_return": -157.73419001944518,
+        "win_rate": 29.03225806451613,
+        "avg_return": -2.544099839023309
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 78,
+        "total_return": -90.28502697397202,
+        "win_rate": 42.30769230769231,
+        "avg_return": -1.157500345820154
+      }
+    },
+    "BKKT": {
+      "1m_aggressive": {
+        "status": "success",
+        "trades": 3,
+        "total_return": -0.2086392802273913,
+        "win_rate": 33.33333333333333,
+        "avg_return": -0.06954642674246377
+      },
+      "1m_conservative": {
+        "status": "success",
+        "trades": 3,
+        "total_return": -0.10275966710777507,
+        "win_rate": 33.33333333333333,
+        "avg_return": -0.03425322236925835
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 47,
+        "total_return": 47.10272247376217,
+        "win_rate": 44.680851063829785,
+        "avg_return": 1.0021855845481313
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 53,
+        "total_return": 60.130796073289304,
+        "win_rate": 49.056603773584904,
+        "avg_return": 1.134543322137534
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 73,
+        "total_return": 74.9581618781837,
+        "win_rate": 45.20547945205479,
+        "avg_return": 1.0268241353175849
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 83,
+        "total_return": -97.05633467070452,
+        "win_rate": 38.55421686746988,
+        "avg_return": -1.1693534297675243
+      }
+    },
+    "ACHV": {
+      "1m_aggressive": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "1m_conservative": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 3,
+        "total_return": -4.562996909711009,
+        "win_rate": 33.33333333333333,
+        "avg_return": -1.5209989699036697
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 3,
+        "total_return": -9.323078432905078,
+        "win_rate": 33.33333333333333,
+        "avg_return": -3.1076928109683593
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 2,
+        "total_return": -14.75345864998275,
+        "win_rate": 0.0,
+        "avg_return": -7.376729324991375
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 2,
+        "total_return": -17.816242870400337,
+        "win_rate": 0.0,
+        "avg_return": -8.908121435200169
+      }
+    },
+    "ALDX": {
+      "1m_aggressive": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "1m_conservative": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 8,
+        "total_return": -6.711814079368964,
+        "win_rate": 37.5,
+        "avg_return": -0.8389767599211205
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 9,
+        "total_return": -11.38344513736076,
+        "win_rate": 33.33333333333333,
+        "avg_return": -1.2648272374845289
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 27,
+        "total_return": -44.41544230615842,
+        "win_rate": 37.03703703703704,
+        "avg_return": -1.645016381709571
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 36,
+        "total_return": -2.5251543078515755,
+        "win_rate": 50.0,
+        "avg_return": -0.07014317521809932
+      }
+    },
+    "ATRA": {
+      "1m_aggressive": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "1m_conservative": {
+        "status": "no_trades",
+        "trades": 0
+      },
+      "15m_standard": {
+        "status": "success",
+        "trades": 1,
+        "total_return": 13.068491148726427,
+        "win_rate": 100.0,
+        "avg_return": 13.068491148726427
+      },
+      "15m_aggressive": {
+        "status": "success",
+        "trades": 1,
+        "total_return": 5.7990889492485875,
+        "win_rate": 100.0,
+        "avg_return": 5.7990889492485875
+      },
+      "1h_standard": {
+        "status": "success",
+        "trades": 17,
+        "total_return": 20.792766713556833,
+        "win_rate": 47.05882352941176,
+        "avg_return": 1.2231039243268726
+      },
+      "1h_aggressive": {
+        "status": "success",
+        "trades": 15,
+        "total_return": -9.925980968892958,
+        "win_rate": 46.666666666666664,
+        "avg_return": -0.6617320645928638
+      }
+    }
+  }
+}

@@ -48,6 +48,8 @@ class TLRYAutoMonitor:
             current_price = df_1h['Close'].iloc[-1]
             rsi = df_1h['RSI'].iloc[-1]
             bb_percent = df_1h['BB_%'].iloc[-1]
+            hurst = df_1h['Hurst'].iloc[-1] if 'Hurst' in df_1h.columns else 0.5
+            regime = self.tracker.interpret_hurst(hurst)
             
             critical_alerts = []
             
@@ -64,6 +66,12 @@ class TLRYAutoMonitor:
                 price_change_4h = ((current_price - df_1h['Close'].iloc[-4]) / df_1h['Close'].iloc[-4]) * 100
                 if price_change_4h > 15:
                     critical_alerts.append(f"RAPID SPIKE: +{price_change_4h:.1f}% in 4 hours")
+            
+            # Check for regime-based alerts
+            if hurst < 0.4 and rsi > 60:
+                critical_alerts.append(f"MEAN-REVERTING + HIGH RSI: H={hurst:.2f}")
+            elif hurst < 0.45 and bb_percent > 0.8:
+                critical_alerts.append(f"MEAN-REVERSION REGIME: Take profits")
                     
             # Check P&L if entry price provided
             if self.entry_price:
@@ -123,9 +131,13 @@ class TLRYAutoMonitor:
                     
                 # Regular update
                 if check_count % 4 == 0:  # Every hour if checking every 15 min
+                    hurst_val = df_1h['Hurst'].iloc[-1] if 'Hurst' in df_1h.columns else 0.5
+                    regime_str = self.tracker.interpret_hurst(hurst_val)
+                    
                     summary = f"TLRY @ ${current_price:.2f} | "
                     summary += f"RSI: {df_1h['RSI'].iloc[-1]:.1f} | "
                     summary += f"BB%: {df_1h['BB_%'].iloc[-1]:.1%} | "
+                    summary += f"Hurst: {hurst_val:.2f} ({regime_str}) | "
                     summary += f"Exit Score: {exit_score}"
                     
                     if self.entry_price:

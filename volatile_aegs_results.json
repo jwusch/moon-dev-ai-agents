@@ -1,0 +1,381 @@
+{
+  "backtest_date": "2025-12-03 18:33:01",
+  "top_volatile_stocks": [
+    "MARK",
+    "SRNE",
+    "HUT",
+    "TLRY",
+    "WKHS",
+    "LABU",
+    "LABD",
+    "SENS",
+    "SPCE",
+    "HYMC"
+  ],
+  "results": [
+    {
+      "symbol": "MARK",
+      "current_price": 0.01054999977350235,
+      "total_trades": 8,
+      "win_rate": 37.5,
+      "avg_win": 253.1746028578268,
+      "avg_loss": -27.883325182052705,
+      "strategy_return": -99.65357218960482,
+      "buy_hold_return": -91.53969561122572,
+      "excess_return": -8.113876578379086,
+      "volatility": 592.6873532432514,
+      "trades": [
+        {
+          "entry_date": "2025-07-25",
+          "exit_date": "2025-07-28",
+          "entry_price": 0.007000000216066837,
+          "exit_price": 0.013500000350177288,
+          "return_pct": 92.85714190681374,
+          "symbol": "MARK"
+        },
+        {
+          "entry_date": "2025-08-05",
+          "exit_date": "2025-08-06",
+          "entry_price": 0.009499999694526196,
+          "exit_price": 0.004999999888241291,
+          "return_pct": -47.36842053666337,
+          "symbol": "MARK"
+        },
+        {
+          "entry_date": "2025-10-22",
+          "exit_date": "2025-10-23",
+          "entry_price": 0.004999999888241291,
+          "exit_price": 0.009999999776482582,
+          "return_pct": 100.0,
+          "symbol": "MARK"
+        }
+      ]
+    },
+    {
+      "symbol": "SRNE",
+      "current_price": 0.0038999998942017555,
+      "total_trades": 5,
+      "win_rate": 80.0,
+      "avg_win": 76.64988257260461,
+      "avg_loss": -80.00000145519145,
+      "strategy_return": -42.71798769429065,
+      "buy_hold_return": 224.99997574680913,
+      "excess_return": -267.71796344109976,
+      "volatility": 349.89808539558436,
+      "trades": [
+        {
+          "entry_date": "2025-07-10",
+          "exit_date": "2025-07-11",
+          "entry_price": 0.0013000000035390258,
+          "exit_price": 0.002400000113993883,
+          "return_pct": 84.61539288156129,
+          "symbol": "SRNE"
+        },
+        {
+          "entry_date": "2025-09-10",
+          "exit_date": "2025-09-11",
+          "entry_price": 0.0020000000949949026,
+          "exit_price": 0.0035000001080334187,
+          "return_pct": 74.99999708961708,
+          "symbol": "SRNE"
+        },
+        {
+          "entry_date": "2025-11-26",
+          "exit_date": "2025-11-28",
+          "entry_price": 0.0044999998062849045,
+          "exit_price": 0.007899999618530273,
+          "return_pct": 75.55555463573074,
+          "symbol": "SRNE"
+        }
+      ]
+    },
+    {
+      "symbol": "HUT",
+      "current_price": 40.02000045776367,
+      "total_trades": 2,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -23.99118078287799,
+      "strategy_return": -44.45560977543456,
+      "buy_hold_return": 48.05771158391434,
+      "excess_return": -92.5133213593489,
+      "volatility": 130.13808183751937,
+      "trades": [
+        {
+          "entry_date": "2025-02-24",
+          "exit_date": "2025-02-25",
+          "entry_price": 19.780000686645508,
+          "exit_price": 14.869999885559082,
+          "return_pct": -24.82305677775542,
+          "symbol": "HUT"
+        },
+        {
+          "entry_date": "2025-03-07",
+          "exit_date": "2025-03-10",
+          "entry_price": 14.9399995803833,
+          "exit_price": 11.479999542236328,
+          "return_pct": -23.159304788000558,
+          "symbol": "HUT"
+        }
+      ]
+    },
+    {
+      "symbol": "TLRY",
+      "current_price": 7.059999942779541,
+      "total_trades": 5,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -24.439727920984495,
+      "strategy_return": -71.89773679647278,
+      "buy_hold_return": -44.843751268926994,
+      "excess_return": -27.053985527545798,
+      "volatility": 87.35785231156714,
+      "trades": [
+        {
+          "entry_date": "2025-06-18",
+          "exit_date": "2025-06-20",
+          "entry_price": 4.5,
+          "exit_price": 3.5999999046325684,
+          "return_pct": -20.000002119276257,
+          "symbol": "TLRY"
+        },
+        {
+          "entry_date": "2025-11-14",
+          "exit_date": "2025-11-17",
+          "entry_price": 12.899999618530273,
+          "exit_price": 10.300000190734863,
+          "return_pct": -20.155034920005942,
+          "symbol": "TLRY"
+        },
+        {
+          "entry_date": "2025-12-02",
+          "exit_date": "2025-12-03",
+          "entry_price": 9.600000381469727,
+          "exit_price": 7.059999942779541,
+          "return_pct": -26.45833685166292,
+          "symbol": "TLRY"
+        }
+      ]
+    },
+    {
+      "symbol": "WKHS",
+      "current_price": 0.8989999890327454,
+      "total_trades": 7,
+      "win_rate": 28.57142857142857,
+      "avg_win": 55.998066435754694,
+      "avg_loss": -23.34650932720556,
+      "strategy_return": -51.49592581697937,
+      "buy_hold_return": -92.94901969386082,
+      "excess_return": 41.453093876881454,
+      "volatility": 166.24864690251187,
+      "trades": [
+        {
+          "entry_date": "2025-07-02",
+          "exit_date": "2025-07-03",
+          "entry_price": 0.9010000228881836,
+          "exit_price": 1.4500000476837158,
+          "return_pct": 60.93229865141352,
+          "symbol": "WKHS"
+        },
+        {
+          "entry_date": "2025-11-10",
+          "exit_date": "2025-11-11",
+          "entry_price": 0.9269999861717224,
+          "exit_price": 0.7099999785423279,
+          "return_pct": -23.408846911158022,
+          "symbol": "WKHS"
+        },
+        {
+          "entry_date": "2025-11-21",
+          "exit_date": "2025-11-24",
+          "entry_price": 0.6579999923706055,
+          "exit_price": 0.9940000176429749,
+          "return_pct": 51.06383422009586,
+          "symbol": "WKHS"
+        }
+      ]
+    },
+    {
+      "symbol": "LABU",
+      "current_price": 160.47999572753906,
+      "total_trades": 3,
+      "win_rate": 33.33333333333333,
+      "avg_win": 52.098835279762866,
+      "avg_loss": -21.70810363742031,
+      "strategy_return": -25.83113191884474,
+      "buy_hold_return": 32.4778233021378,
+      "excess_return": -58.30895522098254,
+      "volatility": 77.14656347480849,
+      "trades": [
+        {
+          "entry_date": "2025-03-28",
+          "exit_date": "2025-03-31",
+          "entry_price": 78.80082702636719,
+          "exit_price": 60.659053802490234,
+          "return_pct": -23.0223132275079,
+          "symbol": "LABU"
+        },
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-04-07",
+          "entry_price": 54.05291748046875,
+          "exit_price": 43.029422760009766,
+          "return_pct": -20.393894047332722,
+          "symbol": "LABU"
+        },
+        {
+          "entry_date": "2025-04-25",
+          "exit_date": "2025-04-28",
+          "entry_price": 37.448036193847656,
+          "exit_price": 56.95802688598633,
+          "return_pct": 52.098835279762866,
+          "symbol": "LABU"
+        }
+      ]
+    },
+    {
+      "symbol": "LABD",
+      "current_price": 21.739999771118164,
+      "total_trades": 5,
+      "win_rate": 20.0,
+      "avg_win": 54.494151136931144,
+      "avg_loss": -21.55895794752802,
+      "strategy_return": -56.737947170802094,
+      "buy_hold_return": -60.386673042044194,
+      "excess_return": 3.648725871242098,
+      "volatility": 76.26514252220815,
+      "trades": [
+        {
+          "entry_date": "2025-09-29",
+          "exit_date": "2025-09-30",
+          "entry_price": 51.39793395996094,
+          "exit_price": 40.439998626708984,
+          "return_pct": -21.31979729338576,
+          "symbol": "LABD"
+        },
+        {
+          "entry_date": "2025-10-24",
+          "exit_date": "2025-10-27",
+          "entry_price": 37.70000076293945,
+          "exit_price": 28.889999389648438,
+          "return_pct": -23.368703435018453,
+          "symbol": "LABD"
+        },
+        {
+          "entry_date": "2025-11-25",
+          "exit_date": "2025-11-26",
+          "entry_price": 26.8700008392334,
+          "exit_price": 21.3700008392334,
+          "return_pct": -20.468923811752717,
+          "symbol": "LABD"
+        }
+      ]
+    },
+    {
+      "symbol": "SENS",
+      "current_price": 6.400000095367432,
+      "total_trades": 3,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -21.92507034497544,
+      "strategy_return": -61.7542277899648,
+      "buy_hold_return": 13.879007574583868,
+      "excess_return": -75.63323536454867,
+      "volatility": 76.81239312238297,
+      "trades": [
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-04-07",
+          "entry_price": 14.039999961853027,
+          "exit_price": 11.100000381469727,
+          "return_pct": -20.940168008342887,
+          "symbol": "SENS"
+        },
+        {
+          "entry_date": "2025-09-30",
+          "exit_date": "2025-10-01",
+          "entry_price": 10.4399995803833,
+          "exit_price": 8.260000228881836,
+          "return_pct": -20.881220681250515,
+          "symbol": "SENS"
+        },
+        {
+          "entry_date": "2025-11-19",
+          "exit_date": "2025-11-20",
+          "entry_price": 6.929999828338623,
+          "exit_price": 5.269999980926514,
+          "return_pct": -23.95382234533291,
+          "symbol": "SENS"
+        }
+      ]
+    },
+    {
+      "symbol": "SPCE",
+      "current_price": 4.349999904632568,
+      "total_trades": 4,
+      "win_rate": 50.0,
+      "avg_win": 70.23810358882051,
+      "avg_loss": -21.812900670444943,
+      "strategy_return": -4.764259856926733,
+      "buy_hold_return": -34.68468462018273,
+      "excess_return": 29.920424763255994,
+      "volatility": 75.01175797660132,
+      "trades": [
+        {
+          "entry_date": "2025-04-03",
+          "exit_date": "2025-04-04",
+          "entry_price": 3.450000047683716,
+          "exit_price": 2.740000009536743,
+          "return_pct": -20.579710966197155,
+          "symbol": "SPCE"
+        },
+        {
+          "entry_date": "2025-05-15",
+          "exit_date": "2025-05-16",
+          "entry_price": 2.5199999809265137,
+          "exit_price": 4.800000190734863,
+          "return_pct": 90.47619948671885,
+          "symbol": "SPCE"
+        },
+        {
+          "entry_date": "2025-10-13",
+          "exit_date": "2025-10-14",
+          "entry_price": 3.0999999046325684,
+          "exit_price": 4.650000095367432,
+          "return_pct": 50.000007690922146,
+          "symbol": "SPCE"
+        }
+      ]
+    },
+    {
+      "symbol": "HYMC",
+      "current_price": 11.4399995803833,
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 52.17391893720493,
+      "avg_loss": 0,
+      "strategy_return": 29.663602319557604,
+      "buy_hold_return": 415.3152897725412,
+      "excess_return": -385.6516874529836,
+      "volatility": 99.96796504999698,
+      "trades": [
+        {
+          "entry_date": "2025-08-28",
+          "exit_date": "2025-08-29",
+          "entry_price": 2.990000009536743,
+          "exit_price": 4.550000190734863,
+          "return_pct": 52.17391893720493,
+          "symbol": "HYMC"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_stocks": 10,
+    "total_trades": 43,
+    "avg_win_rate": 34.94047619047619,
+    "avg_strategy_return": -42.964479668976296,
+    "avg_excess_return": -83.99707804335087,
+    "outperforming_count": 3
+  }
+}

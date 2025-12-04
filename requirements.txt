@@ -115,6 +115,7 @@ pydantic_core @ file:///home/task_176059738185733/conda-bld/pydantic-core_176059
 Pygments @ file:///home/task_176243137807904/conda-bld/pygments_1762431407645/work
 PyJWT @ file:///io/buildout/croot/pyjwt_1739558969999/work
 pyparsing==3.2.5
+pyotp==2.9.0
 PySocks>=1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv @ file:///croot/python-dotenv_1745610241282/work
@@ -126,6 +127,7 @@ readchar @ file:///home/task_176061336965958/conda-bld/readchar_1760613437376/wo
 regex==2025.11.3
 requests[socks]>=2.31.0
 rich @ file:///home/task_176037557612320/conda-bld/rich_1760375632000/work
+robin-stocks==3.3.0
 rlp==4.1.0
 rsa==4.9.1
 ruamel.yaml @ file:///home/task_176253595903435/conda-bld/ruamel.yaml_1762535972567/work

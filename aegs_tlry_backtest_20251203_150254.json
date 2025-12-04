@@ -1,0 +1,97 @@
+{
+  "symbol": "TLRY",
+  "sector": "Cannabis",
+  "backtest_date": "2025-12-03 15:02:54",
+  "total_trades": 8,
+  "win_rate": 12.5,
+  "avg_win": 0.5813864516596927,
+  "avg_loss": -22.408621741369974,
+  "avg_hold_days": 38.25,
+  "strategy_return": -84.9623957459371,
+  "buy_hold_return": -64.95145797819382,
+  "excess_return": -20.010937767743286,
+  "strategy_volatility": 55.29123665094702,
+  "max_drawdown": 196.42427443029175,
+  "trades": [
+    {
+      "entry_date": "2024-04-17",
+      "exit_date": "2024-06-27",
+      "entry_price": 17.200000762939453,
+      "exit_price": 17.299999237060547,
+      "return_pct": 0.5813864516596927,
+      "days_held": 71,
+      "exit_reason": "Time Exit (60+ days, profitable)",
+      "max_gain": 0.5813864516596927
+    },
+    {
+      "entry_date": "2024-11-06",
+      "exit_date": "2024-12-12",
+      "entry_price": 15.399999618530273,
+      "exit_price": 12.100000381469727,
+      "return_pct": -21.42856700522106,
+      "days_held": 36,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -21.42856700522106
+    },
+    {
+      "entry_date": "2024-12-18",
+      "exit_date": "2025-02-18",
+      "entry_price": 11.600000381469727,
+      "exit_price": 8.899999618530273,
+      "return_pct": -23.275867880595374,
+      "days_held": 62,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -23.275867880595374
+    },
+    {
+      "entry_date": "2025-02-24",
+      "exit_date": "2025-03-10",
+      "entry_price": 8.399999618530273,
+      "exit_price": 6.5,
+      "return_pct": -22.61904410494142,
+      "days_held": 13,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -22.61904410494142
+    },
+    {
+      "entry_date": "2025-03-11",
+      "exit_date": "2025-04-08",
+      "entry_price": 6.099999904632568,
+      "exit_price": 4.599999904632568,
+      "return_pct": -24.590164318868986,
+      "days_held": 28,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -24.590164318868986
+    },
+    {
+      "entry_date": "2025-04-17",
+      "exit_date": "2025-06-20",
+      "entry_price": 4.5,
+      "exit_price": 3.5999999046325684,
+      "return_pct": -20.000002119276257,
+      "days_held": 64,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -20.000002119276257
+    },
+    {
+      "entry_date": "2025-10-30",
+      "exit_date": "2025-11-17",
+      "entry_price": 12.899999618530273,
+      "exit_price": 10.300000190734863,
+      "return_pct": -20.155034920005942,
+      "days_held": 18,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -20.155034920005942
+    },
+    {
+      "entry_date": "2025-11-19",
+      "exit_date": "2025-12-03",
+      "entry_price": 9.600000381469727,
+      "exit_price": 7.21999979019165,
+      "return_pct": -24.791671840680767,
+      "days_held": 14,
+      "exit_reason": "Stop Loss -20%",
+      "max_gain": -24.791671840680767
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "notifications": {
+    "desktop": true,
+    "email": false,
+    "sound": true,
+    "console": true
+  },
+  "thresholds": {
+    "profit_target_pct": 15.0,
+    "stop_loss_pct": -8.0,
+    "large_move_pct": 5.0,
+    "volume_spike_multiplier": 4.0
+  },
+  "email": {
+    "smtp_server": "",
+    "smtp_port": 587,
+    "username": "",
+    "password": "",
+    "to_address": ""
+  },
+  "cooldown_minutes": 15
+}

@@ -1,0 +1,416 @@
+{
+  "scan_date": "2025-12-03T20:15:41.012588",
+  "scan_type": "nyse_bluechips",
+  "cache_stats": {
+    "hits": 0,
+    "misses": 30,
+    "rate_limited": 0,
+    "retries": 0
+  },
+  "summary": {
+    "total_scanned": 30,
+    "profitable_count": 16,
+    "unprofitable_count": 14,
+    "error_count": 0
+  },
+  "profitable_symbols": [
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 25.965378420838302,
+      "avg_loss": 0,
+      "strategy_return": 25.965378420838302,
+      "buy_hold_return": 141.85322159585337,
+      "excess_return": -115.88784317501506,
+      "trades": [
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-05-19",
+          "entry_price": 208.25930786132812,
+          "exit_price": 262.3346252441406,
+          "return_pct": 25.965378420838302,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "JPM",
+      "current_price": 312.1300048828125
+    },
+    {
+      "total_trades": 4,
+      "win_rate": 100.0,
+      "avg_win": 14.846385181349339,
+      "avg_loss": 0,
+      "strategy_return": 70.51230263565118,
+      "buy_hold_return": -27.254802936204868,
+      "excess_return": 97.76710557185605,
+      "trades": [
+        {
+          "entry_date": "2024-04-02",
+          "exit_date": "2024-05-14",
+          "entry_price": 444.94305419921875,
+          "exit_price": 499.0774230957031,
+          "return_pct": 12.166583652802963,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-02-21",
+          "exit_date": "2025-04-04",
+          "entry_price": 458.2702941894531,
+          "exit_price": 518.0805053710938,
+          "return_pct": 13.051295696010035,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-05-13",
+          "exit_date": "2025-06-30",
+          "entry_price": 307.24676513671875,
+          "exit_price": 310.01416015625,
+          "return_pct": 0.9007076179629796,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-07-29",
+          "exit_date": "2025-09-09",
+          "entry_price": 259.4332580566406,
+          "exit_price": 345.7388000488281,
+          "return_pct": 33.266953758621376,
+          "days_held": 29,
+          "exit_reason": "Profit Target 30%"
+        }
+      ],
+      "symbol": "UNH",
+      "current_price": 339.7099914550781
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 13.047521150993369,
+      "avg_loss": 0,
+      "strategy_return": 13.047521150993369,
+      "buy_hold_return": 53.027799347174685,
+      "excess_return": -39.98027819618132,
+      "trades": [
+        {
+          "entry_date": "2023-10-26",
+          "exit_date": "2023-12-08",
+          "entry_price": 360.42236328125,
+          "exit_price": 407.44854736328125,
+          "return_pct": 13.047521150993369,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "MA",
+      "current_price": 553.72998046875
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 32.2758287184114,
+      "avg_loss": 0,
+      "strategy_return": 32.27582871841139,
+      "buy_hold_return": 14.462053119042888,
+      "excess_return": 17.8137755993685,
+      "trades": [
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-05-12",
+          "entry_price": 83.17530822753906,
+          "exit_price": 110.02082824707031,
+          "return_pct": 32.2758287184114,
+          "days_held": 25,
+          "exit_reason": "Profit Target 30%"
+        }
+      ],
+      "symbol": "DIS",
+      "current_price": 105.73999786376953
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 20.06984108225169,
+      "avg_loss": 0,
+      "strategy_return": 20.069841082251692,
+      "buy_hold_return": 69.18220863719576,
+      "excess_return": -49.112367554944065,
+      "trades": [
+        {
+          "entry_date": "2025-04-03",
+          "exit_date": "2025-05-16",
+          "entry_price": 36.79727554321289,
+          "exit_price": 44.182430267333984,
+          "return_pct": 20.06984108225169,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "BAC",
+      "current_price": 54.09000015258789
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 9.011692366547987,
+      "avg_loss": 0,
+      "strategy_return": 9.011692366547997,
+      "buy_hold_return": 18.237856795921825,
+      "excess_return": -9.226164429373828,
+      "trades": [
+        {
+          "entry_date": "2025-07-17",
+          "exit_date": "2025-08-28",
+          "entry_price": 119.97649383544922,
+          "exit_price": 130.7884063720703,
+          "return_pct": 9.011692366547987,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "ABT",
+      "current_price": 125.29000091552734
+    },
+    {
+      "total_trades": 2,
+      "win_rate": 50.0,
+      "avg_win": 14.06343647296993,
+      "avg_loss": -2.216584011336067,
+      "strategy_return": 11.535124577329615,
+      "buy_hold_return": 9.385167056316362,
+      "excess_return": 2.1499575210132527,
+      "trades": [
+        {
+          "entry_date": "2023-10-25",
+          "exit_date": "2023-12-07",
+          "entry_price": 430.5151672363281,
+          "exit_price": 491.0603942871094,
+          "return_pct": 14.06343647296993,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-07-02",
+          "entry_price": 437.06427001953125,
+          "exit_price": 427.3763732910156,
+          "return_pct": -2.216584011336067,
+          "days_held": 60,
+          "exit_reason": "Force Exit"
+        }
+      ],
+      "symbol": "TMO",
+      "current_price": 580.4500122070312
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 1.0482433253544896,
+      "avg_loss": 0,
+      "strategy_return": 1.048243325354492,
+      "buy_hold_return": -2.6102479494396067,
+      "excess_return": 3.6584912747940987,
+      "trades": [
+        {
+          "entry_date": "2023-10-27",
+          "exit_date": "2023-12-11",
+          "entry_price": 130.88507080078125,
+          "exit_price": 132.25706481933594,
+          "return_pct": 1.0482433253544896,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "CVX",
+      "current_price": 151.58999633789062
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 17.598495202492497,
+      "avg_loss": 0,
+      "strategy_return": 17.598495202492504,
+      "buy_hold_return": 191.61918814307825,
+      "excess_return": -174.02069294058575,
+      "trades": [
+        {
+          "entry_date": "2025-08-07",
+          "exit_date": "2025-09-19",
+          "entry_price": 638.5177001953125,
+          "exit_price": 750.88720703125,
+          "return_pct": 17.598495202492497,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "LLY",
+      "current_price": 1033.56005859375
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 3.193266963868598,
+      "avg_loss": 0,
+      "strategy_return": 3.1932669638685907,
+      "buy_hold_return": 54.295783685395904,
+      "excess_return": -51.102516721527316,
+      "trades": [
+        {
+          "entry_date": "2024-11-11",
+          "exit_date": "2024-12-24",
+          "entry_price": 168.5369873046875,
+          "exit_price": 173.9188232421875,
+          "return_pct": 3.193266963868598,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "ABBV",
+      "current_price": 230.24000549316406
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 4.626880920776535,
+      "avg_loss": 0,
+      "strategy_return": 4.626880920776544,
+      "buy_hold_return": -40.26625141614325,
+      "excess_return": 44.89313233691979,
+      "trades": [
+        {
+          "entry_date": "2023-12-13",
+          "exit_date": "2024-01-29",
+          "entry_price": 23.42900276184082,
+          "exit_price": 24.51303482055664,
+          "return_pct": 4.626880920776535,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "PFE",
+      "current_price": 25.56999969482422
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 6.643342425546941,
+      "avg_loss": 0,
+      "strategy_return": 6.643342425546939,
+      "buy_hold_return": 17.971853565420492,
+      "excess_return": -11.328511139873553,
+      "trades": [
+        {
+          "entry_date": "2023-07-17",
+          "exit_date": "2023-08-28",
+          "entry_price": 27.01803970336914,
+          "exit_price": 28.81294059753418,
+          "return_pct": 6.643342425546941,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "VZ",
+      "current_price": 40.66999816894531
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 0.5292766674305592,
+      "avg_loss": 0,
+      "strategy_return": 0.5292766674305671,
+      "buy_hold_return": -3.2465489438939343,
+      "excess_return": 3.7758256113245015,
+      "trades": [
+        {
+          "entry_date": "2024-07-30",
+          "exit_date": "2024-09-13",
+          "entry_price": 110.39541625976562,
+          "exit_price": 110.9797134399414,
+          "return_pct": 0.5292766674305592,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "MRK",
+      "current_price": 102.2699966430664
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 4.4642644732468515,
+      "avg_loss": 0,
+      "strategy_return": 4.4642644732468595,
+      "buy_hold_return": 34.09696870646946,
+      "excess_return": -29.6327042332226,
+      "trades": [
+        {
+          "entry_date": "2024-05-02",
+          "exit_date": "2024-06-14",
+          "entry_price": 411.7762756347656,
+          "exit_price": 430.1590576171875,
+          "return_pct": 4.4642644732468515,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "LIN",
+      "current_price": 409.1499938964844
+    },
+    {
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 1.217261483609497,
+      "avg_loss": 0,
+      "strategy_return": 1.2172614836094997,
+      "buy_hold_return": 10.814371576911656,
+      "excess_return": -9.597110093302156,
+      "trades": [
+        {
+          "entry_date": "2023-09-27",
+          "exit_date": "2023-12-06",
+          "entry_price": 56.04488754272461,
+          "exit_price": 56.72710037231445,
+          "return_pct": 1.217261483609497,
+          "days_held": 49,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "NEE",
+      "current_price": 84.94999694824219
+    },
+    {
+      "total_trades": 2,
+      "win_rate": 100.0,
+      "avg_win": 8.743221368434021,
+      "avg_loss": 0,
+      "strategy_return": 17.929399076195217,
+      "buy_hold_return": -36.07259406022413,
+      "excess_return": 54.001993136419344,
+      "trades": [
+        {
+          "entry_date": "2023-10-26",
+          "exit_date": "2023-12-08",
+          "entry_price": 121.9426498413086,
+          "exit_price": 139.51844787597656,
+          "return_pct": 14.413167220443732,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-01-30",
+          "exit_date": "2025-03-14",
+          "entry_price": 107.51045227050781,
+          "exit_price": 110.81454467773438,
+          "return_pct": 3.073275516424312,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ],
+      "symbol": "UPS",
+      "current_price": 98.20999908447266
+    }
+  ],
+  "errors": []
+}

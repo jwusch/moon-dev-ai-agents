@@ -60,6 +60,113 @@
           "total_trades": 39,
           "last_updated": "2025-12-02"
         }
+      },
+      "ZKIN": {
+        "strategy_return": 635.8175893681823,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 403.5098716667943,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "QDEL": {
+        "strategy_return": 578.923805386978,
+        "total_trades": 7,
+        "win_rate": 100.0,
+        "excess_return": 618.2000047086326,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VSTM": {
+        "strategy_return": 270.57227467526695,
+        "total_trades": 5,
+        "win_rate": 100.0,
+        "excess_return": 206.62773355720793,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TRUE": {
+        "strategy_return": 246.59152354490388,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 285.73437741802053,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "DRIO": {
+        "strategy_return": 173.75044643175778,
+        "total_trades": 5,
+        "win_rate": 80.0,
+        "excess_return": 201.03424956875386,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VNCE": {
+        "strategy_return": 151.95593581443924,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 186.917377892547,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NERV": {
+        "strategy_return": 122.28920870552567,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 40.55008196645646,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LUNA": {
+        "strategy_return": 122.22221670327383,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 147.5953506775538,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EH": {
+        "strategy_return": 119.97929691277291,
+        "total_trades": 5,
+        "win_rate": 100.0,
+        "excess_return": 128.97738140892554,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TTEC": {
+        "strategy_return": 106.7535162142243,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 136.89904770971552,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ACHV": {
+        "strategy_return": 153.3477037100904,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 66.37451173370718,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BKKT": {
+        "strategy_return": 132.63851239288823,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 188.51821141155307,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "CRVS": {
+        "strategy_return": 104.6451544073125,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -777.8926003461579,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
       }
     },
     "high_potential": {
@@ -160,7 +267,1123 @@
           "strategy_return": 60.020925120471745,
           "win_rate": 56.25,
           "total_trades": 64
+        },
+        "ZM": {
+          "excess_return": 490.0,
+          "category": "Tech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 730.0,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Perfect AEGS execution - 100% win rate with strong mean reversion"
+        },
+        "ATRA": {
+          "excess_return": 394.0,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 4070.0,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Top NASDAQ A performer - consistent profitable trades"
+        },
+        "ALDX": {
+          "excess_return": 383.0,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 3650.0,
+          "win_rate": 66.7,
+          "total_trades": 3,
+          "note": "Strong biotech mean reversion candidate"
+        },
+        "CLDX": {
+          "excess_return": 32.6,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 37.2,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "TOP B&C performer - CloudDx mean reversion specialist"
+        },
+        "BUKS": {
+          "excess_return": -4.0,
+          "category": "Retail Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 35.4,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Consistent profitable retail bounces"
+        },
+        "COYA": {
+          "excess_return": 27.9,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 28.9,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Coya Therapeutics - perfect execution record"
+        },
+        "CRNC": {
+          "excess_return": -39.9,
+          "category": "Healthcare Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 28.3,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Single perfect trade - healthcare oversold specialist"
+        },
+        "CNQ": {
+          "excess_return": 19.2,
+          "category": "Energy Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 26.4,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Canadian Natural Resources - energy mean reversion"
+        },
+        "CSTM": {
+          "excess_return": -21.3,
+          "category": "Healthcare Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 26.1,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Constellium - perfect single execution"
+        },
+        "BTBD": {
+          "excess_return": 32.0,
+          "category": "Cryptocurrency",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 25.5,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "BT Brands - crypto-adjacent perfect trades"
+        },
+        "BPRN": {
+          "excess_return": 33.2,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 25.5,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Princeton Pharmaceuticals - biotech oversold bounce"
+        },
+        "CSIQ": {
+          "excess_return": -69.9,
+          "category": "Solar Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 24.3,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Canadian Solar - perfect solar mean reversion"
+        },
+        "BCS": {
+          "excess_return": -54.4,
+          "category": "Banking Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 23.9,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Barclays - banking oversold specialist"
+        },
+        "CLYM": {
+          "excess_return": 66.4,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 22.7,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Calamos Dynamic - strong financial recovery plays"
+        },
+        "BCAX": {
+          "excess_return": 31.4,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 22.5,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Bicara Therapeutics - perfect financial execution"
+        },
+        "CACC": {
+          "excess_return": 23.1,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 22.5,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Credit Acceptance - consistent financial recovery"
+        },
+        "ZKIN": {
+          "excess_return": 403.5,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 635.8,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "\ud83d\ude80 TOP D-Z PERFORMER - ZK International explosive growth"
+        },
+        "QDEL": {
+          "excess_return": 618.2,
+          "category": "Healthcare Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 578.9,
+          "win_rate": 100.0,
+          "total_trades": 7,
+          "note": "\ud83d\ude80 QuidelOrtho - medical device mega performer"
+        },
+        "VSTM": {
+          "excess_return": 206.6,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 270.6,
+          "win_rate": 100.0,
+          "total_trades": 5,
+          "note": "\ud83d\ude80 Verastem - consistent biotech outperformer"
+        },
+        "TRUE": {
+          "excess_return": 285.7,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 246.6,
+          "win_rate": 100.0,
+          "total_trades": 4,
+          "note": "\ud83d\ude80 TrueCar - automotive tech perfect execution"
+        },
+        "DRIO": {
+          "excess_return": 201.0,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 173.8,
+          "win_rate": 80.0,
+          "total_trades": 5,
+          "note": "\ud83d\ude80 DarioHealth - digital health leader"
+        },
+        "VNCE": {
+          "excess_return": 186.9,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 152.0,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 Vince Holding - fashion retail specialist"
+        },
+        "NERV": {
+          "excess_return": 40.6,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 122.3,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 Minerva Neurosciences - biotech breakthrough"
+        },
+        "LUNA": {
+          "excess_return": 147.6,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 122.2,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "\ud83d\ude80 Luna Innovations - optical tech specialist"
+        },
+        "EH": {
+          "excess_return": 129.0,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 120.0,
+          "win_rate": 100.0,
+          "total_trades": 5,
+          "note": "\ud83d\ude80 EHang Holdings - eVTOL aviation pioneer"
+        },
+        "TTEC": {
+          "excess_return": 136.9,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 106.8,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 TTEC Holdings - customer experience tech"
+        },
+        "PDD": {
+          "excess_return": 76.2,
+          "category": "E-Commerce Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 96.0,
+          "win_rate": 100.0,
+          "total_trades": 5,
+          "note": "\ud83d\ude80 PDD Holdings - Chinese e-commerce giant"
+        },
+        "GTE": {
+          "excess_return": 133.1,
+          "category": "Energy Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 93.2,
+          "win_rate": 100.0,
+          "total_trades": 6,
+          "note": "\ud83d\ude80 Gran Tierra Energy - oil & gas specialist"
+        },
+        "FENG": {
+          "excess_return": 107.0,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 92.4,
+          "win_rate": 75.0,
+          "total_trades": 4,
+          "note": "\ud83d\ude80 Phoenix New Media - Chinese media recovery"
+        },
+        "OIS": {
+          "excess_return": 69.5,
+          "category": "Energy Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 90.0,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 Oil States International - energy services"
+        },
+        "MRVL": {
+          "excess_return": 107.7,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 86.6,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 Marvell Technology - semiconductor leader"
+        },
+        "RAIL": {
+          "excess_return": 97.7,
+          "category": "Industrial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 83.4,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 FreightCar America - rail equipment specialist"
+        },
+        "VFF": {
+          "excess_return": -286.2,
+          "category": "Agriculture Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 81.3,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "\ud83d\ude80 Village Farms - cannabis/agriculture pioneer"
+        },
+        "REKR": {
+          "excess_return": 79.4,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 80.5,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "\ud83d\ude80 Rekor Systems - AI traffic management"
+        },
+        "SUNS": {
+          "excess_return": 103.7,
+          "category": "Solar Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 80.4,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "\ud83d\ude80 SunPower Corp - solar energy leader"
         }
+      },
+      "ATRA": {
+        "strategy_return": 40.671957435761506,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 39.38059469985702,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ALDX": {
+        "strategy_return": 36.476287757604496,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 38.29080694905019,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CLDX": {
+        "strategy_return": 37.21573427436737,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 32.58819647990967,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BUKS": {
+        "strategy_return": 35.43749719671916,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -3.974256866950099,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PDD": {
+        "strategy_return": 95.96392208245415,
+        "total_trades": 5,
+        "win_rate": 100.0,
+        "excess_return": 76.1579539099985,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GTE": {
+        "strategy_return": 93.23371133719756,
+        "total_trades": 6,
+        "win_rate": 100.0,
+        "excess_return": 133.07434767731732,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FENG": {
+        "strategy_return": 92.44170694670073,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 106.95784125096168,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OIS": {
+        "strategy_return": 89.95295723872027,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 69.49406301770398,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MRVL": {
+        "strategy_return": 86.6225256358675,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 107.65135543371251,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RAIL": {
+        "strategy_return": 83.44925614319847,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 97.70501780059247,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VFF": {
+        "strategy_return": 81.29829744437183,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -286.2341730126248,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "REKR": {
+        "strategy_return": 80.51474929063389,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 79.3653251057548,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SUNS": {
+        "strategy_return": 80.36317065103165,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 103.66878494617791,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LI": {
+        "strategy_return": 77.85558756175257,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 101.29439256100694,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OI": {
+        "strategy_return": 76.17589119216733,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 50.78054661322474,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IMTX": {
+        "strategy_return": 75.63288623326858,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 31.562812507304194,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MAT": {
+        "strategy_return": 74.4805629706276,
+        "total_trades": 6,
+        "win_rate": 100.0,
+        "excess_return": 55.3604197979139,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IAUX": {
+        "strategy_return": 71.7561663289379,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -23.89600368384521,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EML": {
+        "strategy_return": 71.68367790053505,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 97.03974480603135,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "POWI": {
+        "strategy_return": 71.60056614494681,
+        "total_trades": 6,
+        "win_rate": 83.33333333333334,
+        "excess_return": 115.26402095588344,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LRCX": {
+        "strategy_return": 71.05262686061519,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -45.913008345843096,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SNDX": {
+        "strategy_return": 70.65371177084698,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 29.88666772098228,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SMHI": {
+        "strategy_return": 68.62019588262388,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 63.1387160965634,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NVT": {
+        "strategy_return": 67.758211758657,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 9.326327721915924,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GLBZ": {
+        "strategy_return": 65.67841846050575,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 90.80662041188646,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TCRX": {
+        "strategy_return": 65.02540750152448,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 129.0448564292514,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RAVE": {
+        "strategy_return": 64.42852365587521,
+        "total_trades": 5,
+        "win_rate": 100.0,
+        "excess_return": 44.80588357236933,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MEG": {
+        "strategy_return": 63.93214157526415,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 26.986064450759798,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IMAX": {
+        "strategy_return": 63.10328903330837,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 15.353398263386715,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PTCT": {
+        "strategy_return": 62.84525319549079,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": -24.578451821659137,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WTI": {
+        "strategy_return": 61.125047588739555,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 59.23304565710718,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ELF": {
+        "strategy_return": 60.49820692070358,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 98.56634295456595,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OXM": {
+        "strategy_return": 59.153239529319166,
+        "total_trades": 7,
+        "win_rate": 100.0,
+        "excess_return": 107.67783544640784,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FDMT": {
+        "strategy_return": 57.835864084821424,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": -42.164135915178576,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HIMX": {
+        "strategy_return": 56.751025774353025,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 51.55849410373882,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HOTH": {
+        "strategy_return": 56.275132998658385,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -0.8677329908995048,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "E": {
+        "strategy_return": 55.946998834663745,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 15.037937307824322,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SSTK": {
+        "strategy_return": 55.347573103949244,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 80.3109542020241,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GOTU": {
+        "strategy_return": 55.00000958676139,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 46.244257876080674,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KN": {
+        "strategy_return": 54.96085576306684,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 42.617031249814865,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LGI": {
+        "strategy_return": 52.95134385417677,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 32.90725968398438,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JKS": {
+        "strategy_return": 52.79365116479655,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 45.85472093269933,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NRC": {
+        "strategy_return": 49.485759550232956,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 48.76157556606993,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TXN": {
+        "strategy_return": 48.877310281598454,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 55.94698832715779,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KD": {
+        "strategy_return": 48.04221003839633,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 75.32261659576633,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PPIH": {
+        "strategy_return": 47.374894528828705,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -29.9888126408936,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MOBQ": {
+        "strategy_return": 46.95349146121881,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 101.2471196023259,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OXSQ": {
+        "strategy_return": 46.68397188621456,
+        "total_trades": 5,
+        "win_rate": 100.0,
+        "excess_return": 59.7700542119412,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IOVA": {
+        "strategy_return": 46.56995532386894,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 114.86263772816147,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "DARE": {
+        "strategy_return": 44.94583094113707,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 87.8029732694011,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JANX": {
+        "strategy_return": 44.8011440630562,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 80.77034188827758,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KEYS": {
+        "strategy_return": 44.78541044196087,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 21.712790785596702,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VTRS": {
+        "strategy_return": 44.633470067578095,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 54.18956923598921,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ZH": {
+        "strategy_return": 44.16463676738624,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 39.92734589213681,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WF": {
+        "strategy_return": 43.766412750201326,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -43.80537866439417,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VUZI": {
+        "strategy_return": 43.47880123478538,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 78.50295234655889,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OBT": {
+        "strategy_return": 43.28117123631201,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 41.293994393911426,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JTEK": {
+        "strategy_return": 43.069856267435384,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 23.69132334595133,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SONO": {
+        "strategy_return": 42.739391239671946,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 16.823517738037307,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NBBK": {
+        "strategy_return": 42.672839558756756,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 31.42022974058695,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NAII": {
+        "strategy_return": 41.357891120692216,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 56.742503085281335,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RFL": {
+        "strategy_return": 40.88119615020673,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 72.89710097837867,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MXL": {
+        "strategy_return": 40.289551575270764,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 60.72900002890513,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NAMS": {
+        "strategy_return": 39.51281404936844,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -19.578097713271568,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SRTS": {
+        "strategy_return": 39.14905442949903,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 80.13496832385569,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MGNX": {
+        "strategy_return": 38.03930851633148,
+        "total_trades": 7,
+        "win_rate": 57.14285714285714,
+        "excess_return": 91.67567234973527,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MEI": {
+        "strategy_return": 37.75212144796431,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 70.10307099540492,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IR": {
+        "strategy_return": 37.68619806226117,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 48.84434131952358,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PCB": {
+        "strategy_return": 37.290607432372646,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 22.258750145582717,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VET": {
+        "strategy_return": 36.82401386726259,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 40.11872696735037,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TFC": {
+        "strategy_return": 34.72515368965343,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 22.105996369886228,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TG": {
+        "strategy_return": 34.49345847882941,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 34.87659683468513,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ETO": {
+        "strategy_return": 34.37967990813624,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 9.521229941640918,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TECK": {
+        "strategy_return": 33.87826001502234,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 28.360631395846145,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FATE": {
+        "strategy_return": 33.82353186091747,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 70.13638046485013,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KWEB": {
+        "strategy_return": 32.63789434894073,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 1.8231290527780288,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SPCE": {
+        "strategy_return": 32.4894623006891,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 68.6280774475396,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VG": {
+        "strategy_return": 31.76169519400225,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 100.54899789652765,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "XT": {
+        "strategy_return": 31.008240523775797,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 5.75165116682955,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TRVI": {
+        "strategy_return": 30.377350919566926,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -172.14556597198424,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "UNH": {
+        "strategy_return": 70.51230263565118,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 97.76710557185605,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "DIS": {
+        "strategy_return": 32.27582871841139,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 17.8137755993685,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "AMRN": {
+        "strategy_return": 94.02753470459453,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 137.46503002728548,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BAND": {
+        "strategy_return": 80.09711680715073,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 112.43520025912751,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "AYTU": {
+        "strategy_return": 49.26571513046287,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 94.08436351573594,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BBCP": {
+        "strategy_return": 45.344407353982085,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 20.226397340292422,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "AIMD": {
+        "strategy_return": 40.5128185565655,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 126.15080062477207,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BZUN": {
+        "strategy_return": 39.925474486111014,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 93.43281785599771,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BLFS": {
+        "strategy_return": 31.87171953265935,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -5.5744063451603765,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "NRXP": {
+        "strategy_return": 81.04148246581946,
+        "total_trades": 5,
+        "win_rate": 80.0,
+        "excess_return": 160.26562034015512,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "CRSP": {
+        "strategy_return": 51.07602850373838,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 32.47826793550766,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "ACRS": {
+        "strategy_return": 37.209304904473626,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 120.41172122142127,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "BEAM": {
+        "strategy_return": 33.38779388335338,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 67.16689476546668,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "CGEN": {
+        "strategy_return": 32.075476578522256,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -48.384298576316226,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
       }
     },
     "positive": {
@@ -333,7 +1556,1926 @@
           "strategy_return": -63.81812050534099,
           "win_rate": 51.515151515151516,
           "total_trades": 33
+        },
+        "AMH": {
+          "excess_return": 29.5,
+          "category": "REIT Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 16.2,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Perfect REIT trades with solid returns"
+        },
+        "ATRC": {
+          "excess_return": 15.6,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 15.6,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Clean biotech momentum plays"
+        },
+        "AFRM": {
+          "excess_return": 15.9,
+          "category": "Fintech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 12.6,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Fintech oversold bounce specialist"
+        },
+        "APPN": {
+          "excess_return": 15.6,
+          "category": "SaaS Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 12.3,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "SaaS mean reversion consistency"
+        },
+        "AX": {
+          "excess_return": 8.6,
+          "category": "Industrial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 11.9,
+          "win_rate": 50.0,
+          "total_trades": 2,
+          "note": "Industrial cyclical bounce plays"
+        },
+        "CVI": {
+          "excess_return": -64.2,
+          "category": "Energy Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 21.9,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "CVR Energy - perfect energy oversold recovery"
+        },
+        "BSAC": {
+          "excess_return": -49.6,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 21.2,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Banco Santander Chile - perfect financial execution"
+        },
+        "BBUC": {
+          "excess_return": -11.0,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 20.7,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Brookline Bancorp - single perfect trade"
+        },
+        "BWB": {
+          "excess_return": 1.8,
+          "category": "Industrial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 20.1,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Bridgewater Bancshares - consistent industrial plays"
+        },
+        "BLRX": {
+          "excess_return": 89.2,
+          "category": "Biotech Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 19.0,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "BioLineRx - single excellent biotech execution"
+        },
+        "CVR": {
+          "excess_return": 60.0,
+          "category": "REIT Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 19.0,
+          "win_rate": 50.0,
+          "total_trades": 2,
+          "note": "Chicago Rivet - solid REIT recovery pattern"
+        },
+        "COLL": {
+          "excess_return": -35.1,
+          "category": "Education Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 18.6,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Collegium Pharmaceutical - education sector specialist"
+        },
+        "CW": {
+          "excess_return": -23.5,
+          "category": "Industrial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 18.1,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Curtiss-Wright - single strong industrial trade"
+        },
+        "CACI": {
+          "excess_return": -13.4,
+          "category": "Technology Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 17.2,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "CACI International - tech defense contractor"
+        },
+        "BCAL": {
+          "excess_return": 6.3,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 17.1,
+          "win_rate": 75.0,
+          "total_trades": 4,
+          "note": "Southern California Bancorp - solid financial recovery"
+        },
+        "CELU": {
+          "excess_return": 23.8,
+          "category": "Healthcare Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 16.4,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "Celularity - healthcare mean reversion specialist"
+        },
+        "CCJ": {
+          "excess_return": -35.4,
+          "category": "Energy Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 14.9,
+          "win_rate": 100.0,
+          "total_trades": 1,
+          "note": "Cameco Corp - uranium energy specialist"
+        },
+        "CECO": {
+          "excess_return": -51.6,
+          "category": "Industrial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 14.6,
+          "win_rate": 100.0,
+          "total_trades": 2,
+          "note": "CECO Environmental - industrial environmental plays"
+        },
+        "CWBC": {
+          "excess_return": 2.9,
+          "category": "Financial Recovery",
+          "active": true,
+          "added_date": "2025-12-04",
+          "strategy_return": 12.5,
+          "win_rate": 100.0,
+          "total_trades": 3,
+          "note": "Community West Bancshares - consistent banking"
         }
+      },
+      "AVNS": {
+        "strategy_return": 3.295085340591175,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 44.08042464043047,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ADVM": {
+        "strategy_return": 0.7246427723635929,
+        "total_trades": 0,
+        "win_rate": 0,
+        "excess_return": 31.224641500797834,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "AXTA": {
+        "strategy_return": 4.110516257347352,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 30.20068652780178,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "AMH": {
+        "strategy_return": 16.167945529759887,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 29.499093622527962,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "COYA": {
+        "strategy_return": 28.869942800950742,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 27.884722090339675,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CRNC": {
+        "strategy_return": 28.26517988785455,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -39.92926424384946,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CNQ": {
+        "strategy_return": 26.405493069126273,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 19.234182718615102,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CSTM": {
+        "strategy_return": 26.111087840370505,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -21.26595989188964,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BTBD": {
+        "strategy_return": 25.52911293448028,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 32.00833441331229,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BPRN": {
+        "strategy_return": 25.512479591209413,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 33.1848987486631,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CSIQ": {
+        "strategy_return": 24.267217509159966,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -69.8504369860832,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BCS": {
+        "strategy_return": 23.92693237618626,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -54.44952076107192,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CLYM": {
+        "strategy_return": 22.708941753304845,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 66.3982602688845,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BCAX": {
+        "strategy_return": 22.451229901487267,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 31.423665225161933,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CACC": {
+        "strategy_return": 22.450939770519263,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 23.081413919270176,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CVI": {
+        "strategy_return": 21.915358068119172,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -64.24850956706247,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BSAC": {
+        "strategy_return": 21.21935853017105,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -49.591350110690335,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BBUC": {
+        "strategy_return": 20.698881738198605,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -11.045868062604946,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BWB": {
+        "strategy_return": 20.13688261739739,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 1.8167799384618766,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BLRX": {
+        "strategy_return": 19.0476199486719,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 89.23280539549613,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CVR": {
+        "strategy_return": 19.02736596199981,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": 59.96751487328207,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "COLL": {
+        "strategy_return": 18.647767429081185,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -35.111863624000165,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CW": {
+        "strategy_return": 18.074681440577333,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -23.541854361501315,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CACI": {
+        "strategy_return": 17.156782452582252,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -13.433526992971156,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BCAL": {
+        "strategy_return": 17.118294353713146,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 6.319644172917327,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CELU": {
+        "strategy_return": 16.443938112432722,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 23.78339136615175,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CDTX": {
+        "strategy_return": 16.077440068364844,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -991.5916690879982,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "BLBX": {
+        "strategy_return": 16.01307250651949,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -174.2213022752018,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CATX": {
+        "strategy_return": 15.023470237079838,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 55.45473666771854,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CCJ": {
+        "strategy_return": 14.910770534156637,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -35.44011668161491,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CECO": {
+        "strategy_return": 14.649512319575297,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -51.559693164746975,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "CWBC": {
+        "strategy_return": 12.47270025135121,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 2.8634013218913124,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EFX": {
+        "strategy_return": 28.57470523064467,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 43.33888542285255,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NFBK": {
+        "strategy_return": 28.104876839576253,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 29.554139024312374,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MTD": {
+        "strategy_return": 27.72740097792987,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 6.76212179051868,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "STNG": {
+        "strategy_return": 27.714993132693234,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 9.750467146490688,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IX": {
+        "strategy_return": 26.90300061410302,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -4.608760193379549,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RARE": {
+        "strategy_return": 26.760532117510504,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 42.31339065593363,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GLO": {
+        "strategy_return": 26.67422328119291,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 1.140377424244548,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "INSW": {
+        "strategy_return": 26.634192721516172,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -27.569054240564704,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TEX": {
+        "strategy_return": 26.45141345046138,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 21.07138967015881,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OPRA": {
+        "strategy_return": 24.73118804912009,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 50.71823267702601,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NAUT": {
+        "strategy_return": 24.144820137451497,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -8.991270029348392,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OSPN": {
+        "strategy_return": 23.81702498461207,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 56.959193244231,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LAKE": {
+        "strategy_return": 22.89533473294234,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 63.680925112441855,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PHAR": {
+        "strategy_return": 22.6143790523756,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -44.689635633844134,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "DTIL": {
+        "strategy_return": 21.462272956898865,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 5.470801936651384,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SMAP": {
+        "strategy_return": 21.405113088673367,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 15.788003334581749,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TOWN": {
+        "strategy_return": 21.29921005541484,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 17.979915099127645,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MSFT": {
+        "strategy_return": 21.21221190137208,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 2.802477178161407,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WOR": {
+        "strategy_return": 21.204551043455332,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -21.065991134450663,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MSC": {
+        "strategy_return": 19.829188454051216,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 56.7661275582538,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HTBK": {
+        "strategy_return": 19.616849741214757,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -4.8271541824954305,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "QQXT": {
+        "strategy_return": 19.383402724396028,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 11.230628254362653,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EFSC": {
+        "strategy_return": 18.955395711121348,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 18.878693712507186,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PL": {
+        "strategy_return": 18.74999803932087,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -180.99810102293742,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NWFL": {
+        "strategy_return": 18.625074522270157,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 5.12974384474821,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SOME": {
+        "strategy_return": 18.40178769641556,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -36.006612301713425,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MPC": {
+        "strategy_return": 18.386047373433236,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -21.57559854070243,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HTGC": {
+        "strategy_return": 18.38103190737086,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 20.764294412972053,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WDI": {
+        "strategy_return": 18.263211440978754,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 6.821950766088522,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SY": {
+        "strategy_return": 17.482518123772415,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -254.60026048110177,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OXY": {
+        "strategy_return": 17.308154306031966,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 31.62858717506085,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IMPP": {
+        "strategy_return": 17.180621505776152,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -24.511225572688623,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SMG": {
+        "strategy_return": 17.16636055974783,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 27.045275740020443,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "THRM": {
+        "strategy_return": 17.030457610115725,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 26.336339867205943,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FCAP": {
+        "strategy_return": 16.948204580636173,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -38.79079865059144,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HEPS": {
+        "strategy_return": 16.66875443713831,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 42.30167086742981,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SLRC": {
+        "strategy_return": 16.5967338839327,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 11.75197256122966,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SXT": {
+        "strategy_return": 16.271929025799746,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": -25.650818415039996,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VEL": {
+        "strategy_return": 16.21129439956328,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 15.112972876262154,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HLMN": {
+        "strategy_return": 16.00316871833247,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 22.71958776688883,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HRMY": {
+        "strategy_return": 15.7461986428012,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 14.425500795284817,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "STNE": {
+        "strategy_return": 15.592203147782913,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -92.43248312281615,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PTC": {
+        "strategy_return": 15.425339414432383,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 19.56719071139614,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VYM": {
+        "strategy_return": 15.424366086697816,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -0.8183461484541432,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TPG": {
+        "strategy_return": 15.363230077186895,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 19.511942319050874,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "QS": {
+        "strategy_return": 14.985590104873259,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -105.59203356250029,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HALO": {
+        "strategy_return": 14.974872443982811,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -33.7441528050869,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SAR": {
+        "strategy_return": 14.538663608062151,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 7.2365375269696335,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MDXG": {
+        "strategy_return": 14.457834093988463,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 40.31989969301259,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "UBOH": {
+        "strategy_return": 14.398695479980205,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -0.8370330261480472,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GGB": {
+        "strategy_return": 14.363063009789956,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -13.307348245604826,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FWRD": {
+        "strategy_return": 14.351091771271385,
+        "total_trades": 8,
+        "win_rate": 62.5,
+        "excess_return": 42.2544223635145,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "UNIT": {
+        "strategy_return": 14.330713982930732,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 45.236298530278106,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HPI": {
+        "strategy_return": 14.28932533826044,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 5.353938090175642,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "DX": {
+        "strategy_return": 14.222813886044827,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -14.229081324916175,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KRP": {
+        "strategy_return": 14.112903335571536,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 28.88706068332029,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VLO": {
+        "strategy_return": 13.993685767386843,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -34.05911925162309,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SVRA": {
+        "strategy_return": 13.917524379527958,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -90.96847231849114,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EBON": {
+        "strategy_return": 13.898579645674447,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 60.43945977158944,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SAIA": {
+        "strategy_return": 13.656487874767453,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 50.431462377207836,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TXMD": {
+        "strategy_return": 13.232309824471745,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 4.9520556277544046,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JWEL": {
+        "strategy_return": 13.123627968589325,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 31.11671449002856,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VOD": {
+        "strategy_return": 12.941173013461537,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -40.573520824603335,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LAMR": {
+        "strategy_return": 12.900468054903946,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -0.9175711559465807,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PAGP": {
+        "strategy_return": 12.849377271940998,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 4.513283608247761,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ONB": {
+        "strategy_return": 12.832798786836452,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 8.208609713568798,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SF": {
+        "strategy_return": 12.523711938963089,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -3.9609734293661454,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VNO": {
+        "strategy_return": 12.12121212121211,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 25.72984511608876,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KREF": {
+        "strategy_return": 12.101838717459357,
+        "total_trades": 4,
+        "win_rate": 100.0,
+        "excess_return": 22.12168155154003,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SAFE": {
+        "strategy_return": 12.095158473098454,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 35.42811436865024,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KEN": {
+        "strategy_return": 12.081150237162941,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -102.59909261261699,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GRFS": {
+        "strategy_return": 12.030068117748872,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -7.291363500579333,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IVZ": {
+        "strategy_return": 11.865729586447493,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -32.791610315208224,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HTHT": {
+        "strategy_return": 11.712139827977452,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -37.54451255670897,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TBI": {
+        "strategy_return": 11.51079161370383,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 49.01079161370383,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LNC": {
+        "strategy_return": 11.395107016087547,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -24.799302140200364,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PII": {
+        "strategy_return": 11.166722905869463,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -11.850078511847268,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MANU": {
+        "strategy_return": 11.014945824771093,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 17.37536957519373,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WU": {
+        "strategy_return": 11.014422792507572,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 19.964560725844763,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FALN": {
+        "strategy_return": 10.847398876636284,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": 2.33527980414161,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FXNC": {
+        "strategy_return": 10.836913599673537,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -0.10195680140349417,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RXI": {
+        "strategy_return": 10.267356325335196,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -3.1440775518100192,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PSX": {
+        "strategy_return": 10.216340039183525,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -13.986374793764043,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FBRT": {
+        "strategy_return": 10.074341561568346,
+        "total_trades": 5,
+        "win_rate": 80.0,
+        "excess_return": 18.845802932415875,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MTSI": {
+        "strategy_return": 9.805623448205125,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -25.394882922454613,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TDY": {
+        "strategy_return": 9.650228869599054,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 0.5823453645372911,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NHC": {
+        "strategy_return": 9.200124047182667,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -21.08716318885392,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GBCI": {
+        "strategy_return": 9.040091748837753,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 21.916060803820134,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JAZZ": {
+        "strategy_return": 9.01670428466943,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -33.62227093527209,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PCOR": {
+        "strategy_return": 9.010309889424196,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 10.486963657403312,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EC": {
+        "strategy_return": 8.521906044598836,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -23.877811643690514,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MRKR": {
+        "strategy_return": 8.000004291534424,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 69.0062941184013,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VREX": {
+        "strategy_return": 7.8909542419275835,
+        "total_trades": 5,
+        "win_rate": 80.0,
+        "excess_return": 27.599491248594703,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RHP": {
+        "strategy_return": 7.638149525012827,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 11.139487199636108,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SAH": {
+        "strategy_return": 7.613675607854153,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 4.97266744971669,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HBB": {
+        "strategy_return": 7.5674474238619505,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 7.317362100243098,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "STBA": {
+        "strategy_return": 7.274303448554087,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -2.738352405751157,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OPCH": {
+        "strategy_return": 7.170399737583,
+        "total_trades": 3,
+        "win_rate": 100.0,
+        "excess_return": -29.83400262457158,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PCG": {
+        "strategy_return": 7.1057956940284495,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 26.14860972999206,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FVRR": {
+        "strategy_return": 6.89967545637189,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 41.57508211332799,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ITW": {
+        "strategy_return": 6.782812202759181,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 5.236521248593585,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NVG": {
+        "strategy_return": 6.535545827770983,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -3.1188541026663312,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "KAR": {
+        "strategy_return": 6.388886769612623,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -19.676525268724895,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TCMD": {
+        "strategy_return": 6.358603109469918,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -43.81661782599764,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "UPST": {
+        "strategy_return": 6.254410187631021,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": 32.307042344462765,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "EWBC": {
+        "strategy_return": 6.151207642980383,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -9.629528094729311,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FDUS": {
+        "strategy_return": 6.087869515889666,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 5.879923100201639,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RCG": {
+        "strategy_return": 6.0869612089853975,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 0.32564998925265964,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RIG": {
+        "strategy_return": 5.990777486255228,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -5.654786923247448,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "INTU": {
+        "strategy_return": 5.950264897392921,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 3.4647100221959777,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GT": {
+        "strategy_return": 5.715188264048798,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 6.743761436481834,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "HSTM": {
+        "strategy_return": 5.633200310621844,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 25.9652033912833,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MRK": {
+        "strategy_return": 5.457772915474934,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -3.29408103263217,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OCSL": {
+        "strategy_return": 5.116260043278453,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 6.546079017750959,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "FINS": {
+        "strategy_return": 5.057981975118109,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -8.121293301294818,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NOK": {
+        "strategy_return": 4.289627446350863,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -35.7583861258253,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TERN": {
+        "strategy_return": 4.166671951552958,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": -391.60052790931485,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ILMN": {
+        "strategy_return": 3.948266366739861,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 3.5511042942202273,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "GIS": {
+        "strategy_return": 3.8243721480362813,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 25.894926117136524,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "OFLX": {
+        "strategy_return": 3.8210131237809364,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 35.652742213316806,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "INMD": {
+        "strategy_return": 3.7879042306008692,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 19.766673279908986,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ROK": {
+        "strategy_return": 3.771359279703912,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -39.462051992652945,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "NVEC": {
+        "strategy_return": 3.5706977999146794,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 21.462266874313407,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VZ": {
+        "strategy_return": 3.5420251741898667,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -5.7352258196162555,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LILAK": {
+        "strategy_return": 3.5079605124985536,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": -33.85467931794204,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "INBK": {
+        "strategy_return": 3.4368567825496132,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 49.0864569887263,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TSLA": {
+        "strategy_return": 3.2455180323827104,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -10.172013820661407,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SLB": {
+        "strategy_return": 3.076477459954452,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 6.476811284585178,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IRM": {
+        "strategy_return": 3.0456270913363115,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 18.515257805299274,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MKTX": {
+        "strategy_return": 2.6997092715583815,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 28.7966565092252,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IIIN": {
+        "strategy_return": 2.6005604791773163,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -18.237032477588727,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "TNC": {
+        "strategy_return": 2.5766655944779115,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 11.010434486894962,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "LUCD": {
+        "strategy_return": 2.399997711181645,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -31.101249557251695,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "UFPT": {
+        "strategy_return": 2.3291954841837548,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 10.26486279733857,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PRTC": {
+        "strategy_return": 2.140337848445828,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 16.424580865594734,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "ONON": {
+        "strategy_return": 1.9135094376533157,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 22.46615071080459,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WAB": {
+        "strategy_return": 1.7529473455101252,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": -9.166904074593283,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VTC": {
+        "strategy_return": 1.549860844211426,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -6.479125511422285,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VRSN": {
+        "strategy_return": 1.422626518658432,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -22.511314471393707,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "MLNK": {
+        "strategy_return": 1.3244991286597951,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 2.8500870745166247,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "RLI": {
+        "strategy_return": 1.0180033276004918,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 22.310218717315998,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "PSQH": {
+        "strategy_return": 0.6170390967257688,
+        "total_trades": 4,
+        "win_rate": 75.0,
+        "excess_return": 71.40355577006102,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "INSM": {
+        "strategy_return": 0.5759446717099159,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -196.4505218572241,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "SUZ": {
+        "strategy_return": 0.45402905729676757,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 12.276687720991355,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "WLY": {
+        "strategy_return": 0.13597834223031402,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 13.59614582984706,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "IBM": {
+        "strategy_return": 0.1350596555972805,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -43.79189017397291,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "VVR": {
+        "strategy_return": 0.06999519221764228,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 5.785927199124556,
+        "added_date": "2025-12-03",
+        "source": "alphabet_brute_force_scan"
+      },
+      "JPM": {
+        "strategy_return": 25.965378420838302,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -115.88784317501506,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "MA": {
+        "strategy_return": 13.047521150993369,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -39.98027819618132,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "BAC": {
+        "strategy_return": 20.069841082251692,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -49.112367554944065,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "ABT": {
+        "strategy_return": 9.011692366547997,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -9.226164429373828,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "TMO": {
+        "strategy_return": 11.535124577329615,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": 2.1499575210132527,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "CVX": {
+        "strategy_return": 1.048243325354492,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 3.6584912747940987,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "LLY": {
+        "strategy_return": 17.598495202492504,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -174.02069294058575,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "ABBV": {
+        "strategy_return": 3.1932669638685907,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -51.102516721527316,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "PFE": {
+        "strategy_return": 4.626880920776544,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 44.89313233691979,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "LIN": {
+        "strategy_return": 4.4642644732468595,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -29.6327042332226,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "NEE": {
+        "strategy_return": 1.2172614836094997,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -9.597110093302156,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "UPS": {
+        "strategy_return": 17.929399076195217,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 54.001993136419344,
+        "added_date": "2025-12-03",
+        "source": "nyse_bluechips_scan",
+        "exchange": "NYSE"
+      },
+      "BIVI": {
+        "strategy_return": 24.36917641709073,
+        "total_trades": 6,
+        "win_rate": 50.0,
+        "excess_return": 124.1050568102172,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ALKS": {
+        "strategy_return": 21.336918305064458,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 12.410322872344684,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ALGN": {
+        "strategy_return": 18.389387142102343,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 48.18057389738799,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BTAI": {
+        "strategy_return": 14.256821835563272,
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "excess_return": 113.72650199238232,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "BYFC": {
+        "strategy_return": 11.89904248452529,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 30.16579476885787,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ATNI": {
+        "strategy_return": 5.02932893206256,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": 53.205089222911184,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ALNY": {
+        "strategy_return": 4.0019056151270105,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -106.34920929372714,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "AMGN": {
+        "strategy_return": 3.825293719882139,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -34.31998816886968,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "AVDL": {
+        "strategy_return": 2.531649160606664,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -209.29318160918743,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "CABA": {
+        "strategy_return": 2.4579678829738327,
+        "total_trades": 3,
+        "win_rate": 66.66666666666666,
+        "excess_return": 73.95169799119901,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ARTW": {
+        "strategy_return": 1.9417457749564715,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -13.133628641052796,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "ARRY": {
+        "strategy_return": 0.8450696279642456,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 59.27623261090691,
+        "added_date": "2025-12-03",
+        "source": "quick_amex_blitz",
+        "exchange": "AMEX"
+      },
+      "VRTX": {
+        "strategy_return": 27.141063121035902,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -32.443382114889346,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "EXAS": {
+        "strategy_return": 26.678490245413002,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": -87.87968510213551,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "OCGN": {
+        "strategy_return": 24.813360057760914,
+        "total_trades": 2,
+        "win_rate": 100.0,
+        "excess_return": 31.7364306324139,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "RDHL": {
+        "strategy_return": 21.41773779469038,
+        "total_trades": 4,
+        "win_rate": 50.0,
+        "excess_return": 120.70432318671193,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "AGIO": {
+        "strategy_return": 6.3944076361641455,
+        "total_trades": 2,
+        "win_rate": 50.0,
+        "excess_return": 12.603891525575406,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "FOLD": {
+        "strategy_return": 5.485237161108603,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 22.463166238663458,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "NTLA": {
+        "strategy_return": 5.000002337437093,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": 81.22047272467194,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "CYTK": {
+        "strategy_return": 1.0537236427413665,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -48.79564223347998,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
+      },
+      "INCY": {
+        "strategy_return": 1.048220518421128,
+        "total_trades": 1,
+        "win_rate": 100.0,
+        "excess_return": -24.461853121696187,
+        "added_date": "2025-12-03",
+        "source": "fast_biotech_blitz",
+        "sector": "biotech"
       }
     }
   },
@@ -461,13 +3603,135 @@
     ],
     "Sector Rotation": [
       "BBIG"
+    ],
+    "Tech Recovery": [
+      "ZM"
+    ],
+    "Biotech Recovery": [
+      "ATRA",
+      "ALDX",
+      "ATRC",
+      "CLDX",
+      "COYA",
+      "BPRN",
+      "BLRX",
+      "VSTM",
+      "NERV"
+    ],
+    "REIT Recovery": [
+      "AMH"
+    ],
+    "Fintech Recovery": [
+      "AFRM"
+    ],
+    "SaaS Recovery": [
+      "APPN"
+    ],
+    "Industrial Recovery": [
+      "AX",
+      "BWB",
+      "CW",
+      "CECO",
+      "RAIL"
+    ],
+    "Retail Recovery": [
+      "BUKS"
+    ],
+    "Healthcare Recovery": [
+      "CRNC",
+      "CSTM",
+      "CELU",
+      "QDEL"
+    ],
+    "Energy Recovery": [
+      "CNQ",
+      "CVI",
+      "CCJ",
+      "GTE",
+      "OIS"
+    ],
+    "Solar Recovery": [
+      "CSIQ",
+      "SUNS"
+    ],
+    "Banking Recovery": [
+      "BCS"
+    ],
+    "Financial Recovery": [
+      "CLYM",
+      "BCAX",
+      "CACC",
+      "BSAC",
+      "BBUC",
+      "BCAL",
+      "CWBC",
+      "EH",
+      "FENG"
+    ],
+    "Technology Recovery": [
+      "CACI",
+      "ZKIN",
+      "TRUE",
+      "DRIO",
+      "VNCE",
+      "LUNA",
+      "TTEC",
+      "MRVL",
+      "REKR"
+    ],
+    "Education Recovery": [
+      "COLL"
+    ],
+    "E-Commerce Recovery": [
+      "PDD"
+    ],
+    "Agriculture Recovery": [
+      "VFF"
     ]
   },
   "metadata": {
-    "last_updated": "2025-12-02",
-    "total_symbols": 43,
-    "goldmine_count": 9,
-    "high_potential_count": 13,
-    "strategy_name": "Alpha Ensemble Goldmine Strategy (AEGS)"
+    "total_symbols": 325,
+    "last_updated": "2025-12-03 20:38:07",
+    "complete_alphabet_scan": {
+      "a_symbols_profitable": 6,
+      "bc_symbols_profitable": 30,
+      "dz_symbols_profitable": 233,
+      "total_alphabet_profitable": 283
+    },
+    "new_additions_by_category": {
+      "extreme_goldmines": 10,
+      "high_potential": 80,
+      "positive": 179
+    },
+    "nyse_expansion": {
+      "date": "2025-12-03",
+      "symbols_added": 14,
+      "additions_by_category": {
+        "extreme_goldmines": 0,
+        "high_potential": 2,
+        "positive": 12
+      },
+      "source": "NYSE Blue Chips AEGS Scan"
+    },
+    "amex_expansion": {
+      "date": "2025-12-03",
+      "symbols_added": 21,
+      "additions": {
+        "extreme_goldmines": 2,
+        "high_potential": 7,
+        "positive": 12
+      },
+      "source": "Quick AMEX Small Cap Blitz"
+    },
+    "fast_biotech_expansion": {
+      "date": "2025-12-03",
+      "symbols_added": 15,
+      "additions": {
+        "extreme_goldmines": 1,
+        "high_potential": 5,
+        "positive": 9
+      },
+      "source": "Fast Biotech Blitz"
+    }
   }
 }

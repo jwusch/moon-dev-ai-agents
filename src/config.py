@@ -6,7 +6,7 @@ Built with love by Moon Dev 🚀
 import os
 
 # 🔄 Exchange Selection
-EXCHANGE = 'solana'  # Options: 'solana', 'hyperliquid', 'aster'
+EXCHANGE = 'solana'  # Options: 'solana', 'hyperliquid', 'robinhood', 'aster'
 
 # 💰 Trading Configuration
 USDC_ADDRESS = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"  # Never trade or close
@@ -30,12 +30,34 @@ tokens_to_trade = MONITORED_TOKENS  # Using the same list for trading
 HYPERLIQUID_SYMBOLS = ['BTC', 'ETH', 'SOL']  # Symbols to trade on HyperLiquid perps
 HYPERLIQUID_LEVERAGE = 5  # Default leverage for HyperLiquid trades (1-50)
 
+# 🏦 Robinhood Configuration
+ROBINHOOD_SYMBOLS = ['AAPL', 'TSLA', 'SPY', 'QQQ', 'NVDA', 'MSFT', 'AMZN', 'ZM']  # Symbols to trade
+ROBINHOOD_CRYPTO = ['BTC', 'ETH', 'DOGE', 'SOL', 'MATIC']  # Crypto available on Robinhood
+ROBINHOOD_OPTIONS_ENABLED = True  # Enable options trading
+ROBINHOOD_CRYPTO_ENABLED = True  # Enable crypto trading on Robinhood
+ROBINHOOD_DEFAULT_ORDER_TYPE = 'market'  # 'market' or 'limit'
+ROBINHOOD_EXTENDED_HOURS = False  # Trade in extended hours
+
+# 📊 Stock-Specific Configuration (for Robinhood)
+STOCK_USD_SIZE = 100  # Default position size for stocks
+MAX_STOCK_POSITIONS = 10  # Maximum number of stock positions
+STOCK_STOP_LOSS_PERCENTAGE = -5  # Stop loss at -5%
+STOCK_TAKE_PROFIT_PERCENTAGE = 10  # Take profit at 10%
+
+# 📈 Options Configuration (for Robinhood)
+OPTIONS_MAX_CONTRACTS = 5  # Max contracts per trade
+OPTIONS_DEFAULT_EXPIRY_DAYS = 30  # Default days to expiration
+OPTIONS_MAX_RISK_PER_TRADE = 500  # Max risk per options trade in USD
+
 # 🔄 Exchange-Specific Token Lists
 # Use this to determine which tokens/symbols to trade based on active exchange
 def get_active_tokens():
     """Returns the appropriate token/symbol list based on active exchange"""
     if EXCHANGE == 'hyperliquid':
         return HYPERLIQUID_SYMBOLS
+    elif EXCHANGE == 'robinhood':
+        # Combine stocks and crypto for Robinhood
+        return ROBINHOOD_SYMBOLS + (ROBINHOOD_CRYPTO if ROBINHOOD_CRYPTO_ENABLED else [])
     else:
         return MONITORED_TOKENS
 

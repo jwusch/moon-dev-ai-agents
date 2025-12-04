@@ -77,6 +77,10 @@ class AEGSLiveScanner:
             print(" ❌ Insufficient data")
             return
         
+        # Fix multi-level column issue
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        
         # Calculate indicators
         df = strategy.calculate_indicators(df)
         

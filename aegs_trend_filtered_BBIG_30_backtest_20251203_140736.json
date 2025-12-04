@@ -1,0 +1,15 @@
+{
+  "symbol": "BBIG",
+  "backtest_date": "2025-12-03 14:07:36",
+  "min_trend_score": 30,
+  "total_trades": 0,
+  "rejected_signals": 13,
+  "signal_selectivity": 100.0,
+  "win_rate": 0,
+  "avg_win": 0,
+  "avg_loss": 0,
+  "strategy_return": -25.00000291038291,
+  "buy_hold_return": -45.45454468485737,
+  "excess_return": 20.454541774474457,
+  "trades": []
+}

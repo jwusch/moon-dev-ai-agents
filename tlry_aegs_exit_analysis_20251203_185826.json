@@ -1,0 +1,19 @@
+{
+  "symbol": "TLRY",
+  "position": {
+    "entry_price": 7.19,
+    "entry_date": "2025-12-03 15:22:29",
+    "shares": 100,
+    "current_price": 7.059999942779541,
+    "current_return_pct": -1.8080675552219663,
+    "current_pnl": -13.000005722045938,
+    "days_held": 0.14996527777777777
+  },
+  "exit_analysis": {
+    "recommendation": "HOLD",
+    "urgency": "LOW",
+    "active_triggers": [],
+    "approaching_triggers": []
+  },
+  "analysis_timestamp": "2025-12-03 18:58:26"
+}

@@ -1,0 +1,42 @@
+{
+  "download_date": "2025-12-03T21:10:22.381593",
+  "batch_info": {
+    "symbols_requested": 20,
+    "batch_duration_minutes": 0.8607950329780578,
+    "ultra_safe_delay_seconds": 13.333333333333334,
+    "safety_margin": "10% under conservative limits"
+  },
+  "results": {
+    "successful": [
+      "CLDX",
+      "BUKS",
+      "PDD",
+      "GTE",
+      "FENG"
+    ],
+    "cache_hits": [
+      "ZKIN",
+      "QDEL",
+      "VSTM",
+      "TRUE",
+      "DRIO",
+      "VNCE",
+      "NERV",
+      "LUNA",
+      "EH",
+      "TTEC",
+      "ACHV",
+      "BKKT",
+      "CRVS",
+      "ATRA",
+      "ALDX"
+    ],
+    "failed": [],
+    "errors": []
+  },
+  "rate_limiting": {
+    "conservative_limit_per_hour": 300,
+    "ultra_safe_limit_per_hour": 270,
+    "actual_delay_used": 13.333333333333334
+  }
+}

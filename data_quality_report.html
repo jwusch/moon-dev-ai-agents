@@ -1,0 +1,131 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Data Quality Monitor</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                .metric { 
+                    display: inline-block; 
+                    margin: 10px; 
+                    padding: 20px;
+                    background: #f0f0f0;
+                    border-radius: 8px;
+                }
+                .good { background: #d4edda; }
+                .warning { background: #fff3cd; }
+                .bad { background: #f8d7da; }
+                table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background: #4CAF50; color: white; }
+                .alert { padding: 10px; margin: 5px 0; border-radius: 4px; }
+                .alert-critical { background: #f44336; color: white; }
+                .alert-high { background: #ff9800; color: white; }
+                .alert-medium { background: #ffeb3b; color: black; }
+                .alert-low { background: #2196f3; color: white; }
+            </style>
+            <script>
+                function refreshData() {
+                    location.reload();
+                }
+                setInterval(refreshData, 30000); // Refresh every 30s
+            </script>
+        </head>
+        <body>
+            <h1>📊 Data Quality Monitor</h1>
+            <p>Last updated: 2025-12-03 11:16:07</p>
+            
+            <div class="metrics">
+                <div class="metric good">
+                    <h3>Average Quality</h3>
+                    <h1>92.2%</h1>
+                </div>
+                
+                <div class="metric">
+                    <h3>Total Alerts</h3>
+                    <h1>5</h1>
+                </div>
+                
+                <div class="metric">
+                    <h3>Quality Trend</h3>
+                    <h1>STABLE</h1>
+                </div>
+            </div>
+            
+            <h2>Recent Issues</h2>
+            <div class="alerts">
+        
+                <div class="alert alert-medium">
+                    <strong>2025-12-03T11:16:07.364738</strong> - 
+                    Missing Data: 
+                    5 missing values (1.0%)
+                </div>
+            
+                <div class="alert alert-high">
+                    <strong>2025-12-03T11:16:07.365885</strong> - 
+                    Invalid Ohlc: 
+                    4 invalid OHLC relationships
+                </div>
+            
+                <div class="alert alert-low">
+                    <strong>2025-12-03T11:16:07.366285</strong> - 
+                    Suspicious Volume: 
+                    5 bars with zero volume
+                </div>
+            
+                <div class="alert alert-high">
+                    <strong>2025-12-03T11:16:07.367331</strong> - 
+                    Duplicate Data: 
+                    2 duplicate timestamps
+                </div>
+            
+                <div class="alert alert-medium">
+                    <strong>2025-12-03T11:16:07.367514</strong> - 
+                    Stale Data: 
+                    Latest data is 0 days 00:48:00.009678 old
+                </div>
+            
+            </div>
+            
+            <h2>Issue Summary</h2>
+            <table>
+                <tr>
+                    <th>Issue Type</th>
+                    <th>Severity</th>
+                    <th>Count</th>
+                </tr>
+        
+                <tr>
+                    <td>Missing</td>
+                    <td>DATA_MEDIUM</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>Invalid</td>
+                    <td>OHLC_HIGH</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>Suspicious</td>
+                    <td>VOLUME_LOW</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>Duplicate</td>
+                    <td>DATA_HIGH</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>Stale</td>
+                    <td>DATA_MEDIUM</td>
+                    <td>1</td>
+                </tr>
+            
+            </table>
+        </body>
+        </html>
+        

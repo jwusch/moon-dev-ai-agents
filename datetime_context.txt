@@ -1,27 +1,27 @@
 # Current DateTime Context
 
-Generated at: 2025-12-01T22:04:39.543151
+Generated at: 2025-12-03T10:54:19.465675
 
 ## Current Time
-- UTC: 2025-12-02 03:04:39 UTC
-- Local: 2025-12-01 22:04:39 EST 
+- UTC: 2025-12-03 15:54:19 UTC
+- Local: 2025-12-03 10:54:19 EST 
 - Timezone: America/New_York
-- Day: Monday
+- Day: Wednesday
 
 ## Market Status
-- NYSE/NASDAQ: Closed (22:04 local)
-- LSE: Closed (03:04 local)
-- XETRA: Closed (04:04 local)
-- TSE: Closed (12:04 local)
-- HKSE: Open (11:04 local)
-- SSE: Open (11:04 local)
-- ASX: Open (14:04 local)
+- NYSE/NASDAQ: Open (10:54 local)
+- LSE: Open (15:54 local)
+- XETRA: Open (16:54 local)
+- TSE: Closed (00:54 local)
+- HKSE: Closed (23:54 local)
+- SSE: Closed (23:54 local)
+- ASX: Closed (02:54 local)
 - Crypto: Open 24/7
 
 ## Key Information
 - User is in America/New_York timezone
-- When user says "now" or "current time", they mean 2025-12-01 22:04:39 EST
-- Today's date in user's timezone: 2025-12-01
+- When user says "now" or "current time", they mean 2025-12-03 10:54:19 EST
+- Today's date in user's timezone: 2025-12-03
 
 ## Time Conversion Examples
 - 9:30 AM EST = 14:30 UTC

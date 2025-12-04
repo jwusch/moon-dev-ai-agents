@@ -1,0 +1,899 @@
+{
+  "analysis_date": "2025-12-03 19:18:06",
+  "method": "BRUTE FORCE - No filtering",
+  "criteria": "All NASDAQ A symbols, $1+ price filter only",
+  "total_analyzed": 272,
+  "top_performers": [
+    {
+      "symbol": "AUUD",
+      "current_price": 1.1399999856948853,
+      "total_trades": 2,
+      "win_rate": 50.0,
+      "avg_win": 33.98532853071749,
+      "avg_loss": -20.27971835595545,
+      "strategy_return": -19.445161449193304,
+      "buy_hold_return": -89.47271275373116,
+      "excess_return": 70.02755130453787,
+      "trades": [
+        {
+          "entry_date": "2025-02-07",
+          "exit_date": "2025-02-13",
+          "entry_price": 6.953000068664551,
+          "exit_price": 9.315999984741211,
+          "return_pct": 33.98532853071749,
+          "days_held": 6,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-10-22",
+          "exit_date": "2025-11-06",
+          "entry_price": 1.4299999475479126,
+          "exit_price": 1.1399999856948853,
+          "return_pct": -20.27971835595545,
+          "days_held": 15,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "AOSL",
+      "current_price": 21.719999313354492,
+      "total_trades": 3,
+      "win_rate": 66.66666666666666,
+      "avg_win": 8.134652283973088,
+      "avg_loss": -23.421668996962065,
+      "strategy_return": -8.309123566275467,
+      "buy_hold_return": -55.81773925799172,
+      "excess_return": 47.50861569171625,
+      "trades": [
+        {
+          "entry_date": "2025-04-03",
+          "exit_date": "2025-05-05",
+          "entry_price": 20.170000076293945,
+          "exit_price": 20.290000915527344,
+          "return_pct": 0.5949471431804154,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-08-07",
+          "exit_date": "2025-09-08",
+          "entry_price": 24.690000534057617,
+          "exit_price": 28.559999465942383,
+          "return_pct": 15.674357424765759,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-10-10",
+          "exit_date": "2025-11-06",
+          "entry_price": 25.65999984741211,
+          "exit_price": 19.649999618530273,
+          "return_pct": -23.421668996962065,
+          "days_held": 27,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "AVNS",
+      "current_price": 11.3100004196167,
+      "total_trades": 3,
+      "win_rate": 100.0,
+      "avg_win": 12.07958041144292,
+      "avg_loss": 0,
+      "strategy_return": 3.295085340591175,
+      "buy_hold_return": -40.78533929983929,
+      "excess_return": 44.08042464043047,
+      "trades": [
+        {
+          "entry_date": "2025-04-07",
+          "exit_date": "2025-05-12",
+          "entry_price": 12.930000305175781,
+          "exit_price": 13.100000381469727,
+          "return_pct": 1.3147724074368008,
+          "days_held": 35,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-08-05",
+          "exit_date": "2025-09-04",
+          "entry_price": 9.890000343322754,
+          "exit_price": 12.65999984741211,
+          "return_pct": 28.00808299222683,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-10-10",
+          "exit_date": "2025-11-10",
+          "entry_price": 10.699999809265137,
+          "exit_price": 11.4399995803833,
+          "return_pct": 6.915885834665135,
+          "days_held": 31,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ASTC",
+      "current_price": 3.380000114440918,
+      "total_trades": 3,
+      "win_rate": 100.0,
+      "avg_win": 2.1552422611693314,
+      "avg_loss": 0,
+      "strategy_return": -10.480495229318743,
+      "buy_hold_return": -52.661061937742026,
+      "excess_return": 42.180566708423285,
+      "trades": [
+        {
+          "entry_date": "2025-04-15",
+          "exit_date": "2025-05-15",
+          "entry_price": 5.809999942779541,
+          "exit_price": 5.900000095367432,
+          "return_pct": 1.5490559978359308,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-06-11",
+          "exit_date": "2025-07-11",
+          "entry_price": 5.599999904632568,
+          "exit_price": 5.630000114440918,
+          "return_pct": 0.5357180414151812,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-08-01",
+          "exit_date": "2025-09-23",
+          "entry_price": 5.25,
+          "exit_price": 5.480000019073486,
+          "return_pct": 4.3809527442568825,
+          "days_held": 53,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ATRA",
+      "current_price": 12.550000190734863,
+      "total_trades": 3,
+      "win_rate": 100.0,
+      "avg_win": 33.876167252472555,
+      "avg_loss": 0,
+      "strategy_return": 40.671957435761506,
+      "buy_hold_return": 1.2913627359044888,
+      "excess_return": 39.38059469985702,
+      "trades": [
+        {
+          "entry_date": "2025-01-17",
+          "exit_date": "2025-01-31",
+          "entry_price": 6.570000171661377,
+          "exit_price": 8.880000114440918,
+          "return_pct": 35.15981556200483,
+          "days_held": 14,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-04-24",
+          "entry_price": 5.590000152587891,
+          "exit_price": 7.599999904632568,
+          "return_pct": 35.957060772424995,
+          "days_held": 20,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-11-05",
+          "exit_date": "2025-11-24",
+          "entry_price": 10.75,
+          "exit_price": 14.029999732971191,
+          "return_pct": 30.511625422987827,
+          "days_held": 19,
+          "exit_reason": "Profit Target 30%"
+        }
+      ]
+    },
+    {
+      "symbol": "AXR",
+      "current_price": 22.030000686645508,
+      "total_trades": 4,
+      "win_rate": 75.0,
+      "avg_win": 15.612154282639766,
+      "avg_loss": -20.495578462043696,
+      "strategy_return": -3.122971413969111,
+      "buy_hold_return": -42.10249374936025,
+      "excess_return": 38.97952233539114,
+      "trades": [
+        {
+          "entry_date": "2025-05-27",
+          "exit_date": "2025-06-26",
+          "entry_price": 19.559999465942383,
+          "exit_price": 21.079999923706055,
+          "return_pct": 7.770963697674311,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-09-03",
+          "exit_date": "2025-09-18",
+          "entry_price": 20.5,
+          "exit_price": 28.110000610351562,
+          "return_pct": 37.121954196836896,
+          "days_held": 15,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-11-03",
+          "exit_date": "2025-12-03",
+          "entry_price": 21.610000610351562,
+          "exit_price": 22.030000686645508,
+          "return_pct": 1.9435449534080904,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "AKAN",
+      "current_price": 1.0099999904632568,
+      "total_trades": 3,
+      "win_rate": 33.33333333333333,
+      "avg_win": 9.363639137961648,
+      "avg_loss": -25.233434781887645,
+      "strategy_return": -42.25156354893899,
+      "buy_hold_return": -80.62350173651053,
+      "excess_return": 38.37193818757155,
+      "trades": [
+        {
+          "entry_date": "2025-03-10",
+          "exit_date": "2025-04-07",
+          "entry_price": 4.71875,
+          "exit_price": 3.65625,
+          "return_pct": -22.516556291390728,
+          "days_held": 28,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-04-08",
+          "exit_date": "2025-05-08",
+          "entry_price": 3.4375,
+          "exit_price": 3.7593750953674316,
+          "return_pct": 9.363639137961648,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-10-30",
+          "exit_date": "2025-11-14",
+          "entry_price": 1.6100000143051147,
+          "exit_price": 1.159999966621399,
+          "return_pct": -27.950313272384562,
+          "days_held": 15,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "ALDX",
+      "current_price": 4.869999885559082,
+      "total_trades": 3,
+      "win_rate": 66.66666666666666,
+      "avg_win": 25.7050341391207,
+      "avg_loss": -75.30434857244077,
+      "strategy_return": 36.476287757604496,
+      "buy_hold_return": -1.814519191445696,
+      "excess_return": 38.29080694905019,
+      "trades": [
+        {
+          "entry_date": "2025-03-31",
+          "exit_date": "2025-04-03",
+          "entry_price": 5.75,
+          "exit_price": 1.4199999570846558,
+          "return_pct": -75.30434857244077,
+          "days_held": 3,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-04-04",
+          "exit_date": "2025-04-24",
+          "entry_price": 1.8899999856948853,
+          "exit_price": 2.6500000953674316,
+          "return_pct": 40.21164631877611,
+          "days_held": 20,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-09-15",
+          "exit_date": "2025-10-15",
+          "entry_price": 5.090000152587891,
+          "exit_price": 5.659999847412109,
+          "return_pct": 11.198421959465282,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "AMN",
+      "current_price": 16.690000534057617,
+      "total_trades": 2,
+      "win_rate": 100.0,
+      "avg_win": 1.841164506253556,
+      "avg_loss": 0,
+      "strategy_return": -8.761132289802621,
+      "buy_hold_return": -40.43540235049063,
+      "excess_return": 31.674270060688002,
+      "trades": [
+        {
+          "entry_date": "2025-02-12",
+          "exit_date": "2025-03-17",
+          "entry_price": 23.950000762939453,
+          "exit_price": 24.59000015258789,
+          "return_pct": 2.6722311868932422,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-04-03",
+          "exit_date": "2025-05-09",
+          "entry_price": 21.780000686645508,
+          "exit_price": 22.0,
+          "return_pct": 1.01009782561387,
+          "days_held": 36,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ADVM",
+      "current_price": 4.170000076293945,
+      "total_trades": 0,
+      "win_rate": 0,
+      "avg_win": 0,
+      "avg_loss": 0,
+      "strategy_return": 0.7246427723635929,
+      "buy_hold_return": -30.499998728434242,
+      "excess_return": 31.224641500797834,
+      "trades": []
+    },
+    {
+      "symbol": "AXTA",
+      "current_price": 30.0,
+      "total_trades": 3,
+      "win_rate": 66.66666666666666,
+      "avg_win": 6.222271120132973,
+      "avg_loss": -2.916302051036621,
+      "strategy_return": 4.110516257347352,
+      "buy_hold_return": -26.090170270454426,
+      "excess_return": 30.20068652780178,
+      "trades": [
+        {
+          "entry_date": "2025-03-04",
+          "exit_date": "2025-05-05",
+          "entry_price": 34.290000915527344,
+          "exit_price": 33.290000915527344,
+          "return_pct": -2.916302051036621,
+          "days_held": 61,
+          "exit_reason": "Force Exit"
+        },
+        {
+          "entry_date": "2025-07-29",
+          "exit_date": "2025-08-28",
+          "entry_price": 28.700000762939453,
+          "exit_price": 30.959999084472656,
+          "return_pct": 7.8745584022825446,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-09-25",
+          "exit_date": "2025-10-27",
+          "entry_price": 27.790000915527344,
+          "exit_price": 29.059999465942383,
+          "return_pct": 4.5699838379834015,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "AMH",
+      "current_price": 31.549999237060547,
+      "total_trades": 2,
+      "win_rate": 100.0,
+      "avg_win": 9.6519100380423,
+      "avg_loss": 0,
+      "strategy_return": 16.167945529759887,
+      "buy_hold_return": -13.331148092768075,
+      "excess_return": 29.499093622527962,
+      "trades": [
+        {
+          "entry_date": "2025-01-15",
+          "exit_date": "2025-02-14",
+          "entry_price": 33.55481719970703,
+          "exit_price": 34.3442268371582,
+          "return_pct": 2.3525970436759356,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-04-08",
+          "exit_date": "2025-05-08",
+          "entry_price": 32.24534606933594,
+          "exit_price": 37.711326599121094,
+          "return_pct": 16.951223032408667,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ALLO",
+      "current_price": 1.5199999809265137,
+      "total_trades": 2,
+      "win_rate": 100.0,
+      "avg_win": 35.76102184002601,
+      "avg_loss": 0,
+      "strategy_return": -3.317123728719884,
+      "buy_hold_return": -32.743363392008575,
+      "excess_return": 29.42623966328869,
+      "trades": [
+        {
+          "entry_date": "2025-02-10",
+          "exit_date": "2025-02-14",
+          "entry_price": 1.4800000190734863,
+          "exit_price": 2.0399999618530273,
+          "return_pct": 37.837833483955876,
+          "days_held": 4,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-05-14",
+          "exit_date": "2025-06-02",
+          "entry_price": 0.949999988079071,
+          "exit_price": 1.2699999809265137,
+          "return_pct": 33.684210196096146,
+          "days_held": 19,
+          "exit_reason": "Profit Target 30%"
+        }
+      ]
+    },
+    {
+      "symbol": "APVO",
+      "current_price": 1.3799999952316284,
+      "total_trades": 6,
+      "win_rate": 50.0,
+      "avg_win": 54.37429377662598,
+      "avg_loss": -25.386838636043944,
+      "strategy_return": -70.53842529833922,
+      "buy_hold_return": -99.31000000238419,
+      "excess_return": 28.771574704044966,
+      "trades": [
+        {
+          "entry_date": "2025-06-17",
+          "exit_date": "2025-06-18",
+          "entry_price": 2.819999933242798,
+          "exit_price": 5.130000114440918,
+          "return_pct": 81.9149019816389,
+          "days_held": 1,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-08-05",
+          "exit_date": "2025-08-13",
+          "entry_price": 2.450000047683716,
+          "exit_price": 1.909999966621399,
+          "return_pct": -22.040819206221848,
+          "days_held": 8,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-08-28",
+          "exit_date": "2025-10-07",
+          "entry_price": 1.7000000476837158,
+          "exit_price": 1.7599999904632568,
+          "return_pct": 3.5294082997992935,
+          "days_held": 40,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ALZN",
+      "current_price": 2.059999942779541,
+      "total_trades": 4,
+      "win_rate": 50.0,
+      "avg_win": 24.42713261571055,
+      "avg_loss": -23.610798959175455,
+      "strategy_return": -53.150597690158286,
+      "buy_hold_return": -80.76564019194944,
+      "excess_return": 27.615042501791155,
+      "trades": [
+        {
+          "entry_date": "2025-05-07",
+          "exit_date": "2025-05-13",
+          "entry_price": 5.363999843597412,
+          "exit_price": 4.179999828338623,
+          "return_pct": -22.073080719270294,
+          "days_held": 6,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-05-14",
+          "exit_date": "2025-05-29",
+          "entry_price": 3.8499999046325684,
+          "exit_price": 5.440000057220459,
+          "return_pct": 41.298706285023535,
+          "days_held": 15,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-07-31",
+          "exit_date": "2025-09-02",
+          "entry_price": 2.25,
+          "exit_price": 2.4200000762939453,
+          "return_pct": 7.55555894639757,
+          "days_held": 33,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "ALGS",
+      "current_price": 9.869999885559082,
+      "total_trades": 3,
+      "win_rate": 33.33333333333333,
+      "avg_win": 31.969490887384026,
+      "avg_loss": -21.148180468494424,
+      "strategy_return": -34.505707995207445,
+      "buy_hold_return": -61.714508833694815,
+      "excess_return": 27.208800838487367,
+      "trades": [
+        {
+          "entry_date": "2025-02-12",
+          "exit_date": "2025-02-27",
+          "entry_price": 21.010000228881836,
+          "exit_price": 16.760000228881836,
+          "return_pct": -20.228462416471793,
+          "days_held": 15,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-04-03",
+          "exit_date": "2025-04-07",
+          "entry_price": 6.480000019073486,
+          "exit_price": 5.050000190734863,
+          "return_pct": -22.06789852051706,
+          "days_held": 4,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-11-04",
+          "exit_date": "2025-11-24",
+          "entry_price": 7.210000038146973,
+          "exit_price": 9.515000343322754,
+          "return_pct": 31.969490887384026,
+          "days_held": 20,
+          "exit_reason": "Profit Target 30%"
+        }
+      ]
+    },
+    {
+      "symbol": "AQMS",
+      "current_price": 7.289999961853027,
+      "total_trades": 2,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -23.74923154482073,
+      "strategy_return": -42.0490136791124,
+      "buy_hold_return": -67.45535675892415,
+      "excess_return": 25.406343079811755,
+      "trades": [
+        {
+          "entry_date": "2025-04-08",
+          "exit_date": "2025-05-05",
+          "entry_price": 15.300000190734863,
+          "exit_price": 11.800000190734863,
+          "return_pct": -22.87581670828655,
+          "days_held": 27,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-05-07",
+          "exit_date": "2025-05-30",
+          "entry_price": 10.600000381469727,
+          "exit_price": 7.989999771118164,
+          "return_pct": -24.62264638135491,
+          "days_held": 23,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "ASIX",
+      "current_price": 15.859999656677246,
+      "total_trades": 4,
+      "win_rate": 50.0,
+      "avg_win": 14.491170167408534,
+      "avg_loss": -21.526519260121745,
+      "strategy_return": -24.404544848462262,
+      "buy_hold_return": -49.04572032111364,
+      "excess_return": 24.641175472651376,
+      "trades": [
+        {
+          "entry_date": "2025-04-07",
+          "exit_date": "2025-05-07",
+          "entry_price": 18.706220626831055,
+          "exit_price": 22.172861099243164,
+          "return_pct": 18.532019596945055,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-08-01",
+          "exit_date": "2025-09-02",
+          "entry_price": 18.811063766479492,
+          "exit_price": 20.776880264282227,
+          "return_pct": 10.450320737872012,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-10-30",
+          "exit_date": "2025-11-17",
+          "entry_price": 18.373842239379883,
+          "exit_price": 14.260000228881836,
+          "return_pct": -22.38966655368915,
+          "days_held": 18,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "ASGN",
+      "current_price": 45.43000030517578,
+      "total_trades": 2,
+      "win_rate": 0.0,
+      "avg_win": 0,
+      "avg_loss": -15.273415997261608,
+      "strategy_return": -26.058702753529563,
+      "buy_hold_return": -49.884170391098834,
+      "excess_return": 23.825467637569275,
+      "trades": [
+        {
+          "entry_date": "2025-02-06",
+          "exit_date": "2025-03-03",
+          "entry_price": 82.7300033569336,
+          "exit_price": 65.0999984741211,
+          "return_pct": -21.31029151147125,
+          "days_held": 25,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-04-07",
+          "exit_date": "2025-06-06",
+          "entry_price": 58.68000030517578,
+          "exit_price": 53.2599983215332,
+          "return_pct": -9.236540483051966,
+          "days_held": 60,
+          "exit_reason": "Force Exit"
+        }
+      ]
+    },
+    {
+      "symbol": "AUTL",
+      "current_price": 1.4800000190734863,
+      "total_trades": 4,
+      "win_rate": 50.0,
+      "avg_win": 24.888814633725918,
+      "avg_loss": -23.49155434906322,
+      "strategy_return": -28.512294063175116,
+      "buy_hold_return": -51.47540845207166,
+      "excess_return": 22.963114388896543,
+      "trades": [
+        {
+          "entry_date": "2025-04-08",
+          "exit_date": "2025-04-22",
+          "entry_price": 1.1799999475479126,
+          "exit_price": 1.600000023841858,
+          "return_pct": 35.59322838672344,
+          "days_held": 14,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-08-12",
+          "exit_date": "2025-08-25",
+          "entry_price": 2.1549999713897705,
+          "exit_price": 1.600000023841858,
+          "return_pct": -25.75405823277066,
+          "days_held": 13,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-09-02",
+          "exit_date": "2025-10-02",
+          "entry_price": 1.409999966621399,
+          "exit_price": 1.6100000143051147,
+          "return_pct": 14.184400880728399,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "AGRI",
+      "current_price": 1.9199999570846558,
+      "total_trades": 6,
+      "win_rate": 33.33333333333333,
+      "avg_win": 83.01020118125396,
+      "avg_loss": -24.613631977496432,
+      "strategy_return": -70.33212710618908,
+      "buy_hold_return": -93.11827962961887,
+      "excess_return": 22.78615252342979,
+      "trades": [
+        {
+          "entry_date": "2025-07-29",
+          "exit_date": "2025-08-06",
+          "entry_price": 4.110000133514404,
+          "exit_price": 3.130000114440918,
+          "return_pct": -23.8442819279303,
+          "days_held": 8,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-08-27",
+          "exit_date": "2025-09-22",
+          "entry_price": 2.450000047683716,
+          "exit_price": 5.730000019073486,
+          "return_pct": 133.87754724701966,
+          "days_held": 26,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-11-04",
+          "exit_date": "2025-11-13",
+          "entry_price": 2.450000047683716,
+          "exit_price": 1.8300000429153442,
+          "return_pct": -25.306122151080494,
+          "days_held": 9,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "AUR",
+      "current_price": 4.510000228881836,
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 19.81308339579009,
+      "avg_loss": 0,
+      "strategy_return": -2.486489492671007,
+      "buy_hold_return": -25.207295655713146,
+      "excess_return": 22.72080616304214,
+      "trades": [
+        {
+          "entry_date": "2025-06-17",
+          "exit_date": "2025-07-17",
+          "entry_price": 5.349999904632568,
+          "exit_price": 6.409999847412109,
+          "return_pct": 19.81308339579009,
+          "days_held": 30,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "AMSF",
+      "current_price": 39.22999954223633,
+      "total_trades": 1,
+      "win_rate": 100.0,
+      "avg_win": 0.2686217540955828,
+      "avg_loss": 0,
+      "strategy_return": -4.454122025360574,
+      "buy_hold_return": -27.054821581352538,
+      "excess_return": 22.600699555991966,
+      "trades": [
+        {
+          "entry_date": "2025-10-09",
+          "exit_date": "2025-11-11",
+          "entry_price": 40.95000076293945,
+          "exit_price": 41.060001373291016,
+          "return_pct": 0.2686217540955828,
+          "days_held": 33,
+          "exit_reason": "Time Exit (Profitable)"
+        }
+      ]
+    },
+    {
+      "symbol": "APDN",
+      "current_price": 3.069999933242798,
+      "total_trades": 6,
+      "win_rate": 16.666666666666664,
+      "avg_win": 5.187932900738572,
+      "avg_loss": -30.14285388287511,
+      "strategy_return": -75.22512518786779,
+      "buy_hold_return": -97.78619083058756,
+      "excess_return": 22.561065642719768,
+      "trades": [
+        {
+          "entry_date": "2025-05-29",
+          "exit_date": "2025-06-30",
+          "entry_price": 4.895998954772949,
+          "exit_price": 5.150000095367432,
+          "return_pct": 5.187932900738572,
+          "days_held": 32,
+          "exit_reason": "Time Exit (Profitable)"
+        },
+        {
+          "entry_date": "2025-08-01",
+          "exit_date": "2025-08-19",
+          "entry_price": 4.570000171661377,
+          "exit_price": 3.559999942779541,
+          "return_pct": -22.100660633337803,
+          "days_held": 18,
+          "exit_reason": "Stop Loss 20%"
+        },
+        {
+          "entry_date": "2025-08-20",
+          "exit_date": "2025-09-05",
+          "entry_price": 3.2200000286102295,
+          "exit_price": 2.390000104904175,
+          "return_pct": -25.77639491712326,
+          "days_held": 16,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    },
+    {
+      "symbol": "AEHL",
+      "current_price": 3.119999885559082,
+      "total_trades": 5,
+      "win_rate": 60.0,
+      "avg_win": 63.70291290981216,
+      "avg_loss": -30.249997973442078,
+      "strategy_return": -43.615472542222335,
+      "buy_hold_return": -66.08695706257524,
+      "excess_return": 22.471484520352902,
+      "trades": [
+        {
+          "entry_date": "2025-06-02",
+          "exit_date": "2025-06-12",
+          "entry_price": 1.9299999475479126,
+          "exit_price": 2.5299999713897705,
+          "return_pct": 31.088084981772408,
+          "days_held": 10,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-08-07",
+          "exit_date": "2025-08-14",
+          "entry_price": 2.4200000762939453,
+          "exit_price": 3.569999933242798,
+          "return_pct": 47.520653747664085,
+          "days_held": 7,
+          "exit_reason": "Profit Target 30%"
+        },
+        {
+          "entry_date": "2025-10-28",
+          "exit_date": "2025-11-06",
+          "entry_price": 2.0,
+          "exit_price": 1.590000033378601,
+          "return_pct": -20.499998331069946,
+          "days_held": 9,
+          "exit_reason": "Stop Loss 20%"
+        }
+      ]
+    }
+  ],
+  "goldmines": [],
+  "hidden_gems": [],
+  "summary": {
+    "total_analyzed": 272,
+    "positive_excess_count": 102,
+    "avg_excess_return": -31.98822376190774,
+    "goldmine_count": 0,
+    "hidden_gem_count": 0
+  }
+}
